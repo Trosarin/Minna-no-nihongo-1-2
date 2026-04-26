@@ -1,7 +1,7 @@
 // Service Worker für 日本語文法 PWA
 // Cached die Hub-Seite UND beide Bücher für Offline-Nutzung
 // v2 = Wiederholen-System für Minna hinzugefügt
-const CACHE_VERSION = 'grammatik-v2';
+const CACHE_VERSION = 'grammatik-v3';
 const CACHE_FILES = [
   './',
   './index.html',
