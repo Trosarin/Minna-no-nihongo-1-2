@@ -1301,29 +1301,29 @@
 <script>
 const CARDS = [
   // ===== LEKTION 1 =====
-  {l:1, t:"N₁は N₂です", de:"N₁ ist N₂", rule:"Grundlegender Aussagesatz. は (wa) markiert das Thema, です ist die höfliche Kopula (»ist«).", ex:[
-    {jp:"<ruby>私<rt>わたし</rt></ruby>はマイクです。", de:"Ich bin Mike."},
-    {jp:"<ruby>彼<rt>かれ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>です。", de:"Er ist Student."}
-  ], note:"は wird als »wa« ausgesprochen, nicht als »ha«."},
+  {l:1, t:"N₁は N₂です", de:"N₁ ist N₂", en:"N₁ is N₂", rule:"Grundlegender Aussagesatz. は (wa) markiert das Thema, です ist die höfliche Kopula (»ist«).", ruleEn:"Basic statement pattern. は (wa) marks the topic, and です is the polite copula ('is').", ex:[
+    {jp:"<ruby>私<rt>わたし</rt></ruby>はマイクです。", de:"Ich bin Mike.", en:"I am Mike."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>です。", de:"Er ist Student.", en:"He is a student."}
+  ], note:"は wird als »wa« ausgesprochen, nicht als »ha«.", noteEn:"は is pronounced 'wa', not 'ha'."},
 
-  {l:1, t:"N₁は N₂じゃ ありません", de:"N₁ ist NICHT N₂", rule:"Verneinte Form von です. じゃ ありません (umgangssprachlich) oder では ありません (formell).", ex:[
-    {jp:"<ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>じゃ ありません。", de:"Ich bin kein Lehrer."},
-    {jp:"<ruby>彼<rt>かれ</rt></ruby>は<ruby>日本人<rt>にほんじん</rt></ruby>では ありません。", de:"Er ist kein Japaner."}
+  {l:1, t:"N₁は N₂じゃ ありません", de:"N₁ ist NICHT N₂", en:"N₁ is NOT N₂", rule:"Verneinte Form von です. じゃ ありません (umgangssprachlich) oder では ありません (formell).", ruleEn:"Negative form of です. じゃありません is more casual, ではありません is more formal.", ex:[
+    {jp:"<ruby>私<rt>わたし</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>じゃ ありません。", de:"Ich bin kein Lehrer.", en:"I am not a teacher."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は<ruby>日本人<rt>にほんじん</rt></ruby>では ありません。", de:"Er ist kein Japaner.", en:"He is not Japanese."}
   ]},
 
-  {l:1, t:"N₁は N₂ですか", de:"Ist N₁ ein N₂? (Frage)", rule:"Anfügen von か am Satzende macht aus der Aussage eine Ja/Nein-Frage. Antwort: はい (ja) / いいえ (nein).", ex:[
-    {jp:"あなたは<ruby>学生<rt>がくせい</rt></ruby>ですか。— はい、<ruby>学生<rt>がくせい</rt></ruby>です。", de:"Sind Sie Student? — Ja, ich bin Student."},
-    {jp:"ミラーさんは アメリカ<ruby>人<rt>じん</rt></ruby>ですか。", de:"Ist Herr Miller Amerikaner?"}
+  {l:1, t:"N₁は N₂ですか", de:"Ist N₁ ein N₂? (Frage)", en:"Is N₁ a N₂? (Question)", rule:"Anfügen von か am Satzende macht aus der Aussage eine Ja/Nein-Frage. Antwort: はい (ja) / いいえ (nein).", ruleEn:"Adding か at the end turns a statement into a yes/no question. Answers: はい (yes) / いいえ (no).", ex:[
+    {jp:"あなたは<ruby>学生<rt>がくせい</rt></ruby>ですか。— はい、<ruby>学生<rt>がくせい</rt></ruby>です。", de:"Sind Sie Student? — Ja, ich bin Student.", en:"Are you a student? — Yes, I am."},
+    {jp:"ミラーさんは アメリカ<ruby>人<rt>じん</rt></ruby>ですか。", de:"Ist Herr Miller Amerikaner?", en:"Is Mr. Miller American?"}
   ]},
 
-  {l:1, t:"N₁も N₂です", de:"N₁ ist AUCH N₂", rule:"も ersetzt は und drückt aus, dass etwas zusätzlich ebenfalls zutrifft.", ex:[
-    {jp:"<ruby>私<rt>わたし</rt></ruby>も<ruby>学生<rt>がくせい</rt></ruby>です。", de:"Ich bin auch Student."},
-    {jp:"<ruby>彼<rt>かれ</rt></ruby>もドイツ<ruby>人<rt>じん</rt></ruby>です。", de:"Er ist auch Deutscher."}
+  {l:1, t:"N₁も N₂です", de:"N₁ ist AUCH N₂", en:"N₁ is ALSO N₂", rule:"も ersetzt は und drückt aus, dass etwas zusätzlich ebenfalls zutrifft.", ruleEn:"も replaces は and means 'also/too' for additional information.", ex:[
+    {jp:"<ruby>私<rt>わたし</rt></ruby>も<ruby>学生<rt>がくせい</rt></ruby>です。", de:"Ich bin auch Student.", en:"I am also a student."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>もドイツ<ruby>人<rt>じん</rt></ruby>です。", de:"Er ist auch Deutscher.", en:"He is also German."}
   ]},
 
-  {l:1, t:"N₁の N₂", de:"N₁s N₂ (Genitiv/Zugehörigkeit)", rule:"の verbindet zwei Nomen. N₁ beschreibt oder besitzt N₂. Auch für Zugehörigkeit zu Firma/Gruppe.", ex:[
-    {jp:"IMCの<ruby>社員<rt>しゃいん</rt></ruby>です。", de:"Ich bin Angestellter von IMC."},
-    {jp:"<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>本<rt>ほん</rt></ruby>", de:"japanisches Buch / Buch der japanischen Sprache"}
+  {l:1, t:"N₁の N₂", de:"N₁s N₂ (Genitiv/Zugehörigkeit)", en:"N₂ of N₁ (genitive/possession)", rule:"の verbindet zwei Nomen. N₁ beschreibt oder besitzt N₂. Auch für Zugehörigkeit zu Firma/Gruppe.", ruleEn:"の connects two nouns. N₁ describes or possesses N₂, and it can show affiliation too.", ex:[
+    {jp:"IMCの<ruby>社員<rt>しゃいん</rt></ruby>です。", de:"Ich bin Angestellter von IMC.", en:"I am an employee of IMC."},
+    {jp:"<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>本<rt>ほん</rt></ruby>", de:"japanisches Buch / Buch der japanischen Sprache", en:"Japanese book / book of the Japanese language"}
   ]},
 
   // ===== LEKTION 2 =====
@@ -3343,6 +3343,13 @@ const I18N = {
 const t = (k) => I18N[currentLang][k];
 const langHint = document.getElementById('langHint');
 
+function tr(cardOrRow, key) {
+  if (currentLang === 'en') {
+    return cardOrRow[`${key}En`] || cardOrRow.en || cardOrRow[key];
+  }
+  return cardOrRow[key];
+}
+
 function applyLanguage(lang) {
   currentLang = lang;
   localStorage.setItem(LANG_KEY, lang);
@@ -3616,28 +3623,28 @@ function showReviewCard() {
   // Front side
   reviewFront.innerHTML = `
     <div class="rc-title">${card.t}</div>
-    <div class="rc-de">${card.de}</div>
+    <div class="rc-de">${tr(card, 'de')}</div>
     <div class="rc-lesson">${t('lessonWord')} ${card.l}</div>
   `;
   
   // Back side
-  let backHtml = `<div class="rc-rule">${card.rule}</div>`;
+  let backHtml = `<div class="rc-rule">${tr(card, 'rule')}</div>`;
   if (card.conj && card.conj.length > 0) {
     backHtml += '<div class="rc-examples"><table style="width:100%;border-collapse:collapse"><tbody>';
     card.conj.forEach(row => {
-      backHtml += `<tr><td style="padding:.2rem .3rem;font-size:.85rem">${row.form}</td><td style="padding:.2rem .3rem;font-weight:500">${row.verb}</td><td style="padding:.2rem .3rem;font-size:.8rem;color:#5a4530">${row.de}</td></tr>`;
+      backHtml += `<tr><td style="padding:.2rem .3rem;font-size:.85rem">${row.form}</td><td style="padding:.2rem .3rem;font-weight:500">${row.verb}</td><td style="padding:.2rem .3rem;font-size:.8rem;color:#5a4530">${tr(row, 'de')}</td></tr>`;
     });
     backHtml += '</tbody></table></div>';
   }
   if (card.ex && card.ex.length > 0) {
     backHtml += '<div class="rc-examples">';
     card.ex.forEach(ex => {
-      backHtml += `<div class="rc-ex"><div class="rc-ex-jp">${ex.jp}</div><div class="rc-ex-de">${ex.de}</div></div>`;
+      backHtml += `<div class="rc-ex"><div class="rc-ex-jp">${ex.jp}</div><div class="rc-ex-de">${tr(ex, 'de')}</div></div>`;
     });
     backHtml += '</div>';
   }
   if (card.note) {
-    backHtml += `<div class="rc-note">${card.note}</div>`;
+    backHtml += `<div class="rc-note">${tr(card, 'note')}</div>`;
   }
   reviewBack.innerHTML = backHtml;
   
@@ -3775,7 +3782,7 @@ function buildConjTable(conj) {
   if (!conj || conj.length === 0) return '';
   let html = `<table class="conj-table"><thead><tr><th>${t('form')}</th><th>${t('japanese')}</th><th>${t('meaning')}</th></tr></thead><tbody>`;
   conj.forEach(row => {
-    html += `<tr><td>${row.form}</td><td>${row.verb}</td><td>${row.de}</td></tr>`;
+    html += `<tr><td>${row.form}</td><td>${row.verb}</td><td>${tr(row, 'de')}</td></tr>`;
   });
   html += '</tbody></table>';
   return html;
@@ -3824,9 +3831,9 @@ function render(){
   let count = 0;
   CARDS.forEach((c) => {
     const matchLesson = (lf === 'all' || c.l == lf);
-    const conjText = (c.conj || []).map(r => r.form + ' ' + r.verb + ' ' + r.de).join(' ');
-    const exText = (c.ex || []).map(e => e.jp + ' ' + e.de).join(' ');
-    const haystack = (c.t + ' ' + c.de + ' ' + c.rule + ' ' + conjText + ' ' + exText + ' L' + c.l + ' Lektion' + c.l + ' Lesson' + c.l).toLowerCase();
+    const conjText = (c.conj || []).map(r => r.form + ' ' + r.verb + ' ' + (r.de || '') + ' ' + (r.en || '')).join(' ');
+    const exText = (c.ex || []).map(e => e.jp + ' ' + (e.de || '') + ' ' + (e.en || '')).join(' ');
+    const haystack = (c.t + ' ' + (c.de || '') + ' ' + (c.en || '') + ' ' + (c.rule || '') + ' ' + (c.ruleEn || '') + ' ' + conjText + ' ' + exText + ' L' + c.l + ' Lektion' + c.l + ' Lesson' + c.l).toLowerCase();
     const matchSearch = (!q || haystack.includes(q));
     if(!matchLesson || !matchSearch) return;
     count++;
@@ -3840,19 +3847,19 @@ function render(){
       <div class="front">
         <span class="lesson-tag">L ${String(c.l).padStart(2,'0')}</span>
         <div class="grammar-jp">${c.t}</div>
-        <div class="grammar-de">${c.de}</div>
+        <div class="grammar-de">${tr(c, 'de')}</div>
         <span class="flip-hint">${t('flipHint')}</span>
       </div>
       <div class="back">
         <div class="back-content">
-          <span class="lesson-tag">L ${String(c.l).padStart(2,'0')} · ${c.de}</span>
+          <span class="lesson-tag">L ${String(c.l).padStart(2,'0')} · ${tr(c, 'de')}</span>
           <h3>${c.t}</h3>
-          <div class="rule">${c.rule}</div>
+          <div class="rule">${tr(c, 'rule')}</div>
           ${buildConjTable(c.conj)}
           <div class="examples">
-            ${c.ex.map(e=>`<div class="ex"><span class="jp">${e.jp}</span><span class="de">${e.de}</span></div>`).join('')}
+            ${c.ex.map(e=>`<div class="ex"><span class="jp">${e.jp}</span><span class="de">${tr(e, 'de')}</span></div>`).join('')}
           </div>
-          ${c.note ? `<div class="note">${c.note}</div>` : ''}
+          ${c.note ? `<div class="note">${tr(c, 'note')}</div>` : ''}
         </div>
       </div>
     `;
