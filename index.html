@@ -912,9 +912,9 @@
 <header>
   <h1>
     <span class="jp">みんなの日本語</span>
-    <span class="de">Grammatik · Lektion 1 – 50</span>
+    <span class="de" id="titleLine">Grammatik · Lektion 1 – 50</span>
   </h1>
-  <p class="subtitle">Klick auf eine Karte, um die Erklärung zu sehen</p>
+  <p class="subtitle" id="subtitleLine">Klick auf eine Karte, um die Erklärung zu sehen</p>
 </header>
 
 <div class="controls">
@@ -926,9 +926,11 @@
   <div class="btn-group">
     <button class="random-btn" id="reviewBtn" title="Wiederholen-Modus" aria-label="Wiederholen-Modus">🔁</button>
     <button class="random-btn" id="randomBtn" title="Zufällige Karte" aria-label="Zufällige Karte">🎲</button>
+    <button class="random-btn" id="langToggle" title="Auf Englisch umschalten" aria-label="Auf Englisch umschalten">🌐 EN</button>
   </div>
   <div class="stats" id="stats">— Karten</div>
 </div>
+<p class="subtitle" id="langHint" style="text-align:center;margin-top:-.5rem;">Tipp: Mit <b>🌐 EN</b> wechselst du die Sprache.</p>
 
 <!-- Review Filter Modal -->
 <div class="review-modal hidden" id="reviewModal">
@@ -1292,8 +1294,8 @@
 
 <footer>
   <div class="seal">語</div>
-  <p>みんなの日本語 初級 I & II — Grammatik-Spickzettel</p>
-  <p style="margin-top:.3rem;font-size:.7rem">Klick zum Umdrehen · Suche & Filter aktiv</p>
+  <p id="footerTitle">みんなの日本語 初級 I & II — Grammatik-Spickzettel</p>
+  <p style="margin-top:.3rem;font-size:.7rem" id="footerHint">Klick zum Umdrehen · Suche & Filter aktiv</p>
 </footer>
 
 <script>
@@ -3220,6 +3222,180 @@ const search = document.getElementById('search');
 const lessonFilter = document.getElementById('lessonFilter');
 const stats = document.getElementById('stats');
 const backBtn = document.getElementById('backBtn');
+const langToggle = document.getElementById('langToggle');
+const titleLine = document.getElementById('titleLine');
+const subtitleLine = document.getElementById('subtitleLine');
+const footerTitle = document.getElementById('footerTitle');
+const footerHint = document.getElementById('footerHint');
+
+const LANG_KEY = 'minna_ui_lang_v1';
+let currentLang = localStorage.getItem(LANG_KEY) || 'de';
+
+const I18N = {
+  de: {
+    htmlLang: 'de',
+    titleLine: 'Grammatik · Lektion 1 – 50',
+    subtitleLine: 'Klick auf eine Karte, um die Erklärung zu sehen',
+    footerTitle: 'みんなの日本語 初級 I & II — Grammatik-Spickzettel',
+    footerHint: 'Klick zum Umdrehen · Suche & Filter aktiv',
+    backTitle: 'Zurück zur Übersicht',
+    searchPlaceholder: 'Suchen (z.B. te-Form, Partikel は)…',
+    allLessons: 'Alle Lektionen',
+    reviewTitle: 'Wiederholen-Modus',
+    randomTitle: 'Zufällige Karte',
+    cardsWord: 'Karten',
+    lessonWord: 'Lektion',
+    lessonsWord: 'Lektionen',
+    chooseLesson: 'Bitte mindestens eine Lektion auswählen.',
+    noCards: 'Keine Karten gefunden für diese Auswahl.',
+    doneTitle: 'Du hast',
+    reviewedWord: 'wiederholt.',
+    iKnow: 'kann ich',
+    again: 'nochmal',
+    successRate: 'Erfolgsquote',
+    endConfirm: 'Wiederholen wirklich beenden? Dein bisheriger Fortschritt wird gespeichert.',
+    statsResetConfirm: 'Wirklich alle Statistiken zurücksetzen? Das kann nicht rückgängig gemacht werden.',
+    cheatsShow: 'Cheat-Sheets anzeigen',
+    cheatsHide: 'Cheat-Sheets ausblenden',
+    cardsLabel: 'Karte',
+    flipHint: 'umdrehen',
+    form: 'Form',
+    japanese: 'Japanisch',
+    meaning: 'Bedeutung',
+    overviewStats: (cards, ls) => `<b>${cards}</b> Karten · ${ls} Lektionen`,
+    cheatStats: '<b>📖</b> Cheat-Sheets',
+    lessonsChoose: '📚 Lektionen wählen',
+    allCards: 'Alle Karten',
+    unratedOnly: '⚪ Nur unbewertete',
+    againOnly: '🔴 Nur „Nochmal"',
+    multiSelect: 'Mehrfachauswahl möglich',
+    cancel: 'Abbrechen',
+    start: 'Start',
+    tapToFlip: '👆 Tippen zum Umdrehen',
+    noAgainBtn: 'Nochmal',
+    yesKnowBtn: 'Kann ich',
+    finished: '🎉 Geschafft!',
+    back: 'Zurück',
+    progress: '📊 Dein Fortschritt',
+    goodLabel: '✅ Kann ich',
+    badLabel: '🔴 Nochmal',
+    newLabel: '⚪ Neu',
+    resetStats: 'Statistik zurücksetzen',
+    overviewIntro: 'Wähle eine Lektion, suche nach Inhalten, oder öffne die Cheat-Sheets ↓',
+    backTop: 'Nach oben',
+    langHint: 'Tipp: Mit <b>🌐 EN</b> wechselst du die Sprache.'
+  },
+  en: {
+    htmlLang: 'en',
+    titleLine: 'Grammar · Lessons 1–50',
+    subtitleLine: 'Click a card to view the explanation',
+    footerTitle: 'みんなの日本語 Beginner I & II — Grammar Cheat Sheet',
+    footerHint: 'Click to flip · Search & filter active',
+    backTitle: 'Back to overview',
+    searchPlaceholder: 'Search (e.g. te-form, particle は)…',
+    allLessons: 'All lessons',
+    reviewTitle: 'Review mode',
+    randomTitle: 'Random card',
+    cardsWord: 'cards',
+    lessonWord: 'Lesson',
+    lessonsWord: 'lessons',
+    chooseLesson: 'Please select at least one lesson.',
+    noCards: 'No cards found for this selection.',
+    doneTitle: 'You reviewed',
+    reviewedWord: 'cards.',
+    iKnow: 'I know',
+    again: 'again',
+    successRate: 'Success rate',
+    endConfirm: 'End review now? Your current progress will be saved.',
+    statsResetConfirm: 'Reset all statistics? This cannot be undone.',
+    cheatsShow: 'Show cheat sheets',
+    cheatsHide: 'Hide cheat sheets',
+    cardsLabel: 'card',
+    flipHint: 'flip',
+    form: 'Form',
+    japanese: 'Japanese',
+    meaning: 'Meaning',
+    overviewStats: (cards, ls) => `<b>${cards}</b> cards · ${ls} lessons`,
+    cheatStats: '<b>📖</b> Cheat Sheets',
+    lessonsChoose: '📚 Choose lessons',
+    allCards: 'All cards',
+    unratedOnly: '⚪ Unrated only',
+    againOnly: '🔴 Again only',
+    multiSelect: 'Multiple selection allowed',
+    cancel: 'Cancel',
+    start: 'Start',
+    tapToFlip: '👆 Tap to flip',
+    noAgainBtn: 'Again',
+    yesKnowBtn: 'I know',
+    finished: '🎉 Done!',
+    back: 'Back',
+    progress: '📊 Your progress',
+    goodLabel: '✅ I know',
+    badLabel: '🔴 Again',
+    newLabel: '⚪ New',
+    resetStats: 'Reset statistics',
+    overviewIntro: 'Choose a lesson, search content, or open cheat sheets ↓',
+    backTop: 'Back to top',
+    langHint: 'Tip: Use <b>🌐 DE</b> to switch language.'
+  }
+};
+
+const t = (k) => I18N[currentLang][k];
+const langHint = document.getElementById('langHint');
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem(LANG_KEY, lang);
+  document.documentElement.lang = t('htmlLang');
+  titleLine.textContent = t('titleLine');
+  subtitleLine.textContent = t('subtitleLine');
+  footerTitle.textContent = t('footerTitle');
+  footerHint.textContent = t('footerHint');
+
+  backBtn.title = t('backTitle');
+  backBtn.setAttribute('aria-label', t('backTitle'));
+  search.placeholder = t('searchPlaceholder');
+  reviewBtn.title = t('reviewTitle');
+  reviewBtn.setAttribute('aria-label', t('reviewTitle'));
+  document.getElementById('randomBtn').title = t('randomTitle');
+  document.getElementById('randomBtn').setAttribute('aria-label', t('randomTitle'));
+  langToggle.textContent = currentLang === 'de' ? '🌐 EN' : '🌐 DE';
+  langToggle.title = currentLang === 'de' ? 'Auf Englisch umschalten' : 'Auf Deutsch wechseln';
+  langToggle.setAttribute('aria-label', langToggle.title);
+  if (langHint) langHint.innerHTML = t('langHint');
+
+  const allOption = lessonFilter.querySelector('option[value="all"]');
+  if (allOption) allOption.textContent = t('allLessons');
+
+  const reviewTitle = document.querySelector('#reviewModal h2');
+  if (reviewTitle) reviewTitle.textContent = `🔁 ${currentLang === 'de' ? 'Wiederholen — Was möchtest du üben?' : 'Review — What do you want to practice?'}`;
+  document.querySelector('label input[value="all"] + .review-filter-label b').textContent = t('allCards');
+  document.querySelector('label input[value="unrated"] + .review-filter-label b').textContent = t('unratedOnly');
+  document.querySelector('label input[value="again"] + .review-filter-label b').textContent = t('againOnly');
+  document.querySelector('label input[value="lesson"] + .review-filter-label b').textContent = t('lessonsChoose');
+  document.querySelector('label input[value="lesson"] + .review-filter-label small').textContent = t('multiSelect');
+  reviewCancel.textContent = t('cancel');
+  reviewStart.textContent = t('start');
+  reviewFlipHint.textContent = t('tapToFlip');
+  btnBad.querySelector('.rb-text').textContent = t('noAgainBtn');
+  btnGood.querySelector('.rb-text').textContent = t('yesKnowBtn');
+  reviewFinished.querySelector('h2').textContent = t('finished');
+  reviewFinishedClose.textContent = t('back');
+  document.querySelector('.stats-card-title').textContent = t('progress');
+  document.querySelector('#statGood').nextElementSibling.textContent = t('goodLabel');
+  document.querySelector('#statBad').nextElementSibling.textContent = t('badLabel');
+  document.querySelector('#statNew').nextElementSibling.textContent = t('newLabel');
+  document.getElementById('statsReset').textContent = t('resetStats');
+  document.querySelector('.overview-intro').textContent = t('overviewIntro');
+  cheatToggle.textContent = lessonFilter.value === 'cheats' ? t('cheatsHide') : t('cheatsShow');
+  document.querySelector('.cheat-toggle[onclick]').textContent = `↑ ${t('backTop')}`;
+  toTop.title = t('backTop');
+  toTop.setAttribute('aria-label', t('backTop'));
+
+  renderLessonOptions();
+  renderOverview();
+  render();
+}
 
 // ============ STATS SYSTEM (localStorage) ============
 const STORAGE_KEY = 'minna_card_stats_v1';
@@ -3311,7 +3487,7 @@ function updateStatsCard() {
 
 // Reset
 document.getElementById('statsReset').addEventListener('click', () => {
-  if (confirm('Wirklich alle Statistiken zurücksetzen? Das kann nicht rückgängig gemacht werden.')) {
+  if (confirm(t('statsResetConfirm'))) {
     localStorage.removeItem(STORAGE_KEY);
     updateStatsCard();
     renderOverview();
@@ -3350,9 +3526,9 @@ let selectedLessons = new Set();
 function openReviewModal() {
   // Update counts
   const s = computeOverallStats();
-  document.getElementById('countAll').textContent = `${s.total} Karten`;
-  document.getElementById('countUnrated').textContent = `${s.neu} Karten`;
-  document.getElementById('countAgain').textContent = `${s.bad} Karten`;
+  document.getElementById('countAll').textContent = `${s.total} ${t('cardsWord')}`;
+  document.getElementById('countUnrated').textContent = `${s.neu} ${t('cardsWord')}`;
+  document.getElementById('countAgain').textContent = `${s.bad} ${t('cardsWord')}`;
   
   // Build lesson grid
   selectedLessons.clear();
@@ -3407,14 +3583,14 @@ reviewStart.addEventListener('click', () => {
     pool = CARDS.filter(c => getCardStatus(c).status === 'bad');
   } else if (filter === 'lesson') {
     if (selectedLessons.size === 0) {
-      alert('Bitte mindestens eine Lektion auswählen.');
+      alert(t('chooseLesson'));
       return;
     }
     pool = CARDS.filter(c => selectedLessons.has(c.l));
   }
   
   if (pool.length === 0) {
-    alert('Keine Karten gefunden für diese Auswahl.');
+    alert(t('noCards'));
     return;
   }
   
@@ -3441,7 +3617,7 @@ function showReviewCard() {
   reviewFront.innerHTML = `
     <div class="rc-title">${card.t}</div>
     <div class="rc-de">${card.de}</div>
-    <div class="rc-lesson">Lektion ${card.l}</div>
+    <div class="rc-lesson">${t('lessonWord')} ${card.l}</div>
   `;
   
   // Back side
@@ -3508,9 +3684,9 @@ function showReviewFinished() {
   const total = reviewSession.good + reviewSession.bad;
   const pct = total > 0 ? Math.round(reviewSession.good / total * 100) : 0;
   reviewFinishedStats.innerHTML = `
-    Du hast <b>${total} Karten</b> wiederholt.<br>
-    ✅ ${reviewSession.good} kann ich · 🔴 ${reviewSession.bad} nochmal<br>
-    Erfolgsquote: <b>${pct}%</b>
+    ${t('doneTitle')} <b>${total} ${t('cardsWord')}</b> ${t('reviewedWord')}<br>
+    ✅ ${reviewSession.good} ${t('iKnow')} · 🔴 ${reviewSession.bad} ${t('again')}<br>
+    ${t('successRate')}: <b>${pct}%</b>
   `;
 }
 
@@ -3527,7 +3703,7 @@ function closeReviewMode() {
 
 reviewClose.addEventListener('click', () => {
   if (reviewIndex < reviewQueue.length && reviewSession.good + reviewSession.bad > 0) {
-    if (!confirm('Wiederholen wirklich beenden? Dein bisheriger Fortschritt wird gespeichert.')) return;
+    if (!confirm(t('endConfirm'))) return;
   }
   closeReviewMode();
 });
@@ -3550,17 +3726,20 @@ const TOPICS = {
 const lessons = [...new Set(CARDS.map(c => c.l))].sort((a,b)=>a-b);
 
 // Filter-Dropdown füllen — Cheat-Sheets ZUERST, dann Lektionen
-const cheatOpt = document.createElement('option');
-cheatOpt.value = 'cheats';
-cheatOpt.textContent = '📖 Cheat-Sheets';
-lessonFilter.appendChild(cheatOpt);
-
-lessons.forEach(l => {
-  const opt = document.createElement('option');
-  opt.value = l;
-  opt.textContent = `Lektion ${l}${TOPICS[l] ? ' · ' + TOPICS[l] : ''}`;
-  lessonFilter.appendChild(opt);
-});
+function renderLessonOptions() {
+  while (lessonFilter.options.length > 1) lessonFilter.remove(1);
+  const cheatOpt = document.createElement('option');
+  cheatOpt.value = 'cheats';
+  cheatOpt.textContent = currentLang === 'de' ? '📖 Cheat-Sheets' : '📖 Cheat Sheets';
+  lessonFilter.appendChild(cheatOpt);
+  lessons.forEach(l => {
+    const opt = document.createElement('option');
+    opt.value = l;
+    opt.textContent = `${t('lessonWord')} ${l}${TOPICS[l] ? ' · ' + TOPICS[l] : ''}`;
+    lessonFilter.appendChild(opt);
+  });
+}
+renderLessonOptions();
 
 // Übersichts-Kacheln rendern
 function renderOverview() {
@@ -3577,7 +3756,7 @@ function renderOverview() {
     tile.innerHTML = `
       <span class="num">L${String(l).padStart(2,'0')}</span>
       <span class="topic">${TOPICS[l] || ''}</span>
-      <span class="count">${counts[l]} Karte${counts[l]!==1?'n':''}</span>
+      <span class="count">${counts[l]} ${counts[l]!==1 ? t('cardsWord') : t('cardsLabel')}</span>
       <div class="tile-progress"><div class="tile-progress-bar" style="width:${pct}%"></div></div>
       <span class="tile-progress-text">${learned}/${lstats.total} ✅${lstats.bad > 0 ? ' · '+lstats.bad+' 🔴' : ''}</span>
     `;
@@ -3594,7 +3773,7 @@ renderOverview();
 
 function buildConjTable(conj) {
   if (!conj || conj.length === 0) return '';
-  let html = '<table class="conj-table"><thead><tr><th>Form</th><th>Japanisch</th><th>Bedeutung</th></tr></thead><tbody>';
+  let html = `<table class="conj-table"><thead><tr><th>${t('form')}</th><th>${t('japanese')}</th><th>${t('meaning')}</th></tr></thead><tbody>`;
   conj.forEach(row => {
     html += `<tr><td>${row.form}</td><td>${row.verb}</td><td>${row.de}</td></tr>`;
   });
@@ -3612,8 +3791,8 @@ function render(){
     grid.innerHTML = '';
     grid.style.display = 'none';
     cheatsBlock.classList.remove('hidden');
-    cheatToggle.textContent = 'Cheat-Sheets ausblenden';
-    stats.innerHTML = `<b>📖</b> Cheat-Sheets`;
+    cheatToggle.textContent = t('cheatsHide');
+    stats.innerHTML = t('cheatStats');
     backBtn.classList.add('visible');
     setTimeout(() => cheatsBlock.scrollIntoView({behavior:'smooth', block:'start'}), 50);
     return;
@@ -3623,7 +3802,7 @@ function render(){
   if (lf === 'cheats' && q) {
     lessonFilter.value = 'all';
     cheatsBlock.classList.add('hidden');
-    cheatToggle.textContent = 'Cheat-Sheets anzeigen';
+    cheatToggle.textContent = t('cheatsShow');
     return render();
   }
 
@@ -3632,7 +3811,7 @@ function render(){
     overview.style.display = 'block';
     grid.innerHTML = '';
     grid.style.display = 'none';
-    stats.innerHTML = `<b>${CARDS.length}</b> Karten · ${lessons.length} Lektionen`;
+    stats.innerHTML = t('overviewStats')(CARDS.length, lessons.length);
     backBtn.classList.remove('visible');
     return;
   }
@@ -3647,7 +3826,7 @@ function render(){
     const matchLesson = (lf === 'all' || c.l == lf);
     const conjText = (c.conj || []).map(r => r.form + ' ' + r.verb + ' ' + r.de).join(' ');
     const exText = (c.ex || []).map(e => e.jp + ' ' + e.de).join(' ');
-    const haystack = (c.t + ' ' + c.de + ' ' + c.rule + ' ' + conjText + ' ' + exText + ' L' + c.l + ' Lektion' + c.l).toLowerCase();
+    const haystack = (c.t + ' ' + c.de + ' ' + c.rule + ' ' + conjText + ' ' + exText + ' L' + c.l + ' Lektion' + c.l + ' Lesson' + c.l).toLowerCase();
     const matchSearch = (!q || haystack.includes(q));
     if(!matchLesson || !matchSearch) return;
     count++;
@@ -3662,7 +3841,7 @@ function render(){
         <span class="lesson-tag">L ${String(c.l).padStart(2,'0')}</span>
         <div class="grammar-jp">${c.t}</div>
         <div class="grammar-de">${c.de}</div>
-        <span class="flip-hint">umdrehen</span>
+        <span class="flip-hint">${t('flipHint')}</span>
       </div>
       <div class="back">
         <div class="back-content">
@@ -3680,7 +3859,7 @@ function render(){
     card.addEventListener('click', () => card.classList.toggle('flipped'));
     grid.appendChild(card);
   });
-  stats.innerHTML = `<b>${count}</b> Karte${count!==1?'n':''}`;
+  stats.innerHTML = `<b>${count}</b> ${count!==1 ? t('cardsWord') : t('cardsLabel')}`;
 }
 
 search.addEventListener('input', render);
@@ -3690,7 +3869,7 @@ backBtn.addEventListener('click', () => {
   lessonFilter.value = 'all';
   search.value = '';
   cheatsBlock.classList.add('hidden');
-  cheatToggle.textContent = 'Cheat-Sheets anzeigen';
+  cheatToggle.textContent = t('cheatsShow');
   render();
   window.scrollTo({top:0, behavior:'smooth'});
 });
@@ -3764,6 +3943,8 @@ document.getElementById('randomBtn').addEventListener('click', () => {
 });
 
 render();
+langToggle.addEventListener('click', () => applyLanguage(currentLang === 'de' ? 'en' : 'de'));
+applyLanguage(currentLang);
 </script>
 
 <!-- PWA Service Worker Registration -->
