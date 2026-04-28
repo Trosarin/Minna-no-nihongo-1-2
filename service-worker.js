@@ -1,6 +1,6 @@
 // Service Worker für 日本語文法 PWA
 // v4 = Alle 4 Apps (Minna DE/EN + Chuukyuu DE/EN) + Sprach-Tabs
-const CACHE_VERSION = 'grammatik-v4';
+const CACHE_VERSION = 'grammatik-v5';
 const CACHE_FILES = [
   './',
   './index.html',
