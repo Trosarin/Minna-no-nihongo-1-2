@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>中級へ行こう — 文型と表現55</title>
+<meta name="description" content="Chuukyuu e Ikou Grammatik-Spickzettel L1-10">
+
+<!-- Apple Web App / Home Screen -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="中級">
+<meta name="theme-color" content="#f4ede0">
+
+<!-- App Icon (180x180 inline SVG) -->
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23f4ede0'/%3E%3Crect x='15' y='15' width='150' height='150' fill='%23b8893a' transform='rotate(-3 90 90)'/%3E%3Ctext x='90' y='115' font-family='serif' font-size='90' font-weight='900' fill='%23f4ede0' text-anchor='middle'%3E中%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Noto+Serif+JP:wght@400;600;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1612;
+    --paper:#f4ede0;
+    --paper-2:#ebe1cd;
+    --red:#c0362c;
+    --red-deep:#8a1f17;
+    --gold:#b8893a;
+    --shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#f4ede0;color:#1a1612;font-family:"Shippori Mincho",serif;min-height:100vh}
+  body{
+    padding-top:env(safe-area-inset-top);
+    padding-bottom:env(safe-area-inset-bottom);
+    padding-left:env(safe-area-inset-left);
+    padding-right:env(safe-area-inset-right);
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(192,54,44,.04) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  /* Buch-Wechsler Tabs */
+  .book-tabs{
+    display:flex;
+    justify-content:center;
+    gap:0;
+    background:#1a1612;
+    padding:0;
+    border-bottom:3px solid #1a1612;
+  }
+  .book-tab{
+    flex:1;
+    max-width:240px;
+    padding:.7rem .8rem;
+    text-align:center;
+    text-decoration:none;
+    color:#a99780;
+    font-family:"Shippori Mincho",serif;
+    font-size:.9rem;
+    font-weight:600;
+    letter-spacing:.04em;
+    transition:background .2s, color .2s;
+    -webkit-tap-highlight-color:transparent;
+    border-bottom:3px solid transparent;
+    margin-bottom:-3px;
+  }
+  .book-tab:hover{color:#f4ede0;background:rgba(244,237,224,.05)}
+  .book-tab.active{
+    background:#f4ede0;
+    color:#8a1f17;
+    border-bottom-color:#8a1f17;
+  }
+
+  header{
+    padding:2.5rem 1.5rem 1.5rem;
+    text-align:center;
+    border-bottom:3px double #1a1612;
+    position:relative;
+  }
+  header::before{
+    content:"第一課 〜 第十課";
+    position:absolute;top:.6rem;left:50%;transform:translateX(-50%);
+    font-size:.7rem;letter-spacing:.4em;color:#c0362c;
+  }
+  h1{
+    font-family:"Noto Serif JP",serif;font-weight:900;
+    font-size:clamp(1.8rem,5vw,3rem);line-height:1.1;
+    letter-spacing:.02em;
+  }
+  h1 .jp{color:#8a1f17;display:block;font-size:1.2em;margin-bottom:.3rem}
+  h1 .de{font-family:"Shippori Mincho",serif;font-weight:600;font-size:.55em;letter-spacing:.15em;text-transform:uppercase;color:#1a1612}
+  .subtitle{margin-top:.8rem;font-style:italic;color:#6b5d4a;font-size:.95rem}
+
+  .controls{
+    max-width:1200px;margin:1.5rem auto;padding:0 1rem;
+    display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;justify-content:center;
+  }
+  .search{
+    flex:1;min-width:220px;max-width:380px;
+    padding:.7rem 1rem;
+    background:#ebe1cd;
+    border:2px solid #1a1612;
+    font-family:"Shippori Mincho",serif;font-size:1rem;color:#1a1612;
+    box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+  }
+  .search:focus{outline:none;border-color:#c0362c}
+  .lesson-filter{
+    padding:.7rem 1rem;background:#ebe1cd;border:2px solid #1a1612;
+    font-family:inherit;font-size:.95rem;cursor:pointer;box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+  }
+  .stats{
+    font-size:.85rem;color:#6b5d4a;
+    background:#ebe1cd;padding:.5rem .9rem;border:1px solid #1a1612;
+  }
+  .stats b{color:#8a1f17;font-weight:800}
+
+  .random-btn{
+    padding:.6rem .9rem;background:#8a1f17;color:#f4ede0;
+    border:2px solid #1a1612;font-size:1.1rem;cursor:pointer;
+    box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);font-family:inherit;
+    transition:transform .15s,background .2s;
+  }
+  .random-btn:hover{background:#c0362c;transform:scale(1.05)}
+  .random-btn:active{transform:scale(.95)}
+
+  .back-btn{
+    padding:.6rem .85rem;background:#1a1612;color:#f4ede0;
+    border:2px solid #1a1612;font-size:1.1rem;font-weight:700;
+    cursor:pointer;box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);font-family:inherit;
+    transition:transform .15s,background .2s;
+    display:none;
+  }
+  .back-btn.visible{display:inline-block}
+  .back-btn:hover{background:#8a1f17;transform:translateX(-2px)}
+  .back-btn:active{transform:translateX(0)}
+
+  /* Floating Back-to-Top */
+  .to-top{
+    position:fixed;bottom:1.2rem;right:1.2rem;z-index:200;
+    width:46px;height:46px;border-radius:50%;
+    background:#1a1612;color:#f4ede0;
+    border:2px solid #f4ede0;font-size:1.3rem;font-weight:700;
+    cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3);
+    display:none;align-items:center;justify-content:center;
+    opacity:0;transition:opacity .25s,transform .15s;
+    font-family:inherit;
+  }
+  .to-top.visible{display:flex;opacity:.85}
+  .to-top:hover{opacity:1;transform:translateY(-3px)}
+  .to-top:active{transform:translateY(0)}
+
+  @keyframes cardHighlight{
+    0%{box-shadow:0 0 0 4px #b8893a, 0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25)}
+    100%{box-shadow:0 0 0 0 transparent, 0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25)}
+  }
+  .card.highlight{animation:cardHighlight 1.8s ease-out}
+
+  .grid{
+    max-width:1300px;margin:0 auto;padding:1rem;
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem;
+  }
+
+  /* === LEKTIONS-ÜBERSICHT === */
+  .overview{
+    max-width:1100px;margin:1rem auto;padding:1rem;
+  }
+  .overview-intro{
+    text-align:center;color:#6b5d4a;font-style:italic;font-size:.9rem;
+    margin-bottom:1.2rem;
+  }
+  .lesson-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+    gap:.6rem;
+  }
+  .lesson-tile{
+    background:#ebe1cd;border:2px solid #1a1612;
+    padding:.7rem .6rem;cursor:pointer;text-align:left;
+    font-family:"Shippori Mincho",serif;font-size:.85rem;
+    color:#1a1612;box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+    transition:transform .12s,background .15s;
+    line-height:1.25;
+  }
+  .lesson-tile:hover{background:#f4ede0;transform:translate(-1px,-2px)}
+  .lesson-tile:active{transform:translate(0,0)}
+  .lesson-tile .num{
+    display:block;font-family:"Noto Serif JP",serif;font-weight:800;
+    color:#8a1f17;font-size:1rem;letter-spacing:.04em;
+  }
+  .lesson-tile .topic{
+    display:block;font-size:.72rem;color:#6b5d4a;margin-top:.15rem;
+  }
+  .lesson-tile .count{
+    display:inline-block;font-size:.65rem;color:#b8893a;
+    font-weight:700;margin-top:.2rem;
+  }
+  @media(max-width:600px){
+    .lesson-grid{grid-template-columns:repeat(3,1fr);gap:.4rem}
+    .lesson-tile{padding:.5rem .4rem;font-size:.75rem}
+    .lesson-tile .num{font-size:.85rem}
+    .lesson-tile .topic{font-size:.62rem}
+  }
+
+  .card{
+    background:#ebe1cd;
+    border:2px solid #1a1612;
+    box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+    cursor:pointer;
+    padding:1.2rem 1.1rem;
+    position:relative;
+    overflow:hidden;
+    min-height:260px;
+    display:flex;flex-direction:column;
+  }
+  .card::before{
+    content:"";position:absolute;top:6px;left:6px;right:6px;bottom:6px;
+    border:1px solid rgba(26,22,18,.25);pointer-events:none;
+    z-index:3;
+  }
+  .card .front,.card .back{
+    width:100%;
+    transition:transform .45s cubic-bezier(.4,.05,.2,1), opacity .35s ease;
+  }
+  .card .front{
+    flex:1;display:flex;flex-direction:column;
+    justify-content:space-between;align-items:center;text-align:center;
+    min-height:240px;
+    transform:translateX(0);opacity:1;
+  }
+  .card .back{
+    display:none;
+    font-size:.85rem;line-height:1.55;
+    transform:translateX(40px);opacity:0;
+  }
+  .card.flipped{min-height:auto}
+  .card.flipped .front{
+    display:none;
+  }
+  .card.flipped .back{
+    display:block;
+    animation:slideInFromRight .45s cubic-bezier(.4,.05,.2,1) forwards;
+  }
+  @keyframes slideInFromRight{
+    0%{transform:translateX(40px);opacity:0}
+    60%{opacity:1}
+    100%{transform:translateX(0);opacity:1}
+  }
+  /* Hover-Hint nur auf Desktop, nicht auf Touch */
+  @media(hover:hover){
+    .card:not(.flipped):hover{
+      transform:translateY(-2px);
+      box-shadow:0 4px 0 rgba(26,22,18,.15), 0 18px 32px -8px rgba(26,22,18,.3);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+  }
+  .lesson-tag{
+    align-self:flex-start;
+    font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.15em;
+    background:#1a1612;color:#f4ede0;
+    padding:.2rem .6rem;
+    z-index:2;
+  }
+  .grammar-jp{
+    font-family:"Noto Serif JP",serif;font-weight:900;
+    font-size:1.7rem;line-height:1.3;color:#8a1f17;
+    margin:auto 0;z-index:2;
+  }
+  .grammar-de{
+    font-style:italic;font-size:.95rem;color:#6b5d4a;
+    margin-bottom:.3rem;z-index:2;
+  }
+  .flip-hint{
+    font-family:"JetBrains Mono",monospace;font-size:.65rem;
+    letter-spacing:.2em;color:#b8893a;text-transform:uppercase;
+    z-index:2;
+  }
+  .flip-hint::before{content:"↻ "}
+
+  .back{
+    padding:0;
+  }
+  .back-content{position:relative;z-index:2;font-size:.85rem;line-height:1.55}
+  .back .lesson-tag{margin-bottom:.5rem}
+  .back h3{
+    font-family:"Noto Serif JP",serif;font-weight:800;
+    color:#8a1f17;font-size:1rem;
+    border-bottom:1px solid #1a1612;padding-bottom:.3rem;margin-bottom:.5rem;
+  }
+  .rule{margin-bottom:.6rem;font-size:.82rem}
+  .conj-table{
+    width:100%;border-collapse:collapse;margin-bottom:.6rem;font-size:.75rem;
+  }
+  .conj-table th{
+    background:#1a1612;color:#f4ede0;
+    padding:.2rem .4rem;font-weight:600;text-align:left;
+    font-family:"JetBrains Mono",monospace;font-size:.65rem;letter-spacing:.05em;
+  }
+  .conj-table td{
+    padding:.2rem .4rem;border-bottom:1px solid rgba(26,22,18,.15);
+    font-family:"Noto Serif JP",serif;
+  }
+  .conj-table tr:nth-child(even) td{background:rgba(255,255,255,.3)}
+  .conj-table td:first-child{color:#8a1f17;font-weight:600}
+  .examples{margin-top:.4rem}
+  .ex{
+    background:rgba(255,255,255,.4);
+    border-left:3px solid #c0362c;
+    padding:.4rem .55rem;margin-bottom:.4rem;
+    font-size:.78rem;
+  }
+  .ex .jp{font-family:"Noto Serif JP",serif;color:#1a1612;font-weight:600;display:block}
+  .ex .de{color:#5a4d3c;font-style:italic;display:block;margin-top:.15rem;font-size:.74rem}
+  ruby rt{font-size:.55em;color:#c0362c;font-weight:400;letter-spacing:0}
+  .note{
+    margin-top:.5rem;font-size:.72rem;color:#6b5d4a;font-style:italic;
+    border-top:1px dashed #1a1612;padding-top:.4rem;
+  }
+  .note::before{content:"※ ";color:#c0362c;font-weight:bold}
+
+  /* ============ CHEAT-SHEETS ============ */
+  .cheatsheet-toggle{
+    display:inline-block;padding:.5rem 1rem;
+    background:#8a1f17;color:#f4ede0;
+    border:2px solid #1a1612;cursor:pointer;
+    font-family:"Shippori Mincho",serif;font-size:.9rem;
+    box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);transition:transform .1s;
+  }
+  .cheatsheet-toggle:hover{transform:translateY(-1px)}
+  .cheatsheet-toggle:active{transform:translateY(1px)}
+
+  .cheatsheets{
+    max-width:1200px;margin:2rem auto;padding:0 1rem;
+    display:none;
+  }
+  .cheatsheets.visible{display:block}
+
+  .cheatsheets h2{
+    font-family:"Noto Serif JP",serif;font-weight:900;
+    color:#8a1f17;font-size:1.6rem;
+    text-align:center;margin-bottom:1.5rem;
+    border-bottom:3px double #1a1612;padding-bottom:.8rem;
+  }
+
+  .cs-block{
+    background:#ebe1cd;border:2px solid #1a1612;
+    padding:1.2rem 1rem;margin-bottom:1.5rem;
+    box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+  }
+  .cs-block h3{
+    font-family:"Noto Serif JP",serif;font-weight:700;
+    color:#8a1f17;font-size:1.15rem;
+    margin-bottom:.3rem;
+    padding-bottom:.4rem;border-bottom:1px solid #1a1612;
+  }
+  .cs-block .cs-intro{
+    font-size:.78rem;color:#6b5d4a;font-style:italic;
+    margin-bottom:.8rem;
+  }
+
+  .cs-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .cs-table{
+    width:100%;border-collapse:collapse;font-size:.78rem;
+    background:#f4ede0;min-width:100%;
+  }
+  .cs-table th{
+    background:#1a1612;color:#f4ede0;
+    padding:.5rem .4rem;text-align:left;font-weight:700;
+    font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .cs-table td{
+    padding:.45rem .4rem;border-bottom:1px solid rgba(26,22,18,.15);
+    vertical-align:top;
+  }
+  .cs-table tr:last-child td{border-bottom:none}
+  .cs-table tr:nth-child(even) td{background:rgba(184,137,58,.05)}
+  .cs-table .jp{font-family:"Noto Serif JP",serif;font-weight:600;color:#8a1f17}
+  .cs-table .hl{color:#c0362c;font-weight:700}
+  .cs-table .key{font-weight:700;color:#1a1612;white-space:nowrap}
+
+  .cs-footer-note{
+    margin-top:.6rem;font-size:.72rem;color:#6b5d4a;font-style:italic;
+    padding-top:.4rem;border-top:1px dashed #1a1612;
+  }
+  .cs-footer-note::before{content:"💡 ";font-style:normal}
+
+  .back::-webkit-scrollbar{width:5px}
+  .back::-webkit-scrollbar-track{background:transparent}
+  .back::-webkit-scrollbar-thumb{background:#1a1612;border-radius:0}
+
+  footer{
+    text-align:center;padding:2rem 1rem;color:#6b5d4a;
+    font-size:.8rem;border-top:1px solid #1a1612;margin-top:2rem;
+  }
+  footer .seal{
+    display:inline-block;width:50px;height:50px;
+    background:#c0362c;color:#f4ede0;
+    font-family:"Noto Serif JP",serif;font-weight:900;font-size:1.3rem;
+    line-height:50px;margin-bottom:.5rem;
+    transform:rotate(-3deg);
+  }
+
+  @media(max-width:600px){
+    .card{min-height:220px}
+    .card .front{min-height:200px}
+    .grammar-jp{font-size:1.4rem}
+  }
+
+  /* ===== CHEAT-SHEETS ===== */
+  .cheat-toggle{
+    display:block;max-width:600px;margin:2rem auto 1rem;padding:.9rem 1rem;
+    background:#8a1f17;color:#f4ede0;
+    font-family:"Shippori Mincho",serif;font-size:1rem;font-weight:600;
+    text-align:center;border:2px solid #1a1612;cursor:pointer;
+    box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);letter-spacing:.05em;
+    transition:background .2s;
+  }
+  .cheat-toggle:hover{background:#c0362c}
+  .cheat-toggle::before{content:"📖 ";margin-right:.3rem}
+
+  .cheats{
+    max-width:1100px;margin:1rem auto 2rem;padding:0 1rem;
+  }
+  .cheats.hidden{display:none}
+
+  .cheat-toc{
+    background:#1a1612;color:#f4ede0;
+    padding:.7rem .8rem;margin-bottom:1.2rem;
+    display:flex;flex-wrap:wrap;gap:.4rem;
+    box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+    position:sticky;top:0;z-index:90;
+  }
+  .cheat-toc a{
+    flex:1;min-width:fit-content;
+    padding:.4rem .6rem;background:#ebe1cd;color:#1a1612;
+    text-decoration:none;font-size:.78rem;font-weight:600;
+    text-align:center;border:1px solid #f4ede0;
+    transition:background .15s,transform .12s;
+    font-family:inherit;
+  }
+  .cheat-toc a:hover{background:#b8893a;color:#f4ede0;transform:translateY(-1px)}
+  @media(max-width:600px){
+    .cheat-toc{padding:.5rem .4rem;gap:.25rem;top:0}
+    .cheat-toc a{font-size:.68rem;padding:.35rem .35rem;min-width:0}
+  }
+  .cheat{
+    background:#ebe1cd;border:2px solid #1a1612;
+    padding:1.2rem 1rem;margin-bottom:1.5rem;
+    box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+    position:relative;
+  }
+  .cheat h2{
+    font-family:"Noto Serif JP",serif;font-weight:800;font-size:1.1rem;
+    color:#8a1f17;border-bottom:2px solid #1a1612;
+    padding-bottom:.4rem;margin-bottom:.9rem;letter-spacing:.03em;
+  }
+  .cheat h2::before{
+    content:"◆";color:#b8893a;margin-right:.4rem;font-size:.8em;
+  }
+  .cheat h3{
+    font-family:"Shippori Mincho",serif;font-weight:700;font-size:.9rem;
+    color:#1a1612;margin:.8rem 0 .4rem;
+    border-left:3px solid #c0362c;padding-left:.5rem;
+  }
+  .cheat p{font-size:.82rem;line-height:1.5;margin-bottom:.5rem;color:#3a2f22}
+  .cheat-table{
+    width:100%;border-collapse:collapse;margin:.4rem 0 .8rem;
+    font-size:.75rem;background:#f4ede0;
+  }
+  .cheat-table th,.cheat-table td{
+    border:1px solid #1a1612;padding:.35rem .5rem;
+    text-align:left;vertical-align:top;
+  }
+  .cheat-table th{
+    background:#1a1612;color:#f4ede0;font-weight:700;
+    font-family:"Noto Serif JP",serif;letter-spacing:.03em;
+  }
+  .cheat-table td .jp{font-family:"Noto Serif JP",serif;font-weight:600;color:#8a1f17;display:block}
+  .cheat-table td .hint{font-size:.68rem;font-style:italic;color:#6b5d4a;display:block;margin-top:.15rem}
+  .cheat-table tr:nth-child(even) td{background:#ebe1cd}
+  .cheat .legend{
+    font-size:.7rem;color:#6b5d4a;font-style:italic;
+    margin-top:.4rem;padding-top:.3rem;border-top:1px dashed #1a1612;
+  }
+  @media(max-width:600px){
+    .cheat-table{font-size:.7rem}
+    .cheat-table th,.cheat-table td{padding:.25rem .35rem}
+    .cheat h2{font-size:1rem}
+  }
+
+  /* Sprach-Tabs */
+  .lang-tabs{
+    display:flex;
+    justify-content:flex-end;
+    gap:0;
+    padding:.3rem .8rem;
+    background:#1a1612;
+  }
+  .lang-tab{
+    padding:.3rem .7rem;
+    text-decoration:none;
+    color:#a99780;
+    font-family:"Shippori Mincho",serif;
+    font-size:.8rem;
+    font-weight:600;
+    border-bottom:2px solid transparent;
+    transition:all .15s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .lang-tab.active{
+    color:#f4ede0;
+    border-bottom-color:#f4ede0;
+  }
+  .lang-tab:hover{color:#f4ede0}
+
+</style>
+</head>
+<body>
+
+<!-- Buch-Wechsler + Sprach-Tabs -->
+<div class="book-tabs">
+  <a class="book-tab" href="/Minna-no-nihongo-1-2/minna-en/">📕 みんなの日本語</a>
+  <a class="book-tab active" href="/Minna-no-nihongo-1-2/chuukyuu-en/">📘 中級へ行こう</a>
+</div>
+<div class="lang-tabs">
+  <a class="lang-tab" href="/Minna-no-nihongo-1-2/chuukyuu/">DE</a>
+  <a class="lang-tab active" href="/Minna-no-nihongo-1-2/chuukyuu-en/">EN</a>
+</div>
+
+<header>
+  <h1>
+    <span class="jp">中級へ行こう</span>
+    <span class="de">日本語の文型と表現 55 · Lektion 1 – 10</span>
+  </h1>
+  <p class="subtitle">Klick auf eine Karte, um die Erklärung zu sehen</p>
+</header>
+
+<div class="controls">
+  <button class="back-btn" id="backBtn" title="Zurück zur Übersicht" aria-label="Zurück zur Übersicht">←</button>
+  <input type="text" class="search" id="search" placeholder="Suchen (z.B. te-Form, Partikel は)…">
+  <select class="lesson-filter" id="lessonFilter">
+    <option value="all">Alle Lektionen</option>
+  </select>
+  <button class="random-btn" id="randomBtn" title="Zufällige Karte" aria-label="Zufällige Karte">🎲</button>
+  <div class="stats" id="stats">— Karten</div>
+</div>
+
+<div class="overview" id="overview">
+  <p class="overview-intro">Wähle eine Lektion, suche nach Inhalten, oder öffne die Cheat-Sheets ↓</p>
+  <div class="lesson-grid" id="lessonGrid"></div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<button class="cheat-toggle" id="cheatToggle">Cheat-Sheets anzeigen</button>
+
+<div class="cheats hidden" id="cheats">
+  <!-- TOC -->
+  <div class="cheat-toc">
+    <a href="#cheat-konj"><ruby>接続詞<rt>せつぞくし</rt></ruby></a>
+    <a href="#cheat-yo">よう / みたい / らしい / そう</a>
+    <a href="#cheat-modal"><ruby>文末<rt>ぶんまつ</rt></ruby> <ruby>表現<rt>ひょうげん</rt></ruby></a>
+    <a href="#cheat-pass"><ruby>受身<rt>うけみ</rt></ruby>・<ruby>使役<rt>しえき</rt></ruby>・<ruby>使役受身<rt>しえきうけみ</rt></ruby></a>
+    <a href="#cheat-part">N + Partikel-Komplexe</a>
+    <a href="#cheat-bun"><ruby>書<rt>か</rt></ruby>きことば</a>
+  </div>
+
+  <div class="cheat" id="cheat-konj">
+    <h2><span class="jp"><ruby>接続詞<rt>せつぞくし</rt></ruby></span> — Konjunktionen für Aufsätze (N3)</h2>
+    <p style="color:#8a1f17;font-style:italic;margin-bottom:1rem">Verbindungen für strukturierte Argumentation</p>
+
+    <p class="legend">📝 Diese Konjunktionen stehen am <b>Satzanfang</b> (gefolgt von 、) und verbinden zwei Sätze logisch.</p>
+    
+    <h3>Hinzufügen / Verstärken</h3>
+    <table>
+      <thead><tr><th>Konjunktion</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+      <tbody>
+      <tr><td><span class="jp">それに</span></td><td>außerdem</td><td><span class="jp"><ruby>安<rt>やす</rt></ruby>い。それに、おいしい。</span></td></tr>
+      <tr><td><span class="jp">しかも</span></td><td>überdies (stärker)</td><td><span class="jp"><ruby>便利<rt>べんり</rt></ruby>だ。しかも、<ruby>安<rt>やす</rt></ruby>い。</span></td></tr>
+      <tr><td><span class="jp"><ruby>更<rt>さら</rt></ruby>に</span></td><td>weiterhin (formell)</td><td><span class="jp"><ruby>更<rt>さら</rt></ruby>に、<ruby>問題<rt>もんだい</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>えた。</span></td></tr>
+      </tbody>
+    </table>
+    
+    <h3>Kontrast / Gegensatz</h3>
+    <table>
+      <thead><tr><th>Konjunktion</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+      <tbody>
+      <tr><td><span class="jp">しかし</span></td><td>jedoch</td><td><span class="jp"><ruby>便利<rt>べんり</rt></ruby>だ。しかし、<ruby>危険<rt>きけん</rt></ruby>もある。</span></td></tr>
+      <tr><td><span class="jp">ところが</span></td><td>aber überraschend</td><td><span class="jp"><ruby>行<rt>い</rt></ruby>った。ところが、<ruby>休<rt>やす</rt></ruby>みだった。</span></td></tr>
+      <tr><td><span class="jp"><ruby>一方<rt>いっぽう</rt></ruby></span></td><td>andererseits ★ L9</td><td><span class="jp"><ruby>男性<rt>だんせい</rt></ruby>は…、<ruby>一方<rt>いっぽう</rt></ruby>、<ruby>女性<rt>じょせい</rt></ruby>は…</span></td></tr>
+      <tr><td><span class="jp">それに<ruby>対<rt>たい</rt></ruby>して</span></td><td>im Gegensatz dazu</td><td><span class="jp">A は<ruby>高<rt>たか</rt></ruby>い。それに<ruby>対<rt>たい</rt></ruby>して、B は<ruby>安<rt>やす</rt></ruby>い。</span></td></tr>
+      </tbody>
+    </table>
+    
+    <h3>Zusammenfassung / Schluss</h3>
+    <table>
+      <thead><tr><th>Konjunktion</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+      <tbody>
+      <tr><td><span class="jp">つまり</span></td><td>kurzum / d.h. ★ L9</td><td><span class="jp">つまり、〜ということだ。</span></td></tr>
+      <tr><td><span class="jp"><ruby>結局<rt>けっきょく</rt></ruby></span></td><td>schließlich (Resultat)</td><td><span class="jp"><ruby>結局<rt>けっきょく</rt></ruby>、<ruby>行<rt>い</rt></ruby>けなかった。</span></td></tr>
+      <tr><td><span class="jp">そのため</span></td><td>aus diesem Grund</td><td><span class="jp"><ruby>雪<rt>ゆき</rt></ruby>だ。そのため、<ruby>休<rt>やす</rt></ruby>みになった。</span></td></tr>
+      <tr><td><span class="jp">したがって</span></td><td>folglich (formell)</td><td><span class="jp">したがって、<ruby>結論<rt>けつろん</rt></ruby>は…</span></td></tr>
+      </tbody>
+    </table>
+    
+    <p class="legend">💡 <b>Tipp:</b> In Aufsätzen reichen 5-6 dieser Konjunktionen. Wechsel macht Texte flüssig.</p>
+    
+  </div>
+
+  <div class="cheat" id="cheat-yo">
+    <h2><span class="jp">よう / みたい / らしい / そう</span> — Anschein und Hörensagen (4 Formen)</h2>
+    <p style="color:#8a1f17;font-style:italic;margin-bottom:1rem">Wann nutze ich welches?</p>
+
+    <p class="legend">⚠️ Die <b>häufigste Verwechslung im N3</b>. Diese 4 Strukturen drücken alle Unsicherheit aus, aber mit feinen Unterschieden.</p>
+    
+    <h3>Übersicht</h3>
+    <table>
+      <thead><tr><th>Form</th><th>Bedeutung</th><th>Quelle der Info</th><th>Stilebene</th></tr></thead>
+      <tbody>
+      <tr><td><span class="jp">〜ようだ</span></td><td>scheint zu sein</td><td>eigene Beobachtung</td><td>schriftlich/formell</td></tr>
+      <tr><td><span class="jp">〜みたい(だ)</span></td><td>sieht aus wie</td><td>eigene Beobachtung</td><td>gesprochen/leger</td></tr>
+      <tr><td><span class="jp">〜らしい</span></td><td>anscheinend (gehört)</td><td>von außen erfahren</td><td>neutral</td></tr>
+      <tr><td><span class="jp">〜そうだ [<ruby>様態<rt>ようたい</rt></ruby>]</span></td><td>sieht so aus, als ob</td><td>direkter visueller Eindruck</td><td>neutral</td></tr>
+      <tr><td><span class="jp">〜そうだ [<ruby>伝聞<rt>でんぶん</rt></ruby>]</span></td><td>man sagt, dass</td><td>klares Hörensagen</td><td>neutral</td></tr>
+      </tbody>
+    </table>
+    
+    <h3>Anschluss</h3>
+    <table>
+      <thead><tr><th>Form</th><th>V</th><th>Aい</th><th>Naな</th><th>N</th></tr></thead>
+      <tbody>
+      <tr><td><span class="jp">ようだ</span></td><td><span class="jp"><ruby>行<rt>い</rt></ruby>く<b>ようだ</b></span></td><td><span class="jp"><ruby>高<rt>たか</rt></ruby>い<b>ようだ</b></span></td><td><span class="jp"><ruby>元気<rt>げんき</rt></ruby><b>な</b>ようだ</span></td><td><span class="jp"><ruby>学生<rt>がくせい</rt></ruby><b>の</b>ようだ</span></td></tr>
+      <tr><td><span class="jp">みたい</span></td><td><span class="jp"><ruby>行<rt>い</rt></ruby>く<b>みたい</b></span></td><td><span class="jp"><ruby>高<rt>たか</rt></ruby>い<b>みたい</b></span></td><td><span class="jp"><ruby>元気<rt>げんき</rt></ruby>みたい</span></td><td><span class="jp"><ruby>学生<rt>がくせい</rt></ruby>みたい</span></td></tr>
+      <tr><td><span class="jp">らしい</span></td><td><span class="jp"><ruby>行<rt>い</rt></ruby>く<b>らしい</b></span></td><td><span class="jp"><ruby>高<rt>たか</rt></ruby>い<b>らしい</b></span></td><td><span class="jp"><ruby>元気<rt>げんき</rt></ruby>らしい</span></td><td><span class="jp"><ruby>学生<rt>がくせい</rt></ruby>らしい</span></td></tr>
+      <tr><td><span class="jp">そう [様態]</span></td><td><span class="jp"><ruby>降<rt>ふ</rt></ruby>り<b>そう</b> (Vマス)</span></td><td><span class="jp"><ruby>高<rt>たか</rt></ruby><b>そう</b> (い→)</span></td><td><span class="jp"><ruby>元気<rt>げんき</rt></ruby><b>そう</b></span></td><td>—</td></tr>
+      <tr><td><span class="jp">そう [伝聞]</span></td><td><span class="jp"><ruby>降<rt>ふ</rt></ruby>る<b>そうだ</b></span></td><td><span class="jp"><ruby>高<rt>たか</rt></ruby>い<b>そうだ</b></span></td><td><span class="jp"><ruby>元気<rt>げんき</rt></ruby><b>だ</b>そうだ</span></td><td><span class="jp"><ruby>学生<rt>がくせい</rt></ruby><b>だ</b>そうだ</span></td></tr>
+      </tbody>
+    </table>
+    
+    <h3>Tipp zum Unterscheiden</h3>
+    <p class="legend">🔍 <b>そう [様態]</b> hat die Wort<b>kürzung</b> (高<b>そう</b>, 降り<b>そう</b>) — andere Formen lassen das Wort intakt.</p>
+    <p class="legend">🔍 <b>らしい</b> = du hast es <b>gehört</b>, <b>そう [伝聞]</b> = du <b>weißt es konkret</b> (z.B. aus Nachrichten).</p>
+    <p class="legend">🔍 <b>ようだ</b> = du <b>siehst</b> Indizien, <b>みたい</b> = wie ようだ aber lockerer.</p>
+    
+  </div>
+
+  <div class="cheat" id="cheat-modal">
+    <h2><span class="jp"><ruby>文末<rt>ぶんまつ</rt></ruby> <ruby>表現<rt>ひょうげん</rt></ruby></span> — Modal-Endungen (N3 Klassiker)</h2>
+    <p style="color:#8a1f17;font-style:italic;margin-bottom:1rem">べき / もの / はず / わけ / こと</p>
+
+    <p class="legend">📝 Diese Endungen sind <b>typisch N3</b>: nicht ein Verb, sondern ein <b>Modalitäts-Marker</b> am Satzende.</p>
+    
+    <table>
+      <thead><tr><th>Endung</th><th>Bedeutung</th><th>Beispiel</th><th>Lektion</th></tr></thead>
+      <tbody>
+      <tr><td><span class="jp">〜べきだ</span></td><td>sollte (moralisch)</td><td><span class="jp"><ruby>謝<rt>あやま</rt></ruby>る<b>べきだ</b></span><br>sollte sich entschuldigen</td><td>L10</td></tr>
+      <tr><td><span class="jp">〜ものだ</span></td><td>so ist das nun mal / Erinnerung</td><td><span class="jp"><ruby>人<rt>ひと</rt></ruby>は<ruby>疲<rt>つか</rt></ruby>れる<b>ものだ</b></span><br>Menschen werden müde (so ist das)</td><td>L5, L7</td></tr>
+      <tr><td><span class="jp">〜はずだ</span></td><td>logisch erwartet</td><td><span class="jp"><ruby>来<rt>く</rt></ruby>る<b>はずだ</b></span><br>er sollte kommen (logisch)</td><td>(N3 Klassiker)</td></tr>
+      <tr><td><span class="jp">〜わけだ</span></td><td>das erklärt's / d.h.</td><td><span class="jp">それで<ruby>遅<rt>おく</rt></ruby>れた<b>わけだ</b></span><br>deshalb war sie zu spät</td><td>(N3 Klassiker)</td></tr>
+      <tr><td><span class="jp">〜ことだ</span></td><td>man sollte / Aufzählung</td><td><span class="jp"><ruby>毎日<rt>まいにち</rt></ruby><ruby>練習<rt>れんしゅう</rt></ruby>する<b>ことだ</b></span><br>man muss täglich üben</td><td>L1</td></tr>
+      </tbody>
+    </table>
+    
+    <h3>Verneinungsformen</h3>
+    <table>
+      <thead><tr><th>Form</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+      <tr><td><span class="jp">〜べきではない</span></td><td>sollte nicht</td></tr>
+      <tr><td><span class="jp">〜ものではない</span></td><td>man darf nicht (moralisch)</td></tr>
+      <tr><td><span class="jp">〜はずがない</span></td><td>kann nicht sein (unmöglich)</td></tr>
+      <tr><td><span class="jp">〜わけではない</span> ★ L8</td><td>nicht unbedingt</td></tr>
+      <tr><td><span class="jp">〜わけがない</span></td><td>kann gar nicht sein</td></tr>
+      </tbody>
+    </table>
+    
+    <p class="legend">⚠️ <b>Häufige Verwechslung:</b> はずだ (logische Erwartung) vs. べきだ (moralische Pflicht). 「来るはずだ」 = ich denke er kommt; 「来るべきだ」 = er sollte kommen.</p>
+    
+  </div>
+
+  <div class="cheat" id="cheat-pass">
+    <h2><span class="jp"><ruby>受身<rt>うけみ</rt></ruby>・<ruby>使役<rt>しえき</rt></ruby>・<ruby>使役受身<rt>しえきうけみ</rt></ruby></span> — Die Big Three: Passiv / Kausativ / Kausativ-Passiv</h2>
+    <p style="color:#8a1f17;font-style:italic;margin-bottom:1rem">Bildung & Bedeutung im Vergleich</p>
+
+    <p class="legend">🔥 Eines der <b>schwierigsten Themen für JLPT N3</b>. Bildung üben, dann Bedeutung verstehen.</p>
+    
+    <h3>Bildung im Vergleich</h3>
+    <table>
+      <thead><tr><th>Gruppe</th><th>Aktiv</th><th>受身 (Passiv)</th><th>使役 (Kausativ)</th><th>使役受身</th></tr></thead>
+      <tbody>
+      <tr><td>Gr.I</td><td><span class="jp"><ruby>飲<rt>の</rt></ruby>む</span></td><td><span class="jp"><ruby>飲<rt>の</rt></ruby><b>まれる</b></span></td><td><span class="jp"><ruby>飲<rt>の</rt></ruby><b>ませる</b></span></td><td><span class="jp"><ruby>飲<rt>の</rt></ruby><b>まされる</b></span></td></tr>
+      <tr><td>Gr.I (-す)</td><td><span class="jp"><ruby>話<rt>はな</rt></ruby>す</span></td><td><span class="jp"><ruby>話<rt>はな</rt></ruby><b>される</b></span></td><td><span class="jp"><ruby>話<rt>はな</rt></ruby><b>させる</b></span></td><td><span class="jp"><ruby>話<rt>はな</rt></ruby><b>させられる</b></span></td></tr>
+      <tr><td>Gr.II</td><td><span class="jp"><ruby>食<rt>た</rt></ruby>べる</span></td><td><span class="jp"><ruby>食<rt>た</rt></ruby>べ<b>られる</b></span></td><td><span class="jp"><ruby>食<rt>た</rt></ruby>べ<b>させる</b></span></td><td><span class="jp"><ruby>食<rt>た</rt></ruby>べ<b>させられる</b></span></td></tr>
+      <tr><td>する</td><td><span class="jp">する</span></td><td><span class="jp"><b>される</b></span></td><td><span class="jp"><b>させる</b></span></td><td><span class="jp"><b>させられる</b></span></td></tr>
+      <tr><td>来る</td><td><span class="jp"><ruby>来<rt>く</rt></ruby>る</span></td><td><span class="jp"><ruby>来<rt>こ</rt></ruby><b>られる</b></span></td><td><span class="jp"><ruby>来<rt>こ</rt></ruby><b>させる</b></span></td><td><span class="jp"><ruby>来<rt>こ</rt></ruby><b>させられる</b></span></td></tr>
+      </tbody>
+    </table>
+    
+    <p class="legend">⚠️ <b>Sonderregel Gr.I (-す):</b> 話す → 話させられる (NICHT 話さされる!). Bei allen anderen Gr.I oft Kurzform: 飲まされる statt 飲ませられる möglich.</p>
+    
+    <h3>Bedeutung mit gleichem Verb</h3>
+    <table>
+      <thead><tr><th>Form</th><th>Satz</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+      <tr><td>Aktiv</td><td><span class="jp"><ruby>子<rt>こ</rt></ruby>どもが<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べる</span></td><td>Das Kind isst Gemüse.</td></tr>
+      <tr><td>受身 (Schaden)</td><td><span class="jp"><ruby>妹<rt>いもうと</rt></ruby>に<ruby>ケーキ<rt>ケーキ</rt></ruby>を<ruby>食<rt>た</rt></ruby>べられた</span></td><td>Die Schwester aß MIR den Kuchen weg.</td></tr>
+      <tr><td>使役 (Erzwingen)</td><td><span class="jp"><ruby>母<rt>はは</rt></ruby>が<ruby>子<rt>こ</rt></ruby>どもに<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べさせる</span></td><td>Die Mutter zwingt das Kind, Gemüse zu essen.</td></tr>
+      <tr><td>使役受身 (Gezwungen)</td><td><span class="jp"><ruby>子<rt>こ</rt></ruby>どもは<ruby>母<rt>はは</rt></ruby>に<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べさせられた</span></td><td>Das Kind wurde gezwungen, Gemüse zu essen.</td></tr>
+      </tbody>
+    </table>
+    
+    <h3>Partikel</h3>
+    <table>
+      <thead><tr><th>Form</th><th>Subjekt</th><th>Verursacher (Mit)</th><th>Objekt (was)</th></tr></thead>
+      <tbody>
+      <tr><td>受身</td><td>Opfer (は/が)</td><td><b>に</b></td><td>を</td></tr>
+      <tr><td>使役</td><td>Befehlender (は/が)</td><td>—</td><td><b>に + を</b></td></tr>
+      <tr><td>使役受身</td><td>Gezwungener (は/が)</td><td><b>に</b></td><td>を</td></tr>
+      </tbody>
+    </table>
+    
+    <p class="legend">💡 <b>Kernfrage:</b> Wer ist Subjekt? Aktor → Aktiv; Opfer → 受身; Verursacher → 使役; Gezwungener → 使役受身.</p>
+    
+  </div>
+
+  <div class="cheat" id="cheat-part">
+    <h2><span class="jp">N + Partikel-Komplexe</span> — によって / として / について / に対して</h2>
+    <p style="color:#8a1f17;font-style:italic;margin-bottom:1rem">Die 4 wichtigsten Mittelstufe-Komplexe</p>
+
+    <p class="legend">📝 Diese 4 N+Partikel-Konstruktionen sind <b>Klassiker für JLPT N3</b>. Klar voneinander trennen!</p>
+    
+    <h3>によって — drei Bedeutungen!</h3>
+    <table>
+      <thead><tr><th>Bedeutung</th><th>Lektion</th><th>Beispiel</th></tr></thead>
+      <tbody>
+      <tr><td>① durch / mittels (Mittel)</td><td>L10</td><td><span class="jp"><ruby>調査<rt>ちょうさ</rt></ruby><b>によって</b>、〜がわかった。</span><br>Durch die Untersuchung wurde klar, dass...</td></tr>
+      <tr><td>② vom (Schöpfer + 受身)</td><td>L6</td><td><span class="jp"><ruby>日本人<rt>にほんじん</rt></ruby><b>によって</b><ruby>発明<rt>はつめい</rt></ruby>された</span><br>Wurde von einem Japaner erfunden</td></tr>
+      <tr><td>③ je nach (Variation)</td><td>L8</td><td><span class="jp"><ruby>国<rt>くに</rt></ruby><b>によって</b><ruby>違<rt>ちが</rt></ruby>う</span><br>Je nach Land unterschiedlich</td></tr>
+      </tbody>
+    </table>
+    
+    <h3>として — Funktion/Rolle/Beispiel</h3>
+    <table>
+      <thead><tr><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+      <tbody>
+      <tr><td>als (Position)</td><td><span class="jp"><ruby>留学生<rt>りゅうがくせい</rt></ruby><b>として</b><ruby>来<rt>き</rt></ruby>た</span> — kam als Austauschstudent</td></tr>
+      <tr><td>als (Beispiel)</td><td><span class="jp"><ruby>一<rt>ひと</rt></ruby>つ<b>として</b></span> — als ein Beispiel</td></tr>
+      <tr><td>als (Qualifikation)</td><td><span class="jp"><ruby>専門家<rt>せんもんか</rt></ruby><b>として</b></span> — als Experte</td></tr>
+      </tbody>
+    </table>
+    
+    <h3>について — Thema/Inhalt</h3>
+    <p class="legend"><b>Antwort auf »worüber?«</b> — was beschrieben/diskutiert wird.</p>
+    <table>
+      <tbody>
+      <tr><td><span class="jp"><ruby>日本<rt>にほん</rt></ruby><b>について</b><ruby>話<rt>はな</rt></ruby>す</span></td><td>über Japan sprechen</td></tr>
+      <tr><td><span class="jp"><ruby>環境<rt>かんきょう</rt></ruby><b>について</b>の<ruby>本<rt>ほん</rt></ruby></span></td><td>ein Buch über die Umwelt (mit の vor N)</td></tr>
+      <tr><td><span class="jp"><ruby>文化<rt>ぶんか</rt></ruby><b>について</b><ruby>勉強<rt>べんきょう</rt></ruby>する</span></td><td>über Kultur lernen</td></tr>
+      </tbody>
+    </table>
+    
+    <h3>に対して — gegen / gegenüber</h3>
+    <p class="legend"><b>Richtung der Aktion</b> — wem etwas gegenüber gemacht wird (Verhalten gegenüber Menschen, Reaktion auf etwas).</p>
+    <table>
+      <tbody>
+      <tr><td><span class="jp"><ruby>学生<rt>がくせい</rt></ruby><b>に対して</b><ruby>優<rt>やさ</rt></ruby>しい</span></td><td>nett zu Studenten</td></tr>
+      <tr><td><span class="jp"><ruby>質問<rt>しつもん</rt></ruby><b>に対して</b><ruby>答<rt>こた</rt></ruby>える</span></td><td>auf eine Frage antworten</td></tr>
+      </tbody>
+    </table>
+    
+    <h3>Kurze Faustregel zur Unterscheidung</h3>
+    <p class="legend">🔍 <b>として</b> = »in Funktion als« (Position) <br>
+    🔍 <b>について</b> = »zum Thema von« (Inhalt) <br>
+    🔍 <b>によって</b> = wechselt nach Kontext (Mittel/Schöpfer/je nach) <br>
+    🔍 <b>に対して</b> = »gegenüber« (Reaktion/Verhalten zu jdm.)</p>
+    
+  </div>
+
+  <div class="cheat" id="cheat-bun">
+    <h2><span class="jp"><ruby>書<rt>か</rt></ruby>きことば</span> — Schriftsprache (für Aufsätze & Berichte)</h2>
+    <p style="color:#8a1f17;font-style:italic;margin-bottom:1rem">である / ずに / 連用中止 — formelle Stile</p>
+
+    <p class="legend">📝 Diese Formen gehören in <b>Aufsätze, Berichte, Wissenschaftstexte</b>. In Gesprächen klingen sie zu steif.</p>
+    
+    <h3>である — Schriftsprache von だ/です</h3>
+    <table>
+      <thead><tr><th>Stilebene</th><th>Form</th><th>Beispiel</th></tr></thead>
+      <tbody>
+      <tr><td>höflich gesprochen</td><td>です</td><td><span class="jp"><ruby>有名<rt>ゆうめい</rt></ruby><b>です</b></span></td></tr>
+      <tr><td>plain gesprochen</td><td>だ</td><td><span class="jp"><ruby>有名<rt>ゆうめい</rt></ruby><b>だ</b></span></td></tr>
+      <tr><td>Schriftsprache</td><td><b>である</b></td><td><span class="jp"><ruby>有名<rt>ゆうめい</rt></ruby><b>である</b></span></td></tr>
+      <tr><td>verneint</td><td>ではない</td><td><span class="jp"><ruby>有名<rt>ゆうめい</rt></ruby><b>ではない</b></span></td></tr>
+      <tr><td>Vergangenheit</td><td>であった</td><td><span class="jp"><ruby>有名<rt>ゆうめい</rt></ruby><b>であった</b></span></td></tr>
+      </tbody>
+    </table>
+    
+    <p class="legend">⚠️ <b>Nur für Na-Adj und Nomen!</b> Verben und い-Adj im Aufsatz nutzen einfach Plain-Form (普通形).</p>
+    
+    <h3>ずに — Schriftsprache von ないで</h3>
+    <table>
+      <thead><tr><th>Form</th><th>Beispiel</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+      <tr><td>Vないで (gesprochen)</td><td><span class="jp"><ruby>食<rt>た</rt></ruby>べないで</span></td><td>ohne zu essen</td></tr>
+      <tr><td><b>Vずに (Schrift)</b></td><td><span class="jp"><ruby>食<rt>た</rt></ruby>べずに</span></td><td>ohne zu essen</td></tr>
+      <tr><td>⚠️ Sonderfall する</td><td><span class="jp">せずに</span></td><td>ohne zu tun (NICHT しずに!)</td></tr>
+      </tbody>
+    </table>
+    
+    <h3>連用中止 — Aufzählung mit ます-Stamm</h3>
+    <p class="legend">Schriftliche Aufzählung statt 〜て.</p>
+    <table>
+      <thead><tr><th>Wortart</th><th>gesprochen (て)</th><th>schriftlich (中止)</th></tr></thead>
+      <tbody>
+      <tr><td>Verb</td><td><span class="jp"><ruby>起<rt>お</rt></ruby>き<b>て</b>、<ruby>行<rt>い</rt></ruby>く</span></td><td><span class="jp"><ruby>起<rt>お</rt></ruby><b>き</b>、<ruby>行<rt>い</rt></ruby>く</span> (Vマス)</td></tr>
+      <tr><td>い-Adj</td><td><span class="jp"><ruby>多<rt>おお</rt></ruby><b>くて</b>、<ruby>良<rt>よ</rt></ruby>い</span></td><td><span class="jp"><ruby>多<rt>おお</rt></ruby><b>く</b>、<ruby>良<rt>よ</rt></ruby>い</span> (い→く)</td></tr>
+      <tr><td>な-Adj</td><td><span class="jp"><ruby>静<rt>しず</rt></ruby>か<b>で</b>、きれい</span></td><td>(bleibt で)</td></tr>
+      </tbody>
+    </table>
+    
+    <h3>Andere Schriftsprache-Marker</h3>
+    <table>
+      <tbody>
+      <tr><td><span class="jp">〜のである</span></td><td>verstärktes »es ist (so), dass« (statt のだ)</td></tr>
+      <tr><td><span class="jp">〜という</span></td><td>angebliche / mit dem Namen</td></tr>
+      <tr><td><span class="jp">〜にとって</span></td><td>für (jdn./etw.)</td></tr>
+      <tr><td><span class="jp">〜において</span></td><td>in/bei (Ort, Zeit, Bereich) — formell</td></tr>
+      </tbody>
+    </table>
+    
+    <p class="legend">💡 <b>Tipp:</b> Bei Aufsätzen ALLE Sätze in einem Stil halten — nicht zwischen です/だ/である wechseln!</p>
+    
+  </div>
+
+  <button class="cheat-toggle" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="margin-top:1rem">↑ Nach oben</button>
+</div>
+
+<div class="cheats hidden" id="vocab">
+  <!-- TOC -->
+  <div class="cheat-toc">
+    <a data-target="vocab-l1">L1 ファストフード</a>
+    <a data-target="vocab-l2">L2 地震</a>
+    <a data-target="vocab-l3">L3 最近の子ども</a>
+    <a data-target="vocab-l4">L4 日本のイメージ</a>
+    <a data-target="vocab-l5">L5 睡眠</a>
+    <a data-target="vocab-l6">L6 日本人の発明</a>
+    <a data-target="vocab-l7">L7 リサイクル</a>
+    <a data-target="vocab-l8">L8 あいづち</a>
+    <a data-target="vocab-l9">L9 男・女の仕事</a>
+    <a data-target="vocab-l10">L10 ことばの使い方</a>
+  </div>
+  
+  <div id="vocab-content"></div>
+
+  <button class="cheat-toggle" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="margin-top:1rem">↑ Nach oben</button>
+</div>
+
+<button class="to-top" id="toTop" title="Nach oben" aria-label="Nach oben">↑</button>
+
+<footer>
+  <div class="seal" style="background:#b8893a">中</div>
+  <p>中級へ行こう · 日本語の文型と表現 55 — Grammatik-Spickzettel</p>
+  <p style="margin-top:.3rem;font-size:.7rem">55 Karten · 6 Cheat-Sheets · 175 Vokabeln · Suche & Filter aktiv</p>
+</footer>
+
+<script>
+const CARDS = [
+  {l:1, t:"N₁といえば、N₂だ", de:"When X is mentioned, Y comes to mind", rule:"Speaking of N₁, (typically) N₂. Used for typical/expected associations.", conj:[
+    {form:"Connection",verb:"N₁ + といえば、N₂だ",de:"when you mention N₁, N₂ comes to mind"},
+    {form:"Example",verb:"<ruby>京都<rt>きょうと</rt></ruby>といえば、お<ruby>寺<rt>てら</rt></ruby>",de:"Kyoto makes you think of temples"},
+    {form:"Example",verb:"<ruby>夏<rt>なつ</rt></ruby>といえば、<ruby>海<rt>うみ</rt></ruby>",de:"summer makes you think of the ocean"},
+    {form:"Related forms",verb:"といったら / というと",de:"same meaning, different style"}
+  ], ex:[
+    {jp:"<ruby>京都<rt>きょうと</rt></ruby>といえば、お<ruby>寺<rt>てら</rt></ruby>ですね。",de:"Bei Kyoto denkt man an Tempel."},
+    {jp:"<ruby>夏<rt>なつ</rt></ruby>といえば、<ruby>海<rt>うみ</rt></ruby>だ。",de:"Apropos summer — Meer!"},
+    {jp:"ファストフードのメニューで<ruby>代表的<rt>だいひょうてき</rt></ruby>な<ruby>物<rt>もの</rt></ruby>といえば、ハンバーガーです。 [Buch L1]",de:"Bei typischen Fast-Food-Gerichten denkt man an Hamburger."}
+  ], note:"💡 Expresses typical association: When someone mentions X, Y comes to mind automatically."},
+  {l:1, t:"も (überraschende Menge)", de:"sogar / so viel/long/often wie", rule:"Surprise at large quantity. Number/quantity + も = \"as much as / a whole X\" (surprise at amount).", conj:[
+    {form:"Connection",verb:"Zahl/Menge + も",de:"surprisingly much/long/oftenen"},
+    {form:"Example",verb:"コーヒーを <ruby>5杯<rt>ごはい</rt></ruby><b>も</b> <ruby>飲<rt>の</rt></ruby>んだ",de:"habe ganze 5 cups Kaffee getrunken!"},
+    {form:"Example",verb:"<ruby>7年間<rt>ななねんかん</rt></ruby><b>も</b> <ruby>勉強<rt>べんきょう</rt></ruby>している",de:"studiere schon ganze 7 years!"},
+    {form:"⚠️ Comparison",verb:"しか〜ない (nur, wenig)",de:"opposite of も (surprisingly LITTLE)"}
+  ], ex:[
+    {jp:"コーヒーを<ruby>5杯<rt>ごはい</rt></ruby>も<ruby>飲<rt>の</rt></ruby>んだ。",de:"I drank as much as 5 cups of coffee!"},
+    {jp:"リーさんは<ruby>7年<rt>ななねん</rt></ruby>も<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>している。 [Buch L1]",de:"Lee lernt already ganze 7 years Japanisch."},
+    {jp:"<ruby>日本人<rt>にほんじん</rt></ruby>は<ruby>1年間<rt>いちねんかん</rt></ruby>に<ruby>3兆円<rt>さんちょうえん</rt></ruby>もファストフードにお<ruby>金<rt>かね</rt></ruby>を<ruby>使<rt>つか</rt></ruby>っています。 [Buch L1]",de:"Japanese spend a whopping 3 trillion yen on fast food yearly."}
+  ], note:"🔄 も = surprisingly MUCH. しか〜ない = surprisingly LITTLE. Example: 5杯も飲んだ (a whole 5!) vs. 1杯しか飲んでいない (only 1)."},
+  {l:1, t:"Nは〜こと、〜ことだ", de:"X is (the fact that) Y / listing of reasons", rule:"Listing properties. Nは + …こと、…ことだ = \"X is (the fact that) Y\". Multiple properties listed.", conj:[
+    {form:"Connection",verb:"Nは + …こと、…ことだ",de:"X is (the fact that) Y"},
+    {form:"Mit verb",verb:"V<sub>普通形</sub> + こと",de:"the activity/fact that V"},
+    {form:"Mit Adj",verb:"い-Adj + こと / な-Adj<b>な</b>こと",de:"the property that …"},
+    {form:"Mit Noun",verb:"N<b>である</b>こと",de:"the fact of being N (formal)"},
+    {form:"Example",verb:"<ruby>日本<rt>にほん</rt></ruby>のいいところは <ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>がおいしい<b>こと</b>だ",de:"the good thing about Japan is the delicious food"}
+  ], ex:[
+    {jp:"<ruby>日本<rt>にほん</rt></ruby>のいいところは<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>がおいしいこと、<ruby>人<rt>ひと</rt></ruby>が<ruby>親切<rt>しんせつ</rt></ruby>なことだ。",de:"What's good about Japan: the food is tasty and people are friendly."},
+    {jp:"ファストフードをよく<ruby>食<rt>た</rt></ruby>べている<ruby>理由<rt>りゆう</rt></ruby>は<ruby>値段<rt>ねだん</rt></ruby>が<ruby>安<rt>やす</rt></ruby>くて<ruby>手軽<rt>てがる</rt></ruby>に<ruby>利用<rt>りよう</rt></ruby>できること、<ruby>時間<rt>じかん</rt></ruby>がかからないことだ。 [Buch L1]",de:"Reasons people eat fast food often: cheap, accessible, saves time."}
+  ], note:"💡 Rule of thumb: For multiple properties → 「Xは…こと、…ことだ」. For a single property: 「Xは…ことだ」."},
+  {l:1, t:"Vマス始める / Vマス終わる", de:"start to … / be finished with …", rule:"Start V / finish V. V<sub>マス</sub>-stem + 始める = start V. V<sub>マス</sub>-stem + 終わる = finish V.", conj:[
+    {form:"始める (bewusst anfangen)",verb:"<ruby>食<rt>た</rt></ruby>べ始める",de:"anfangen zu essen"},
+    {form:"終わる (beenden)",verb:"<ruby>食<rt>た</rt></ruby>べ終わる",de:"fertig sein mit Essen"},
+    {form:"出す (plötzlich anfangen)",verb:"<ruby>泣<rt>な</rt></ruby>き出す",de:"plötzlich zu weinen anfangen"},
+    {form:"続ける (weitermachen)",verb:"<ruby>食<rt>た</rt></ruby>べ続ける",de:"weiteressen"}
+  ], ex:[
+    {jp:"<ruby>赤<rt>あか</rt></ruby>ちゃんが<ruby>泣<rt>な</rt></ruby>き<ruby>始<rt>はじ</rt></ruby>めた。",de:"The baby started crying."},
+    {jp:"レポートを<ruby>書<rt>か</rt></ruby>き<ruby>終<rt>お</rt></ruby>わった。",de:"I'm finished with the report."},
+    {jp:"この<ruby>本<rt>ほん</rt></ruby>、あと<ruby>5分<rt>ごふん</rt></ruby>ぐらいで<ruby>読<rt>よ</rt></ruby>み<ruby>終<rt>お</rt></ruby>わるから、ちょっと<ruby>待<rt>ま</rt></ruby>っていて。 [Buch L1]",de:"I'll finish this book in about 5 minutes — wait a moment."}
+  ], note:"💡 Memory trick: 始める = consciously, I decide. 出す = suddenly, often uncontrolled. Example: 笑い始める (I start laughing) vs. 笑い出す (I burst into laughter)."},
+  {l:2, t:"〜のでしょうか", de:"wohl …? / etwa …?", rule:"Inquisitive question. Plain form + のでしょうか = \"I wonder if V\". For な-Adj/N: + な + のでしょうか.", conj:[
+    {form:"verb",verb:"V<sub>普通形</sub> + のでしょうか",de:"I wonder if V"},
+    {form:"い-Adj",verb:"い-Adj + のでしょうか",de:"I wonder if …"},
+    {form:"な-Adj",verb:"な-Adj<b>な</b>のでしょうか",de:"frage mich, ob … (な nötig!)"},
+    {form:"Noun",verb:"N<b>な</b>のでしょうか",de:"frage mich, ob … (な nötig!)"},
+    {form:"Example",verb:"これは<ruby>本当<rt>ほんとう</rt></ruby><b>な</b>のでしょうか",de:"I wonder if that's really true?"}
+  ], ex:[
+    {jp:"これは<ruby>本当<rt>ほんとう</rt></ruby>なのでしょうか。",de:"Is that really true (I wonder)?"},
+    {jp:"どうして<ruby>地震<rt>じしん</rt></ruby>が<ruby>起<rt>お</rt></ruby>きるのでしょうか。",de:"Warum entstehen earthquake eigentlich?"},
+    {jp:"<ruby>大<rt>おお</rt></ruby>きい<ruby>地震<rt>じしん</rt></ruby>が<ruby>起<rt>お</rt></ruby>きたら、どうすればいいのでしょうか。 [Buch L2]",de:"What should one do when a big earthquake comes?"}
+  ], note:"⚠️ With な-Adj/N, な MUST come before のでしょうか! Polite, thoughtful question — typical in essays."},
+  {l:2, t:"<ruby>自動詞<rt>じどうし</rt></ruby> ⇆ <ruby>他動詞<rt>たどうし</rt></ruby>", de:"verb pairs: \"happens by itself\" vs. \"someone does it\"", rule:"Verb pairs: \"happens by itself\" (intransitive) vs. \"someone does it\" (transitive). 開く/開ける, 始まる/始める, 入る/入れる.", conj:[
+    {form:"自動: が ",verb:"ドアが<ruby>開<rt>あ</rt></ruby>く",de:"Die Tür öffnet sich"},
+    {form:"他動: を",verb:"ドアを<ruby>開<rt>あ</rt></ruby>ける",de:"Jemand öffnet die Tür"},
+    {form:"自動",verb:"<ruby>窓<rt>まど</rt></ruby>が<ruby>閉<rt>し</rt></ruby>まる",de:"Fenster schließt sich"},
+    {form:"他動",verb:"<ruby>窓<rt>まど</rt></ruby>を<ruby>閉<rt>し</rt></ruby>める",de:"Fenster schließen"},
+    {form:"自動",verb:"<ruby>火<rt>ひ</rt></ruby>が<ruby>消<rt>き</rt></ruby>える",de:"Feuer erlischt"},
+    {form:"他動",verb:"<ruby>火<rt>ひ</rt></ruby>を<ruby>消<rt>け</rt></ruby>す",de:"Feuer löschen"},
+    {form:"自動",verb:"<ruby>火<rt>ひ</rt></ruby>がつく",de:"Feuer geht an"},
+    {form:"他動",verb:"<ruby>火<rt>ひ</rt></ruby>をつける",de:"Feuer anzünden"}
+  ], ex:[
+    {jp:"ガスコンロの<ruby>火<rt>ひ</rt></ruby>がついていたら、<ruby>消<rt>け</rt></ruby>しましょう。 [Buch L2]",de:"When the gas flame is on, let's turn it off."},
+    {jp:"<ruby>閉<rt>し</rt></ruby>まっているドアや<ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けてください。 [Buch L2]",de:"Please open the closed doors and windows."}
+  ], note:"💡 Memory aid: が = passiv, »passiert mir«. を = aktiv, »ich tue es«. ⚠️ Häufiger Anfängerfehler: ドアを開く (FALSCH!) → richtig: ドアが開く (Tür geht auf) oder ドアを開ける (Tür öffnen). verbpaare am besten zusammen lernen."},
+  {l:2, t:"V(よ)うとしても、〜ない", de:"even if I try to …, it doesn't work", rule:"Even if I try to V, it doesn't work. V<sub>マス</sub>-stem + ようがない = \"no way to V\".", conj:[
+    {form:"Gr.I",verb:"<ruby>書<rt>か</rt></ruby>こうとしても、<ruby>書<rt>か</rt></ruby>けない",de:"versuche zu schreiben, klappt nicht"},
+    {form:"Gr.II",verb:"<ruby>食<rt>た</rt></ruby>べようとしても、<ruby>食<rt>た</rt></ruby>べられない",de:"versuche zu essen, schaffe es nicht"},
+    {form:"する",verb:"しようとしても、できない",de:"versuche es zu tun, schaffe es nicht"},
+    {form:"来る",verb:"<ruby>来<rt>こ</rt></ruby>ようとしても、<ruby>来<rt>こ</rt></ruby>られない",de:"versuche zu kommen, kann nicht"}
+  ], ex:[
+    {jp:"<ruby>寝<rt>ね</rt></ruby>ようとしても、<ruby>眠<rt>ねむ</rt></ruby>れない。",de:"Even though I want to sleep, I can't fall asleep."},
+    {jp:"ドアを<ruby>開<rt>あ</rt></ruby>けようとしても、<ruby>開<rt>あ</rt></ruby>かない。 [Buch L2]",de:"Even when I try to open the door, it won't open."},
+    {jp:"ガスをつけようとしても、つかない。 [Buch L2]",de:"Even when I try to turn on the gas, it won't come on."}
+  ], note:"💡 Rule of thumb: Attempt at front (volitional), failure at back (negation). Often with 自動詞 in main clause: ドアを開けようとしても、開かない (try → transitive / fails → intransitive)."},
+  {l:2, t:"〜のは〜だ (Hervorhebung)", de:"What/who/when … is Y", rule:"Cleft sentence (focus). V<sub>普通形</sub> + のは + X + だ = \"What/Who/When V is X\" (focus on X).", conj:[
+    {form:"Connection",verb:"V<sub>普通形</sub> + のは + X + だ",de:"Was/Wer/Wo … ist X"},
+    {form:"Hervorhebung Wer",verb:"<ruby>窓<rt>まど</rt></ruby>を<ruby>割<rt>わ</rt></ruby>ったのは<ruby>弟<rt>おとうと</rt></ruby>だ",de:"Wer das Fenster zerbrochen hat → mein Bruder"},
+    {form:"Hervorhebung Was",verb:"<ruby>好<rt>す</rt></ruby>きなのは<ruby>夏<rt>なつ</rt></ruby>だ",de:"Was ich mag → der Sommer"},
+    {form:"Hervorhebung Wann",verb:"<ruby>会<rt>あ</rt></ruby>ったのは<ruby>昨日<rt>きのう</rt></ruby>だ",de:"Wann ich ihn traf → yesterday"},
+    {form:"Mit な-Adj",verb:"<ruby>大切<rt>たいせつ</rt></ruby><b>な</b>のは…",de:"Was wichtig ist (な-Adj braucht な!)"}
+  ], ex:[
+    {jp:"<ruby>私<rt>わたし</rt></ruby>が<ruby>好<rt>す</rt></ruby>きなのは<ruby>夏<rt>なつ</rt></ruby>だ。",de:"What I like is summer."},
+    {jp:"<ruby>窓<rt>まど</rt></ruby>を<ruby>割<rt>わ</rt></ruby>ったのは<ruby>弟<rt>おとうと</rt></ruby>だ。",de:"The one who broke the window was my brother."},
+    {jp:"<ruby>地震<rt>じしん</rt></ruby>が<ruby>起<rt>お</rt></ruby>きた<ruby>時<rt>とき</rt></ruby>、<ruby>一番<rt>いちばん</rt></ruby><ruby>大切<rt>たいせつ</rt></ruby>なのは<ruby>慌<rt>あわ</rt></ruby>てないことだ。 [Buch L2]",de:"When an earthquake comes, the most important thing is not to panic."},
+    {jp:"<ruby>問題<rt>もんだい</rt></ruby>なのは<ruby>物価<rt>ぶっか</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いことだ。 [Buch L2]",de:"The problem is that prices are high."}
+  ], note:"💡 Highlights a sentence part. Like English \"It is X that …\". のは marks the topic, after だ = the answer."},
+  {l:2, t:"ている / てある / ておく", de:"state vs. deliberately prepared vs. do in advance", rule:"State / deliberately prepared / do in advance. て+いる (state), て+ある (prepared), て+おく (do in advance).", conj:[
+    {form:"自動詞 + ている (Zustand)",verb:"ドアが<ruby>開<rt>あ</rt></ruby>いている",de:"Die Tür ist offen"},
+    {form:"他動詞 + てある (vorbereitet)",verb:"ドアが<ruby>開<rt>あ</rt></ruby>けてある",de:"Die Tür wurde absichtlich geöffnet"},
+    {form:"他動詞 + ておく (Vorbereitung)",verb:"ドアを<ruby>開<rt>あ</rt></ruby>けておく",de:"Die Tür im Voraus öffnen"}
+  ], ex:[
+    {jp:"ガスがついている。 [Buch L2]",de:"The gas is on. (state)"},
+    {jp:"<ruby>棚<rt>たな</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>に<ruby>物<rt>もの</rt></ruby>が<ruby>置<rt>お</rt></ruby>いてある。 [Buch L2]",de:"Things have been intentionally placed on the shelf."},
+    {jp:"<ruby>水<rt>みず</rt></ruby>や<ruby>食料<rt>しょくりょう</rt></ruby>を<ruby>用意<rt>ようい</rt></ruby>しておく。 [Buch L2]",de:"Have water and food ready in advance (for emergencies)."}
+  ], note:"💡 Rule of thumb: Look at who/what is subject! ている with が = simple state. てある with が = someone did it deliberately. ておく with を = I prepare something. Book tip: In earthquake context, it's about safety preparation — so lots of ておく."},
+  {l:3, t:"V[<ruby>普通形<rt>ふつうけい</rt></ruby>] + ような N", de:"an N like one sees with … / one that …", rule:"A type / category. ような = \"an N like one sees with ...\" or \"a type that ...\".", conj:[
+    {form:"V辞書 + ような",verb:"<ruby>大人<rt>おとな</rt></ruby>が<ruby>着<rt>き</rt></ruby>るような<ruby>服<rt>ふく</rt></ruby>",de:"Kleidung wie Erwachsene tragen"},
+    {form:"Vた + ような",verb:"<ruby>夢<rt>ゆめ</rt></ruby>で<ruby>見<rt>み</rt></ruby>たような<ruby>景色<rt>けしき</rt></ruby>",de:"eine Landschaft wie aus einem Traum"},
+    {form:"Vない + ような",verb:"<ruby>見<rt>み</rt></ruby>たことがないような<ruby>料理<rt>りょうり</rt></ruby>",de:"ein Gericht, das ich noch nie gesehen habe"}
+  ], ex:[
+    {jp:"<ruby>映画<rt>えいが</rt></ruby>で<ruby>見<rt>み</rt></ruby>たような<ruby>場面<rt>ばめん</rt></ruby>だった。",de:"It war a Szene wie aus a Film."},
+    {jp:"<ruby>大人<rt>おとな</rt></ruby>が<ruby>着<rt>き</rt></ruby>るようなブランドの<ruby>服<rt>ふく</rt></ruby>を<ruby>着<rt>き</rt></ruby>ている<ruby>子<rt>こ</rt></ruby>どもが<ruby>増<rt>ふ</rt></ruby>えている。 [Buch L3]",de:"More and more children wear designer clothes like adults."},
+    {jp:"<ruby>昨日<rt>きのう</rt></ruby>あの<ruby>人<rt>ひと</rt></ruby>が<ruby>持<rt>も</rt></ruby>っていたようなかばんが<ruby>欲<rt>ほ</rt></ruby>しい。 [Buch L3]",de:"I want a bag like the one that person had yesterday."}
+  ], note:"🔄 Important comparison: V[普通]ような (action as comparison, here) vs. Nのような (noun as comparison, see last card L3). \"Eat like a king\" = 王様が食べるような / \"Like a king\" = 王様のような."},
+  {l:3, t:"Nばかり / Vてばかりいる", de:"nur N / always nur (V)en", rule:"Only / always only. しか〜ない = \"only N\" (with negative verb) / ばかり = \"always only V\".", conj:[
+    {form:"Nばかり (nur N)",verb:"お<ruby>菓子<rt>かし</rt></ruby>ばかり",de:"nur Süßigkeiten"},
+    {form:"Vて + ばかりいる (always nur)",verb:"テレビを<ruby>見<rt>み</rt></ruby>てばかりいる",de:"schaut always nur fern"}
+  ], ex:[
+    {jp:"<ruby>弟<rt>おとうと</rt></ruby>はゲームばかりしている。",de:"Mein brother spielt nur Games."},
+    {jp:"お<ruby>金<rt>かね</rt></ruby>がかかる<ruby>物<rt>もの</rt></ruby>ばかりだ。 [Buch L3]",de:"It are nur expensive things."},
+    {jp:"テレビを<ruby>見<rt>み</rt></ruby>てばかりいる。 [Buch L3]",de:"He schaut nur fern."}
+  ], note:"💡 Trick: ばかり sounds like an annoyed \"always only that!\". Almost always with critical undertone (parents to kids, complaints). Good in essays for negative tendencies."},
+  {l:3, t:"Nを<ruby>欲<rt>ほ</rt></ruby>しがる / Vマスたがる", de:"(jemand anderes) möchte gern …", rule:"(Someone else) wants ... V<sub>テ</sub>+ほしい = \"I want someone to V\". V<sub>マス</sub>-stem+たがる = \"(third person) wants to V\".", conj:[
+    {form:"ICH: Nが欲しい",verb:"<ruby>私<rt>わたし</rt></ruby>はゲーム<b>が</b><ruby>欲<rt>ほ</rt></ruby>しい",de:"ich möchte ein Spiel (mit が!)"},
+    {form:"ER/SIE: Nを欲しがる",verb:"<ruby>子<rt>こ</rt></ruby>どもはゲーム<b>を</b><ruby>欲<rt>ほ</rt></ruby>しがる",de:"das Kind möchte ein Spiel (mit を!)"},
+    {form:"ICH: Vたい",verb:"<ruby>私<rt>わたし</rt></ruby>は<ruby>食<rt>た</rt></ruby>べたい",de:"ich will essen"},
+    {form:"ER/SIE: Vたがる",verb:"<ruby>弟<rt>おとうと</rt></ruby>は<ruby>食<rt>た</rt></ruby>べたがる",de:"mein Bruder will essen"},
+    {form:"Verneinung",verb:"<ruby>食<rt>た</rt></ruby>べたがらない",de:"will nicht essen"},
+    {form:"Zustand",verb:"<ruby>欲<rt>ほ</rt></ruby>しがっている",de:"möchte gerade"}
+  ], ex:[
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもは<ruby>新<rt>あたら</rt></ruby>しいおもちゃを<ruby>欲<rt>ほ</rt></ruby>しがる。 [Buch L3]",de:"children wollen neues Spielzeug."},
+    {jp:"<ruby>大島<rt>おおしま</rt></ruby>さんは<ruby>仕事<rt>しごと</rt></ruby>がたくさんあっても、<ruby>残業<rt>ざんぎょう</rt></ruby>したがらない。 [Buch L3]",de:"Even though Ms. Oshima has a lot of work, she doesn't want to do overtime."}
+  ], note:"⚠️ MOST COMMON MISTAKE: With たがる/欲しがる, object marked with を, NOT が! In contrast to たい/ほしい. Example: 私はゲームが欲しい (が!) vs. 子どもはゲームを欲しがる (を!). Memory aid: 欲しがる has a verb suffix → behaves like a verb (with を)."},
+  {l:3, t:"つい + V<sub>テ</sub>しまう", de:"accidentally / can't resist", rule:"Accidentally / can't resist. つい + V<sub>テ</sub>しまう = \"accidentally V / can't help V\".", conj:[
+    {form:"Connection",verb:"つい + V<sub>テ</sub>しまう",de:"aus Versehen / ohne nachzudenken V"},
+    {form:"Example",verb:"つい <ruby>寝<rt>ね</rt></ruby>てしまった",de:"bin aus Versehen eingeschlafen"},
+    {form:"Example",verb:"つい <ruby>食<rt>た</rt></ruby>べてしまう",de:"esse es trotz Diät doch"},
+    {form:"Nuance",verb:"Bedauern + Selbstkritik",de:"wollte nicht, hab's aber doch getan"},
+    {form:"Related L29 Minna",verb:"Vテしまう (alleine)",de:"ohne つい: Vollendung oder Bedauern"}
+  ], ex:[
+    {jp:"つい<ruby>寝<rt>ね</rt></ruby>てしまった。",de:"I fell asleep without meaning to."},
+    {jp:"ダイエットをしているが、おいしそうなケーキを<ruby>見<rt>み</rt></ruby>ると、つい<ruby>食<rt>た</rt></ruby>べてしまう。 [Buch L3]",de:"I'm on a diet, but when I see a tasty cake, I can't help eating it."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもが<ruby>欲<rt>ほ</rt></ruby>しがる<ruby>物<rt>もの</rt></ruby>を<ruby>親<rt>おや</rt></ruby>がつい<ruby>買<rt>か</rt></ruby>ってしまう。 [Buch L3]",de:"parents kaufen unintentionally das, was children haben wollen."}
+  ], note:"💡 つい intensifies てしまう to \"couldn't resist\". Common with diets, bad habits, impulsive actions."},
+  {l:3, t:"〜（の）は〜からだ", de:"The reason X is that Y", rule:"Cleft for reason. …のは + …からだ = \"The reason X is Y\".", conj:[
+    {form:"Connection",verb:"…のは + …からだ",de:"Der Grund, warum X (ist Y)"},
+    {form:"Example",verb:"<ruby>遅<rt>おく</rt></ruby>れたのは、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まったからだ",de:"der Grund: der train hielt"},
+    {form:"Example",verb:"<ruby>病気<rt>びょうき</rt></ruby>になったのは、<ruby>働<rt>はたら</rt></ruby>きすぎたからだ",de:"krank geworden, weil zu viel gearbeitet"},
+    {form:"Comparison Plain",verb:"…ので / …から (alleine)",de:"weniger betont, ohne Hervorhebung"}
+  ], ex:[
+    {jp:"<ruby>遅<rt>おく</rt></ruby>れたのは、<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まったからだ。",de:"The reason I was late was the stopped train."},
+    {jp:"<ruby>病気<rt>びょうき</rt></ruby>になったのは、<ruby>働<rt>はたら</rt></ruby>きすぎたからだ。 [Buch L3]",de:"The reason I got sick was overwork."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもたちが<ruby>高価<rt>こうか</rt></ruby>な<ruby>物<rt>もの</rt></ruby>を<ruby>持<rt>も</rt></ruby>っているのは、<ruby>子<rt>こ</rt></ruby>どもが<ruby>欲<rt>ほ</rt></ruby>しがる<ruby>物<rt>もの</rt></ruby>を<ruby>親<rt>おや</rt></ruby>がつい<ruby>買<rt>か</rt></ruby>ってしまうからだ。 [Buch L3]",de:"The reason kids have expensive things is that parents involuntarily buy what kids want."}
+  ], note:"💡 Cleft structure for reasoning. のは = the fact, からだ = the reason. Useful for clear explanations."},
+  {l:3, t:"Nのよう / Nのような / Nのように", de:"like an N (comparison)", rule:"Development (future / past). ようになる = \"has come to V (gradual change)\". Used for changes over time.", conj:[
+    {form:"Nのようだ (Satzende)",verb:"<ruby>夏<rt>なつ</rt></ruby>のようだ",de:"es ist wie Sommer"},
+    {form:"Nのような + N",verb:"<ruby>王様<rt>おうさま</rt></ruby>のような<ruby>子<rt>こ</rt></ruby>ども",de:"ein Kind wie ein König"},
+    {form:"Nのように + V/Adj",verb:"<ruby>日本人<rt>にほんじん</rt></ruby>のように<ruby>話<rt>はな</rt></ruby>す",de:"wie ein Japaner sprechen"}
+  ], ex:[
+    {jp:"<ruby>今日<rt>きょう</rt></ruby>は<ruby>暑<rt>あつ</rt></ruby>くて、<ruby>夏<rt>なつ</rt></ruby>のようだ。 [Buch L3]",de:"Today it's hot, like summer."},
+    {jp:"<ruby>王様<rt>おうさま</rt></ruby>のような<ruby>子<rt>こ</rt></ruby>どもが<ruby>増<rt>ふ</rt></ruby>えている。 [Buch L3]",de:"Children treated like little kings are increasing."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は<ruby>日本人<rt>にほんじん</rt></ruby>のように<ruby>話<rt>はな</rt></ruby>す。 [Buch L3]",de:"He speaks like a Japanese person."}
+  ], note:"🔄 Important distinction: ① V[普通]ようなN (with action, L3 top): \"an N like someone DOES it\". ② Nのような (with noun, here): \"like an N\". ③ N₁のような N₂ (L4): \"an N₂ such as N₁\". Casual: みたい instead of のよう."},
+  {l:4, t:"V<sub>テ</sub>いく / V<sub>テ</sub>きた", de:"sich entwickeln (future / past)", rule:"Looking at table/chart, you can see … [Table/chart]で見ると、…ことがわかる. Standard formulation in essays.", conj:[
+    {form:"Vてきた (bisher passiert)",verb:"<ruby>増<rt>ふ</rt></ruby>えてきた",de:"hat zugenommen (bis now)"},
+    {form:"Vていく (wird passieren)",verb:"<ruby>増<rt>ふ</rt></ruby>えていく",de:"wird weiter zunehmen"},
+    {form:"Räumlich: weg",verb:"<ruby>歩<rt>ある</rt></ruby>いていく",de:"weggehen"},
+    {form:"Räumlich: her",verb:"<ruby>歩<rt>ある</rt></ruby>いてくる",de:"herkommen"}
+  ], ex:[
+    {jp:"<ruby>春<rt>はる</rt></ruby>になって、<ruby>暖<rt>あたた</rt></ruby>かくなってきた。",de:"With spring it got warmer."},
+    {jp:"これからも<ruby>人口<rt>じんこう</rt></ruby>は<ruby>減<rt>へ</rt></ruby>っていくでしょう。",de:"Also in the future, the population will continue to decrease."},
+    {jp:"<ruby>日本<rt>にほん</rt></ruby>を<ruby>訪<rt>おとず</rt></ruby>れる<ruby>外国人<rt>がいこくじん</rt></ruby><ruby>旅行者<rt>りょこうしゃ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>は<ruby>年々<rt>ねんねん</rt></ruby><ruby>多<rt>おお</rt></ruby>くなってきました。 [Buch L4]",de:"The number of foreign tourists visiting Japan has increased year by year."}
+  ], note:"💡 Standard phrase in essays with tables/statistics. Like a template: \"Looking at [X], you can see [Y]\"."},
+  {l:4, t:"[<ruby>表<rt>ひょう</rt></ruby>/グラフ]で<ruby>見<rt>み</rt></ruby>ると、〜ことがわかる", de:"From the table/chart you can see that …", rule:"Example. N₁のような + N₂ = \"an N₂ such as N₁\" (N₁ is a concrete example of category N₂).", conj:[
+    {form:"Connection",verb:"[Tabelle/Grafik]で <ruby>見<rt>み</rt></ruby>ると、…ことがわかる",de:"in der Tabelle sieht man, dass …"},
+    {form:"Mit verb",verb:"…V<sub>普通形</sub>ことがわかる",de:"man erkennt, dass V"},
+    {form:"Mit Noun",verb:"…Nであることがわかる",de:"man erkennt, dass es N ist"},
+    {form:"Example",verb:"グラフで<ruby>見<rt>み</rt></ruby>ると、<ruby>毎年<rt>まいとし</rt></ruby><ruby>増<rt>ふ</rt></ruby>えている<b>ことがわかる</b>",de:"in der Grafik sieht man: jedes year Zunahme"}
+  ], ex:[
+    {jp:"グラフで<ruby>見<rt>み</rt></ruby>ると、<ruby>毎年<rt>まいとし</rt></ruby><ruby>増<rt>ふ</rt></ruby>えていることがわかる。",de:"Looking at the chart, you can see it increases yearly."},
+    {jp:"<ruby>表<rt>ひょう</rt></ruby>で<ruby>見<rt>み</rt></ruby>ると、「<ruby>日本人<rt>にほんじん</rt></ruby>が<ruby>親切<rt>しんせつ</rt></ruby>」のポイントが<ruby>高<rt>たか</rt></ruby>いことがわかる。 [Buch L4]",de:"From the table, you can see that scores for 'Japanese are friendly' are high."},
+    {jp:"グラフで<ruby>見<rt>み</rt></ruby>ると、<ruby>朝食<rt>ちょうしょく</rt></ruby>をとらない<ruby>人<rt>ひと</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>えたことがわかる。 [Buch L4]",de:"Looking at the chart, you can see more people skip breakfast."}
+  ], note:"💡 N₁ is a concrete EXAMPLE of category N₂. Three ような forms: action (V) / like an N / example."},
+  {l:4, t:"N₁のような N₂", de:"an N₂ such as N₁", rule:"Comparison. X is not as … as Y. X は Y ほど Adj-ない.", conj:[
+    {form:"Connection",verb:"N₁のような + N₂",de:"ein N₂ wie e.g. N₁"},
+    {form:"Example",verb:"すしのような<ruby>日本料理<rt>にほんりょうり</rt></ruby>",de:"japanisches Essen, wie e.g. Sushi"},
+    {form:"Example",verb:"<ruby>富士山<rt>ふじさん</rt></ruby>のような<ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>山<rt>やま</rt></ruby>",de:"famouse Berge, wie e.g. der Fuji"},
+    {form:"Comparison (L3)",verb:"V<sub>普通形</sub>ような N",de:"eine Aktion als Comparison"},
+    {form:"Comparison (L3)",verb:"Nのような (alleine)",de:"wie ein N (generale Comparison)"}
+  ], ex:[
+    {jp:"すしのような<ruby>日本料理<rt>にほんりょうり</rt></ruby>が<ruby>外国<rt>がいこく</rt></ruby>でも<ruby>人気<rt>にんき</rt></ruby>です。",de:"Japanische Gerichte wie Sushi are also im Ausland beliebt."},
+    {jp:"<ruby>富士山<rt>ふじさん</rt></ruby>のような<ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>山<rt>やま</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>りたい。",de:"I want to climb famous mountains like Mt. Fuji."},
+    {jp:"インターネットで「<ruby>天気予報<rt>てんきよほう</rt></ruby>」のような<ruby>生活<rt>せいかつ</rt></ruby>に<ruby>必要<rt>ひつよう</rt></ruby>な<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>調<rt>しら</rt></ruby>べます。 [Buch L4]",de:"On the internet, people look up information important for life, like the weather forecast."}
+  ], note:"⚠️ Important: Y is the standard (= more), X is less. Order reversed from English \"not as cold as\"."},
+  {l:4, t:"X は Y ほど 〜ない", de:"X is not as … as Y", rule:"All comparison structures. より, ほど, ほうが, 一番.", conj:[
+    {form:"Connection",verb:"X は Y ほど Adj-ない",de:"X ist nicht so Adj wie Y"},
+    {form:"Example",verb:"<ruby>東京<rt>とうきょう</rt></ruby>は<ruby>北海道<rt>ほっかいどう</rt></ruby>ほど<ruby>寒<rt>さむ</rt></ruby>くない",de:"Tokyo ist nicht so kalt wie Hokkaido"},
+    {form:"Example",verb:"A はB ほど<ruby>難<rt>むずか</rt></ruby>しくない",de:"A ist nicht so schwer wie B"},
+    {form:"⚠️ Reihenfolge",verb:"X (weniger) → Y (Standard) → ほど → Negation",de:"X kleiner als Y!"}
+  ], ex:[
+    {jp:"<ruby>東京<rt>とうきょう</rt></ruby>は<ruby>北海道<rt>ほっかいどう</rt></ruby>ほど<ruby>寒<rt>さむ</rt></ruby>くない。",de:"Tokyo is not as cold as Hokkaido."},
+    {jp:"<ruby>私<rt>わたし</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>は<ruby>彼<rt>かれ</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>ほど<ruby>大<rt>おお</rt></ruby>きくない。",de:"My house is not as big as his."},
+    {jp:"あの<ruby>兄弟<rt>きょうだい</rt></ruby>はよく<ruby>勉強<rt>べんきょう</rt></ruby>ができるが、<ruby>弟<rt>おとうと</rt></ruby>は<ruby>兄<rt>あに</rt></ruby>ほどまじめじゃありません。 [Buch L4]",de:"These siblings do well in school, but the younger brother isn't as diligent as the older one."}
+  ], note:"⚠️ Important: Y is the standard (= more), X is less. Order reversed from English \"not as cold as\"."},
+  {l:4, t:"<ruby>比較<rt>ひかく</rt></ruby> — Vergleichsformen Übersicht", de:"Alle wichtigen Comparisonsstrukturen", rule:"Adjective → noun \"the X-ness\". い-Adj drop い + さ: 高い→高さ (height), 大きい→大きさ (size).", conj:[
+    {form:"Was am besten?",verb:"<ruby>何<rt>なに</rt></ruby>が<ruby>一番<rt>いちばん</rt></ruby><ruby>好<rt>す</rt></ruby>き",de:"Was magst du am liebsten?"},
+    {form:"A is more als B",verb:"A は B より<ruby>多<rt>おお</rt></ruby>い",de:"A is more als B"},
+    {form:"A oder B?",verb:"AとBとどちらが<ruby>好<rt>す</rt></ruby>き",de:"A oder B — was magst du lieber?"},
+    {form:"B ist lieber",verb:"Bのほうが<ruby>好<rt>す</rt></ruby>き",de:"B mag ich lieber"},
+    {form:"Beide gleich",verb:"どちらも<ruby>好<rt>す</rt></ruby>き",de:"Beide mag ich gleich"},
+    {form:"A ist nicht so wie B",verb:"A は B ほど〜ない",de:"A ist nicht so wie B"}
+  ], ex:[
+    {jp:"<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>で<ruby>何<rt>なに</rt></ruby>が<ruby>一番<rt>いちばん</rt></ruby><ruby>好<rt>す</rt></ruby>きですか。— オレンジジュースが<ruby>一番<rt>いちばん</rt></ruby><ruby>好<rt>す</rt></ruby>きです。 [Buch L4]",de:"What's your favorite drink? — Orange juice."},
+    {jp:"コーヒーと<ruby>紅茶<rt>こうちゃ</rt></ruby>とどちらが<ruby>好<rt>す</rt></ruby>きですか。— コーヒーのほうが<ruby>好<rt>す</rt></ruby>きです。 [Buch L4]",de:"Kaffee or Tee? — Kaffee mag I rather."},
+    {jp:"<ruby>中国<rt>ちゅうごく</rt></ruby>はアメリカより<ruby>人口<rt>じんこう</rt></ruby>が<ruby>多<rt>おお</rt></ruby>い。 [Buch L4]",de:"China has more inhabitants than the USA."}
+  ], note:"💡 Rule of thumb: Which question? どちらが (which of two) → のほうが as answer. 何が一番 (what most) → 〜が一番 as answer. AはBより = A is more than B. AはBほど〜ない = A is less than B."},
+  {l:5, t:"A/Naさ (Nominalisierung)", de:"adjective becomes noun: \"the X-ness\"", rule:"Listing in written style. 〜たり〜たりする for actions, ばかりでなく for \"not only\".", conj:[
+    {form:"い-Adj: い → さ",verb:"<ruby>長<rt>なが</rt></ruby>い → <ruby>長<rt>なが</rt></ruby>さ",de:"long → die Länge"},
+    {form:"Special case いい!",verb:"いい → よさ",de:"well → die Güte (NOT いさ)"},
+    {form:"い-Adj",verb:"<ruby>高<rt>たか</rt></ruby>い → <ruby>高<rt>たか</rt></ruby>さ",de:"hoch → die Höhe"},
+    {form:"な-Adj: + さ",verb:"<ruby>便利<rt>べんり</rt></ruby> → <ruby>便利<rt>べんり</rt></ruby>さ",de:"praktisch → Praktikabilität"}
+  ], ex:[
+    {jp:"この<ruby>山<rt>やま</rt></ruby>の<ruby>高<rt>たか</rt></ruby>さは<ruby>3000<rt>さんぜん</rt></ruby>メートルです。",de:"This mountain's height is 3000 m."},
+    {jp:"インターネットはとても<ruby>便利<rt>べんり</rt></ruby>だ。しかし、その<ruby>便利<rt>べんり</rt></ruby>さには<ruby>危険<rt>きけん</rt></ruby>もある。 [Buch L5]",de:"The internet is very useful. But this convenience also brings dangers."},
+    {jp:"<ruby>睡眠時間<rt>すいみんじかん</rt></ruby>が<ruby>減少<rt>げんしょう</rt></ruby>しているのは<ruby>通勤時間<rt>つうきんじかん</rt></ruby>の<ruby>長<rt>なが</rt></ruby>さが<ruby>原因<rt>げんいん</rt></ruby>だ。 [Buch L5]",de:"Sleep time decreasing is due to the length of commute."}
+  ], note:"⚠️ Special case: いい → よさ (NOT いさ!). With いい the stem becomes よ-. 🔄 Related ending: -み (more subjective/emotional). 楽しさ = measurable joy / 楽しみ = the pleasure one looks forward to."},
+  {l:5, t:"<ruby>連用<rt>れんよう</rt></ruby><ruby>中止<rt>ちゅうし</rt></ruby> — Aufzählung im Schriftstil", de:"Connect sentences with ます-stem (written)", rule:"Tendency. ~がちだ = \"tend to ...\" (often negative tendency). ~気味 = \"a touch of ...\".", conj:[
+    {form:"verb: ます-Stamm + 、",verb:"<ruby>起<rt>お</rt></ruby>き、<ruby>食<rt>た</rt></ruby>べる",de:"aufstehen, essen (Schrift)"},
+    {form:"= gesprochen mit て",verb:"<ruby>起<rt>お</rt></ruby>きて、<ruby>食<rt>た</rt></ruby>べる",de:"(gleiche Bedeutung)"},
+    {form:"い-Adj: -く + 、",verb:"<ruby>多<rt>おお</rt></ruby>く、<ruby>良<rt>よ</rt></ruby>い",de:"viel, well"},
+    {form:"な-Adj: で + 、",verb:"<ruby>静<rt>しず</rt></ruby>かで、きれい",de:"ruhig, beautiful"}
+  ], ex:[
+    {jp:"<ruby>朝<rt>あさ</rt></ruby><ruby>起<rt>お</rt></ruby>き、<ruby>顔<rt>かお</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>う。",de:"Tomorrow morning, get up and wash. (written form)"},
+    {jp:"<ruby>今年<rt>ことし</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>多<rt>おお</rt></ruby>く、<ruby>非常<rt>ひじょう</rt></ruby>に<ruby>蒸<rt>む</rt></ruby>し<ruby>暑<rt>あつ</rt></ruby>い。 [Buch L5]",de:"This summer has lots of rain and is very humid."},
+    {jp:"<ruby>睡眠時間<rt>すいみんじかん</rt></ruby>が<ruby>減少<rt>げんしょう</rt></ruby>し、<ruby>体<rt>からだ</rt></ruby>の<ruby>不調<rt>ふちょう</rt></ruby>を<ruby>訴<rt>うった</rt></ruby>える<ruby>人<rt>ひと</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>えている。 [Buch L5]",de:"Sleep time is decreasing and there are more people with physical complaints."}
+  ], note:"💡 Rule of thumb: In essays/reports use 連用中止, in conversation ALWAYS te-form. Stylistically more mature and compact. Trick: Mentally replace te-form with ます-stem."},
+  {l:5, t:"〜ものだ", de:"that's just how it is / one does/should (general)", rule:"もの vs. こと: concrete vs. abstract.", conj:[
+    {form:"Vる + ものだ",verb:"<ruby>人<rt>ひと</rt></ruby>は<ruby>疲<rt>つか</rt></ruby>れれば<ruby>眠<rt>ねむ</rt></ruby>くなるものだ",de:"Menschen werden müde (so ist das)"},
+    {form:"Aい + ものだ",verb:"<ruby>時間<rt>じかん</rt></ruby>が<ruby>経<rt>た</rt></ruby>つのは<ruby>早<rt>はや</rt></ruby>いものだ",de:"die Zeit vergeht schnell (Lebensweisheit)"},
+    {form:"Naな + ものだ",verb:"<ruby>残業<rt>ざんぎょう</rt></ruby>は<ruby>嫌<rt>いや</rt></ruby>なものだ",de:"Überstunden sind unangenehm (so ist das nun mal)"}
+  ], ex:[
+    {jp:"<ruby>赤<rt>あか</rt></ruby>ちゃんは<ruby>泣<rt>な</rt></ruby>くものだ。",de:"Babys weinen halt (das gehört so)."},
+    {jp:"<ruby>人<rt>ひと</rt></ruby>は<ruby>疲<rt>つか</rt></ruby>れれば、<ruby>自然<rt>しぜん</rt></ruby>に<ruby>眠<rt>ねむ</rt></ruby>くなるものです。 [Buch L5]",de:"When people are tired, they naturally sleep (that's how it is)."},
+    {jp:"<ruby>残業<rt>ざんぎょう</rt></ruby>が<ruby>続<rt>つづ</rt></ruby>くのは<ruby>嫌<rt>いや</rt></ruby>なものだ。 [Buch L5]",de:"Anhaltende overtime are nun mal unangenehm."}
+  ], note:"💡 もの (concrete things, emotions) vs. こと (abstract concepts, facts)."},
+  {l:5, t:"「もの」と「こと」の<ruby>整理<rt>せいり</rt></ruby>", de:"もの vs. こと: concrete vs. abstract", rule:"Hearsay (reported speech). Plain form + ということだ = \"they say / it's said that V\".", conj:[
+    {form:"もの (konkretes Ding)",verb:"<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>",de:"Essen (etwas Greifbares)"},
+    {form:"こと (Aktivität, abstrakt)",verb:"<ruby>食<rt>た</rt></ruby>べることが<ruby>好<rt>す</rt></ruby>き",de:"gerne essen (Aktivität)"},
+    {form:"もの (Charakteristik)",verb:"<ruby>人<rt>ひと</rt></ruby>は<ruby>疲<rt>つか</rt></ruby>れるもの",de:"so ist das halt"},
+    {form:"こと (Erfahrung)",verb:"<ruby>行<rt>い</rt></ruby>ったことがある",de:"schon mal gewesen sein"}
+  ], ex:[
+    {jp:"<ruby>人<rt>ひと</rt></ruby>は<ruby>疲<rt>つか</rt></ruby>れれば、<ruby>自然<rt>しぜん</rt></ruby>に<ruby>眠<rt>ねむ</rt></ruby>くなるものです。 [Buch L5]",de:"People get tired when they're exhausted (that's how it is)."},
+    {jp:"<ruby>趣味<rt>しゅみ</rt></ruby>は<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>ることです。 [Buch L5]",de:"My hobby is watching movies."}
+  ], note:"⚠️ ONLY for hearsay, NOT for own conclusions. Related: そうだ (shorter), らしい (apparently). For な-Adj/N → だ + ということだ."},
+  {l:5, t:"〜ということだ (Hörensagen)", de:"it is said that … / they say that …", rule:"Long sentences (intermediate style). Combine multiple structures for mature sentences!", conj:[
+    {form:"verb",verb:"V<sub>普通形</sub> + ということだ",de:"man sagt, dass V (Hörensagen)"},
+    {form:"い-Adj",verb:"い-Adj + ということだ",de:"man sagt, dass …"},
+    {form:"な-Adj",verb:"な-Adj<b>だ</b> + ということだ",de:"だ required!"},
+    {form:"Noun",verb:"N<b>だ</b> + ということだ",de:"だ required!"},
+    {form:"With source",verb:"〜によると、…ということだ",de:"laut [Quelle] heißt es, dass …"},
+    {form:"Example",verb:"テレビによると、<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<b>ということだ</b>",de:"laut TV: tomorrow Regen"}
+  ], ex:[
+    {jp:"テレビによると、<ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るということだ。",de:"Laut TV heißt it, that it tomorrow regnen will."},
+    {jp:"メールによると、<ruby>彼<rt>かれ</rt></ruby>は<ruby>今<rt>いま</rt></ruby>インドネシアにいるということだ。 [Buch L5]",de:"According to the email, he's just in Indonesia."},
+    {jp:"ある<ruby>医者<rt>いしゃ</rt></ruby>の<ruby>話<rt>はなし</rt></ruby>によると、<ruby>睡眠時間<rt>すいみんじかん</rt></ruby>は<ruby>5時間<rt>ごじかん</rt></ruby>で<ruby>十分<rt>じゅうぶん</rt></ruby>だということです。 [Buch L5]",de:"Laut a Arzt heißt it, that 5 hours Schlaf ausreichen."}
+  ], note:"💡 Essay tip: Combine multiple structures! ① たり、たり = list actions / ② で = reason / ③ し = multiple reasons / ④ 〜て、〜て = sequence."},
+  {l:5, t:"<ruby>長<rt>なが</rt></ruby>い<ruby>文<rt>ぶん</rt></ruby>の<ruby>練習<rt>れんしゅう</rt></ruby>", de:"Lange Sätze (Mittelstufen-Stil)", rule:"Creator passive (with によって). N(creator)+によって + V<sub>受身</sub> = \"V was done by N (creator/builder)\".", conj:[
+    {form:"Mehrere Strukturen kombinieren",verb:"— typisch Mittelstufe",de:"—"},
+    {form:"たり、たりして",verb:"Aufzählung von Aktionen",de:"mal A, mal B …"},
+    {form:"で",verb:"Grund/Ursache",de:"wegen X passiert Y"},
+    {form:"し",verb:"mehrere Gründe",de:"X ist so, und Y ist auch so"},
+    {form:"て、て",verb:"Reihenfolge / Verkettung",de:"erst A, dann B, dann C"}
+  ], ex:[
+    {jp:"これはよく<ruby>寝<rt>ね</rt></ruby>られる<ruby>一番<rt>いちばん</rt></ruby>いい<ruby>方法<rt>ほうほう</rt></ruby>です。 [Buch L5]",de:"This is the best way to sleep well."},
+    {jp:"<ruby>夜<rt>よる</rt></ruby>なかなか<ruby>寝<rt>ね</rt></ruby>られなかったり、<ruby>夜中<rt>よなか</rt></ruby>に<ruby>何回<rt>なんかい</rt></ruby>も<ruby>目<rt>め</rt></ruby>が<ruby>覚<rt>さ</rt></ruby>めたりして、<ruby>医者<rt>いしゃ</rt></ruby>に<ruby>相談<rt>そうだん</rt></ruby>する<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>くなっています。 [Buch L5]",de:"There are more people consulting doctors because they can't sleep at night or wake up multiple times."},
+    {jp:"<ruby>夜遅<rt>よるおそ</rt></ruby>くまで<ruby>活動<rt>かつどう</rt></ruby>することや、<ruby>通勤時間<rt>つうきんじかん</rt></ruby>の<ruby>長<rt>なが</rt></ruby>さが<ruby>原因<rt>げんいん</rt></ruby>で、<ruby>睡眠時間<rt>すいみんじかん</rt></ruby>が<ruby>減少<rt>げんしょう</rt></ruby>し、<ruby>体<rt>からだ</rt></ruby>の<ruby>不調<rt>ふちょう</rt></ruby>を<ruby>訴<rt>うった</rt></ruby>える<ruby>人<rt>ひと</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>えています。 [Buch L5]",de:"Due to late activities and long commutes, sleep time is decreasing and more people have physical complaints."}
+  ], note:"⚠️ によって has 3 meanings! ① Creator (in passive) ② Depending on (L8) ③ By means of (L10). Recognize by main verb!"},
+  {l:6, t:"Nによって [<ruby>受身<rt>うけみ</rt></ruby>]", de:"by N (creator/author in passive)", rule:"Reason (with verb/noun). V<sub>普通形</sub>/N + ため(に) = \"because of V/N\". For past events: Vた + ため.", conj:[
+    {form:"Connection",verb:"N(Schöpfer)によって + V<sub>受身</sub>",de:"by N, V was done"},
+    {form:"Example",verb:"この<ruby>絵<rt>え</rt></ruby>はピカソ<b>によって</b><ruby>描<rt>か</rt></ruby>かれた",de:"painting was painted by Picasso"},
+    {form:"Example",verb:"インスタントコーヒーは<ruby>日本人<rt>にほんじん</rt></ruby><b>によって</b><ruby>発明<rt>はつめい</rt></ruby>された",de:"Instantkaffee wurde von einem Japaner erfunden"},
+    {form:"⚠️ Comparison",verb:"に (normaler Verursacher)",de:"für direkte Beziehungen"}
+  ], ex:[
+    {jp:"この<ruby>絵<rt>え</rt></ruby>はピカソによって<ruby>描<rt>か</rt></ruby>かれた。",de:"This painting was painted by Picasso."},
+    {jp:"インスタントコーヒーは<ruby>日本人<rt>にほんじん</rt></ruby>によって<ruby>発明<rt>はつめい</rt></ruby>された。 [Buch L6]",de:"Instant coffee was invented by a Japanese person."},
+    {jp:"これは<ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>政治家<rt>せいじか</rt></ruby>によって<ruby>書<rt>か</rt></ruby>かれた<ruby>本<rt>ほん</rt></ruby>ですが、<ruby>全然<rt>ぜんぜん</rt></ruby><ruby>売<rt>う</rt></ruby>れません。 [Buch L6]",de:"That's a book written by a famous politician, but it doesn't sell at all."}
+  ], note:"💡 ため has 2 meanings: ① reason (here) ② purpose (next card). With past form (Vた + ため) → clearly reason."},
+  {l:6, t:"〜ため (に) — Grund", de:"because of / due to", rule:"Reason vs. purpose — overview. ため = reason or purpose. ように = purpose. のために = for the sake of.", conj:[
+    {form:"verb (Grund)",verb:"V<sub>普通形</sub> + ため(に)",de:"because of V"},
+    {form:"Vタ (past)",verb:"V<sub>タ</sub> + ため(に)",de:"weil V passiert ist"},
+    {form:"Noun",verb:"Nの + ため(に)",de:"because of N"},
+    {form:"Example",verb:"<ruby>雪<rt>ゆき</rt></ruby><b>のため</b>、<ruby>飛行機<rt>ひこうき</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れた",de:"wegen Schnee Flug verspätet"},
+    {form:"Example",verb:"<ruby>病気<rt>びょうき</rt></ruby><b>になったため</b>、<ruby>休<rt>やす</rt></ruby>んだ",de:"krank geworden, daher gefehlt"},
+    {form:"Comparison Stil",verb:"ため > ので > から",de:"formal → casual"}
+  ], ex:[
+    {jp:"<ruby>雪<rt>ゆき</rt></ruby>のため、<ruby>飛行機<rt>ひこうき</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れた。",de:"The plane was delayed due to snow."},
+    {jp:"<ruby>病気<rt>びょうき</rt></ruby>のため(に)、<ruby>入学試験<rt>にゅうがくしけん</rt></ruby>が<ruby>受<rt>う</rt></ruby>けられなかった。 [Buch L6]",de:"I couldn't take the entrance exam due to illness."},
+    {jp:"コーヒーはあまり<ruby>飲<rt>の</rt></ruby>まれていなかったため(に)、<ruby>注目<rt>ちゅうもく</rt></ruby>されなかった。 [Buch L6]",de:"Da Kaffee not much getrunken was, was he not beachtet."}
+  ], note:"💡 ため hat 2 Bedeutungen: ① Grund (here) ② Zweck (siehe nächste Karte). Bei pasts-Form (Vた + ため) → eindeutig Grund."},
+  {l:6, t:"〜ため(に) — Übersicht: Grund vs. Zweck", de:"wegen vs. damit", rule:"As it is / staying in a state. ~まま = \"in the state of ...\". そのまま = \"as it is\", 起きたまま = \"while standing\".", conj:[
+    {form:"Grund: Vた + ため",verb:"<ruby>遅<rt>おく</rt></ruby>れたため",de:"weil ich verspätet war"},
+    {form:"Grund: Nの + ため",verb:"<ruby>雨<rt>あめ</rt></ruby>のため",de:"wegen Regen"},
+    {form:"Zweck: V辞書 + ために",verb:"<ruby>合格<rt>ごうかく</rt></ruby>するために",de:"um zu bestehen"},
+    {form:"Zweck: Nの + ために",verb:"<ruby>家族<rt>かぞく</rt></ruby>のために",de:"für die Familie"}
+  ], ex:[
+    {jp:"[Grund] レポートを<ruby>提出<rt>ていしゅつ</rt></ruby>しなかったため(に)、<ruby>単位<rt>たんい</rt></ruby>が<ruby>取<rt>と</rt></ruby>れなかった。 [Buch L6]",de:"Because I den report not eingereicht have, have I no Credits bekommen."},
+    {jp:"[Zweck] この<ruby>仕事<rt>しごと</rt></ruby>をするため(に)、<ruby>必要<rt>ひつよう</rt></ruby>な<ruby>資格<rt>しかく</rt></ruby>を<ruby>取<rt>と</rt></ruby>らなければならない。 [Buch L6]",de:"Um diese work zu do, must I notwendige Qualifikationen erwerben."}
+  ], note:"💡 Rule of thumb: Schau aufs verb! past/Zustand → GRUND. Wille (V辞書) → ZWECK. ⚠️ Bei nicht-willentlichen verbs (分かる verstehen, できる können) → ように statt ために! Example: 日本語が話せるようになるため (NOT 〜ために)."},
+  {l:6, t:"〜まま", de:"as it is / remaining in state", rule:"I used to ... (recollection). Vタ + ものだ = \"used to V (often, in the past)\".", conj:[
+    {form:"Vた + まま",verb:"<ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けたまま",de:"bei offenem Fenster"},
+    {form:"Vない + まま",verb:"<ruby>食<rt>た</rt></ruby>べないまま",de:"without eating"},
+    {form:"Aい + まま",verb:"<ruby>新<rt>あたら</rt></ruby>しいまま",de:"wie neu"},
+    {form:"Naな + まま",verb:"<ruby>静<rt>しず</rt></ruby>かなまま",de:"ruhig wie es ist"},
+    {form:"Nの + まま",verb:"<ruby>昔<rt>むかし</rt></ruby>のまま",de:"wie früher"},
+    {form:"Demonstrativ",verb:"そのまま",de:"so wie es ist"}
+  ], ex:[
+    {jp:"テレビをつけたまま<ruby>寝<rt>ね</rt></ruby>てしまった。",de:"I fell asleep with the TV on."},
+    {jp:"この<ruby>間<rt>あいだ</rt></ruby><ruby>買<rt>か</rt></ruby>ったシャツはまだ<ruby>着<rt>き</rt></ruby>ていないから、<ruby>新<rt>あたら</rt></ruby>しいままだ。 [Buch L6]",de:"I haven't worn the recently bought shirt yet, so it's still like new."},
+    {jp:"<ruby>靴<rt>くつ</rt></ruby>を<ruby>脱<rt>ぬ</rt></ruby>がないで、そのままお<ruby>入<rt>はい</rt></ruby>りください。 [Buch L6]",de:"Please come in without taking off your shoes."}
+  ], note:"⚠️ Don't confuse with ものだ from L5! V<sub>タ</sub>ものだ = recollection / V<sub>普通形</sub>ものだ = general truth. Tense decides!"},
+  {l:7, t:"V<sub>タ</sub>ものだ", de:"I used to often … (recollection)", rule:"As (function/role/example). N + として = \"as (in the function/role of)\".", conj:[
+    {form:"Connection",verb:"V<sub>タ</sub> + ものだ",de:"früher (often) habe ich V getan (Erinnerung)"},
+    {form:"Example",verb:"<ruby>学生<rt>がくせい</rt></ruby>の<ruby>頃<rt>ころ</rt></ruby>、よく<ruby>図書館<rt>としょかん</rt></ruby>で<ruby>勉強<rt>べんきょう</rt></ruby><b>したものだ</b>",de:"als student lernte ich often in der Bib"},
+    {form:"Example",verb:"<ruby>子<rt>こ</rt></ruby>どもの<ruby>時<rt>とき</rt></ruby>、よく<ruby>川<rt>かわ</rt></ruby>で<ruby>遊<rt>あそ</rt></ruby><b>んだものだ</b>",de:"als Kind spielte ich often im Fluss"},
+    {form:"⚠️ Comparison (L5)",verb:"V<sub>普通形</sub>ものだ",de:"that is halt so (Wahrheit)"}
+  ], ex:[
+    {jp:"<ruby>学生<rt>がくせい</rt></ruby>の<ruby>頃<rt>ころ</rt></ruby>、よく<ruby>図書館<rt>としょかん</rt></ruby>で<ruby>勉強<rt>べんきょう</rt></ruby>したものだ。",de:"As a student, I often studied in the library."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもの<ruby>時<rt>とき</rt></ruby>、よく<ruby>川<rt>かわ</rt></ruby>で<ruby>遊<rt>あそ</rt></ruby>んだものだ。 [Buch L7]",de:"Als Kind have I often im Fluss gespielt."},
+    {jp:"<ruby>以前<rt>いぜん</rt></ruby>は<ruby>古<rt>ふる</rt></ruby>くなった<ruby>物<rt>もの</rt></ruby>はすぐ<ruby>捨<rt>す</rt></ruby>てたものだ。 [Buch L7]",de:"Früher have we alte things immediately weggeworfen."}
+  ], note:"💡 として = \"in the function as\". Three meanings: position (student), example (one of many), qualification (expert)."},
+  {l:7, t:"〜として", de:"als (Position/Rolle/Example)", rule:"Even though one says X — actually Y. V/Adj/N + といっても = \"even if you say X, actually Y\".", conj:[
+    {form:"Connection",verb:"N + として",de:"als (Funktion/Rolle/Example)"},
+    {form:"Position",verb:"<ruby>留学生<rt>りゅうがくせい</rt></ruby>として<ruby>来<rt>き</rt></ruby>た",de:"kam als Austauschstudent"},
+    {form:"Example",verb:"<ruby>一<rt>ひと</rt></ruby>つとして…",de:"als ein Example …"},
+    {form:"Qualifikation",verb:"<ruby>専門家<rt>せんもんか</rt></ruby>として",de:"als Experte"},
+    {form:"Comparison",verb:"について (Thema)",de:"\"als\" vs. \"over\" — verwechseln nicht!"}
+  ], ex:[
+    {jp:"<ruby>私<rt>わたし</rt></ruby>は<ruby>留学生<rt>りゅうがくせい</rt></ruby>として<ruby>日本<rt>にほん</rt></ruby>へ<ruby>来<rt>き</rt></ruby>た。 [Buch L7]",de:"I came to Japan as an exchange student."},
+    {jp:"<ruby>趣味<rt>しゅみ</rt></ruby>として<ruby>絵<rt>え</rt></ruby>を<ruby>描<rt>か</rt></ruby>いている。",de:"Als Hobby male I Bilder."},
+    {jp:"リサイクル<ruby>運動<rt>うんどう</rt></ruby>の<ruby>一<rt>ひと</rt></ruby>つとしてフリーマーケットがある。 [Buch L7]",de:"As a form of recycling movement, there are flea markets."}
+  ], note:"💡 Corrects an exaggerated expectation. \"Sounds like X, but actually not quite\". Useful to avoid misunderstandings."},
+  {l:7, t:"〜といっても", de:"even though one says X — actually Y", rule:"Rather V₂ than V₁. V₁<sub>ル</sub>より + V₂<sub>ル</sub>ほうが Adj = \"V₂ is Adj-er than V₁\".", conj:[
+    {form:"Connection",verb:"V/Adj/N + といっても",de:"auch wenn man X sagt — eigentlich Y"},
+    {form:"Example",verb:"<ruby>夏休<rt>なつやす</rt></ruby>みといっても、<ruby>1週間<rt>いっしゅうかん</rt></ruby>だけです",de:"auch wenn \"Sommerferien\" — nur 1 week"},
+    {form:"Example",verb:"<ruby>古<rt>ふる</rt></ruby>いといっても、まだ<ruby>使<rt>つか</rt></ruby>える",de:"auch wenn \"alt\" — noch brauchbar"},
+    {form:"Mit な-Adj",verb:"な-Adj<b>だ</b> + といっても",de:"だ required!"},
+    {form:"Mit Noun",verb:"N<b>だ</b> + といっても",de:"だ required!"}
+  ], ex:[
+    {jp:"<ruby>夏休<rt>なつやす</rt></ruby>みといっても、<ruby>1週間<rt>いっしゅうかん</rt></ruby>だけです。",de:"Obwohl it Sommerferien heißt — nur a week."},
+    {jp:"<ruby>古<rt>ふる</rt></ruby>いといっても、まだ<ruby>十分<rt>じゅうぶん</rt></ruby><ruby>使<rt>つか</rt></ruby>える<ruby>物<rt>もの</rt></ruby>ばかりだ。 [Buch L7]",de:"Even if you call them 'old', they're all still useful things."},
+    {jp:"<ruby>試験<rt>しけん</rt></ruby>(だ)といっても、<ruby>10分<rt>じゅっぷん</rt></ruby>でできる。 [Buch L7]",de:"Also if man »Test« sagt, can man it in 10 minuten do."}
+  ], note:"💡 Comparison of TWO actions. Intensify with ずっと (much more) or もっと (more)."},
+  {l:7, t:"V₁<sub>ル</sub>より V₂<sub>ル</sub>ほうが〜", de:"eher V₂ als V₁", rule:"Reaction conditional. なら = \"if it's about X / in that case (reaction to topic)\".", conj:[
+    {form:"Connection",verb:"V₁<sub>ル</sub>より + V₂<sub>ル</sub>ほうが Adj",de:"V₂ ist Adj-er als V₁"},
+    {form:"Example",verb:"<ruby>家<rt>いえ</rt></ruby>にいるより<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>で</rt></ruby>るほうがいい",de:"rausgehen ist besser als zu Hause sein"},
+    {form:"Example",verb:"<ruby>店<rt>みせ</rt></ruby>で<ruby>買<rt>か</rt></ruby>うよりフリーマーケットで<ruby>買<rt>か</rt></ruby>うほうが<ruby>安<rt>やす</rt></ruby>い",de:"auf Flohmarkt kaufen ist günstiger als im Laden"},
+    {form:"Related (L4)",verb:"AよりBのほうが (mit Nomen)",de:"Comparison von Dingen"}
+  ], ex:[
+    {jp:"<ruby>家<rt>いえ</rt></ruby>にいるより<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>で</rt></ruby>るほうがいい。",de:"Going out is better than staying at home."},
+    {jp:"<ruby>店<rt>みせ</rt></ruby>で<ruby>買<rt>か</rt></ruby>うよりフリーマーケットで<ruby>買<rt>か</rt></ruby>うほうがずっと<ruby>安<rt>やす</rt></ruby>く<ruby>買<rt>か</rt></ruby>える。 [Buch L7]",de:"Buying at a flea market is much cheaper than buying in stores."},
+    {jp:"<ruby>私<rt>わたし</rt></ruby>は<ruby>料理<rt>りょうり</rt></ruby>は<ruby>作<rt>つく</rt></ruby>るより<ruby>食<rt>た</rt></ruby>べるほうがいい。 [Buch L7]",de:"Was Kochen angeht — I eat rather, als zu cook."}
+  ], note:"💡 なら is a REACTION to a topic just mentioned. Different from と (automatic), たら (one-time), ば (general)."},
+  {l:7, t:"〜なら", de:"if it's about X / if X (reaction)", rule:"The 4 conditionals compared. と (automatic), たら (one-time), ば (general), なら (reaction).", conj:[
+    {form:"Connection",verb:"V/Adj/N + なら、…",de:"wenn (es um) X (geht), dann …"},
+    {form:"Example",verb:"<ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>くなら、<ruby>京都<rt>きょうと</rt></ruby>がいい",de:"wenn du nach Japan gehst, Kyoto"},
+    {form:"Example",verb:"<ruby>休暇<rt>きゅうか</rt></ruby>が<ruby>欲<rt>ほ</rt></ruby>しいなら、まえもって<ruby>言<rt>い</rt></ruby>って",de:"wenn du Urlaub willst, sag's früh"},
+    {form:"Comparison Konditionale",verb:"と / たら / ば / なら",de:"4 conditional types"}
+  ], ex:[
+    {jp:"<ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>くなら、<ruby>京都<rt>きょうと</rt></ruby>がいいですよ。",de:"When you go to Japan, Kyoto is good."},
+    {jp:"<ruby>休暇<rt>きゅうか</rt></ruby>が<ruby>欲<rt>ほ</rt></ruby>しいなら、まえもって<ruby>言<rt>い</rt></ruby>ってください。 [Buch L7]",de:"Falls you Urlaub willst, sag it bitte vorher Bescheid."},
+    {jp:"<ruby>物<rt>もの</rt></ruby>を<ruby>買<rt>か</rt></ruby>うなら、フリーマーケットと<ruby>決<rt>き</rt></ruby>めている<ruby>人<rt>ひと</rt></ruby>がいる。 [Buch L7]",de:"There are people who choose flea markets when they want to buy something."}
+  ], note:"💡 なら is a REACTION to the topic someone mentioned. Different from と (automatic), たら (one-time), ば (general)."},
+  {l:7, t:"「なら・と・ば・たら」<ruby>整理<rt>せいり</rt></ruby>", de:"The 4 conditionals compared", rule:"Soft/partial negation. V/Adj + わけではない = \"it doesn't mean that V\" (limited negation). な-Adj: + な + わけではない.", conj:[
+    {form:"と (automatisch)",verb:"まっすぐ<ruby>行<rt>い</rt></ruby>くと、<ruby>駅<rt>えき</rt></ruby>がある",de:"Wenn man geradeaus geht → station (Naturgesetz)"},
+    {form:"たら (universal/falls)",verb:"<ruby>夏<rt>なつ</rt></ruby>になったら、<ruby>国<rt>くに</rt></ruby>へ<ruby>帰<rt>かえ</rt></ruby>る",de:"Wenn Sommer kommt → heimreisen"},
+    {form:"ば (Vorbedingung)",verb:"<ruby>機会<rt>きかい</rt></ruby>があれば、<ruby>留学<rt>りゅうがく</rt></ruby>したい",de:"Falls Möglichkeit → studieren"},
+    {form:"なら (Reaktion auf Gesagtes)",verb:"<ruby>物<rt>もの</rt></ruby>を<ruby>買<rt>か</rt></ruby>うなら、フリーマーケット",de:"WENN du kaufen willst → Flohmarkt"}
+  ], ex:[
+    {jp:"まっすぐ<ruby>行<rt>い</rt></ruby>くと、<ruby>駅<rt>えき</rt></ruby>がある。 [Buch L7]",de:"If you go straight, the station is right there. (automatic)"},
+    {jp:"<ruby>機会<rt>きかい</rt></ruby>があれば、<ruby>留学<rt>りゅうがく</rt></ruby>したい。 [Buch L7]",de:"If I have the chance, I want to study abroad."},
+    {jp:"<ruby>夏<rt>なつ</rt></ruby>になったら、<ruby>国<rt>くに</rt></ruby>へ<ruby>帰<rt>かえ</rt></ruby>る<ruby>予定<rt>よてい</rt></ruby>だ。 [Buch L7]",de:"When summer comes, I plan to go home."}
+  ], note:"💡 Soft/partial negation. Corrects an over-generalization. Common after: すべて, 全部, いつも, 必ず, 全員 (\"all/always\")."},
+  {l:7, t:"V<sub>テ</sub><ruby>欲<rt>ほ</rt></ruby>しい / V<sub>ナイ</sub>ないで<ruby>欲<rt>ほ</rt></ruby>しい", de:"I want YOU to do / not do something", rule:"Sometimes / it happens that. ~ことがある = \"sometimes V / it happens that V\".", conj:[
+    {form:"Vて + 欲しい (du sollst)",verb:"<ruby>利用<rt>りよう</rt></ruby>して<ruby>欲<rt>ほ</rt></ruby>しい",de:"ich möchte, dass du es nutzt"},
+    {form:"Vないで + 欲しい (du sollst nicht)",verb:"<ruby>増<rt>ふ</rt></ruby>やさないで<ruby>欲<rt>ほ</rt></ruby>しい",de:"ich möchte, dass du nicht erhöhst"},
+    {form:"Comparison Vたい (ich selbst)",verb:"<ruby>行<rt>い</rt></ruby>きたい",de:"ich will gehen"}
+  ], ex:[
+    {jp:"もう<ruby>少<rt>すこ</rt></ruby>し<ruby>待<rt>ま</rt></ruby>って<ruby>欲<rt>ほ</rt></ruby>しい。",de:"I want you to wait a little longer."},
+    {jp:"<ruby>宿題<rt>しゅくだい</rt></ruby>を<ruby>増<rt>ふ</rt></ruby>やさないで<ruby>欲<rt>ほ</rt></ruby>しい。 [Buch L7]",de:"I want there to be no more homework."},
+    {jp:"<ruby>市町村<rt>しちょうそん</rt></ruby>でも「リサイクルできるし、<ruby>安<rt>やす</rt></ruby>く<ruby>買<rt>か</rt></ruby>えるし、ぜひ<ruby>利用<rt>りよう</rt></ruby>して<ruby>欲<rt>ほ</rt></ruby>しい」と<ruby>呼<rt>よ</rt></ruby>びかけている。 [Buch L7]",de:"The communities call out: 'You can recycle and buy cheaply — please use them!'"}
+  ], note:"⚠️ Distinguish three wish structures! ① Vたい = I want to do. ② Vて欲しい = I want YOU to do. ③ Nが欲しい = I want N. Rule of thumb: 欲しい alone = thing for me. Vて欲しい = action by another person."},
+  {l:8, t:"〜あいだ / 〜あいだに", de:"während (der ganzen Zeit) / während (zu einem Zeitpunkt darin)", rule:"Until V₁ happens, V₂ (continuously). V<sub>ル</sub> + まで、V₂.", conj:[
+    {form:"あいだ (durchgehend)",verb:"<ruby>聞<rt>き</rt></ruby>いているあいだ",de:"während (das ganze Zuhören)"},
+    {form:"あいだに (Punkt darin)",verb:"<ruby>聞<rt>き</rt></ruby>いているあいだに",de:"während (irgendwann beim Zuhören)"},
+    {form:"Vている + あいだ(に)",verb:"<ruby>勉強<rt>べんきょう</rt></ruby>しているあいだ",de:"während des Lernens"},
+    {form:"Nの + あいだ(に)",verb:"<ruby>休<rt>やす</rt></ruby>みのあいだ",de:"während der Ferien"}
+  ], ex:[
+    {jp:"<ruby>夏休<rt>なつやす</rt></ruby>みのあいだに、<ruby>本<rt>ほん</rt></ruby>を<ruby>10冊<rt>じっさつ</rt></ruby><ruby>読<rt>よ</rt></ruby>んだ。",de:"In den Sommerferien have I 10 books gelesen. (Punkt im Zeitraum)"},
+    {jp:"<ruby>日本人<rt>にほんじん</rt></ruby>は<ruby>相手<rt>あいて</rt></ruby>の<ruby>話<rt>はなし</rt></ruby>を<ruby>聞<rt>き</rt></ruby>いているあいだ、<ruby>何回<rt>なんかい</rt></ruby>もうなずく。 [Buch L8]",de:"Während Japaner zuhören, nicken she mehrmals (durchgehend)."},
+    {jp:"<ruby>自分<rt>じぶん</rt></ruby>が<ruby>話<rt>はな</rt></ruby>しているあいだに、<ruby>日本人<rt>にほんじん</rt></ruby>があいづちを<ruby>打<rt>う</rt></ruby>つと、<ruby>話<rt>はなし</rt></ruby>を<ruby>止<rt>と</rt></ruby>められたと<ruby>誤解<rt>ごかい</rt></ruby>する<ruby>人<rt>ひと</rt></ruby>もいる。 [Buch L8]",de:"Some people misunderstand Japanese aizuchi as interruption when they're talking themselves."}
+  ], note:"⚠️ まで vs. までに: まで = CONTINUOUSLY until (\"wait the whole time\"). までに = LATEST by (\"deadline\")."},
+  {l:8, t:"〜わけではない", de:"it's not the case that … / not necessarily", rule:"Depending on N. N + によって + 違う/変わる/さまざま = \"varies depending on N\".", conj:[
+    {form:"Connection",verb:"V/Adj + わけではない",de:"das heißt nicht, dass V (eingeschränkte Verneinung)"},
+    {form:"な-Adj",verb:"な-Adj<b>な</b>わけではない",de:"な required!"},
+    {form:"Noun",verb:"Nである + わけではない",de:"mit である! (formal)"},
+    {form:"Example",verb:"<ruby>日本人<rt>にほんじん</rt></ruby>がみんな<ruby>寿司<rt>すし</rt></ruby>を<ruby>好<rt>す</rt></ruby>き<b>なわけではない</b>",de:"es heißt nicht, dass alle Japaner Sushi like"},
+    {form:"⚠️ NOT verwechseln",verb:"わけがない (= unmöglich)",de:"völlig anderer Ausdruck!"}
+  ], ex:[
+    {jp:"<ruby>日本人<rt>にほんじん</rt></ruby>がみんな<ruby>寿司<rt>すし</rt></ruby>を<ruby>好<rt>す</rt></ruby>きなわけではない。",de:"It's not the case that all Japanese like sushi."},
+    {jp:"<ruby>相手<rt>あいて</rt></ruby>の<ruby>話<rt>はなし</rt></ruby>に<ruby>100<rt>ひゃく</rt></ruby>%<ruby>賛成<rt>さんせい</rt></ruby>しているわけではない。 [Buch L8]",de:"It's not that I agree 100% with the other person's opinion."},
+    {jp:"<ruby>日曜日<rt>にちようび</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みだが、<ruby>暇<rt>ひま</rt></ruby>なわけではない。 [Buch L8]",de:"Sunday is technically off, but it's not like I'm really free."}
+  ], note:"⚠️ Recognize: Main verb 違う/変わる/さまざま → \"depending on\". Main verb in 受身 → \"by creator\". Active main verb → \"by means of\"."},
+  {l:8, t:"V<sub>ル</sub> / V<sub>ナイ</sub>ことがある", de:"it happens that / sometimes …", rule:"Overview: as / about / by-depending. として / について / によって — three different meanings.", conj:[
+    {form:"Vる + ことがある",verb:"<ruby>遅刻<rt>ちこく</rt></ruby>することがある",de:"es kommt vor, dass ich zu spät bin"},
+    {form:"Vない + ことがある",verb:"<ruby>食<rt>た</rt></ruby>べないことがある",de:"sometimes esse ich nicht"},
+    {form:"UNTERSCHIED Vた + ことがある",verb:"<ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>ったことがある",de:"Erfahrung: bin schon mal in Japan gewesen"}
+  ], ex:[
+    {jp:"<ruby>私<rt>わたし</rt></ruby>は<ruby>朝<rt>あさ</rt></ruby><ruby>食事<rt>しょくじ</rt></ruby>しないことがある。 [Buch L8]",de:"It kommt vor, that I tomorrows not eat."},
+    {jp:"<ruby>聞<rt>き</rt></ruby>いていないと<ruby>誤解<rt>ごかい</rt></ruby>してしまうことがある。 [Buch L8]",de:"It kommt vor, that man (something) missversteht, if man not (richtig) zuhört."}
+  ], note:"⚠️ CRITICAL DIFFERENCE: Vる/Vない ことがある = sometimes (frequency). Vた ことがある = have done before (experience). Mixing them up is error #1! Trick: past (た) → experience. Present/negative → frequency."},
+  {l:8, t:"V₁<sub>ル</sub>まで、V₂", de:"until V₁ happens, V₂ (continuously)", rule:"Along with X, Y changes too. V<sub>普通形</sub>/N + にともなって、… = \"with X (simultaneously) Y changes\".", conj:[
+    {form:"Connection",verb:"V<sub>ル</sub> + まで、V₂",de:"bis V₁ passiert, V₂ (durchgehend)"},
+    {form:"Example",verb:"<ruby>雨<rt>あめ</rt></ruby>がやむまで、ここで<ruby>待<rt>ま</rt></ruby>とう",de:"lass uns warten, bis Regen aufhört"},
+    {form:"Example",verb:"<ruby>分<rt>わ</rt></ruby>かるまで、<ruby>説明<rt>せつめい</rt></ruby>します",de:"erkläre, bis du es verstehst"},
+    {form:"⚠️ Comparison",verb:"までに (Frist)",de:"TOTAL anders! \"spätestens bis\""}
+  ], ex:[
+    {jp:"<ruby>雨<rt>あめ</rt></ruby>がやむまで、ここで<ruby>待<rt>ま</rt></ruby>とう。",de:"Let's wait here until the rain stops."},
+    {jp:"<ruby>分<rt>わ</rt></ruby>かるまで、<ruby>説明<rt>せつめい</rt></ruby>します。",de:"I'll explain until you understand it."},
+    {jp:"<ruby>相手<rt>あいて</rt></ruby>が<ruby>話<rt>はな</rt></ruby>し<ruby>終<rt>お</rt></ruby>わるまで、<ruby>黙<rt>だま</rt></ruby>って<ruby>話<rt>はなし</rt></ruby>を<ruby>聞<rt>き</rt></ruby>く。 [Buch L8]",de:"I listen quietly until the other person has finished speaking."}
+  ], note:"💡 Expresses: \"When A changes, B changes in parallel\". Very formal — typical in essays, news, scientific texts."},
+  {l:8, t:"Nによって (je nach)", de:"depending on N", rule:"Conjunctions: in short / on the other hand. 要するに (in short), 一方 (on the other hand), とはいえ (that said).", conj:[
+    {form:"Connection",verb:"N + によって + …<ruby>違<rt>ちが</rt></ruby>う/<ruby>変<rt>か</rt></ruby>わる/さまざま",de:"varies depending on N"},
+    {form:"Example",verb:"<ruby>考<rt>かんが</rt></ruby>え<ruby>方<rt>かた</rt></ruby>は<ruby>人<rt>ひと</rt></ruby><b>によって</b><ruby>違<rt>ちが</rt></ruby>う",de:"way of thinking varies by person"},
+    {form:"Example",verb:"<ruby>国<rt>くに</rt></ruby><b>によって</b><ruby>文化<rt>ぶんか</rt></ruby>が<ruby>違<rt>ちが</rt></ruby>う",de:"culture varies by country"},
+    {form:"⚠️ 3 Bedeutungen",verb:"Schöpfer (L6) / je nach (L8) / Mittel (L10)",de:"recognize by main verb!"}
+  ], ex:[
+    {jp:"<ruby>考<rt>かんが</rt></ruby>え<ruby>方<rt>かた</rt></ruby>は<ruby>人<rt>ひと</rt></ruby>によって<ruby>違<rt>ちが</rt></ruby>う。",de:"The way of thinking differs from person to person."},
+    {jp:"<ruby>国<rt>くに</rt></ruby>によって<ruby>話<rt>はなし</rt></ruby>の<ruby>聞<rt>き</rt></ruby>き<ruby>方<rt>かた</rt></ruby>はさまざまだ。 [Buch L8]",de:"The way of listening differs by country."},
+    {jp:"<ruby>季節<rt>きせつ</rt></ruby>によって、<ruby>食<rt>た</rt></ruby>べる<ruby>物<rt>もの</rt></ruby>が<ruby>変<rt>か</rt></ruby>わる。",de:"Je nach yearsszeit ändert sich, was man isst."}
+  ], note:"⚠️ Erkennen: Hauptverb ends in 違う/変わる/さまざま → \"je nach\". Hauptverb im 受身 → \"durch Schöpfer\". Aktiver Hauptverb → \"durch Mittel\"."},
+  {l:8, t:"「Nとして・について・によって」<ruby>整理<rt>せいり</rt></ruby>", de:"Übersicht: als / over / vom-je nach", rule:"Is (written form of だ/です). である is the formal/written form. Used in essays, books, formal documents.", conj:[
+    {form:"Nとして",verb:"<ruby>一<rt>ひと</rt></ruby>つとして",de:"als (Position/Rolle/Example)"},
+    {form:"Nについて",verb:"<ruby>習慣<rt>しゅうかん</rt></ruby>について",de:"over (Thema, was beschrieben wird)"},
+    {form:"Nによって [受身]",verb:"<ruby>日本人<rt>にほんじん</rt></ruby>によって<ruby>発明<rt>はつめい</rt></ruby>された",de:"von (Schöpfer im Passiv)"},
+    {form:"Nによって (je nach)",verb:"<ruby>国<rt>くに</rt></ruby>によって<ruby>違<rt>ちが</rt></ruby>う",de:"je nach (Variation)"}
+  ], ex:[
+    {jp:"リサイクル<ruby>運動<rt>うんどう</rt></ruby>の<ruby>一<rt>ひと</rt></ruby>つとしてフリーマーケットがある。 [Buch L8]",de:"As a form of recycling movement, there are flea markets."},
+    {jp:"<ruby>日本人<rt>にほんじん</rt></ruby>の<ruby>習慣<rt>しゅうかん</rt></ruby>についてレポートを<ruby>書<rt>か</rt></ruby>いた。 [Buch L8]",de:"I wrote a report ABOUT Japanese customs."},
+    {jp:"シャープペンシルは<ruby>日本人<rt>にほんじん</rt></ruby>によって<ruby>発明<rt>はつめい</rt></ruby>された。 [Buch L8]",de:"The mechanical pencil was invented by a Japanese person."}
+  ], note:"💡 EselsBrücke: として = »in Funktion als« / について = »zum Thema von« / によって = wechselt nach Kontext. Häufige Fehler: として ↔ について verwechseln! Trick: Bei Position → として. Bei Inhalt/Thema → について."},
+  {l:9, t:"〜にともなって", de:"with / along with (parallel change)", rule:"Causative-passive (be forced to). Combines causative + passive: V+させ+られる = \"be forced to V\".", conj:[
+    {form:"Connection",verb:"V<sub>普通形</sub>/N + にともなって、…",de:"as X changes, Y changes too"},
+    {form:"Example",verb:"<ruby>年齢<rt>ねんれい</rt></ruby>にともなって、<ruby>体力<rt>たいりょく</rt></ruby>が<ruby>落<rt>お</rt></ruby>ちる",de:"strength decreases with age"},
+    {form:"Example",verb:"<ruby>地球<rt>ちきゅう</rt></ruby>の<ruby>温暖化<rt>おんだんか</rt></ruby>にともなって、<ruby>問題<rt>もんだい</rt></ruby>が<ruby>起<rt>お</rt></ruby>きる",de:"problems with global warming"},
+    {form:"Related forms",verb:"につれて / にしたがって",de:"almost same meaning"}
+  ], ex:[
+    {jp:"<ruby>年齢<rt>ねんれい</rt></ruby>にともなって、<ruby>体力<rt>たいりょく</rt></ruby>が<ruby>落<rt>お</rt></ruby>ちる。",de:"With age, physical strength declines."},
+    {jp:"<ruby>地球<rt>ちきゅう</rt></ruby>の<ruby>温暖化<rt>おんだんか</rt></ruby>にともなって、いろいろな<ruby>問題<rt>もんだい</rt></ruby>が<ruby>起<rt>お</rt></ruby>きている。 [Buch L9]",de:"With global warming, various problems arise."},
+    {jp:"<ruby>女性<rt>じょせい</rt></ruby>の<ruby>職場<rt>しょくば</rt></ruby>と<ruby>言<rt>い</rt></ruby>われていた<ruby>所<rt>ところ</rt></ruby>で、<ruby>男性<rt>だんせい</rt></ruby>も<ruby>働<rt>はたら</rt></ruby>くようになるにともなって、<ruby>職業<rt>しょくぎょう</rt></ruby>の<ruby>名称<rt>めいしょう</rt></ruby>が<ruby>変<rt>か</rt></ruby>わった。 [Buch L9]",de:"With the change that men also work in fields considered women's work, job titles changed."}
+  ], note:"💡 Expresses: \"When A changes, B changes in parallel\". Very formal — typical in essays, news, scientific texts."},
+  {l:9, t:"<ruby>接続詞<rt>せつぞくし</rt></ruby>: つまり / <ruby>一方<rt>いっぽう</rt></ruby>", de:"in other words / on the other hand", rule:"Passive/causative/causative-passive overview. Three forms compared.", conj:[
+    {form:"つまり (Zusammenfassung)",verb:"つまり、〜ということだ",de:"kurzum / mit anderen Worten"},
+    {form:"一方 (Kontrast/Ergänzung)",verb:"一方、〜は",de:"andererseits"},
+    {form:"Vgl. それに",verb:"それに、〜も",de:"außerdem (zusätzlich)"},
+    {form:"Vgl. しかし",verb:"しかし、〜",de:"jedoch"}
+  ], ex:[
+    {jp:"<ruby>男性<rt>だんせい</rt></ruby>の<ruby>仕事<rt>しごと</rt></ruby>を<ruby>女性<rt>じょせい</rt></ruby>もするようになった。つまり、<ruby>職業<rt>しょくぎょう</rt></ruby>は<ruby>男女<rt>だんじょ</rt></ruby>の<ruby>区別<rt>くべつ</rt></ruby>が<ruby>少<rt>すく</rt></ruby>なくなってきている。 [Buch L9]",de:"Women now also do men's jobs. In other words, gender separation in jobs is decreasing."},
+    {jp:"<ruby>職業<rt>しょくぎょう</rt></ruby>は<ruby>男女<rt>だんじょ</rt></ruby>の<ruby>区別<rt>くべつ</rt></ruby>が<ruby>少<rt>すく</rt></ruby>なくなってきている、<ruby>一方<rt>いっぽう</rt></ruby>、<ruby>家庭<rt>かてい</rt></ruby>の<ruby>仕事<rt>しごと</rt></ruby>に<ruby>目<rt>め</rt></ruby>を<ruby>向<rt>む</rt></ruby>けてみると、<ruby>女性<rt>じょせい</rt></ruby>の<ruby>家事労働<rt>かじろうどう</rt></ruby>のほうがずっと<ruby>多<rt>おお</rt></ruby>い。 [Buch L9]",de:"While gender separation in jobs decreases, women's housework remains much higher."}
+  ], note:"💡 Memory aid: つまり = \"in short, so\" (summarizing). 一方 = \"on the other hand\" (contrast). Both essential for essays and structured arguments. Trick: つまり introduces a summary, 一方 another aspect."},
+  {l:9, t:"Na / N である", de:"is (written form of だ/です)", rule:"I really wish that ... V<sub>テ</sub>+欲しい+ものだ = \"I really wish that V (strongly/idealistically)\".", conj:[
+    {form:"です (höflich gesprochen)",verb:"<ruby>有名<rt>ゆうめい</rt></ruby>です",de:"ist famous"},
+    {form:"だ (Plain gesprochen)",verb:"<ruby>有名<rt>ゆうめい</rt></ruby>だ",de:"ist famous (plain)"},
+    {form:"である (Schriftsprache)",verb:"<ruby>有名<rt>ゆうめい</rt></ruby>である",de:"ist famous (Schrift)"},
+    {form:"Verneinung",verb:"ではない",de:"ist nicht"},
+    {form:"past",verb:"であった",de:"war"}
+  ], ex:[
+    {jp:"<ruby>相撲<rt>すもう</rt></ruby>は<ruby>日本<rt>にほん</rt></ruby>の<ruby>伝統的<rt>でんとうてき</rt></ruby>なスポーツとして<ruby>有名<rt>ゆうめい</rt></ruby>である。 [Buch L9]",de:"Sumo is famous as a traditional Japanese sport."},
+    {jp:"<ruby>女性<rt>じょせい</rt></ruby>の<ruby>家事労働<rt>かじろうどう</rt></ruby>は<ruby>4時間<rt>よじかん</rt></ruby><ruby>53分<rt>ごじゅうさんぷん</rt></ruby>である。 [Buch L9]",de:"Women's housework amounts to 4 hours 53 minutes."}
+  ], note:"💡 Strengthened form of Vて欲しい. Strong/idealistic/public wish. Common in essays, speeches, appeals."},
+  {l:9, t:"<ruby>使役受身<rt>しえきうけみ</rt></ruby> (Kausativ-Passiv)", de:"gezwungen werden zu / unfreiwillig tun müssen", rule:"Conjunction: in addition. 〜上に = \"in addition to / on top of\". 〜だけでなく = \"not only ...\".", conj:[
+    {form:"Gr.I (long)",verb:"<ruby>飲<rt>の</rt></ruby>む → <ruby>飲<rt>の</rt></ruby>まされる",de:"gezwungen sein zu trinken"},
+    {form:"Gr.I (Special case -す!)",verb:"<ruby>話<rt>はな</rt></ruby>す → <ruby>話<rt>はな</rt></ruby>させられる",de:"gezwungen sein zu sprechen (NOT 話さされる!)"},
+    {form:"Gr.II",verb:"<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べさせられる",de:"gezwungen sein zu essen"},
+    {form:"する",verb:"する → させられる",de:"gezwungen sein, etwas zu tun"},
+    {form:"来る",verb:"<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>させられる",de:"gezwungen sein zu kommen"}
+  ], ex:[
+    {jp:"<ruby>会社<rt>かいしゃ</rt></ruby>で<ruby>残業<rt>ざんぎょう</rt></ruby>させられました。",de:"I was forced to work overtime at the office."},
+    {jp:"<ruby>小学生<rt>しょうがくせい</rt></ruby>の<ruby>時<rt>とき</rt></ruby>、<ruby>漢字<rt>かんじ</rt></ruby>を<ruby>1000<rt>せん</rt></ruby><ruby>字<rt>じ</rt></ruby><ruby>覚<rt>おぼ</rt></ruby>えさせられた。 [Buch L9]",de:"In elementary school, I was forced to study 1000 kanji."},
+    {jp:"<ruby>男性<rt>だんせい</rt></ruby>も「<ruby>家事<rt>かじ</rt></ruby>をやらされる」というのではなく、すすんで<ruby>家事<rt>かじ</rt></ruby>をして<ruby>欲<rt>ほ</rt></ruby>しい。 [Buch L9]",de:"Men shouldn't feel 'forced to do housework' but participate by their own will."}
+  ], note:"⚠️ IMPORTANT SPECIAL RULE: With Gr.I verbs ending in -す (話す, 出す, 直す), ONLY the long form! 話させられる ✓ / 話さされる ✗. Other Gr.I often short form: 飲まされる instead of 飲ませられる."},
+  {l:9, t:"<ruby>受身<rt>うけみ</rt></ruby>・<ruby>使役<rt>しえき</rt></ruby>・<ruby>使役受身<rt>しえきうけみ</rt></ruby> Übersicht", de:"Passiv / Kausativ / Kausativ-Passiv im Comparison", rule:"By means of N. N(means)+によって、… = \"through/by means of N\".", conj:[
+    {form:"Aktiv (normal)",verb:"<ruby>食<rt>た</rt></ruby>べる",de:"(jemand) isst"},
+    {form:"受身 (jmd isst MIR)",verb:"<ruby>食<rt>た</rt></ruby>べられる",de:"gegessen werden (Schaden)"},
+    {form:"使役 (LASSEN essen)",verb:"<ruby>食<rt>た</rt></ruby>べさせる",de:"zwingen zu essen"},
+    {form:"使役受身 (gezwungen)",verb:"<ruby>食<rt>た</rt></ruby>べさせられる",de:"gezwungen werden zu essen"}
+  ], ex:[
+    {jp:"<ruby>妹<rt>いもうと</rt></ruby>にケーキを<ruby>食<rt>た</rt></ruby>べられた。 [<ruby>受身<rt>うけみ</rt></ruby>, Buch L9]",de:"Meine sister hat MIR den cake weggegessen. (Passiv des Schadens)"},
+    {jp:"<ruby>母<rt>はは</rt></ruby>は<ruby>子<rt>こ</rt></ruby>どもに<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べさせる。 [<ruby>使役<rt>しえき</rt></ruby>, Buch L9]",de:"The mother makes the child eat vegetables. (forces/allows the action)"},
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもは<ruby>母<rt>はは</rt></ruby>に<ruby>嫌<rt>きら</rt></ruby>いな<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べさせられた。 [<ruby>使役受身<rt>しえきうけみ</rt></ruby>, Buch L9]",de:"The child was forced by the mother to eat disliked vegetables."}
+  ], note:"⚠️ Here: Active sentences → \"through\". In passive → \"by\" (creator). With 違う → \"depending on\". Compare object: で (small tool) vs によって (large means/method)."},
+  {l:9, t:"V<sub>テ</sub><ruby>欲<rt>ほ</rt></ruby>しいものだ", de:"I really wish that …", rule:"Instead of / in place of. 〜代わりに = \"instead of / in exchange for\".", conj:[
+    {form:"Connection",verb:"V<sub>テ</sub> + <ruby>欲<rt>ほ</rt></ruby>しいものだ",de:"I really wish that V"},
+    {form:"Example",verb:"もっと<ruby>子<rt>こ</rt></ruby>どもに<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んで<ruby>欲<rt>ほ</rt></ruby>しい<b>ものだ</b>",de:"ich wünsche mir wirklich, dass Kinder mehr lesen"},
+    {form:"Example",verb:"<ruby>男性<rt>だんせい</rt></ruby>も<ruby>家事<rt>かじ</rt></ruby>を<ruby>分担<rt>ぶんたん</rt></ruby>して<ruby>欲<rt>ほ</rt></ruby>しい<b>ものだ</b>",de:"ich wünsche, dass Männer auch im Haushalt helfen"},
+    {form:"Related (L7 Minna)",verb:"V<sub>テ</sub> + <ruby>欲<rt>ほ</rt></ruby>しい (alleine)",de:"ich möchte, dass jemand V"}
+  ], ex:[
+    {jp:"もっと<ruby>子<rt>こ</rt></ruby>どもに<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んで<ruby>欲<rt>ほ</rt></ruby>しいものだ。",de:"I wish children would read more."},
+    {jp:"<ruby>男性<rt>だんせい</rt></ruby>もすすんで<ruby>家事<rt>かじ</rt></ruby>を<ruby>分担<rt>ぶんたん</rt></ruby>するような<ruby>意識<rt>いしき</rt></ruby>を<ruby>持<rt>も</rt></ruby>って<ruby>欲<rt>ほ</rt></ruby>しいものだ。 [Buch L9]",de:"I wish men would voluntarily share housework."},
+    {jp:"<ruby>環境<rt>かんきょう</rt></ruby>を<ruby>大切<rt>たいせつ</rt></ruby>にする<ruby>社会<rt>しゃかい</rt></ruby>になって<ruby>欲<rt>ほ</rt></ruby>しいものだ。 [Buch L9]",de:"I wish we had a society that values the environment."}
+  ], note:"💡 Strengthened form of Vて欲しい. Expresses strong/idealistic/public wish. Common in essays, speeches, appeals."},
+  {l:10, t:"Nによって (Mittel/Methode)", de:"through / by means of N", rule:"Direction relative to speaker. ~てくる (away to me), ~ていく (away from me).", conj:[
+    {form:"Connection",verb:"N(Mittel) + によって、…",de:"through/by means of N"},
+    {form:"Example",verb:"インターネット<b>によって</b>、<ruby>情報<rt>じょうほう</rt></ruby>が<ruby>集<rt>あつ</rt></ruby>められる",de:"durch das Internet kann man Informationen sammeln"},
+    {form:"Example",verb:"<ruby>調査<rt>ちょうさ</rt></ruby><b>によって</b>、<ruby>乱<rt>みだ</rt></ruby>れがわかった",de:"durch die Untersuchung kam die Verwirrung ans Licht"},
+    {form:"⚠️ 3 Bedeutungen",verb:"Schöpfer (L6) / je nach (L8) / Mittel (L10)",de:"recognize by main verb!"}
+  ], ex:[
+    {jp:"インターネットによって、<ruby>情報<rt>じょうほう</rt></ruby>が<ruby>簡単<rt>かんたん</rt></ruby>に<ruby>集<rt>あつ</rt></ruby>められる。",de:"Through the internet, you can easily collect information."},
+    {jp:"<ruby>調査<rt>ちょうさ</rt></ruby>によって、<ruby>日本人<rt>にほんじん</rt></ruby>のことばの<ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby>が<ruby>乱<rt>みだ</rt></ruby>れていることがわかった。 [Buch L10]",de:"Through the survey, it became clear that Japanese language use is getting mixed up."}
+  ], note:"⚠️ Here: Active sentences → \"through\". In passive → \"by\" (creator). With 違う → \"depending on\". Compare object: で (small tool) vs によって (large means/method)."},
+  {l:10, t:"V<sub>ル</sub> / N の<ruby>代<rt>か</rt></ruby>わりに", de:"instead of / in place of", rule:"Should / must (morally right). V<sub>ル</sub> + べきだ = \"should V (morally right)\".", conj:[
+    {form:"Nの + 代わりに",verb:"コーヒーの<ruby>代<rt>か</rt></ruby>わりに",de:"anstelle von Kaffee"},
+    {form:"V辞書 + 代わりに",verb:"<ruby>休<rt>やす</rt></ruby>む<ruby>代<rt>か</rt></ruby>わりに",de:"anstatt zu pausieren"},
+    {form:"Vた + 代わりに",verb:"<ruby>手伝<rt>てつだ</rt></ruby>った<ruby>代<rt>か</rt></ruby>わりに",de:"als Gegenleistung für die Hilfe"}
+  ], ex:[
+    {jp:"コーヒーの<ruby>代<rt>か</rt></ruby>わりに<ruby>紅茶<rt>こうちゃ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>んだ。",de:"Anstatt Kaffee have I Tee getrunken."},
+    {jp:"「いただきましょう」と<ruby>言<rt>い</rt></ruby>う<ruby>代<rt>か</rt></ruby>わりに、「<ruby>召<rt>め</rt></ruby>し<ruby>上<rt>あ</rt></ruby>がりましょう」と<ruby>言<rt>い</rt></ruby>う。 [Buch L10]",de:"Anstatt »itadakimashou« sagt man »meshiagarimashou« (Keigo)."},
+    {jp:"<ruby>今日<rt>きょう</rt></ruby>の<ruby>挨拶<rt>あいさつ</rt></ruby>は<ruby>校長先生<rt>こうちょうせんせい</rt></ruby>の<ruby>代<rt>か</rt></ruby>わりに、<ruby>副校長先生<rt>ふくこうちょうせんせい</rt></ruby>がします。 [Buch L10]",de:"Today the vice principal gives the greeting on behalf of the principal."}
+  ], note:"💡 Memory aid: 代 (kawari) = »Ersatz«. 代わりに = »als Ersatz«. Sehr häufig im Berufsleben (»in Vertretung«). Drei Bedeutungen: Ersatz (Substitution), Alternative, Gegenleistung."},
+  {l:10, t:"V<sub>テ</sub>くる / V<sub>テ</sub>いく", de:"direction relative to speaker", rule:"Without V — written language. V<sub>ナイ</sub> + ずに = \"without V\" (written, formal).", conj:[
+    {form:"Vてくる (zu mir)",verb:"<ruby>訪<rt>たず</rt></ruby>ねてくる",de:"her zu mir kommen (besuchen)"},
+    {form:"Vていく (von mir weg)",verb:"<ruby>帰<rt>かえ</rt></ruby>っていく",de:"von mir weg gehen (heimkehren)"},
+    {form:"Zeitlich: bis now",verb:"<ruby>増<rt>ふ</rt></ruby>えてきた",de:"hat bis now zugenommen"},
+    {form:"Zeitlich: in future",verb:"<ruby>増<rt>ふ</rt></ruby>えていく",de:"wird weiter zunehmen"}
+  ], ex:[
+    {jp:"<ruby>彼女<rt>かのじょ</rt></ruby>は「さよなら」と<ruby>言<rt>い</rt></ruby>って、<ruby>帰<rt>かえ</rt></ruby>っていった。 [Buch L10]",de:"You sagte »tschüss« and ging then weg (von me weg)."},
+    {jp:"<ruby>自分<rt>じぶん</rt></ruby>の<ruby>会社<rt>かいしゃ</rt></ruby>を<ruby>訪<rt>たず</rt></ruby>ねてきたお<ruby>客<rt>きゃく</rt></ruby>さんにまちがえて「<ruby>受付<rt>うけつけ</rt></ruby>でお<ruby>聞<rt>き</rt></ruby>きしてください」と<ruby>言<rt>い</rt></ruby>う。 [Buch L10]",de:"By mistake, one says to a customer coming to one's own company 'Please ask at the reception' (with wrong keigo)."}
+  ], note:"💡 Memory aid: くる = \"come\" → toward me. いく = \"go\" → away from me. Arrow: ←くる / いく→. Also temporal: ←てきた (past) / ていく→ (future). In book (L10) in keigo context: empathy/perspective determines form."},
+  {l:10, t:"V<sub>ル</sub>べきだ", de:"sollte / muss (moralisch/logisch richtig)", rule:"Politeness levels. 尊敬語 (honorific - others), 謙譲語 (humble - self), 丁寧語 (polite - general).", conj:[
+    {form:"V辞書 + べきだ",verb:"<ruby>言<rt>い</rt></ruby>うべきだ",de:"sollte sagen"},
+    {form:"Special case する",verb:"するべきだ / すべきだ",de:"sollte tun (beide möglich)"},
+    {form:"Negative",verb:"<ruby>言<rt>い</rt></ruby>うべきではない",de:"sollte nicht sagen"},
+    {form:"past",verb:"<ruby>言<rt>い</rt></ruby>うべきだった",de:"hätte sagen sollen"}
+  ], ex:[
+    {jp:"<ruby>謝<rt>あやま</rt></ruby>るべきだ。",de:"You solltest you entschuldigen."},
+    {jp:"「お<ruby>聞<rt>き</rt></ruby>きになってください」と<ruby>言<rt>い</rt></ruby>うべきだ。 [Buch L10]",de:"Man sollte »o-kiki ni natte kudasai« sagen (höfliche Form)."},
+    {jp:"<ruby>事故<rt>じこ</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>については、もっと<ruby>丁寧<rt>ていねい</rt></ruby>に<ruby>調査<rt>ちょうさ</rt></ruby>すべきだ。 [Buch L10]",de:"Regarding the cause of the accident, one should investigate more thoroughly."}
+  ], note:"🔄 〜ほうがいい (gentle suggestion) ≠ べきだ (moral obligation). べき is much stronger — \"it's the right thing to do\". Negative slightly softer than English \"must not\" — more like \"should not\"."},
+  {l:10, t:"<ruby>敬語<rt>けいご</rt></ruby> Übersicht", de:"Keigo — the three politeness levels", rule:"Special honorific verbs. いらっしゃる (be/come/go), なさる (do), おっしゃる (say), めしあがる (eat/drink).", conj:[
+    {form:"<ruby>尊敬語<rt>そんけいご</rt></ruby> (Andere hochheben)",verb:"いらっしゃる、<ruby>召<rt>め</rt></ruby>し<ruby>上<rt>あ</rt></ruby>がる、ご<ruby>覧<rt>らん</rt></ruby>になる、なさる、おっしゃる",de:"(für Handlungen anderer)"},
+    {form:"<ruby>謙譲語<rt>けんじょうご</rt></ruby> (Mich klein machen)",verb:"<ruby>参<rt>まい</rt></ruby>る、いただく、<ruby>拝見<rt>はいけん</rt></ruby>する、いたす、<ruby>申<rt>もう</rt></ruby>す",de:"(für eigene Handlungen)"},
+    {form:"<ruby>丁寧語<rt>ていねいご</rt></ruby> (Allgemein höflich)",verb:"です、ます、ございます",de:"(generale politeness)"},
+    {form:"Universal-Pattern (尊敬)",verb:"お + Vマス + になる",de:"お<ruby>帰<rt>かえ</rt></ruby>りになる (heimkehren-respektvoll)"},
+    {form:"Universal-Pattern (謙譲)",verb:"お + Vマス + する",de:"お<ruby>聞<rt>き</rt></ruby>きする (fragen-bescheiden)"}
+  ], ex:[
+    {jp:"A: どちらからいらっしゃいましたか。 [Buch L10]",de:"A: Where are you from? (尊敬: respect for the listener)"},
+    {jp:"B: ベトナムから<ruby>参<rt>まい</rt></ruby>りました。 [Buch L10]",de:"B: I'm from Vietnam. (謙譲: humble self-statement)"},
+    {jp:"<ruby>社長<rt>しゃちょう</rt></ruby>はさっきお<ruby>帰<rt>かえ</rt></ruby>りになりました。 [Buch L10]",de:"The CEO has just left. (尊敬 with universal pattern)"}
+  ], note:"💡 KEY QUESTION: Who acts? Others → 尊敬語 / Me → 謙譲語 / generally polite → 丁寧語. ⚠️ TRAP: In family matters toward others, OWN family is 謙譲語 (even if older!). Trick: in-group = small, out-group = big."},
+  {l:10, t:"V<sub>ナイ</sub>ずに", de:"ohne zu (V-en) — Schriftsprache", rule:"Special humble verbs. おる (be), まいる (come/go), いたす (do), もうす (say), いただく (eat/drink/receive).", conj:[
+    {form:"ない-Stamm + ずに",verb:"<ruby>食<rt>た</rt></ruby>べずに",de:"without eating"},
+    {form:"Special case: する → せずに",verb:"<ruby>勉強<rt>べんきょう</rt></ruby>せずに",de:"ohne zu lernen (NOT しずに!)"},
+    {form:"Comparison: ないで (gesprochen)",verb:"<ruby>食<rt>た</rt></ruby>べないで",de:"(same meaning, spoken)"}
+  ], ex:[
+    {jp:"<ruby>傘<rt>かさ</rt></ruby>を<ruby>持<rt>も</rt></ruby>たずに<ruby>出<rt>で</rt></ruby>かけた。 [Buch L10]",de:"I went out without taking an umbrella."},
+    {jp:"<ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby>が<ruby>正<rt>ただ</rt></ruby>しいかどうか、<ruby>気<rt>き</rt></ruby>にせずにことばを<ruby>使<rt>つか</rt></ruby>うのは<ruby>問題<rt>もんだい</rt></ruby>だ。 [Buch L10]",de:"It's problematic to use words without paying attention to whether the usage is correct."}
+  ], note:"💡 ずに = formal written language (essay, report). ないで = everyday speech. Meaning IDENTICAL — only style level different. ⚠️ Memory trick for する: せずに (\"I can do it without SE-zu\") — NOT しずに!"}
+];
+
+const VOCAB = {
+  1: [
+    {jp:"ファストフード", de:"Fast Food"},
+    {jp:"メニュー", de:"Menü, Speisekarte"},
+    {jp:"<ruby>代表的<rt>だいひょうてき</rt></ruby>な", de:"typisch, repräsentativ"},
+    {jp:"ハンバーガー", de:"Hamburger"},
+    {jp:"フライドポテト", de:"Pommes frites"},
+    {jp:"<ruby>最近<rt>さいきん</rt></ruby>", de:"in letzter Zeit, neuerdings"},
+    {jp:"<ruby>牛丼<rt>ぎゅうどん</rt></ruby>", de:"Gyūdon (Rinder-Reisbowl)"},
+    {jp:"スープ", de:"Suppe"},
+    {jp:"<ruby>種類<rt>しゅるい</rt></ruby>", de:"Sorte, Art"},
+    {jp:"ある《+ N》", de:"es gibt (mit Nomen)"},
+    {jp:"<ruby>発表<rt>はっぴょう</rt></ruby>", de:"Bekanntmachung, Präsentation"},
+    {jp:"〜<ruby>兆円<rt>ちょうえん</rt></ruby>", de:"~ Billionen Yen"},
+    {jp:"<ruby>理由<rt>りゆう</rt></ruby>", de:"Grund"},
+    {jp:"<ruby>値段<rt>ねだん</rt></ruby>", de:"Preis"},
+    {jp:"<ruby>手軽<rt>てがる</rt></ruby>に", de:"unkompliziert, einfach"},
+    {jp:"<ruby>利用<rt>りよう</rt></ruby>する", de:"nutzen, in Anspruch nehmen"},
+    {jp:"しかし", de:"jedoch"},
+    {jp:"このような", de:"solch ein, derartig"},
+    {jp:"カロリー", de:"Kalorie"},
+    {jp:"<ruby>生活習慣病<rt>せいかつしゅうかんびょう</rt></ruby>", de:"Lifestyle-Krankheit, Zivilisationskrankheit"},
+    {jp:"<ruby>増<rt>ふ</rt></ruby>える", de:"sich vermehren, zunehmen (intransitiv)"},
+    {jp:"<ruby>健康<rt>けんこう</rt></ruby>", de:"Gesundheit"},
+    {jp:"<ruby>増<rt>ふ</rt></ruby>やす", de:"erhöhen, vermehren (transitiv)"},
+    {jp:"<ruby>表示<rt>ひょうじ</rt></ruby>する", de:"anzeigen, darstellen"}
+  ],
+  2: [
+    {jp:"<ruby>起<rt>お</rt></ruby>きる [<ruby>地震<rt>じしん</rt></ruby>が〜]", de:"auftreten, geschehen [bei Erdbeben]"},
+    {jp:"ストーブ", de:"Heizofen"},
+    {jp:"ガスコンロ", de:"Gasherd"},
+    {jp:"<ruby>揺<rt>ゆ</rt></ruby>れ", de:"Beben, Erschütterung"},
+    {jp:"おさまる [<ruby>揺<rt>ゆ</rt></ruby>れが〜]", de:"nachlassen, sich legen [bei Beben]"},
+    {jp:"<ruby>慌<rt>あわ</rt></ruby>てる", de:"in Panik geraten, hastig werden"},
+    {jp:"<ruby>食料<rt>しょくりょう</rt></ruby>", de:"Lebensmittel, Proviant"},
+    {jp:"<ruby>背<rt>せ</rt></ruby>が<ruby>高<rt>たか</rt></ruby>い", de:"groß (von Statur), hochgewachsen"},
+    {jp:"<ruby>家具<rt>かぐ</rt></ruby>", de:"Möbel"},
+    {jp:"その<ruby>他<rt>ほか</rt></ruby>", de:"sonstiges, andere"},
+    {jp:"<ruby>万一<rt>まんいち</rt></ruby>", de:"für den Fall, dass; im Notfall"},
+    {jp:"<ruby>連絡方法<rt>れんらくほうほう</rt></ruby>", de:"Kontaktweg, Kommunikationsmethode"},
+    {jp:"<ruby>避難場所<rt>ひなんばしょ</rt></ruby>", de:"Evakuierungsort, Zufluchtsort"},
+    {jp:"<ruby>決<rt>き</rt></ruby>める", de:"entscheiden, festlegen"}
+  ],
+  3: [
+    {jp:"<ruby>最近<rt>さいきん</rt></ruby>", de:"in letzter Zeit"},
+    {jp:"<ruby>携帯電話<rt>けいたいでんわ</rt></ruby>", de:"Mobiltelefon"},
+    {jp:"スマートホン (スマホ)", de:"Smartphone"},
+    {jp:"<ruby>調査<rt>ちょうさ</rt></ruby>", de:"Untersuchung, Umfrage"},
+    {jp:"<ruby>小学生<rt>しょうがくせい</rt></ruby>", de:"Grundschüler"},
+    {jp:"% (パーセント)", de:"Prozent"},
+    {jp:"<ruby>中学生<rt>ちゅうがくせい</rt></ruby>", de:"Mittelschüler"},
+    {jp:"<ruby>専用<rt>せんよう</rt></ruby>", de:"für persönlichen Gebrauch, exklusiv"},
+    {jp:"タブレット", de:"Tablet"},
+    {jp:"<ruby>大人<rt>おとな</rt></ruby>", de:"Erwachsener"},
+    {jp:"ブランド", de:"Marke (Brand)"},
+    {jp:"<ruby>見<rt>み</rt></ruby>かける", de:"erblicken, zufällig sehen"},
+    {jp:"これら", de:"diese (Plural)"},
+    {jp:"かかる [お<ruby>金<rt>かね</rt></ruby>が〜]", de:"kosten [Geld]"},
+    {jp:"<ruby>高価<rt>こうか</rt></ruby>な", de:"teuer, kostbar"},
+    {jp:"<ruby>親<rt>おや</rt></ruby>", de:"Eltern"},
+    {jp:"<ruby>数<rt>かず</rt></ruby>", de:"Anzahl"},
+    {jp:"<ruby>年々<rt>ねんねん</rt></ruby>", de:"jährlich, von Jahr zu Jahr"},
+    {jp:"<ruby>減<rt>へ</rt></ruby>る", de:"abnehmen, weniger werden"},
+    {jp:"<ruby>王様<rt>おうさま</rt></ruby>", de:"König"}
+  ],
+  4: [
+    {jp:"<ruby>訪<rt>おとず</rt></ruby>れる", de:"besuchen"},
+    {jp:"<ruby>外国人<rt>がいこくじん</rt></ruby>", de:"Ausländer"},
+    {jp:"<ruby>旅行者<rt>りょこうしゃ</rt></ruby>", de:"Reisender, Tourist"},
+    {jp:"<ruby>数<rt>かず</rt></ruby>", de:"Anzahl"},
+    {jp:"<ruby>年々<rt>ねんねん</rt></ruby>", de:"jährlich, von Jahr zu Jahr"},
+    {jp:"<ruby>実際<rt>じっさい</rt></ruby>に", de:"tatsächlich, in der Realität"},
+    {jp:"<ruby>来日<rt>らいにち</rt></ruby>する", de:"nach Japan kommen"},
+    {jp:"<ruby>海外<rt>かいがい</rt></ruby>", de:"Übersee, Ausland"},
+    {jp:"<ruby>持<rt>も</rt></ruby>つ [イメージを〜]", de:"haben [eine Vorstellung von]"},
+    {jp:"<ruby>表<rt>ひょう</rt></ruby>", de:"Tabelle"},
+    {jp:"<ruby>人々<rt>ひとびと</rt></ruby>", de:"die Menschen, Leute"},
+    {jp:"<ruby>礼儀<rt>れいぎ</rt></ruby>", de:"Etikette, Höflichkeit"},
+    {jp:"<ruby>正<rt>ただ</rt></ruby>しい", de:"richtig, korrekt"},
+    {jp:"ポイント", de:"Punkt(e)"},
+    {jp:"〜に<ruby>加<rt>くわ</rt></ruby>えて", de:"zusätzlich zu, neben ~"},
+    {jp:"<ruby>第<rt>だい</rt></ruby>〜<ruby>位<rt>い</rt></ruby>", de:"~. Platz, Rang"},
+    {jp:"サービス", de:"Service"},
+    {jp:"おもてなしの<ruby>心<rt>こころ</rt></ruby>", de:"Gastfreundschaftsgeist"},
+    {jp:"<ruby>選<rt>えら</rt></ruby>ぶ", de:"auswählen"},
+    {jp:"<ruby>都市<rt>とし</rt></ruby>", de:"Stadt"},
+    {jp:"<ruby>景観<rt>けいかん</rt></ruby>", de:"Landschaft, Stadtbild"},
+    {jp:"<ruby>美<rt>うつく</rt></ruby>しい", de:"schön"},
+    {jp:"ユネスコ<ruby>無形文化遺産<rt>むけいぶんかいさん</rt></ruby>", de:"UNESCO-Weltkulturerbe (immateriell)"},
+    {jp:"<ruby>登録<rt>とうろく</rt></ruby>する", de:"eintragen, registrieren"},
+    {jp:"<ruby>今後<rt>こんご</rt></ruby>", de:"künftig, ab jetzt"}
+  ],
+  5: [
+    {jp:"<ruby>睡眠<rt>すいみん</rt></ruby>", de:"Schlaf"},
+    {jp:"<ruby>夜中<rt>よなか</rt></ruby>", de:"mitten in der Nacht"},
+    {jp:"<ruby>覚<rt>さ</rt></ruby>める [<ruby>目<rt>め</rt></ruby>が〜]", de:"erwachen, aufwachen [Augen öffnen sich]"},
+    {jp:"<ruby>遅<rt>おそ</rt></ruby>くまで", de:"bis spät"},
+    {jp:"<ruby>活動<rt>かつどう</rt></ruby>する", de:"aktiv sein, tätig sein"},
+    {jp:"<ruby>通勤<rt>つうきん</rt></ruby>", de:"Pendeln zum Arbeitsplatz"},
+    {jp:"<ruby>減少<rt>げんしょう</rt></ruby>する", de:"abnehmen, sich verringern"},
+    {jp:"<ruby>不調<rt>ふちょう</rt></ruby>", de:"Beschwerden, schlechter Zustand"},
+    {jp:"<ruby>訴<rt>うった</rt></ruby>える [<ruby>不調<rt>ふちょう</rt></ruby>を〜]", de:"klagen [über Beschwerden]"},
+    {jp:"<ruby>自然<rt>しぜん</rt></ruby>に", de:"natürlich, von selbst"},
+    {jp:"<ruby>昼間<rt>ひるま</rt></ruby>", de:"tagsüber"},
+    {jp:"<ruby>十分<rt>じゅうぶん</rt></ruby>に", de:"ausreichend, genug"},
+    {jp:"<ruby>動<rt>うご</rt></ruby>かす", de:"bewegen (transitiv)"},
+    {jp:"〜に<ruby>関<rt>かん</rt></ruby>して", de:"in Bezug auf ~, was ~ angeht"},
+    {jp:"<ruby>神経質<rt>しんけいしつ</rt></ruby>な", de:"nervös, übersensibel"}
+  ],
+  6: [
+    {jp:"<ruby>胃<rt>い</rt></ruby>カメラ", de:"Magenkamera (Gastroskop)"},
+    {jp:"<ruby>乾電池<rt>かんでんち</rt></ruby>", de:"Trockenbatterie"},
+    {jp:"サインペン", de:"Filzstift"},
+    {jp:"せんす", de:"Faltfächer"},
+    {jp:"インスタントコーヒー", de:"Instantkaffee"},
+    {jp:"<ruby>当時<rt>とうじ</rt></ruby>", de:"damals, zu jener Zeit"},
+    {jp:"<ruby>注目<rt>ちゅうもく</rt></ruby>する", de:"Aufmerksamkeit schenken, beachten"},
+    {jp:"<ruby>特許<rt>とっきょ</rt></ruby>", de:"Patent"},
+    {jp:"<ruby>取<rt>と</rt></ruby>る [<ruby>特許<rt>とっきょ</rt></ruby>を〜]", de:"nehmen, erlangen [ein Patent]"},
+    {jp:"<ruby>別<rt>べつ</rt></ruby>の", de:"ein anderer, separat"}
+  ],
+  7: [
+    {jp:"フリーマーケット", de:"Flohmarkt"},
+    {jp:"<ruby>温暖化<rt>おんだんか</rt></ruby>", de:"Erwärmung (Klimawandel)"},
+    {jp:"<ruby>砂漠化<rt>さばくか</rt></ruby>", de:"Verwüstung, Desertifikation"},
+    {jp:"<ruby>自分<rt>じぶん</rt></ruby>たち", de:"wir selbst (Plural)"},
+    {jp:"<ruby>守<rt>まも</rt></ruby>る", de:"schützen, beschützen"},
+    {jp:"〜という N", de:"ein N namens ~, ein sogenanntes N"},
+    {jp:"<ruby>意識<rt>いしき</rt></ruby>", de:"Bewusstsein, Awareness"},
+    {jp:"<ruby>生<rt>う</rt></ruby>まれる [<ruby>意識<rt>いしき</rt></ruby>が〜]", de:"entstehen [Bewusstsein]"},
+    {jp:"<ruby>以前<rt>いぜん</rt></ruby>", de:"früher, vorher"},
+    {jp:"<ruby>考<rt>かんが</rt></ruby>え", de:"Gedanke, Idee"},
+    {jp:"このような", de:"solch ein, derartig"},
+    {jp:"リサイクル<ruby>運動<rt>うんどう</rt></ruby>", de:"Recycling-Bewegung"},
+    {jp:"〜のだ (= 〜んです <ruby>説明<rt>せつめい</rt></ruby>)", de:"〜のだ (=〜んです, Erklärung)"},
+    {jp:"<ruby>十分<rt>じゅうぶん</rt></ruby>", de:"genug, ausreichend"},
+    {jp:"<ruby>市町村<rt>しちょうそん</rt></ruby>", de:"Städte und Gemeinden"},
+    {jp:"リサイクルする", de:"recyceln"},
+    {jp:"〜と<ruby>呼<rt>よ</rt></ruby>びかける", de:"aufrufen zu ~, appellieren"}
+  ],
+  8: [
+    {jp:"あいづち", de:"Aizuchi (zustimmende Geräusche/Nicken beim Zuhören)"},
+    {jp:"<ruby>相手<rt>あいて</rt></ruby>", de:"Gegenüber, Gesprächspartner"},
+    {jp:"うなずく", de:"nicken"},
+    {jp:"<ruby>伝<rt>つた</rt></ruby>える", de:"mitteilen, übermitteln"},
+    {jp:"<ruby>合図<rt>あいず</rt></ruby>", de:"Signal, Zeichen"},
+    {jp:"だから (= ですから)", de:"deshalb, daher"},
+    {jp:"<ruby>賛成<rt>さんせい</rt></ruby>する", de:"zustimmen"},
+    {jp:"<ruby>不安<rt>ふあん</rt></ruby>な", de:"unsicher, ängstlich"},
+    {jp:"<ruby>確<rt>たし</rt></ruby>かめる", de:"sich vergewissern, überprüfen"},
+    {jp:"<ruby>誤解<rt>ごかい</rt></ruby>する", de:"missverstehen"},
+    {jp:"<ruby>黙<rt>だま</rt></ruby>る", de:"schweigen, still sein"},
+    {jp:"<ruby>打<rt>う</rt></ruby>つ [あいづちを〜]", de:"machen [Aizuchi machen, »schlagen«]"},
+    {jp:"さまざまな", de:"verschiedene, vielfältige"}
+  ],
+  9: [
+    {jp:"<ruby>以前<rt>いぜん</rt></ruby>", de:"früher, vorher"},
+    {jp:"<ruby>女性<rt>じょせい</rt></ruby>", de:"Frau, weibliche Person"},
+    {jp:"<ruby>職場<rt>しょくば</rt></ruby>", de:"Arbeitsplatz"},
+    {jp:"<ruby>男性<rt>だんせい</rt></ruby>", de:"Mann, männliche Person"},
+    {jp:"<ruby>表<rt>あらわ</rt></ruby>す", de:"ausdrücken, zeigen"},
+    {jp:"<ruby>看護婦<rt>かんごふ</rt></ruby>", de:"Krankenschwester (alte Bezeichnung)"},
+    {jp:"<ruby>保母<rt>ほぼ</rt></ruby>", de:"Erzieherin (alte Bezeichnung)"},
+    {jp:"<ruby>職業<rt>しょくぎょう</rt></ruby>", de:"Beruf"},
+    {jp:"<ruby>名称<rt>めいしょう</rt></ruby>", de:"Bezeichnung, Name"},
+    {jp:"<ruby>看護師<rt>かんごし</rt></ruby>", de:"Krankenpfleger/-schwester (geschlechtsneutral)"},
+    {jp:"<ruby>保育士<rt>ほいくし</rt></ruby>", de:"Erzieher/in (geschlechtsneutral)"},
+    {jp:"<ruby>建築<rt>けんちく</rt></ruby>", de:"Bau, Architektur"},
+    {jp:"<ruby>運転手<rt>うんてんしゅ</rt></ruby>", de:"Fahrer"},
+    {jp:"<ruby>車掌<rt>しゃしょう</rt></ruby>", de:"Schaffner, Zugbegleiter"},
+    {jp:"<ruby>男女<rt>だんじょ</rt></ruby>", de:"Mann und Frau, beide Geschlechter"},
+    {jp:"<ruby>区別<rt>くべつ</rt></ruby>", de:"Unterscheidung, Trennung"},
+    {jp:"<ruby>家庭<rt>かてい</rt></ruby>", de:"Haushalt, Familie"},
+    {jp:"<ruby>向<rt>む</rt></ruby>ける [<ruby>目<rt>め</rt></ruby>を〜]", de:"richten [den Blick auf]"},
+    {jp:"<ruby>家事<rt>かじ</rt></ruby>", de:"Hausarbeit"},
+    {jp:"<ruby>労働<rt>ろうどう</rt></ruby>", de:"Arbeit, Tätigkeit"},
+    {jp:"〜<ruby>程度<rt>ていど</rt></ruby>", de:"~ Niveau, ~ Maß"},
+    {jp:"<ruby>調査結果<rt>ちょうさけっか</rt></ruby>", de:"Untersuchungsergebnis"},
+    {jp:"A ではなく B", de:"nicht A, sondern B"},
+    {jp:"すすんで", de:"aus eigenem Antrieb, freiwillig"},
+    {jp:"<ruby>分担<rt>ぶんたん</rt></ruby>する", de:"aufteilen, sich teilen"},
+    {jp:"<ruby>共働<rt>ともばたら</rt></ruby>き", de:"Doppelverdiener-Ehe"}
+  ],
+  10: [
+    {jp:"<ruby>調査<rt>ちょうさ</rt></ruby>", de:"Untersuchung, Umfrage"},
+    {jp:"<ruby>乱<rt>みだ</rt></ruby>れる", de:"durcheinander geraten, sich verschlechtern"},
+    {jp:"<ruby>感<rt>かん</rt></ruby>じる", de:"fühlen, empfinden"},
+    {jp:"<ruby>特<rt>とく</rt></ruby>に", de:"besonders, insbesondere"},
+    {jp:"<ruby>敬語<rt>けいご</rt></ruby>", de:"Höflichkeitssprache, Keigo"},
+    {jp:"<ruby>場<rt>ば</rt></ruby> [<ruby>食事<rt>しょくじ</rt></ruby>の〜]", de:"Ort, Setting [beim Essen]"},
+    {jp:"<ruby>訪<rt>たず</rt></ruby>ねる", de:"besuchen"},
+    {jp:"<ruby>本来<rt>ほんらい</rt></ruby>", de:"eigentlich, ursprünglich"},
+    {jp:"<ruby>変化<rt>へんか</rt></ruby>する", de:"sich verändern"},
+    {jp:"<ruby>気<rt>き</rt></ruby>にする", de:"sich Sorgen machen, sich kümmern um"},
+    {jp:"この<ruby>機会<rt>きかい</rt></ruby>に", de:"bei dieser Gelegenheit"}
+  ],
+};
+
+
+// ============ RENDER ============
+const grid = document.getElementById('grid');
+const overview = document.getElementById('overview');
+const lessonGrid = document.getElementById('lessonGrid');
+const cheatsBlock = document.getElementById('cheats');
+const cheatToggle = document.getElementById('cheatToggle');
+const vocabBlock = document.getElementById('vocab');
+const vocabContent = document.getElementById('vocab-content');
+const search = document.getElementById('search');
+const lessonFilter = document.getElementById('lessonFilter');
+const stats = document.getElementById('stats');
+const backBtn = document.getElementById('backBtn');
+
+// Kurz-Themen pro Lektion (für Übersichts-Kacheln)
+const TOPICS = {
+  1:"ファストフード", 2:"地震", 3:"最近の子ども", 4:"日本のイメージ", 5:"睡眠",
+  6:"日本人の発明", 7:"リサイクル", 8:"あいづち", 9:"男の仕事・女の仕事", 10:"ことばの使い方"
+};
+
+const lessons = [...new Set(CARDS.map(c => c.l))].sort((a,b)=>a-b);
+
+// Filter-Dropdown füllen — Cheat-Sheets und Vokabeln ZUERST, dann Lektionen
+const cheatOpt = document.createElement('option');
+cheatOpt.value = 'cheats';
+cheatOpt.textContent = '📖 Cheat-Sheets';
+lessonFilter.appendChild(cheatOpt);
+
+const vocabOpt = document.createElement('option');
+vocabOpt.value = 'vocab';
+vocabOpt.textContent = '📚 Vokabeln';
+lessonFilter.appendChild(vocabOpt);
+
+lessons.forEach(l => {
+  const opt = document.createElement('option');
+  opt.value = l;
+  opt.textContent = `Lektion ${l}${TOPICS[l] ? ' · ' + TOPICS[l] : ''}`;
+  lessonFilter.appendChild(opt);
+});
+
+// Übersichts-Kacheln rendern
+function renderOverview() {
+  lessonGrid.innerHTML = '';
+  const counts = {};
+  CARDS.forEach(c => { counts[c.l] = (counts[c.l] || 0) + 1; });
+  lessons.forEach(l => {
+    const tile = document.createElement('button');
+    tile.className = 'lesson-tile';
+    tile.innerHTML = `
+      <span class="num">L${String(l).padStart(2,'0')}</span>
+      <span class="topic">${TOPICS[l] || ''}</span>
+      <span class="count">${counts[l]} Karte${counts[l]!==1?'n':''}</span>
+    `;
+    tile.addEventListener('click', () => {
+      lessonFilter.value = l;
+      render();
+      window.scrollTo({top:document.querySelector('.controls').offsetTop, behavior:'smooth'});
+    });
+    lessonGrid.appendChild(tile);
+  });
+}
+renderOverview();
+
+function buildConjTable(conj) {
+  if (!conj || conj.length === 0) return '';
+  let html = '<table class="conj-table"><thead><tr><th>Form</th><th>Japanisch</th><th>Bedeutung</th></tr></thead><tbody>';
+  conj.forEach(row => {
+    html += `<tr><td>${row.form}</td><td>${row.verb}</td><td>${row.de}</td></tr>`;
+  });
+  html += '</tbody></table>';
+  return html;
+}
+
+// Vokabel-Inhalt einmal aufbauen
+function renderVocab() {
+  let html = '';
+  Object.keys(VOCAB).sort((a,b)=>+a-+b).forEach(l => {
+    const items = VOCAB[l];
+    html += `<div class="cheat" id="vocab-l${l}">`;
+    html += `<h2>L${l} · ${TOPICS[l] || ''} <span style="font-size:.7em;color:#8a1f17;font-weight:normal">(${items.length} Vokabeln)</span></h2>`;
+    html += '<table style="width:100%;border-collapse:collapse"><tbody>';
+    items.forEach((v, i) => {
+      const bg = i % 2 === 0 ? '#fdf6ec' : '#ffffff';
+      html += `<tr style="background:${bg}"><td style="padding:.5rem .6rem;border-bottom:1px solid #f0e3c8;font-size:1.05rem">${v.jp}</td><td style="padding:.5rem .6rem;border-bottom:1px solid #f0e3c8;color:#5a4530">${v.de}</td></tr>`;
+    });
+    html += '</tbody></table>';
+    html += '</div>';
+  });
+  vocabContent.innerHTML = html;
+}
+renderVocab();
+
+function render(){
+  const q = search.value.toLowerCase().trim();
+  const lf = lessonFilter.value;
+
+  // SPEZIALFALL: Vokabeln ausgewählt UND keine Suche
+  if (lf === 'vocab' && !q) {
+    overview.style.display = 'none';
+    grid.innerHTML = '';
+    grid.style.display = 'none';
+    cheatsBlock.classList.add('hidden');
+    vocabBlock.classList.remove('hidden');
+    cheatToggle.textContent = 'Cheat-Sheets anzeigen';
+    stats.innerHTML = `<b>📚</b> Vokabeln · ${Object.values(VOCAB).reduce((s,a)=>s+a.length,0)} Wörter`;
+    backBtn.classList.add('visible');
+    setTimeout(() => vocabBlock.scrollIntoView({behavior:'smooth', block:'start'}), 50);
+    return;
+  }
+
+  // Wenn Suche aktiv aber Vocab-Filter: switch zurück
+  if (lf === 'vocab' && q) {
+    lessonFilter.value = 'all';
+    vocabBlock.classList.add('hidden');
+    return render();
+  }
+
+  // SPEZIALFALL: Cheat-Sheets ausgewählt UND keine Suche
+  if (lf === 'cheats' && !q) {
+    overview.style.display = 'none';
+    grid.innerHTML = '';
+    grid.style.display = 'none';
+    vocabBlock.classList.add('hidden');
+    cheatsBlock.classList.remove('hidden');
+    cheatToggle.textContent = 'Cheat-Sheets ausblenden';
+    stats.innerHTML = `<b>📖</b> Cheat-Sheets`;
+    backBtn.classList.add('visible');
+    setTimeout(() => cheatsBlock.scrollIntoView({behavior:'smooth', block:'start'}), 50);
+    return;
+  }
+
+  // Wenn Suche aktiv aber Cheats-Filter: switch zurück auf "all"
+  if (lf === 'cheats' && q) {
+    lessonFilter.value = 'all';
+    cheatsBlock.classList.add('hidden');
+    cheatToggle.textContent = 'Cheat-Sheets anzeigen';
+    return render();
+  }
+
+  // Beide Spezialblöcke verstecken bei normalem Filter
+  cheatsBlock.classList.add('hidden');
+  vocabBlock.classList.add('hidden');
+  cheatToggle.textContent = 'Cheat-Sheets anzeigen';
+
+  // SPEZIALFALL: "Alle" + keine Suche → nur Übersicht zeigen
+  if (lf === 'all' && !q) {
+    overview.style.display = 'block';
+    grid.innerHTML = '';
+    grid.style.display = 'none';
+    stats.innerHTML = `<b>${CARDS.length}</b> Karten · ${lessons.length} Lektionen`;
+    backBtn.classList.remove('visible');
+    return;
+  }
+
+  // NORMAL: Karten rendern
+  overview.style.display = 'none';
+  grid.style.display = 'grid';
+  backBtn.classList.add('visible');
+  grid.innerHTML = '';
+  let count = 0;
+  CARDS.forEach((c) => {
+    const matchLesson = (lf === 'all' || c.l == lf);
+    const conjText = (c.conj || []).map(r => r.form + ' ' + r.verb + ' ' + r.de).join(' ');
+    const exText = (c.ex || []).map(e => e.jp + ' ' + e.de).join(' ');
+    const haystack = (c.t + ' ' + c.de + ' ' + c.rule + ' ' + conjText + ' ' + exText + ' L' + c.l + ' Lektion' + c.l).toLowerCase();
+    const matchSearch = (!q || haystack.includes(q));
+    if(!matchLesson || !matchSearch) return;
+    count++;
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="front">
+        <span class="lesson-tag">L ${String(c.l).padStart(2,'0')}</span>
+        <div class="grammar-jp">${c.t}</div>
+        <div class="grammar-de">${c.de}</div>
+        <span class="flip-hint">umdrehen</span>
+      </div>
+      <div class="back">
+        <div class="back-content">
+          <span class="lesson-tag">L ${String(c.l).padStart(2,'0')} · ${c.de}</span>
+          <h3>${c.t}</h3>
+          <div class="rule">${c.rule}</div>
+          ${buildConjTable(c.conj)}
+          <div class="examples">
+            ${c.ex.map(e=>`<div class="ex"><span class="jp">${e.jp}</span><span class="de">${e.de}</span></div>`).join('')}
+          </div>
+          ${c.note ? `<div class="note">${c.note}</div>` : ''}
+        </div>
+      </div>
+    `;
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    grid.appendChild(card);
+  });
+  stats.innerHTML = `<b>${count}</b> Karte${count!==1?'n':''}`;
+}
+
+search.addEventListener('input', render);
+lessonFilter.addEventListener('change', render);
+
+backBtn.addEventListener('click', () => {
+  lessonFilter.value = 'all';
+  search.value = '';
+  cheatsBlock.classList.add('hidden');
+  vocabBlock.classList.add('hidden');
+  cheatToggle.textContent = 'Cheat-Sheets anzeigen';
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+// Cheat-Toggle Button: ändert Filter (saubere State-Verwaltung)
+cheatToggle.addEventListener('click', () => {
+  if (lessonFilter.value === 'cheats') {
+    lessonFilter.value = 'all';
+    search.value = '';
+  } else {
+    lessonFilter.value = 'cheats';
+  }
+  render();
+});
+
+// TOC Smooth-Scroll für Cheat-Sheets und Vokabeln
+document.querySelectorAll('.cheat-toc a').forEach(link => {
+  link.style.cursor = 'pointer';
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Support both href="#id" (cheat-sheets) and data-target="id" (vocab)
+    let targetId = link.getAttribute('data-target');
+    if (!targetId) {
+      const href = link.getAttribute('href');
+      if (href) targetId = href.replace('#', '');
+    }
+    if (!targetId) return;
+    const target = document.getElementById(targetId);
+    if (target) {
+      const y = target.getBoundingClientRect().top + window.scrollY - 10;
+      window.scrollTo({top:y, behavior:'smooth'});
+    }
+  });
+});
+
+// Floating to-top Button: nach 400px Scroll einblenden
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) toTop.classList.add('visible');
+  else toTop.classList.remove('visible');
+}, {passive:true});
+toTop.addEventListener('click', () => {
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+// iOS Fix: Suchfeld nach Fokus zentrieren (Tastatur überdeckt sonst)
+search.addEventListener('focus', () => {
+  setTimeout(() => {
+    search.scrollIntoView({behavior:'smooth', block:'center'});
+  }, 300);
+});
+
+// TOC Smooth-Scroll mit Offset für Sticky-Header
+document.getElementById('randomBtn').addEventListener('click', () => {
+  // Wenn Übersicht aktiv: zufällige Lektion + Karte zeigen
+  if (overview.style.display !== 'none' && lessonFilter.value === 'all') {
+    const randomCard = CARDS[Math.floor(Math.random() * CARDS.length)];
+    lessonFilter.value = randomCard.l;
+    render();
+    setTimeout(() => {
+      const cards = [...document.querySelectorAll('.card')];
+      const matchIdx = cards.findIndex(c => c.querySelector('.grammar-jp').innerHTML === randomCard.t);
+      const target = matchIdx >= 0 ? cards[matchIdx] : cards[Math.floor(Math.random()*cards.length)];
+      if (target) {
+        target.scrollIntoView({behavior:'smooth', block:'center'});
+        setTimeout(() => target.classList.add('highlight'), 400);
+      }
+    }, 100);
+    return;
+  }
+  // Sonst: zufällige aus aktuell sichtbaren Karten
+  const visibleCards = [...document.querySelectorAll('.card')];
+  if (visibleCards.length === 0) return;
+  const target = visibleCards[Math.floor(Math.random() * visibleCards.length)];
+  document.querySelectorAll('.card.highlight').forEach(c => c.classList.remove('highlight'));
+  target.scrollIntoView({behavior:'smooth', block:'center'});
+  setTimeout(() => target.classList.add('highlight'), 400);
+});
+
+render();
+</script>
+</body>
+</html>
