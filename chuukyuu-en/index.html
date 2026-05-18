@@ -2504,7 +2504,7 @@ function renderOverview() {
   tile.innerHTML = `
    <span class="num">L${String(l).padStart(2,'0')}</span>
    <span class="topic">${TOPICS[l] || ''}</span>
-   <span class="count">${counts[l]} card${counts[l]!==1?'n':''}</span>
+   <span class="count">${counts[l]} card${counts[l]!==1?'s':''}</span>
   `;
   tile.addEventListener('click', () => {
    lessonFilter.value = l;
@@ -2711,7 +2711,7 @@ function render(){
   card.addEventListener('click', () => card.classList.toggle('flipped'));
   grid.appendChild(card);
  });
- stats.innerHTML = `<b>${count}</b> card${count!==1?'n':''}`;
+ stats.innerHTML = `<b>${count}</b> card${count!==1?'s':''}`;
 }
 
 search.addEventListener('input', render);

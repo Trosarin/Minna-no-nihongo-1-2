@@ -1883,13 +1883,13 @@ const CARDS = [
   ex:[{jp:"IMCの <ruby>社員<rt>しゃいん</rt></ruby>です。",de:"I am employee by IMC."},{jp:"これは <ruby>日本語<rt>にほんご</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>です。",de:"The is a Japanese book."},{jp:"<ruby>田中<rt>たなか</rt></ruby>さんは <ruby>富士<rt>ふじ</rt></ruby><ruby>大学<rt>だいがく</rt></ruby>の <ruby>先生<rt>せんせい</rt></ruby>です。",de:"Ms. Tanaka is a teacher to the Fuji University."}],
   note:"💡 Several の can strung together becomes: <ruby>友達<rt>ともだち</rt></ruby>の <ruby>母<rt>はは</rt></ruby>の <ruby>本<rt>ほん</rt></ruby> = my friend's mother's book. order from outside to inside."},
  {l:2, t:"これ / それ / あれ", de:"this / that / that over there (proneun)",
-  rule:"Three demonstrative proneuns for things. これ = close to the speaker. それ = close to the listenor. あれ = far by both. Stands alone as Subject.",
-  build:[{form:"これ (close Speaker)",verb:"これは〜です",de:"This here is …"},{form:"それ (close listenor)",verb:"それは〜です",de:"The (at your place) is …"},{form:"あれ (fern by both)",verb:"あれは〜です",de:"That (there) is …"},{form:"Question",verb:"どれ",de:"Which one?"}],
+  rule:"Three demonstrative pronouns for things. これ = close to the speaker. それ = close to the listener. あれ = far by both. Stands alone as Subject.",
+  build:[{form:"これ (close Speaker)",verb:"これは〜です",de:"This here is …"},{form:"それ (close listener)",verb:"それは〜です",de:"The (at your place) is …"},{form:"あれ (far by both)",verb:"あれは〜です",de:"That (there) is …"},{form:"Question",verb:"どれ",de:"Which one?"}],
   pattern:{slots:[{text:"これ/それ/あれ",role:"subj",label:"proneun"},{text:"は",role:"plain"},{text:"N",role:"obj"},{text:"です",role:"verb"}],gloss:"'Dies/the/that is N.' — こそあど-Reihe for things."},
   ex:[{jp:"これは <ruby>本<rt>ほん</rt></ruby>です。",de:"This here is a book."},{jp:"それは <ruby>何<rt>なん</rt></ruby>ですか。",de:"What is that (at your place)?"},{jp:"あれは <ruby>富士山<rt>ふじさん</rt></ruby>です。",de:"That there is Fuji."}],
-  note:"💡 こそあど-System: こ=close Speaker, そ=close listenor, あ=fern by both, ど=Question. Applies durchgod: これ/この/こちら/ここ/こう."},
+  note:"💡 こそあど-System: こ=close Speaker, そ=close listener, あ=far by both, ど=Question. Applies consistently: これ/この/こちら/ここ/こう."},
  {l:2, t:"この / その / あの + N", de:"this / that + noun",
-  rule:"Demonstrativee adjectives — stand ALWAYS directly before a noun. meaning identical to これ/それ/あれ, but not standalone.",
+  rule:"Demonstrative adjectives — stand ALWAYS directly before a noun. meaning identical to これ/それ/あれ, but not standalone.",
   build:[{form:"+ noun",verb:"この<ruby>本<rt>ほん</rt></ruby>",de:"this book"},{form:"vs. これ",verb:"これ = alone / この = before noun",de:"never 'これ本'"},{form:"Question",verb:"どの + N",de:"which N?"}],
   pattern:{slots:[{text:"この/その/あの",role:"subj",label:"before noun"},{text:"N",role:"obj",label:"noun"},{text:"は〜です",role:"verb"}],gloss:"'This/that N …' — これ/それ/あれ + noun → この/その/あの + noun."},
   ex:[{jp:"この <ruby>本<rt>ほん</rt></ruby>は <ruby>私<rt>わたし</rt></ruby>のです。",de:"This book belongs to me."},{jp:"あの <ruby>人<rt>ひと</rt></ruby>は ミラーさんです。",de:"That person there is Mr. Miller."},{jp:"その かばんは いくらですか。",de:"How much is that bag (at your place)?"}],
@@ -1913,11 +1913,11 @@ const CARDS = [
   ex:[{jp:"この かばんは <ruby>私<rt>わたし</rt></ruby>のです。",de:"Diese bag is my."},{jp:"あの <ruby>本<rt>ほん</rt></ruby>は ミラーさんのです。",de:"That book is Millers."},{jp:"これは だれのですか。— <ruby>田中<rt>たなか</rt></ruby>さんのです。",de:"Whose is this? — It belongs to Ms. Tanaka."}],
   note:"💡 の at the end of the sentence (Nominalpartikel/Proneminalpartikel) is a the most frequently Satzstrukturen in the everyday language — unbedingt internalize."},
  {l:3, t:"ここ / そこ / あそこ", de:"here / there / there over there (place)",
-  rule:"place specificationn: ここ = for the Speaker, そこ = for the listenor/closee listenor, あそこ = far by both. More polite variant: こちら/そちら/あちら.",
-  build:[{form:"ここ",verb:"<ruby>私<rt>わたし</rt></ruby>の そばの <ruby>場所<rt>ばしょ</rt></ruby>",de:"at the Speaker"},{form:"そこ",verb:"<ruby>相手<rt>あいて</rt></ruby>の そばの <ruby>場所<rt>ばしょ</rt></ruby>",de:"at the listenor"},{form:"あそこ",verb:"どちらからも <ruby>遠<rt>とお</rt></ruby>い <ruby>場所<rt>ばしょ</rt></ruby>",de:"far by both"},{form:"どこ",verb:"Question",de:"Where?"},{form:"polite",verb:"こちら / そちら / あちら",de:"in formal situations"}],
+  rule:"place specificationn: ここ = for the Speaker, そこ = for the listener/closee listener, あそこ = far by both. More polite variant: こちら/そちら/あちら.",
+  build:[{form:"ここ",verb:"<ruby>私<rt>わたし</rt></ruby>の そばの <ruby>場所<rt>ばしょ</rt></ruby>",de:"at the Speaker"},{form:"そこ",verb:"<ruby>相手<rt>あいて</rt></ruby>の そばの <ruby>場所<rt>ばしょ</rt></ruby>",de:"at the listener"},{form:"あそこ",verb:"どちらからも <ruby>遠<rt>とお</rt></ruby>い <ruby>場所<rt>ばしょ</rt></ruby>",de:"far by both"},{form:"どこ",verb:"Question",de:"Where?"},{form:"polite",verb:"こちら / そちら / あちら",de:"in formal situations"}],
   pattern:{slots:[{text:"ここ/そこ/あそこ",role:"subj",label:"place"},{text:"は",role:"plain"},{text:"N",role:"obj"},{text:"です",role:"verb"}],gloss:"'Here/there is N.' — こそあど-Reihe for places."},
   ex:[{jp:"ここは <ruby>教室<rt>きょうしつ</rt></ruby>です。",de:"Here is the cleat all."},{jp:"トイレは あそこです。",de:"Die Toilette this isre over there."},{jp:"すみません、<ruby>受付<rt>うけつけ</rt></ruby>は どこですか。— そちらです。",de:"Sorry, where this is Rezeption? — There over there."}],
-  note:"💡 こそあど-System durchgod: これ/それ/あれ (things) / ここ/そこ/あそこ (places) / この/その/あの (before noun) — always the same こ/そ/あ/ど-logic."},
+  note:"💡 こそあど-System consistently: これ/それ/あれ (things) / ここ/そこ/あそこ (places) / この/その/あの (before noun) — always the same こ/そ/あ/ど-logic."},
  {l:3, t:"N は (place) です", de:"N is located at (place)",
   rule:"Describes the (approximate) location a Person or thing. For more precise specifications: N は (place) に います/あります (L10).",
   build:[{form:"place with Etage",verb:"<ruby>食堂<rt>しょくどう</rt></ruby>は <ruby>2階<rt>にかい</rt></ruby>です",de:"Mensa is in the 2. Stock"},{form:"place with Room",verb:"ミラーさんは <ruby>事務所<rt>じむしょ</rt></ruby>です",de:"Miller is in the office"},{form:"more precise",verb:"N は (place) に います/あります",de:"in L10 detailed"}],
@@ -2006,7 +2006,7 @@ const CARDS = [
   rule:"を (proneunced 'o') marks the direct Object transitive verbs. Typical を-verbs: 食べる・飲む・読む・書く・見る・聞く・買う・作る・教える.",
   build:[{form:"Connection",verb:"N を V<sub><ruby>他動詞<rt>たどうし</rt></ruby></sub>",de:"N is V-ed"},{form:"⚠ at Potential",verb:"N が V<sub><ruby>可能<rt>かのう</rt></ruby></sub>",de:"は が を instead を (L27)"},{form:"⚠ at も",verb:"N も V",de:"も replaces を"}],
   pattern:{slots:[{text:"N",role:"obj",label:"Object"},{text:"を",role:"plain",label:"accusative"},{text:"V",role:"verb",label:"transitive verb"}],gloss:"'[N] do/to eat/to read …' — を for direct objects."},
-  ex:[{jp:"パンを <ruby>食<rt>た</rt></ruby>べます。",de:"I eat bread."},{jp:"<ruby>新聞<rt>しんぶん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます。",de:"I read newspaper."},{jp:"<ruby>音楽<rt>おんがく</rt></ruby>を <ruby>聞<rt>き</rt></ruby>きます。 テレビを <ruby>見<rt>み</rt></ruby>ます。",de:"I hear music. I see fern."}],
+  ex:[{jp:"パンを <ruby>食<rt>た</rt></ruby>べます。",de:"I eat bread."},{jp:"<ruby>新聞<rt>しんぶん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます。",de:"I read newspaper."},{jp:"<ruby>音楽<rt>おんがく</rt></ruby>を <ruby>聞<rt>き</rt></ruby>きます。 テレビを <ruby>見<rt>み</rt></ruby>ます。",de:"I hear music. I see far."}],
   note:"⚠️ を disappears at Potential (L27): 日本語を話す → 日本語が話せる. And も replaces を: パンも食べます (I also eat bread)."},
  {l:6, t:"<ruby>何<rt>なに</rt></ruby>を しますか", de:"What does she do?",
   rule:"します = do, to do. As W-question after the activity. する as independent verb or in noun+する compound (スポーツする, 勉強する).",
@@ -2382,7 +2382,7 @@ const CARDS = [
   {form:"〜ていく → 〜てく",verb:"<ruby>持<rt>も</rt></ruby>ってく (instead <ruby>持<rt>も</rt></ruby>っていく)",de:"take along"},
   {form:"〜ておく → 〜とく",verb:"やっとく (instead やっておく)",de:"previously do"}
  ], pattern:{slots:[{text:"V-て",role:"verb"},{text:"(い)る/(い)く/(お)く",role:"plain",label:"い/お drops away"}],gloss:"Informal: ている→てる, ていく→てく, ておく→とく. ONLY in informal conversation!"},
-  ex:[  {jp:"<ruby>何<rt>なに</rt></ruby> してる? — テレビ <ruby>見<rt>み</rt></ruby>てる。",de:"What are you doing? — I schaue fern."},
+  ex:[  {jp:"<ruby>何<rt>なに</rt></ruby> してる? — テレビ <ruby>見<rt>み</rt></ruby>てる。",de:"What are you doing? — I schaue far."},
   {jp:"<ruby>傘<rt>かさ</rt></ruby> <ruby>持<rt>も</rt></ruby>ってく? — うん、<ruby>持<rt>も</rt></ruby>ってく。",de:"Nimmst you a rainschirm with? — Yes, take I."},
   {jp:"あとで やっとくね。",de:"I do it later (previously)."}
  ], note:"⚠️ NOT in formal situations nutzen! Diese shorteningeneral are only for conversations among friends geeignot."},
@@ -2682,7 +2682,7 @@ const CARDS = [
   rule:"Zwei simultanoouslye Actions DERSELBEN Person. The main verb (= the importantre Action) is at the end of the sentence, the accompanying action with ながら before.",
   build:[{form:"Formation",verb:"V<sub>マス</sub>-stem + ながら",de:"<ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べながら"},{form:"Example",verb:"<ruby>聞<rt>き</rt></ruby>きます → <ruby>聞<rt>き</rt></ruby>きながら",de:"during (music) to hear"},{form:"⚠️ Selbe Person",verb:"both verbs = the same actor",de:"otherwise not possible"},{form:"⚠️ tense",verb:"only at the main verb!",de:"<ruby>聞<rt>き</rt></ruby>きながら、<ruby>勉強<rt>べんきょう</rt></ruby>しました"}],
   pattern:{slots:[{text:"Subject は",role:"subj",label:"who"},{text:"Begleit-Obj",role:"obj"},{text:"V₁ます-stem",role:"verb",label:"V1"},{text:"ながら、",role:"actor",label:"during"},{text:"Haupt-Obj",role:"obj"},{text:"V₂",role:"verb",label:"V2 (Haupt)"}],gloss:"'While [V₁ does], [V₂].' — V₂ this is Most important, V₁ runs next tobei. tense only at the V₂."},
-  ex:[{jp:"<ruby>音楽<rt>おんがく</rt></ruby>を <ruby>聞<rt>き</rt></ruby>き<b>ながら</b>、<ruby>勉強<rt>べんきょう</rt></ruby>します。",de:"I learn, during I music hear."},{jp:"テレビを <ruby>見<rt>み</rt></ruby><b>ながら</b>、ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べます。",de:"I eat, during I fernsee."},{jp:"<ruby>働<rt>はたら</rt></ruby>き<b>ながら</b>、<ruby>大学<rt>だいがく</rt></ruby>に <ruby>通<rt>かよ</rt></ruby>って います。",de:"I besearch the Uni, during I work."}],
+  ex:[{jp:"<ruby>音楽<rt>おんがく</rt></ruby>を <ruby>聞<rt>き</rt></ruby>き<b>ながら</b>、<ruby>勉強<rt>べんきょう</rt></ruby>します。",de:"I learn, during I music hear."},{jp:"テレビを <ruby>見<rt>み</rt></ruby><b>ながら</b>、ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べます。",de:"I eat, during I farsee."},{jp:"<ruby>働<rt>はたら</rt></ruby>き<b>ながら</b>、<ruby>大学<rt>だいがく</rt></ruby>に <ruby>通<rt>かよ</rt></ruby>って います。",de:"I besearch the Uni, during I work."}],
   note:"⚠️ For two variousn people → other construction (e.g., て-form or と) nutzen. ながら goes only at a Person."},
  {l:28, t:"V て います (habit / Review)", de:"regular … do",
   rule:"Erfurtherte meaning by ています (about the ongoinge Action by L14 beyond): repeatse Actions about a langeren time range — habiten, Hobbys, regular activities, continuede activities like the Japanese-Learn.",
@@ -3324,36 +3324,36 @@ function getStatusIcon(status) {
 
 function computeOverallStats() {
  const all = loadStats();
- let good = 0, bad = 0, nou = 0;
+ let good = 0, bad = 0, newCards = 0;
  CARDS.forEach(card => {
   const id = cardId(card);
   const s = all[id];
-  if (!s || s.status === 'new') nou++;
+  if (!s || s.status === 'new') newCards++;
   else if (s.status === 'good') good++;
   else if (s.status === 'bad') bad++;
  });
- return { good, bad, nou, andal: CARDS.length };
+ return { good, bad, newCards, total: CARDS.length };
 }
 
 function computeLessonStats(lessonNum) {
  const all = loadStats();
  const lessonCards = CARDS.filter(c => c.l === lessonNum);
- let good = 0, bad = 0, nou = 0;
+ let good = 0, bad = 0, newCards = 0;
  lessonCards.forEach(card => {
   const id = cardId(card);
   const s = all[id];
-  if (!s || s.status === 'new') nou++;
+  if (!s || s.status === 'new') newCards++;
   else if (s.status === 'good') good++;
   else if (s.status === 'bad') bad++;
  });
- return { good, bad, nou, andal: lessonCards.length };
+ return { good, bad, newCards, total: lessonCards.length };
 }
 
 function updateStatsCard() {
  const s = computeOverallStats();
  document.getElementById('statGood').textContent = s.good;
  document.getElementById('statBad').textContent = s.bad;
- document.getElementById('statNew').textContent = s.nou;
+ document.getElementById('statNew').textContent = s.newCards;
 }
 
 // Reset
@@ -3397,8 +3397,8 @@ let selectedLessons = new Set();
 function openReviewModal() {
  // Update counts
  const s = computeOverallStats();
- document.getElementById('countAll').textContent = `${s.andal} cards`;
- document.getElementById('countUnrated').textContent = `${s.nou} cards`;
+ document.getElementById('countAll').textContent = `${s.total} cards`;
+ document.getElementById('countUnrated').textContent = `${s.newCards} cards`;
  document.getElementById('countAgain').textContent = `${s.bad} cards`;
  
  // Build lesson grid
@@ -3557,10 +3557,10 @@ function showReviewFinished() {
  document.querySelector('.review-actions').style.display = 'none';
  reviewFinished.classList.remove('hidden');
  
- const andal = reviewSession.good + reviewSession.bad;
- const pct = andal > 0 ? Math.round(reviewSession.good / andal * 100) : 0;
+ const total = reviewSession.good + reviewSession.bad;
+ const pct = total > 0 ? Math.round(reviewSession.good / total * 100) : 0;
  reviewFinishedStats.innerHTML = `
-  You hast <b>${andal} cards</b> repeats.<br>
+  You hast <b>${total} cards</b> repeats.<br>
   ✅ ${reviewSession.good} can I · 🔴 ${reviewSession.bad} nochtimes<br>
   Erfolgsquote: <b>${pct}%</b>
  `;
@@ -3627,16 +3627,16 @@ function renderOverview() {
  lessons.forEach(l => {
   const lstats = computeLessonStats(l);
   const learned = lstats.good;
-  const pct = lstats.andal > 0 ? Math.round(learned / lstats.andal * 100) : 0;
+  const pct = lstats.total > 0 ? Math.round(learned / lstats.total * 100) : 0;
   
   const tile = document.createElement('button');
   tile.className = 'lesson-tile';
   tile.innerHTML = `
    <span class="num">L${String(l).padStart(2,'0')}</span>
    <span class="topic">${TOPICS[l] || ''}</span>
-   <span class="count">${counts[l]} card${counts[l]!==1?'n':''}</span>
+   <span class="count">${counts[l]} card${counts[l]!==1?'s':''}</span>
    <div class="tile-progress"><div class="tile-progress-bar" style="width:${pct}%"></div></div>
-   <span class="tile-progress-text">${learned}/${lstats.andal} ✅${lstats.bad > 0 ? ' · '+lstats.bad+' 🔴' : ''}</span>
+   <span class="tile-progress-text">${learned}/${lstats.total} ✅${lstats.bad > 0 ? ' · '+lstats.bad+' 🔴' : ''}</span>
   `;
   tile.addEventListener('click', () => {
    lessonFilter.value = l;
@@ -3812,7 +3812,7 @@ function render(){
   card.addEventListener('click', () => card.classList.toggle('flipped'));
   grid.appendChild(card);
  });
- stats.innerHTML = `<b>${count}</b> card${count!==1?'n':''}`;
+ stats.innerHTML = `<b>${count}</b> card${count!==1?'s':''}`;
 }
 
 search.addEventListener('input', render);
@@ -4254,9 +4254,9 @@ function renderCompare() {
 
  function showQuestion() {
   const q = quizQuestions[currentQ];
-  const andal = quizQuestions.length;
-  quizProgressBar.style.width = (currentQ / andal * 100) + '%';
-  quizMeta.textContent = `Question ${currentQ + 1} / ${andal} · ${q.cardTag}`;
+  const total = quizQuestions.length;
+  quizProgressBar.style.width = (currentQ / total * 100) + '%';
+  quizMeta.textContent = `Question ${currentQ + 1} / ${total} · ${q.cardTag}`;
   quizSentence.innerHTML = q.sentence;
   quizTrandlation.textContent = q.trandlation;
   quizFeedback.classList.add('hidden');
