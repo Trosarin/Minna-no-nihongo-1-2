@@ -48,7 +48,7 @@
       radial-gradient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-    /* Buch-Wechsler Tabs */
+    /* Book switcher tabs */
   .book-tabs{
     display:flex;
     align-items:center;
@@ -180,7 +180,7 @@ max-width:1300px;margin:0 auto;padding:1rem;
 display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem;
 }
 
-/* === LEKTIONS-ÜBERSICHT === */
+/* === LESSON OVERVIEW === */
 .overview{
 max-width:1100px;margin:1rem auto;padding:1rem;
 }
@@ -264,7 +264,7 @@ animation:slideInFromRight .45s cubic-bezier(.4,.05,.2,1) forwards;
 60%{opacity:1}
 100%{transform:translateX(0);opacity:1}
 }
-/* Hover-Hint nur auf Desktop, nicht auf Touch */
+/* Hover hint on desktop only, not on touch */
 @media(hover:hover){
 .card:not(.flipped):hover{
 transform:translateY(-2px);
@@ -585,7 +585,7 @@ justify-content:center;
 box-shadow:0 1px 3px rgba(0,0,0,.1);
 }
 
-/* Lesson tile fortschritts-balken */
+/* Lesson tile progress bar */
 .tile-progress{
 margin-top:.4rem;
 height:4px;
@@ -945,7 +945,7 @@ font-family:‘Shippori Mincho’,serif;
 color:#5a4530;
 line-height:1.6;
 }
-/* Sprach-Tabs */
+/* Language tabs */
 .lang-tabs{
 display:flex;
 justify-content:flex-end;
@@ -979,7 +979,7 @@ background:rgba(244,237,224,0.06);
 </head>
 <body>
 
-<!-- Buch-Wechsler + Sprach-Tabs -->
+<!-- Book switcher + language tabs -->
 
 <div class="book-tabs">
   <a class="book-tab active" href="/Minna-no-nihongo-1-2/minna-en/">📕 みんなの日本語</a>
@@ -1107,9 +1107,9 @@ background:rgba(244,237,224,0.06);
   <div class="stats-card" id="statsCard">
     <div class="stats-card-title">📊 Your Progress</div>
     <div class="stats-card-grid">
-      <div class="stat-item"><span class="stat-num" id="statGood">0</span><span class="stat-label">✅ Kann ich</span></div>
-      <div class="stat-item"><span class="stat-num" id="statBad">0</span><span class="stat-label">🔴 Nochmal</span></div>
-      <div class="stat-item"><span class="stat-num" id="statNew">0</span><span class="stat-label">⚪ Neu</span></div>
+      <div class="stat-item"><span class="stat-num" id="statGood">0</span><span class="stat-label">✅ Got it</span></div>
+      <div class="stat-item"><span class="stat-num" id="statBad">0</span><span class="stat-label">🔴 Again</span></div>
+      <div class="stat-item"><span class="stat-num" id="statNew">0</span><span class="stat-label">⚪ New</span></div>
     </div>
     <div class="stats-card-actions">
       <button class="stats-card-btn" id="statsReset">Reset statistics</button>
@@ -1121,24 +1121,24 @@ background:rgba(244,237,224,0.06);
 
 <div class="grid" id="grid"></div>
 
-<button class="cheat-toggle" id="cheatToggle">Cheat-Sheets anzeigen</button>
+<button class="cheat-toggle" id="cheatToggle">Show cheat sheets</button>
 
 <div class="cheats hidden" id="cheats">
 
   <!-- TOC -->
 
   <div class="cheat-toc">
-    <a href="#cheat-konditional">① Conditionale</a>
+    <a href="#cheat-konditional">① Conditionals</a>
     <a href="#cheat-keigo">② Keigo Verbs</a>
-    <a href="#cheat-konjugation">③ Konjugation</a>
-    <a href="#cheat-partikel">④ Partikel</a>
-    <a href="#cheat-konjlogik">⑤ Konj.-Logik</a>
+    <a href="#cheat-konjugation">③ Conjugation</a>
+    <a href="#cheat-partikel">④ Particles</a>
+    <a href="#cheat-konjlogik">⑤ Conj. Logic</a>
   </div>
 
-  <!-- 1. KONDITIONALE -->
+  <!-- 1. CONDITIONALS -->
 
   <div class="cheat" id="cheat-konditional">
-    <h2>Conditionale im Vergleich (と / たら / ば / なら)</h2>
+    <h2>Conditionals compared (と / たら / ば / なら)</h2>
     <table class="cheat-table">
       <thead><tr><th>Form</th><th>Usage</th><th>Example</th></tr></thead>
       <tbody>
@@ -1151,7 +1151,7 @@ background:rgba(244,237,224,0.06);
     <p class="legend">💡 Rule of thumb: When in doubt, <b>たら</b> (works almost everywhere). <b>と</b> never with will/request. <b>なら</b> reacts to something just mentioned.</p>
   </div>
 
-  <!-- 2. KEIGO-VERBEN -->
+  <!-- 2. KEIGO VERBS -->
 
   <div class="cheat" id="cheat-keigo">
     <h2>Keigo Verbs Table (尊敬語 ⇆ 謙譲語)</h2>
@@ -1172,10 +1172,10 @@ background:rgba(244,237,224,0.06);
       <tr><td>です (Kopula)</td><td><span class="jp">でいらっしゃる</span></td><td><span class="jp">でございます</span></td></tr>
       </tbody>
     </table>
-    <p class="legend">💡 <b>尊敬語</b>: elevates others (boss, customer). <b>謙譲語</b>: lowers oneself/own group. General: <span class="jp">お+stem+になる</span> = Respekt; <span class="jp">お+stem+する</span> = humility.</p>
+    <p class="legend">💡 <b>尊敬語</b>: elevates others (boss, customer). <b>謙譲語</b>: lowers oneself/own group. General: <span class="jp">お+stem+になる</span> = Respect; <span class="jp">お+stem+する</span> = humility.</p>
   </div>
 
-  <!-- 3. KONJUGATIONS-ÜBERSICHT -->
+  <!-- 3. CONJUGATION OVERVIEW -->
 
   <div class="cheat" id="cheat-konjugation">
     <h2>Conjugation Overview (Groups + Irregular)</h2>
@@ -1189,27 +1189,27 @@ background:rgba(244,237,224,0.06);
   <tr><td>た-Form</td><td><span class="jp">書いた</span></td></tr>
   <tr><td>ない-Form</td><td><span class="jp">書かない</span></td></tr>
   <tr><td>Potential</td><td><span class="jp">書ける</span> <span class="hint">u→e + る</span></td></tr>
-  <tr><td>Passiv</td><td><span class="jp">書かれる</span> <span class="hint">u→a + れる</span></td></tr>
-  <tr><td>Kausativ</td><td><span class="jp">書かせる</span> <span class="hint">u→a + せる</span></td></tr>
+  <tr><td>Passive</td><td><span class="jp">書かれる</span> <span class="hint">u→a + れる</span></td></tr>
+  <tr><td>Causative</td><td><span class="jp">書かせる</span> <span class="hint">u→a + せる</span></td></tr>
   <tr><td>Volitional</td><td><span class="jp">書こう</span> <span class="hint">u→o + う</span></td></tr>
   <tr><td>Conditional ば</td><td><span class="jp">書けば</span> <span class="hint">u→e + ば</span></td></tr>
-  <tr><td>Befehl</td><td><span class="jp">書け</span> <span class="hint">u→e</span></td></tr>
+  <tr><td>Imperative</td><td><span class="jp">書け</span> <span class="hint">u→e</span></td></tr>
   </tbody>
 </table>
 
 <h3>Group II (一段, ru-verbs) — Example <span class="jp">食べる</span></h3>
 <table class="cheat-table">
   <tbody>
-  <tr><td>ます-Form</td><td><span class="jp">食べます</span> <span class="hint">る weg + ます</span></td></tr>
+  <tr><td>ます-Form</td><td><span class="jp">食べます</span> <span class="hint">drop る + ます</span></td></tr>
   <tr><td>て-Form</td><td><span class="jp">食べて</span> <span class="hint">る → て</span></td></tr>
   <tr><td>た-Form</td><td><span class="jp">食べた</span></td></tr>
   <tr><td>ない-Form</td><td><span class="jp">食べない</span></td></tr>
   <tr><td>Potential</td><td><span class="jp">食べられる</span> <span class="hint">★ identical to passive & keigo!</span></td></tr>
-  <tr><td>Passiv</td><td><span class="jp">食べられる</span></td></tr>
-  <tr><td>Kausativ</td><td><span class="jp">食べさせる</span></td></tr>
+  <tr><td>Passive</td><td><span class="jp">食べられる</span></td></tr>
+  <tr><td>Causative</td><td><span class="jp">食べさせる</span></td></tr>
   <tr><td>Volitional</td><td><span class="jp">食べよう</span></td></tr>
   <tr><td>Conditional ば</td><td><span class="jp">食べれば</span></td></tr>
-  <tr><td>Befehl</td><td><span class="jp">食べろ</span></td></tr>
+  <tr><td>Imperative</td><td><span class="jp">食べろ</span></td></tr>
   </tbody>
 </table>
 
@@ -1222,10 +1222,10 @@ background:rgba(244,237,224,0.06);
   <tr><td>た</td><td><span class="jp">した</span></td><td><span class="jp">きた</span></td></tr>
   <tr><td>ない</td><td><span class="jp">しない</span></td><td><span class="jp">こない</span></td></tr>
   <tr><td>Potential</td><td><span class="jp">できる</span></td><td><span class="jp">こられる</span></td></tr>
-  <tr><td>Passiv</td><td><span class="jp">される</span></td><td><span class="jp">こられる</span></td></tr>
-  <tr><td>Kausativ</td><td><span class="jp">させる</span></td><td><span class="jp">こさせる</span></td></tr>
+  <tr><td>Passive</td><td><span class="jp">される</span></td><td><span class="jp">こられる</span></td></tr>
+  <tr><td>Causative</td><td><span class="jp">させる</span></td><td><span class="jp">こさせる</span></td></tr>
   <tr><td>Volitional</td><td><span class="jp">しよう</span></td><td><span class="jp">こよう</span></td></tr>
-  <tr><td>Befehl</td><td><span class="jp">しろ</span></td><td><span class="jp">こい</span></td></tr>
+  <tr><td>Imperative</td><td><span class="jp">しろ</span></td><td><span class="jp">こい</span></td></tr>
   </tbody>
 </table>
 <p class="legend">⚠️ <b>行く</b> is Group I, but the て-form is <span class="jp">行って</span> (not 行いて!). Only exception.</p>
@@ -1233,30 +1233,30 @@ background:rgba(244,237,224,0.06);
 
   </div>
 
-  <!-- 4. PARTIKEL -->
+  <!-- 4. PARTICLES -->
 
   <div class="cheat" id="cheat-partikel">
     <h2>Particle Overview (は / が / を / に / で / へ)</h2>
     <table class="cheat-table">
-      <thead><tr><th>Partikel</th><th>Main Function</th><th>Example</th></tr></thead>
+      <thead><tr><th>Particle</th><th>Main Function</th><th>Example</th></tr></thead>
       <tbody>
-      <tr><td><span class="jp">は</span></td><td>Thema (bekannt). Kontrast. Niemals im Relativsatz.</td><td><span class="jp">私は 学生です。</span></td></tr>
+      <tr><td><span class="jp">は</span></td><td>Topic (known). Contrast. Never inside a relative clause.</td><td><span class="jp">私は 学生です。</span></td></tr>
       <tr><td><span class="jp">が</span></td><td>Subject (new/unexpected). Answer to question word. With 好き/わかる/ある/potential. In relative clauses.</td><td><span class="jp">猫が います。</span></td></tr>
       <tr><td><span class="jp">を</span></td><td>Direct object. With movement verbs: path (公園を 歩く).</td><td><span class="jp">本を 読む。</span></td></tr>
       <tr><td><span class="jp">に</span></td><td>Goal/direction. Time point. Existence location (います). Indirect object. Recipient.</td><td><span class="jp">学校に 行く。 7時に 起きる。</span></td></tr>
       <tr><td><span class="jp">で</span></td><td>Place of action. Means/tool. Material. Reason (Adj/N).</td><td><span class="jp">図書館で 勉強する。 バスで 行く。</span></td></tr>
       <tr><td><span class="jp">へ</span></td><td>Direction (slightly softer than に). With movement verbs.</td><td><span class="jp">日本へ 行く。</span></td></tr>
-      <tr><td><span class="jp">と</span></td><td>»mit« (Begleiter). Zitat-Partikel (»dass«).</td><td><span class="jp">友達と 話す。</span></td></tr>
+      <tr><td><span class="jp">と</span></td><td>"with" (companion). Quote particle ("that").</td><td><span class="jp">友達と 話す。</span></td></tr>
       <tr><td><span class="jp">から</span></td><td>From/since (place/time). Reason ("because").</td><td><span class="jp">9時から 始まる。</span></td></tr>
-      <tr><td><span class="jp">まで</span></td><td>Bis (Ort/Zeit).</td><td><span class="jp">駅まで 歩く。</span></td></tr>
+      <tr><td><span class="jp">まで</span></td><td>Until (place/time).</td><td><span class="jp">駅まで 歩く。</span></td></tr>
       <tr><td><span class="jp">の</span></td><td>Genitive (possession/relation). Nominalization.</td><td><span class="jp">私の 本</span></td></tr>
-      <tr><td><span class="jp">も</span></td><td>»auch« / »sogar«.</td><td><span class="jp">私も 行きます。</span></td></tr>
+      <tr><td><span class="jp">も</span></td><td>"also" / "even".</td><td><span class="jp">私も 行きます。</span></td></tr>
       </tbody>
     </table>
     <h3>⚠️ Common Pitfalls</h3>
-    <p><b>に vs で:</b> 公園<span class="jp">に</span> いる (Existenzort) ↔ 公園<span class="jp">で</span> 走る (action place).</p>
-    <p><b>は vs が:</b> Thema (bekannt) vs. Subjekt (neu/Antwort). Im Relativsatz nur が.</p>
-    <p><b>を vs が bei Potential:</b> 漢字<span class="jp">が</span> 読める (not を!).</p>
+    <p><b>に vs で:</b> 公園<span class="jp">に</span> いる (existence place) ↔ 公園<span class="jp">で</span> 走る (action place).</p>
+    <p><b>は vs が:</b> Topic (known) vs. subject (new/answer). Only が inside a relative clause.</p>
+    <p><b>を vs が with Potential:</b> 漢字<span class="jp">が</span> 読める (not を!).</p>
   </div>
 
   <!-- 5. KONJUGATIONS-LOGIK (TIEFGEHEND) -->
