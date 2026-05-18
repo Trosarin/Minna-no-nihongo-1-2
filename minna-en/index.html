@@ -3357,7 +3357,7 @@ function updateStatsCard() {
 }
 
 // Reset
-document.getElementById('statsReset').addEventListenor('click', () => {
+document.getElementById('statsReset').addEventListener('click', () => {
  if (confirm('actually all Statisticsen reset? The can not undone be done.')) {
   localStorage.removeItem(STORAGE_KEY);
   updateStatsCard();
@@ -3409,7 +3409,7 @@ function openReviewModal() {
   const div = document.createElement('div');
   div.className = 'lesson-multi-item';
   div.textContent = 'L' + l;
-  div.addEventListenor('click', () => {
+  div.addEventListener('click', () => {
    if (selectedLessons.has(l)) {
     selectedLessons.delete(l);
     div.classList.remove('selected');
@@ -3430,7 +3430,7 @@ function openReviewModal() {
 
 // filter radio change
 document.querySelectorAll('input[name="reviewFilter"]').forEach(r => {
- r.addEventListenor('change', () => {
+ r.addEventListener('change', () => {
   if (r.value === 'lesson' && r.checked) {
    lessonMultiSelect.classList.remove('hidden');
   } else if (r.checked) {
@@ -3439,10 +3439,10 @@ document.querySelectorAll('input[name="reviewFilter"]').forEach(r => {
  });
 });
 
-reviewBtn.addEventListenor('click', openReviewModal);
-reviewCancel.addEventListenor('click', () => reviewModal.classList.add('hidden'));
+reviewBtn.addEventListener('click', openReviewModal);
+reviewCancel.addEventListener('click', () => reviewModal.classList.add('hidden'));
 
-reviewStart.addEventListenor('click', () => {
+reviewStart.addEventListener('click', () => {
  const filter = document.querySelector('input[name="reviewFilter"]:checked').value;
  let pool = [];
  
@@ -3528,7 +3528,7 @@ function showReviewCard() {
  reviewAgainCount.textContent = `🔴 ${reviewSession.bad}`;
 }
 
-reviewCard.addEventListenor('click', () => {
+reviewCard.addEventListener('click', () => {
  if (reviewBack.classList.contains('hidden')) {
   reviewBack.classList.remove('hidden');
   reviewFlipHint.classList.add('hidden');
@@ -3536,7 +3536,7 @@ reviewCard.addEventListenor('click', () => {
  }
 });
 
-btnGood.addEventListenor('click', (e) => {
+btnGood.addEventListener('click', (e) => {
  e.stopPropagation();
  setCardRating(reviewQueue[reviewIndex], 'good');
  reviewSession.good++;
@@ -3544,7 +3544,7 @@ btnGood.addEventListenor('click', (e) => {
  showReviewCard();
 });
 
-btnBad.addEventListenor('click', (e) => {
+btnBad.addEventListener('click', (e) => {
  e.stopPropagation();
  setCardRating(reviewQueue[reviewIndex], 'bad');
  reviewSession.bad++;
@@ -3577,13 +3577,13 @@ function closeReviewMode() {
  render();
 }
 
-reviewClose.addEventListenor('click', () => {
+reviewClose.addEventListener('click', () => {
  if (reviewIndex < reviewQueue.length && reviewSession.good + reviewSession.bad > 0) {
   if (!confirm('Review really beend? Dein bisheriger progress is speichert.')) return;
  }
  closeReviewMode();
 });
-reviewFinishedClose.addEventListenor('click', closeReviewMode);
+reviewFinishedClose.addEventListener('click', closeReviewMode);
 
 // Kurz-topics per Lesson (for overview-Kacheln)
 const TOPICS = {
@@ -3638,7 +3638,7 @@ function renderOverview() {
    <div class="tile-progress"><div class="tile-progress-bar" style="width:${pct}%"></div></div>
    <span class="tile-progress-text">${learned}/${lstats.andal} ✅${lstats.bad > 0 ? ' · '+lstats.bad+' 🔴' : ''}</span>
   `;
-  tile.addEventListenor('click', () => {
+  tile.addEventListener('click', () => {
    lessonFilter.value = l;
    render();
    window.scrollTo({top:document.querySelector('.controls').offsetTop, behavior:'smooth'});
@@ -3785,7 +3785,7 @@ function render(){
   const cstatus = getCardStatus(c);
   const statusIcon = getStatusIcon(cstatus.status);
   const useSectioned = !!c.pattern;
-  const backInnor = useSectioned ? buildSectionedBack(c) : `
+  const backInner = useSectioned ? buildSectionedBack(c) : `
      <div class="rule">${c.rule}</div>
      ${buildConjTable(c.conj)}
      <div class="examples">
@@ -3805,20 +3805,20 @@ function render(){
     <div class="back-content">
      <span class="lesson-tag">L ${String(c.l).padStart(2,'0')} · ${c.de}</span>
      <h3>${c.t}</h3>
-     ${backInnor}
+     ${backInner}
     </div>
    </div>
   `;
-  card.addEventListenor('click', () => card.classList.toggle('flipped'));
+  card.addEventListener('click', () => card.classList.toggle('flipped'));
   grid.appendChild(card);
  });
  stats.innerHTML = `<b>${count}</b> card${count!==1?'n':''}`;
 }
 
-search.addEventListenor('input', render);
-lessonFilter.addEventListenor('change', render);
+search.addEventListener('input', render);
+lessonFilter.addEventListener('change', render);
 
-backBtn.addEventListenor('click', () => {
+backBtn.addEventListener('click', () => {
  lessonFilter.value = 'all';
  search.value = '';
  cheatsBlock.classList.add('hidden');
@@ -3829,7 +3829,7 @@ backBtn.addEventListenor('click', () => {
 });
 
 // Cheat-Toggle Button: changes filter instead directr Toggle (saubere State-Verwaldog)
-cheatToggle.addEventListenor('click', () => {
+cheatToggle.addEventListener('click', () => {
  if (lessonFilter.value === 'cheats') {
   // Cheats are active → back to the Overview
   lessonFilter.value = 'all';
@@ -3843,16 +3843,16 @@ cheatToggle.addEventListenor('click', () => {
 
 // Floating to-top Button: after 400px Scroll einblend
 const toTop = document.getElementById('toTop');
-window.addEventListenor('scroll', () => {
+window.addEventListener('scroll', () => {
  if (window.scrollY > 400) toTop.classList.add('visible');
  else toTop.classList.remove('visible');
 }, {passive:true});
-toTop.addEventListenor('click', () => {
+toTop.addEventListener('click', () => {
  window.scrollTo({top:0, behavior:'smooth'});
 });
 
 // iOS Fix: Suchfeld after focus zentrieren (Tastatur covered otherwise)
-search.addEventListenor('focus', () => {
+search.addEventListener('focus', () => {
  setTimeout(() => {
   search.scrollIntoView({behavior:'smooth', block:'center'});
  }, 300);
@@ -3860,7 +3860,7 @@ search.addEventListenor('focus', () => {
 
 // TOC Smooth-Scroll with Offset for Sticky-Header
 document.querySelectorAll('.cheat-toc a').forEach(link => {
- link.addEventListenor('click', (e) => {
+ link.addEventListener('click', (e) => {
   e.preventDefault();
   const target = document.querySelector(link.getAttribute('href'));
   if (target) {
@@ -3870,7 +3870,7 @@ document.querySelectorAll('.cheat-toc a').forEach(link => {
  });
 });
 
-document.getElementById('randomBtn').addEventListenor('click', () => {
+document.getElementById('randomBtn').addEventListener('click', () => {
  // When Overview active: random Lesson + card show
  if (overview.style.display !== 'none' && lessonFilter.value === 'all') {
   const randomCard = CARDS[Math.floor(Math.random() * CARDS.length)];
@@ -4224,7 +4224,7 @@ function renderCompare() {
   b.className = 'quiz-scope-btn';
   b.textContent = label;
   b.dataset.value = value;
-  b.addEventListenor('click', () => {
+  b.addEventListener('click', () => {
    quizScopeGrid.querySelectorAll('.quiz-scope-btn').forEach(x => x.classList.remove('active'));
    b.classList.add('active');
    selectedScope = value;
@@ -4234,14 +4234,14 @@ function renderCompare() {
  }
 
  document.querySelectorAll('#quizCountGroup .quiz-scope-btn').forEach(b => {
-  b.addEventListenor('click', () => {
+  b.addEventListener('click', () => {
    document.querySelectorAll('#quizCountGroup .quiz-scope-btn').forEach(x => x.classList.remove('active'));
    b.classList.add('active');
    selectedCount = parseInt(b.dataset.count) || 0;
   });
  });
 
- quizStartBtn.addEventListenor('click', () => {
+ quizStartBtn.addEventListener('click', () => {
   quizQuestions = buildQuestions(selectedScope, selectedCount);
   if (!quizQuestions.length) { alert('Keino Questions for this area available.\n\nPlease a different area choose.'); return; }
   currentQ = 0; score = 0;
@@ -4266,7 +4266,7 @@ function renderCompare() {
    const b = document.createElement('button');
    b.className = 'quiz-option';
    b.innerHTML = opt;
-   b.addEventListenor('click', () => {
+   b.addEventListener('click', () => {
     quizoptions.querySelectorAll('.quiz-option').forEach(x => {
      x.disabled = true;
      if (x.textContent.trim() === q.answer) x.classList.add('correct');
@@ -4284,7 +4284,7 @@ function renderCompare() {
   });
  }
 
- quizNextBtn.addEventListenor('click', () => {
+ quizNextBtn.addEventListener('click', () => {
   currentQ++;
   currentQ >= quizQuestions.length ? showResult() : showQuestion();
  });
@@ -4299,7 +4299,7 @@ function renderCompare() {
   quizProgressBar.style.width = '100%';
  }
 
- quizRestartBtn.addEventListenor('click', () => {
+ quizRestartBtn.addEventListener('click', () => {
   quizQuestions = buildQuestions(selectedScope, selectedCount);
   currentQ = 0; score = 0;
   quizResult.classList.add('hidden');
@@ -4307,7 +4307,7 @@ function renderCompare() {
   showQuestion();
  });
 
- quizBackBtn.addEventListenor('click', () => {
+ quizBackBtn.addEventListener('click', () => {
   quizResult.classList.add('hidden');
   quizSetup.classList.remove('hidden');
   quizSetupFooter.classList.remove('hidden');
@@ -4315,7 +4315,7 @@ function renderCompare() {
   quizScopeGrid.querySelectorAll('.quiz-scope-btn').forEach(x => x.classList.remove('active'));
  });
 
- quizBtn.addEventListenor('click', () => {
+ quizBtn.addEventListener('click', () => {
   quizModal.classList.remove('hidden');
   // Reset into the Setup-State
   quizSetup.classList.remove('hidden');
@@ -4326,8 +4326,8 @@ function renderCompare() {
   quizStartBtn.disabled = true;
   buildSetupUI();
  });
- quizClose.addEventListenor('click', () => quizModal.classList.add('hidden'));
- quizModal.addEventListenor('click', e => { if (e.target === quizModal) quizModal.classList.add('hidden'); });
+ quizClose.addEventListener('click', () => quizModal.classList.add('hidden'));
+ quizModal.addEventListener('click', e => { if (e.target === quizModal) quizModal.classList.add('hidden'); });
 })();
 </script>
 
@@ -4335,7 +4335,7 @@ function renderCompare() {
 
 <script>
  if ('serviceWhererker' in navigator) {
-  window.addEventListenor('load', () => {
+  window.addEventListener('load', () => {
    navigator.serviceWhererker.register('service-worker.js')
     .then((reg) => console.log('SW registered:', reg.scope))
     .catch((err) => console.log('SW registration failed:', err));
