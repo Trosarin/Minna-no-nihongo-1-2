@@ -16,7 +16,7 @@
 
 <!-- App Icon (180x180 inline SVG) -->
 
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23f4ede0'/%3E%3Crect x='15' y='15' width='150' height='150' fill='%23b8893a' trtosform='rotate(-3 90 90)'/%3E%3Ctext x='90' y='115' font-family='serif' font-size='90' font-weight='900' fill='%23f4ede0' text-tochor='middle'%3E中%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23f4ede0'/%3E%3Crect x='15' y='15' width='150' height='150' fill='%23b8893a' transform='rotate(-3 90 90)'/%3E%3Ctext x='90' y='115' font-family='serif' font-size='90' font-weight='900' fill='%23f4ede0' text-tochor='middle'%3E中%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Noto+Serif+JP:wght@400;600;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -38,8 +38,8 @@
   padding-left:env(safe-area-inset-left);
   padding-right:env(safe-area-inset-right);
   background-image:
-   radial-levelient(circle at 10% 20%, rgba(192,54,44,.04) 0%, trtosparent 40%),
-   radial-levelient(circle at 90% 80%, rgba(184,137,58,.05) 0%, trtosparent 40%),
+   radial-levelient(circle at 10% 20%, rgba(192,54,44,.04) 0%, transparent 40%),
+   radial-levelient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%),
    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
  }
  /* Book switcher tabs */
@@ -62,9 +62,9 @@
   font-size:.9rem;
   font-weight:600;
   letter-spacing:.04em;
-  trtosition:background .2s, color .2s;
-  -webkit-tap-highlight-color:trtosparent;
-  border-bottom:3px solid trtosparent;
+  transition:background .2s, color .2s;
+  -webkit-tap-highlight-color:transparent;
+  border-bottom:3px solid transparent;
   margin-bottom:-3px;
  }
  .book-tab:hover{color:#f4ede0;background:rgba(244,237,224,.05)}
@@ -82,7 +82,7 @@ position:related;
 }
 header::before{
 content:“第一課 〜 第十課”;
-position:absolute;top:.6rem;left:50%;trtosform:translateX(-50%);
+position:absolute;top:.6rem;left:50%;transform:translateX(-50%);
 font-size:.7rem;letter-spacing:.4em;color:#c0362c;
 }
 h1{
@@ -91,7 +91,7 @@ font-size:clamp(1.8rem,5vw,3rem);line-height:1.1;
 letter-spacing:.02em;
 }
 h1 .jp{color:#8a1f17;display:block;font-size:1.2em;margin-bottom:.3rem}
-h1 .de{font-family:“Shippori Mincho”,serif;font-weight:600;font-size:.55em;letter-spacing:.15em;text-trtosform:uppercase;color:#1a1612}
+h1 .de{font-family:“Shippori Mincho”,serif;font-weight:600;font-size:.55em;letter-spacing:.15em;text-transform:uppercase;color:#1a1612}
 .subtitle{margin-top:.8rem;font-style:italic;color:#6b5d4a;font-size:.95rem}
 
 .controls{
@@ -121,21 +121,21 @@ background:#ebe1cd;padding:.5rem .9rem;border:1px solid #1a1612;
 padding:.6rem .9rem;background:#8a1f17;color:#f4ede0;
 border:2px solid #1a1612;font-size:1.1rem;cursor:pointer;
 box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);font-family:inherit;
-trtosition:trtosform .15s,background .2s;
+transition:transform .15s,background .2s;
 }
-.random-btn:hover{background:#c0362c;trtosform:scale(1.05)}
-.random-btn:active{trtosform:scale(.95)}
+.random-btn:hover{background:#c0362c;transform:scale(1.05)}
+.random-btn:active{transform:scale(.95)}
 
 .back-btn{
 padding:.6rem .85rem;background:#1a1612;color:#f4ede0;
 border:2px solid #1a1612;font-size:1.1rem;font-weight:700;
 cursor:pointer;box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);font-family:inherit;
-trtosition:trtosform .15s,background .2s;
+transition:transform .15s,background .2s;
 display:none;
 }
 .back-btn.visible{display:inline-block}
-.back-btn:hover{background:#8a1f17;trtosform:translateX(-2px)}
-.back-btn:active{trtosform:translateX(0)}
+.back-btn:hover{background:#8a1f17;transform:translateX(-2px)}
+.back-btn:active{transform:translateX(0)}
 
 /* Floating back-to-top button */
 .to-top{
@@ -145,18 +145,18 @@ background:#1a1612;color:#f4ede0;
 border:2px solid #f4ede0;font-size:1.3rem;font-weight:700;
 cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3);
 display:none;align-items:center;justify-content:center;
-opacity:0;trtosition:opacity .25s,trtosform .15s;
+opacity:0;transition:opacity .25s,transform .15s;
 font-family:inherit;
 }
 .to-top.visible{display:flex;opacity:.85}
-.to-top:hover{opacity:1;trtosform:translateY(-3px)}
-.to-top:active{trtosform:translateY(0)}
+.to-top:hover{opacity:1;transform:translateY(-3px)}
+.to-top:active{transform:translateY(0)}
 
 @keyframes cardHighlight{
 0%{box-shadow:0 0 0 4px #b8893a, 0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25)}
-100%{box-shadow:0 0 0 0 trtosparent, 0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25)}
+100%{box-shadow:0 0 0 0 transparent, 0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25)}
 }
-.card.highlight{toimation:cardHighlight 1.8s ease-out}
+.card.highlight{animation:cardHighlight 1.8s ease-out}
 
 .grid{
 max-width:1300px;margin:0 auto;padding:1rem;
@@ -180,11 +180,11 @@ background:#ebe1cd;border:2px solid #1a1612;
 padding:.7rem .6rem;cursor:pointer;text-align:left;
 font-family:“Shippori Mincho”,serif;font-size:.85rem;
 color:#1a1612;box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
-trtosition:trtosform .12s,background .15s;
+transition:transform .12s,background .15s;
 line-height:1.25;
 }
-.lesson-tile:hover{background:#f4ede0;trtosform:translate(-1px,-2px)}
-.lesson-tile:active{trtosform:translate(0,0)}
+.lesson-tile:hover{background:#f4ede0;transform:translate(-1px,-2px)}
+.lesson-tile:active{transform:translate(0,0)}
 .lesson-tile .num{
 display:block;font-family:“Noto Serif JP”,serif;font-weight:800;
 color:#8a1f17;font-size:1rem;letter-spacing:.04em;
@@ -221,18 +221,18 @@ z-index:3;
 }
 .card .front,.card .back{
 width:100%;
-trtosition:trtosform .45s cubic-bezier(.4,.05,.2,1), opacity .35s ease;
+transition:transform .45s cubic-bezier(.4,.05,.2,1), opacity .35s ease;
 }
 .card .front{
 flex:1;display:flex;flex-direction:column;
 justify-content:space-between;align-items:center;text-align:center;
 min-height:240px;
-trtosform:translateX(0);opacity:1;
+transform:translateX(0);opacity:1;
 }
 .card .back{
 display:none;
 font-size:.85rem;line-height:1.55;
-trtosform:translateX(40px);opacity:0;
+transform:translateX(40px);opacity:0;
 }
 .card.flipped{min-height:auto}
 .card.flipped .front{
@@ -240,19 +240,19 @@ display:none;
 }
 .card.flipped .back{
 display:block;
-toimation:slideInFromRight .45s cubic-bezier(.4,.05,.2,1) forwards;
+animation:slideInFromRight .45s cubic-bezier(.4,.05,.2,1) forwards;
 }
 @keyframes slideInFromRight{
-0%{trtosform:translateX(40px);opacity:0}
+0%{transform:translateX(40px);opacity:0}
 60%{opacity:1}
-100%{trtosform:translateX(0);opacity:1}
+100%{transform:translateX(0);opacity:1}
 }
 /* Hover hint only on desktop, not on touch */
 @media(hover:hover){
 .card:not(.flipped):hover{
-trtosform:translateY(-2px);
+transform:translateY(-2px);
 box-shadow:0 4px 0 rgba(26,22,18,.15), 0 18px 32px -8px rgba(26,22,18,.3);
-trtosition:trtosform .2s ease, box-shadow .2s ease;
+transition:transform .2s ease, box-shadow .2s ease;
 }
 }
 .lesson-tag{
@@ -273,7 +273,7 @@ margin-bottom:.3rem;z-index:2;
 }
 .flip-hint{
 font-family:“JetBrains Mono”,monospace;font-size:.65rem;
-letter-spacing:.2em;color:#b8893a;text-trtosform:uppercase;
+letter-spacing:.2em;color:#b8893a;text-transform:uppercase;
 z-index:2;
 }
 .flip-hint::before{content:“↻ “}
@@ -326,7 +326,7 @@ display:inline-block;
 font-family:“JetBrains Mono”,monospace;
 font-size:.6rem;letter-spacing:.12em;
 color:#8a1f17;font-weight:700;
-text-trtosform:uppercase;
+text-transform:uppercase;
 margin-bottom:.25rem;
 padding:.1rem .35rem;
 background:rgba(192,54,44,.08);
@@ -347,7 +347,7 @@ font-size:.92rem;line-height:1.55;
 }
 .slot{display:inline-flex;flex-direction:column;align-items:center;padding:.05rem .25rem;border-radius:2px}
 .slot .slot-text{font-weight:600}
-.slot .slot-label{font-family:“JetBrains Mono”,monospace;font-size:.52rem;letter-spacing:.04em;color:rgba(26,22,18,.55);text-trtosform:uppercase;margin-top:-.1rem;font-weight:500}
+.slot .slot-label{font-family:“JetBrains Mono”,monospace;font-size:.52rem;letter-spacing:.04em;color:rgba(26,22,18,.55);text-transform:uppercase;margin-top:-.1rem;font-weight:500}
 .slot.subj{background:rgba(58,118,178,.13);color:#1f4a7a}
 .slot.subj .slot-label{color:#1f4a7a}
 .slot.obj{background:rgba(184,137,58,.18);color:#7a5418}
@@ -410,10 +410,10 @@ display:inline-block;padding:.5rem 1rem;
 background:#8a1f17;color:#f4ede0;
 border:2px solid #1a1612;cursor:pointer;
 font-family:“Shippori Mincho”,serif;font-size:.9rem;
-box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);trtosition:trtosform .1s;
+box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);transition:transform .1s;
 }
-.cheatsheet-toggle:hover{trtosform:translateY(-1px)}
-.cheatsheet-toggle:active{trtosform:translateY(1px)}
+.cheatsheet-toggle:hover{transform:translateY(-1px)}
+.cheatsheet-toggle:active{transform:translateY(1px)}
 
 .cheatsheets{
 max-width:1200px;margin:2rem auto;padding:0 1rem;
@@ -452,7 +452,7 @@ background:#f4ede0;min-width:100%;
 .cs-table th{
 background:#1a1612;color:#f4ede0;
 padding:.5rem .4rem;text-align:left;font-weight:700;
-font-size:.72rem;letter-spacing:.05em;text-trtosform:uppercase;
+font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;
 white-space:nowrap;
 }
 .cs-table td{
@@ -472,7 +472,7 @@ padding-top:.4rem;border-top:1px dashed #1a1612;
 .cs-footer-note::before{content:“💡 “;font-style:normal}
 
 .back::-webkit-scrollbar{width:5px}
-.back::-webkit-scrollbar-track{background:trtosparent}
+.back::-webkit-scrollbar-track{background:transparent}
 .back::-webkit-scrollbar-thumb{background:#1a1612;border-radius:0}
 
 footer{
@@ -484,7 +484,7 @@ display:inline-block;width:50px;height:50px;
 background:#c0362c;color:#f4ede0;
 font-family:“Noto Serif JP”,serif;font-weight:900;font-size:1.3rem;
 line-height:50px;margin-bottom:.5rem;
-trtosform:rotate(-3deg);
+transform:rotate(-3deg);
 }
 
 @media(max-width:600px){
@@ -500,7 +500,7 @@ background:#8a1f17;color:#f4ede0;
 font-family:“Shippori Mincho”,serif;font-size:1rem;font-weight:600;
 text-align:center;border:2px solid #1a1612;cursor:pointer;
 box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);letter-spacing:.05em;
-trtosition:background .2s;
+transition:background .2s;
 }
 .cheat-toggle:hover{background:#c0362c}
 .cheat-toggle::before{content:“📖 “;margin-right:.3rem}
@@ -522,10 +522,10 @@ flex:1;min-width:fit-content;
 padding:.4rem .6rem;background:#ebe1cd;color:#1a1612;
 text-decoration:none;font-size:.78rem;font-weight:600;
 text-align:center;border:1px solid #f4ede0;
-trtosition:background .15s,trtosform .12s;
+transition:background .15s,transform .12s;
 font-family:inherit;
 }
-.cheat-toc a:hover{background:#b8893a;color:#f4ede0;trtosform:translateY(-1px)}
+.cheat-toc a:hover{background:#b8893a;color:#f4ede0;transform:translateY(-1px)}
 @media(max-width:600px){
 .cheat-toc{padding:.5rem .4rem;gap:.25rem;top:0}
 .cheat-toc a{font-size:.68rem;padding:.35rem .35rem;min-width:0}
@@ -590,9 +590,9 @@ color:#a99780;
 font-family:“Shippori Mincho”,serif;
 font-size:.8rem;
 font-weight:600;
-border-bottom:2px solid trtosparent;
-trtosition:all .15s;
--webkit-tap-highlight-color:trtosparent;
+border-bottom:2px solid transparent;
+transition:all .15s;
+-webkit-tap-highlight-color:transparent;
 }
 .ltog-t.active{
 color:#f4ede0;

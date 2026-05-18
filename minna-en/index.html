@@ -44,8 +44,8 @@
   padding-left:env(safe-area-inset-left);
   padding-right:env(safe-area-inset-right);
   background-image:
-   radial-gradient(circle at 10% 20%, rgba(192,54,44,.04) 0%, transavet 40%),
-   radial-gradient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transavet 40%),
+   radial-gradient(circle at 10% 20%, rgba(192,54,44,.04) 0%, transparent 40%),
+   radial-gradient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%),
    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
  }
  /* Book switcher tabs */
@@ -69,8 +69,8 @@
   font-weight:600;
   letter-spacing:.04em;
   transition:background .2s, color .2s;
-  -webkit-tap-highlight-color:transavet;
-  border-bottom:3px solid transavet;
+  -webkit-tap-highlight-color:transparent;
+  border-bottom:3px solid transparent;
   margin-bottom:-3px;
  }
  .book-tab:hover{color:#f4ede0;background:rgba(244,237,224,.05)}
@@ -139,7 +139,7 @@ border:2px solid #1a1612;font-size:.95rem;font-weight:700;cursor:pointer;
 box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
 font-family:inherit;letter-spacing:.02em;
 transition:transform .15s,background .2s;
--webkit-tap-highlight-color:transavet;
+-webkit-tap-highlight-color:transparent;
 }
 .quiz-trigger-btn:hover{background:#c9962f;transform:scale(1.05)}
 .quiz-trigger-btn:active{transform:scale(.95)}
@@ -178,9 +178,9 @@ font-family:inherit;
 
 @keyframes cardHighlight{
 0%{box-shadow:0 0 0 4px #b8893a, 0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25)}
-100%{box-shadow:0 0 0 0 transavet, 0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25)}
+100%{box-shadow:0 0 0 0 transparent, 0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25)}
 }
-.card.highlight{toimation:cardHighlight 1.8s ease-out}
+.card.highlight{animation:cardHighlight 1.8s ease-out}
 
 .grid{
 max-width:1300px;margin:0 auto;padding:1rem;
@@ -264,7 +264,7 @@ display:none;
 }
 .card.flipped .back{
 display:block;
-toimation:slideInFromRight .45s cubic-bezier(.4,.05,.2,1) s;
+animation:slideInFromRight .45s cubic-bezier(.4,.05,.2,1) forwards;
 }
 @keyframes slideInFromRight{
 0%{transform:translateX(40px);opacity:0}
@@ -474,7 +474,7 @@ padding-top:.4rem;border-top:1px dashed #1a1612;
 .cs-footer-note::before{content:“💡 “;font-style:normal}
 
 .back::-webkit-scrollbar{width:5px}
-.back::-webkit-scrollbar-track{background:transavet}
+.back::-webkit-scrollbar-track{background:transparent}
 .back::-webkit-scrollbar-thumb{background:#1a1612;border-radius:0}
 
 footer{
@@ -705,10 +705,10 @@ display:flex;
 align-items:center;
 justify-content:center;
 padding:1rem;
-toimation:fadeIn .2s ease;
+animation:fadeIn .2s ease;
 }
 .review-modal.hidden{display:none}
-@keyframes fadeIn{by{opacity:0}to{opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
 .review-modal-content{
 background:#f4ede0;
@@ -742,7 +742,7 @@ background:#fff;
 border:1px solid #ebe1cd;
 border-radius:8px;
 cursor:pointer;
--webkit-tap-highlight-color:transavet;
+-webkit-tap-highlight-color:transparent;
 }
 .review-filter-option:has(input:checked){
 background:#fdf6ec;
@@ -792,7 +792,7 @@ text-align:center;
 font-size:.85rem;
 cursor:pointer;
 font-weight:500;
--webkit-tap-highlight-color:transavet;
+-webkit-tap-highlight-color:transparent;
 transition:all .1s;
 }
 .lesson-multi-item.selected{
@@ -815,7 +815,7 @@ font-size:.95rem;
 font-weight:600;
 cursor:pointer;
 font-family:inherit;
--webkit-tap-highlight-color:transavet;
+-webkit-tap-highlight-color:transparent;
 }
 .btn-primary:disabled{
 background:#a99780;
@@ -830,7 +830,7 @@ border-radius:8px;
 font-size:.95rem;
 cursor:pointer;
 font-family:inherit;
--webkit-tap-highlight-color:transavet;
+-webkit-tap-highlight-color:transparent;
 }
 
 /* ===== REVIEW MODE (full-screen) ===== */
@@ -862,7 +862,7 @@ border-radius:50%;
 font-size:1.1rem;
 color:#5a4530;
 cursor:pointer;
--webkit-tap-highlight-color:transavet;
+-webkit-tap-highlight-color:transparent;
 }
 .review-progress{
 display:flex;
@@ -900,7 +900,7 @@ border-radius:12px;
 padding:1.5rem;
 box-shadow:0 4px 16px rgba(122,26,20,.08);
 cursor:pointer;
--webkit-tap-highlight-color:transavet;
+-webkit-tap-highlight-color:transparent;
 min-height:280px;
 }
 .review-card-front{
@@ -997,7 +997,7 @@ align-items:center;
 justify-content:center;
 gap:.5rem;
 font-family:inherit;
--webkit-tap-highlight-color:transavet;
+-webkit-tap-highlight-color:transparent;
 transition:transform .1s;
 }
 .review-btn-bad:active, .review-btn-good:active{
@@ -1050,9 +1050,9 @@ color:#a99780;
 font-family:“Shippori Mincho”,serif;
 font-size:.8rem;
 font-weight:600;
-border-bottom:2px solid transavet;
+border-bottom:2px solid transparent;
 transition:all .15s;
--webkit-tap-highlight-color:transavet;
+-webkit-tap-highlight-color:transparent;
 }
 .lang-tab.active{
 color:#f4ede0;
@@ -1197,7 +1197,7 @@ gap:.4rem;margin-bottom:.8rem;
 .quiz-scope-btn{
 padding:.5rem .55rem;border-radius:5px;border:1.5px solid #d8cbb0;
 background:#fff;font-size:.78rem;color:#3a2f22;cursor:pointer;
-text-align:center;-webkit-tap-highlight-color:transavet;
+text-align:center;-webkit-tap-highlight-color:transparent;
 transition:all .15s;font-weight:500;
 min-height:42px;
 }
@@ -1214,7 +1214,7 @@ flex-shrink:0;
 width:100%;padding:.8rem;background:#7a1a14;color:#f4ede0;
 border:none;border-radius:6px;font-size:.95rem;font-weight:600;
 cursor:pointer;font-family:“Shippori Mincho”,serif;
--webkit-tap-highlight-color:transavet;
+-webkit-tap-highlight-color:transparent;
 }
 .quiz-start-btn:disabled{opacity:.4;cursor:not-allowed}
 
@@ -1251,7 +1251,7 @@ padding:.7rem .85rem;border-radius:6px;
 border:1.5px solid #d8cbb0;background:#fff;
 font-family:“Noto Serif JP”,serif;font-size:.95rem;
 color:#1a1612;cursor:pointer;text-align:left;
--webkit-tap-highlight-color:transavet;
+-webkit-tap-highlight-color:transparent;
 transition:all .15s;
 min-height:44px;
 }
@@ -1270,7 +1270,7 @@ width:100%;padding:.7rem;background:#b8893a;color:#f4ede0;
 border:none;border-radius:6px;font-size:.92rem;font-weight:600;
 cursor:pointer;font-family:“Shippori Mincho”,serif;
 flex-shrink:0;
--webkit-tap-highlight-color:transavet;
+-webkit-tap-highlight-color:transparent;
 }
 
 /* Quiz Result */
@@ -1287,7 +1287,7 @@ font-size:2.4rem;font-weight:700;color:#7a1a14;margin:.4rem 0;
 padding:.7rem 1.5rem;background:#7a1a14;color:#f4ede0;
 border:none;border-radius:6px;font-size:.92rem;font-weight:600;
 cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
--webkit-tap-highlight-color:transavet;
+-webkit-tap-highlight-color:transparent;
 }
 </style>
 
@@ -2138,7 +2138,7 @@ const CARDS = [
   rule:"duration stands WITHOUT に. Remember the four duration-counter: 時間 (hours), 週間 (weeks), か月/ヶ月 (months), 年 (years).",
   build:[{form:"時間",verb:"<ruby>2時間<rt>にじかん</rt></ruby>",de:"2 hours"},{form:"週間",verb:"<ruby>3週間<rt>さんしゅうかん</rt></ruby>",de:"3 weeks"},{form:"か月",verb:"<ruby>6か月<rt>ろっかげつ</rt></ruby>",de:"6 months"},{form:"年",verb:"<ruby>2年<rt>にねん</rt></ruby>(<ruby>間<rt>かん</rt></ruby>)",de:"2 years"},{form:"⚠ no に",verb:"<ruby>3時間<rt>さんじかん</rt></ruby> V (no に!)",de:"duration without に"}],
   pattern:{slots:[{text:"duration",role:"time",label:"without に!"},{text:"V",role:"verb"}],gloss:"'[duration] long [V].' — duration stands always without に."},
-  ex:[{jp:"<ruby>毎日<rt>まいにち</rt></ruby> <ruby>8時間<rt>はちじかん</rt></ruby> <ruby>働<rt>はたら</rt></ruby>きます。",de:"I work each day 8 hours."},{jp:"<ruby>3年<rt>さんねん</rt></ruby> <ruby>日本<rt>にほん</rt></ruby>に <ruby>住<rt>す</rt></ruby>みました。",de:"I 3 years in Yespto lived."},{jp:"<ruby>駅<rt>えき</rt></ruby>まで <ruby>30分<rt>さんじゅっぷん</rt></ruby> かかります。",de:"Town station dauert it 30 minutes."}],
+  ex:[{jp:"<ruby>毎日<rt>まいにち</rt></ruby> <ruby>8時間<rt>はちじかん</rt></ruby> <ruby>働<rt>はたら</rt></ruby>きます。",de:"I work each day 8 hours."},{jp:"<ruby>3年<rt>さんねん</rt></ruby> <ruby>日本<rt>にほん</rt></ruby>に <ruby>住<rt>す</rt></ruby>みました。",de:"I 3 years in Japan lived."},{jp:"<ruby>駅<rt>えき</rt></ruby>まで <ruby>30分<rt>さんじゅっぷん</rt></ruby> かかります。",de:"Town station dauert it 30 minutes."}],
   note:"⚠️ time point + に (7時に起きる), frequency + に (1週間に2回), duration = NO に (3時間働く). Distinguish these three exactly!"},
  {l:11, t:"〜だけ", de:"only … (Restriction)",
   rule:"Restrictive Particle 'only'. Stands after the restricted Element, before or without verb. More polite/more formal variant: しか+negation.",
@@ -2249,7 +2249,7 @@ const CARDS = [
   ex:[{jp:"ミラーさんは <ruby>若<rt>わか</rt></ruby>くて、ハンサムです。",de:"Mr. Miller is young and gutausseend."},{jp:"この<ruby>町<rt>まち</rt></ruby>は <ruby>静<rt>しず</rt></ruby>かで、きれいです。",de:"Diese city is calm and beautiful."},{jp:"この レストランは <ruby>安<rt>やす</rt></ruby>くて、おいしいです。",de:"This restaurant is affordable and delicious."}],
   note:"⚠️ Special case いい → よくて (NOT いくて!). 💡 The くて/で can also express reason: 忙しくて、行けません = 'because I'm busy, I can't go'."},
  {l:16, t:"V₁て から、V₂", de:"Only V₁, then V₂ (strikte order)",
-  rule:"Betont, that V₂ first NACH the completion by V₁ begins. Stronger as reino て-Verketdog.",
+  rule:"Emphasized, that V₂ first NACH the completion by V₁ begins. Stronger as reino て-Verketdog.",
   build:[{form:"Connection",verb:"V₁<sub>テ</sub> + から、V₂",de:"first V₁, then V₂"},{form:"🔄 vs. て (casual)",verb:"V₁て、V₂ = lose order",de:"'and then'"},{form:"🔄 vs. てから (strikt)",verb:"V₁てから、V₂ = first NACH completion",de:"'only after V₁'"}],
   pattern:{slots:[{text:"V₁-て",role:"cond"},{text:"から、",role:"plain",label:"only after"},{text:"V₂",role:"verb"}],gloss:"'Only after V₁ completed is, then V₂.'"},
   ex:[{jp:"<ruby>晩<rt>ばん</rt></ruby>ごはんを <ruby>食<rt>た</rt></ruby>べてから、<ruby>勉強<rt>べんきょう</rt></ruby>します。",de:"Only I eat to evening, then study I."},{jp:"<ruby>仕事<rt>しごと</rt></ruby>が <ruby>終<rt>お</rt></ruby>わってから、<ruby>飲<rt>の</rt></ruby>みに <ruby>行<rt>い</rt></ruby>きませんか。",de:"Want we after the work something to drink to go?"},{jp:"<ruby>手<rt>て</rt></ruby>を <ruby>洗<rt>あら</rt></ruby>ってから、<ruby>食<rt>た</rt></ruby>べて ください。",de:"please waschen She first the likeds, then to eat She."}],
@@ -2320,7 +2320,7 @@ const CARDS = [
   {form:"Connection",verb:"V<sub>タ</sub> + ことが あります",de:"have already times V done (experience)"},
   {form:"Negated",verb:"V<sub>タ</sub> + ことが ありません",de:"have never V before"},
   {form:"Question",verb:"V<sub>タ</sub> + ことが ありますか",de:"hast you already times V before?"},
-  {form:"Example",verb:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>った ことが あります",de:"War already times in Yespto"},
+  {form:"Example",verb:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>った ことが あります",de:"War already times in Japan"},
   {form:"Negated",verb:"<ruby>寿司<rt>すし</rt></ruby>を <ruby>食<rt>た</rt></ruby>べた ことが ありません",de:"Have never Sushi eaten"}
  ], pattern:{slots:[{text:"V-た",role:"verb"},{text:"ことが あります",role:"plain",label:"experience"}],gloss:"'Have already times [V].' — た-form + ことがあります = experience. negation: ことがありません."},
   ex:[  {jp:"<ruby>北海道<rt>ほっかいどう</rt></ruby>へ <ruby>行<rt>い</rt></ruby>った ことが あります。",de:"I was already times in Hokkaido."},
@@ -2377,7 +2377,7 @@ const CARDS = [
   {jp:"これ <ruby>食<rt>た</rt></ruby>べる? — ううん、いらない。",de:"Isst you the? — No, I is not."},
   {jp:"どこ <ruby>行<rt>い</rt></ruby>くの? (with の instead か)",de:"Where to go you?"}
  ], note:"💡 の at the end (at Ms.en/informal) = instead か. よ/ね for emphasis."},
- {l:20, t:"〜て(い)る・〜て(い)く・〜て(お)く (い/お-Drop)", de:"omitting by い and お in Plain", rule:"In informalm conversation this is い in ている/ていく/ていく often omitted. Genauso the お in ておく → とく. Typical for Jugeneraldsprache and entsptonte conversation.", build:[
+ {l:20, t:"〜て(い)る・〜て(い)く・〜て(お)く (い/お-Drop)", de:"omitting by い and お in Plain", rule:"In informalm conversation this is い in ている/ていく/ていく often omitted. Genauso the お in ておく → とく. Typical for Jugeneraldsprache and corresponding conversation.", build:[
   {form:"〜ている → 〜てる",verb:"<ruby>食<rt>た</rt></ruby>べてる (instead <ruby>食<rt>た</rt></ruby>べている)",de:"eats just now"},
   {form:"〜ていく → 〜てく",verb:"<ruby>持<rt>も</rt></ruby>ってく (instead <ruby>持<rt>も</rt></ruby>っていく)",de:"take along"},
   {form:"〜ておく → 〜とく",verb:"やっとく (instead やっておく)",de:"previously do"}
@@ -2482,13 +2482,13 @@ const CARDS = [
   {form:"verb (Plain)",verb:"V<sub>ル</sub> / V<sub>タ</sub> / V<sub>ナイ</sub> + N",de:"<ruby>食<rt>た</rt></ruby>べる <ruby>人<rt>ひと</rt></ruby> = Person, the eats"},
   {form:"い-Adj",verb:"い-Adj + N (directly!)",de:"<ruby>赤<rt>あか</rt></ruby>い かばん = rote bag"},
   {form:"な-Adj",verb:"な-Adj + <b>な</b> + N",de:"<ruby>有名<rt>ゆうめい</rt></ruby><b>な</b> <ruby>寺<rt>てら</rt></ruby> = more famous temple"},
-  {form:"noun",verb:"N₁ + <b>の</b> + N₂",de:"<ruby>日本語<rt>にほんご</rt></ruby><b>の</b> <ruby>本<rt>ほん</rt></ruby> = yespto. book"},
+  {form:"noun",verb:"N₁ + <b>の</b> + N₂",de:"<ruby>日本語<rt>にほんご</rt></ruby><b>の</b> <ruby>本<rt>ほん</rt></ruby> = japan. book"},
   {form:"Negated な-Adj",verb:"な-Adj<b>じゃない</b> + N",de:"<ruby>有名<rt>ゆうめい</rt></ruby>じゃない <ruby>店<rt>みせ</rt></ruby> = not famouss shop"},
   {form:"Negated noun",verb:"N + <b>じゃない</b> + N₂",de:"<ruby>先生<rt>せんせい</rt></ruby>じゃない <ruby>人<rt>ひと</rt></ruby> = not-Teacher-Person"}
  ], pattern:{slots:[{text:"verb(Plain)/い-Adj/な-Adj+な/N+の",role:"cond"},{text:"N",role:"obj"}],gloss:"い-Adj directly. な-Adj+な. N+の. verb: plain form. All bewriteen the noun before."},
   ex:[  {jp:"<ruby>赤<rt>あか</rt></ruby>い かばんが <ruby>欲<rt>ほ</rt></ruby>しいです。",de:"I want a rote bag."},
   {jp:"<ruby>有名<rt>ゆうめい</rt></ruby>な お<ruby>寺<rt>てら</rt></ruby>を <ruby>見<rt>み</rt></ruby>ました。",de:"I a famous temple seen."},
-  {jp:"これは <ruby>日本<rt>にほん</rt></ruby>で <ruby>作<rt>つく</rt></ruby>られた <ruby>車<rt>くるま</rt></ruby>です。",de:"The is a in Yespto madees car."}
+  {jp:"これは <ruby>日本<rt>にほん</rt></ruby>で <ruby>作<rt>つく</rt></ruby>られた <ruby>車<rt>くるま</rt></ruby>です。",de:"The is a in Japan madees car."}
  ], note:"💡 Rule of thumb: verb/い-Adj directly before. な-Adj requires な. noun requires の. For negation the な-Adj/noun: じゃない (NOT じゃ ありません!)."},
  {l:22, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby> + <ruby>時間<rt>じかん</rt></ruby>/<ruby>約束<rt>やくそく</rt></ruby>/<ruby>用事<rt>ようじ</rt></ruby>", de:"time/appointment/Termin, something to do", rule:"Typical Kollokationen: dictionary form-sentence + time-noun. Expresses that one time/appointment/Something to do HAT for a berighte activity.", build:[
   {form:"Vdict+時間 (time for …)",verb:"<ruby>食<rt>た</rt></ruby>べる <ruby>時間<rt>じかん</rt></ruby>",de:"time to the food"},
@@ -2517,7 +2517,7 @@ const CARDS = [
   ex:[  {jp:"<ruby>図書館<rt>としょかん</rt></ruby>で <ruby>本<rt>ほん</rt></ruby>を <ruby>借<rt>か</rt></ruby>りるとき、カードが <ruby>要<rt>い</rt></ruby>ります。",de:"When one in the library books lends, requires one a card."},
   {jp:"<ruby>若<rt>わか</rt></ruby>いとき、よく <ruby>旅行<rt>りょこう</rt></ruby>しました。",de:"When I young was, I often traveled."},
   {jp:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>くとき、カメラを <ruby>買<rt>か</rt></ruby>いました。",de:"Before I away to Japan, I a camera bought."}
- ], note:"🔄 辞書形+とき (Action not yet completed) vs. た形+とき (Action completed) — next card. Mnomonic: 日本へ行くとき = departure has not yet happenod / 日本へ行ったとき = already in Yespto."},
+ ], note:"🔄 辞書形+とき (Action not yet completed) vs. た形+とき (Action completed) — next card. Mnomonic: 日本へ行くとき = departure has not yet happenod / 日本へ行ったとき = already in Japan."},
  {l:23, t:"V た + とき、…", de:"As (after the Action completed)", rule:"た-form before とき: Next action is ALREADY COMPLETED, when the main action begins. Important difference to 辞書形+とき!", build:[
   {form:"Vた+とき (Action completed)",verb:"<ruby>着<rt>つ</rt></ruby>いたとき",de:"as (I) arrived was"},
   {form:"Compare: 行くとき vs 行ったとき",verb:"<ruby>行<rt>い</rt></ruby>くとき (before departure) / <ruby>行<rt>い</rt></ruby>ったとき (after arrival)",de:"before going / when I arrived was"}
@@ -2525,7 +2525,7 @@ const CARDS = [
   ex:[  {jp:"<ruby>家<rt>いえ</rt></ruby>へ <ruby>帰<rt>かえ</rt></ruby>ったとき、「ただいま」と <ruby>言<rt>い</rt></ruby>います。",de:"When I come home (arrived at the), say I 'tadaima'."},
   {jp:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>来<rt>き</rt></ruby>たとき、<ruby>友達<rt>ともだち</rt></ruby>が <ruby>迎<rt>むか</rt></ruby>えに <ruby>来<rt>き</rt></ruby>ました。",de:"When I came to Japan, holte me a friend ab."},
   {jp:"<ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>ったとき、この お<ruby>土産<rt>みやげ</rt></ruby>を <ruby>買<rt>か</rt></ruby>いました。",de:"When In Kyoto was, I this Souvenir bought."}
- ], note:"⚠️ <ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>くとき = before departure (still in Germany). <ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>ったとき = in Yespto (already there). tense VOR とき decides, whether the main action VOR or NACH the Before-verb happens."},
+ ], note:"⚠️ <ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>くとき = before departure (still in Germany). <ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>ったとき = in Japan (already there). tense VOR とき decides, whether the main action VOR or NACH the Before-verb happens."},
  {l:23, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby> と、…", de:"When/as soon as …, automatically …", rule:"Conditional 'と': when A, then always happens/automatically B. natural law, habit, Mechanism. No will or please in the main clause!", build:[
   {form:"Connection",verb:"V<sub>ル</sub> + と、…",de:"when V happens, then automatically …"},
   {form:"Example",verb:"このボタンを <ruby>押<rt>お</rt></ruby>す と、お<ruby>釣<rt>つ</rt></ruby>りが <ruby>出<rt>で</rt></ruby>ます",de:"when one expresses, comes change"},
@@ -2569,7 +2569,7 @@ const CARDS = [
  ], note:"⚠️ てあげる sounds sometimes condescending ('I do you a Gefall') — better often てくれる / てもらう use. 💡 てもらう = Speaker hwhen Initiative / profits; てくれる = other likedeln spontto for me."},
  {l:24, t:"N(Person) が V (Subject at Empftogshowdlungeneral)", de:"が instead of は for giving/taking", rule:"For くれる and other 'give-for-me'-verbs this is givende Person often with が marks, especially when she now is introduced or emphasizes is.", build:[
   {form:"Standard: N は",verb:"<ruby>山田<rt>やまだ</rt></ruby>さんは <ruby>本<rt>ほん</rt></ruby>を くれました",de:"Ms. Yamada gave me a book"},
-  {form:"Betont/now: N が",verb:"<ruby>山田<rt>やまだ</rt></ruby>さんが <ruby>本<rt>ほん</rt></ruby>を くれました",de:"It was Ms. Yamada, the me the book gave"}
+  {form:"Emphasized/now: N が",verb:"<ruby>山田<rt>やまだ</rt></ruby>さんが <ruby>本<rt>ほん</rt></ruby>を くれました",de:"It was Ms. Yamada, the me the book gave"}
  ], pattern:{slots:[{text:"N(Person)",role:"actor"},{text:"が",role:"plain",label:"new/emphasizes"},{text:"V",role:"verb"}],gloss:"が at new/emphasizing Information, at Answers on だれが-Questions, at kuréru/morau."},
   ex:[  {jp:"だれが この <ruby>本<rt>ほん</rt></ruby>を くれましたか。— <ruby>山田<rt>やまだ</rt></ruby>さんが くれました。",de:"Who has you the book given? — Ms. Yamada."},
   {jp:"<ruby>母<rt>はは</rt></ruby>が セーターを <ruby>作<rt>つく</rt></ruby>って くれました。",de:"My mother knitted a sweater for me."},
@@ -2670,7 +2670,7 @@ const CARDS = [
   rule:"For に/で/と/から/まで is は ATTACHED (にはで・では・とは…). Elevates the Particle-function  or erzeugt contrast. Important exception: を and が becomes through は REPLACES, not combined.",
   build:[{form:"に + は = には",verb:"<ruby>東京<rt>とうきょう</rt></ruby>には",de:"in/after Tokyo (in the toward to …)"},{form:"で + は = では",verb:"<ruby>学校<rt>がっこう</rt></ruby>では",de:"in the school (in the toward to …)"},{form:"と + は = とは",verb:"<ruby>彼<rt>かれ</rt></ruby>とは",de:"with him (specifically)"},{form:"から + は = からは",verb:"<ruby>今<rt>いま</rt></ruby>からは",de:"ab now (in the toward to before)"},{form:"⚠️ を → は (replaces!)",verb:"<ruby>肉<rt>にく</rt></ruby>は <ruby>食<rt>た</rt></ruby>べません",de:"meat (specifically) I eat not"},{form:"⚠️ が → は (replaces!)",verb:"これは <ruby>分<rt>わ</rt></ruby>かりません",de:"The (in the contrast) understand I not"}],
   pattern:{slots:[{text:"N",role:"subj",label:"Element"},{text:"P",role:"actor",label:"Particle"},{text:"+ は",role:"verb",label:"contrast"},{text:"…Rest",role:"plain"}],gloss:"With に/で/と/から/まで: combino (にはで…). With を/が: replace. Effekt: 'specifically DIESES, in the toward to other'."},
-  ex:[{jp:"この <ruby>部屋<rt>へや</rt></ruby><b>では</b> タバコを <ruby>吸<rt>す</rt></ruby>っては いけません。",de:"In this room (in the toward to other) may one not smoke."},{jp:"<ruby>東京<rt>とうきょう</rt></ruby><b>には</b> <ruby>人<rt>ひと</rt></ruby>が たくさん います。",de:"In Tokyo gives it many people."},{jp:"<ruby>日本<rt>にほん</rt></ruby><b>からは</b> <ruby>手紙<rt>てがみ</rt></ruby>が <ruby>来<rt>き</rt></ruby>ませんでした。",de:"From Yespto came no letter."}],
+  ex:[{jp:"この <ruby>部屋<rt>へや</rt></ruby><b>では</b> タバコを <ruby>吸<rt>す</rt></ruby>っては いけません。",de:"In this room (in the toward to other) may one not smoke."},{jp:"<ruby>東京<rt>とうきょう</rt></ruby><b>には</b> <ruby>人<rt>ひと</rt></ruby>が たくさん います。",de:"In Tokyo gives it many people."},{jp:"<ruby>日本<rt>にほん</rt></ruby><b>からは</b> <ruby>手紙<rt>てがみ</rt></ruby>が <ruby>来<rt>き</rt></ruby>ませんでした。",de:"From Japan came no letter."}],
   note:"💡 Rule of thumb: は does the Particle contrastive/emphasizes ('specifically DIESES'). For を/が disappear this and only は stands there."},
  {l:27, t:"〜は 〜が、〜は 〜 (contrast-construction)", de:"the a yes, the other not (as pairsr contrast)",
   rule:"Direct Gegeneralpracticerstellen by two Sachvreceived in EINEM sentence with が as Bindeglied. Both Glieder become は instead が/を. Very typical for the speak about own abilities or Preferences.",
@@ -4058,13 +4058,13 @@ function renderCompare() {
  // Haufigste Particle the we abquestion
  const QUIZ_PARTICLES = ['は','が','を','に','で','と','の','へ','から','まで','より','しか','も','や','か'];
 
- // Checks whether the Particle to position pos in the cletoJp actually a freistandings Particle is
+ // Checks whether the Particle to position pos in the cleanJp actually a freistandings Particle is
  // (not part of a Wherertes like かばん, ベル, よって, 学校で → yes okay)
- function isStandalone(cletoJp, pos, particle) {
+ function isStandalone(cleanJp, pos, particle) {
   // Before the Particle: must Ktoji, Hiragana-Wherertende or Klammer to be
   // Nach the Particle: must space, end of sentence, Ktoji or comma to be
-  const before = pos > 0 ? cletoJp[pos - 1] : '';
-  const after = pos + particle.length < cletoJp.length ? cletoJp[pos + particle.length] : '';
+  const before = pos > 0 ? cleanJp[pos - 1] : '';
+  const after = pos + particle.length < cleanJp.length ? cleanJp[pos + particle.length] : '';
   // Nach-the-Particle-exam: must space, comma, Ktoji, end of sentence, point or Klammer to be
   // Hiragana afterwards = WAHRSCHEINLICH inside of a Wherertes (e.g., かばん, よって)
   const isKtoji = (ch) => /[\u4E00-\u9FFF]/.test(ch);
@@ -4100,19 +4100,19 @@ function renderCompare() {
   const sentencePool = [];
   pool.forEach(card => {
    (card.ex || []).forEach(ex => {
-    const cletoJp = ex.jp.replace(/<ruby>([^<]+)<rt>[^<]+<\/rt><\/ruby>/g, '$1').replace(/<[^>]+>/g, '');
+    const cleanJp = ex.jp.replace(/<ruby>([^<]+)<rt>[^<]+<\/rt><\/ruby>/g, '$1').replace(/<[^>]+>/g, '');
     const particles = [];
     QUIZ_PARTICLES.forEach(p => {
      let idx = 0;
-     while ((idx = cletoJp.indexOf(p, idx)) !== -1) {
-      if (idx > 0 && isStandalone(cletoJp, idx, p)) {
+     while ((idx = cleanJp.indexOf(p, idx)) !== -1) {
+      if (idx > 0 && isStandalone(cleanJp, idx, p)) {
        particles.push({pos: idx, text: p});
       }
       idx += p.length;
      }
     });
     if (particles.length > 0) {
-     sentencePool.push({card, ex, cletoJp, particles, original: ex.jp});
+     sentencePool.push({card, ex, cleanJp, particles, original: ex.jp});
     }
    });
   });
@@ -4131,7 +4131,7 @@ function renderCompare() {
    const pickFrom = interesting.length > 0 ? interesting : item.particles;
    const target = pickFrom[Math.floor(Math.random() * pickFrom.length)];
 
-   const blocked = makeBlank(item.original, target.text, target.pos, item.cletoJp);
+   const blocked = makeBlank(item.original, target.text, target.pos, item.cleanJp);
    if (!blocked) continue;
 
    const distractors = QUIZ_PARTICLES.filter(p => p !== target.text).sort(() => Math.random() - .5).slice(0, 3);
@@ -4150,13 +4150,13 @@ function renderCompare() {
  }
 
  // Particle in the HTML-sentence through a gap replace — only the n-te Beforecome
- function makeBlank(originalHtml, particle, posInCleto, cletoJp) {
-  // How often comes the Particle in the cletoJp VOR the position before?
+ function makeBlank(originalHtml, particle, posInClean, cleanJp) {
+  // How often comes the Particle in the cleanJp VOR the position before?
   let occurrence = 0;
   let idx = 0;
-  while (idx < posInCleto) {
-   const found = cletoJp.indexOf(particle, idx);
-   if (found === -1 || found >= posInCleto) break;
+  while (idx < posInClean) {
+   const found = cleanJp.indexOf(particle, idx);
+   if (found === -1 || found >= posInClean) break;
    occurrence++;
    idx = found + particle.length;
   }
