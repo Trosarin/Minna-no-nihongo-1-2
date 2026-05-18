@@ -627,7 +627,7 @@ border-bottom-color:#f4ede0;
  <button class="back-btn" id="backBtn" title="Back to overview" aria-label="Back to overview">←</button>
  <input type="text" class="search" id="search" placeholder="Search (e.g., te-form, Particle は)…">
  <select class="lesson-filter" id="lessonFilter">
-  <option value="all">Alle Lektionen</option>
+  <option value="all">All Lessons</option>
  </select>
  <button class="random-btn" id="randomBtn" title="Random card" aria-label="Random card">🎲</button>
  <div class="stats" id="stats">— cards</div>
@@ -2475,7 +2475,7 @@ const TOPICS = {
 
 const lessons = [...new Set(CARDS.map(c => c.l))].sort((a,b)=>a-b);
 
-// Filter-Dropdown fill — Cheat-Sheets and vocabulary ZUERST, then Lektionen
+// Filter-Dropdown fill — Cheat-Sheets and vocabulary ZUERST, then Lessons
 const cheatOpt = document.createElement('option');
 cheatOpt.value = 'cheats';
 cheatOpt.textContent = '📖 Cheat-Sheets';
@@ -2655,7 +2655,7 @@ function render(){
   overview.style.display = 'block';
   grid.innerHTML = '';
   grid.style.display = 'none';
-  stats.innerHTML = `<b>${CARDS.length}</b> cards · ${lessons.length} Lektionen`;
+  stats.innerHTML = `<b>${CARDS.length}</b> cards · ${lessons.length} Lessons`;
   backBtn.classList.remove('visible');
   return;
  }
