@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html ltog="en">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -16,7 +16,7 @@
 
 <!-- App Icon (180x180 inline SVG) -->
 
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23f4ede0'/%3E%3Crect x='15' y='15' width='150' height='150' fill='%23b8893a' transform='rotate(-3 90 90)'/%3E%3Ctext x='90' y='115' font-family='serif' font-size='90' font-weight='900' fill='%23f4ede0' text-tochor='middle'%3E中%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23f4ede0'/%3E%3Crect x='15' y='15' width='150' height='150' fill='%23b8893a' transform='rotate(-3 90 90)'/%3E%3Ctext x='90' y='115' font-family='serif' font-size='90' font-weight='900' fill='%23f4ede0' text-anchor='middle'%3E中%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Noto+Serif+JP:wght@400;600;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -38,8 +38,8 @@
   padding-left:env(safe-area-inset-left);
   padding-right:env(safe-area-inset-right);
   background-image:
-   radial-levelient(circle at 10% 20%, rgba(192,54,44,.04) 0%, transparent 40%),
-   radial-levelient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%),
+   radial-gradient(circle at 10% 20%, rgba(192,54,44,.04) 0%, transparent 40%),
+   radial-gradient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%),
    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
  }
  /* Book switcher tabs */
@@ -68,7 +68,7 @@
   margin-bottom:-3px;
  }
  .book-tab:hover{color:#f4ede0;background:rgba(244,237,224,.05)}
- .book-t.active{
+ .book-tab.active{
   background:#f4ede0;
   color:#8a1f17;
   border-bottom-color:#8a1f17;
@@ -78,7 +78,7 @@ header{
 padding:2.5rem 1.5rem 1.5rem;
 text-align:center;
 border-bottom:3px double #1a1612;
-position:related;
+position:relative;
 }
 header::before{
 content:“第一課 〜 第十課”;
@@ -209,7 +209,7 @@ border:2px solid #1a1612;
 box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
 cursor:pointer;
 padding:1.2rem 1.1rem;
-position:related;
+position:relative;
 overflow:hidden;
 min-height:260px;
 display:flex;flex-direction:column;
@@ -281,7 +281,7 @@ z-index:2;
 .back{
 padding:0;
 }
-.back-content{position:related;z-index:2;font-size:.85rem;line-height:1.55}
+.back-content{position:relative;z-index:2;font-size:.85rem;line-height:1.55}
 .back .lesson-tag{margin-bottom:.5rem}
 .back h3{
 font-family:“Noto Serif JP”,serif;font-weight:800;
@@ -333,7 +333,7 @@ background:rgba(192,54,44,.08);
 border-left:2px solid #8a1f17;
 }
 .pattern-box{
-background:linear-levelient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.3) 100%);
+background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.3) 100%);
 border:1px solid rgba(26,22,18,.15);
 border-radius:3px;
 padding:.5rem .55rem;
@@ -368,7 +368,7 @@ font-size:.92rem;line-height:1.55;
 
 /* ============ SENTENCE PLAN (step-by-step) ============ */
 .bauplan{
-background:linear-levelient(180deg,rgba(184,137,58,.10) 0%,rgba(184,137,58,.04) 100%);
+background:linear-gradient(180deg,rgba(184,137,58,.10) 0%,rgba(184,137,58,.04) 100%);
 border:1px solid rgba(184,137,58,.4);
 border-left:3px solid #b8893a;
 padding:.55rem .65rem;
@@ -534,7 +534,7 @@ font-family:inherit;
 background:#ebe1cd;border:2px solid #1a1612;
 padding:1.2rem 1rem;margin-bottom:1.5rem;
 box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
-position:related;
+position:relative;
 }
 .cheat h2{
 font-family:“Noto Serif JP”,serif;font-weight:800;font-size:1.1rem;
@@ -576,14 +576,14 @@ margin-top:.4rem;padding-top:.3rem;border-top:1px dashed #1a1612;
 }
 
 /* Language tabs */
-.ltog-tabs{
+.lang-tabs{
 display:flex;
 justify-content:flex-end;
 gap:0;
 padding:.3rem .8rem;
 background:#1a1612;
 }
-.ltog-tab{
+.lang-tab{
 padding:.3rem .7rem;
 text-decoration:none;
 color:#a99780;
@@ -594,11 +594,11 @@ border-bottom:2px solid transparent;
 transition:all .15s;
 -webkit-tap-highlight-color:transparent;
 }
-.ltog-t.active{
+.lang-tab.active{
 color:#f4ede0;
 border-bottom-color:#f4ede0;
 }
-.ltog-tab:hover{color:#f4ede0}
+.lang-tab:hover{color:#f4ede0}
 
 </style>
 </head>
@@ -610,9 +610,9 @@ border-bottom-color:#f4ede0;
  <a class="book-tab" href="/Minna-no-nihongo-1-2/minna/">📕 みんなの日本語</a>
  <a class="book-tab active" href="/Minna-no-nihongo-1-2/chuukyuu/">📘 中級へ行こう</a>
 </div>
-<div class="ltog-tabs">
- <a class="ltog-tab active" href="/Minna-no-nihongo-1-2/chuukyuu/">DE</a>
- <a class="ltog-tab" href="/Minna-no-nihongo-1-2/chuukyuu-en/">EN</a>
+<div class="lang-tabs">
+ <a class="lang-tab active" href="/Minna-no-nihongo-1-2/chuukyuu/">DE</a>
+ <a class="lang-tab" href="/Minna-no-nihongo-1-2/chuukyuu-en/">EN</a>
 </div>
 
 <header>
