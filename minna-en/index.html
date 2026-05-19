@@ -1866,10 +1866,10 @@ const CARDS = [
   note:"💡 In daily use almost always じゃ ありません. では ありません seems stiff/formal — in conversations with friends is also じゃない (plain form) used."},
  {l:1, t:"N₁ は N₂ ですか", de:"Is N₁ a N₂? (Question)",
   rule:"Attaching か at the end of the sentence makes each statement a Yes/No question. Answer with はい (yes) / いいえ (no). Question intonation does not rise at the end — the か makes it a question.",
-  build:[{form:"Connection",verb:"Statement + か",de:"Question"},{form:"Affirmation",verb:"はい、〜です",de:"yes, …"},{form:"negation",verb:"いいえ、〜じゃ ありません",de:"no, …"},{form:"⚠ no question mark",verb:"。 (point) at the end",de:"Japanese writing"}],
+  build:[{form:"Connection",verb:"Statement + か",de:"Question"},{form:"Affirmation",verb:"はい、〜です",de:"yes, …"},{form:"negation",verb:"いいえ、〜じゃ ありません",de:"no, …"},{form:"⚠ no question mark",verb:"。 (period) at the end",de:"Japanese writing"}],
   pattern:{slots:[{text:"N₁",role:"subj"},{text:"は",role:"plain"},{text:"N₂",role:"obj"},{text:"です",role:"verb"},{text:"か",role:"plain",label:"Question-Marker"}],gloss:"'Is N₁ N₂?' — Yes/No question through か."},
   ex:[{jp:"あなたは <ruby>学生<rt>がくせい</rt></ruby>ですか。— はい、<ruby>学生<rt>がくせい</rt></ruby>です。",de:"Are you a student? — Yes, I am a student."},{jp:"ミラーさんは アメリカ<ruby>人<rt>じん</rt></ruby>ですか。",de:"Is Mr. Miller American?"},{jp:"<ruby>田中<rt>たなか</rt></ruby>さんは <ruby>会社員<rt>かいしゃいん</rt></ruby>ですか。— いいえ、<ruby>会社員<rt>かいしゃいん</rt></ruby>じゃ ありません。<ruby>先生<rt>せんせい</rt></ruby>です。",de:"Is Ms. Tanaka a company employee? — No, she is not a company employee. She is a teacher."}],
-  note:"💡 In Japanese is in formal texts no question mark (?) written — the sentence ends with 。 after か. In informal texts (SMS, Comics) one also sees ?."},
+  note:"💡 In Japanese, no question mark (?) is written in formal texts — the sentence ends with 。 after か. In informal texts (SMS, comics) you also see ?."},
  {l:1, t:"N₁ も N₂ です", de:"N₁ is ALSO N₂",
   rule:"も replaces は and expresses that the statement also applies to N₁. Presupposes that someone else was previously identified as N₂.",
   build:[{form:"Connection",verb:"N₁ + も + N₂ + です",de:"N₁ is also N₂"},{form:"⚠ も replaces は",verb:"NEVER は + も together",de:"はも = wrong!"},{form:"in negation",verb:"N₁ も N₂ じゃ ありません",de:"N₁ is also not N₂"}],
@@ -2027,7 +2027,7 @@ const CARDS = [
   ex:[{jp:"<ruby>一緒<rt>いっしょ</rt></ruby>に <ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きませんか。",de:"Why don't we go to Kyoto together?"},{jp:"コーヒーを <ruby>飲<rt>の</rt></ruby>みませんか。",de:"How would it be with a coffee?"},{jp:"<ruby>一緒<rt>いっしょ</rt></ruby>に <ruby>食<rt>た</rt></ruby>べませんか。",de:"Why don't we eat together?"}],
   note:"🔄 ませんか (invitation, soft) vs. ましょう (please, decisive). typical Dialog: 〜ませんか。— ええ、〜ましょう。"},
  {l:6, t:"V ましょう", de:"Let's … ! (suggestion)",
-  rule:"ましょう = polite volitional-form ('Let's!'). Can as own suggestion or as reaction to ませんか-invitation stand.",
+  rule:"ましょう = polite volitional-form ('Let's!'). Can stand as one's own suggestion or as a reaction to a ませんか invitation.",
   build:[{form:"Connection",verb:"V<sub>ます-stem</sub> + ましょう",de:"Let's V!"},{form:"as Answer",verb:"〜ませんか — ええ、〜ましょう",de:"reaction to invitation"},{form:"variant",verb:"〜ましょうか",de:"'Should I …?' (offering)"}],
   pattern:{slots:[{text:"V-stem",role:"verb"},{text:"ましょう",role:"plain",label:"'Let's!'"}],gloss:"'Let's [V]!' — joint decision or reaction to invitation."},
   ex:[{jp:"<ruby>一緒<rt>いっしょ</rt></ruby>に <ruby>食<rt>た</rt></ruby>べましょう。",de:"Let's eat together!"},{jp:"ちょっと <ruby>休<rt>やす</rt></ruby>みましょう。",de:"Let's take a short break."},{jp:"<ruby>日本語<rt>にほんご</rt></ruby>で <ruby>話<rt>はな</rt></ruby>しましょう。",de:"Let's talk in Japanese!"}],
@@ -2450,7 +2450,7 @@ const CARDS = [
   {jp:"パーティーで <ruby>彼<rt>かれ</rt></ruby>に <ruby>会<rt>あ</rt></ruby>いました。",de:"I met him at the party."}
  ], note:"💡 で marks here the OCCASION / CONTEXT, not the place. Frequent: 会議で, 旅行で, パーティーで, 仕事で, 試験で."},
  {l:21, t:"N でも V (suggestion)", de:"How would it be with N? (suggestion)", rule:"N でも in suggestions: 'to the Example N, or something other'. Signals that N only a Example is and the speaker open for alternatives is. Very polite.", build:[
-  {form:"suggestion to do",verb:"コーヒーでも <ruby>飲<rt>の</rt></ruby>みませんか",de:"How would it be with coffee (or was different)?"},
+  {form:"suggestion to do",verb:"コーヒーでも <ruby>飲<rt>の</rt></ruby>みませんか",de:"How about a coffee (or something else)?"},
   {form:"free time",verb:"<ruby>映画<rt>えいが</rt></ruby>でも <ruby>見<rt>み</rt></ruby>ませんか",de:"Shall we watch a movie (or something)?"}
  ], pattern:{slots:[{text:"N",role:"obj"},{text:"でも",role:"plain",label:"or so / like would it be with"},{text:"V",role:"verb"}],gloss:"'How would it be with [N]?' / 'Want we times [N] to do?' — casualer suggestion."},
   ex:[  {jp:"お<ruby>茶<rt>ちゃ</rt></ruby>でも <ruby>飲<rt>の</rt></ruby>みましょう。",de:"Let's have some tea (or something)."},
@@ -2477,7 +2477,7 @@ const CARDS = [
   ex:[  {jp:"これは ミラーさんが <ruby>作<rt>つく</rt></ruby>った ケーキです。",de:"This is the cake that Mr. Miller made."},
   {jp:"<ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>く <ruby>人<rt>ひと</rt></ruby>は <ruby>誰<rt>だれ</rt></ruby>ですか。",de:"Who is the person, the go to Kyotos?"},
   {jp:"<ruby>昨日<rt>きのう</rt></ruby> <ruby>会<rt>あ</rt></ruby>った <ruby>人<rt>ひと</rt></ruby>は <ruby>医者<rt>いしゃ</rt></ruby>です。",de:"The person I I met yesterday, is a doctor."}
- ], note:"⚠️ NO 'the/the/the'! NO comma! In the relative clause stands the subject with <b>が</b> (NEVER は). order: first description → then noun (stopped to the German)."},
+ ], note:"⚠️ NO 'who/which/that'! NO comma! In the relative clause stands the subject with <b>が</b> (NEVER は). order: first description → then noun (opposite to German)."},
  {l:22, t:"relative clause with various word classes", de:"all word classes as attribute", rule:"い-Adj: directly (高い本). な-Adj: な (きれいな町). N: の (日本語の本). verb: plain form (食べる人・食べた人).", build:[
   {form:"verb (Plain)",verb:"V<sub>ル</sub> / V<sub>タ</sub> / V<sub>ナイ</sub> + N",de:"<ruby>食<rt>た</rt></ruby>べる <ruby>人<rt>ひと</rt></ruby> = person, the eats"},
   {form:"い-Adj",verb:"い-Adj + N (directly!)",de:"<ruby>赤<rt>あか</rt></ruby>い かばん = rote bag"},
@@ -2989,7 +2989,7 @@ const CARDS = [
   build:[{form:"verb",verb:"V<sub>テ</sub>",de:"<ruby>聞<rt>き</rt></ruby>いて = because I heard"},{form:"い-Adj",verb:"い-Adj い → くて",de:"<ruby>寒<rt>さむ</rt></ruby>くて = because cold"},{form:"な-Adj",verb:"な-Adj + で",de:"<ruby>静<rt>しず</rt></ruby>かで = because still"},{form:"noun",verb:"N + で",de:"<ruby>病気<rt>びょうき</rt></ruby>で = because sick"},{form:"negation",verb:"V<sub>なくて</sub>",de:"<ruby>分<rt>わ</rt></ruby>からなくて = because not understood"}],
   pattern:{slots:[{text:"reason",role:"cond",label:"cause"},{text:"-て / -くて / -で",role:"actor",label:"because"},{text:"、",role:"plain"},{text:"consequence (feeling)",role:"verb",label:"emotional/state"}],gloss:"'Because [reason], [feeling/stateate].' — consequence is NOT something, was one active does."},
   ex:[{jp:"その ニュースを <ruby>聞<rt>き</rt></ruby>いて、びっくりしました。",de:"I was surprised when I heard this news."},{jp:"<ruby>家族<rt>かぞく</rt></ruby>に <ruby>会<rt>あ</rt></ruby>えて、うれしいです。",de:"I am happy to see my family."},{jp:"<ruby>道<rt>みち</rt></ruby>が <ruby>込<rt>こ</rt></ruby>んで いて、<ruby>遅<rt>おく</rt></ruby>れました。",de:"Because the street was congested, I was late."},{jp:"<ruby>子供<rt>こども</rt></ruby>が <ruby>病気<rt>びょうき</rt></ruby>で、<ruby>会社<rt>かいしゃ</rt></ruby>を <ruby>休<rt>やす</rt></ruby>みました。",de:"Because my child was sick, I stayed away from work."}],
-  note:"⚠️ The consequence may NO command, no please and no suggestion to be! Wrong: ✗ <ruby>寒<rt>さむ</rt></ruby>くて、コートを <ruby>着<rt>き</rt></ruby>てください. Instead から/ので use."},
+  note:"⚠️ The consequence may NOT be a command, request, or suggestion! Wrong: ✗ <ruby>寒<rt>さむ</rt></ruby>くて、コートを <ruby>着<rt>き</rt></ruby>てください. Use から/ので instead."},
  {l:39, t:"V-Plain + ので (more polite reason)", de:"because / there …",
   rule:"reasoning with ので — more polite and softer than から. Sounds explaining, less demanding. For な-Adj/N: なので. Frequent in politen requests and explanations.",
   build:[{form:"verb/い-Adj",verb:"V<sub><ruby>普通形<rt>ふつうけい</rt></ruby></sub>/い-Adj + ので",de:"because V/Adj"},{form:"な-Adj",verb:"な-Adj + な + ので",de:"<ruby>元気<rt>げんき</rt></ruby>なので"},{form:"noun",verb:"N + な + ので",de:"<ruby>学生<rt>がくせい</rt></ruby>なので"},{form:"vs. から",verb:"から = directly, by outside",de:"ので = softer, objective"}],
@@ -4062,10 +4062,10 @@ function renderCompare() {
  // (not part of a word like かばん, ベル, よって, 学校で → yes okay)
  function isStandalone(cleanJp, pos, particle) {
   // Before the Particle: must Kanji, Hiragana-word-ending or bracket to be
-  // After the particle: must space, end of sentence, Kanji or comma to be
+  // After the particle: must space, end of sentence, Kanji, or comma
   const before = pos > 0 ? cleanJp[pos - 1] : '';
   const after = pos + particle.length < cleanJp.length ? cleanJp[pos + particle.length] : '';
-  // After-the-particle-exam: must space, comma, Kanji, end of sentence, point or bracket to be
+  // After-the-particle-exam: must space, comma, Kanji, end of sentence, period, or bracket
   // Hiragana afterwards = WAHRSCHEINLICH inside of a word (e.g., かばん, よって)
   const isKanji = (ch) => /[\u4E00-\u9FFF]/.test(ch);
   const isHiragana = (ch) => /[\u3040-\u309F]/.test(ch);
@@ -4074,7 +4074,7 @@ function renderCompare() {
 
   // Behind: space or punctuation or Kanji/Katakana (newer word boundary) — but NOT Hiragana
   if (isHiragana(after)) return false;
-  // Before: Kanji, Katakana, bracket, comma, point — but NOT Hiragana (in the middle in the word)
+  // Before: Kanji, Katakana, bracket, comma, or period — but NOT Hiragana (in the middle of the word)
   // exception: Hiragana-words like ひらがな, あなた end also on Hiragana, afterwards can Particle to come.
   // So: previous is Hiragana allowed WHOMN the Hiragana itself a word-ending to be can.
   // Pragmatic approach: require that previous a Kanji/Katakana stands, OR the Hiragana at the word boundary after space
