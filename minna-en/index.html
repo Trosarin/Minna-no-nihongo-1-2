@@ -4066,27 +4066,27 @@ function renderCompare() {
   const before = pos > 0 ? cleanJp[pos - 1] : '';
   const after = pos + particle.length < cleanJp.length ? cleanJp[pos + particle.length] : '';
   // After-the-particle check: must be space, comma, Kanji, end of sentence, period, or bracket
-  // Hiragana afterwards = WAHRSCHEINLICH inside of a word (e.g., かばん, よって)
+  // Hiragana afterwards = PROBABLY inside a word (e.g., かばん, よって)
   const isKanji = (ch) => /[\u4E00-\u9FFF]/.test(ch);
   const isHiragana = (ch) => /[\u3040-\u309F]/.test(ch);
   const isKatakana = (ch) => /[\u30A0-\u30FF]/.test(ch);
   const isBoundary = (ch) => !ch || /[\s、。！？・「」『』\[\]\(\)]/.test(ch) || ch === '。' || ch === '、';
 
-  // Behind: space or punctuation or Kanji/Katakana (newer word boundary) — but NOT Hiragana
+  // Behind: space, punctuation, or Kanji/Katakana (new word boundary) — but NOT Hiragana
   if (isHiragana(after)) return false;
   // Before: Kanji, Katakana, bracket, comma, or period — but NOT Hiragana (in the middle of the word)
-  // exception: Hiragana-words like ひらがな, あなた end also on Hiragana, afterwards can Particle to come.
-  // So: previous is Hiragana allowed WHOMN the Hiragana itself a word-ending to be can.
-  // Pragmatic approach: require that previous a Kanji/Katakana stands, OR the Hiragana at the word boundary after space
+  // Exception: Hiragana words like ひらがな, あなた also end in Hiragana, and a particle can follow.
+  // So: previous Hiragana is allowed WHEN the Hiragana itself can be a word ending.
+  // Pragmatic approach: require that a Kanji/Katakana precedes, OR that the Hiragana is at a word boundary after a space
   if (!before) return false; // beginning of the sentence — rather no Particle
   if (isKanji(before) || isKatakana(before)) return true;
   if (isBoundary(before)) return false; // space previous — Particle can not alone stand
   if (isHiragana(before)) {
    // Difficult to say — use a simple whitelist approach:
-   // When the Hiragana at the beginning or after a space stands, could it a word-ending to be.
-   // Pragmatic: erlaube only when a "clears" Hiragana-word stands (e.g., ひらがな, あなた, わたし)
-   // or when the Hiragana afterwards clear a Particle is
-   // Simplest heuristic: allow, when the Particle between Hiragana and space/Kanji stands
+   // When Hiragana appears at the beginning or after a space, it could be a word ending.
+   // Pragmatic: only allow when a "clear" Hiragana word stands (e.g., ひらがな, あなた, わたし)
+   // or when the Hiragana afterwards is clearly a particle
+   // Simplest heuristic: allow when the particle stands between Hiragana and space/Kanji
    return true;
   }
   return false;
@@ -4126,7 +4126,7 @@ function renderCompare() {
    if (seen.has(item.original)) continue;
    seen.add(item.original);
 
-   // Prefer "more interesting" Particle
+   // Prefer "more interesting" particles
    const interesting = item.particles.filter(p => ['に','が','を','で','から','まで','へ','より','しか'].includes(p.text));
    const pickFrom = interesting.length > 0 ? interesting : item.particles;
    const target = pickFrom[Math.floor(Math.random() * pickFrom.length)];
@@ -4149,9 +4149,9 @@ function renderCompare() {
   return qs;
  }
 
- // Particle in the HTML-sentence through a gap replace — only the n-te Occurrence
+ // Replace particle in the HTML sentence with a gap — only the n-th occurrence
  function makeBlank(originalHtml, particle, posInClean, cleanJp) {
-  // How often comes the Particle in the cleanJp BEFORE the position before?
+  // How often does the particle appear in cleanJp BEFORE this position?
   let occurrence = 0;
   let idx = 0;
   while (idx < posInClean) {
@@ -4160,8 +4160,8 @@ function renderCompare() {
    occurrence++;
    idx = found + particle.length;
   }
-  // In the originalHtml the same Occurrence search — but caution: <rt>...</rt> can the Particle also contain (Furigana)
-  // solution: first all <rt>...</rt>-areas maskieren
+  // In originalHtml, find the same occurrence — but caution: <rt>...</rt> can also contain the particle (Furigana)
+  // Solution: first mask all <rt>...</rt> regions
   const masked = originalHtml.replace(/<rt>[^<]*<\/rt>/g, m => '\x00'.repeat(m.length));
   // In the masked text: find the (occurrence+1)-th occurrence outside of tags
   let i = 0, found = -1, count = 0;
@@ -4317,7 +4317,7 @@ function renderCompare() {
 
  quizBtn.addEventlistener('click', () => {
   quizModal.classList.remove('hidden');
-  // Reset into the Setup-State
+  // Reset to the setup state
   quizSetup.classList.remove('hidden');
   quizSetupFooter.classList.remove('hidden');
   quizQuestionArea.classList.add('hidden');
