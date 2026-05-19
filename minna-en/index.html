@@ -2316,23 +2316,23 @@ const CARDS = [
   {jp:"コーヒーを <ruby>飲<rt>の</rt></ruby>んだ。",de:"I coffee drunk. (plain)"},
   {jp:"<ruby>手紙<rt>てがみ</rt></ruby>を <ruby>書<rt>か</rt></ruby>いた。",de:"I a letter written. (plain)"}
  ], note:"💡 た-form = て-form with た instead て (書いて→書いた, 飲んで→飲んだ). Same rules!"},
- {l:19, t:"V た ことが あります", de:"I already times …", rule:"experience in the Past tense. Expresses that one something at least once done has. negation: た こと が ありません.", build:[
-  {form:"Connection",verb:"V<sub>タ</sub> + ことが あります",de:"have already times V done (experience)"},
+ {l:19, t:"V た ことが あります", de:"I have done … before", rule:"experience in the Past tense. Expresses that one something at least once done has. negation: た こと が ありません.", build:[
+  {form:"Connection",verb:"V<sub>タ</sub> + ことが あります",de:"have done V before (experience)"},
   {form:"Negated",verb:"V<sub>タ</sub> + ことが ありません",de:"have never V before"},
   {form:"Question",verb:"V<sub>タ</sub> + ことが ありますか",de:"have you ever done V before?"},
-  {form:"Example",verb:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>った ことが あります",de:"War already times in Japan"},
+  {form:"Example",verb:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>った ことが あります",de:"I have been to Japan before"},
   {form:"Negated",verb:"<ruby>寿司<rt>すし</rt></ruby>を <ruby>食<rt>た</rt></ruby>べた ことが ありません",de:"Have never Sushi eaten"}
- ], pattern:{slots:[{text:"V-た",role:"verb"},{text:"ことが あります",role:"plain",label:"experience"}],gloss:"'Have already times [V].' — た-form + ことがあります = experience. negation: ことがありません."},
-  ex:[  {jp:"<ruby>北海道<rt>ほっかいどう</rt></ruby>へ <ruby>行<rt>い</rt></ruby>った ことが あります。",de:"I was already times in Hokkaido."},
-  {jp:"<ruby>馬<rt>うま</rt></ruby>に <ruby>乗<rt>の</rt></ruby>った ことが ありますか。— いいえ、ありません。",de:"Have you already times ridden? — No, never."},
-  {jp:"<ruby>生<rt>なま</rt></ruby>のタコを <ruby>食<rt>た</rt></ruby>べた ことが あります。",de:"I already times rohen squid eaten."}
+ ], pattern:{slots:[{text:"V-た",role:"verb"},{text:"ことが あります",role:"plain",label:"experience"}],gloss:"'Have done [V] before.' — た-form + ことがあります = experience. negation: ことがありません."},
+  ex:[  {jp:"<ruby>北海道<rt>ほっかいどう</rt></ruby>へ <ruby>行<rt>い</rt></ruby>った ことが あります。",de:"I have been to Hokkaido before."},
+  {jp:"<ruby>馬<rt>うま</rt></ruby>に <ruby>乗<rt>の</rt></ruby>った ことが ありますか。— いいえ、ありません。",de:"Have you ever ridden one? — No, never."},
+  {jp:"<ruby>生<rt>なま</rt></ruby>のタコを <ruby>食<rt>た</rt></ruby>べた ことが あります。",de:"I have eaten raw octopus before."}
  ], note:"⚠️ Not to be confused with V<sub>ル</sub>+ことが あります (= \"sometimes V\") by L8! た-form = experience in the Past tense."},
  {l:19, t:"V₁ た り、V₂ た り します", de:"…and so on (activities)", rule:"Lists exemplary (not complete!) Actions on — 'under different A, B and so on'. The last します carries the time/negation: <ruby>食<rt>た</rt></ruby>べたり <ruby>飲<rt>の</rt></ruby>んだり <b>します/しました/しません</b>. ⚠ Important demarcation to て: て-chaining = chronological order (first A, then B). たり = unordered selection, 'times so, times so'.", build:[
   {form:"Connection",verb:"V₁<sub>タ</sub>り、 V₂<sub>タ</sub>り します",de:"sometimes V₁, sometimes V₂ (exemplary)"},
   {form:"tense",verb:"します / しました / します",de:"the last します carries tense"},
   {form:"Example",verb:"<ruby>週末<rt>しゅうまつ</rt></ruby>は <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>んだり、<ruby>映画<rt>えいが</rt></ruby>を <ruby>見<rt>み</rt></ruby>たり します",de:"Am weekend I read among other things books and watch films"},
   {form:"Past tense",verb:"<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>したり、<ruby>散歩<rt>さんぽ</rt></ruby>したり しました",de:"have among other things shopped and spaziert"}
- ], pattern:{slots:[{text:"V₁-た",role:"cond"},{text:"り、",role:"plain"},{text:"V₂-た",role:"cond"},{text:"り します",role:"verb",label:"exemplary"}],gloss:"'times V₁, times V₂ — and so on.' enumeration is BEISPIELHAFT, not complete."},
+ ], pattern:{slots:[{text:"V₁-た",role:"cond"},{text:"り、",role:"plain"},{text:"V₂-た",role:"cond"},{text:"り します",role:"verb",label:"exemplary"}],gloss:"'sometimes V₁, sometimes V₂ — and so on.' Enumeration is EXEMPLARY, not exhaustive."},
   ex:[  {jp:"<ruby>日曜日<rt>にちようび</rt></ruby>は <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>んだり、<ruby>映画<rt>えいが</rt></ruby>を <ruby>見<rt>み</rt></ruby>たり します。",de:"Sundays I read books, see films etc."},
   {jp:"<ruby>部屋<rt>へや</rt></ruby>を <ruby>掃除<rt>そうじ</rt></ruby>したり、<ruby>洗濯<rt>せんたく</rt></ruby>したり しました。",de:"I (among other things) cleaned up and laundry washed."},
   {jp:"<ruby>週末<rt>しゅうまつ</rt></ruby>は <ruby>友達<rt>ともだち</rt></ruby>と <ruby>食<rt>た</rt></ruby>べたり、<ruby>話<rt>はな</rt></ruby>したり しました。",de:"On weekends we ate, talked and so on."}
@@ -2729,7 +2729,7 @@ const CARDS = [
  {l:30, t:"V て おきます (do in advance)", de:"in advance / do in advance",
   rule:"Active action, the one FOR PREPARATION done in advance. Also: a state consciously leave. In the colloquial often shortened to とく (持って→持っとく).",
   build:[{form:"① in the do in advance",verb:"V<sub>テ</sub> + おきます",de:"prepare"},{form:"② state leave",verb:"そのままに して おきます",de:"leave as is"},{form:"colloquial",verb:"〜ておく → 〜とく",de:"<ruby>持<rt>も</rt></ruby>っとく = take along (col.)"}],
-  pattern:{slots:[{text:"subject は",role:"subj"},{text:"(for later…)",role:"time",label:"purpose"},{text:"object を",role:"obj"},{text:"V-て",role:"verb"},{text:"おきます",role:"actor",label:"in advance"}],gloss:"'I [V] already times — for later / so that it ready is.' — consciously forward-looking action."},
+  pattern:{slots:[{text:"subject は",role:"subj"},{text:"(for later…)",role:"time",label:"purpose"},{text:"object を",role:"obj"},{text:"V-て",role:"verb"},{text:"おきます",role:"actor",label:"in advance"}],gloss:"'I do [V] in advance — for later / so it's ready.' — consciously forward-looking action."},
   ex:[{jp:"<ruby>旅行<rt>りょこう</rt></ruby>の <ruby>前<rt>まえ</rt></ruby>に きっぷを <ruby>買<rt>か</rt></ruby>って おきます。",de:"Before the trip buy I (in advance) the ticket."},{jp:"<ruby>会議<rt>かいぎ</rt></ruby>の <ruby>前<rt>まえ</rt></ruby>に <ruby>資料<rt>しりょう</rt></ruby>を <ruby>読<rt>よ</rt></ruby>んで おきます。",de:"Before the meeting I read the documents (in advance)."},{jp:"ビールを <ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に <ruby>入<rt>い</rt></ruby>れて おきました。",de:"I the beer (in advance) in the refrigerator before."}],
   note:"🔄 Compare てあります vs. ておきます: あります = describes the state (static). おきます = describes the Action (active in advance)."},
  {l:30, t:"まだ V て います (still continued)", de:"still (runs further)",
@@ -3022,7 +3022,7 @@ const CARDS = [
   note:"💡 Rule of thumb: question word + か = open question (was/who). か どうか = Yes/No question."},
  {l:40, t:"V て みます", de:"… sometry / attempt",
   rule:"on a trial basis do something, try out. て-form + みます. Frequent in daily use (try eating, try).",
-  build:[{form:"Connection",verb:"V<sub>テ</sub> + みます",de:"V try"},{form:"Past tense",verb:"V<sub>テ</sub> + みました",de:"tried V"},{form:"suggestion",verb:"V<sub>テ</sub> + みて ください",de:"probier times V"},{form:"wish",verb:"V<sub>テ</sub> + みたい",de:"want V try"}],
+  build:[{form:"Connection",verb:"V<sub>テ</sub> + みます",de:"try V"},{form:"Past tense",verb:"V<sub>テ</sub> + みました",de:"tried V"},{form:"suggestion",verb:"V<sub>テ</sub> + みて ください",de:"try V"},{form:"wish",verb:"V<sub>テ</sub> + みたい",de:"want to try V"}],
   pattern:{slots:[{text:"subject は",role:"subj"},{text:"object を",role:"obj"},{text:"V-て",role:"verb"},{text:"みます",role:"actor",label:"try"}],gloss:"\'I'll try [V].\' — experimentally, curiously, without commitmentuarantee on Erfolg."},
   ex:[{jp:"<ruby>納豆<rt>なっとう</rt></ruby>を <ruby>食<rt>た</rt></ruby>べて みました。",de:"I tried Natto."},{jp:"この <ruby>服<rt>ふく</rt></ruby>を <ruby>着<rt>き</rt></ruby>て みても いいですか。",de:"May I may I try on this piece of clothing?"},{jp:"<ruby>富士山<rt>ふじさん</rt></ruby>に <ruby>登<rt>のぼ</rt></ruby>って みたいです。",de:"I want times the Fuji climb."}],
   note:"💡 みる comes by 見る (to see) — analogous \'do it and see how it is\'. Very frequent in the everyday language."},
