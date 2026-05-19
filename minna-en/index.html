@@ -1925,17 +1925,17 @@ const CARDS = [
   ex:[{jp:"<ruby>食堂<rt>しょくどう</rt></ruby>は <ruby>2階<rt>にかい</rt></ruby>です。",de:"The cafeteria is on the 2nd floor."},{jp:"ミラーさんは <ruby>事務所<rt>じむしょ</rt></ruby>です。",de:"Mr. Miller is in the office."},{jp:"トイレは あそこです。",de:"The toilet is over there."}],
   note:"💡 Simple place specification without いる/ある. As soon as it on existence comes down ('want exactly there'), is in L10 に + います/あります introduced."},
  {l:3, t:"どこ / どちら", de:"where? / where to? / which direction?",
-  rule:"どこ = Where? (neutral/directly). どちら = polite variant; also 'by which country / which company'. For motion verbs: どこ(へ).",
+  rule:"どこ = Where? (neutral/direct). どちら = polite variant; also 'from which country / which company'. For motion verbs: どこ(へ).",
   build:[{form:"どこ",verb:"トイレは どこですか",de:"Where is the toilet?"},{form:"どちら (polite)",verb:"お<ruby>国<rt>くに</rt></ruby>は どちらですか",de:"where do you come from?"},{form:"どこから",verb:"どこから <ruby>来<rt>き</rt></ruby>ましたか",de:"where did you come from?"},{form:"どこへ",verb:"どこへ <ruby>行<rt>い</rt></ruby>きますか",de:"Where are you going?"}],
   pattern:{slots:[{text:"N は",role:"subj",label:"topic"},{text:"どこ/どちら",role:"place",label:"W-word"},{text:"ですか",role:"verb"}],gloss:"'Where is N?' / 'where comes N?'"},
   ex:[{jp:"トイレは どこですか。",de:"Where is the toilet?"},{jp:"お<ruby>国<rt>くに</rt></ruby>は どちらですか。",de:"Which country are you from?"},{jp:"<ruby>会社<rt>かいしゃ</rt></ruby>は どちらですか。",de:"For which company do you work?"}],
   note:"💡 どちら is more formal than どこ — in business situations almost always どちら preferred. For the question about the country of origin is お国は どちら quickly already mandatory."},
  {l:3, t:"N₁ の N₂ (origin/manufacturer)", de:"N₂ by/by N₁ (origin)",
   rule:"の marks origin or country of manufacture of a product. Syntactically identical to L1-の (possession/belonging), but here with focus on country/brand of origin.",
-  build:[{form:"country of origin",verb:"ドイツの <ruby>車<rt>くるま</rt></ruby>",de:"car by Germany"},{form:"manufacturer",verb:"ソニーの カメラ",de:"Sony-camera"},{form:"language",verb:"<ruby>日本語<rt>にほんご</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>",de:"Japanese book"}],
+  build:[{form:"country of origin",verb:"ドイツの <ruby>車<rt>くるま</rt></ruby>",de:"car from Germany"},{form:"manufacturer",verb:"ソニーの カメラ",de:"Sony camera"},{form:"language",verb:"<ruby>日本語<rt>にほんご</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>",de:"Japanese book"}],
   pattern:{slots:[{text:"origin N₁",role:"actor",label:"country/Marke"},{text:"の",role:"plain"},{text:"product N₂",role:"obj"}],gloss:"'N₂ by/by N₁.' — origin or manufacturer."},
-  ex:[{jp:"これは ドイツの <ruby>車<rt>くるま</rt></ruby>です。",de:"The is a car by Germany."},{jp:"<ruby>日本<rt>にほん</rt></ruby>の カメラは <ruby>有名<rt>ゆうめい</rt></ruby>です。",de:"Japanese cameras are famous."},{jp:"これは どこの <ruby>時計<rt>とけい</rt></ruby>ですか。— スイスのです。",de:"From which country is this clock? — From Switzerland."}],
-  note:"💡 どこの〜ですか = where/by which manufacturer is …? Common Question for shopping or in the Stimesltalk."},
+  ex:[{jp:"これは ドイツの <ruby>車<rt>くるま</rt></ruby>です。",de:"This is a car from Germany."},{jp:"<ruby>日本<rt>にほん</rt></ruby>の カメラは <ruby>有名<rt>ゆうめい</rt></ruby>です。",de:"Japanese cameras are famous."},{jp:"これは どこの <ruby>時計<rt>とけい</rt></ruby>ですか。— スイスのです。",de:"From which country is this clock? — From Switzerland."}],
+  note:"💡 どこの〜ですか = where/from which manufacturer is …? Common question while shopping or in small talk."},
  {l:3, t:"いくらですか", de:"How much is it cost?",
   rule:"Standard question about the price. Answer: number + 円. More polite form: おいくらですか (e.g., in the shop).",
   build:[{form:"Question",verb:"(N は) いくらですか",de:"How much is N cost?"},{form:"more polite",verb:"おいくらですか",de:"How much please?"},{form:"Answer",verb:"〜<ruby>円<rt>えん</rt></ruby>です",de:"〜 Yen."},{form:"Price examples",verb:"<ruby>2000円<rt>にせんえん</rt></ruby> / <ruby>15000円<rt>いちまんごせんえん</rt></ruby>",de:"2.000 ¥ / 15.000 ¥"}],
@@ -2159,7 +2159,7 @@ const CARDS = [
   ex:[{jp:"<ruby>飛行機<rt>ひこうき</rt></ruby>は <ruby>船<rt>ふね</rt></ruby>より <ruby>速<rt>はや</rt></ruby>いです。",de:"The airplane is faster than the ship."},{jp:"<ruby>東京<rt>とうきょう</rt></ruby>は <ruby>大阪<rt>おおさか</rt></ruby>より <ruby>大<rt>おお</rt></ruby>きいです。",de:"Tokyo is larger than Osaka."},{jp:"バスより <ruby>電車<rt>でんしゃ</rt></ruby>のほうが <ruby>速<rt>はや</rt></ruby>いです。",de:"The train is faster than the bus."}],
   note:"💡 variant: N₂より N₁の ほうが Adj — emphasizes N₁ more strongly. 'Rather N₁ than N₂'. Both structures are interchangeable, ほうが sounds slightly more natural."},
  {l:12, t:"N₁ と N₂ と どちらが Adj ですか", de:"Was is [Adj]he, N₁ or N₂?",
-  rule:"comparison question between EXACTLY TWO options. どちら(どっち colloquially) = which by both. Answer: 'N₁ のほうが Adj です' — and the Verglicheno with より after. For 3+ options see next card (一番). ⚠ Not どれが use — that would be for 3+ options.",
+  rule:"Comparison question between EXACTLY TWO options. どちら (どっち colloquially) = which of the two. Answer: 'N₁ のほうが Adj です' — and mention the compared item with より after. For 3+ options see next card (一番). ⚠ Not どれが use — that would be for 3+ options.",
   build:[{form:"Question",verb:"N₁ と N₂ と どちらが Adj ですか",de:"Was is adj-er, N₁ or N₂?"},{form:"Answer",verb:"N のほうが Adj です",de:"N is adj-er"},{form:"Undecided",verb:"どちらも 〜です",de:"both are equivalent"}],
   pattern:{slots:[{text:"N₁ と N₂ と",role:"subj",label:"the two options"},{text:"どちらが",role:"cond",label:"Which one?"},{text:"Adj",role:"verb"},{text:"ですか",role:"plain"}],gloss:"'Was is [Adj]he, N₁ or N₂?'"},
   ex:[{jp:"<ruby>紅茶<rt>こうちゃ</rt></ruby>と コーヒーと どちらが <ruby>好<rt>す</rt></ruby>きですか。— コーヒーのほうが <ruby>好<rt>す</rt></ruby>きです。",de:"Was do you like better, tea or coffee? — coffee."},{jp:"<ruby>東京<rt>とうきょう</rt></ruby>と <ruby>大阪<rt>おおさか</rt></ruby>と どちらが <ruby>大<rt>おお</rt></ruby>きいですか。— <ruby>東京<rt>とうきょう</rt></ruby>のほうが <ruby>大<rt>おお</rt></ruby>きいです。",de:"Was is larger, Tokyo or Osaka? — Tokyo is larger."},{jp:"<ruby>電車<rt>でんしゃ</rt></ruby>と バスと どちらが <ruby>便利<rt>べんり</rt></ruby>ですか。— <ruby>電車<rt>でんしゃ</rt></ruby>のほうが <ruby>便利<rt>べんり</rt></ruby>です。",de:"Was is practicaler, train or bus? — The train."}],
@@ -2550,7 +2550,7 @@ const CARDS = [
  ], note:"🔄 を (path/route) vs. で (place of action). <ruby>公園<rt>こうえん</rt></ruby>で<ruby>走<rt>はし</rt></ruby>る = run in the park (action there) / <ruby>公園<rt>こうえん</rt></ruby>を<ruby>走<rt>はし</rt></ruby>る = run through the park (route). を-verbs are motion verbs: <ruby>渡<rt>わた</rt></ruby>る, <ruby>通<rt>とお</rt></ruby>る, <ruby>歩<rt>ある</rt></ruby>く, <ruby>走<rt>はし</rt></ruby>る, <ruby>飛<rt>と</rt></ruby>ぶ."},
  {l:24, t:"くれます", de:"someone gives ME/us", rule:"くれます = someone gives me/my family something (vs. あげます = I give away). giver is subject with は/が. recipient is ALWAYS 'I' or someone close to me.", build:[
   {form:"あげます (I → other)",verb:"<ruby>私<rt>わたし</rt></ruby>は <ruby>山田<rt>やまだ</rt></ruby>さんに <ruby>花<rt>はな</rt></ruby>を あげました",de:"I gave Yamada flowers"},
-  {form:"もらいます (I receive)",verb:"<ruby>私<rt>わたし</rt></ruby>は <ruby>山田<rt>やまだ</rt></ruby>さんに <ruby>花<rt>はな</rt></ruby>を もらいました",de:"I became by Yamada flowers"},
+  {form:"もらいます (I receive)",verb:"<ruby>私<rt>わたし</rt></ruby>は <ruby>山田<rt>やまだ</rt></ruby>さんに <ruby>花<rt>はな</rt></ruby>を もらいました",de:"I received flowers from Ms. Yamada"},
   {form:"くれます (other → I)",verb:"<ruby>山田<rt>やまだ</rt></ruby>さんが [<ruby>私<rt>わたし</rt></ruby>に] <ruby>花<rt>はな</rt></ruby>を くれました",de:"Yamada gave ME flowers"}
  ], ex:[
   {jp:"<ruby>山田<rt>やまだ</rt></ruby>さんは [<ruby>私<rt>わたし</rt></ruby>に] <ruby>本<rt>ほん</rt></ruby>を くれました。",de:"Ms. Yamada gave me a book."},
@@ -2659,7 +2659,7 @@ const CARDS = [
   build:[{form:"visible to be",verb:"N が <ruby>見<rt>み</rt></ruby>えます",de:"N is visible (spontaneously)"},{form:"audible to be",verb:"N が <ruby>聞<rt>き</rt></ruby>こえます",de:"N is audible (spontaneously)"},{form:"⚠ vs. Potential",verb:"N が <ruby>見<rt>み</rt></ruby>られます",de:"one CAN see N (actively)"},{form:"⚠ vs. Potential",verb:"N が <ruby>聞<rt>き</rt></ruby>けます",de:"one CAN hear N (actively)"}],
   pattern:{slots:[{text:"(place)から",role:"place",label:"where"},{text:"N",role:"subj",label:"was"},{text:"が",role:"plain"},{text:"見えます/聞こえます",role:"verb",label:"appears/sounds"}],gloss:"'From [place] by is [N] visible/audible.' — observation happens by itself, without effort."},
   ex:[{jp:"ここから <ruby>海<rt>うみ</rt></ruby><b>が</b> <ruby>見<rt>み</rt></ruby>えます。",de:"From here one sees the sea."},{jp:"<ruby>富士山<rt>ふじさん</rt></ruby><b>が</b> <ruby>見<rt>み</rt></ruby>えません。",de:"Mt. Fuji one sees not."},{jp:"<ruby>隣<rt>となり</rt></ruby>の <ruby>部屋<rt>へや</rt></ruby>から <ruby>音楽<rt>おんがく</rt></ruby><b>が</b> <ruby>聞<rt>き</rt></ruby>こえます。",de:"From next door one always hears music."}],
-  note:"💡 contrast-Example: 海が見える = the sea is (by here) visible (spontaneous perception). 映画が見られる = one can watch the movie (active possibility, e.g., because the cinema is open)."},
+  note:"💡 contrast example: 海が見える = the sea is visible from here (spontaneous perception). 映画が見られる = one can watch the movie (active possibility, e.g., because the cinema is open)."},
  {l:27, t:"〜しか …ない", de:"only (with negation)",
   rule:"restriction with negative connotation: 'only (and the is too little)'. The verb MUST be negated. In contrast to だけ (neutral), しか…ない expresses that the quantity/selection is limited and unsatisfactory.",
   build:[{form:"だけ (neutral)",verb:"<ruby>100円<rt>ひゃくえん</rt></ruby>だけ あります",de:"I (only) 100 Yen [neutral]"},{form:"しか〜ない (too little)",verb:"<ruby>100円<rt>ひゃくえん</rt></ruby>しか ありません",de:"I only 100 Yen [emphasizes: too little!]"},{form:"Connection",verb:"N + しか + V<b>negative</b>",de:"verb MUST be negated"}],
@@ -2677,7 +2677,7 @@ const CARDS = [
   build:[{form:"Neutral: が",verb:"<ruby>漢字<rt>かんじ</rt></ruby>が <ruby>読<rt>よ</rt></ruby>めます",de:"I can read Kanji [fact]"},{form:"In the contrast-pair: は",verb:"ひらがな<b>は</b> 〜が、<ruby>漢字<rt>かんじ</rt></ruby><b>は</b> 〜ません",de:"Hiragana yes, Kanji no"},{form:"Before は: が/を disappear",verb:"see previous card",de:"は replaces she"},{form:"connector",verb:"〜が、 ('but')",de:"connects the two halves"}],
   pattern:{slots:[{text:"N",role:"obj",label:"aspect 1"},{text:"は",role:"actor",label:"contrast"},{text:"V-Potential",role:"verb"},{text:"が、",role:"plain"},{text:"N₂ は",role:"obj",label:"aspect 2"},{text:"V-Potential ません",role:"verb"}],gloss:"'[N] can I, but [N₂] not.' — Compare between two aspects of the same speaker."},
   ex:[{jp:"ひらがな<b>は</b> <ruby>読<rt>よ</rt></ruby>めますが、<ruby>漢字<rt>かんじ</rt></ruby><b>は</b> <ruby>読<rt>よ</rt></ruby>めません。",de:"I can read hiragana, but not Kanji."},{jp:"<ruby>肉<rt>にく</rt></ruby><b>は</b> <ruby>食<rt>た</rt></ruby>べられますが、<ruby>魚<rt>さかな</rt></ruby><b>は</b> <ruby>食<rt>た</rt></ruby>べられません。",de:"I can eat meat, but not fish."},{jp:"<ruby>日本語<rt>にほんご</rt></ruby><b>は</b> <ruby>話<rt>はな</rt></ruby>せますが、<ruby>書<rt>か</rt></ruby>けません。",de:"I can speak Japanese, but not write it."}],
-  note:"💡 Also outside by Potential usable — anywhere two things are compared (Preferences, abilities, attributes). 🔄 Compare to the previous card: there is は to particles ATTACHED (にはで…), here REPLACES は the particles が/を in the pair-contrast."},
+  note:"💡 Also usable outside the potential — anywhere two things are compared (preferences, abilities, attributes). 🔄 Compare with the previous card: there, は is ATTACHED to particles (にはで…); here, は REPLACES the particles が/を in the paired contrast."},
  {l:28, t:"V ます-stem + ながら、…", de:"during simulttoeously …",
   rule:"Two simultaneous Actions OF THE SAME person. The main verb (= the more important Action) is at the end of the sentence, the accompanying action with ながら before.",
   build:[{form:"Formation",verb:"V<sub>マス</sub>-stem + ながら",de:"<ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べながら"},{form:"Example",verb:"<ruby>聞<rt>き</rt></ruby>きます → <ruby>聞<rt>き</rt></ruby>きながら",de:"during (music) to hear"},{form:"⚠️ Same person",verb:"both verbs = the same actor",de:"otherwise not possible"},{form:"⚠️ tense",verb:"only at the main verb!",de:"<ruby>聞<rt>き</rt></ruby>きながら、<ruby>勉強<rt>べんきょう</rt></ruby>しました"}],
@@ -2914,7 +2914,7 @@ const CARDS = [
   note:"⚠️ TRIPLE IDENTITY at Gr. II: 食べられる can mean ① 'is eaten' (passive L37), ② 'can eat' (Potential L27), ③ 'to eat' (polite form for other, L49). ONLY the context decides — read the subject + が/を/に, and it becomes clear which reading is meant. 💡 う-verbs → われる: 言う→言われる, 使う→使われる, 思う→思われる (NEVER あれる)."},
  {l:37, t:"P₁ は P₂ に V<ruby>受身<rt>うけみ</rt></ruby> (direct passive)", de:"P₁ is V-ed by P₂ … (directly affected)",
   rule:"Direct passive: P₁ (affected person) is subject, the actor P₂ stands with に. Three changes from active to the passive: ① object is subject (を→は) / ② subject is actor (が→に) / ③ verb in passive form.",
-  build:[{form:"Connection",verb:"V<sub><ruby>他<rt>た</rt></ruby></sub> → V<sub><ruby>受身<rt>うけみ</rt></ruby></sub>",de:"see formation card"},{form:"AKTIV (view of the actor)",verb:"<ruby>先生<rt>せんせい</rt></ruby><b>が</b> <ruby>私<rt>わたし</rt></ruby><b>を</b> <ruby>褒<rt>ほ</rt></ruby>めた",de:"Teacher praised me"},{form:"↓ ① object → subject",verb:"<ruby>私<rt>わたし</rt></ruby><b>を</b> → <ruby>私<rt>わたし</rt></ruby><b>は</b>",de:"perspective shift"},{form:"↓ ② actor with に",verb:"<ruby>先生<rt>せんせい</rt></ruby><b>が</b> → <ruby>先生<rt>せんせい</rt></ruby><b>に</b>",de:"'by Teacher'"},{form:"↓ ③ verb in passive",verb:"<ruby>褒<rt>ほ</rt></ruby>める → <ruby>褒<rt>ほ</rt></ruby>められる",de:"form change"},{form:"PASSIV (view of the affected)",verb:"<ruby>私<rt>わたし</rt></ruby><b>は</b> <ruby>先生<rt>せんせい</rt></ruby><b>に</b> <ruby>褒<rt>ほ</rt></ruby>められた",de:"I was praised by the teacher"},{form:"⚠ actor always with に",verb:"NOT から / NOT で",de:"at directly Action"}],
+  build:[{form:"Connection",verb:"V<sub><ruby>他<rt>た</rt></ruby></sub> → V<sub><ruby>受身<rt>うけみ</rt></ruby></sub>",de:"see formation card"},{form:"AKTIV (view of the actor)",verb:"<ruby>先生<rt>せんせい</rt></ruby><b>が</b> <ruby>私<rt>わたし</rt></ruby><b>を</b> <ruby>褒<rt>ほ</rt></ruby>めた",de:"Teacher praised me"},{form:"↓ ① object → subject",verb:"<ruby>私<rt>わたし</rt></ruby><b>を</b> → <ruby>私<rt>わたし</rt></ruby><b>は</b>",de:"perspective shift"},{form:"↓ ② actor with に",verb:"<ruby>先生<rt>せんせい</rt></ruby><b>が</b> → <ruby>先生<rt>せんせい</rt></ruby><b>に</b>",de:"'by Teacher'"},{form:"↓ ③ verb in passive",verb:"<ruby>褒<rt>ほ</rt></ruby>める → <ruby>褒<rt>ほ</rt></ruby>められる",de:"form change"},{form:"PASSIV (view of the affected)",verb:"<ruby>私<rt>わたし</rt></ruby><b>は</b> <ruby>先生<rt>せんせい</rt></ruby><b>に</b> <ruby>褒<rt>ほ</rt></ruby>められた",de:"I was praised by the teacher"},{form:"⚠ actor always with に",verb:"NOT から / NOT で",de:"for a direct action"}],
   pattern:{slots:[{text:"P₁ (Affected one)",role:"subj",label:"subject"},{text:"は",role:"plain"},{text:"P₂ (actor)",role:"actor",label:"originator"},{text:"に",role:"plain",label:"by"},{text:"(thing を)",role:"obj",label:"optional"},{text:"V-passive",role:"verb"}],gloss:"'[P₁] is from [P₂] [V].' — the actor stands with に (NOT で or から!), the affected person is subject."},
   ex:[{jp:"<ruby>私<rt>わたし</rt></ruby>は <ruby>先生<rt>せんせい</rt></ruby>に <ruby>褒<rt>ほ</rt></ruby>められました。",de:"I was praised by the teacher."},{jp:"<ruby>子供<rt>こども</rt></ruby>のとき、よく <ruby>父<rt>ちち</rt></ruby>に <ruby>叱<rt>しか</rt></ruby>られました。",de:"As a child, I often was scolded by my father."},{jp:"<ruby>友達<rt>ともだち</rt></ruby>に <ruby>結婚式<rt>けっこんしき</rt></ruby>に <ruby>招待<rt>しょうたい</rt></ruby>されました。",de:"I was invited to the wedding by a friend."},{jp:"<ruby>彼<rt>かれ</rt></ruby>は みんなに <ruby>愛<rt>あい</rt></ruby>されて います。",de:"He is loved by all."}],
   note:"⚠️ In English one says 'by' — in Japanese here mandatorily に (NOT から or で). 💡 typical verbs for this construction: 褒める, 叱る, 招待する, 紹介する, 愛する, 信頼する, 誘う, 質問する."},
@@ -3173,7 +3173,7 @@ const CARDS = [
  {l:46, t:"V-Plain + はずです (would have to be)", de:"It would have to / should (so) to be …",
   rule:"Strong presumption with reasoning (~90%). The speaker has a logical reason to assume that something applies. For な-Adj: な + はず. For N: の + はず.",
   build:[{form:"verb",verb:"V<sub><ruby>普通形<rt>ふつうけい</rt></ruby></sub> + はずです",de:"should V"},{form:"い-Adj",verb:"い-Adj + はずです",de:"should be Adj"},{form:"な-Adj",verb:"な-Adj + な + はず",de:"<ruby>元気<rt>げんき</rt></ruby>な はず"},{form:"noun",verb:"N + の + はず",de:"<ruby>学生<rt>がくせい</rt></ruby>の はず"},{form:"negation",verb:"〜ない はずです / 〜はずが ない",de:"should not V / cannot be"}],
-  pattern:{slots:[{text:"reasoning",role:"cond",label:"because …"},{text:"。",role:"plain"},{text:"presumption (Plain)",role:"verb"},{text:"はずです",role:"actor",label:"should be so"}],gloss:"'It should be [content].' — the speaker concludes by Knowledge/clues (~90% safe)."},
+  pattern:{slots:[{text:"reasoning",role:"cond",label:"because …"},{text:"。",role:"plain"},{text:"presumption (Plain)",role:"verb"},{text:"はずです",role:"actor",label:"should be so"}],gloss:"'It should be [content].' — the speaker concludes from knowledge/clues (~90% certain)."},
   ex:[{jp:"<ruby>田中<rt>たなか</rt></ruby>さんは <ruby>会議<rt>かいぎ</rt></ruby>に <ruby>来<rt>く</rt></ruby>る はずです。",de:"Ms. Tanaka should be coming to the meeting."},{jp:"<ruby>銀行<rt>ぎんこう</rt></ruby>は <ruby>3時<rt>さんじ</rt></ruby>まで <ruby>開<rt>あ</rt></ruby>いて いる はずです。",de:"The bank should be open until 3 o'clock."},{jp:"こんな <ruby>所<rt>ところ</rt></ruby>に <ruby>彼<rt>かれ</rt></ruby>が いる <b>はずが ない</b>。",de:"It can't be that he is in a place like this. [Special form はずがない: strong negation]"},{jp:"<ruby>彼<rt>かれ</rt></ruby>が そんな ことを <ruby>言<rt>い</rt></ruby>う <b>はずが ない</b>。",de:"It can't be that he would say such a thing. [はずがない]"}],
   note:"💡 certainty scale: かもしれない (~30-50%) < でしょう (~70-80%) < はずです (~90%, with logic). はず requires ALWAYS a reasoning."},
  {l:47, t:"Plain + そうです (hearsay)", de:"They say that … / One says that …",
@@ -3887,7 +3887,7 @@ document.getElementById('randomBtn').addEventlistener('click', () => {
   }, 100);
   return;
  }
- // Otherwise: random by akdoll visibleen cards
+ // Otherwise: random from currently visible cards
  const visibleCards = [...document.querySelectorAll('.card')];
  if (visibleCards.length === 0) return;
  const target = visibleCards[Math.floor(Math.random() * visibleCards.length)];
@@ -4033,7 +4033,7 @@ function renderCompare() {
  let currentQ = 0;
  let score = 0;
 
- // Questions by confusion-pair-dataset
+ // Questions from confusion-pair dataset
  function buildPairQuestions(pair, count) {
   const qs = [];
   const n = count > 0 ? Math.min(count, pair.cards.length * 4) : pair.cards.length * 3;
@@ -4054,7 +4054,7 @@ function renderCompare() {
   return qs.sort(() => Math.random() - .5).slice(0, count > 0 ? count : qs.length);
  }
 
- // Questions by cards-examples (Particle-selection)
+ // Questions from card examples (particle selection)
  // Most frequent Particle the we ask
  const QUIZ_PARTICLES = ['は','が','を','に','で','と','の','へ','から','まで','より','しか','も','や','か'];
 
@@ -4163,7 +4163,7 @@ function renderCompare() {
   // In the originalHtml the same Occurrence search — but caution: <rt>...</rt> can the Particle also contain (Furigana)
   // solution: first all <rt>...</rt>-areas maskieren
   const masked = originalHtml.replace(/<rt>[^<]*<\/rt>/g, m => '\x00'.repeat(m.length));
-  // In the masked: finde the (occurrence+1)-te Occurrence outside by Tags
+  // In the masked text: find the (occurrence+1)-th occurrence outside of tags
   let i = 0, found = -1, count = 0;
   while (i < masked.length) {
    // HTML to display
