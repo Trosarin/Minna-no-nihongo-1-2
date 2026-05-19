@@ -1715,7 +1715,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
  <tr><td><span class="jp">ために</span><span class="hint">L42 · active, controllable</span></td><td>I do something actively to achieve Y. Y is an intentional action (buy, meet, save).</td><td><span class="jp"><ruby>家<rt>いえ</rt></ruby>を <ruby>買<rt>か</rt></ruby>うために、<ruby>貯金<rt>ちょきん</rt></ruby>する。</span><span class="hint">In order to buy a house, I am saving.</span></td></tr>
  <tr><td><span class="jp">ように</span><span class="hint">L36 · non-deliberate</span></td><td>The goal is ability/understanding/avoidance — something, that's not directly controllable by will is.</td><td><span class="jp"><ruby>忘<rt>わす</rt></ruby>れないように、メモする。</span><span class="hint">So I don't forget it, I make a note.</span></td></tr>
 </tbody></table>
-<p class="legend">💡 Quick test: Does the goal part start with a ability verb (<ruby>話<rt>はな</rt></ruby>せる, <ruby>見<rt>み</rt></ruby>える, <ruby>分<rt>わ</rt></ruby>かる) or a negation (〜ない)? → ように. Otherwise → ために.</p>
+<p class="legend">💡 Quick test: Does the goal part start with an ability verb (<ruby>話<rt>はな</rt></ruby>せる, <ruby>見<rt>み</rt></ruby>える, <ruby>分<rt>わ</rt></ruby>かる) or a negation (〜ない)? → ように. Otherwise → ために.</p>
 </div>
 
 <div class="cheat-section">
@@ -2488,7 +2488,7 @@ const CARDS = [
  ], pattern:{slots:[{text:"verb(Plain)/い-Adj/な-Adj+な/N+の",role:"cond"},{text:"N",role:"obj"}],gloss:"い-Adj directly. な-Adj+な. N+の. verb: plain form. All written the noun before."},
   ex:[  {jp:"<ruby>赤<rt>あか</rt></ruby>い かばんが <ruby>欲<rt>ほ</rt></ruby>しいです。",de:"I want a rote bag."},
   {jp:"<ruby>有名<rt>ゆうめい</rt></ruby>な お<ruby>寺<rt>てら</rt></ruby>を <ruby>見<rt>み</rt></ruby>ました。",de:"I a famous temple seen."},
-  {jp:"これは <ruby>日本<rt>にほん</rt></ruby>で <ruby>作<rt>つく</rt></ruby>られた <ruby>車<rt>くるま</rt></ruby>です。",de:"The is a in Japan madees car."}
+  {jp:"これは <ruby>日本<rt>にほん</rt></ruby>で <ruby>作<rt>つく</rt></ruby>られた <ruby>車<rt>くるま</rt></ruby>です。",de:"This is a car made in Japan."}
  ], note:"💡 Rule of thumb: verb/い-Adj directly before. な-Adj requires な. noun requires の. For negation the な-Adj/noun: じゃない (NOT じゃ ありません!)."},
  {l:22, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby> + <ruby>時間<rt>じかん</rt></ruby>/<ruby>約束<rt>やくそく</rt></ruby>/<ruby>用事<rt>ようじ</rt></ruby>", de:"time/appointment/schedule, something to do", rule:"typical collocations: dictionary form-sentence + time-noun. Expresses that one time/appointment/something to do for a described activity.", build:[
   {form:"Vdict+時間 (time for …)",verb:"<ruby>食<rt>た</rt></ruby>べる <ruby>時間<rt>じかん</rt></ruby>",de:"time to the food"},
@@ -2625,7 +2625,7 @@ const CARDS = [
   {jp:"あ、<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>って きました!",de:"Oh, it starts to rain!"}
  ], note:"🔄 が = new/unexpected Information, Answer to a question word, existence. は = known topic, contrast. For question word as subject (だれが/なにが): always が."},
  {l:26, t:"〜んです (explanation/follow-up question)", de:"… you see / the thing is …",
-  rule:"Sets a explanation, a reason or a follow-up question in relationship to the situation. Very frequent in the conversation, often as reaction to an observation.",
+  rule:"Sets an explanation, reason, or follow-up question in relation to the situation. Very frequent in the conversation, often as reaction to an observation.",
   build:[{form:"verb (Plain)",verb:"V<sub><ruby>普通形<rt>ふつうけい</rt></ruby></sub> + んです",de:"<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>くんです"},{form:"い-adjective",verb:"い-Adj + んです",de:"<ruby>痛<rt>いた</rt></ruby>い → <ruby>痛<rt>いた</rt></ruby>いんです"},{form:"な-adjective",verb:"な-Adj + <b>な</b>んです",de:"<ruby>元気<rt>げんき</rt></ruby> → <ruby>元気<rt>げんき</rt></ruby><b>な</b>んです"},{form:"noun",verb:"N + <b>な</b>んです",de:"<ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby><b>な</b>んです"}],
   pattern:{slots:[{text:"situation/occasion",role:"plain",label:""},{text:"。",role:"plain"},{text:"plain form",role:"verb",label:"content"},{text:"んです",role:"actor",label:"explanation"}],gloss:"'[observation]. The reason is that [content].' — the んです-part provides the background / reason."},
   ex:[{jp:"どうして <ruby>遅<rt>おそ</rt></ruby>く <ruby>来<rt>き</rt></ruby>ましたか。— <ruby>道<rt>みち</rt></ruby>が <ruby>込<rt>こ</rt></ruby>んでいた<b>んです</b>。",de:"Why did you come late? — The street was congested, you see."},{jp:"<ruby>頭<rt>あたま</rt></ruby>が <ruby>痛<rt>いた</rt></ruby>い<b>んです</b>。",de:"I have a headache, you see."},{jp:"きょうは <ruby>休<rt>やす</rt></ruby>みたいです。<ruby>疲<rt>つか</rt></ruby>れた<b>んです</b>。",de:"I'm taking the day off today. I'm tired, you see."}],
@@ -2643,7 +2643,7 @@ const CARDS = [
   ex:[{jp:"もう <ruby>少<rt>すこ</rt></ruby>し <ruby>待<rt>ま</rt></ruby>って いただけませんか。",de:"Could you please wait a moment more?"},{jp:"ここに <ruby>名前<rt>なまえ</rt></ruby>を <ruby>書<rt>か</rt></ruby>いて いただけませんか。",de:"Could you please write your name here?"},{jp:"もう <ruby>一度<rt>いちど</rt></ruby> <ruby>説明<rt>せつめい</rt></ruby>して いただけませんか。",de:"Could you please explain it once more?"},{jp:"すみません、この <ruby>漢字<rt>かんじ</rt></ruby>の <ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby>を <ruby>教<rt>おし</rt></ruby>えて いただけませんか。<br>… ええ、いいですよ。<br>… ありがとう ございます。",de:"[Q&A in the textbook style] Sorry, could you please show me the reading of this Kanji? — Yes, gladly. — Many thanks."}],
   note:"💡 more polite than てください, because formulated as a negated question ('wouldn't it be possible…?'). even more polite: 〜ていただきたいんですが."},
  {l:26, t:"<ruby>疑問詞<rt>ぎもんし</rt></ruby> + V たら いいですか", de:"How/was should I (at the best) …?",
-  rule:"Polite please and advice or instruction. question word + verb in たら-form + いいですか. Very frequent in everyday situations: process descriptions, advice for the shopping, advice at sickness.",
+  rule:"Polite request for advice or instructions. Question word + verb in たら-form + いいですか. Very frequent in everyday situations: process descriptions, shopping advice, advice when sick.",
   build:[{form:"どう + V たら",verb:"どうしたら いいですか",de:"Was should I do?"},{form:"どこへ + V たら",verb:"どこへ <ruby>行<rt>い</rt></ruby>ったら いいですか",de:"Where should I go?"},{form:"何を + V たら",verb:"<ruby>何<rt>なに</rt></ruby>を <ruby>買<rt>か</rt></ruby>ったら いいですか",de:"Was should I buy?"},{form:"いつ + V たら",verb:"いつ <ruby>来<rt>き</rt></ruby>たら いいですか",de:"When should I come?"}],
   pattern:{slots:[{text:"question word",role:"cond",label:"どう/何/どこ…"},{text:"V-たら",role:"verb",label:"verb"},{text:"いいですか",role:"plain"}],gloss:"'When I [verb] tate, would it be good?' — literally, in the sense of 'Was if be the righte Action?'."},
   ex:[{jp:"<ruby>熱<rt>ねつ</rt></ruby>が あるんです。<b>どうしたら いいですか</b>。— <ruby>病院<rt>びょういん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>って ください。",de:"I Fieber. Was should I do? — Geh please to the doctor."},{jp:"<b>どこで</b> この <ruby>本<rt>ほん</rt></ruby>を <b><ruby>買<rt>か</rt></ruby>ったら いいですか</b>。",de:"Where should I this book at the best buy?"},{jp:"<b><ruby>何時<rt>なんじ</rt></ruby>に</b> <b><ruby>来<rt>き</rt></ruby>たら いいですか</b>。— <ruby>2時<rt>にじ</rt></ruby>に <ruby>来<rt>き</rt></ruby>てください。",de:"At what time should I come? — Please and 2."}],
@@ -2693,7 +2693,7 @@ const CARDS = [
  {l:28, t:"〜し、〜し、… (several reasons)", de:"… and … (enumeration by reasons)",
   rule:"Lists several reasons or attributes that coherently lead to the consequence. Stronger than pure て-chaining — implies that each individual point alone would already be an argument.",
   build:[{form:"plain form + し",verb:"V/Adj/N + し",de:"…and (reason)"},{form:"verb",verb:"<ruby>安<rt>やす</rt></ruby>いし、おいしい",de:"cheap and (also still) delicious"},{form:"な-Adj/N",verb:"きれいだし、<ruby>静<rt>しず</rt></ruby>かだ",de:"beautiful and (also still) calm"},{form:"negation",verb:"<ruby>高<rt>たか</rt></ruby>くないし、まずくない",de:"not expensive and not bad"}],
-  pattern:{slots:[{text:"reason 1",role:"cond",label:"Argument 1"},{text:"し、",role:"actor"},{text:"reason 2",role:"cond",label:"Argument 2"},{text:"し、",role:"actor"},{text:"consequence",role:"verb",label:"therefore"}],gloss:"'[reason 1] — and [reason 2] — and therefore [consequence].' — each し-point is a independent Argument."},
+  pattern:{slots:[{text:"reason 1",role:"cond",label:"Argument 1"},{text:"し、",role:"actor"},{text:"reason 2",role:"cond",label:"Argument 2"},{text:"し、",role:"actor"},{text:"consequence",role:"verb",label:"therefore"}],gloss:"'[reason 1] — and [reason 2] — and therefore [consequence].' — each し-point is an independent argument."},
   ex:[{jp:"この <ruby>店<rt>みせ</rt></ruby>は <ruby>安<rt>やす</rt></ruby>い<b>し</b>、おいしい<b>し</b>、よく <ruby>来<rt>き</rt></ruby>ます。",de:"This restaurant is cheap and delicious — that's why I come often."},{jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>頭<rt>あたま</rt></ruby>が いい<b>し</b>、ハンサムだ<b>し</b>、<ruby>人気<rt>にんき</rt></ruby>が ある。",de:"He is smart and good-looking — that's why he's popular."},{jp:"きょうは <ruby>雨<rt>あめ</rt></ruby>だ<b>し</b>、<ruby>寒<rt>さむ</rt></ruby>い<b>し</b>、<ruby>家<rt>いえ</rt></ruby>に いましょう。",de:"Today it's raining and cold — let's stay home."}],
   note:"💡 After the last し, the consequence often appears — but it can be omitted when clear from context."},
  {l:28, t:"それで (therefore / therefore)", de:"therefore / therefore / therefore",
@@ -2770,8 +2770,8 @@ const CARDS = [
   note:"💡 Order of firmness: つもりです (personal intention) → 予定です (officially scheduled, calendar-based)."},
  {l:32, t:"V た ほうが いい / V ない ほうが いい", de:"You should (not) …",
   rule:"advice/recommendation. positive: た-form + ほうが いい. Negative: ない-form + ほうが いい. ⚠️ do NOT use 辞書形!",
-  build:[{form:"positive (recommendation)",verb:"V<sub>た</sub> + ほうが いい",de:"should do V"},{form:"negative (warning)",verb:"V<sub>ない</sub> + ほうが いい",de:"should NOT do V"},{form:"⚠ WRONG",verb:"V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + ほうが いい",de:"NOT use"},{form:"polite",verb:"〜ほうが いいですよ",de:"tip/advice (polite)"}],
-  pattern:{slots:[{text:"recipient は",role:"subj",label:"you"},{text:"V-た / V-ない",role:"verb",label:"Action"},{text:"ほうが",role:"actor"},{text:"いいです (よ)",role:"plain"}],gloss:"'It would be better, [V] (not) to do.' — advice, often with よ at the end for encouragement."},
+  build:[{form:"positive (recommendation)",verb:"V<sub>た</sub> + ほうが いい",de:"should V"},{form:"negative (warning)",verb:"V<sub>ない</sub> + ほうが いい",de:"should NOT V"},{form:"⚠ WRONG",verb:"V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + ほうが いい",de:"NOT use"},{form:"polite",verb:"〜ほうが いいですよ",de:"tip/advice (polite)"}],
+  pattern:{slots:[{text:"recipient は",role:"subj",label:"you"},{text:"V-た / V-ない",role:"verb",label:"Action"},{text:"ほうが",role:"actor"},{text:"いいです (よ)",role:"plain"}],gloss:"'It would be better (not) to [V].' — advice, often with よ at the end for encouragement."},
   ex:[{jp:"<ruby>熱<rt>ねつ</rt></ruby>が ありますね。<ruby>病院<rt>びょういん</rt></ruby>へ <b><ruby>行<rt>い</rt></ruby>った ほうが いいですよ</b>。",de:"You have a fever. You should go to the doctor."},{jp:"タバコは <b><ruby>吸<rt>す</rt></ruby>わない ほうが いいです</b>。",de:"You should not smoke."},{jp:"<ruby>無理<rt>むり</rt></ruby>を <b>しない ほうが いいですよ</b>。",de:"You shouldn't overexert yourself."}],
   note:"⚠️ Frequent mistake: 行く ほうが いい → wrong! Correct: 行<b>った</b> ほうが いい (た-form!)."},
  {l:32, t:"plain form + でしょう (presumption)", de:"probably / probably …",
@@ -3300,7 +3300,7 @@ function getCardStatus(card) {
  return all[id] || { status: 'new', good: 0, bad: 0, lastSeen: null };
 }
 
-function setCardadviceing(card, rating) {
+function setCardRating(card, rating) {
  const all = loadStats();
  const id = cardId(card);
  const cur = all[id] || { status: 'new', good: 0, bad: 0, lastSeen: null };
@@ -3538,7 +3538,7 @@ reviewCard.addEventlistener('click', () => {
 
 btnGood.addEventlistener('click', (e) => {
  e.stopPropagation();
- setCardadviceing(reviewQueue[reviewIndex], 'good');
+ setCardRating(reviewQueue[reviewIndex], 'good');
  reviewSession.good++;
  reviewIndex++;
  showReviewCard();
@@ -3546,7 +3546,7 @@ btnGood.addEventlistener('click', (e) => {
 
 btnBad.addEventlistener('click', (e) => {
  e.stopPropagation();
- setCardadviceing(reviewQueue[reviewIndex], 'bad');
+ setCardRating(reviewQueue[reviewIndex], 'bad');
  reviewSession.bad++;
  reviewIndex++;
  showReviewCard();
