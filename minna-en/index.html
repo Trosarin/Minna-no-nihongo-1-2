@@ -1709,7 +1709,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
   <p class="legend">Here are the most frequent stumbling blocks of L26-50 as pairs next each other. Each box treated ONE pair — when the distinction is difficult, this is your card.</p>
 
 <div class="cheat-section">
-<h3>🔀 ように vs. ために — both my 'in order to'</h3>
+<h3>🔀 ように vs. ために — both mean 'in order to'</h3>
 <p><b>Key question:</b> Can you directly control the goal?</p>
 <table class="cheat-table"><tbody>
  <tr><td><span class="jp">ために</span><span class="hint">L42 · active, controllable</span></td><td>I do something actively to achieve Y. Y is an intentional action (buy, meet, save).</td><td><span class="jp"><ruby>家<rt>いえ</rt></ruby>を <ruby>買<rt>か</rt></ruby>うために、<ruby>貯金<rt>ちょきん</rt></ruby>する。</span><span class="hint">In order to buy a house, I am saving.</span></td></tr>
@@ -1724,7 +1724,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
 <table class="cheat-table"><tbody>
  <tr><td><span class="jp">Adj-そう</span><span class="hint">L40 · APPEARANCE for adjective</span></td><td>い drops away + そう: おいし<b>そう</b>です</td><td>Looks delicious (judging by appearance)</td></tr>
  <tr><td><span class="jp">Vます-stem-そう</span><span class="hint">L43 · APPEARANCE for verb</span></td><td><ruby>降<rt>ふ</rt></ruby>り<b>そう</b>です</td><td>Looks like rain (visual impression)</td></tr>
- <tr><td><span class="jp">Plain + そうだ</span><span class="hint">L47 · HEARSAY</span></td><td><ruby>降<rt>ふ</rt></ruby>る<b>そうだ</b> / 〜に よると 〜そうだ</td><td>They say, it rains (heard, read)</td></tr>
+ <tr><td><span class="jp">Plain + そうだ</span><span class="hint">L47 · HEARSAY</span></td><td><ruby>降<rt>ふ</rt></ruby>る<b>そうだ</b> / 〜に よると 〜そうだ</td><td>They say it will rain (heard, read)</td></tr>
 </tbody></table>
 <p class="legend">💡 Mnemonic: See → form changes (い dropped / ます-stem). Hearing → plain form remains unchanged + そうだ.</p>
 </div>
@@ -1758,7 +1758,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
  <tr><td><span class="jp">くれる</span><span class="hint">L24 / pol.: くださる L41</span></td><td>SOMEONE is subject, gives ME. giver with <b>が</b>, I am recipient.</td><td><span class="jp"><ruby>友達<rt>ともだち</rt></ruby>が <ruby>私<rt>わたし</rt></ruby>に <ruby>本<rt>ほん</rt></ruby>を くれた。</span><span class="hint">The friend gave me a book.</span></td></tr>
  <tr><td><span class="jp">あげる</span><span class="hint">L24 / pol.: さしあげる L41</span></td><td>ICH is subject, give to someone recipient with <b>に</b>.</td><td><span class="jp"><ruby>私<rt>わたし</rt></ruby>は <ruby>友達<rt>ともだち</rt></ruby>に <ruby>本<rt>ほん</rt></ruby>を あげた。</span><span class="hint">I gave the friend a book.</span></td></tr>
 </tbody></table>
-<p class="legend">💡 Arrow mnemonic: <b>くれる</b> comes TO me (arrow in). <b>あげる</b> goes AWAY from me (arrow out). <b>もらう</b> I get (I reach). ⚠️ In Japanese ALWAYS from own perspective: くれる only when I (or my group) the recipient is.</p>
+<p class="legend">💡 Arrow mnemonic: <b>くれる</b> comes TO me (arrow in). <b>あげる</b> goes AWAY from me (arrow out). <b>もらう</b> I get (I reach). ⚠️ In Japanese ALWAYS from own perspective: くれる only when I (or my group) am the recipient.</p>
 </div>
 
 <div class="cheat-section">
@@ -1862,7 +1862,7 @@ const CARDS = [
   rule:"Negated form of です. じゃ ありません is the normal spoken form, では ありません more formal (e.g., in speeches/letters).",
   build:[{form:"spoken",verb:"N₂ + じゃ ありません",de:"is not N₂"},{form:"formal",verb:"N₂ + では ありません",de:"is not N₂ (written)"},{form:"Past tense",verb:"N₂ + じゃ ありませんでした",de:"was not N₂"},{form:"⚠ じゃ = では",verb:"identical in meaning",de:"only register difference"}],
   pattern:{slots:[{text:"N₁",role:"subj",label:"topic"},{text:"は",role:"plain"},{text:"N₂",role:"obj"},{text:"じゃ/では ありません",role:"verb",label:"negation"}],gloss:"'Regarding N₁ — is NOT N₂.' — negation the copula."},
-  ex:[{jp:"<ruby>私<rt>わたし</rt></ruby>は <ruby>先生<rt>せんせい</rt></ruby>じゃ ありません。",de:"I am not a teacher."},{jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>日本人<rt>にほんじん</rt></ruby>では ありません。",de:"He is nott a Japanese."},{jp:"これは <ruby>私<rt>わたし</rt></ruby>の かばんじゃ ありません。",de:"The is not my bag."}],
+  ex:[{jp:"<ruby>私<rt>わたし</rt></ruby>は <ruby>先生<rt>せんせい</rt></ruby>じゃ ありません。",de:"I am not a teacher."},{jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>日本人<rt>にほんじん</rt></ruby>では ありません。",de:"He is not Japanese."},{jp:"これは <ruby>私<rt>わたし</rt></ruby>の かばんじゃ ありません。",de:"This is not my bag."}],
   note:"💡 In daily use almost always じゃ ありません. では ありません seems stiff/formal — in conversations with friends is also じゃない (plain form) used."},
  {l:1, t:"N₁ は N₂ ですか", de:"Is N₁ a N₂? (Question)",
   rule:"Attaching か at the end of the sentence makes each statement a Yes/No question. Answer with はい (yes) / いいえ (no). Question intonation does not rise at the end — the か makes it a question.",
@@ -2386,7 +2386,7 @@ const CARDS = [
   {jp:"<ruby>傘<rt>かさ</rt></ruby> <ruby>持<rt>も</rt></ruby>ってく? — うん、<ruby>持<rt>も</rt></ruby>ってく。",de:"Are you taking an umbrella? — Yes, I am."},
   {jp:"あとで やっとくね。",de:"I do it later (previously)."}
  ], note:"⚠️ NOT in formal situations use! This shortenings are only for conversations among friends suitable."},
- {l:20, t:"〜けど (Plain-variant by が)", de:"but / however (informal)", rule:"けど is the informal plain form of が. Can at the end of the sentence stand for soft statement/transition. Also けれど(も) as more polite variant, but けど is at the most frequently in daily use.", build:[
+ {l:20, t:"〜けど (Plain variant of が)", de:"but / however (informal)", rule:"けど is the informal plain form of が. Can at the end of the sentence stand for soft statement/transition. Also けれど(も) as more polite variant, but けど is by far the most frequent in daily use.", build:[
   {form:"が (neutral/in writing)",verb:"<ruby>高<rt>たか</rt></ruby>いですが…",de:"It is expensive, but …"},
   {form:"けど (informal/plain)",verb:"<ruby>高<rt>たか</rt></ruby>いけど…",de:"It is expensive, but …"},
   {form:"けれど (more polite)",verb:"<ruby>高<rt>たか</rt></ruby>いけれど",de:"It is expensive, however"}
@@ -3925,7 +3925,7 @@ const PAIRS = [
   cards:[
    {tag:'L40', t:'Adj-そう', de:'sees … by (Adj)', when:'い drops away, then + そう. subjective glance/impression.', ex:{jp:'このケーキはおいしそう。',de:'This cake looks delicious.'}},
    {tag:'L43', t:'Vます-そう', de:'looks as if V', when:'ます-stem + そう. Something seems same to happen.', ex:{jp:'<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>りそうだ。',de:'It looks like rain.'}},
-   {tag:'L47', t:'Plain + そうだ', de:'they say that …', when:'plain form unchanged + そうだ. Information from third parties.', ex:{jp:'<ruby>明日<rt>あした</rt></ruby>は <ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>るそうだ。',de:'They say, tomorrow rains it.'}}
+   {tag:'L47', t:'Plain + そうだ', de:'they say that …', when:'plain form unchanged + そうだ. Information from third parties.', ex:{jp:'<ruby>明日<rt>あした</rt></ruby>は <ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>るそうだ。',de:'They say it will rain tomorrow.'}}
   ]
  },
  {
@@ -3959,7 +3959,7 @@ const PAIRS = [
   id:'no-koto', title:'の vs. こと (nominalization)',
   decision:'<strong>こと</strong> = abstract/objective (rules, facts, mandatory for ことができる). <strong>の</strong> = concrete/experienceable (senses, Preferences, mandatory for 好き/嫌い/上手).',
   cards:[
-   {tag:'L18/38', t:'〜こと', de:'the fact, that …', when:'objective, abstract. For <ruby>大切<rt>たいせつ</rt></ruby>/<ruby>必要<rt>ひつよう</rt></ruby>/<ruby>知<rt>し</rt></ruby>っている. mandatory for ことができる/ことがある/ことにする.', ex:{jp:'<ruby>毎日<rt>まいにち</rt></ruby><ruby>運動<rt>うんどう</rt></ruby>することが <ruby>大切<rt>たいせつ</rt></ruby>だ。',de:'Daily Doing sport is important.'}},
+   {tag:'L18/38', t:'〜こと', de:'the fact that …', when:'objective, abstract. For <ruby>大切<rt>たいせつ</rt></ruby>/<ruby>必要<rt>ひつよう</rt></ruby>/<ruby>知<rt>し</rt></ruby>っている. mandatory for ことができる/ことがある/ことにする.', ex:{jp:'<ruby>毎日<rt>まいにち</rt></ruby><ruby>運動<rt>うんどう</rt></ruby>することが <ruby>大切<rt>たいせつ</rt></ruby>だ。',de:'Daily exercise is important.'}},
    {tag:'L38', t:'〜の (concrete)', de:'the doing (experienceable)', when:'personal-concrete, sensory experienceable. For <ruby>好<rt>す</rt></ruby>き/<ruby>嫌<rt>きら</rt></ruby>い/<ruby>上手<rt>じょうず</rt></ruby>/<ruby>下手<rt>へた</rt></ruby>/<ruby>見<rt>み</rt></ruby>る/<ruby>聞<rt>き</rt></ruby>く: <b>の is mandatory</b>.', ex:{jp:'<ruby>歌<rt>うた</rt></ruby>うのが <ruby>好<rt>す</rt></ruby>きだ。',de:'I sing gladly.'}}
   ]
  },
