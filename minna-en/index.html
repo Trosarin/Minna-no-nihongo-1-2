@@ -1651,7 +1651,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
  <tr><td>★ exception</td><td><span class="jp"><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>って</span></td><td>(NOT <ruby>行<rt>い</rt></ruby>いて!)</td></tr>
  </tbody>
 </table>
-<p class="legend">💡 た-form forms identical — simply て/で through た/だ replace: <ruby>書<rt>か</rt></ruby>いて → <ruby>書<rt>か</rt></ruby>いた / <ruby>飲<rt>の</rt></ruby>んで → <ruby>飲<rt>の</rt></ruby>んだ.</p>
+<p class="legend">💡 た-form forms identical — simply replace て/で with た/だ: <ruby>書<rt>か</rt></ruby>いて → <ruby>書<rt>か</rt></ruby>いた / <ruby>飲<rt>の</rt></ruby>んで → <ruby>飲<rt>の</rt></ruby>んだ.</p>
 
 </div>
 <div class="cheat-section"><h3>⑥ The "Big Three" as a family</h3>
@@ -1899,7 +1899,7 @@ const CARDS = [
   build:[{form:"confirmation",verb:"はい、そうです",de:"yes, that's right"},{form:"negation",verb:"いいえ、そうじゃ ありません",de:"no, the right not"},{form:"⚠ only for noun",verb:"for adjective/V → 〜ですか — はい/いいえ",de:"そう does not always fit"}],
   pattern:{slots:[{text:"〜 ですか",role:"cond",label:"Question"},{text:"はい、そうです",role:"verb",label:"confirmation"}],gloss:"'Yes, that's right.' — compact Answer on N₁は N₂ですか."},
   ex:[{jp:"それは <ruby>辞書<rt>じしょ</rt></ruby>ですか。— はい、そうです。",de:"Is this a dictionary? — Yes, it is."},{jp:"ミラーさんは <ruby>学生<rt>がくせい</rt></ruby>ですか。— いいえ、そうじゃ ありません。<ruby>会社員<rt>かいしゃいん</rt></ruby>です。",de:"Is Mr. Miller a student? — No, he isn't. He is a company employee."},{jp:"あれは <ruby>新幹線<rt>しんかんせん</rt></ruby>ですか。— はい、そうです。",de:"Is that the Shinkansen? — Yes, it is."}],
-  note:"💡 そうです can also mean 'that's right / I heard it' (Context decides). In the reaction context here, it always means confirmation."},
+  note:"💡 そうです can also mean 'that's right / I heard it' (context decides). In the reaction context here, it always means confirmation."},
  {l:2, t:"N₁ですか、N₂ですか", de:"Is it N₁ or N₂? (selection question)",
   rule:"Offers two options for selection. Answer repeats the chosen option without はい/いいえ — the would be at selection questions wrong.",
   build:[{form:"Connection",verb:"N₁ですか、N₂ですか",de:"…or…?"},{form:"Answer",verb:"N₂です (NO はい/いいえ!)",de:"directly mention"},{form:"⚠ Answer-mistake",verb:"はい、N₂です → unnatural",de:"simply N₂ です is enough"}],
@@ -2019,7 +2019,7 @@ const CARDS = [
   build:[{form:"place of action",verb:"<ruby>図書館<rt>としょかん</rt></ruby>で <ruby>勉強<rt>べんきょう</rt></ruby>する",de:"in the library to study"},{form:"vs. に",verb:"<ruby>公園<rt>こうえん</rt></ruby>で <ruby>走<rt>はし</rt></ruby>る ↔ <ruby>公園<rt>こうえん</rt></ruby>に <ruby>猫<rt>ねこ</rt></ruby>がいる",de:"Action ↔ existence"},{form:"mys",verb:"<ruby>電車<rt>でんしゃ</rt></ruby>で (L5)",de:"で = also mys/tool"}],
   pattern:{slots:[{text:"place",role:"place",label:"place of action"},{text:"で",role:"plain",label:"place the Action"},{text:"N を",role:"obj",label:"optional"},{text:"V",role:"verb"}],gloss:"'An [place] [V].' — で for the place, where something done is."},
   ex:[{jp:"レストランで <ruby>晩<rt>ばん</rt></ruby>ごはんを <ruby>食<rt>た</rt></ruby>べます。",de:"I eat dinner at the restaurant."},{jp:"<ruby>図書館<rt>としょかん</rt></ruby>で <ruby>勉強<rt>べんきょう</rt></ruby>します。",de:"I study in the library."},{jp:"<ruby>公園<rt>こうえん</rt></ruby>で <ruby>走<rt>はし</rt></ruby>りました。",de:"I walked in the park."}],
-  note:"⚠️ MOST FREQUENT mistake: で vs. に. で = place a ACTION (公園で走る). に = place the EXISTENZ (公園にいる). test: Can one 'do' through 'to be' replace? No → で. Yes → に."},
+  note:"⚠️ MOST FREQUENT mistake: で vs. に. で = place of ACTION (公園で走る). に = place of EXISTENCE (公園にいる). Test: Can you replace 'do' with 'be'? No → で. Yes → に."},
  {l:6, t:"V ませんか", de:"Want we not …? (invitation)",
   rule:"Negated ます-form + か = polite invitation or suggestion. Softer than ましょう, there one the other the choice lets.",
   build:[{form:"Connection",verb:"V<sub>ます-stem</sub> + ませんか",de:"Want we not V?"},{form:"vs. ましょう",verb:"ましょう = 'Let's!' (decisive)",de:"ませんか = invitation (softer)"},{form:"Answer yes",verb:"はい、ぜひ / いいですね",de:"Yes, gladly!"},{form:"Answer no",verb:"ちょっと…",de:"actually not (polite refuse)"}],
@@ -2231,9 +2231,9 @@ const CARDS = [
   ex:[{jp:"ミラーさんの <ruby>住所<rt>じゅうしょ</rt></ruby>を <ruby>知<rt>し</rt></ruby>って いますか。— はい、<ruby>知<rt>し</rt></ruby>って います。",de:"Do you know Mr. Miller's address? — Yes."},{jp:"いいえ、<ruby>知<rt>し</rt></ruby>りません。",de:"No, I don't know."},{jp:"そのニュースを <ruby>知<rt>し</rt></ruby>りませんでした。",de:"I didn't know about that news."}],
   note:"⚠️ NEVER 知っていません! negation always 知りません (present tense) / 知りませんでした (Verg.). This is the most frequent L15-mistake."},
  {l:15, t:"V て います — 3 meanings", de:"Progressiv / state / habit",
-  rule:"て います has three usages: ① just now ongoing ② permanent state/profession (住む, 結婚する, 働く) ③ regular habit. Context describe the reading.",
+  rule:"て います has three usages: ① just now ongoing ② permanent state/profession (住む, 結婚する, 働く) ③ regular habit. Context determines the reading.",
   build:[{form:"① Progressiv",verb:"<ruby>食<rt>た</rt></ruby>べて います",de:"eats just now"},{form:"② permanent state",verb:"<ruby>住<rt>す</rt></ruby>んで います",de:"live (permanently)"},{form:"② profession",verb:"<ruby>働<rt>はたら</rt></ruby>いて います / <ruby>結婚<rt>けっこん</rt></ruby>して います",de:"is employed / married"},{form:"③ habit",verb:"<ruby>毎朝<rt>まいあさ</rt></ruby> <ruby>走<rt>はし</rt></ruby>って います",de:"runs each morning"}],
-  pattern:{slots:[{text:"V-て",role:"verb"},{text:"います",role:"plain",label:"①ongoing / ②state / ③habit"}],gloss:"reading depends by the verb and Context ab."},
+  pattern:{slots:[{text:"V-て",role:"verb"},{text:"います",role:"plain",label:"①ongoing / ②state / ③habit"}],gloss:"reading depends on the verb and context."},
   ex:[{jp:"<ruby>銀行<rt>ぎんこう</rt></ruby>で <ruby>働<rt>はたら</rt></ruby>いて います。",de:"I work at a bank. [profession/state]"},{jp:"<ruby>大阪<rt>おおさか</rt></ruby>に <ruby>住<rt>す</rt></ruby>んで います。<ruby>結婚<rt>けっこん</rt></ruby>して います。",de:"I live in Osaka. I am verheiratet. [state]"},{jp:"<ruby>毎日<rt>まいにち</rt></ruby> <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>勉強<rt>べんきょう</rt></ruby>して います。",de:"I learn each day Japanese. [habit]"}],
   note:"💡 For 住む / 結婚する / 持つ — always て います for the state (never 住みます for 'live'). 🔄 Special case 知る → own card (negation = 知りません!)."},
  {l:16, t:"V₁て、V₂て、V₃ます (order)", de:"and then … (consecutive Actions)",
@@ -2286,7 +2286,7 @@ const CARDS = [
   note:"💡 The 辞書形 is the 'raw-data form' — it appears in the dictionary and is the basis for all further derivations. ⚠️ False friends: 帰る, 走る, 知る etc. — Gr. I despite -iru/-eru!"},
  {l:18, t:"V <ruby>辞書形<rt>じしょけい</rt></ruby> こと が できます", de:"… can (ability)",
   rule:"Expresses Can or possibility by. V-辞書形 + ことができます. For noun (suru-verbs): noun + が できます.",
-  build:[{form:"verb-ability",verb:"V<sub>ル</sub> + こと が できます",de:"can V"},{form:"noun",verb:"N + が できます",de:"can N (no を!)"},{form:"negation",verb:"V<sub>ル</sub> + こと が できません",de:"can not V"},{form:"🔄 Compare L27",verb:"<ruby>話<rt>はな</rt></ruby>せます (shorter)",de:"Potential-form ab L27"}],
+  build:[{form:"verb-ability",verb:"V<sub>ル</sub> + こと が できます",de:"can V"},{form:"noun",verb:"N + が できます",de:"can N (no を!)"},{form:"negation",verb:"V<sub>ル</sub> + こと が できません",de:"can not V"},{form:"🔄 Compare L27",verb:"<ruby>話<rt>はな</rt></ruby>せます (shorter)",de:"Potential form from L27"}],
   pattern:{slots:[{text:"V-辞書形",role:"verb"},{text:"こと が できます",role:"plain",label:"can"}],gloss:"'[V] can.' — Polite/Formulale form for ability. 🔄 vs. Potential-form (L27): <ruby>食<rt>た</rt></ruby>べる ことが できる = <ruby>食<rt>た</rt></ruby>べられる. Beides 'can eat'. ことができる is universal, sounds but something more formal."},
   ex:[{jp:"ミラーさんは <ruby>漢字<rt>かんじ</rt></ruby>を <ruby>読<rt>よ</rt></ruby>む ことが できます。",de:"Mr. Miller can read Kanji."},{jp:"カードで <ruby>払<rt>はら</rt></ruby>う ことが できますか。",de:"Can one pay with a card?"},{jp:"<ruby>私<rt>わたし</rt></ruby>は <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>話<rt>はな</rt></ruby>す ことが できます。",de:"I can speak Japanese."}],
   note:"⚠️ For N + が できます is NO を used! 運転が できます ✓ / 運転を できます ✗. 🔄 In L27 comes a shortenre form (話せます = 話すことができます)."},
@@ -2346,7 +2346,7 @@ const CARDS = [
   {jp:"<ruby>日本語<rt>にほんご</rt></ruby>が <ruby>上手<rt>じょうず</rt></ruby>に なりたいです。",de:"I want to get better in Japanese."},
   {jp:"<ruby>大人<rt>おとな</rt></ruby>に なったら、<ruby>医者<rt>いしゃ</rt></ruby>に なりたいです。",de:"When I'm grown up, I want to be a doctor."}
  ], note:"🔄 なります (becomes) vs. します (to do/set up): 静かになります = it is calm (by itself) / 静かにします = I do it calm (active). Both structures with に."},
- {l:20, t:"<ruby>普通形<rt>ふつうけい</rt></ruby> (plain form — Overview)", de:"plain form (informal)", rule:"Overview of the <ruby>普通形<rt>ふつうけい</rt></ruby> (plain form) for all 4 word classes — the basis for embedded sentences (と<ruby>思<rt>おも</rt></ruby>う, と<ruby>言<rt>い</rt></ruby>う ab L21), relative clauses (L22), conditionals (L23+), modal particles (でしょう, かもしれない, はずだ etc.). plain form = the, was before this constructions stands. In daily use also directly: conversation among friends without です/ます.", build:[
+ {l:20, t:"<ruby>普通形<rt>ふつうけい</rt></ruby> (plain form — Overview)", de:"plain form (informal)", rule:"Overview of the <ruby>普通形<rt>ふつうけい</rt></ruby> (plain form) for all 4 word classes — the basis for embedded sentences (と<ruby>思<rt>おも</rt></ruby>う, と<ruby>言<rt>い</rt></ruby>う from L21), relative clauses (L22), conditionals (L23+), modal particles (でしょう, かもしれない, はずだ etc.). plain form = what appears before these constructions. In daily use also directly: conversation among friends without です/ます.", build:[
   {form:"verb: present tense +/−",verb:"<ruby>食<rt>た</rt></ruby>べる / <ruby>食<rt>た</rt></ruby>べない",de:"to eat / not to eat"},
   {form:"verb: Past tense +/−",verb:"<ruby>食<rt>た</rt></ruby>べた / <ruby>食<rt>た</rt></ruby>べなかった",de:"ate / ate not"},
   {form:"い-Adj +/− Pres.",verb:"<ruby>大<rt>おお</rt></ruby>きい / <ruby>大<rt>おお</rt></ruby>きくない",de:"big / not big"},
@@ -2537,17 +2537,17 @@ const CARDS = [
   {jp:"<ruby>春<rt>はる</rt></ruby>に なると、<ruby>桜<rt>さくら</rt></ruby>が <ruby>咲<rt>さ</rt></ruby>きます。",de:"When spring comes, the cherry blossoms bloom."},
   {jp:"この<ruby>道<rt>みち</rt></ruby>を まっすぐ <ruby>行<rt>い</rt></ruby>くと、<ruby>駅<rt>えき</rt></ruby>が あります。",de:"If one goes straight on this street, the station is there."}
  ], note:"⚠️ 4 conditionals distinguish: <b>と</b> = automatically (natural law, Mechanism) / <b>たら</b> = single consequence / <b>ば</b> = general condition / <b>なら</b> = topic-related. For <b>と</b> NEVER wish/please/command in the main clause!"},
- {l:23, t:"N(place) を V (motion verb)", de:"through/about/entlong N (place the movement)", rule:"を marks the place, through/about/entlong the one begonet. With motion verbs like 歩く (to go), 走る (to run), 渡る (cross), 曲がる (abturn), 散歩する (walk), 通る (happen), 飛ぶ (flyoral).", build:[
+ {l:23, t:"N(place) を V (motion verb)", de:"through/across/along N (path of movement)", rule:"を marks the place through/across/along which one moves. With motion verbs like 歩く (to go), 走る (to run), 渡る (cross), 曲がる (turn), 散歩する (walk), 通る (pass through), 飛ぶ (fly).", build:[
   {form:"歩く (to go)",verb:"<ruby>道<rt>みち</rt></ruby>を <ruby>歩<rt>ある</rt></ruby>く",de:"the street entlonggo"},
   {form:"渡る (cross)",verb:"<ruby>橋<rt>はし</rt></ruby>を <ruby>渡<rt>わた</rt></ruby>る",de:"the bridge cross"},
   {form:"曲がる (abturn)",verb:"<ruby>角<rt>かど</rt></ruby>を <ruby>曲<rt>ま</rt></ruby>がる",de:"to the Ecke abturn"},
   {form:"散歩する (walk)",verb:"<ruby>公園<rt>こうえん</rt></ruby>を <ruby>散歩<rt>さんぽ</rt></ruby>する",de:"in the park walk"},
-  {form:"飛ぶ (flyoral)",verb:"<ruby>空<rt>そら</rt></ruby>を <ruby>飛<rt>と</rt></ruby>ぶ",de:"fly through the air"}
- ], pattern:{slots:[{text:"N(place)",role:"place"},{text:"を",role:"plain",label:"way/Strecke"},{text:"motion verb",role:"verb"}],gloss:"を = Strecke/way the movement. 🔄 で = place the Action (park走る = in the park / parkを走る = through the park)."},
+  {form:"飛ぶ (fly)",verb:"<ruby>空<rt>そら</rt></ruby>を <ruby>飛<rt>と</rt></ruby>ぶ",de:"fly through the air"}
+ ], pattern:{slots:[{text:"N(place)",role:"place"},{text:"を",role:"plain",label:"path/route"},{text:"motion verb",role:"verb"}],gloss:"を = route/path of movement. 🔄 で = place of action (公園で走る = in the park / 公園を走る = through the park)."},
   ex:[  {jp:"この <ruby>道<rt>みち</rt></ruby>を まっすぐ <ruby>行<rt>い</rt></ruby>って ください。",de:"Please go this street straight."},
   {jp:"<ruby>橋<rt>はし</rt></ruby>を <ruby>渡<rt>わた</rt></ruby>って、<ruby>右<rt>みぎ</rt></ruby>へ <ruby>曲<rt>ま</rt></ruby>がって ください。",de:"cross the bridge and turn right."},
   {jp:"<ruby>毎朝<rt>まいあさ</rt></ruby> <ruby>公園<rt>こうえん</rt></ruby>を <ruby>散歩<rt>さんぽ</rt></ruby>します。",de:"Every morning I take a walk in the park."}
- ], note:"🔄 を (way/Strecke) vs. で (place to action). <ruby>公園<rt>こうえん</rt></ruby>で<ruby>走<rt>はし</rt></ruby>る = in the park to run (Action there) / <ruby>公園<rt>こうえん</rt></ruby>を<ruby>走<rt>はし</rt></ruby>る = through the park to run (Strecke). を-verbs are motion verbs: <ruby>渡<rt>わた</rt></ruby>る, <ruby>通<rt>とお</rt></ruby>る, <ruby>歩<rt>ある</rt></ruby>く, <ruby>走<rt>はし</rt></ruby>る, <ruby>飛<rt>と</rt></ruby>ぶ."},
+ ], note:"🔄 を (path/route) vs. で (place of action). <ruby>公園<rt>こうえん</rt></ruby>で<ruby>走<rt>はし</rt></ruby>る = run in the park (action there) / <ruby>公園<rt>こうえん</rt></ruby>を<ruby>走<rt>はし</rt></ruby>る = run through the park (route). を-verbs are motion verbs: <ruby>渡<rt>わた</rt></ruby>る, <ruby>通<rt>とお</rt></ruby>る, <ruby>歩<rt>ある</rt></ruby>く, <ruby>走<rt>はし</rt></ruby>る, <ruby>飛<rt>と</rt></ruby>ぶ."},
  {l:24, t:"くれます", de:"someone gives ME/us", rule:"くれます = someone gives me/my family something (vs. あげます = I give away). giver is subject with は/が. recipient is ALWAYS 'I' or someone close to me.", build:[
   {form:"あげます (I → other)",verb:"<ruby>私<rt>わたし</rt></ruby>は <ruby>山田<rt>やまだ</rt></ruby>さんに <ruby>花<rt>はな</rt></ruby>を あげました",de:"I gave Yamada flowers"},
   {form:"もらいます (I receive)",verb:"<ruby>私<rt>わたし</rt></ruby>は <ruby>山田<rt>やまだ</rt></ruby>さんに <ruby>花<rt>はな</rt></ruby>を もらいました",de:"I became by Yamada flowers"},
@@ -2667,7 +2667,7 @@ const CARDS = [
   ex:[{jp:"<ruby>1000円<rt>せんえん</rt></ruby>しか ありません。",de:"I only have 1000 Yen (too little)."},{jp:"ひらがなしか <ruby>読<rt>よ</rt></ruby>めません。",de:"I can only read hiragana."},{jp:"<ruby>日本語<rt>にほんご</rt></ruby>しか <ruby>話<rt>はな</rt></ruby>せません。",de:"I can only speak Japanese."}],
   note:"⚠️ しか replaces は/が/を, is but to に/で/から attached: <ruby>東京<rt>とうきょう</rt></ruby>にしか ありません = gives it only in Tokio."},
  {l:27, t:"Kombinierte particles with は", de:"は is at other particles attached",
-  rule:"For に/で/と/から/まで is は ATTACHED (にはで・では・とは…). Elevates the Particle-function  or erzeugt contrast. Important exception: を and が becomes through は REPLACES, not combined.",
+  rule:"For に/で/と/から/まで, は is ATTACHED (には・では・とは…). Elevates the particle's function or creates contrast. Important exception: を and が are REPLACED by は, not combined.",
   build:[{form:"に + は = には",verb:"<ruby>東京<rt>とうきょう</rt></ruby>には",de:"in/after Tokyo (in contrast to …)"},{form:"で + は = では",verb:"<ruby>学校<rt>がっこう</rt></ruby>では",de:"in the school (in contrast to …)"},{form:"と + は = とは",verb:"<ruby>彼<rt>かれ</rt></ruby>とは",de:"with him (specifically)"},{form:"から + は = からは",verb:"<ruby>今<rt>いま</rt></ruby>からは",de:"ab now (in contrast to before)"},{form:"⚠️ を → は (replaces!)",verb:"<ruby>肉<rt>にく</rt></ruby>は <ruby>食<rt>た</rt></ruby>べません",de:"meat (specifically) I eat not"},{form:"⚠️ が → は (replaces!)",verb:"これは <ruby>分<rt>わ</rt></ruby>かりません",de:"The (in the contrast) understand I not"}],
   pattern:{slots:[{text:"N",role:"subj",label:"Element"},{text:"P",role:"actor",label:"Particle"},{text:"+ は",role:"verb",label:"contrast"},{text:"…rest",role:"plain"}],gloss:"With に/で/と/から/まで: combine (にはで…). With を/が: replace. Effekt: 'specifically DIESES, in contrast to other'."},
   ex:[{jp:"この <ruby>部屋<rt>へや</rt></ruby><b>では</b> タバコを <ruby>吸<rt>す</rt></ruby>っては いけません。",de:"In this room (in contrast to other) may one not smoke."},{jp:"<ruby>東京<rt>とうきょう</rt></ruby><b>には</b> <ruby>人<rt>ひと</rt></ruby>が たくさん います。",de:"Tokyo has many people."},{jp:"<ruby>日本<rt>にほん</rt></ruby><b>からは</b> <ruby>手紙<rt>てがみ</rt></ruby>が <ruby>来<rt>き</rt></ruby>ませんでした。",de:"From Japan came no letter."}],
@@ -2921,7 +2921,7 @@ const CARDS = [
  {l:37, t:"P₁ は P₂ に N を V<ruby>受身<rt>うけみ</rt></ruby> (adversity passive)", de:"Someone gave me … (to my detriment)",
   rule:"'adversity passive' (<ruby>迷惑<rt>めいわく</rt></ruby>の<ruby>受身<rt>うけみ</rt></ruby>): P₁ is not directly the object the Action, but he SUFFERS under the consequences. ⚠️ Also with intransitive verbs possible (雨に降られる) — the gives it in the German not! Always with negative connotation.",
   build:[{form:"vs. direct passive",verb:"directly: I AM the object",de:"褒められる = I am praised"},{form:"here: adversity passive",verb:"P₁ is NOT the object, suffers but",de:"my bag / my cake gone"},{form:"Transitive (possession gone)",verb:"P₁ は P₂ に N<sub>(possession)</sub> を V<sub><ruby>受身<rt>うけみ</rt></ruby></sub>",de:"someone takes/destroys my N"},{form:"Example",verb:"<ruby>私<rt>わたし</rt></ruby>は どろぼうに かばんを <ruby>盗<rt>ぬす</rt></ruby>まれました",de:"my bag was stolen"},{form:"★ Intransitive (suffering)",verb:"P₁ は P₂ に V<sub><ruby>受身<rt>うけみ</rt></ruby></sub>",de:"exists only in Japanese!"},{form:"Example",verb:"<ruby>雨<rt>あめ</rt></ruby>に <ruby>降<rt>ふ</rt></ruby>られました",de:"caught by the rain"}],
-  pattern:{slots:[{text:"P₁ (Sufferer)",role:"subj",label:"subject"},{text:"は",role:"plain"},{text:"P₂ (Causer)",role:"actor",label:"Source of suffering"},{text:"に",role:"plain"},{text:"(possession を)",role:"obj",label:"optional"},{text:"V-passive",role:"verb",label:"suffering"}],gloss:"'P₁ is affected through P₂'s [V] (to his detriment).' — also at intransitive verbs (atypical in English!)."},
+  pattern:{slots:[{text:"P₁ (Sufferer)",role:"subj",label:"subject"},{text:"は",role:"plain"},{text:"P₂ (Causer)",role:"actor",label:"Source of suffering"},{text:"に",role:"plain"},{text:"(possession を)",role:"obj",label:"optional"},{text:"V-passive",role:"verb",label:"suffering"}],gloss:"'P₁ is affected by P₂'s [V] (to their detriment).' — also at intransitive verbs (atypical in English!)."},
   ex:[{jp:"どろぼうに かばんを <ruby>盗<rt>ぬす</rt></ruby>まれました。",de:"My bag was stolen by a thief. [possession gone]"},{jp:"<ruby>弟<rt>おとうと</rt></ruby>に ケーキを <ruby>食<rt>た</rt></ruby>べられました。",de:"My little brother ate my cake. [possession gone]"},{jp:"<ruby>子供<rt>こども</rt></ruby>に <ruby>泣<rt>な</rt></ruby>かれて、<ruby>寝<rt>ね</rt></ruby>られませんでした。",de:"The child cried and I couldn't sleep. [intransitive: 泣く]"},{jp:"<ruby>雨<rt>あめ</rt></ruby>に <ruby>降<rt>ふ</rt></ruby>られて、<ruby>風邪<rt>かぜ</rt></ruby>を ひきました。",de:"I was caught in the rain and caught a cold. [intransitive: 降る]"}],
   note:"💡 test for adversity passive: can the same sentence in the active without 'I' stand, without loss of meaning? どろぼうがかばんを盗んだ = 'a thief stole a bag' — no clear reference to me. Only the adversity passive (盗まれました) makes clear: I am the affected one. ⚠️ In English one says instead active: 'someone stole my bag'."},
  {l:37, t:"N(thing) が/は V<ruby>受身<rt>うけみ</rt></ruby> (thing passive)", de:"… is … done / produced / held",
