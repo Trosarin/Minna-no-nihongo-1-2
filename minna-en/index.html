@@ -3585,7 +3585,7 @@ reviewClose.addEventlistener('click', () => {
 });
 reviewFinishedClose.addEventlistener('click', closeReviewMode);
 
-// Kurz-topics per Lesson (for overview-Kacheln)
+// Short topics per lesson (for overview tiles)
 const TOPICS = {
  1:"introduction", 2:"これ/それ/あれ", 3:"places", 4:"time of day", 5:"movement",
  6:"を & で", 7:"giving/Become", 8:"adjectives", 9:"好き & から", 10:"います/あります",
@@ -3601,7 +3601,7 @@ const TOPICS = {
 
 const lessons = [...new Set(CARDS.map(c => c.l))].sort((a,b)=>a-b);
 
-// filter-Dropdown fill — Cheat sheets FIRST, then Lessons
+// Fill filter dropdown — Cheat sheets FIRST, then Lessons
 const cheatOpt = document.createElement('option');
 cheatOpt.value = 'cheats';
 cheatOpt.textContent = '📖 Cheat sheets';
@@ -3619,7 +3619,7 @@ lessons.forEach(l => {
  lessonFilter.appendChild(opt);
 });
 
-// overview-Kacheln rendern
+// Render overview tiles
 function renderOverview() {
  lessonGrid.innerHTML = '';
  const counts = {};
@@ -3659,7 +3659,7 @@ function buildConjTable(conj) {
  return html;
 }
 
-// sentence structure-Slots as visuals Schema rendern
+// Render sentence-structure slots as visual schema
 function buildPattern(pattern) {
  if (!pattern || !pattern.slots) return '';
  let html = '<div class="sec"><span class="sec-label">② sentence structure</span>';
@@ -3710,7 +3710,7 @@ function render(){
  const q = search.value.toLowerCase().trim();
  const lf = lessonFilter.value;
 
- // SPECIAL CASE: Cheat sheets selected UND no search
+ // SPECIAL CASE: Cheat sheets selected AND no search
  if (lf === 'cheats' && !q) {
   overview.style.display = 'none';
   grid.innerHTML = '';
@@ -3758,7 +3758,7 @@ function render(){
   return;
  }
 
- // NORMAL: cards rendern
+ // NORMAL: render cards
  overview.style.display = 'none';
  grid.style.display = 'grid';
  backBtn.classList.add('visible');
@@ -3828,20 +3828,20 @@ backBtn.addEventlistener('click', () => {
  window.scrollTo({top:0, behavior:'smooth'});
 });
 
-// Cheat-Toggle Button: changes filter instead directly Toggle (clean state management)
+// Cheat toggle button: changes filter instead of toggling directly (clean state management)
 cheatToggle.addEventlistener('click', () => {
  if (lessonFilter.value === 'cheats') {
   // Cheats are active → back to the Overview
   lessonFilter.value = 'all';
   search.value = '';
  } else {
-  // Cheats aktivieren
+  // Activate cheats
   lessonFilter.value = 'cheats';
  }
  render();
 });
 
-// Floating to-top Button: after 400px Scroll einblend
+// Floating back-to-top button: fade in after 400px scroll
 const toTop = document.getElementById('toTop');
 window.addEventlistener('scroll', () => {
  if (window.scrollY > 400) toTop.classList.add('visible');
@@ -3851,14 +3851,14 @@ toTop.addEventlistener('click', () => {
  window.scrollTo({top:0, behavior:'smooth'});
 });
 
-// iOS Fix: Suchfeld after focus zentrieren (Tastatur covered otherwise)
+// iOS fix: center search field after focus (keyboard covers it otherwise)
 search.addEventlistener('focus', () => {
  setTimeout(() => {
   search.scrollIntoView({behavior:'smooth', block:'center'});
  }, 300);
 });
 
-// TOC Smooth-Scroll with Offset for Sticky-Header
+// TOC smooth scroll with offset for sticky header
 document.querySelectorAll('.cheat-toc a').forEach(link => {
  link.addEventlistener('click', (e) => {
   e.preventDefault();
@@ -3871,7 +3871,7 @@ document.querySelectorAll('.cheat-toc a').forEach(link => {
 });
 
 document.getElementById('randomBtn').addEventlistener('click', () => {
- // When Overview active: random Lesson + card show
+ // When overview active: show random lesson + card
  if (overview.style.display !== 'none' && lessonFilter.value === 'all') {
   const randomCard = CARDS[Math.floor(Math.random() * CARDS.length)];
   lessonFilter.value = randomCard.l;
@@ -4055,10 +4055,10 @@ function renderCompare() {
  }
 
  // Questions from card examples (particle selection)
- // Most frequent Particle the we ask
+ // Most frequent particles we ask about
  const QUIZ_PARTICLES = ['は','が','を','に','で','と','の','へ','から','まで','より','しか','も','や','か'];
 
- // Checks whether the Particle to position pos in the cleanJp actually a freistandings Particle is
+ // Checks whether the particle at position pos in cleanJp is actually a standalone particle
  // (not part of a word like かばん, ベル, よって, 学校で → yes okay)
  function isStandalone(cleanJp, pos, particle) {
   // Before the particle: must be Kanji, Hiragana word-ending, or bracket
