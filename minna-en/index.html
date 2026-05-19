@@ -1554,7 +1554,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
    <thead><tr><th>Particle</th><th>Main function</th><th>Example</th></tr></thead>
    <tbody>
    <tr><td><span class="jp">は</span></td><td>topic (known). contrast. Never in the relative clause.</td><td><span class="jp"><ruby>私<rt>わたし</rt></ruby>は <ruby>学生<rt>がくせい</rt></ruby>です。</span></td></tr>
-   <tr><td><span class="jp">が</span></td><td>subject (new/unexpected). Answer on question word. For <ruby>好<rt>す</rt></ruby>き/わかる/ある/Potential. In the relative clause.</td><td><span class="jp"><ruby>猫<rt>ねこ</rt></ruby>が います。</span></td></tr>
+   <tr><td><span class="jp">が</span></td><td>Subject (new/unexpected). Answer to a question word. For <ruby>好<rt>す</rt></ruby>き/わかる/ある/Potential. In the relative clause.</td><td><span class="jp"><ruby>猫<rt>ねこ</rt></ruby>が います。</span></td></tr>
    <tr><td><span class="jp">を</span></td><td>Direct object. For motion verbs: Strecke (<ruby>公園<rt>こうえん</rt></ruby>を <ruby>歩<rt>ある</rt></ruby>く).</td><td><span class="jp"><ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>む。</span></td></tr>
    <tr><td><span class="jp">に</span></td><td>goal/direction. time point. location of existence (います). Indirect object. recipient.</td><td><span class="jp"><ruby>学校<rt>がっこう</rt></ruby>に <ruby>行<rt>い</rt></ruby>く。 <ruby>7時<rt>しちじ</rt></ruby>に <ruby>起<rt>お</rt></ruby>きる。</span></td></tr>
    <tr><td><span class="jp">で</span></td><td>place to action. mys/tool. material. reason (Adj/N).</td><td><span class="jp"><ruby>図書館<rt>としょかん</rt></ruby>で <ruby>勉強<rt>べんきょう</rt></ruby>する。 バスで <ruby>行<rt>い</rt></ruby>く。</span></td></tr>
@@ -1568,7 +1568,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
   </table>
   <h3>⚠️ Common pitif</h3>
   <p><b>に vs で:</b> <ruby>公園<rt>こうえん</rt></ruby><span class="jp">に</span> いる (location of existence) ↔ <ruby>公園<rt>こうえん</rt></ruby><span class="jp">で</span> <ruby>走<rt>はし</rt></ruby>る (place of action).</p>
-  <p><b>は vs が:</b> topic (known) vs. subject (new/answer). In the relative clause only が.</p>
+  <p><b>は vs が:</b> Topic (known) vs. subject (new/answer). In the relative clause only が.</p>
   <p><b>を vs が at Potential:</b> <ruby>漢字<rt>かんじ</rt></ruby><span class="jp">が</span> <ruby>読<rt>よ</rt></ruby>める (not を!).</p>
  </div>
 
@@ -1897,7 +1897,7 @@ const CARDS = [
  {l:2, t:"そうです / そうじゃ ありません", de:"Yes, that's right / No, that's not right",
   rule:"confirmation or negation of a statement about a noun. compact system for yes/no reactions to です-sentences.",
   build:[{form:"confirmation",verb:"はい、そうです",de:"yes, that's right"},{form:"negation",verb:"いいえ、そうじゃ ありません",de:"no, the right not"},{form:"⚠ only for noun",verb:"for adjective/V → 〜ですか — はい/いいえ",de:"そう does not always fit"}],
-  pattern:{slots:[{text:"〜 ですか",role:"cond",label:"Question"},{text:"はい、そうです",role:"verb",label:"confirmation"}],gloss:"'Yes, that's right.' — compact Answer on N₁は N₂ですか."},
+  pattern:{slots:[{text:"〜 ですか",role:"cond",label:"Question"},{text:"はい、そうです",role:"verb",label:"confirmation"}],gloss:"'Yes, that's right.' — compact answer to N₁は N₂ですか."},
   ex:[{jp:"それは <ruby>辞書<rt>じしょ</rt></ruby>ですか。— はい、そうです。",de:"Is this a dictionary? — Yes, it is."},{jp:"ミラーさんは <ruby>学生<rt>がくせい</rt></ruby>ですか。— いいえ、そうじゃ ありません。<ruby>会社員<rt>かいしゃいん</rt></ruby>です。",de:"Is Mr. Miller a student? — No, he isn't. He is a company employee."},{jp:"あれは <ruby>新幹線<rt>しんかんせん</rt></ruby>ですか。— はい、そうです。",de:"Is that the Shinkansen? — Yes, it is."}],
   note:"💡 そうです can also mean 'that's right / I heard it' (context decides). In the reaction context here, it always means confirmation."},
  {l:2, t:"N₁ですか、N₂ですか", de:"Is it N₁ or N₂? (selection question)",
@@ -2113,7 +2113,7 @@ const CARDS = [
  {l:10, t:"N は (place) に あります/います", de:"N is located at (place)",
   rule:"When the THING/the PERSON already is known, it becomes the topic with は. order: known N は + place に + あります/います.",
   build:[{form:"known N",verb:"<ruby>東京駅<rt>とうきょうえき</rt></ruby>は どこに ありますか",de:"Where is Tokyo Station?"},{form:"Answer",verb:"〜に あります",de:"is to/in …"},{form:"vs. が-version",verb:"New/unbecause → place に N が",de:"known → N は place に"}],
-  pattern:{slots:[{text:"N (known)",role:"subj"},{text:"は",role:"plain"},{text:"place",role:"place"},{text:"に",role:"plain"},{text:"あります/います",role:"verb"}],gloss:"'[N] is located at [place].' — mirroring: first N (known, with は), then place (now, with に + あります/います). Answer on 'where is N?'."},
+  pattern:{slots:[{text:"N (known)",role:"subj"},{text:"は",role:"plain"},{text:"place",role:"place"},{text:"に",role:"plain"},{text:"あります/います",role:"verb"}],gloss:"'[N] is located at [place].' — mirroring: first N (known, with は), then place (now, with に + あります/います). Answer to 'where is N?'."},
   ex:[{jp:"<ruby>東京駅<rt>とうきょうえき</rt></ruby>は どこに ありますか。",de:"Where is Tokyo Station?"},{jp:"ミラーさんは <ruby>事務所<rt>じむしょ</rt></ruby>に います。",de:"Mr. Miller is in the office."},{jp:"<ruby>辞書<rt>じしょ</rt></ruby>は つくえの <ruby>上<rt>うえ</rt></ruby>に あります。",de:"The dictionary is on the desk."}],
   note:"💡 This structure answers どこに ありますか / いますか. place can also with position word (上・下・前・中 etc.) be made precise."},
  {l:10, t:"position words", de:"above / below / front / back / inside / outside …",
@@ -2155,7 +2155,7 @@ const CARDS = [
  {l:12, t:"N₁ は N₂ より Adj です", de:"N₁ is [Adj]he as N₂",
   rule:"Compare between two things: より = 'as'. The adjective form remains unchanged (no -er suffix like in the German).",
   build:[{form:"Connection",verb:"N₁ は N₂ + より + Adj",de:"N₁ is Adj-er than N₂"},{form:"emphasis",verb:"N₂ より N₁の ほうが Adj",de:"N₁ is (rather) Adj-er"},{form:"⚠ no comparative suffix",verb:"<ruby>高<rt>たか</rt></ruby>い (high) = <ruby>高<rt>たか</rt></ruby>い (higher)",de:"the form doesn't change!"}],
-  pattern:{slots:[{text:"N₁",role:"subj"},{text:"は",role:"plain"},{text:"N₂",role:"obj",label:"comparison point"},{text:"より",role:"plain",label:"than"},{text:"Adj",role:"verb"}],gloss:"'N₁ is [Adj-er] than N₂.' — the adjective remains unchanged (no -er suffix!). より = comparison marker behind the compared item. Answer on どちらが…?"},
+  pattern:{slots:[{text:"N₁",role:"subj"},{text:"は",role:"plain"},{text:"N₂",role:"obj",label:"comparison point"},{text:"より",role:"plain",label:"than"},{text:"Adj",role:"verb"}],gloss:"'N₁ is [Adj-er] than N₂.' — the adjective remains unchanged (no -er suffix!). より = comparison marker behind the compared item. Answer to どちらが…?"},
   ex:[{jp:"<ruby>飛行機<rt>ひこうき</rt></ruby>は <ruby>船<rt>ふね</rt></ruby>より <ruby>速<rt>はや</rt></ruby>いです。",de:"The airplane is faster than the ship."},{jp:"<ruby>東京<rt>とうきょう</rt></ruby>は <ruby>大阪<rt>おおさか</rt></ruby>より <ruby>大<rt>おお</rt></ruby>きいです。",de:"Tokyo is larger than Osaka."},{jp:"バスより <ruby>電車<rt>でんしゃ</rt></ruby>のほうが <ruby>速<rt>はや</rt></ruby>いです。",de:"The train is faster than the bus."}],
   note:"💡 variant: N₂より N₁の ほうが Adj — emphasizes N₁ more strongly. 'Rather N₁ than N₂'. Both structures are interchangeable, ほうが sounds slightly more natural."},
  {l:12, t:"N₁ と N₂ と どちらが Adj ですか", de:"Was is [Adj]he, N₁ or N₂?",
@@ -2466,7 +2466,7 @@ const CARDS = [
   {jp:"<ruby>明日<rt>あした</rt></ruby> <ruby>早<rt>はや</rt></ruby>く <ruby>起<rt>お</rt></ruby>きないと。",de:"morning must I early get up."},
   {jp:"<ruby>薬<rt>くすり</rt></ruby>を <ruby>飲<rt>の</rt></ruby>まないと、<ruby>治<rt>なお</rt></ruby>らないよ。",de:"You must take the medicine, otherwise you won't get healthy."}
  ], note:"💡 urgency scale: 〜ないと (very casual) < 〜ないといけない < 〜なければならない (formal). In conversations with friends: ないと is enough."},
- {l:22, t:"<ruby>名詞修飾<rt>めいししゅうしょく</rt></ruby> (relative clause)", de:"verb-/Adj-sentences as attribute", rule:"A plain-form clause stands directly BEFORE a noun and describes it. No 'who/which/that'. subject in the relative clause with が (not は!).", build:[
+ {l:22, t:"<ruby>名詞修飾<rt>めいししゅうしょく</rt></ruby> (relative clause)", de:"verb-/Adj-sentences as attribute", rule:"A plain-form clause stands directly BEFORE a noun and describes it. No 'who/which/that'. The subject in the relative clause uses が (not は!).", build:[
   {form:"Connection",verb:"[Plain-sentence] + N",de:"the Plain-sentence describes N"},
   {form:"subject in the RS",verb:"<ruby>が<rt></rt></ruby> (NOT は!)",de:"inside of the relative clause always が"},
   {form:"verb-RS",verb:"ミラーさん<b>が</b><ruby>作<rt>つく</rt></ruby>った ケーキ",de:"the cake, the M. did"},
@@ -2583,7 +2583,7 @@ const CARDS = [
   ex:[  {jp:"だれが <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>教<rt>おし</rt></ruby>えましたか。",de:"Who has you Japanese gelehrt?"},
   {jp:"<ruby>何<rt>なに</rt></ruby>が いちばん おいしいですか。",de:"Was is at the delicioussten?"},
   {jp:"どの <ruby>色<rt>いろ</rt></ruby>が いちばん <ruby>好<rt>す</rt></ruby>きですか。",de:"Which Farbe do you like at the loveen?"}
- ], note:"💡 Rule of thumb: Answer on 'だれが〜?'-Questions always with が. は chooses a topic (known), が identified (new/contrasted). ⚠️ question words as subject (だれが/なにが) require always が — never は."},
+ ], note:"💡 Rule of thumb: Answers to 'だれが〜?' questions always use が. は chooses a topic (known), が identified (new/contrasted). ⚠️ question words as subject (だれが/なにが) require always が — never は."},
  {l:25, t:"V たら、… (Conditional 'たら')", de:"When/if …, then …", rule:"Very flexible: hypothetical, sequential, 'after'. た-form + ら. main clause may wish/request contain (in contrast to と).", build:[
   {form:"た-form + ら",verb:"<ruby>食<rt>た</rt></ruby>べたら → <ruby>飲<rt>の</rt></ruby>んだら → <ruby>来<rt>き</rt></ruby>たら",de:"when one eaten/drunk/come is"},
   {form:"い-Adj: かったら",verb:"<ruby>安<rt>やす</rt></ruby>かったら",de:"when it were affordable"},
@@ -2623,7 +2623,7 @@ const CARDS = [
   ex:[  {jp:"だれが <ruby>来<rt>き</rt></ruby>ましたか。— ミラーさんが <ruby>来<rt>き</rt></ruby>ました。",de:"Who is come? — Mr. Miller is come."},
   {jp:"<ruby>何<rt>なに</rt></ruby>が いちばん <ruby>好<rt>す</rt></ruby>きですか。— すしが いちばん <ruby>好<rt>す</rt></ruby>きです。",de:"Was do you like at the most? — Sushi at the most."},
   {jp:"あ、<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>って きました!",de:"Oh, it starts to rain!"}
- ], note:"🔄 が = new/unexpected Information, Answer on question word, existence. は = known topic, contrast. For question word as subject (だれが/なにが): always が."},
+ ], note:"🔄 が = new/unexpected Information, Answer to a question word, existence. は = known topic, contrast. For question word as subject (だれが/なにが): always が."},
  {l:26, t:"〜んです (explanation/follow-up question)", de:"… you see / the thing is …",
   rule:"Sets a explanation, a reason or a follow-up question in relationship to the situation. Very frequent in the conversation, often as reaction to an observation.",
   build:[{form:"verb (Plain)",verb:"V<sub><ruby>普通形<rt>ふつうけい</rt></ruby></sub> + んです",de:"<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>くんです"},{form:"い-adjective",verb:"い-Adj + んです",de:"<ruby>痛<rt>いた</rt></ruby>い → <ruby>痛<rt>いた</rt></ruby>いんです"},{form:"な-adjective",verb:"な-Adj + <b>な</b>んです",de:"<ruby>元気<rt>げんき</rt></ruby> → <ruby>元気<rt>げんき</rt></ruby><b>な</b>んです"},{form:"noun",verb:"N + <b>な</b>んです",de:"<ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby><b>な</b>んです"}],
