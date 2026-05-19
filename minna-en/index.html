@@ -2395,16 +2395,16 @@ const CARDS = [
   {jp:"すみませんけど、これは <ruby>何<rt>なん</rt></ruby>ですか。",de:"Sorry, but was is the?"},
   {jp:"おいしかったけど、ちょっと <ruby>高<rt>たか</rt></ruby>かった。",de:"It was delicious, but a little bit expensive."}
  ], note:"💡 けど at the end of the sentence = soft statement, open end (like English 'though'). 🔄 が = more formal, けど = casual, けれども = more polite."},
- {l:21, t:"<ruby>普通形<rt>ふつうけい</rt></ruby> + と <ruby>思<rt>おも</rt></ruby>います", de:"I think, that …", rule:"opinion/presumption. content stands in plain form, followed by と思います. For N/な-Adj present tense: 〜だと思います.", build:[
-  {form:"Connection",verb:"plain form + と <ruby>思<rt>おも</rt></ruby>います",de:"I think/glaube, that …"},
-  {form:"verb",verb:"<ruby>行<rt>い</rt></ruby>く と <ruby>思<rt>おも</rt></ruby>います",de:"I think, he goes"},
-  {form:"い-Adj",verb:"<ruby>高<rt>たか</rt></ruby>い と <ruby>思<rt>おも</rt></ruby>います",de:"I think, it is expensive"},
-  {form:"な-Adj",verb:"<ruby>静<rt>しず</rt></ruby>か<b>だ</b> と <ruby>思<rt>おも</rt></ruby>います",de:"I think, it is calm (だ necessary!)"},
-  {form:"noun",verb:"<ruby>学生<rt>がくせい</rt></ruby><b>だ</b> と <ruby>思<rt>おも</rt></ruby>います",de:"I think, he is a student (だ necessary!)"},
-  {form:"Negated",verb:"<ruby>行<rt>い</rt></ruby>かない と <ruby>思<rt>おも</rt></ruby>います",de:"I think, he goes NOT"}
- ], pattern:{slots:[{text:"plain form",role:"verb",label:"content"},{text:"と",role:"plain"},{text:"思います",role:"verb",label:"opinion"}],gloss:"'I think, that [content].' ⚠️ For な-Adj/N: だ+と思います. For negation: 〜ないと思います."},
-  ex:[  {jp:"<ruby>明日<rt>あした</rt></ruby> <ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>ると <ruby>思<rt>おも</rt></ruby>います。",de:"I think, tomorrow rains it."},
-  {jp:"ミラーさんは もう <ruby>帰<rt>かえ</rt></ruby>ったと <ruby>思<rt>おも</rt></ruby>います。",de:"I think, Mr. Miller is already home away."},
+ {l:21, t:"<ruby>普通形<rt>ふつうけい</rt></ruby> + と <ruby>思<rt>おも</rt></ruby>います", de:"I think that …", rule:"opinion/presumption. content stands in plain form, followed by と思います. For N/な-Adj present tense: 〜だと思います.", build:[
+  {form:"Connection",verb:"plain form + と <ruby>思<rt>おも</rt></ruby>います",de:"I think/believe that …"},
+  {form:"verb",verb:"<ruby>行<rt>い</rt></ruby>く と <ruby>思<rt>おも</rt></ruby>います",de:"I think he will go"},
+  {form:"い-Adj",verb:"<ruby>高<rt>たか</rt></ruby>い と <ruby>思<rt>おも</rt></ruby>います",de:"I think it is expensive"},
+  {form:"な-Adj",verb:"<ruby>静<rt>しず</rt></ruby>か<b>だ</b> と <ruby>思<rt>おも</rt></ruby>います",de:"I think it is calm (だ necessary!)"},
+  {form:"noun",verb:"<ruby>学生<rt>がくせい</rt></ruby><b>だ</b> と <ruby>思<rt>おも</rt></ruby>います",de:"I think he is a student (だ necessary!)"},
+  {form:"Negated",verb:"<ruby>行<rt>い</rt></ruby>かない と <ruby>思<rt>おも</rt></ruby>います",de:"I think he won't go"}
+ ], pattern:{slots:[{text:"plain form",role:"verb",label:"content"},{text:"と",role:"plain"},{text:"思います",role:"verb",label:"opinion"}],gloss:"'I think that [content].' ⚠️ For な-Adj/N: だ+と思います. For negation: 〜ないと思います."},
+  ex:[  {jp:"<ruby>明日<rt>あした</rt></ruby> <ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>ると <ruby>思<rt>おも</rt></ruby>います。",de:"I think it will rain tomorrow."},
+  {jp:"ミラーさんは もう <ruby>帰<rt>かえ</rt></ruby>ったと <ruby>思<rt>おも</rt></ruby>います。",de:"I think Mr. Miller has already gone home."},
   {jp:"それは <ruby>難<rt>むずか</rt></ruby>しいと <ruby>思<rt>おも</rt></ruby>いません。",de:"I believe not, that the difficult is."}
  ], note:"⚠️ For な-Adj and noun MUST だ before と stand! 学生と思います is WRONG → 学生<b>だ</b>と思います."},
  {l:21, t:"「…」と <ruby>言<rt>い</rt></ruby>います", de:"He has said: '…'", rule:"Bericht about statement — directly or indirectly. Direct speech: '<b>「Original text」</b>と <ruby>言<rt>い</rt></ruby>いました' (exact words in 「 」). Indirect speech: '<b>plain form</b> + と <ruby>言<rt>い</rt></ruby>いました' (reproduced in content). ⚠ For な-Adj and N: <b>だ</b> not forget before と! <ruby>学生<rt>がくせい</rt></ruby><b>だ</b>と <ruby>言<rt>い</rt></ruby>いました.", build:[
@@ -2746,10 +2746,10 @@ const CARDS = [
   note:"💡 volitional is the plain form of ましょう — same sense, but informal. In the formal Context better ましょう use."},
  {l:31, t:"V-volitional + と<ruby>思<rt>おも</rt></ruby>っています", de:"I plan to …",
   rule:"Expresses a intention/a plan by, the speaker already has for a while. volitional + と思っています is softer and more flexible than つもりです — the decision stands not completely firm.",
-  build:[{form:"Connection",verb:"V<sub><ruby>意向<rt>いこう</rt></ruby></sub> + と <ruby>思<rt>おも</rt></ruby>っています",de:"I plan V"},{form:"vs. つもりです",verb:"つもり = firmer, clearer intention",de:"〜と思っています = softer"},{form:"vs. と<ruby>思<rt>おも</rt></ruby>います",verb:"と<ruby>思<rt>おも</rt></ruby>います = more spontaneous thoughts (just arose)",de:"〜と思っています = longer considered"}],
-  pattern:{slots:[{text:"subject (I)",role:"subj",label:"usually I"},{text:"は",role:"plain"},{text:"V-volitional",role:"verb",label:"plan"},{text:"と<ruby>思<rt>おも</rt></ruby>っています",role:"actor",label:"have before"}],gloss:"'I think about, [V] to do.' — longer considereder plan, with game room for changes."},
+  build:[{form:"Connection",verb:"V<sub><ruby>意向<rt>いこう</rt></ruby></sub> + と <ruby>思<rt>おも</rt></ruby>っています",de:"I plan to V"},{form:"vs. つもりです",verb:"つもり = firmer, clearer intention",de:"〜と思っています = softer"},{form:"vs. と<ruby>思<rt>おも</rt></ruby>います",verb:"と<ruby>思<rt>おも</rt></ruby>います = more spontaneous thoughts (just arose)",de:"〜と思っています = long considered"}],
+  pattern:{slots:[{text:"subject (I)",role:"subj",label:"usually I"},{text:"は",role:"plain"},{text:"V-volitional",role:"verb",label:"plan"},{text:"と<ruby>思<rt>おも</rt></ruby>っています",role:"actor",label:"thinking of"}],gloss:"'I am thinking of doing [V].' — long-considered plan with room for changes."},
   ex:[{jp:"<ruby>来年<rt>らいねん</rt></ruby> <ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>こうと <ruby>思<rt>おも</rt></ruby>っています。",de:"I plan to go to Japan next year."},{jp:"<ruby>週末<rt>しゅうまつ</rt></ruby>は <ruby>映画<rt>えいが</rt></ruby>を <ruby>見<rt>み</rt></ruby>ようと <ruby>思<rt>おも</rt></ruby>っています。",de:"On the weekend I plan to watch a movie."},{jp:"<ruby>新<rt>あたら</rt></ruby>しい <ruby>車<rt>くるま</rt></ruby>を <ruby>買<rt>か</rt></ruby>おうと <ruby>思<rt>おも</rt></ruby>っています。",de:"I plan to buy a new car."}],
-  note:"💡 order of the firmness: と思います (spontaneous) < と思っています (longer planned) < つもりです (clear determined) < 予定です (officially scheduled)."},
+  note:"💡 order of the firmness: と思います (spontaneous) < と思っています (long planned) < つもりです (clear determined) < 予定です (officially scheduled)."},
  {l:31, t:"もう V ました / まだ V ていません", de:"Already done / not yet before",
   rule:"Complete form (extension from L7). もう + V ました = something is yet. まだ + V ていません = it stands still by, is but still happen. ⚠️ NOT まだ V ませんでした!",
   build:[{form:"yet",verb:"もう V ました",de:"have already V before"},{form:"not yet (stands by)",verb:"まだ V ていません",de:"have not yet V"},{form:"⚠ WRONG",verb:"まだ V ませんでした",de:"NOT use!"},{form:"vs. (of all not before)",verb:"V ませんでした",de:"has not V (currently)"}],
