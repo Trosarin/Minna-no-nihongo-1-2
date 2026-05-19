@@ -2368,7 +2368,7 @@ const CARDS = [
   {jp:"お<ruby>腹<rt>なか</rt></ruby>が すきましたか。(polite)",de:"Are you hungry?"},
   {jp:"ごめん、わからない。(plain) / すみません、わかりません。(polite)",de:"I'm sorry, I don't know."}
  ], note:"💡 Ms.en use tend to less だ in Plain-statements. For Questions: だ is often omitted."},
- {l:20, t:"plain conversation (Questions & Answers)", de:"conversation in plain style", rule:"For Questions in Plain: だ often drops away, particle か is replaced by rising intonation. For な-Adj/N in Questions also without だ. Answers to have shortened forms.", build:[
+ {l:20, t:"plain conversation (Questions & Answers)", de:"conversation in plain style", rule:"For questions in plain style: だ often drops away, and the particle か is replaced by rising intonation. For な-Adj/N in questions, also drop だ. Answers tend to have shortened forms.", build:[
   {form:"Question: V plain + ?",verb:"<ruby>行<rt>い</rt></ruby>く?",de:"Are you going? (instead 行きますか)"},
   {form:"Question: N/な-Adj WITHOUT だ",verb:"<ruby>元気<rt>げんき</rt></ruby>? / <ruby>学生<rt>がくせい</rt></ruby>?",de:"Are you well? / Are you a student?"},
   {form:"yes/no plain",verb:"うん / ううん",de:"yes / no (friends)"}
@@ -2385,7 +2385,7 @@ const CARDS = [
   ex:[  {jp:"<ruby>何<rt>なに</rt></ruby> してる? — テレビ <ruby>見<rt>み</rt></ruby>てる。",de:"What are you doing? — I'm watching TV."},
   {jp:"<ruby>傘<rt>かさ</rt></ruby> <ruby>持<rt>も</rt></ruby>ってく? — うん、<ruby>持<rt>も</rt></ruby>ってく。",de:"Are you taking an umbrella? — Yes, I am."},
   {jp:"あとで やっとくね。",de:"I do it later (previously)."}
- ], note:"⚠️ NOT in formal situations use! This shortenings are only for conversations among friends suitable."},
+ ], note:"⚠️ DO NOT use in formal situations! These shortenings are only suitable for conversations among friends."},
  {l:20, t:"〜けど (Plain variant of が)", de:"but / however (informal)", rule:"けど is the informal plain form of が. Can at the end of the sentence stand for soft statement/transition. Also けれど(も) as more polite variant, but けど is by far the most frequent in daily use.", build:[
   {form:"が (neutral/written)",verb:"<ruby>高<rt>たか</rt></ruby>いですが…",de:"It is expensive, but …"},
   {form:"けど (informal/plain)",verb:"<ruby>高<rt>たか</rt></ruby>いけど…",de:"It is expensive, but …"},
@@ -2507,7 +2507,7 @@ const CARDS = [
   ex:[  {jp:"<ruby>私<rt>わたし</rt></ruby>が <ruby>書<rt>か</rt></ruby>いた <ruby>手紙<rt>てがみ</rt></ruby>です。",de:"This is the letter I wrote."},
   {jp:"<ruby>昨日<rt>きのう</rt></ruby> <ruby>友達<rt>ともだち</rt></ruby>が <ruby>来<rt>き</rt></ruby>た <ruby>日<rt>ひ</rt></ruby>",de:"the day a friend came yesterday"},
   {jp:"<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>って いる <ruby>町<rt>まち</rt></ruby>",de:"the city in which it rains"}
- ], note:"⚠️ Frequent mistake: は in the relative clause. ALWAYS が (or の) use! は separates the main clause by the next clause and destroys the relative clause."},
+ ], note:"⚠️ Frequent mistake: は in the relative clause. ALWAYS use が (or の)! は separates the main clause from the embedded clause and destroys the relative clause."},
  {l:23, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby>/V<ruby>ない<rt></rt></ruby>/Adj/N + とき、…", de:"When (before/during the Action/of the state)", rule:"dictionary form or ない-form before とき: main action happens BEFORE or WHILE the next action. For い-Adj directly + とき, な-Adj + な + とき, N + の + とき.", build:[
   {form:"辞書形+とき (before/during)",verb:"<ruby>行<rt>い</rt></ruby>くとき",de:"before I go / on the way"},
   {form:"い-Adj+とき",verb:"<ruby>若<rt>わか</rt></ruby>いとき",de:"when I was young"},
@@ -2526,17 +2526,17 @@ const CARDS = [
   {jp:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>来<rt>き</rt></ruby>たとき、<ruby>友達<rt>ともだち</rt></ruby>が <ruby>迎<rt>むか</rt></ruby>えに <ruby>来<rt>き</rt></ruby>ました。",de:"When I came to Japan, a friend picked me up."},
   {jp:"<ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>ったとき、この お<ruby>土産<rt>みやげ</rt></ruby>を <ruby>買<rt>か</rt></ruby>いました。",de:"When I was in Kyoto, I bought this souvenir."}
  ], note:"⚠️ <ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>くとき = before departure (still in Germany). <ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>ったとき = in Japan (already there). tense BEFORE とき decides, whether the main action BEFORE or NACH the Before-verb happens."},
- {l:23, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby> と、…", de:"When/as soon as …, automatically …", rule:"Conditional 'と': when A, then always happens/automatically B. natural law, habit, Mechanism. No will or please in the main clause!", build:[
+ {l:23, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby> と、…", de:"When/as soon as …, automatically …", rule:"Conditional 'と': when A, then B always happens automatically. Natural law, habit, mechanism. No will or request in the main clause!", build:[
   {form:"Connection",verb:"V<sub>ル</sub> + と、…",de:"when V happens, then automatically …"},
   {form:"Example",verb:"このボタンを <ruby>押<rt>お</rt></ruby>す と、お<ruby>釣<rt>つ</rt></ruby>りが <ruby>出<rt>で</rt></ruby>ます",de:"when one expresses, comes change"},
   {form:"natural law",verb:"<ruby>春<rt>はる</rt></ruby>に なる と、<ruby>桜<rt>さくら</rt></ruby>が <ruby>咲<rt>さ</rt></ruby>きます",de:"when spring comes, bloom cherries"},
   {form:"Negated",verb:"V<sub>ナイ</sub> + と、…",de:"when one V NOT does, then …"},
   {form:"Example negated",verb:"<ruby>勉強<rt>べんきょう</rt></ruby>しない と、<ruby>試験<rt>しけん</rt></ruby>に <ruby>落<rt>お</rt></ruby>ちます",de:"Who doesn't study fails"}
- ], pattern:{slots:[{text:"V-辞書形",role:"cond"},{text:"と、",role:"plain",label:"automatically →"},{text:"consequence",role:"verb"}],gloss:"'When V, then automatically/always consequence.' ⚠️ No wish/request in the main clause!"},
+ ], pattern:{slots:[{text:"V-辞書形",role:"cond"},{text:"と、",role:"plain",label:"automatically →"},{text:"consequence",role:"verb"}],gloss:"'When V, then consequence automatically/always happens.' ⚠️ No wish/request in the main clause!"},
   ex:[  {jp:"このボタンを <ruby>押<rt>お</rt></ruby>すと、お<ruby>釣<rt>つ</rt></ruby>りが <ruby>出<rt>で</rt></ruby>ます。",de:"When you press this button, change comes out."},
   {jp:"<ruby>春<rt>はる</rt></ruby>に なると、<ruby>桜<rt>さくら</rt></ruby>が <ruby>咲<rt>さ</rt></ruby>きます。",de:"When spring comes, the cherry blossoms bloom."},
   {jp:"この<ruby>道<rt>みち</rt></ruby>を まっすぐ <ruby>行<rt>い</rt></ruby>くと、<ruby>駅<rt>えき</rt></ruby>が あります。",de:"If one goes straight on this street, the station is there."}
- ], note:"⚠️ 4 conditionals distinguish: <b>と</b> = automatically (natural law, Mechanism) / <b>たら</b> = single consequence / <b>ば</b> = general condition / <b>なら</b> = topic-related. For <b>と</b> NEVER wish/please/command in the main clause!"},
+ ], note:"⚠️ 4 conditionals to distinguish: <b>と</b> = automatic (natural law, mechanism) / <b>たら</b> = single consequence / <b>ば</b> = general condition / <b>なら</b> = topic-related. For <b>と</b>, NEVER use wish/request/command in the main clause!"},
  {l:23, t:"N(place) を V (motion verb)", de:"through/across/along N (path of movement)", rule:"を marks the place through/across/along which one moves. With motion verbs like 歩く (to go), 走る (to run), 渡る (cross), 曲がる (turn), 散歩する (walk), 通る (pass through), 飛ぶ (fly).", build:[
   {form:"歩く (to go)",verb:"<ruby>道<rt>みち</rt></ruby>を <ruby>歩<rt>ある</rt></ruby>く",de:"the street entlonggo"},
   {form:"渡る (cross)",verb:"<ruby>橋<rt>はし</rt></ruby>を <ruby>渡<rt>わた</rt></ruby>る",de:"the bridge cross"},
@@ -2752,7 +2752,7 @@ const CARDS = [
   note:"💡 order of the firmness: と思います (spontaneous) < と思っています (long planned) < つもりです (clear determined) < 予定です (officially scheduled)."},
  {l:31, t:"もう V ました / まだ V ていません", de:"Already done / not yet before",
   rule:"Complete form (extension from L7). もう + V ました = something has already happened. まだ + V ていません = it has not yet happened, but is still expected. ⚠️ NOT まだ V ませんでした!",
-  build:[{form:"yet",verb:"もう V ました",de:"have already V before"},{form:"not yet (stands by)",verb:"まだ V ていません",de:"have not yet V"},{form:"⚠ WRONG",verb:"まだ V ませんでした",de:"NOT use!"},{form:"vs. (of all not before)",verb:"V ませんでした",de:"has not V (currently)"}],
+  build:[{form:"yet",verb:"もう V ました",de:"have already V before"},{form:"not yet (stands by)",verb:"まだ V ていません",de:"have not yet V"},{form:"⚠ WRONG",verb:"まだ V ませんでした",de:"DO NOT use!"},{form:"vs. (of all not before)",verb:"V ませんでした",de:"has not V (currently)"}],
   pattern:{slots:[[{text:"もう",role:"time",label:"already"},{text:"V-ました",role:"verb",label:"completed"}],[{text:"まだ",role:"time",label:"not yet"},{text:"V-て いません",role:"verb",label:"stands by"}]],gloss:"Two Pole: もう…ました (positive completed) ↔ まだ…ていません (open, comes still)."},
   ex:[{jp:"もう <ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べましたか。— はい、<b>もう</b> <ruby>食<rt>た</rt></ruby>べました。",de:"Have you already had lunch? — Yes, already."},{jp:"いいえ、<b>まだ</b> <ruby>食<rt>た</rt></ruby>べて いません。",de:"No, not yet (but I will)."},{jp:"レポートは <b>まだ</b> <ruby>書<rt>か</rt></ruby>いて いません。",de:"I haven't written the report yet."}],
   note:"⚠️ Frequent mistake: まだ <ruby>食<rt>た</rt></ruby>べませんでした is WRONG. Correct: まだ <ruby>食<rt>た</rt></ruby>べて いません."},
@@ -2769,7 +2769,7 @@ const CARDS = [
   ex:[{jp:"<ruby>来週<rt>らいしゅう</rt></ruby>の <ruby>月曜日<rt>げつようび</rt></ruby> <ruby>会議<rt>かいぎ</rt></ruby>を する <ruby>予定<rt>よてい</rt></ruby>です。",de:"next Monday is a meeting planned."},{jp:"<ruby>3時<rt>さんじ</rt></ruby>から <ruby>面接<rt>めんせつ</rt></ruby>の <ruby>予定<rt>よてい</rt></ruby>です。",de:"From 3 o'clock is a job interview planned."},{jp:"<ruby>来月<rt>らいげつ</rt></ruby> <ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>く <ruby>予定<rt>よてい</rt></ruby>です。",de:"Next month I plan to go to Kyoto."}],
   note:"💡 Order of firmness: つもりです (personal intention) → 予定です (officially scheduled, calendar-based)."},
  {l:32, t:"V た ほうが いい / V ない ほうが いい", de:"You should (not) …",
-  rule:"advice/recommendation. positive: た-form + ほうが いい. Negative: ない-form + ほうが いい. ⚠️ NOT 辞書形 use!",
+  rule:"advice/recommendation. positive: た-form + ほうが いい. Negative: ない-form + ほうが いい. ⚠️ do NOT use 辞書形!",
   build:[{form:"positive (recommendation)",verb:"V<sub>た</sub> + ほうが いい",de:"should do V"},{form:"negative (warning)",verb:"V<sub>ない</sub> + ほうが いい",de:"should NOT do V"},{form:"⚠ WRONG",verb:"V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + ほうが いい",de:"NOT use"},{form:"polite",verb:"〜ほうが いいですよ",de:"tip/advice (polite)"}],
   pattern:{slots:[{text:"recipient は",role:"subj",label:"you"},{text:"V-た / V-ない",role:"verb",label:"Action"},{text:"ほうが",role:"actor"},{text:"いいです (よ)",role:"plain"}],gloss:"'It would be better, [V] (not) to do.' — advice, often with よ at the end for encouragement."},
   ex:[{jp:"<ruby>熱<rt>ねつ</rt></ruby>が ありますね。<ruby>病院<rt>びょういん</rt></ruby>へ <b><ruby>行<rt>い</rt></ruby>った ほうが いいですよ</b>。",de:"You have a fever. You should go to the doctor."},{jp:"タバコは <b><ruby>吸<rt>す</rt></ruby>わない ほうが いいです</b>。",de:"You should not smoke."},{jp:"<ruby>無理<rt>むり</rt></ruby>を <b>しない ほうが いいですよ</b>。",de:"You shouldn't overexert yourself."}],
