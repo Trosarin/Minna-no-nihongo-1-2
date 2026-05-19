@@ -1878,10 +1878,10 @@ const CARDS = [
   note:"⚠️ も REPLACES は (and also が, を) — never both together. Wrong: 私はも学生です. Correct: 私も学生です."},
  {l:1, t:"N₁ の N₂", de:"N₁'s N₂ (genitive/belonging)",
   rule:"の connects two nouns. N₁ describes, owns or belongs to N₂. Versatile usable: possession, belonging to company/group, material, content, attribute.",
-  build:[{form:"possession",verb:"<ruby>私<rt>わたし</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>",de:"my book"},{form:"belonging",verb:"IMCの <ruby>社員<rt>しゃいん</rt></ruby>",de:"employee by IMC"},{form:"language/origin",verb:"<ruby>日本語<rt>にほんご</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>",de:"Japanese book"},{form:"attribute",verb:"<ruby>女<rt>おんな</rt></ruby>の <ruby>人<rt>ひと</rt></ruby>",de:"Madam (lit. female person)"}],
+  build:[{form:"possession",verb:"<ruby>私<rt>わたし</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>",de:"my book"},{form:"belonging",verb:"IMCの <ruby>社員<rt>しゃいん</rt></ruby>",de:"employee at IMC"},{form:"language/origin",verb:"<ruby>日本語<rt>にほんご</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>",de:"Japanese book"},{form:"attribute",verb:"<ruby>女<rt>おんな</rt></ruby>の <ruby>人<rt>ひと</rt></ruby>",de:"a woman (lit. female person)"}],
   pattern:{slots:[{text:"N₁",role:"actor",label:"possessor/descriptor"},{text:"の",role:"plain",label:"connects"},{text:"N₂",role:"obj",label:"main noun"}],gloss:"'N₁'s N₂' — N₁ modified/owns the main noun N₂."},
   ex:[{jp:"IMCの <ruby>社員<rt>しゃいん</rt></ruby>です。",de:"I am employee by IMC."},{jp:"これは <ruby>日本語<rt>にほんご</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>です。",de:"The is a Japanese book."},{jp:"<ruby>田中<rt>たなか</rt></ruby>さんは <ruby>富士<rt>ふじ</rt></ruby><ruby>大学<rt>だいがく</rt></ruby>の <ruby>先生<rt>せんせい</rt></ruby>です。",de:"Ms. Tanaka is a teacher to the Fuji University."}],
-  note:"💡 Several の can strung together becomes: <ruby>友達<rt>ともだち</rt></ruby>の <ruby>母<rt>はは</rt></ruby>の <ruby>本<rt>ほん</rt></ruby> = my friend's mother's book. order from outside to inside."},
+  note:"💡 Several の can be strung together: <ruby>友達<rt>ともだち</rt></ruby>の <ruby>母<rt>はは</rt></ruby>の <ruby>本<rt>ほん</rt></ruby> = my friend's mother's book. Order: from outside to inside."},
  {l:2, t:"これ / それ / あれ", de:"this / that / that over there (pronoun)",
   rule:"Three demonstrative pronouns for things. これ = close to the speaker. それ = close to the listener. あれ = far from both. Stands alone as subject.",
   build:[{form:"これ (close speaker)",verb:"これは〜です",de:"This here is …"},{form:"それ (close listener)",verb:"それは〜です",de:"That (near you) is …"},{form:"あれ (far from both)",verb:"あれは〜です",de:"That (over there) is …"},{form:"Question",verb:"どれ",de:"Which one?"}],
@@ -1908,7 +1908,7 @@ const CARDS = [
   note:"⚠️ For selection questions NEVER with はい/いいえ answer — simply the choice mention. 'はい、シャープペンシルです' sounds strange."},
  {l:2, t:"N₁ の (N₂<ruby>省略<rt>しょうりゃく</rt></ruby>)", de:"N₂ can be omitted — の stands alone",
   rule:"When the reference noun by the Context clear is, can it after の omit. の takes over then the role of 'the one of …' or 'mine/yours'.",
-  build:[{form:"with N₂",verb:"<ruby>私<rt>わたし</rt></ruby>の かばん",de:"my bag"},{form:"N₂ omitted",verb:"<ruby>私<rt>わたし</rt></ruby>のです",de:"(it) is mys"},{form:"Question",verb:"だれのですか",de:"Whose is it?"}],
+  build:[{form:"with N₂",verb:"<ruby>私<rt>わたし</rt></ruby>の かばん",de:"my bag"},{form:"N₂ omitted",verb:"<ruby>私<rt>わたし</rt></ruby>のです",de:"(it) is mine"},{form:"Question",verb:"だれのですか",de:"Whose is it?"}],
   pattern:{slots:[{text:"N₁",role:"actor",label:"possessor"},{text:"の",role:"plain",label:"= mys/yours"},{text:"(N₂ omitted)",role:"obj",label:"implicit"},{text:"です",role:"verb"}],gloss:"'[It] is N₁'s.' — の as placeholder of the already known noun."},
   ex:[{jp:"この かばんは <ruby>私<rt>わたし</rt></ruby>のです。",de:"This bag is my."},{jp:"あの <ruby>本<rt>ほん</rt></ruby>は ミラーさんのです。",de:"That book is Millers."},{jp:"これは だれのですか。— <ruby>田中<rt>たなか</rt></ruby>さんのです。",de:"Whose is this? — It belongs to Ms. Tanaka."}],
   note:"💡 の at the end of the sentence (nominalization particle) is one of the most frequent sentence structures in everyday language — absolutely internalize."},
@@ -2211,7 +2211,7 @@ const CARDS = [
   build:[{form:"offer",verb:"V<sub>マス-stem</sub> + ましょうか",de:"Should I V?"},{form:"🔄 vs. ましょう",verb:"V<sub>マス-stem</sub> + ましょう",de:"'Let's V!' (together)"}],
   pattern:{slots:[{text:"V-stem",role:"verb"},{text:"ましょうか",role:"plain",label:"Should I?"}],gloss:"'Should I [V]?' — speaker offers to, something FOR someone to do."},
   ex:[{jp:"<ruby>手伝<rt>てつだ</rt></ruby>いましょうか。",de:"Shall I help you?"},{jp:"<ruby>窓<rt>まど</rt></ruby>を <ruby>開<rt>あ</rt></ruby>けましょうか。",de:"Shall I open the window?"},{jp:"<ruby>駅<rt>えき</rt></ruby>まで <ruby>送<rt>おく</rt></ruby>りましょうか。",de:"Shall I take you to the station?"}],
-  note:"🔄 ましょうか (offer to other) ≠ ましょう (joint suggestion). 💡 typical Answer on ましょうか: ええ、お願いします (yes please) / いいえ、大丈夫です (no thanks)."},
+  note:"🔄 ましょうか (offer to other) ≠ ましょう (joint suggestion). 💡 typical answer to ましょうか: ええ、お願いします (yes please) / いいえ、大丈夫です (no thanks)."},
  {l:15, t:"V て も いいですか", de:"May I …? (permission)",
   rule:"asking permission. て-form + もいいですか. Answer: はい、どうぞ (gladly) or すみません、ちょっと… (polite refusal).",
   build:[{form:"Connection",verb:"V<sub>テ</sub> + も いいですか",de:"May I V?"},{form:"permission give",verb:"はい、どうぞ / ええ、いいですよ",de:"Yes, please"},{form:"Refusal (polite)",verb:"すみません、ちょっと…",de:"I'm sorry, that's a bit difficult"}],
@@ -2267,7 +2267,7 @@ const CARDS = [
   ex:[{jp:"<ruby>肉<rt>にく</rt></ruby>を <ruby>食<rt>た</rt></ruby>べません。→ <ruby>肉<rt>にく</rt></ruby>を <ruby>食<rt>た</rt></ruby>べない。",de:"I eat no meat. (polite → plain)"},{jp:"<ruby>今日<rt>きょう</rt></ruby>は どこへも <ruby>行<rt>い</rt></ruby>かない。",de:"Today I'm not going anywhere. (plain)"},{jp:"お<ruby>金<rt>かね</rt></ruby>が ない。",de:"I have no money."}],
   note:"⚠️ Three exceptions remember: ① う→わない (買う→買わない) ② ある→ない ③ 来る→こない. 💡 ない-form is the basis for many L17-L25-structures."},
  {l:17, t:"V ない で ください", de:"please NOT … do",
-  rule:"Polite please, something to refrain from. ない-form + でください. The で is NO Particle in the normal sense — it connects.",
+  rule:"Polite please, something to refrain from. ない-form + でください. The で here is NOT a particle in the normal sense — it connects.",
   build:[{form:"Connection",verb:"V<sub>ナイ</sub> + で ください",de:"please not V"},{form:"Gr. I",verb:"<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>かないで ください",de:"please not to go"},{form:"Gr. II",verb:"<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べないで ください",de:"please not to eat"},{form:"🔄 vs. てください",verb:"V<sub>テ</sub> + ください = please TUN",de:"opposite (L14)"}],
   pattern:{slots:[{text:"V-ない",role:"verb"},{text:"で ください",role:"plain",label:"please not"}],gloss:"'please not [V].' — Negated please. Formation: Vない-form + で ください. ⚠ NOT Vないて (exists not!). In daily use also without ください: 〜ないで (same meaning, casual)."},
   ex:[{jp:"ここで <ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>らないで ください。",de:"please don't take photos here."},{jp:"<ruby>心配<rt>しんぱい</rt></ruby>しないで ください。",de:"Please don't worry."},{jp:"<ruby>遅<rt>おそ</rt></ruby>く <ruby>起<rt>お</rt></ruby>きないで ください。",de:"Please don't get up too late."}],
@@ -2493,12 +2493,12 @@ const CARDS = [
  {l:22, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby> + <ruby>時間<rt>じかん</rt></ruby>/<ruby>約束<rt>やくそく</rt></ruby>/<ruby>用事<rt>ようじ</rt></ruby>", de:"time/appointment/schedule, something to do", rule:"typical collocations: dictionary form-sentence + time-noun. Expresses that one time/appointment/something to do for a described activity.", build:[
   {form:"Vdict+時間 (time for …)",verb:"<ruby>食<rt>た</rt></ruby>べる <ruby>時間<rt>じかん</rt></ruby>",de:"time to the food"},
   {form:"Vdict+約束 (appointment to …)",verb:"<ruby>会<rt>あ</rt></ruby>う <ruby>約束<rt>やくそく</rt></ruby>",de:"appointment, to meet"},
-  {form:"Vdict+用事 (something to do)",verb:"<ruby>銀行<rt>ぎんこう</rt></ruby>へ <ruby>行<rt>い</rt></ruby>く <ruby>用事<rt>ようじ</rt></ruby>",de:"something to the bank to do"}
+  {form:"Vdict+用事 (something to do)",verb:"<ruby>銀行<rt>ぎんこう</rt></ruby>へ <ruby>行<rt>い</rt></ruby>く <ruby>用事<rt>ようじ</rt></ruby>",de:"something to do at the bank"}
  ], pattern:{slots:[{text:"V-辞書形",role:"verb"},{text:"時間/約束/用事",role:"obj",label:"time/appointment/schedule"},{text:"が あります",role:"verb"}],gloss:"'time/appointment/schedule to have, and [V] to do.' negation: 〜時間がありません."},
   ex:[  {jp:"<ruby>朝<rt>あさ</rt></ruby>ごはんを <ruby>食<rt>た</rt></ruby>べる <ruby>時間<rt>じかん</rt></ruby>が ありません。",de:"I have no time for breakfast."},
   {jp:"<ruby>明日<rt>あした</rt></ruby> <ruby>友達<rt>ともだち</rt></ruby>と <ruby>会<rt>あ</rt></ruby>う <ruby>約束<rt>やくそく</rt></ruby>が あります。",de:"morning I a appointment with a friend."},
-  {jp:"ちょっと <ruby>行<rt>い</rt></ruby>く <ruby>用事<rt>ようじ</rt></ruby>が あるんです。",de:"I there still something to do."}
- ], note:"💡 用事 is unspecific ('something to do', without details to mention) — useful for polite refusas. 約束 is more concrete (appointment with a person). 時間がありません = I have no time (for it)."},
+  {jp:"ちょっと <ruby>行<rt>い</rt></ruby>く <ruby>用事<rt>ようじ</rt></ruby>が あるんです。",de:"I still have something to do."}
+ ], note:"💡 用事 is unspecific ('something to do', without details to mention) — useful for polite refusals. 約束 is more concrete (appointment with a person). 時間がありません = I have no time (for it)."},
  {l:22, t:"が in the relative clause (subject-marker)", de:"が marks the subject in the relative clause", rule:"IMPORTANT: Within a relative clause is the subject with が marks (not は!). は is only in the main clause allowed. Also の is as variant possible (only in relative clauses).", build:[
   {form:"main clause: は",verb:"ミラーさんは ケーキを <ruby>作<rt>つく</rt></ruby>った",de:"Mr. Miller made the cake"},
   {form:"★ relative clause: が (not は!)",verb:"ミラーさんが <ruby>作<rt>つく</rt></ruby>った ケーキ",de:"the cake that Mr. Miller made"},
@@ -2548,7 +2548,7 @@ const CARDS = [
   {jp:"<ruby>橋<rt>はし</rt></ruby>を <ruby>渡<rt>わた</rt></ruby>って、<ruby>右<rt>みぎ</rt></ruby>へ <ruby>曲<rt>ま</rt></ruby>がって ください。",de:"cross the bridge and turn right."},
   {jp:"<ruby>毎朝<rt>まいあさ</rt></ruby> <ruby>公園<rt>こうえん</rt></ruby>を <ruby>散歩<rt>さんぽ</rt></ruby>します。",de:"Every morning I take a walk in the park."}
  ], note:"🔄 を (way/Strecke) vs. で (place to action). <ruby>公園<rt>こうえん</rt></ruby>で<ruby>走<rt>はし</rt></ruby>る = in the park to run (Action there) / <ruby>公園<rt>こうえん</rt></ruby>を<ruby>走<rt>はし</rt></ruby>る = through the park to run (Strecke). を-verbs are motion verbs: <ruby>渡<rt>わた</rt></ruby>る, <ruby>通<rt>とお</rt></ruby>る, <ruby>歩<rt>ある</rt></ruby>く, <ruby>走<rt>はし</rt></ruby>る, <ruby>飛<rt>と</rt></ruby>ぶ."},
- {l:24, t:"くれます", de:"someone gives ME/us", rule:"くれます = someone gives me/my family something (vs. あげます = I give away). giver is subject with は/が. recipient is ALWAYS 'I' or someone by my circle.", build:[
+ {l:24, t:"くれます", de:"someone gives ME/us", rule:"くれます = someone gives me/my family something (vs. あげます = I give away). giver is subject with は/が. recipient is ALWAYS 'I' or someone close to me.", build:[
   {form:"あげます (I → other)",verb:"<ruby>私<rt>わたし</rt></ruby>は <ruby>山田<rt>やまだ</rt></ruby>さんに <ruby>花<rt>はな</rt></ruby>を あげました",de:"I gave Yamada flowers"},
   {form:"もらいます (I receive)",verb:"<ruby>私<rt>わたし</rt></ruby>は <ruby>山田<rt>やまだ</rt></ruby>さんに <ruby>花<rt>はな</rt></ruby>を もらいました",de:"I became by Yamada flowers"},
   {form:"くれます (other → I)",verb:"<ruby>山田<rt>やまだ</rt></ruby>さんが [<ruby>私<rt>わたし</rt></ruby>に] <ruby>花<rt>はな</rt></ruby>を くれました",de:"Yamada gave ME flowers"}
@@ -2655,7 +2655,7 @@ const CARDS = [
   ex:[{jp:"<ruby>私<rt>わたし</rt></ruby>は <ruby>漢字<rt>かんじ</rt></ruby><b>が</b> <ruby>読<rt>よ</rt></ruby>めます。",de:"I can read Kanji."},{jp:"<ruby>刺身<rt>さしみ</rt></ruby><b>が</b> <ruby>食<rt>た</rt></ruby>べられますか。",de:"Can you eat sashimi?"},{jp:"<ruby>明日<rt>あした</rt></ruby> <ruby>来<rt>こ</rt></ruby>られません。",de:"I cannot come tomorrow."},{jp:"<ruby>速<rt>はや</rt></ruby>く <ruby>走<rt>はし</rt></ruby>れます。",de:"I can run quickly."}],
   note:"⚠️ Gr. II-form (食べられる) is IDENTICAL with passive (L37) and respectful Keigo (L49) — the Context decides. 💡 In modern colloquial hears one often the 'ら' gone: 食べれる, 見れる ('ら抜き言葉'), applies but as improper."},
  {l:27, t:"<ruby>見<rt>み</rt></ruby>えます / <ruby>聞<rt>き</rt></ruby>こえます", de:"can see (spontaneously) / can hear (spontaneously)",
-  rule:"Spontaneous perception — something IS visible/audible, without that one active something for it does. In contrast to 見られる/聞ける (Potential), where one can actively watch/listen.",
+  rule:"Spontaneous perception — something IS visible/audible, without one actively doing anything for it. In contrast to 見られる/聞ける (Potential), where one can actively watch/listen.",
   build:[{form:"visible to be",verb:"N が <ruby>見<rt>み</rt></ruby>えます",de:"N is visible (spontaneously)"},{form:"audible to be",verb:"N が <ruby>聞<rt>き</rt></ruby>こえます",de:"N is audible (spontaneously)"},{form:"⚠ vs. Potential",verb:"N が <ruby>見<rt>み</rt></ruby>られます",de:"one CAN see N (actively)"},{form:"⚠ vs. Potential",verb:"N が <ruby>聞<rt>き</rt></ruby>けます",de:"one CAN hear N (actively)"}],
   pattern:{slots:[{text:"(place)から",role:"place",label:"where"},{text:"N",role:"subj",label:"was"},{text:"が",role:"plain"},{text:"見えます/聞こえます",role:"verb",label:"appears/sounds"}],gloss:"'From [place] by is [N] visible/audible.' — observation happens by itself, without effort."},
   ex:[{jp:"ここから <ruby>海<rt>うみ</rt></ruby><b>が</b> <ruby>見<rt>み</rt></ruby>えます。",de:"From here one sees the sea."},{jp:"<ruby>富士山<rt>ふじさん</rt></ruby><b>が</b> <ruby>見<rt>み</rt></ruby>えません。",de:"Mt. Fuji one sees not."},{jp:"<ruby>隣<rt>となり</rt></ruby>の <ruby>部屋<rt>へや</rt></ruby>から <ruby>音楽<rt>おんがく</rt></ruby><b>が</b> <ruby>聞<rt>き</rt></ruby>こえます。",de:"From next door one always hears music."}],
