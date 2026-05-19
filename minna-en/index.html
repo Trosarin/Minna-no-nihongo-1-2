@@ -1931,7 +1931,7 @@ const CARDS = [
   ex:[{jp:"トイレは どこですか。",de:"Where is the toilet?"},{jp:"お<ruby>国<rt>くに</rt></ruby>は どちらですか。",de:"Which country are you from?"},{jp:"<ruby>会社<rt>かいしゃ</rt></ruby>は どちらですか。",de:"For which company do you work?"}],
   note:"💡 どちら is more formal than どこ — in business situations almost always どちら preferred. For the question about the country of origin is お国は どちら quickly already mandatory."},
  {l:3, t:"N₁ の N₂ (origin/manufacturer)", de:"N₂ by/by N₁ (origin)",
-  rule:"の marks origin or country of manufacture of a products. syntactic identical to L1-の (possession/belonging), here but with focus on country/brand of origin.",
+  rule:"の marks origin or country of manufacture of a product. Syntactically identical to L1-の (possession/belonging), but here with focus on country/brand of origin.",
   build:[{form:"country of origin",verb:"ドイツの <ruby>車<rt>くるま</rt></ruby>",de:"car by Germany"},{form:"manufacturer",verb:"ソニーの カメラ",de:"Sony-camera"},{form:"language",verb:"<ruby>日本語<rt>にほんご</rt></ruby>の <ruby>本<rt>ほん</rt></ruby>",de:"Japanese book"}],
   pattern:{slots:[{text:"origin N₁",role:"actor",label:"country/Marke"},{text:"の",role:"plain"},{text:"product N₂",role:"obj"}],gloss:"'N₂ by/by N₁.' — origin or manufacturer."},
   ex:[{jp:"これは ドイツの <ruby>車<rt>くるま</rt></ruby>です。",de:"The is a car by Germany."},{jp:"<ruby>日本<rt>にほん</rt></ruby>の カメラは <ruby>有名<rt>ゆうめい</rt></ruby>です。",de:"Japanese cameras are famous."},{jp:"これは どこの <ruby>時計<rt>とけい</rt></ruby>ですか。— スイスのです。",de:"From which country is this clock? — From Switzerland."}],
@@ -2407,7 +2407,7 @@ const CARDS = [
   {jp:"ミラーさんは もう <ruby>帰<rt>かえ</rt></ruby>ったと <ruby>思<rt>おも</rt></ruby>います。",de:"I think Mr. Miller has already gone home."},
   {jp:"それは <ruby>難<rt>むずか</rt></ruby>しいと <ruby>思<rt>おも</rt></ruby>いません。",de:"I don't think that's difficult."}
  ], note:"⚠️ For な-Adj and noun MUST だ before と stand! 学生と思います is WRONG → 学生<b>だ</b>と思います."},
- {l:21, t:"「…」と <ruby>言<rt>い</rt></ruby>います", de:"He has said: '…'", rule:"Bericht about statement — directly or indirectly. Direct speech: '<b>「Original text」</b>と <ruby>言<rt>い</rt></ruby>いました' (exact words in 「 」). Indirect speech: '<b>plain form</b> + と <ruby>言<rt>い</rt></ruby>いました' (reproduced in content). ⚠ For な-Adj and N: <b>だ</b> not forget before と! <ruby>学生<rt>がくせい</rt></ruby><b>だ</b>と <ruby>言<rt>い</rt></ruby>いました.", build:[
+ {l:21, t:"「…」と <ruby>言<rt>い</rt></ruby>います", de:"He has said: '…'", rule:"Report about statement — directly or indirectly. Direct speech: '<b>「Original text」</b>と <ruby>言<rt>い</rt></ruby>いました' (exact words in 「 」). Indirect speech: '<b>plain form</b> + と <ruby>言<rt>い</rt></ruby>いました' (reproduced in content). ⚠ For な-Adj and N: <b>だ</b> not forget before と! <ruby>学生<rt>がくせい</rt></ruby><b>だ</b>と <ruby>言<rt>い</rt></ruby>いました.", build:[
   {form:"Direct speech",verb:"「…」+ と <ruby>言<rt>い</rt></ruby>います",de:"says: \"…\""},
   {form:"Indirect speech",verb:"plain form + と <ruby>言<rt>い</rt></ruby>います",de:"says that …"},
   {form:"Direct",verb:"ミラーさんは「<ruby>行<rt>い</rt></ruby>きます」と <ruby>言<rt>い</rt></ruby>いました",de:"M. said: \"I'm going\""},
@@ -2754,7 +2754,7 @@ const CARDS = [
   rule:"Complete form (extension from L7). もう + V ました = something is yet. まだ + V ていません = it stands still by, is but still happen. ⚠️ NOT まだ V ませんでした!",
   build:[{form:"yet",verb:"もう V ました",de:"have already V before"},{form:"not yet (stands by)",verb:"まだ V ていません",de:"have not yet V"},{form:"⚠ WRONG",verb:"まだ V ませんでした",de:"NOT use!"},{form:"vs. (of all not before)",verb:"V ませんでした",de:"has not V (currently)"}],
   pattern:{slots:[[{text:"もう",role:"time",label:"already"},{text:"V-ました",role:"verb",label:"completed"}],[{text:"まだ",role:"time",label:"not yet"},{text:"V-て いません",role:"verb",label:"stands by"}]],gloss:"Two Pole: もう…ました (positive completed) ↔ まだ…ていません (open, comes still)."},
-  ex:[{jp:"もう <ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べましたか。— はい、<b>もう</b> <ruby>食<rt>た</rt></ruby>べました。",de:"Have you already had lunch? — Yes, already."},{jp:"いいえ、<b>まだ</b> <ruby>食<rt>た</rt></ruby>べて いません。",de:"No, not yet (werde I but)."},{jp:"レポートは <b>まだ</b> <ruby>書<rt>か</rt></ruby>いて いません。",de:"Den Bericht I not yet written."}],
+  ex:[{jp:"もう <ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べましたか。— はい、<b>もう</b> <ruby>食<rt>た</rt></ruby>べました。",de:"Have you already had lunch? — Yes, already."},{jp:"いいえ、<b>まだ</b> <ruby>食<rt>た</rt></ruby>べて いません。",de:"No, not yet (but I will)."},{jp:"レポートは <b>まだ</b> <ruby>書<rt>か</rt></ruby>いて いません。",de:"I haven't written the report yet."}],
   note:"⚠️ Frequent mistake: まだ <ruby>食<rt>た</rt></ruby>べませんでした is WRONG. Correct: まだ <ruby>食<rt>た</rt></ruby>べて いません."},
  {l:31, t:"V つもりです / V ない つもりです", de:"I (not) the intention to …",
   rule:"Clear, firm intention — firmr as と思っています. positive: 辞書形+つもりです. Negative: ない形+つもりです (intention, NOT to do).",
@@ -3072,7 +3072,7 @@ const CARDS = [
   rule:"effort for a activity. のに + 時間/お金/etc. + が かかります. Describes like much time or money the action needs.",
   build:[{form:"verb",verb:"V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + のに",de:"in order to V"},{form:"noun",verb:"N + のに",de:"for N"},{form:"+ <ruby>時間<rt>じかん</rt></ruby>がかかる",verb:"requires time",de:"time effort"},{form:"+ お<ruby>金<rt>かね</rt></ruby>がかかる",verb:"costs money",de:"cost"}],
   pattern:{slots:[{text:"V-辞書 / N",role:"verb",label:"Action"},{text:"のに",role:"actor"},{text:"effort",role:"obj",label:"time/money"},{text:"が かかります",role:"verb"}],gloss:"'[V] requires/costs [time/money].' — effort-description."},
-  ex:[{jp:"この <ruby>仕事<rt>しごと</rt></ruby>を するのに <ruby>2時間<rt>にじかん</rt></ruby> かかります。",de:"This work requires two hours."},{jp:"<ruby>留学<rt>りゅうがく</rt></ruby>するのに たくさん お<ruby>金<rt>かね</rt></ruby>が かかります。",de:"A studying abroad costs much money."},{jp:"この レポートを <ruby>書<rt>か</rt></ruby>くのに <ruby>1週間<rt>いっしゅうかん</rt></ruby> かかりました。",de:"This Bericht to write has a week gedauert."}],
+  ex:[{jp:"この <ruby>仕事<rt>しごと</rt></ruby>を するのに <ruby>2時間<rt>にじかん</rt></ruby> かかります。",de:"This work requires two hours."},{jp:"<ruby>留学<rt>りゅうがく</rt></ruby>するのに たくさん お<ruby>金<rt>かね</rt></ruby>が かかります。",de:"Studying abroad costs a lot of money."},{jp:"この レポートを <ruby>書<rt>か</rt></ruby>くのに <ruby>1週間<rt>いっしゅうかん</rt></ruby> かかりました。",de:"Writing this report took a week."}],
   note:"💡 Common variant with に instead のに: <ruby>東京<rt>とうきょう</rt></ruby>から <ruby>京都<rt>きょうと</rt></ruby>まで に <ruby>2時間<rt>にじかん</rt></ruby> かかる = from Tokyo topic Kyoto requires it 2 hours."},
  {l:42, t:"V-マス-stem/N + に + <ruby>行<rt>い</rt></ruby>く/<ruby>来<rt>く</rt></ruby>る/<ruby>帰<rt>かえ</rt></ruby>る", de:"Extended purpose with movement",
   rule:"Review/extension from L13: movement with purpose. ます-stem + に + 行く/来る/帰る. Also with activity: スーパーへ <ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に <ruby>行<rt>い</rt></ruby>く.",
@@ -3084,7 +3084,7 @@ const CARDS = [
   rule:"quantity specification + は = minimum: 'at least X', 'at least X'. In the positive sentence expresses it a approximate lower limit by.",
   build:[{form:"Connection",verb:"quantity specification + は",de:"at least X"},{form:"vs. quantities + も",verb:"も = surprisingly much (see next card)",de:"high quantity"},{form:"vs. only quantities",verb:"neutral statement",de:"no evaluation"}],
   pattern:{slots:[{text:"Action",role:"verb"},{text:"のに",role:"plain"},{text:"quantity",role:"time",label:"at least"},{text:"は",role:"actor",label:"min."},{text:"かかります/<ruby>必要<rt>ひつよう</rt></ruby>",role:"verb"}],gloss:"'Mindestens [quantity].' — the lower limit, could also more to be."},
-  ex:[{jp:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>くのに、<ruby>10万円<rt>じゅうまんえん</rt></ruby>は かかります。",de:"In order to Japan to go, requires one at least 100.000 Yen."},{jp:"<ruby>毎日<rt>まいにち</rt></ruby> <ruby>1時間<rt>いちじかん</rt></ruby>は <ruby>勉強<rt>べんきょう</rt></ruby>して います。",de:"I learn at least a hour at the day."},{jp:"レポートを <ruby>書<rt>か</rt></ruby>くのに、<ruby>1週間<rt>いっしゅうかん</rt></ruby>は <ruby>必要<rt>ひつよう</rt></ruby>です。",de:"For the Bericht requires one at least a week."}],
+  ex:[{jp:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>くのに、<ruby>10万円<rt>じゅうまんえん</rt></ruby>は かかります。",de:"To go to Japan, one needs at least 100,000 Yen."},{jp:"<ruby>毎日<rt>まいにち</rt></ruby> <ruby>1時間<rt>いちじかん</rt></ruby>は <ruby>勉強<rt>べんきょう</rt></ruby>して います。",de:"I study at least one hour a day."},{jp:"レポートを <ruby>書<rt>か</rt></ruby>くのに、<ruby>1週間<rt>いっしゅうかん</rt></ruby>は <ruby>必要<rt>ひつよう</rt></ruby>です。",de:"For the report, one needs at least a week."}],
   note:"💡 Rule of thumb: quantity + は = 'at least' (lower limit). quantity + も = 'even so much' (surprisingly high)."},
  {l:42, t:"qualifier + も (surprisingly much)", de:"even / as much as (surprisingly)",
   rule:"quantity specification + も = surprisingly high quantity: 'even so much', 'whole X'. Expresses that the speaker this quantity as high/surprisingly perceives.",
@@ -3153,7 +3153,7 @@ const CARDS = [
   ex:[{jp:"<ruby>毎日<rt>まいにち</rt></ruby> <ruby>勉強<rt>べんきょう</rt></ruby>して いる<b>のに</b>、なかなか <ruby>上手<rt>じょうず</rt></ruby>に なりません。",de:"Although I study every day, I'm not getting betterr."},{jp:"<ruby>約束<rt>やくそく</rt></ruby>した<b>のに</b>、<ruby>彼<rt>かれ</rt></ruby>は <ruby>来<rt>き</rt></ruby>ませんでした。",de:"Although we it veinbart had, came won't."},{jp:"<ruby>日曜日<rt>にちようび</rt></ruby>な<b>のに</b>、<ruby>働<rt>はたら</rt></ruby>かなければ なりません。",de:"Although Sunday is, must I work."}],
   note:"🔄 Compare が/けど vs. のに: が/けど = neutral 'but'. のに = emotional 'although (against expectation)'. More dissatisfaction/amazement."},
  {l:45, t:"V-Plain + はずでした / はずだったのに", de:"Was supposed to … (but)",
-  rule:"Past tense of はずです (L46). Expresses: 'actually X should/would have to be the case, BUT it stopped out differently'. Frequent combined with のに, and unfulfilled expectation mark clearly. Reproach, disappointent, surprise.",
+  rule:"Past tense of はずです (L46). Expresses: 'X should have been the case, BUT it turned out differently.' Often combined with のに to clearly mark an unfulfilled expectation. Reproach, disappointment, surprise.",
   build:[{form:"expectation in Past tense",verb:"V<sub><ruby>普通形<rt>ふつうけい</rt></ruby></sub> + はずでした",de:"was supposed to V"},{form:"+ のに reinforced",verb:"V-<ruby>普通形<rt>ふつうけい</rt></ruby> + はずだった のに、…",de:"was supposed to, but …"},{form:"な-Adj/N",verb:"な-Adj-な / N-の + はずでした",de:"<ruby>静<rt>しず</rt></ruby>かな はずでした"},{form:"🔄 vs. はずです (L46)",verb:"L46: present (should)",de:"L45: Past tense (was supposed to, but …)"}],
   pattern:{slots:[{text:"expectation",role:"cond",label:"should be"},{text:"はずだった のに、",role:"actor",label:"but yet not"},{text:"reality",role:"verb",label:"unexpected"}],gloss:"'[A] was supposed to happen, but [B] turned out instead.' — failed expectation, often with disappointment."},
   ex:[{jp:"<ruby>会議<rt>かいぎ</rt></ruby>は <ruby>2時<rt>にじ</rt></ruby>に <ruby>始<rt>はじ</rt></ruby>まる <b>はずでした</b>が、<ruby>3時<rt>さんじ</rt></ruby>に なりました。",de:"The meeting was supposed to start at 2 o'clock, but it was postponed to 3."},{jp:"きょうは <ruby>休<rt>やす</rt></ruby>みの <b>はずだったのに</b>、<ruby>仕事<rt>しごと</rt></ruby>に <ruby>呼<rt>よ</rt></ruby>ばれました。",de:"Today was supposed to be my day off, but I was called in to work."},{jp:"<ruby>田中<rt>たなか</rt></ruby>さんは <ruby>来<rt>く</rt></ruby>る <b>はずでした</b>が、<ruby>来<rt>き</rt></ruby>ませんでした。",de:"Mr. Tanaka was supposed to come, but he didn't."}],
@@ -4061,11 +4061,11 @@ function renderCompare() {
  // Checks whether the Particle to position pos in the cleanJp actually a freistandings Particle is
  // (not part of a word like かばん, ベル, よって, 学校で → yes okay)
  function isStandalone(cleanJp, pos, particle) {
-  // Before the Particle: must Kanji, Hiragana-word-ending or bracket to be
-  // After the particle: must space, end of sentence, Kanji, or comma
+  // Before the particle: must be Kanji, Hiragana word-ending, or bracket
+  // After the particle: must be space, end of sentence, Kanji, or comma
   const before = pos > 0 ? cleanJp[pos - 1] : '';
   const after = pos + particle.length < cleanJp.length ? cleanJp[pos + particle.length] : '';
-  // After-the-particle-exam: must space, comma, Kanji, end of sentence, period, or bracket
+  // After-the-particle check: must be space, comma, Kanji, end of sentence, period, or bracket
   // Hiragana afterwards = WAHRSCHEINLICH inside of a word (e.g., かばん, よって)
   const isKanji = (ch) => /[\u4E00-\u9FFF]/.test(ch);
   const isHiragana = (ch) => /[\u3040-\u309F]/.test(ch);
