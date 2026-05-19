@@ -271,7 +271,7 @@ animation:slideInFromRight .45s cubic-bezier(.4,.05,.2,1) forwards;
 60%{opacity:1}
 100%{transform:translateX(0);opacity:1}
 }
-/* Hover hint only on deskannp, not on touch */
+/* Hover hint only on desktop, not on touch */
 @media(hover:hover){
 .card:not(.flipped):hover{
 transform:translateY(-2px);
@@ -1294,7 +1294,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
 </head>
 <body>
 
-<!-- book-Wechsler + Sprach-Tabs -->
+<!-- book switcher + language tabs -->
 
 <div class="book-tabs">
  <a class="book-tab active" href="/Minna-no-nihongo-1-2/minna/">📕 みんなの日本語</a>
@@ -1471,7 +1471,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
  <div class="cheat" id="cheat-keigo">
   <h2>Keigo verbs table (<ruby>尊敬語<rt>そんけいご</rt></ruby> ⇆ <ruby>謙譲語<rt>けんじょうご</rt></ruby>)</h2>
   <table class="cheat-table">
-   <thead><tr><th>verb</th><th><ruby>尊敬語<rt>そんけいご</rt></ruby><br><span class="hint" style="color:#fff">respect (other)</span></th><th><ruby>謙譲語<rt>けんじょうご</rt></ruby><br><span class="hint" style="color:#fff">Bescheiden (I)</span></th></tr></thead>
+   <thead><tr><th>verb</th><th><ruby>尊敬語<rt>そんけいご</rt></ruby><br><span class="hint" style="color:#fff">respect (other)</span></th><th><ruby>謙譲語<rt>けんじょうご</rt></ruby><br><span class="hint" style="color:#fff">humble (I)</span></th></tr></thead>
    <tbody>
    <tr><td>いる/<ruby>行<rt>い</rt></ruby>く/<ruby>来<rt>く</rt></ruby>る</td><td><span class="jp">いらっしゃる</span></td><td><span class="jp">おる / <ruby>参<rt>まい</rt></ruby>る / <ruby>伺<rt>うかが</rt></ruby>う</span></td></tr>
    <tr><td>する</td><td><span class="jp">なさる</span></td><td><span class="jp">いたす</span></td></tr>
@@ -1831,7 +1831,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
    <div class="quiz-translation" id="quizTrandlation"></div>
    <div class="quiz-options" id="quizoptions"></div>
    <div class="quiz-feedback hidden" id="quizFeedback"></div>
-   <button class="quiz-next-btn hidden" id="quizNextBtn">Farer →</button>
+   <button class="quiz-next-btn hidden" id="quizNextBtn">Next →</button>
   </div>
   <!-- Result-screen -->
   <div class="quiz-result hidden" id="quizResult">
@@ -1898,7 +1898,7 @@ const CARDS = [
   rule:"confirmation or negation of a statement about a noun. compact system for yes/no reactions to です-sentences.",
   build:[{form:"confirmation",verb:"はい、そうです",de:"yes, that's right"},{form:"negation",verb:"いいえ、そうじゃ ありません",de:"no, the right not"},{form:"⚠ only for noun",verb:"for adjective/V → 〜ですか — はい/いいえ",de:"そう does not always fit"}],
   pattern:{slots:[{text:"〜 ですか",role:"cond",label:"Question"},{text:"はい、そうです",role:"verb",label:"confirmation"}],gloss:"'Yes, that's right.' — compact Answer on N₁は N₂ですか."},
-  ex:[{jp:"それは <ruby>辞書<rt>じしょ</rt></ruby>ですか。— はい、そうです。",de:"Is this a dictionary? — Yes, it is."},{jp:"ミラーさんは <ruby>学生<rt>がくせい</rt></ruby>ですか。— いいえ、そうじゃ ありません。<ruby>会社員<rt>かいしゃいん</rt></ruby>です。",de:"Is Mr. Miller a student? — No. He is company employee."},{jp:"あれは <ruby>新幹線<rt>しんかんせん</rt></ruby>ですか。— はい、そうです。",de:"Is that the Mr. Sherekanden? — Yes, it is."}],
+  ex:[{jp:"それは <ruby>辞書<rt>じしょ</rt></ruby>ですか。— はい、そうです。",de:"Is this a dictionary? — Yes, it is."},{jp:"ミラーさんは <ruby>学生<rt>がくせい</rt></ruby>ですか。— いいえ、そうじゃ ありません。<ruby>会社員<rt>かいしゃいん</rt></ruby>です。",de:"Is Mr. Miller a student? — No. He is company employee."},{jp:"あれは <ruby>新幹線<rt>しんかんせん</rt></ruby>ですか。— はい、そうです。",de:"Is that the Shinkansen? — Yes, it is."}],
   note:"💡 そうです can also 'that's right / I heard it' mean (Context decides). In the reaction context here always confirmation."},
  {l:2, t:"N₁ですか、N₂ですか", de:"Is it N₁ or N₂? (selection question)",
   rule:"Offers two options for selection. Answer repeats the chosen option without はい/いいえ — the would be at selection questions wrong.",
@@ -1907,11 +1907,11 @@ const CARDS = [
   ex:[{jp:"これは ペンですか、シャープペンシルですか。— シャープペンシルです。",de:"Is this a pen or a mechanical pencil? — A mechanical pencil."},{jp:"ミラーさんは アメリカ<ruby>人<rt>じん</rt></ruby>ですか、イギリス<ruby>人<rt>じん</rt></ruby>ですか。— アメリカ<ruby>人<rt>じん</rt></ruby>です。",de:"Is Mr. Miller American or British? — American."},{jp:"コーヒーですか、<ruby>紅茶<rt>こうちゃ</rt></ruby>ですか。— <ruby>紅茶<rt>こうちゃ</rt></ruby>を お<ruby>願<rt>ねが</rt></ruby>いします。",de:"coffee or tea? — tea please."}],
   note:"⚠️ For selection questions NEVER with はい/いいえ answer — simply the choice mention. 'はい、シャープペンシルです' sounds strange."},
  {l:2, t:"N₁ の (N₂<ruby>省略<rt>しょうりゃく</rt></ruby>)", de:"N₂ can be omitted — の stands alone",
-  rule:"When the reference noun by the Context clear is, can it after の omit. の takes over then the role by 'the/the/the by …' or 'mys/yours'.",
+  rule:"When the reference noun by the Context clear is, can it after の omit. の takes over then the role of 'the one of …' or 'mine/yours'.",
   build:[{form:"with N₂",verb:"<ruby>私<rt>わたし</rt></ruby>の かばん",de:"my bag"},{form:"N₂ omitted",verb:"<ruby>私<rt>わたし</rt></ruby>のです",de:"(it) is mys"},{form:"Question",verb:"だれのですか",de:"Whose is it?"}],
   pattern:{slots:[{text:"N₁",role:"actor",label:"possessor"},{text:"の",role:"plain",label:"= mys/yours"},{text:"(N₂ omitted)",role:"obj",label:"implicit"},{text:"です",role:"verb"}],gloss:"'[It] is N₁'s.' — の as placeholder of the already known noun."},
   ex:[{jp:"この かばんは <ruby>私<rt>わたし</rt></ruby>のです。",de:"This bag is my."},{jp:"あの <ruby>本<rt>ほん</rt></ruby>は ミラーさんのです。",de:"That book is Millers."},{jp:"これは だれのですか。— <ruby>田中<rt>たなか</rt></ruby>さんのです。",de:"Whose is this? — It belongs to Ms. Tanaka."}],
-  note:"💡 の at the end of the sentence (Nominalpartikel/Proneminalpartikel) is a the most frequently Satzstrukturen in the everyday language — absolutely internalize."},
+  note:"💡 の at the end of the sentence (nominalization particle) is one of the most frequent sentence structures in everyday language — absolutely internalize."},
  {l:3, t:"ここ / そこ / あそこ", de:"here / there / there over there (place)",
   rule:"place specification: ここ = for the speaker, そこ = for the listener/close listener, あそこ = far by both. More polite variant: こちら/そちら/あちら.",
   build:[{form:"ここ",verb:"<ruby>私<rt>わたし</rt></ruby>の そばの <ruby>場所<rt>ばしょ</rt></ruby>",de:"at the speaker"},{form:"そこ",verb:"<ruby>相手<rt>あいて</rt></ruby>の そばの <ruby>場所<rt>ばしょ</rt></ruby>",de:"at the listener"},{form:"あそこ",verb:"どちらからも <ruby>遠<rt>とお</rt></ruby>い <ruby>場所<rt>ばしょ</rt></ruby>",de:"far by both"},{form:"どこ",verb:"Question",de:"Where?"},{form:"polite",verb:"こちら / そちら / あちら",de:"in formal situations"}],
@@ -2105,13 +2105,13 @@ const CARDS = [
   ex:[{jp:"テーブルの <ruby>上<rt>うえ</rt></ruby>に <ruby>本<rt>ほん</rt></ruby>が あります。",de:"On the table is a book."},{jp:"<ruby>庭<rt>にわ</rt></ruby>に <ruby>猫<rt>ねこ</rt></ruby>が います。",de:"In the garden is a cat."},{jp:"だれも いません。",de:"There is no one there."}],
   note:"⚠️ animacy decides: people+animals → います. things+plants → あります. borderline case: Robot (います — feels like a person to). company (あります — not animate)."},
  {l:10, t:"(place) に N が あります/います", de:"At (place) is N",
-  rule:"When something NEU is introduced: place に + thing/person が + あります/います. order: place first, then the now.",
+  rule:"When something NEU is introduced: place に + thing/person が + あります/います. order: place first, then the new item.",
   build:[{form:"newly introduced",verb:"<ruby>駅<rt>えき</rt></ruby>の <ruby>前<rt>まえ</rt></ruby>に <ruby>銀行<rt>ぎんこう</rt></ruby>が あります",de:"Before the station is a bank"},{form:"vs. は-version",verb:"<ruby>銀行<rt>ぎんこう</rt></ruby>は <ruby>駅<rt>えき</rt></ruby>の <ruby>前<rt>まえ</rt></ruby>に あります",de:"The bank is before the station (known)"}],
   pattern:{slots:[{text:"place",role:"place"},{text:"に",role:"plain"},{text:"N (new)",role:"subj"},{text:"が",role:"plain"},{text:"あります/います",role:"verb"}],gloss:"'An [place] gives it [N (now introduced)].'"},
   ex:[{jp:"<ruby>駅<rt>えき</rt></ruby>の <ruby>前<rt>まえ</rt></ruby>に <ruby>銀行<rt>ぎんこう</rt></ruby>が あります。",de:"Before the station is a bank."},{jp:"<ruby>事務所<rt>じむしょ</rt></ruby>に だれか いますか。",de:"Is someone in the office?"},{jp:"<ruby>公園<rt>こうえん</rt></ruby>に <ruby>子供<rt>こども</rt></ruby>たちが います。",de:"In the park are children."}],
   note:"🔄 N に が-あります (new): the new information stands with が. N は に-あります (known): the known thing is the topic with は. Both sentences are correct, different focus."},
  {l:10, t:"N は (place) に あります/います", de:"N is located at (place)",
-  rule:"When the THING/the PERSON already is known, it is to the topic with は. order: known N は + place に + あります/います.",
+  rule:"When the THING/the PERSON already is known, it becomes the topic with は. order: known N は + place に + あります/います.",
   build:[{form:"known N",verb:"<ruby>東京駅<rt>とうきょうえき</rt></ruby>は どこに ありますか",de:"Where is Tokyo Station?"},{form:"Answer",verb:"〜に あります",de:"is to/in …"},{form:"vs. が-version",verb:"New/unbecause → place に N が",de:"known → N は place に"}],
   pattern:{slots:[{text:"N (known)",role:"subj"},{text:"は",role:"plain"},{text:"place",role:"place"},{text:"に",role:"plain"},{text:"あります/います",role:"verb"}],gloss:"'[N] is located at [place].' — mirroring: first N (known, with は), then place (now, with に + あります/います). Answer on 'where is N?'."},
   ex:[{jp:"<ruby>東京駅<rt>とうきょうえき</rt></ruby>は どこに ありますか。",de:"Where is Tokyo Station?"},{jp:"ミラーさんは <ruby>事務所<rt>じむしょ</rt></ruby>に います。",de:"Mr. Miller is in the office."},{jp:"<ruby>辞書<rt>じしょ</rt></ruby>は つくえの <ruby>上<rt>うえ</rt></ruby>に あります。",de:"The dictionary is on the desk."}],
@@ -2319,7 +2319,7 @@ const CARDS = [
  {l:19, t:"V た ことが あります", de:"I already times …", rule:"experience in the Past tense. Expresses that one something at least once done has. negation: た こと が ありません.", build:[
   {form:"Connection",verb:"V<sub>タ</sub> + ことが あります",de:"have already times V done (experience)"},
   {form:"Negated",verb:"V<sub>タ</sub> + ことが ありません",de:"have never V before"},
-  {form:"Question",verb:"V<sub>タ</sub> + ことが ありますか",de:"hast you already times V before?"},
+  {form:"Question",verb:"V<sub>タ</sub> + ことが ありますか",de:"have you ever done V before?"},
   {form:"Example",verb:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>った ことが あります",de:"War already times in Japan"},
   {form:"Negated",verb:"<ruby>寿司<rt>すし</rt></ruby>を <ruby>食<rt>た</rt></ruby>べた ことが ありません",de:"Have never Sushi eaten"}
  ], pattern:{slots:[{text:"V-た",role:"verb"},{text:"ことが あります",role:"plain",label:"experience"}],gloss:"'Have already times [V].' — た-form + ことがあります = experience. negation: ことがありません."},
@@ -2425,7 +2425,7 @@ const CARDS = [
   {form:"な-Adj",verb:"<ruby>元気<rt>げんき</rt></ruby> でしょう?",de:"healthy, or? (NO だ!)"},
   {form:"noun",verb:"<ruby>学生<rt>がくせい</rt></ruby> でしょう?",de:"Student, or? (NO だ!)"}
  ], pattern:{slots:[{text:"plain form (WITHOUT だ!)",role:"verb"},{text:"でしょう?",role:"plain",label:"…or? ↑"}],gloss:"'…not true? / …or?' — confirmation question with rising intonation. For な-Adj/N: NO だ!"},
-  ex:[  {jp:"<ruby>明日<rt>あした</rt></ruby>は <ruby>休<rt>やす</rt></ruby>みでしょう?",de:"morning hast you free, or?"},
+  ex:[  {jp:"<ruby>明日<rt>あした</rt></ruby>は <ruby>休<rt>やす</rt></ruby>みでしょう?",de:"Tomorrow you have off, right?"},
   {jp:"あの<ruby>映画<rt>えいが</rt></ruby>は おもしろかったでしょう?",de:"The film was interesting, or?"},
   {jp:"ミラーさんは もう <ruby>知<rt>し</rt></ruby>っているでしょう?",de:"Mr. Miller knew it though already, or?"}
  ], note:"⚠️ For な-Adj and noun NEVER だ before でしょう! 学生<b>だ</b>でしょう is WRONG. 🔄 Without question mark/rising intonation = presumption: 明日は雨でしょう = It is tomorrow probably rain."},
@@ -2473,7 +2473,7 @@ const CARDS = [
   {form:"verb-RS present tense",verb:"<ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>く <ruby>人<rt>ひと</rt></ruby>",de:"the person, the go to Kyotos"},
   {form:"verb-RS Negated",verb:"<ruby>行<rt>い</rt></ruby>かない <ruby>人<rt>ひと</rt></ruby>",de:"the person, twon't goes"},
   {form:"Compare Deutsch",verb:"[sentence] N",de:"order: first description, DANN noun"}
- ], pattern:{slots:[{text:"[Plain-sentence]",role:"cond",label:"description"},{text:"N",role:"obj",label:"main noun"}],gloss:"'[description]+noun' — no Relativepronemen, no comma. subject in the relative clause with が!"},
+ ], pattern:{slots:[{text:"[Plain-sentence]",role:"cond",label:"description"},{text:"N",role:"obj",label:"main noun"}],gloss:"'[description]+noun' — no relative pronoun, no comma. subject in the relative clause with が!"},
   ex:[  {jp:"これは ミラーさんが <ruby>作<rt>つく</rt></ruby>った ケーキです。",de:"This is the cake that Mr. Miller made."},
   {jp:"<ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>く <ruby>人<rt>ひと</rt></ruby>は <ruby>誰<rt>だれ</rt></ruby>ですか。",de:"Who is the person, the go to Kyotos?"},
   {jp:"<ruby>昨日<rt>きのう</rt></ruby> <ruby>会<rt>あ</rt></ruby>った <ruby>人<rt>ひと</rt></ruby>は <ruby>医者<rt>いしゃ</rt></ruby>です。",de:"The person I I met yesterday, is a doctor."}
@@ -2490,11 +2490,11 @@ const CARDS = [
   {jp:"<ruby>有名<rt>ゆうめい</rt></ruby>な お<ruby>寺<rt>てら</rt></ruby>を <ruby>見<rt>み</rt></ruby>ました。",de:"I a famous temple seen."},
   {jp:"これは <ruby>日本<rt>にほん</rt></ruby>で <ruby>作<rt>つく</rt></ruby>られた <ruby>車<rt>くるま</rt></ruby>です。",de:"The is a in Japan madees car."}
  ], note:"💡 Rule of thumb: verb/い-Adj directly before. な-Adj requires な. noun requires の. For negation the な-Adj/noun: じゃない (NOT じゃ ありません!)."},
- {l:22, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby> + <ruby>時間<rt>じかん</rt></ruby>/<ruby>約束<rt>やくそく</rt></ruby>/<ruby>用事<rt>ようじ</rt></ruby>", de:"time/appointment/Termin, something to do", rule:"typical Kollokationen: dictionary form-sentence + time-noun. Expresses that one time/appointment/Something to do HAT for a describee activity.", build:[
+ {l:22, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby> + <ruby>時間<rt>じかん</rt></ruby>/<ruby>約束<rt>やくそく</rt></ruby>/<ruby>用事<rt>ようじ</rt></ruby>", de:"time/appointment/schedule, something to do", rule:"typical collocations: dictionary form-sentence + time-noun. Expresses that one time/appointment/something to do for a described activity.", build:[
   {form:"Vdict+時間 (time for …)",verb:"<ruby>食<rt>た</rt></ruby>べる <ruby>時間<rt>じかん</rt></ruby>",de:"time to the food"},
   {form:"Vdict+約束 (appointment to …)",verb:"<ruby>会<rt>あ</rt></ruby>う <ruby>約束<rt>やくそく</rt></ruby>",de:"appointment, to meet"},
   {form:"Vdict+用事 (something to do)",verb:"<ruby>銀行<rt>ぎんこう</rt></ruby>へ <ruby>行<rt>い</rt></ruby>く <ruby>用事<rt>ようじ</rt></ruby>",de:"something to the bank to do"}
- ], pattern:{slots:[{text:"V-辞書形",role:"verb"},{text:"時間/約束/用事",role:"obj",label:"time/appointment/Termin"},{text:"が あります",role:"verb"}],gloss:"'time/appointment/Termin to have, and [V] to do.' negation: 〜時間がありません."},
+ ], pattern:{slots:[{text:"V-辞書形",role:"verb"},{text:"時間/約束/用事",role:"obj",label:"time/appointment/schedule"},{text:"が あります",role:"verb"}],gloss:"'time/appointment/schedule to have, and [V] to do.' negation: 〜時間がありません."},
   ex:[  {jp:"<ruby>朝<rt>あさ</rt></ruby>ごはんを <ruby>食<rt>た</rt></ruby>べる <ruby>時間<rt>じかん</rt></ruby>が ありません。",de:"I have no time for breakfast."},
   {jp:"<ruby>明日<rt>あした</rt></ruby> <ruby>友達<rt>ともだち</rt></ruby>と <ruby>会<rt>あ</rt></ruby>う <ruby>約束<rt>やくそく</rt></ruby>が あります。",de:"morning I a appointment with a friend."},
   {jp:"ちょっと <ruby>行<rt>い</rt></ruby>く <ruby>用事<rt>ようじ</rt></ruby>が あるんです。",de:"I there still something to do."}
@@ -2508,23 +2508,23 @@ const CARDS = [
   {jp:"<ruby>昨日<rt>きのう</rt></ruby> <ruby>友達<rt>ともだち</rt></ruby>が <ruby>来<rt>き</rt></ruby>た <ruby>日<rt>ひ</rt></ruby>",de:"the day a friend came yesterday"},
   {jp:"<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>って いる <ruby>町<rt>まち</rt></ruby>",de:"the city in which it rains"}
  ], note:"⚠️ Frequent mistake: は in the relative clause. ALWAYS が (or の) use! は separates the main clause by the next clause and destroys the relative clause."},
- {l:23, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby>/V<ruby>ない<rt></rt></ruby>/Adj/N + とき、…", de:"When (before/during the Action/of the state)", rule:"dictionary form or ない-form before とき: main action happens BEFORE or WHILE the Next action. For い-Adj directly + とき, な-Adj + な + とき, N + の + とき.", build:[
+ {l:23, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby>/V<ruby>ない<rt></rt></ruby>/Adj/N + とき、…", de:"When (before/during the Action/of the state)", rule:"dictionary form or ない-form before とき: main action happens BEFORE or WHILE the next action. For い-Adj directly + とき, な-Adj + な + とき, N + の + とき.", build:[
   {form:"辞書形+とき (before/during)",verb:"<ruby>行<rt>い</rt></ruby>くとき",de:"before I go / on the way"},
   {form:"い-Adj+とき",verb:"<ruby>若<rt>わか</rt></ruby>いとき",de:"when I was young"},
   {form:"な-Adj/N + な/の + とき",verb:"<ruby>暇<rt>ひま</rt></ruby>なとき / <ruby>学生<rt>がくせい</rt></ruby>のとき",de:"when I time / when I Student was"},
   {form:"ない+とき",verb:"<ruby>分<rt>わ</rt></ruby>からないとき",de:"when one does not understand"}
- ], pattern:{slots:[{text:"V(辞書/ない)/Adj/N(+な/の)",role:"cond"},{text:"とき、",role:"plain",label:"when/as"},{text:"main clause",role:"verb"}],gloss:"'When/during [state], …' — 辞書形: Action not yet completed. ない: Negations-state."},
-  ex:[  {jp:"<ruby>図書館<rt>としょかん</rt></ruby>で <ruby>本<rt>ほん</rt></ruby>を <ruby>借<rt>か</rt></ruby>りるとき、カードが <ruby>要<rt>い</rt></ruby>ります。",de:"When one in the library books lends, requires one a card."},
-  {jp:"<ruby>若<rt>わか</rt></ruby>いとき、よく <ruby>旅行<rt>りょこう</rt></ruby>しました。",de:"When I young was, I often traveled."},
+ ], pattern:{slots:[{text:"V(辞書/ない)/Adj/N(+な/の)",role:"cond"},{text:"とき、",role:"plain",label:"when/as"},{text:"main clause",role:"verb"}],gloss:"'When/during [state], …' — 辞書形: Action not yet completed. ない: negation state."},
+  ex:[  {jp:"<ruby>図書館<rt>としょかん</rt></ruby>で <ruby>本<rt>ほん</rt></ruby>を <ruby>借<rt>か</rt></ruby>りるとき、カードが <ruby>要<rt>い</rt></ruby>ります。",de:"When borrowing books at the library, you need a card."},
+  {jp:"<ruby>若<rt>わか</rt></ruby>いとき、よく <ruby>旅行<rt>りょこう</rt></ruby>しました。",de:"When I was young, I often traveled."},
   {jp:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>くとき、カメラを <ruby>買<rt>か</rt></ruby>いました。",de:"Before I away to Japan, I a camera bought."}
  ], note:"🔄 辞書形+とき (Action not yet completed) vs. た形+とき (Action completed) — next card. Mnemonic: 日本へ行くとき = departure has not yet happened / 日本へ行ったとき = already in Japan."},
  {l:23, t:"V た + とき、…", de:"As (after the Action completed)", rule:"た-form before とき: Next action is ALREADY COMPLETED, when the main action begins. Important difference to 辞書形+とき!", build:[
   {form:"Vた+とき (Action completed)",verb:"<ruby>着<rt>つ</rt></ruby>いたとき",de:"as (I) arrived was"},
   {form:"Compare: 行くとき vs 行ったとき",verb:"<ruby>行<rt>い</rt></ruby>くとき (before departure) / <ruby>行<rt>い</rt></ruby>ったとき (after arrival)",de:"before going / when I arrived was"}
  ], pattern:{slots:[{text:"V-た",role:"cond",label:"completed"},{text:"とき、",role:"plain"},{text:"main clause",role:"verb"}],gloss:"'As [V-completed], …' — た-form: Action is already complete before the main clausereignis."},
-  ex:[  {jp:"<ruby>家<rt>いえ</rt></ruby>へ <ruby>帰<rt>かえ</rt></ruby>ったとき、「ただいま」と <ruby>言<rt>い</rt></ruby>います。",de:"When I come home (arrived at the), say I 'tadaima'."},
-  {jp:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>来<rt>き</rt></ruby>たとき、<ruby>友達<rt>ともだち</rt></ruby>が <ruby>迎<rt>むか</rt></ruby>えに <ruby>来<rt>き</rt></ruby>ました。",de:"When I came to Japan, holte me a friend ab."},
-  {jp:"<ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>ったとき、この お<ruby>土産<rt>みやげ</rt></ruby>を <ruby>買<rt>か</rt></ruby>いました。",de:"When In Kyoto was, I this Souvenir bought."}
+  ex:[  {jp:"<ruby>家<rt>いえ</rt></ruby>へ <ruby>帰<rt>かえ</rt></ruby>ったとき、「ただいま」と <ruby>言<rt>い</rt></ruby>います。",de:"When I come home (after arriving), I say 'tadaima'."},
+  {jp:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>来<rt>き</rt></ruby>たとき、<ruby>友達<rt>ともだち</rt></ruby>が <ruby>迎<rt>むか</rt></ruby>えに <ruby>来<rt>き</rt></ruby>ました。",de:"When I came to Japan, a friend picked me up."},
+  {jp:"<ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>ったとき、この お<ruby>土産<rt>みやげ</rt></ruby>を <ruby>買<rt>か</rt></ruby>いました。",de:"When I was in Kyoto, I bought this souvenir."}
  ], note:"⚠️ <ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>くとき = before departure (still in Germany). <ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>ったとき = in Japan (already there). tense BEFORE とき decides, whether the main action BEFORE or NACH the Before-verb happens."},
  {l:23, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby> と、…", de:"When/as soon as …, automatically …", rule:"Conditional 'と': when A, then always happens/automatically B. natural law, habit, Mechanism. No will or please in the main clause!", build:[
   {form:"Connection",verb:"V<sub>ル</sub> + と、…",de:"when V happens, then automatically …"},
@@ -2533,8 +2533,8 @@ const CARDS = [
   {form:"Negated",verb:"V<sub>ナイ</sub> + と、…",de:"when one V NOT does, then …"},
   {form:"Example negated",verb:"<ruby>勉強<rt>べんきょう</rt></ruby>しない と、<ruby>試験<rt>しけん</rt></ruby>に <ruby>落<rt>お</rt></ruby>ちます",de:"Who doesn't study fails"}
  ], pattern:{slots:[{text:"V-辞書形",role:"cond"},{text:"と、",role:"plain",label:"automatically →"},{text:"consequence",role:"verb"}],gloss:"'When V, then automatically/always consequence.' ⚠️ No wish/request in the main clause!"},
-  ex:[  {jp:"このボタンを <ruby>押<rt>お</rt></ruby>すと、お<ruby>釣<rt>つ</rt></ruby>りが <ruby>出<rt>で</rt></ruby>ます。",de:"When one this button presses, change comes out."},
-  {jp:"<ruby>春<rt>はる</rt></ruby>に なると、<ruby>桜<rt>さくら</rt></ruby>が <ruby>咲<rt>さ</rt></ruby>きます。",de:"When the spring comes, blooms the cherry blossom."},
+  ex:[  {jp:"このボタンを <ruby>押<rt>お</rt></ruby>すと、お<ruby>釣<rt>つ</rt></ruby>りが <ruby>出<rt>で</rt></ruby>ます。",de:"When you press this button, change comes out."},
+  {jp:"<ruby>春<rt>はる</rt></ruby>に なると、<ruby>桜<rt>さくら</rt></ruby>が <ruby>咲<rt>さ</rt></ruby>きます。",de:"When spring comes, the cherry blossoms bloom."},
   {jp:"この<ruby>道<rt>みち</rt></ruby>を まっすぐ <ruby>行<rt>い</rt></ruby>くと、<ruby>駅<rt>えき</rt></ruby>が あります。",de:"If one goes straight on this street, the station is there."}
  ], note:"⚠️ 4 conditionals distinguish: <b>と</b> = automatically (natural law, Mechanism) / <b>たら</b> = single consequence / <b>ば</b> = general condition / <b>なら</b> = topic-related. For <b>と</b> NEVER wish/please/command in the main clause!"},
  {l:23, t:"N(place) を V (motion verb)", de:"through/about/entlong N (place the movement)", rule:"を marks the place, through/about/entlong the one begonet. With motion verbs like 歩く (to go), 走る (to run), 渡る (cross), 曲がる (abturn), 散歩する (walk), 通る (happen), 飛ぶ (flyoral).", build:[
@@ -2710,7 +2710,7 @@ const CARDS = [
   note:"💡 Here the verb is intransitive (happens by itself), and ています describes the state without focus on the actor. L30 has a related form (てあります), the additionally 'someone has it intentionally so prepared' expresses."},
  {l:29, t:"<ruby>自動詞<rt>じどうし</rt></ruby> ⇆ <ruby>他動詞<rt>たどうし</rt></ruby>: verb pairs", de:"intransitive ⇆ transitive (pairs to study)",
   rule:"In the Japanese many many verbs in pairs: 自動詞 (intransitive, 'happens by itself', with が) and 他動詞 (transitive, 'someone does it active', with を). Always learn them as a pair.",
-  build:[{form:"<ruby>開<rt>あ</rt></ruby>く ⇆ <ruby>開<rt>あ</rt></ruby>ける",verb:"が <ruby>開<rt>あ</rt></ruby>く / を <ruby>開<rt>あ</rt></ruby>ける",de:"open / open"},{form:"<ruby>閉<rt>し</rt></ruby>まる ⇆ <ruby>閉<rt>し</rt></ruby>める",verb:"が <ruby>閉<rt>し</rt></ruby>まる / を <ruby>閉<rt>し</rt></ruby>める",de:"close / close"},{form:"<ruby>付<rt>つ</rt></ruby>く ⇆ <ruby>付<rt>つ</rt></ruby>ける",verb:"が <ruby>付<rt>つ</rt></ruby>く / を <ruby>付<rt>つ</rt></ruby>ける",de:"turn on / switch on"},{form:"<ruby>消<rt>き</rt></ruby>える ⇆ <ruby>消<rt>け</rt></ruby>す",verb:"が <ruby>消<rt>き</rt></ruby>える / を <ruby>消<rt>け</rt></ruby>す",de:"go out / switch off"},{form:"<ruby>入<rt>はい</rt></ruby>る ⇆ <ruby>入<rt>い</rt></ruby>れる",verb:"が <ruby>入<rt>はい</rt></ruby>る / を <ruby>入<rt>い</rt></ruby>れる",de:"enter / put in"},{form:"<ruby>出<rt>で</rt></ruby>る ⇆ <ruby>出<rt>だ</rt></ruby>す",verb:"が <ruby>出<rt>で</rt></ruby>る / を <ruby>出<rt>だ</rt></ruby>す",de:"exit / take out"},{form:"<ruby>始<rt>はじ</rt></ruby>まる ⇆ <ruby>始<rt>はじ</rt></ruby>める",verb:"が <ruby>始<rt>はじ</rt></ruby>まる / を <ruby>始<rt>はじ</rt></ruby>める",de:"start (by itself) / start (etw.)"},{form:"<ruby>終<rt>お</rt></ruby>わる ⇆ <ruby>終<rt>お</rt></ruby>える",verb:"が <ruby>終<rt>お</rt></ruby>わる / を <ruby>終<rt>お</rt></ruby>える",de:"end / finish"},{form:"<ruby>壊<rt>こわ</rt></ruby>れる ⇆ <ruby>壊<rt>こわ</rt></ruby>す",verb:"が <ruby>壊<rt>こわ</rt></ruby>れる / を <ruby>壊<rt>こわ</rt></ruby>す",de:"break (intr.) / break (tr.)"}],
+  build:[{form:"<ruby>開<rt>あ</rt></ruby>く ⇆ <ruby>開<rt>あ</rt></ruby>ける",verb:"が <ruby>開<rt>あ</rt></ruby>く / を <ruby>開<rt>あ</rt></ruby>ける",de:"open / open"},{form:"<ruby>閉<rt>し</rt></ruby>まる ⇆ <ruby>閉<rt>し</rt></ruby>める",verb:"が <ruby>閉<rt>し</rt></ruby>まる / を <ruby>閉<rt>し</rt></ruby>める",de:"close / close"},{form:"<ruby>付<rt>つ</rt></ruby>く ⇆ <ruby>付<rt>つ</rt></ruby>ける",verb:"が <ruby>付<rt>つ</rt></ruby>く / を <ruby>付<rt>つ</rt></ruby>ける",de:"turn on / switch on"},{form:"<ruby>消<rt>き</rt></ruby>える ⇆ <ruby>消<rt>け</rt></ruby>す",verb:"が <ruby>消<rt>き</rt></ruby>える / を <ruby>消<rt>け</rt></ruby>す",de:"go out / switch off"},{form:"<ruby>入<rt>はい</rt></ruby>る ⇆ <ruby>入<rt>い</rt></ruby>れる",verb:"が <ruby>入<rt>はい</rt></ruby>る / を <ruby>入<rt>い</rt></ruby>れる",de:"enter / put in"},{form:"<ruby>出<rt>で</rt></ruby>る ⇆ <ruby>出<rt>だ</rt></ruby>す",verb:"が <ruby>出<rt>で</rt></ruby>る / を <ruby>出<rt>だ</rt></ruby>す",de:"exit / take out"},{form:"<ruby>始<rt>はじ</rt></ruby>まる ⇆ <ruby>始<rt>はじ</rt></ruby>める",verb:"が <ruby>始<rt>はじ</rt></ruby>まる / を <ruby>始<rt>はじ</rt></ruby>める",de:"start (by itself) / start (sth.)"},{form:"<ruby>終<rt>お</rt></ruby>わる ⇆ <ruby>終<rt>お</rt></ruby>える",verb:"が <ruby>終<rt>お</rt></ruby>わる / を <ruby>終<rt>お</rt></ruby>える",de:"end / finish"},{form:"<ruby>壊<rt>こわ</rt></ruby>れる ⇆ <ruby>壊<rt>こわ</rt></ruby>す",verb:"が <ruby>壊<rt>こわ</rt></ruby>れる / を <ruby>壊<rt>こわ</rt></ruby>す",de:"break (intr.) / break (tr.)"}],
   pattern:{slots:[[{text:"N",role:"subj"},{text:"が",role:"plain"},{text:"V<sub><ruby>自<rt>じ</rt></ruby></sub>",role:"verb",label:"intransitive"},{text:" happens by itself",role:"plain"}],[{text:"person は",role:"actor",label:"actor"},{text:"N",role:"obj"},{text:"を",role:"plain"},{text:"V<sub><ruby>他<rt>た</rt></ruby></sub>",role:"verb",label:"transitive"},{text:" someone does active",role:"plain"}]],gloss:"Intransitive: subject + が + V自 (door opens). Transitive: actor + は + object + を + V他 (someone opens the door)."},
   ex:[{jp:"ドアが <ruby>開<rt>あ</rt></ruby>きます。 / ドアを <ruby>開<rt>あ</rt></ruby>けます。",de:"The door opens. / I open the door."},{jp:"<ruby>授業<rt>じゅぎょう</rt></ruby>が <ruby>始<rt>はじ</rt></ruby>まりました。 / <ruby>授業<rt>じゅぎょう</rt></ruby>を <ruby>始<rt>はじ</rt></ruby>めました。",de:"The class has begun. / I began the class."},{jp:"<ruby>電気<rt>でんき</rt></ruby>が <ruby>消<rt>き</rt></ruby>えました。 / <ruby>電気<rt>でんき</rt></ruby>を <ruby>消<rt>け</rt></ruby>しました。",de:"The light went out. / I turned off the light."}],
   note:"💡 Rule of thumb for recognition: ending -aru/-eru often intransitive, -eru/-asu/-su often transitive. But not 100% — at the best as pairs."},
@@ -2772,7 +2772,7 @@ const CARDS = [
   rule:"advice/recommendation. positive: た-form + ほうが いい. Negative: ない-form + ほうが いい. ⚠️ NOT 辞書形 use!",
   build:[{form:"positive (recommendation)",verb:"V<sub>た</sub> + ほうが いい",de:"should do V"},{form:"negative (warning)",verb:"V<sub>ない</sub> + ほうが いい",de:"should NOT do V"},{form:"⚠ WRONG",verb:"V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + ほうが いい",de:"NOT use"},{form:"polite",verb:"〜ほうが いいですよ",de:"tip/advice (polite)"}],
   pattern:{slots:[{text:"recipient は",role:"subj",label:"you"},{text:"V-た / V-ない",role:"verb",label:"Action"},{text:"ほうが",role:"actor"},{text:"いいです (よ)",role:"plain"}],gloss:"'It would be better, [V] (not) to do.' — advice, often with よ at the end for encouragement."},
-  ex:[{jp:"<ruby>熱<rt>ねつ</rt></ruby>が ありますね。<ruby>病院<rt>びょういん</rt></ruby>へ <b><ruby>行<rt>い</rt></ruby>った ほうが いいですよ</b>。",de:"You hast Fieber. You should to the doctor to go."},{jp:"タバコは <b><ruby>吸<rt>す</rt></ruby>わない ほうが いいです</b>。",de:"You should not smoke."},{jp:"<ruby>無理<rt>むり</rt></ruby>を <b>しない ほうが いいですよ</b>。",de:"You should you not practicerandtrclosen."}],
+  ex:[{jp:"<ruby>熱<rt>ねつ</rt></ruby>が ありますね。<ruby>病院<rt>びょういん</rt></ruby>へ <b><ruby>行<rt>い</rt></ruby>った ほうが いいですよ</b>。",de:"You have a fever. You should go to the doctor."},{jp:"タバコは <b><ruby>吸<rt>す</rt></ruby>わない ほうが いいです</b>。",de:"You should not smoke."},{jp:"<ruby>無理<rt>むり</rt></ruby>を <b>しない ほうが いいですよ</b>。",de:"You shouldn't overexert yourself."}],
   note:"⚠️ Frequent mistake: 行く ほうが いい → wrong! Correct: 行<b>った</b> ほうが いい (た-form!)."},
  {l:32, t:"plain form + でしょう (presumption)", de:"probably / probably …",
   rule:"presumption of the Sprechers with withtlerer security (~70-80%). For な-Adj/N: だ FALLS AWAY! Often with たぶん together.",
@@ -2868,7 +2868,7 @@ const CARDS = [
   rule:"topic-related condition: 'If it and X goes, then Y'. recommendation or reaction to the mentioned topic. Can to noun OR to verbs (plain form) attached becomes.",
   build:[{form:"noun",verb:"N + なら、…",de:"about N"},{form:"verb (Plain)",verb:"V<sub><ruby>普通形<rt>ふつうけい</rt></ruby></sub> + なら、…",de:"if you do V"},{form:"vs. ば-form",verb:"ば = generally when",de:"なら = topic-related"}],
   pattern:{slots:[{text:"N (topic)",role:"obj",label:"betr."},{text:"なら、",role:"actor",label:"when it comes to X"},{text:"recommendation/statement",role:"verb"}],gloss:"'About [N] — my recommendation/statement in addition is [consequence].' — typical in advisory contexts."},
-  ex:[{jp:"<ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>くなら、<ruby>新幹線<rt>しんかんせん</rt></ruby>が べんりですよ。",de:"When you go to Kyoto, is the Sherekanden practical."},{jp:"<ruby>日本料理<rt>にほんりょうり</rt></ruby>なら、すしが おすすめです。",de:"Was Japanese food bemeets, empfehle I Sushi."},{jp:"パソコンなら、この <ruby>店<rt>みせ</rt></ruby>が <ruby>安<rt>やす</rt></ruby>いです。",de:"For PCs is this shop affordable."}],
+  ex:[{jp:"<ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>くなら、<ruby>新幹線<rt>しんかんせん</rt></ruby>が べんりですよ。",de:"When you go to Kyoto, is the Shinkansen practical."},{jp:"<ruby>日本料理<rt>にほんりょうり</rt></ruby>なら、すしが おすすめです。",de:"Was Japanese food bemeets, empfehle I Sushi."},{jp:"パソコンなら、この <ruby>店<rt>みせ</rt></ruby>が <ruby>安<rt>やす</rt></ruby>いです。",de:"For PCs is this shop affordable."}],
   note:"💡 なら reacts to something, was previously mentioned was — takes the topic on and gives a recommendation in addition."},
  {l:35, t:"<ruby>疑問詞<rt>ぎもんし</rt></ruby> V<ruby>ば<rt></rt></ruby> いいですか", de:"Was/like should I do? (ば-variant)",
   rule:"Asks for advice with ば-form + いいですか. Common question words: どう, 何, どこ, いつ, だれ. Something more formal as 〜たらいいですか (L26).",
@@ -2968,7 +2968,7 @@ const CARDS = [
   note:"💡 Here: のを — the Action is direct object by forget/stop/to see/to hear etc."},
  {l:38, t:"V の を <ruby>知<rt>し</rt></ruby>って いますか", de:"Did you know that …?",
   rule:"Nominalized verb + を + 知っていますか = 'Do you know about … ?' / 'Do you know the fact, that …?'. negation: 知りません (NOT 知って いません — see L15).",
-  build:[{form:"Connection",verb:"V<sub><ruby>普通形<rt>ふつうけい</rt></ruby></sub> + のを <ruby>知<rt>し</rt></ruby>って いますか",de:"know that V?"},{form:"Answer: yes",verb:"はい、<ruby>知<rt>し</rt></ruby>って います",de:"yes, knew I"},{form:"Answer: no",verb:"いいえ、<ruby>知<rt>し</rt></ruby>りません(でした)",de:"no, knew/knew I not"},{form:"vs. のを + V₂ (card above)",verb:"here: V₂ = <ruby>知<rt>し</rt></ruby>っている",de:"special case with Knowledge"}],
+  build:[{form:"Connection",verb:"V<sub><ruby>普通形<rt>ふつうけい</rt></ruby></sub> + のを <ruby>知<rt>し</rt></ruby>って いますか",de:"know that V?"},{form:"Answer: yes",verb:"はい、<ruby>知<rt>し</rt></ruby>って います",de:"yes, I know"},{form:"Answer: no",verb:"いいえ、<ruby>知<rt>し</rt></ruby>りません(でした)",de:"no, I didn't know"},{form:"vs. のを + V₂ (card above)",verb:"here: V₂ = <ruby>知<rt>し</rt></ruby>っている",de:"special case with Knowledge"}],
   pattern:{slots:[{text:"(person) が",role:"actor",label:"who"},{text:"V-Plain",role:"verb",label:"fact"},{text:"のを",role:"plain"},{text:"<ruby>知<rt>し</rt></ruby>って いますか",role:"verb",label:"do you know?"}],gloss:"'Did you know that [fact]?' — Question after a Information about a event."},
   ex:[{jp:"ミラーさんが <ruby>国<rt>くに</rt></ruby>へ <ruby>帰<rt>かえ</rt></ruby>った<b>のを</b> <ruby>知<rt>し</rt></ruby>って いますか。",de:"Did you know Mr. Miller restopped to his homeland?"},{jp:"<ruby>山田<rt>やまだ</rt></ruby>さんが <ruby>結婚<rt>けっこん</rt></ruby>した<b>のを</b> <ruby>知<rt>し</rt></ruby>って いますか。",de:"Wusstest you, that Ms. Yamada goiratet has?"},{jp:"<ruby>会議<rt>かいぎ</rt></ruby>が <ruby>3時<rt>さんじ</rt></ruby>に <ruby>始<rt>はじ</rt></ruby>まる<b>のを</b> <ruby>知<rt>し</rt></ruby>って いますか。",de:"Did you know that the meeting starts at 3 o'clock?"}],
   note:"💡 のを 知っています = Knowledge about a event. negation: 知りません (not 知っていません!) — applies only for 知る, other special case."},
@@ -3560,7 +3560,7 @@ function showReviewFinished() {
  const total = reviewSession.good + reviewSession.bad;
  const pct = total > 0 ? Math.round(reviewSession.good / total * 100) : 0;
  reviewFinishedStats.innerHTML = `
-  You hast <b>${total} cards</b> repeats.<br>
+  You have <b>${total} cards</b> to repeat.<br>
   ✅ ${reviewSession.good} can I · 🔴 ${reviewSession.bad} nochtimes<br>
   Erfolgsquote: <b>${pct}%</b>
  `;
@@ -4295,7 +4295,7 @@ function renderCompare() {
   const pct = Math.round(score / quizQuestions.length * 100);
   quizResultScore.textContent = `${score} / ${quizQuestions.length} (${pct}%)`;
   quizResultEmoji.textContent = pct >= 80 ? '🎉' : pct >= 60 ? '👍' : '💪';
-  quizResultLabel.textContent = pct >= 80 ? 'Very good!' : pct >= 60 ? 'Gut — still a little bit practice.' : 'Farer practice — you schaffst the!';
+  quizResultLabel.textContent = pct >= 80 ? 'Very good!' : pct >= 60 ? 'Good — practice a little more.' : 'Keep practicing — you can do it!';
   quizProgressBar.style.width = '100%';
  }
 
