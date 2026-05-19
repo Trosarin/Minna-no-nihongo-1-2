@@ -1557,7 +1557,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
    <tr><td><span class="jp">が</span></td><td>Subject (new/unexpected). Answer to a question word. For <ruby>好<rt>す</rt></ruby>き/わかる/ある/Potential. In the relative clause.</td><td><span class="jp"><ruby>猫<rt>ねこ</rt></ruby>が います。</span></td></tr>
    <tr><td><span class="jp">を</span></td><td>Direct object. For motion verbs: Strecke (<ruby>公園<rt>こうえん</rt></ruby>を <ruby>歩<rt>ある</rt></ruby>く).</td><td><span class="jp"><ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>む。</span></td></tr>
    <tr><td><span class="jp">に</span></td><td>goal/direction. time point. location of existence (います). Indirect object. recipient.</td><td><span class="jp"><ruby>学校<rt>がっこう</rt></ruby>に <ruby>行<rt>い</rt></ruby>く。 <ruby>7時<rt>しちじ</rt></ruby>に <ruby>起<rt>お</rt></ruby>きる。</span></td></tr>
-   <tr><td><span class="jp">で</span></td><td>place to action. mys/tool. material. reason (Adj/N).</td><td><span class="jp"><ruby>図書館<rt>としょかん</rt></ruby>で <ruby>勉強<rt>べんきょう</rt></ruby>する。 バスで <ruby>行<rt>い</rt></ruby>く。</span></td></tr>
+   <tr><td><span class="jp">で</span></td><td>place of action. means/tool. material. reason (Adj/N).</td><td><span class="jp"><ruby>図書館<rt>としょかん</rt></ruby>で <ruby>勉強<rt>べんきょう</rt></ruby>する。 バスで <ruby>行<rt>い</rt></ruby>く。</span></td></tr>
    <tr><td><span class="jp">へ</span></td><td>direction (something softer than に). For motion verbs.</td><td><span class="jp"><ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>く。</span></td></tr>
    <tr><td><span class="jp">と</span></td><td>'with' (companion). quote particle ('that').</td><td><span class="jp"><ruby>友達<rt>ともだち</rt></ruby>と <ruby>話<rt>はな</rt></ruby>す。</span></td></tr>
    <tr><td><span class="jp">から</span></td><td>from/since (place/time). reason ('because').</td><td><span class="jp"><ruby>9時<rt>くじ</rt></ruby>から <ruby>始<rt>はじ</rt></ruby>まる。</span></td></tr>
@@ -1909,7 +1909,7 @@ const CARDS = [
  {l:2, t:"N₁ の (N₂<ruby>省略<rt>しょうりゃく</rt></ruby>)", de:"N₂ can be omitted — の stands alone",
   rule:"When the reference noun is clear from context, it can be omitted after の. の then takes the role of 'the one of …' or 'mine/yours'.",
   build:[{form:"with N₂",verb:"<ruby>私<rt>わたし</rt></ruby>の かばん",de:"my bag"},{form:"N₂ omitted",verb:"<ruby>私<rt>わたし</rt></ruby>のです",de:"(it) is mine"},{form:"Question",verb:"だれのですか",de:"Whose is it?"}],
-  pattern:{slots:[{text:"N₁",role:"actor",label:"possessor"},{text:"の",role:"plain",label:"= mys/yours"},{text:"(N₂ omitted)",role:"obj",label:"implicit"},{text:"です",role:"verb"}],gloss:"'[It] is N₁'s.' — の as placeholder of the already known noun."},
+  pattern:{slots:[{text:"N₁",role:"actor",label:"possessor"},{text:"の",role:"plain",label:"= mine/yours"},{text:"(N₂ omitted)",role:"obj",label:"implicit"},{text:"です",role:"verb"}],gloss:"'[It] is N₁'s.' — の as placeholder of the already known noun."},
   ex:[{jp:"この かばんは <ruby>私<rt>わたし</rt></ruby>のです。",de:"This bag is my."},{jp:"あの <ruby>本<rt>ほん</rt></ruby>は ミラーさんのです。",de:"That book is Millers."},{jp:"これは だれのですか。— <ruby>田中<rt>たなか</rt></ruby>さんのです。",de:"Whose is this? — It belongs to Ms. Tanaka."}],
   note:"💡 の at the end of the sentence (nominalization particle) is one of the most frequent sentence structures in everyday language — absolutely internalize."},
  {l:3, t:"ここ / そこ / あそこ", de:"here / there / there over there (place)",
@@ -1985,7 +1985,7 @@ const CARDS = [
   ex:[{jp:"<ruby>日曜日<rt>にちようび</rt></ruby> どこへも <ruby>行<rt>い</rt></ruby>きませんでした。",de:"On Sunday I didn't go anywhere."},{jp:"<ruby>何<rt>なに</rt></ruby>も <ruby>食<rt>た</rt></ruby>べません。",de:"I eat nothing."},{jp:"だれとも <ruby>話<rt>はな</rt></ruby>しませんでした。",de:"I spoke with no one."}],
   note:"⚠️ いつも is the exception: いつも V (positive) = 'always'. Wrong: いつもV ません = 'never' means めったに〜ません or 全然〜ません."},
  {l:5, t:"(means of transport)で <ruby>行<rt>い</rt></ruby>きます", de:"With (means of transport) drive",
-  rule:"で marks the mys/tool. For 歩いて (on foot) is not a で smoke — 歩く is already a type of movement.",
+  rule:"で marks the means/tool. For 歩いて (on foot) is not a で smoke — 歩く is already a type of movement.",
   build:[{form:"means of transport",verb:"<ruby>電車<rt>でんしゃ</rt></ruby>で <ruby>行<rt>い</rt></ruby>く",de:"with the train drive"},{form:"⚠ on foot",verb:"<ruby>歩<rt>ある</rt></ruby>いて <ruby>行<rt>い</rt></ruby>く (NO で!)",de:"歩く = already mys"},{form:"Kombinierbar",verb:"<ruby>電車<rt>でんしゃ</rt></ruby>で 〜 で <ruby>行<rt>い</rt></ruby>く",de:"several means with で...で"}],
   pattern:{slots:[{text:"means of transport",role:"actor",label:"mys"},{text:"で",role:"plain",label:"with"},{text:"place へ",role:"place"},{text:"行く/来る",role:"verb"}],gloss:"'With [means of transport] after [place] drive.'"},
   ex:[{jp:"<ruby>電車<rt>でんしゃ</rt></ruby>で <ruby>会社<rt>かいしゃ</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。",de:"I drive with the train to the company."},{jp:"バスで <ruby>学校<rt>がっこう</rt></ruby>へ <ruby>来<rt>き</rt></ruby>ました。",de:"I came to school by bus."},{jp:"<ruby>歩<rt>ある</rt></ruby>いて <ruby>帰<rt>かえ</rt></ruby>ります。",de:"I go on foot home."}],
@@ -2016,7 +2016,7 @@ const CARDS = [
   note:"💡 Many Japanese nouns become verbs with + する: 電話する (phone), 勉強する (to study), 結婚する (to marry), 運動する (to exercise). This group is constantly growing."},
  {l:6, t:"(place) で V", de:"At (place) do something",
   rule:"で marks the place where a ACTION takes place. difference to に: に = location of existence (where to be), で = place of action (there do).",
-  build:[{form:"place of action",verb:"<ruby>図書館<rt>としょかん</rt></ruby>で <ruby>勉強<rt>べんきょう</rt></ruby>する",de:"in the library to study"},{form:"vs. に",verb:"<ruby>公園<rt>こうえん</rt></ruby>で <ruby>走<rt>はし</rt></ruby>る ↔ <ruby>公園<rt>こうえん</rt></ruby>に <ruby>猫<rt>ねこ</rt></ruby>がいる",de:"Action ↔ existence"},{form:"mys",verb:"<ruby>電車<rt>でんしゃ</rt></ruby>で (L5)",de:"で = also mys/tool"}],
+  build:[{form:"place of action",verb:"<ruby>図書館<rt>としょかん</rt></ruby>で <ruby>勉強<rt>べんきょう</rt></ruby>する",de:"in the library to study"},{form:"vs. に",verb:"<ruby>公園<rt>こうえん</rt></ruby>で <ruby>走<rt>はし</rt></ruby>る ↔ <ruby>公園<rt>こうえん</rt></ruby>に <ruby>猫<rt>ねこ</rt></ruby>がいる",de:"Action ↔ existence"},{form:"means",verb:"<ruby>電車<rt>でんしゃ</rt></ruby>で (L5)",de:"で = also means/tool"}],
   pattern:{slots:[{text:"place",role:"place",label:"place of action"},{text:"で",role:"plain",label:"place the Action"},{text:"N を",role:"obj",label:"optional"},{text:"V",role:"verb"}],gloss:"'An [place] [V].' — で for the place, where something done is."},
   ex:[{jp:"レストランで <ruby>晩<rt>ばん</rt></ruby>ごはんを <ruby>食<rt>た</rt></ruby>べます。",de:"I eat dinner at the restaurant."},{jp:"<ruby>図書館<rt>としょかん</rt></ruby>で <ruby>勉強<rt>べんきょう</rt></ruby>します。",de:"I study in the library."},{jp:"<ruby>公園<rt>こうえん</rt></ruby>で <ruby>走<rt>はし</rt></ruby>りました。",de:"I walked in the park."}],
   note:"⚠️ MOST FREQUENT mistake: で vs. に. で = place of ACTION (公園で走る). に = place of EXISTENCE (公園にいる). Test: Can you replace 'do' with 'be'? No → で. Yes → に."},
@@ -2897,7 +2897,7 @@ const CARDS = [
  {l:36, t:"V-<ruby>辞書<rt>じしょ</rt></ruby> / V-ない + ように (goal)", de:"so that / in order to … (goal)",
   rule:"Expresses a targeted goal that is not directly controllable by will (ability, understanding, avoidance). Unlike ために (directly active goal, L42).",
   build:[{form:"positive (general)",verb:"V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + ように",de:"so that V"},{form:"★ frequent: Potential",verb:"V<sub><ruby>可能形<rt>かのうけい</rt></ruby></sub> + ように",de:"<ruby>話<rt>はな</rt></ruby>せる → <ruby>話<rt>はな</rt></ruby>せるように = so that one can speak"},{form:"★ frequent: 見える/聞こえる",verb:"<ruby>見<rt>み</rt></ruby>えるように / <ruby>聞<rt>き</rt></ruby>こえるように",de:"so that visible/audible"},{form:"negative (avoidance)",verb:"V<sub>ない</sub> + ように",de:"so that not V"},{form:"vs. ために (L42)",verb:"V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + ために",de:"to actively achieve V (controllable)"}],
-  pattern:{slots:[{text:"goal V",role:"verb",label:"so that V"},{text:"ように、",role:"actor"},{text:"mys/action",role:"verb",label:"V₂ do"}],gloss:"'So that [goal] (can / not happens), I do [action].' — goal is not-intentional (Can, avoidance, understanding)."},
+  pattern:{slots:[{text:"goal V",role:"verb",label:"so that V"},{text:"ように、",role:"actor"},{text:"means/action",role:"verb",label:"do V₂"}],gloss:"'So that [goal] (can / not happens), I do [action].' — goal is non-deliberate (ability, avoidance, understanding)."},
   ex:[{jp:"<ruby>後<rt>うし</rt></ruby>ろの <ruby>人<rt>ひと</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえるように、<ruby>大<rt>おお</rt></ruby>きな <ruby>声<rt>こえ</rt></ruby>で <ruby>話<rt>はな</rt></ruby>します。",de:"So that everyone in the back can hear, I speak loudly."},{jp:"<ruby>日本語<rt>にほんご</rt></ruby>が <ruby>話<rt>はな</rt></ruby><b>せる</b>ように、<ruby>毎日<rt>まいにち</rt></ruby> <ruby>勉強<rt>べんきょう</rt></ruby>しています。",de:"I study every day so that I can speak Japanese. [Potential + ように]"},{jp:"<ruby>風邪<rt>かぜ</rt></ruby>を ひかないように、<ruby>気<rt>き</rt></ruby>を つけて ください。",de:"Take care not to catch a cold."},{jp:"<ruby>忘<rt>わす</rt></ruby>れないように、メモを します。",de:"So that I don't forget it, I make a note."}],
   note:"💡 Rule of thumb: For ability/understanding/avoidance → ように (non-deliberate). For actively conscious goals → ために (L42). ★ Very frequent: V-Potential + ように (話せるように、読めるように、覚えられるように) = 'so that I V can'."},
  {l:36, t:"N₁ とか N₂ とか", de:"to the Example N₁ or N₂ (enumeration)",
@@ -2976,8 +2976,8 @@ const CARDS = [
   rule:"Emphasis of a certain detail. structure: 'what was done のは who/where/when です'. Answers a 'Who/where/when?'-Question. In English often with 'It was …, who/where/when …'.",
   build:[{form:"Who was it?",verb:"〜のは [<ruby>誰<rt>だれ</rt></ruby>] です",de:"It was [person]"},{form:"Where was it?",verb:"〜のは [<ruby>場所<rt>ばしょ</rt></ruby>] です",de:"It was in [place]"},{form:"When was it?",verb:"〜のは [<ruby>時<rt>とき</rt></ruby>] です",de:"It was [time]"}],
   pattern:{slots:[{text:"V-Plain",role:"verb",label:"Action"},{text:"のは",role:"actor",label:"in doing so"},{text:"foregrounded element",role:"obj",label:"the was"},{text:"です",role:"plain"}],gloss:"First the action (with のは), then at the end the foregrounded element + です. Answers 'Who/where/when?'."},
-  ex:[{jp:"<ruby>絵<rt>え</rt></ruby>を <ruby>描<rt>か</rt></ruby>いた<b>のは</b> <ruby>子供<rt>こども</rt></ruby>です。",de:"It was a child who painted the image."},{jp:"これを <ruby>買<rt>か</rt></ruby>った<b>のは</b> <ruby>京都<rt>きょうと</rt></ruby>です。",de:"Gebuys I it in Kyoto."},{jp:"<ruby>彼<rt>かれ</rt></ruby>に <ruby>会<rt>あ</rt></ruby>った<b>のは</b> <ruby>昨日<rt>きのう</rt></ruby>です。",de:"It was yesterday that I met him have."}],
-  note:"💡 Very strong emphasis — answered a concrete question. Sounds sounds stilted in English sometimes, but natural in Japanese."},
+  ex:[{jp:"<ruby>絵<rt>え</rt></ruby>を <ruby>描<rt>か</rt></ruby>いた<b>のは</b> <ruby>子供<rt>こども</rt></ruby>です。",de:"It was a child who painted the image."},{jp:"これを <ruby>買<rt>か</rt></ruby>った<b>のは</b> <ruby>京都<rt>きょうと</rt></ruby>です。",de:"It was in Kyoto that I bought it."},{jp:"<ruby>彼<rt>かれ</rt></ruby>に <ruby>会<rt>あ</rt></ruby>った<b>のは</b> <ruby>昨日<rt>きのう</rt></ruby>です。",de:"It was yesterday that I met him."}],
+  note:"💡 Very strong emphasis — answers a concrete question. May sound stilted in English sometimes, but is natural in Japanese."},
  {l:38, t:"とき + も / や / の / に etc.", de:"when / as (with variousn particles)",
   rule:"とき ('time/when') is through particles modified: ときも (even if), ときや (enumeration), ときの (attribute), ときに (time point). Very versatile.",
   build:[{form:"とき に",verb:"V<sub><ruby>辞書<rt>じしょ</rt></ruby>/た</sub> + ときに",de:"as/when (time point)"},{form:"とき も",verb:"〜とき<b>も</b>",de:"even if"},{form:"とき の + N",verb:"〜とき<b>の</b> N",de:"the N by datimess"},{form:"とき や",verb:"〜とき<b>や</b>〜とき (etc.)",de:"e.g., when …, when …"},{form:"とき は",verb:"〜とき<b>は</b>",de:"when (contrastive/themat.)"}],
@@ -2995,7 +2995,7 @@ const CARDS = [
   build:[{form:"verb/い-Adj",verb:"V<sub><ruby>普通形<rt>ふつうけい</rt></ruby></sub>/い-Adj + ので",de:"because V/Adj"},{form:"な-Adj",verb:"な-Adj + な + ので",de:"<ruby>元気<rt>げんき</rt></ruby>なので"},{form:"noun",verb:"N + な + ので",de:"<ruby>学生<rt>がくせい</rt></ruby>なので"},{form:"vs. から",verb:"から = directly, by outside",de:"ので = softer, objective"}],
   pattern:{slots:[{text:"reason",role:"cond",label:"explanation"},{text:"ので、",role:"actor",label:"because (polite)"},{text:"consequence",role:"verb"}],gloss:"'There [reason], [consequence].' — more polite than から, often in professional life and in requests."},
   ex:[{jp:"<ruby>頭<rt>あたま</rt></ruby>が <ruby>痛<rt>いた</rt></ruby>いので、<ruby>早<rt>はや</rt></ruby>く <ruby>帰<rt>かえ</rt></ruby>っても いいですか。",de:"Since I have a headache, may I go home earlier?"},{jp:"<ruby>日曜日<rt>にちようび</rt></ruby>な<b>ので</b>、<ruby>銀行<rt>ぎんこう</rt></ruby>は <ruby>休<rt>やす</rt></ruby>みです。",de:"Because it's Sunday, the bank is closed."},{jp:"<ruby>道<rt>みち</rt></ruby>が <ruby>込<rt>こ</rt></ruby>んで いる<b>ので</b>、<ruby>電車<rt>でんしゃ</rt></ruby>で <ruby>行<rt>い</rt></ruby>きます。",de:"Since the street is congested, I'll take the train."}],
-  note:"💡 Rule of thumb: at politen requests/apologies/explanations → ので. For direct/strongn statements → から. ので sounds explaining, から demanding."},
+  note:"💡 Rule of thumb: for polite requests/apologies/explanations → ので. For direct/strong statements → から. ので sounds explanatory; から sounds demanding."},
  {l:39, t:"V-ない + なくて (negation as reason)", de:"because not …",
   rule:"Negated variant of the reason-て-form: 'because I did not V\'. For い-Adj: い→くなくて. For な-Adj/N: ではなくて / じゃなくて.",
   build:[{form:"verb",verb:"V<sub>ない</sub> → V<sub>なくて</sub>",de:"<ruby>食<rt>た</rt></ruby>べなくて = because not eaten"},{form:"い-Adj",verb:"い → くなくて",de:"<ruby>高<rt>たか</rt></ruby>くなくて = because not expensive"},{form:"な-Adj/N",verb:"+ じゃなくて / ではなくて",de:"<ruby>元気<rt>げんき</rt></ruby>じゃなくて = because not healthy"},{form:"vs. ないで (L34)",verb:"V<sub>ない</sub> + で = without doing V",de:"other meaning!"}],
@@ -3069,7 +3069,7 @@ const CARDS = [
   ex:[{jp:"これは <ruby>瓶<rt>びん</rt></ruby>を <ruby>開<rt>あ</rt></ruby>けるのに <ruby>使<rt>つか</rt></ruby>います。",de:"One uses this to open bottles."},{jp:"この <ruby>辞書<rt>じしょ</rt></ruby>は <ruby>勉強<rt>べんきょう</rt></ruby>するのに いいです。",de:"This dictionary is good for learning."},{jp:"スマホは <ruby>道<rt>みち</rt></ruby>を <ruby>調<rt>しら</rt></ruby>べるのに <ruby>便利<rt>べんり</rt></ruby>です。",de:"Smartphones are useful for finding directions."}],
   note:"⚠️ This のに is DIFFERENT from the のに construction in L45 ('although'). Here = purpose/suitability. There = concession."},
  {l:42, t:"V-<ruby>辞書<rt>じしょ</rt></ruby>/N + のに + <ruby>時間<rt>じかん</rt></ruby>/お<ruby>金<rt>かね</rt></ruby>がかかる", de:"… requires/costs time/money",
-  rule:"effort for a activity. のに + 時間/お金/etc. + が かかります. Describes like much time or money the action needs.",
+  rule:"Effort for an activity. のに + 時間/お金/etc. + が かかります. Describes how much time or money the action requires.",
   build:[{form:"verb",verb:"V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + のに",de:"in order to V"},{form:"noun",verb:"N + のに",de:"for N"},{form:"+ <ruby>時間<rt>じかん</rt></ruby>がかかる",verb:"requires time",de:"time effort"},{form:"+ お<ruby>金<rt>かね</rt></ruby>がかかる",verb:"costs money",de:"cost"}],
   pattern:{slots:[{text:"V-辞書 / N",role:"verb",label:"Action"},{text:"のに",role:"actor"},{text:"effort",role:"obj",label:"time/money"},{text:"が かかります",role:"verb"}],gloss:"'[V] requires/costs [time/money].' — effort-description."},
   ex:[{jp:"この <ruby>仕事<rt>しごと</rt></ruby>を するのに <ruby>2時間<rt>にじかん</rt></ruby> かかります。",de:"This work requires two hours."},{jp:"<ruby>留学<rt>りゅうがく</rt></ruby>するのに たくさん お<ruby>金<rt>かね</rt></ruby>が かかります。",de:"Studying abroad costs a lot of money."},{jp:"この レポートを <ruby>書<rt>か</rt></ruby>くのに <ruby>1週間<rt>いっしゅうかん</rt></ruby> かかりました。",de:"Writing this report took a week."}],
@@ -4243,7 +4243,7 @@ function renderCompare() {
 
  quizStartBtn.addEventlistener('click', () => {
   quizQuestions = buildQuestions(selectedScope, selectedCount);
-  if (!quizQuestions.length) { alert('No Questions for this area available.\n\nPlease a different area choose.'); return; }
+  if (!quizQuestions.length) { alert('No questions available for this area.\n\nPlease choose a different area.'); return; }
   currentQ = 0; score = 0;
   quizSetup.classList.add('hidden');
   quizSetupFooter.classList.add('hidden');
