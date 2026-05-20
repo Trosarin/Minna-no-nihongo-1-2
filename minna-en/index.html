@@ -613,9 +613,12 @@ letter-spacing:.04em;
 }
 .stats-card-grid{
 display:grid;
-grid-template-columns:repeat(3, 1fr);
+grid-template-columns:repeat(4, 1fr);
 gap:.5rem;
 margin-bottom:.7rem;
+}
+@media (max-width:520px){
+  .stats-card-grid{grid-template-columns:repeat(2, 1fr);}
 }
 .stat-item{
 display:flex;
@@ -981,38 +984,37 @@ padding:.8rem;
 
 .review-buttons{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:.6rem;
+grid-template-columns:repeat(4,1fr);
+gap:.4rem;
+}
+@media (max-width:520px){
+  .review-buttons{grid-template-columns:repeat(2,1fr);}
 }
 .review-buttons.hidden{display:none}
-.review-btn-bad, .review-btn-good{
+.rb{
 border:none;
 border-radius:10px;
-padding:1rem;
-font-size:1rem;
+padding:.7rem .4rem;
+font-size:.95rem;
 font-weight:600;
 cursor:pointer;
 display:flex;
+flex-direction:column;
 align-items:center;
 justify-content:center;
-gap:.5rem;
+gap:.15rem;
 font-family:inherit;
 -webkit-tap-highlight-color:transparent;
 transition:transform .1s;
+line-height:1.15;
 }
-.review-btn-bad:active, .review-btn-good:active{
-transform:scale(.97);
-}
-.review-btn-bad{
-background:#fff;
-color:#b03030;
-border:2px solid #b03030;
-}
-.review-btn-good{
-background:#7a1a14;
-color:#f4ede0;
-}
-.rb-icon{font-size:1.3rem}
+.rb:active{transform:scale(.97);}
+.rb-again{background:#fff;color:#b03030;border:2px solid #b03030;}
+.rb-hard {background:#fff;color:#a66400;border:2px solid #a66400;}
+.rb-good {background:#7a1a14;color:#f4ede0;}
+.rb-easy {background:#b8893a;color:#1a1612;}
+.rb-text{font-size:.95rem;font-weight:700;}
+.rb-hint{font-size:.72rem;opacity:.85;font-weight:500;letter-spacing:.02em;}
 
 .review-finished{
 flex:1;
@@ -1334,7 +1336,14 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
   <h2>🔁 Review — What would you like to practice?</h2>
   <div class="review-filter-group">
    <label class="review-filter-option">
-    <input type="radio" name="reviewFilter" value="all" checked>
+    <input type="radio" name="reviewFilter" value="due" checked>
+    <span class="review-filter-label">
+     <b>⏰ Due today <small style="opacity:.7;font-weight:400">(recommended)</small></b>
+     <small id="countDue">— cards</small>
+    </span>
+   </label>
+   <label class="review-filter-option">
+    <input type="radio" name="reviewFilter" value="all">
     <span class="review-filter-label">
      <b>All cards</b>
      <small id="countAll">— cards</small>
@@ -1343,21 +1352,21 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
    <label class="review-filter-option">
     <input type="radio" name="reviewFilter" value="unrated">
     <span class="review-filter-label">
-     <b>⚪ Only unrated</b>
+     <b>⚪ Only new</b>
      <small id="countUnrated">— cards</small>
     </span>
    </label>
    <label class="review-filter-option">
     <input type="radio" name="reviewFilter" value="again">
     <span class="review-filter-label">
-     <b>🔴 Only „Again"</b>
+     <b>🔴 Recently forgotten</b>
      <small id="countAgain">— cards</small>
     </span>
    </label>
    <label class="review-filter-option">
     <input type="radio" name="reviewFilter" value="lesson">
     <span class="review-filter-label">
-     <b>📚 Lessons choose</b>
+     <b>📚 Choose lessons</b>
      <small>Multiple selection possible</small>
     </span>
    </label>
@@ -1387,6 +1396,9 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
     <span id="reviewAgain">🔴 0</span>
    </span>
   </div>
+  <div class="review-progress" style="margin-top:.2rem;font-size:.78rem;opacity:.75">
+   <span id="reviewCardDue"></span>
+  </div>
  </div>
 
  <div class="review-card-area">
@@ -1399,13 +1411,21 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
  <div class="review-actions">
   <div class="review-flip-hint" id="reviewFlipHint">👆 Tap to flip</div>
   <div class="review-buttons hidden" id="reviewButtons">
-   <button class="review-btn-bad" id="btnBad">
-    <span class="rb-icon">❌</span>
+   <button class="rb rb-again" id="btnAgain" data-grade="1">
     <span class="rb-text">Again</span>
+    <span class="rb-hint" id="hintAgain">10m</span>
    </button>
-   <button class="review-btn-good" id="btnGood">
-    <span class="rb-icon">✅</span>
-    <span class="rb-text">Got it</span>
+   <button class="rb rb-hard" id="btnHard" data-grade="2">
+    <span class="rb-text">Hard</span>
+    <span class="rb-hint" id="hintHard">15m</span>
+   </button>
+   <button class="rb rb-good" id="btnGood" data-grade="3">
+    <span class="rb-text">Good</span>
+    <span class="rb-hint" id="hintGood">1d</span>
+   </button>
+   <button class="rb rb-easy" id="btnEasy" data-grade="4">
+    <span class="rb-text">Easy</span>
+    <span class="rb-hint" id="hintEasy">4d</span>
    </button>
   </div>
  </div>
@@ -1421,8 +1441,9 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
  <div class="stats-card" id="statsCard">
   <div class="stats-card-title">📊 Your progress</div>
   <div class="stats-card-grid">
-   <div class="stat-item"><span class="stat-num" id="statGood">0</span><span class="stat-label">✅ Got it</span></div>
-   <div class="stat-item"><span class="stat-num" id="statBad">0</span><span class="stat-label">🔴 Again</span></div>
+   <div class="stat-item"><span class="stat-num" id="statDue">0</span><span class="stat-label">⏰ Due</span></div>
+   <div class="stat-item"><span class="stat-num" id="statGood">0</span><span class="stat-label">✅ Learned</span></div>
+   <div class="stat-item"><span class="stat-num" id="statBad">0</span><span class="stat-label">🔴 Forgotten</span></div>
    <div class="stat-item"><span class="stat-num" id="statNew">0</span><span class="stat-label">⚪ New</span></div>
   </div>
   <div class="stats-card-actions">
@@ -1850,6 +1871,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
  <p style="margin-top:.3rem;font-size:.7rem">Klick to the flip · Search & filter active</p>
 </footer>
 
+<script src="../fsrs.js"></script>
 <script>
 const CARDS = [
  {l:1, t:"N₁ は N₂ です", de:"N₁ is N₂",
@@ -3268,98 +3290,52 @@ const lessonFilter = document.getElementById('lessonFilter');
 const stats = document.getElementById('stats');
 const backBtn = document.getElementById('backBtn');
 
-// ============ STATS SYSTEM (localStorage) ============
-const STORAGE_KEY = 'minna_card_stats_v1';
+// ============ STATS SYSTEM (FSRS via /fsrs.js) ============
 
-function loadStats() {
- try {
-  const data = localStorage.getItem(STORAGE_KEY);
-  return data ? JSON.parse(data) : {};
- } catch (e) {
-  console.warn('Could not load stats:', e);
-  return {};
- }
-}
-
-function saveStats(s) {
- try {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
- } catch (e) {
-  console.warn('Could not save stats:', e);
- }
-}
-
-// card-ID = Lesson + Title (unique)
+// card-ID = Lesson + Title (unique) — kept for migration
 function cardId(card) {
  return 'L' + card.l + ':' + card.t.replace(/<[^>]+>/g, '').substring(0, 60);
 }
 
 function getCardStatus(card) {
- const all = loadStats();
  const id = cardId(card);
- return all[id] || { status: 'new', good: 0, bad: 0, lastSeen: null };
+ return { status: FSRS.legacyStatus(id), card: FSRS.getCard(id) };
 }
 
 function setCardRating(card, rating) {
- const all = loadStats();
  const id = cardId(card);
- const cur = all[id] || { status: 'new', good: 0, bad: 0, lastSeen: null };
- if (rating === 'good') {
-  cur.good += 1;
-  cur.status = 'good';
- } else if (rating === 'bad') {
-  cur.bad += 1;
-  cur.status = 'bad';
- }
- cur.lastSeen = Date.now();
- all[id] = cur;
- saveStats(all);
+ FSRS.rate(id, rating === 'good' ? 3 : 1);
 }
 
-function getStatusIcon(status) {
- if (status === 'good') return '✅';
- if (status === 'bad') return '🔴';
- return '';
+function getStatusIcon(card) {
+ const bucket = FSRS.getBucket(cardId(card));
+ if (bucket === 'new')      return '';
+ if (bucket === 'learning') return '🟡';
+ if (bucket === 'lapsed')   return '🔴';
+ if (bucket === 'young')    return '🌱';
+ return '✅';
 }
 
 function computeOverallStats() {
- const all = loadStats();
- let good = 0, bad = 0, newCards = 0;
- CARDS.forEach(card => {
-  const id = cardId(card);
-  const s = all[id];
-  if (!s || s.status === 'new') newCards++;
-  else if (s.status === 'good') good++;
-  else if (s.status === 'bad') bad++;
- });
- return { good, bad, newCards, total: CARDS.length };
+ return FSRS.countsForIds(CARDS.map(cardId));
 }
 
 function computeLessonStats(lessonNum) {
- const all = loadStats();
- const lessonCards = CARDS.filter(c => c.l === lessonNum);
- let good = 0, bad = 0, newCards = 0;
- lessonCards.forEach(card => {
-  const id = cardId(card);
-  const s = all[id];
-  if (!s || s.status === 'new') newCards++;
-  else if (s.status === 'good') good++;
-  else if (s.status === 'bad') bad++;
- });
- return { good, bad, newCards, total: lessonCards.length };
+ return FSRS.countsForIds(CARDS.filter(c => c.l === lessonNum).map(cardId));
 }
 
 function updateStatsCard() {
  const s = computeOverallStats();
+ document.getElementById('statDue').textContent  = s.due;
  document.getElementById('statGood').textContent = s.good;
- document.getElementById('statBad').textContent = s.bad;
- document.getElementById('statNew').textContent = s.newCards;
+ document.getElementById('statBad').textContent  = s.bad;
+ document.getElementById('statNew').textContent  = s.new;
 }
 
 // Reset
-document.getElementById('statsReset').addEventlistener('click', () => {
+document.getElementById('statsReset').addEventListener('click', () => {
  if (confirm('Really reset all statistics? This cannot be undone.')) {
-  localStorage.removeItem(STORAGE_KEY);
+  FSRS.reset();
   updateStatsCard();
   renderOverview();
   render();
@@ -3384,22 +3360,26 @@ const reviewAgainCount = document.getElementById('reviewAgain');
 const reviewFinished = document.getElementById('reviewFinished');
 const reviewFinishedStats = document.getElementById('reviewFinishedStats');
 const reviewFinishedClose = document.getElementById('reviewFinishedClose');
-const btnGood = document.getElementById('btnGood');
-const btnBad = document.getElementById('btnBad');
+const btnAgain = document.getElementById('btnAgain');
+const btnHard  = document.getElementById('btnHard');
+const btnGood  = document.getElementById('btnGood');
+const btnEasy  = document.getElementById('btnEasy');
+const reviewCardDue = document.getElementById('reviewCardDue');
 const lessonMultiSelect = document.getElementById('lessonMultiSelect');
 const lessonMultiGrid = document.getElementById('lessonMultiGrid');
 
 let reviewQueue = [];
 let reviewIndex = 0;
-let reviewSession = { good: 0, bad: 0 };
+let reviewSession = { again: 0, hard: 0, good: 0, easy: 0 };
 let selectedLessons = new Set();
 
 function openReviewModal() {
  // Update counts
  const s = computeOverallStats();
- document.getElementById('countAll').textContent = `${s.total} cards`;
- document.getElementById('countUnrated').textContent = `${s.newCards} cards`;
- document.getElementById('countAgain').textContent = `${s.bad} cards`;
+ document.getElementById('countDue').textContent     = `${s.due} cards`;
+ document.getElementById('countAll').textContent     = `${s.total} cards`;
+ document.getElementById('countUnrated').textContent = `${s.new} cards`;
+ document.getElementById('countAgain').textContent   = `${s.lapsed} cards`;
  
  // Build lesson grid
  selectedLessons.clear();
@@ -3409,7 +3389,7 @@ function openReviewModal() {
   const div = document.createElement('div');
   div.className = 'lesson-multi-item';
   div.textContent = 'L' + l;
-  div.addEventlistener('click', () => {
+  div.addEventListener('click', () => {
    if (selectedLessons.has(l)) {
     selectedLessons.delete(l);
     div.classList.remove('selected');
@@ -3421,8 +3401,8 @@ function openReviewModal() {
   lessonMultiGrid.appendChild(div);
  });
  
- // Reset
- document.querySelector('input[name="reviewFilter"][value="all"]').checked = true;
+ // Reset — default: Due today
+ document.querySelector('input[name="reviewFilter"][value="due"]').checked = true;
  lessonMultiSelect.classList.add('hidden');
  
  reviewModal.classList.remove('hidden');
@@ -3430,7 +3410,7 @@ function openReviewModal() {
 
 // filter radio change
 document.querySelectorAll('input[name="reviewFilter"]').forEach(r => {
- r.addEventlistener('change', () => {
+ r.addEventListener('change', () => {
   if (r.value === 'lesson' && r.checked) {
    lessonMultiSelect.classList.remove('hidden');
   } else if (r.checked) {
@@ -3439,36 +3419,48 @@ document.querySelectorAll('input[name="reviewFilter"]').forEach(r => {
  });
 });
 
-reviewBtn.addEventlistener('click', openReviewModal);
-reviewCancel.addEventlistener('click', () => reviewModal.classList.add('hidden'));
+reviewBtn.addEventListener('click', openReviewModal);
+reviewCancel.addEventListener('click', () => reviewModal.classList.add('hidden'));
 
-reviewStart.addEventlistener('click', () => {
+reviewStart.addEventListener('click', () => {
  const filter = document.querySelector('input[name="reviewFilter"]:checked').value;
  let pool = [];
  
- if (filter === 'all') {
+ if (filter === 'due') {
+  const now = Date.now();
+  pool = CARDS.filter(c => FSRS.isDue(cardId(c), now));
+ } else if (filter === 'all') {
   pool = [...CARDS];
  } else if (filter === 'unrated') {
-  pool = CARDS.filter(c => getCardStatus(c).status === 'new');
+  pool = CARDS.filter(c => FSRS.getCard(cardId(c)).state === 'new');
  } else if (filter === 'again') {
-  pool = CARDS.filter(c => getCardStatus(c).status === 'bad');
+  pool = CARDS.filter(c => FSRS.legacyStatus(cardId(c)) === 'bad');
  } else if (filter === 'lesson') {
   if (selectedLessons.size === 0) {
-   alert('please at least a Lesson select.');
+   alert('Please select at least one lesson.');
    return;
   }
   pool = CARDS.filter(c => selectedLessons.has(c.l));
  }
- 
+
  if (pool.length === 0) {
   alert('No cards found for this selection.');
   return;
  }
- 
- // Shuffle
- reviewQueue = pool.sort(() => Math.random() - 0.5);
+
+ // Sort: due first by overdue, otherwise random
+ if (filter === 'due') {
+  pool.sort((a, b) => {
+   const da = FSRS.getCard(cardId(a)).due || Infinity;
+   const db = FSRS.getCard(cardId(b)).due || Infinity;
+   return da - db;
+  });
+ } else {
+  pool.sort(() => Math.random() - 0.5);
+ }
+ reviewQueue = pool;
  reviewIndex = 0;
- reviewSession = { good: 0, bad: 0 };
+ reviewSession = { again: 0, hard: 0, good: 0, easy: 0 };
  
  reviewModal.classList.add('hidden');
  reviewMode.classList.remove('hidden');
@@ -3521,48 +3513,80 @@ function showReviewCard() {
  reviewBack.classList.add('hidden');
  reviewFlipHint.classList.remove('hidden');
  reviewButtons.classList.add('hidden');
- 
+
+ // FSRS status for current card
+ const fcard = FSRS.getCard(cardId(card));
+ let dueLabel = '';
+ if (fcard.state === 'new') dueLabel = 'New';
+ else if (fcard.due) {
+  const diff = fcard.due - Date.now();
+  if (diff <= 0) dueLabel = 'Overdue by ' + FSRS.formatDuration(-diff);
+  else dueLabel = 'Originally due in ' + FSRS.formatDuration(diff);
+ }
+ reviewCardDue.textContent = dueLabel;
+
  // Update progress
  reviewCounter.textContent = `${reviewIndex + 1} / ${reviewQueue.length}`;
- reviewGoodCount.textContent = `✅ ${reviewSession.good}`;
- reviewAgainCount.textContent = `🔴 ${reviewSession.bad}`;
+ reviewGoodCount.textContent  = `✅ ${reviewSession.good + reviewSession.easy + reviewSession.hard}`;
+ reviewAgainCount.textContent = `🔴 ${reviewSession.again}`;
 }
 
-reviewCard.addEventlistener('click', () => {
+reviewCard.addEventListener('click', () => {
  if (reviewBack.classList.contains('hidden')) {
   reviewBack.classList.remove('hidden');
   reviewFlipHint.classList.add('hidden');
   reviewButtons.classList.remove('hidden');
+  // Populate predicted intervals
+  const card = reviewQueue[reviewIndex];
+  const p = FSRS.preview(cardId(card));
+  document.getElementById('hintAgain').textContent = FSRS.formatDuration(p[1]);
+  document.getElementById('hintHard').textContent  = FSRS.formatDuration(p[2]);
+  document.getElementById('hintGood').textContent  = FSRS.formatDuration(p[3]);
+  document.getElementById('hintEasy').textContent  = FSRS.formatDuration(p[4]);
  }
 });
 
-btnGood.addEventlistener('click', (e) => {
- e.stopPropagation();
- setCardRating(reviewQueue[reviewIndex], 'good');
- reviewSession.good++;
+function gradeCurrent(grade, bucket) {
+ const card = reviewQueue[reviewIndex];
+ FSRS.rate(cardId(card), grade);
+ reviewSession[bucket]++;
  reviewIndex++;
  showReviewCard();
-});
+}
 
-btnBad.addEventlistener('click', (e) => {
- e.stopPropagation();
- setCardRating(reviewQueue[reviewIndex], 'bad');
- reviewSession.bad++;
- reviewIndex++;
- showReviewCard();
+btnAgain.addEventListener('click', (e) => { e.stopPropagation(); gradeCurrent(1, 'again'); });
+btnHard .addEventListener('click', (e) => { e.stopPropagation(); gradeCurrent(2, 'hard');  });
+btnGood .addEventListener('click', (e) => { e.stopPropagation(); gradeCurrent(3, 'good');  });
+btnEasy .addEventListener('click', (e) => { e.stopPropagation(); gradeCurrent(4, 'easy');  });
+
+// Keyboard shortcuts: 1/2/3/4 (or Space/Enter to flip)
+document.addEventListener('keydown', (e) => {
+ if (reviewMode.classList.contains('hidden')) return;
+ if (reviewFinished && !reviewFinished.classList.contains('hidden')) return;
+ if (e.key === ' ' || e.key === 'Enter') {
+  if (reviewBack.classList.contains('hidden')) { e.preventDefault(); reviewCard.click(); }
+  return;
+ }
+ if (reviewButtons.classList.contains('hidden')) return;
+ if (e.key === '1') { e.preventDefault(); btnAgain.click(); }
+ else if (e.key === '2') { e.preventDefault(); btnHard.click(); }
+ else if (e.key === '3') { e.preventDefault(); btnGood.click(); }
+ else if (e.key === '4') { e.preventDefault(); btnEasy.click(); }
 });
 
 function showReviewFinished() {
  document.querySelector('.review-card-area').style.display = 'none';
  document.querySelector('.review-actions').style.display = 'none';
  reviewFinished.classList.remove('hidden');
- 
- const total = reviewSession.good + reviewSession.bad;
- const pct = total > 0 ? Math.round(reviewSession.good / total * 100) : 0;
+
+ const s = reviewSession;
+ const total = s.again + s.hard + s.good + s.easy;
+ const recalled = s.hard + s.good + s.easy;
+ const pct = total > 0 ? Math.round(recalled / total * 100) : 0;
  reviewFinishedStats.innerHTML = `
-  You have <b>${total} cards</b> to repeat.<br>
-  ✅ ${reviewSession.good} can I · 🔴 ${reviewSession.bad} nochtimes<br>
-  Erfolgsquote: <b>${pct}%</b>
+  You reviewed <b>${total} cards</b>.<br>
+  🔴 ${s.again} · 🟠 ${s.hard} · ✅ ${s.good} · ⭐ ${s.easy}<br>
+  Success rate: <b>${pct}%</b>
  `;
 }
 
@@ -3577,13 +3601,14 @@ function closeReviewMode() {
  render();
 }
 
-reviewClose.addEventlistener('click', () => {
- if (reviewIndex < reviewQueue.length && reviewSession.good + reviewSession.bad > 0) {
+reviewClose.addEventListener('click', () => {
+ const reviewed = reviewSession.again + reviewSession.hard + reviewSession.good + reviewSession.easy;
+ if (reviewIndex < reviewQueue.length && reviewed > 0) {
   if (!confirm('Review really end? Your current progress is saved.')) return;
  }
  closeReviewMode();
 });
-reviewFinishedClose.addEventlistener('click', closeReviewMode);
+reviewFinishedClose.addEventListener('click', closeReviewMode);
 
 // Short topics per lesson (for overview tiles)
 const TOPICS = {
@@ -3636,9 +3661,9 @@ function renderOverview() {
    <span class="topic">${TOPICS[l] || ''}</span>
    <span class="count">${counts[l]} card${counts[l]!==1?'s':''}</span>
    <div class="tile-progress"><div class="tile-progress-bar" style="width:${pct}%"></div></div>
-   <span class="tile-progress-text">${learned}/${lstats.total} ✅${lstats.bad > 0 ? ' · '+lstats.bad+' 🔴' : ''}</span>
+   <span class="tile-progress-text">${learned}/${lstats.total} ✅${lstats.due > 0 ? ' · '+lstats.due+' ⏰' : ''}${lstats.lapsed > 0 ? ' · '+lstats.lapsed+' 🔴' : ''}</span>
   `;
-  tile.addEventlistener('click', () => {
+  tile.addEventListener('click', () => {
    lessonFilter.value = l;
    render();
    window.scrollTo({top:document.querySelector('.controls').offsetTop, behavior:'smooth'});
@@ -3782,8 +3807,7 @@ function render(){
 
   const card = document.createElement('div');
   card.className = 'card';
-  const cstatus = getCardStatus(c);
-  const statusIcon = getStatusIcon(cstatus.status);
+  const statusIcon = getStatusIcon(c);
   const useSectioned = !!c.pattern;
   const backInner = useSectioned ? buildSectionedBack(c) : `
      <div class="rule">${c.rule}</div>
@@ -3809,16 +3833,16 @@ function render(){
     </div>
    </div>
   `;
-  card.addEventlistener('click', () => card.classList.toggle('flipped'));
+  card.addEventListener('click', () => card.classList.toggle('flipped'));
   grid.appendChild(card);
  });
  stats.innerHTML = `<b>${count}</b> card${count!==1?'s':''}`;
 }
 
-search.addEventlistener('input', render);
-lessonFilter.addEventlistener('change', render);
+search.addEventListener('input', render);
+lessonFilter.addEventListener('change', render);
 
-backBtn.addEventlistener('click', () => {
+backBtn.addEventListener('click', () => {
  lessonFilter.value = 'all';
  search.value = '';
  cheatsBlock.classList.add('hidden');
@@ -3829,7 +3853,7 @@ backBtn.addEventlistener('click', () => {
 });
 
 // Cheat toggle button: changes filter instead of toggling directly (clean state management)
-cheatToggle.addEventlistener('click', () => {
+cheatToggle.addEventListener('click', () => {
  if (lessonFilter.value === 'cheats') {
   // Cheats are active → back to the overview
   lessonFilter.value = 'all';
@@ -3843,16 +3867,16 @@ cheatToggle.addEventlistener('click', () => {
 
 // Floating back-to-top button: fade in after 400px scroll
 const toTop = document.getElementById('toTop');
-window.addEventlistener('scroll', () => {
+window.addEventListener('scroll', () => {
  if (window.scrollY > 400) toTop.classList.add('visible');
  else toTop.classList.remove('visible');
 }, {passive:true});
-toTop.addEventlistener('click', () => {
+toTop.addEventListener('click', () => {
  window.scrollTo({top:0, behavior:'smooth'});
 });
 
 // iOS fix: center search field after focus (keyboard covers it otherwise)
-search.addEventlistener('focus', () => {
+search.addEventListener('focus', () => {
  setTimeout(() => {
   search.scrollIntoView({behavior:'smooth', block:'center'});
  }, 300);
@@ -3860,7 +3884,7 @@ search.addEventlistener('focus', () => {
 
 // TOC smooth scroll with offset for sticky header
 document.querySelectorAll('.cheat-toc a').forEach(link => {
- link.addEventlistener('click', (e) => {
+ link.addEventListener('click', (e) => {
   e.preventDefault();
   const target = document.querySelector(link.getAttribute('href'));
   if (target) {
@@ -3870,7 +3894,7 @@ document.querySelectorAll('.cheat-toc a').forEach(link => {
  });
 });
 
-document.getElementById('randomBtn').addEventlistener('click', () => {
+document.getElementById('randomBtn').addEventListener('click', () => {
  // When overview active: show random lesson + card
  if (overview.style.display !== 'none' && lessonFilter.value === 'all') {
   const randomCard = CARDS[Math.floor(Math.random() * CARDS.length)];
@@ -4224,7 +4248,7 @@ function renderCompare() {
   b.className = 'quiz-scope-btn';
   b.textContent = label;
   b.dataset.value = value;
-  b.addEventlistener('click', () => {
+  b.addEventListener('click', () => {
    quizScopeGrid.querySelectorAll('.quiz-scope-btn').forEach(x => x.classList.remove('active'));
    b.classList.add('active');
    selectedScope = value;
@@ -4234,14 +4258,14 @@ function renderCompare() {
  }
 
  document.querySelectorAll('#quizCountGroup .quiz-scope-btn').forEach(b => {
-  b.addEventlistener('click', () => {
+  b.addEventListener('click', () => {
    document.querySelectorAll('#quizCountGroup .quiz-scope-btn').forEach(x => x.classList.remove('active'));
    b.classList.add('active');
    selectedCount = parseInt(b.dataset.count) || 0;
   });
  });
 
- quizStartBtn.addEventlistener('click', () => {
+ quizStartBtn.addEventListener('click', () => {
   quizQuestions = buildQuestions(selectedScope, selectedCount);
   if (!quizQuestions.length) { alert('No questions available for this area.\n\nPlease choose a different area.'); return; }
   currentQ = 0; score = 0;
@@ -4266,7 +4290,7 @@ function renderCompare() {
    const b = document.createElement('button');
    b.className = 'quiz-option';
    b.innerHTML = opt;
-   b.addEventlistener('click', () => {
+   b.addEventListener('click', () => {
     quizoptions.querySelectorAll('.quiz-option').forEach(x => {
      x.disabled = true;
      if (x.textContent.trim() === q.answer) x.classList.add('correct');
@@ -4284,7 +4308,7 @@ function renderCompare() {
   });
  }
 
- quizNextBtn.addEventlistener('click', () => {
+ quizNextBtn.addEventListener('click', () => {
   currentQ++;
   currentQ >= quizQuestions.length ? showResult() : showQuestion();
  });
@@ -4299,7 +4323,7 @@ function renderCompare() {
   quizProgressBar.style.width = '100%';
  }
 
- quizrestartBtn.addEventlistener('click', () => {
+ quizrestartBtn.addEventListener('click', () => {
   quizQuestions = buildQuestions(selectedScope, selectedCount);
   currentQ = 0; score = 0;
   quizResult.classList.add('hidden');
@@ -4307,7 +4331,7 @@ function renderCompare() {
   showQuestion();
  });
 
- quizBackBtn.addEventlistener('click', () => {
+ quizBackBtn.addEventListener('click', () => {
   quizResult.classList.add('hidden');
   quizSetup.classList.remove('hidden');
   quizSetupFooter.classList.remove('hidden');
@@ -4315,7 +4339,7 @@ function renderCompare() {
   quizScopeGrid.querySelectorAll('.quiz-scope-btn').forEach(x => x.classList.remove('active'));
  });
 
- quizBtn.addEventlistener('click', () => {
+ quizBtn.addEventListener('click', () => {
   quizModal.classList.remove('hidden');
   // Reset to the setup state
   quizSetup.classList.remove('hidden');
@@ -4326,8 +4350,8 @@ function renderCompare() {
   quizStartBtn.disabled = true;
   buildSetupUI();
  });
- quizClose.addEventlistener('click', () => quizModal.classList.add('hidden'));
- quizModal.addEventlistener('click', e => { if (e.target === quizModal) quizModal.classList.add('hidden'); });
+ quizClose.addEventListener('click', () => quizModal.classList.add('hidden'));
+ quizModal.addEventListener('click', e => { if (e.target === quizModal) quizModal.classList.add('hidden'); });
 })();
 </script>
 
@@ -4335,7 +4359,7 @@ function renderCompare() {
 
 <script>
  if ('serviceWhererker' in navigator) {
-  window.addEventlistener('load', () => {
+  window.addEventListener('load', () => {
    navigator.serviceWhererker.register('service-worker.js')
     .then((reg) => console.log('SW registered:', reg.scope))
     .catch((err) => console.log('SW registration failed:', err));

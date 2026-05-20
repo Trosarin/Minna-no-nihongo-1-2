@@ -613,9 +613,12 @@ letter-spacing:.04em;
 }
 .stats-card-grid{
 display:grid;
-grid-template-columns:repeat(3, 1fr);
+grid-template-columns:repeat(4, 1fr);
 gap:.5rem;
 margin-bottom:.7rem;
+}
+@media (max-width:520px){
+  .stats-card-grid{grid-template-columns:repeat(2, 1fr);}
 }
 .stat-item{
 display:flex;
@@ -981,38 +984,37 @@ padding:.8rem;
 
 .review-buttons{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:.6rem;
+grid-template-columns:repeat(4,1fr);
+gap:.4rem;
+}
+@media (max-width:520px){
+  .review-buttons{grid-template-columns:repeat(2,1fr);}
 }
 .review-buttons.hidden{display:none}
-.review-btn-bad, .review-btn-good{
+.rb{
 border:none;
 border-radius:10px;
-padding:1rem;
-font-size:1rem;
+padding:.7rem .4rem;
+font-size:.95rem;
 font-weight:600;
 cursor:pointer;
 display:flex;
+flex-direction:column;
 align-items:center;
 justify-content:center;
-gap:.5rem;
+gap:.15rem;
 font-family:inherit;
 -webkit-tap-highlight-color:transparent;
 transition:transform .1s;
+line-height:1.15;
 }
-.review-btn-bad:active, .review-btn-good:active{
-transform:scale(.97);
-}
-.review-btn-bad{
-background:#fff;
-color:#b03030;
-border:2px solid #b03030;
-}
-.review-btn-good{
-background:#7a1a14;
-color:#f4ede0;
-}
-.rb-icon{font-size:1.3rem}
+.rb:active{transform:scale(.97);}
+.rb-again{background:#fff;color:#b03030;border:2px solid #b03030;}
+.rb-hard {background:#fff;color:#a66400;border:2px solid #a66400;}
+.rb-good {background:#7a1a14;color:#f4ede0;}
+.rb-easy {background:#b8893a;color:#1a1612;}
+.rb-text{font-size:.95rem;font-weight:700;}
+.rb-hint{font-size:.72rem;opacity:.85;font-weight:500;letter-spacing:.02em;}
 
 .review-finished{
 flex:1;
@@ -1334,7 +1336,14 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
     <h2>🔁 Wiederholen — Was möchtest du üben?</h2>
     <div class="review-filter-group">
       <label class="review-filter-option">
-        <input type="radio" name="reviewFilter" value="all" checked>
+        <input type="radio" name="reviewFilter" value="due" checked>
+        <span class="review-filter-label">
+          <b>⏰ Fällig heute <small style="opacity:.7;font-weight:400">(empfohlen)</small></b>
+          <small id="countDue">— Karten</small>
+        </span>
+      </label>
+      <label class="review-filter-option">
+        <input type="radio" name="reviewFilter" value="all">
         <span class="review-filter-label">
           <b>Alle Karten</b>
           <small id="countAll">— Karten</small>
@@ -1343,14 +1352,14 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
       <label class="review-filter-option">
         <input type="radio" name="reviewFilter" value="unrated">
         <span class="review-filter-label">
-          <b>⚪ Nur unbewertete</b>
+          <b>⚪ Nur neue</b>
           <small id="countUnrated">— Karten</small>
         </span>
       </label>
       <label class="review-filter-option">
         <input type="radio" name="reviewFilter" value="again">
         <span class="review-filter-label">
-          <b>🔴 Nur „Nochmal"</b>
+          <b>🔴 Zuletzt vergessen</b>
           <small id="countAgain">— Karten</small>
         </span>
       </label>
@@ -1387,6 +1396,9 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
         <span id="reviewAgain">🔴 0</span>
       </span>
     </div>
+    <div class="review-progress" style="margin-top:.2rem;font-size:.78rem;opacity:.75">
+      <span id="reviewCardDue"></span>
+    </div>
   </div>
 
   <div class="review-card-area">
@@ -1399,13 +1411,21 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
   <div class="review-actions">
     <div class="review-flip-hint" id="reviewFlipHint">👆 Tippen zum Umdrehen</div>
     <div class="review-buttons hidden" id="reviewButtons">
-      <button class="review-btn-bad" id="btnBad">
-        <span class="rb-icon">❌</span>
-        <span class="rb-text">Nochmal</span>
+      <button class="rb rb-again" id="btnAgain" data-grade="1">
+        <span class="rb-text">Wieder</span>
+        <span class="rb-hint" id="hintAgain">10m</span>
       </button>
-      <button class="review-btn-good" id="btnGood">
-        <span class="rb-icon">✅</span>
-        <span class="rb-text">Kann ich</span>
+      <button class="rb rb-hard" id="btnHard" data-grade="2">
+        <span class="rb-text">Schwer</span>
+        <span class="rb-hint" id="hintHard">15m</span>
+      </button>
+      <button class="rb rb-good" id="btnGood" data-grade="3">
+        <span class="rb-text">Gut</span>
+        <span class="rb-hint" id="hintGood">1d</span>
+      </button>
+      <button class="rb rb-easy" id="btnEasy" data-grade="4">
+        <span class="rb-text">Leicht</span>
+        <span class="rb-hint" id="hintEasy">4d</span>
       </button>
     </div>
   </div>
@@ -1421,8 +1441,9 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
   <div class="stats-card" id="statsCard">
     <div class="stats-card-title">📊 Dein Fortschritt</div>
     <div class="stats-card-grid">
-      <div class="stat-item"><span class="stat-num" id="statGood">0</span><span class="stat-label">✅ Kann ich</span></div>
-      <div class="stat-item"><span class="stat-num" id="statBad">0</span><span class="stat-label">🔴 Nochmal</span></div>
+      <div class="stat-item"><span class="stat-num" id="statDue">0</span><span class="stat-label">⏰ Fällig</span></div>
+      <div class="stat-item"><span class="stat-num" id="statGood">0</span><span class="stat-label">✅ Gelernt</span></div>
+      <div class="stat-item"><span class="stat-num" id="statBad">0</span><span class="stat-label">🔴 Vergessen</span></div>
       <div class="stat-item"><span class="stat-num" id="statNew">0</span><span class="stat-label">⚪ Neu</span></div>
     </div>
     <div class="stats-card-actions">
@@ -1850,6 +1871,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
   <p style="margin-top:.3rem;font-size:.7rem">Klick zum Umdrehen · Suche & Filter aktiv</p>
 </footer>
 
+<script src="../fsrs.js"></script>
 <script>
 const CARDS = [
   {l:1, t:"N₁ は N₂ です", de:"N₁ ist N₂",
@@ -3268,98 +3290,55 @@ const lessonFilter = document.getElementById('lessonFilter');
 const stats = document.getElementById('stats');
 const backBtn = document.getElementById('backBtn');
 
-// ============ STATS SYSTEM (localStorage) ============
-const STORAGE_KEY = 'minna_card_stats_v1';
+// ============ STATS SYSTEM (FSRS via /fsrs.js) ============
 
-function loadStats() {
-  try {
-    const data = localStorage.getItem(STORAGE_KEY);
-    return data ? JSON.parse(data) : {};
-  } catch (e) {
-    console.warn('Could not load stats:', e);
-    return {};
-  }
-}
-
-function saveStats(s) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
-  } catch (e) {
-    console.warn('Could not save stats:', e);
-  }
-}
-
-// Karte-ID = Lektion + Titel (eindeutig)
+// Karte-ID = Lektion + Titel (eindeutig) — beibehalten für Migration
 function cardId(card) {
   return 'L' + card.l + ':' + card.t.replace(/<[^>]+>/g, '').substring(0, 60);
 }
 
+// Liefert ein Objekt {status: 'new'|'good'|'bad', ...} für Render-Code,
+// der sich noch nicht um FSRS-State kümmert.
 function getCardStatus(card) {
-  const all = loadStats();
   const id = cardId(card);
-  return all[id] || { status: 'new', good: 0, bad: 0, lastSeen: null };
+  return { status: FSRS.legacyStatus(id), card: FSRS.getCard(id) };
 }
 
+// Kompatibilitätsadapter — falls noch alter Code mit 'good'/'bad' aufruft.
 function setCardRating(card, rating) {
-  const all = loadStats();
   const id = cardId(card);
-  const cur = all[id] || { status: 'new', good: 0, bad: 0, lastSeen: null };
-  if (rating === 'good') {
-    cur.good += 1;
-    cur.status = 'good';
-  } else if (rating === 'bad') {
-    cur.bad += 1;
-    cur.status = 'bad';
-  }
-  cur.lastSeen = Date.now();
-  all[id] = cur;
-  saveStats(all);
+  FSRS.rate(id, rating === 'good' ? 3 : 1);
 }
 
-function getStatusIcon(status) {
-  if (status === 'good') return '✅';
-  if (status === 'bad') return '🔴';
-  return '';
+function getStatusIcon(card) {
+  const bucket = FSRS.getBucket(cardId(card));
+  if (bucket === 'new')      return '';
+  if (bucket === 'learning') return '🟡';
+  if (bucket === 'lapsed')   return '🔴';
+  if (bucket === 'young')    return '🌱';
+  return '✅'; // mature
 }
 
 function computeOverallStats() {
-  const all = loadStats();
-  let good = 0, bad = 0, neu = 0;
-  CARDS.forEach(card => {
-    const id = cardId(card);
-    const s = all[id];
-    if (!s || s.status === 'new') neu++;
-    else if (s.status === 'good') good++;
-    else if (s.status === 'bad') bad++;
-  });
-  return { good, bad, neu, total: CARDS.length };
+  return FSRS.countsForIds(CARDS.map(cardId));
 }
 
 function computeLessonStats(lessonNum) {
-  const all = loadStats();
-  const lessonCards = CARDS.filter(c => c.l === lessonNum);
-  let good = 0, bad = 0, neu = 0;
-  lessonCards.forEach(card => {
-    const id = cardId(card);
-    const s = all[id];
-    if (!s || s.status === 'new') neu++;
-    else if (s.status === 'good') good++;
-    else if (s.status === 'bad') bad++;
-  });
-  return { good, bad, neu, total: lessonCards.length };
+  return FSRS.countsForIds(CARDS.filter(c => c.l === lessonNum).map(cardId));
 }
 
 function updateStatsCard() {
   const s = computeOverallStats();
+  document.getElementById('statDue').textContent  = s.due;
   document.getElementById('statGood').textContent = s.good;
-  document.getElementById('statBad').textContent = s.bad;
-  document.getElementById('statNew').textContent = s.neu;
+  document.getElementById('statBad').textContent  = s.bad;
+  document.getElementById('statNew').textContent  = s.new;
 }
 
 // Reset
 document.getElementById('statsReset').addEventListener('click', () => {
   if (confirm('Wirklich alle Statistiken zurücksetzen? Das kann nicht rückgängig gemacht werden.')) {
-    localStorage.removeItem(STORAGE_KEY);
+    FSRS.reset();
     updateStatsCard();
     renderOverview();
     render();
@@ -3384,22 +3363,26 @@ const reviewAgainCount = document.getElementById('reviewAgain');
 const reviewFinished = document.getElementById('reviewFinished');
 const reviewFinishedStats = document.getElementById('reviewFinishedStats');
 const reviewFinishedClose = document.getElementById('reviewFinishedClose');
-const btnGood = document.getElementById('btnGood');
-const btnBad = document.getElementById('btnBad');
+const btnAgain = document.getElementById('btnAgain');
+const btnHard  = document.getElementById('btnHard');
+const btnGood  = document.getElementById('btnGood');
+const btnEasy  = document.getElementById('btnEasy');
+const reviewCardDue = document.getElementById('reviewCardDue');
 const lessonMultiSelect = document.getElementById('lessonMultiSelect');
 const lessonMultiGrid = document.getElementById('lessonMultiGrid');
 
 let reviewQueue = [];
 let reviewIndex = 0;
-let reviewSession = { good: 0, bad: 0 };
+let reviewSession = { again: 0, hard: 0, good: 0, easy: 0 };
 let selectedLessons = new Set();
 
 function openReviewModal() {
   // Update counts
   const s = computeOverallStats();
-  document.getElementById('countAll').textContent = `${s.total} Karten`;
-  document.getElementById('countUnrated').textContent = `${s.neu} Karten`;
-  document.getElementById('countAgain').textContent = `${s.bad} Karten`;
+  document.getElementById('countDue').textContent     = `${s.due} Karten`;
+  document.getElementById('countAll').textContent     = `${s.total} Karten`;
+  document.getElementById('countUnrated').textContent = `${s.new} Karten`;
+  document.getElementById('countAgain').textContent   = `${s.lapsed} Karten`;
   
   // Build lesson grid
   selectedLessons.clear();
@@ -3421,8 +3404,8 @@ function openReviewModal() {
     lessonMultiGrid.appendChild(div);
   });
   
-  // Reset
-  document.querySelector('input[name="reviewFilter"][value="all"]').checked = true;
+  // Reset — Default: Fällig heute
+  document.querySelector('input[name="reviewFilter"][value="due"]').checked = true;
   lessonMultiSelect.classList.add('hidden');
   
   reviewModal.classList.remove('hidden');
@@ -3446,12 +3429,15 @@ reviewStart.addEventListener('click', () => {
   const filter = document.querySelector('input[name="reviewFilter"]:checked').value;
   let pool = [];
   
-  if (filter === 'all') {
+  if (filter === 'due') {
+    const now = Date.now();
+    pool = CARDS.filter(c => FSRS.isDue(cardId(c), now));
+  } else if (filter === 'all') {
     pool = [...CARDS];
   } else if (filter === 'unrated') {
-    pool = CARDS.filter(c => getCardStatus(c).status === 'new');
+    pool = CARDS.filter(c => FSRS.getCard(cardId(c)).state === 'new');
   } else if (filter === 'again') {
-    pool = CARDS.filter(c => getCardStatus(c).status === 'bad');
+    pool = CARDS.filter(c => FSRS.legacyStatus(cardId(c)) === 'bad');
   } else if (filter === 'lesson') {
     if (selectedLessons.size === 0) {
       alert('Bitte mindestens eine Lektion auswählen.');
@@ -3465,10 +3451,19 @@ reviewStart.addEventListener('click', () => {
     return;
   }
   
-  // Shuffle
-  reviewQueue = pool.sort(() => Math.random() - 0.5);
+  // Sort: für „Fällig heute" zuerst die am längsten überfälligen, sonst zufällig.
+  if (filter === 'due') {
+    pool.sort((a, b) => {
+      const da = FSRS.getCard(cardId(a)).due || Infinity;
+      const db = FSRS.getCard(cardId(b)).due || Infinity;
+      return da - db;
+    });
+  } else {
+    pool.sort(() => Math.random() - 0.5);
+  }
+  reviewQueue = pool;
   reviewIndex = 0;
-  reviewSession = { good: 0, bad: 0 };
+  reviewSession = { again: 0, hard: 0, good: 0, easy: 0 };
   
   reviewModal.classList.add('hidden');
   reviewMode.classList.remove('hidden');
@@ -3521,11 +3516,22 @@ function showReviewCard() {
   reviewBack.classList.add('hidden');
   reviewFlipHint.classList.remove('hidden');
   reviewButtons.classList.add('hidden');
-  
+
+  // FSRS-Status der aktuellen Karte anzeigen
+  const fcard = FSRS.getCard(cardId(card));
+  let dueLabel = '';
+  if (fcard.state === 'new') dueLabel = 'Neu';
+  else if (fcard.due) {
+    const diff = fcard.due - Date.now();
+    if (diff <= 0) dueLabel = 'Fällig seit ' + FSRS.formatDuration(-diff);
+    else dueLabel = 'Eigentlich fällig in ' + FSRS.formatDuration(diff);
+  }
+  reviewCardDue.textContent = dueLabel;
+
   // Update progress
   reviewCounter.textContent = `${reviewIndex + 1} / ${reviewQueue.length}`;
-  reviewGoodCount.textContent = `✅ ${reviewSession.good}`;
-  reviewAgainCount.textContent = `🔴 ${reviewSession.bad}`;
+  reviewGoodCount.textContent  = `✅ ${reviewSession.good + reviewSession.easy + reviewSession.hard}`;
+  reviewAgainCount.textContent = `🔴 ${reviewSession.again}`;
 }
 
 reviewCard.addEventListener('click', () => {
@@ -3533,35 +3539,56 @@ reviewCard.addEventListener('click', () => {
     reviewBack.classList.remove('hidden');
     reviewFlipHint.classList.add('hidden');
     reviewButtons.classList.remove('hidden');
+    // Buttons mit den vorhergesagten Intervallen beschriften
+    const card = reviewQueue[reviewIndex];
+    const p = FSRS.preview(cardId(card));
+    document.getElementById('hintAgain').textContent = FSRS.formatDuration(p[1]);
+    document.getElementById('hintHard').textContent  = FSRS.formatDuration(p[2]);
+    document.getElementById('hintGood').textContent  = FSRS.formatDuration(p[3]);
+    document.getElementById('hintEasy').textContent  = FSRS.formatDuration(p[4]);
   }
 });
 
-btnGood.addEventListener('click', (e) => {
-  e.stopPropagation();
-  setCardRating(reviewQueue[reviewIndex], 'good');
-  reviewSession.good++;
+function gradeCurrent(grade, bucket) {
+  const card = reviewQueue[reviewIndex];
+  FSRS.rate(cardId(card), grade);
+  reviewSession[bucket]++;
   reviewIndex++;
   showReviewCard();
-});
+}
 
-btnBad.addEventListener('click', (e) => {
-  e.stopPropagation();
-  setCardRating(reviewQueue[reviewIndex], 'bad');
-  reviewSession.bad++;
-  reviewIndex++;
-  showReviewCard();
+btnAgain.addEventListener('click', (e) => { e.stopPropagation(); gradeCurrent(1, 'again'); });
+btnHard .addEventListener('click', (e) => { e.stopPropagation(); gradeCurrent(2, 'hard');  });
+btnGood .addEventListener('click', (e) => { e.stopPropagation(); gradeCurrent(3, 'good');  });
+btnEasy .addEventListener('click', (e) => { e.stopPropagation(); gradeCurrent(4, 'easy');  });
+
+// Tastatur-Shortcuts: 1/2/3/4 (oder Leertaste zum Umdrehen)
+document.addEventListener('keydown', (e) => {
+  if (reviewMode.classList.contains('hidden')) return;
+  if (reviewFinished && !reviewFinished.classList.contains('hidden')) return;
+  if (e.key === ' ' || e.key === 'Enter') {
+    if (reviewBack.classList.contains('hidden')) { e.preventDefault(); reviewCard.click(); }
+    return;
+  }
+  if (reviewButtons.classList.contains('hidden')) return;
+  if (e.key === '1') { e.preventDefault(); btnAgain.click(); }
+  else if (e.key === '2') { e.preventDefault(); btnHard.click(); }
+  else if (e.key === '3') { e.preventDefault(); btnGood.click(); }
+  else if (e.key === '4') { e.preventDefault(); btnEasy.click(); }
 });
 
 function showReviewFinished() {
   document.querySelector('.review-card-area').style.display = 'none';
   document.querySelector('.review-actions').style.display = 'none';
   reviewFinished.classList.remove('hidden');
-  
-  const total = reviewSession.good + reviewSession.bad;
-  const pct = total > 0 ? Math.round(reviewSession.good / total * 100) : 0;
+
+  const s = reviewSession;
+  const total = s.again + s.hard + s.good + s.easy;
+  const recalled = s.hard + s.good + s.easy;
+  const pct = total > 0 ? Math.round(recalled / total * 100) : 0;
   reviewFinishedStats.innerHTML = `
     Du hast <b>${total} Karten</b> wiederholt.<br>
-    ✅ ${reviewSession.good} kann ich · 🔴 ${reviewSession.bad} nochmal<br>
+    🔴 ${s.again} · 🟠 ${s.hard} · ✅ ${s.good} · ⭐ ${s.easy}<br>
     Erfolgsquote: <b>${pct}%</b>
   `;
 }
@@ -3578,7 +3605,8 @@ function closeReviewMode() {
 }
 
 reviewClose.addEventListener('click', () => {
-  if (reviewIndex < reviewQueue.length && reviewSession.good + reviewSession.bad > 0) {
+  const reviewed = reviewSession.again + reviewSession.hard + reviewSession.good + reviewSession.easy;
+  if (reviewIndex < reviewQueue.length && reviewed > 0) {
     if (!confirm('Wiederholen wirklich beenden? Dein bisheriger Fortschritt wird gespeichert.')) return;
   }
   closeReviewMode();
@@ -3636,7 +3664,7 @@ function renderOverview() {
       <span class="topic">${TOPICS[l] || ''}</span>
       <span class="count">${counts[l]} Karte${counts[l]!==1?'n':''}</span>
       <div class="tile-progress"><div class="tile-progress-bar" style="width:${pct}%"></div></div>
-      <span class="tile-progress-text">${learned}/${lstats.total} ✅${lstats.bad > 0 ? ' · '+lstats.bad+' 🔴' : ''}</span>
+      <span class="tile-progress-text">${learned}/${lstats.total} ✅${lstats.due > 0 ? ' · '+lstats.due+' ⏰' : ''}${lstats.lapsed > 0 ? ' · '+lstats.lapsed+' 🔴' : ''}</span>
     `;
     tile.addEventListener('click', () => {
       lessonFilter.value = l;
@@ -3782,8 +3810,7 @@ function render(){
 
     const card = document.createElement('div');
     card.className = 'card';
-    const cstatus = getCardStatus(c);
-    const statusIcon = getStatusIcon(cstatus.status);
+    const statusIcon = getStatusIcon(c);
     const useSectioned = !!c.pattern;
     const backInner = useSectioned ? buildSectionedBack(c) : `
           <div class="rule">${c.rule}</div>
