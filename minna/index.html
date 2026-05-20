@@ -2733,6 +2733,290 @@ document.getElementById('statsReset').addEventListener('click', () => {
 });
 
 
+const TOPICS = {
+  1:"Vorstellung", 2:"これ/それ/あれ", 3:"Orte", 4:"Uhrzeit", 5:"Bewegung",
+  6:"を & で", 7:"Geben/Bekommen", 8:"Adjektive", 9:"好き & から", 10:"います/あります",
+  11:"Zählwörter", 12:"Vergangenheit", 13:"〜たい/欲しい", 14:"て-Form", 15:"〜ています",
+  16:"〜てから", 17:"ない-Form", 18:"辞書形/ことが", 19:"た-Form/たり", 20:"Plain-Form",
+  21:"〜と思う", 22:"Relativsätze", 23:"とき & と", 24:"くれる/あげる", 25:"たら/ても",
+  26:"んです", 27:"Potential", 28:"〜ながら/し", 29:"〜てしまう", 30:"〜てある",
+  31:"Volitional", 32:"〜ほうがいい", 33:"Imperativ", 34:"〜とおりに/あとで", 35:"ば-Form/なら",
+  36:"ように/ために", 37:"Passiv", 38:"の/こと", 39:"〜て(Grund)", 40:"Frage in Satz",
+  41:"Keigo geben", 42:"ために/Quantifier", 43:"〜そう (Anschein)", 44:"〜すぎ/やすい", 45:"場合/のに",
+  46:"ところ/ばかり", 47:"〜そう (Hörensagen)", 48:"Kausativ", 49:"尊敬語", 50:"謙譲語"
+};
+
+const lessons = [...new Set(CARDS.map(c => c.l))].sort((a,b)=>a-b);
+
+// Filter-Dropdown füllen — Cheat-Sheets ZUERST, dann Lektionen
+const cheatOpt = document.createElement('option');
+cheatOpt.value = 'cheats';
+cheatOpt.textContent = '📖 Cheat-Sheets';
+lessonFilter.appendChild(cheatOpt);
+
+const compareOpt = document.createElement('option');
+compareOpt.value = 'compare';
+compareOpt.textContent = '🔀 Vergleich';
+lessonFilter.appendChild(compareOpt);
+
+lessons.forEach(l => {
+  const opt = document.createElement('option');
+  opt.value = l;
+  opt.textContent = `Lektion ${l}${TOPICS[l] ? ' · ' + TOPICS[l] : ''}`;
+  lessonFilter.appendChild(opt);
+});
+
+// Übersichts-Kacheln rendern
+function renderOverview() {
+  lessonGrid.innerHTML = '';
+  const counts = {};
+  CARDS.forEach(c => { counts[c.l] = (counts[c.l] || 0) + 1; });
+  lessons.forEach(l => {
+    const lstats = computeLessonStats(l);
+    const learned = lstats.good;
+    const pct = lstats.total > 0 ? Math.round(learned / lstats.total * 100) : 0;
+    
+    const tile = document.createElement('button');
+    tile.className = 'lesson-tile';
+    tile.innerHTML = `
+      <span class="num">L${String(l).padStart(2,'0')}</span>
+      <span class="topic">${TOPICS[l] || ''}</span>
+      <span class="count">${counts[l]} Karte${counts[l]!==1?'n':''}</span>
+      <div class="tile-progress"><div class="tile-progress-bar" style="width:${pct}%"></div></div>
+      <span class="tile-progress-text">${learned}/${lstats.total} ✅${lstats.bad > 0 ? ' · '+lstats.bad+' 🔴' : ''}</span>
+    `;
+    tile.addEventListener('click', () => {
+      lessonFilter.value = l;
+      render();
+      window.scrollTo({top:document.querySelector('.controls').offsetTop, behavior:'smooth'});
+    });
+    lessonGrid.appendChild(tile);
+  });
+  updateStatsCard();
+}
+renderOverview();
+
+function buildConjTable(conj) {
+  if (!conj || conj.length === 0) return '';
+  let html = '<table class="conj-table"><thead><tr><th>Form</th><th>Japanisch</th><th>Bedeutung</th></tr></thead><tbody>';
+  conj.forEach(row => {
+    html += `<tr><td>${row.form}</td><td>${row.verb}</td><td>${row.de}</td></tr>`;
+  });
+  html += '</tbody></table>';
+  return html;
+}
+
+// Satzbauplan-Slots als visuelles Schema rendern
+function buildPattern(pattern) {
+  if (!pattern || !pattern.slots) return '';
+  let html = '<div class="sec"><span class="sec-label">② Satzbauplan</span>';
+  const lines = Array.isArray(pattern.slots[0]) ? pattern.slots : [pattern.slots];
+  lines.forEach(line => {
+    html += '<div class="pattern-box"><div class="pattern-line">';
+    line.forEach(slot => {
+      const cls = slot.role || 'plain';
+      const label = slot.label ? `<span class="slot-label">${slot.label}</span>` : '';
+      html += `<span class="slot ${cls}"><span class="slot-text">${slot.text}</span>${label}</span>`;
+    });
+    html += '</div></div>';
+  });
+  if (pattern.gloss) {
+    html += `<div class="pattern-gloss">${pattern.gloss}</div>`;
+  }
+  html += '</div>';
+  return html;
+}
+
+// 4-Sektionen-Backside für Karten ab L26 (mit pattern-Feld)
+function buildSectionedBack(c) {
+  let html = `<div class="rule">${c.rule}</div>`;
+  if (c.build && c.build.length > 0) {
+    html += '<div class="sec"><span class="sec-label">① Bildung</span>';
+    html += '<table class="conj-table"><tbody>';
+    c.build.forEach(row => {
+      html += `<tr><td>${row.form}</td><td>${row.verb}</td><td>${row.de}</td></tr>`;
+    });
+    html += '</tbody></table></div>';
+  }
+  html += buildPattern(c.pattern);
+  if (c.ex && c.ex.length > 0) {
+    html += '<div class="sec"><span class="sec-label">③ Beispiele</span>';
+    html += '<div class="examples">';
+    c.ex.forEach(e => {
+      html += `<div class="ex"><span class="jp">${e.jp}</span><span class="de">${e.de}</span></div>`;
+    });
+    html += '</div></div>';
+  }
+  if (c.note) {
+    html += `<div class="sec"><span class="sec-label">④ Hinweise</span><div class="note" style="border-top:none;padding-top:0;margin-top:0">${c.note}</div></div>`;
+  }
+  return html;
+}
+
+function render(){
+  const q = search.value.toLowerCase().trim();
+  const lf = lessonFilter.value;
+
+  // SPEZIALFALL: Cheat-Sheets ausgewählt UND keine Suche
+  if (lf === 'cheats' && !q) {
+    overview.style.display = 'none';
+    grid.innerHTML = '';
+    grid.style.display = 'none';
+    compareBlock.classList.remove('visible');
+    cheatsBlock.classList.remove('hidden');
+    cheatToggle.textContent = 'Cheat-Sheets ausblenden';
+    stats.innerHTML = `<b>📖</b> Cheat-Sheets`;
+    backBtn.classList.add('visible');
+    setTimeout(() => cheatsBlock.scrollIntoView({behavior:'smooth', block:'start'}), 50);
+    return;
+  }
+
+  // SPEZIALFALL: Vergleich
+  if (lf === 'compare' && !q) {
+    overview.style.display = 'none';
+    grid.innerHTML = '';
+    grid.style.display = 'none';
+    cheatsBlock.classList.add('hidden');
+    cheatToggle.textContent = 'Cheat-Sheets anzeigen';
+    compareBlock.classList.add('visible');
+    stats.innerHTML = `<b>🔀</b> Verwirrungspaare`;
+    backBtn.classList.add('visible');
+    renderCompare();
+    setTimeout(() => compareBlock.scrollIntoView({behavior:'smooth', block:'start'}), 50);
+    return;
+  }
+
+  // Wenn Suche aktiv aber Cheats-Filter: switch zurück auf "all"
+  if ((lf === 'cheats' || lf === 'compare') && q) {
+    lessonFilter.value = 'all';
+    cheatsBlock.classList.add('hidden');
+    compareBlock.classList.remove('visible');
+    cheatToggle.textContent = 'Cheat-Sheets anzeigen';
+    return render();
+  }
+
+  // SPEZIALFALL: "Alle" + keine Suche → nur Übersicht zeigen
+  if (lf === 'all' && !q) {
+    overview.style.display = 'block';
+    grid.innerHTML = '';
+    grid.style.display = 'none';
+    stats.innerHTML = `<b>${CARDS.length}</b> Karten · ${lessons.length} Lektionen`;
+    backBtn.classList.remove('visible');
+    return;
+  }
+
+  // NORMAL: Karten rendern
+  overview.style.display = 'none';
+  grid.style.display = 'grid';
+  backBtn.classList.add('visible');
+  grid.innerHTML = '';
+  let count = 0;
+  CARDS.forEach((c) => {
+    const matchLesson = (lf === 'all' || c.l == lf);
+    const conjText = (c.conj || []).map(r => r.form + ' ' + r.verb + ' ' + r.de).join(' ');
+    const buildText = (c.build || []).map(r => r.form + ' ' + r.verb + ' ' + r.de).join(' ');
+    let patternText = '';
+    if (c.pattern && c.pattern.slots) {
+      const lines = Array.isArray(c.pattern.slots[0]) ? c.pattern.slots : [c.pattern.slots];
+      patternText = lines.map(l => l.map(s => (s.text||'') + ' ' + (s.label||'')).join(' ')).join(' ');
+      if (c.pattern.gloss) patternText += ' ' + c.pattern.gloss;
+    }
+    const exText = (c.ex || []).map(e => e.jp + ' ' + e.de).join(' ');
+    const haystack = (c.t + ' ' + c.de + ' ' + c.rule + ' ' + conjText + ' ' + buildText + ' ' + patternText + ' ' + exText + ' L' + c.l + ' Lektion' + c.l).toLowerCase();
+    const matchSearch = (!q || haystack.includes(q));
+    if(!matchLesson || !matchSearch) return;
+    count++;
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    const cstatus = getCardStatus(c);
+    const statusIcon = getStatusIcon(cstatus.status);
+    const useSectioned = !!c.pattern;
+    const backInner = useSectioned ? buildSectionedBack(c) : `
+          <div class="rule">${c.rule}</div>
+          ${buildConjTable(c.conj)}
+          <div class="examples">
+            ${(c.ex||[]).map(e=>`<div class="ex"><span class="jp">${e.jp}</span><span class="de">${e.de}</span></div>`).join('')}
+          </div>
+          ${c.note ? `<div class="note">${c.note}</div>` : ''}
+        `;
+    card.innerHTML = `
+      ${statusIcon ? `<span class="card-status">${statusIcon}</span>` : ''}
+      <div class="front">
+        <span class="lesson-tag">L ${String(c.l).padStart(2,'0')}</span>
+        <div class="grammar-jp">${c.t}</div>
+        <div class="grammar-de">${c.de}</div>
+        <span class="flip-hint">umdrehen</span>
+      </div>
+      <div class="back">
+        <div class="back-content">
+          <span class="lesson-tag">L ${String(c.l).padStart(2,'0')} · ${c.de}</span>
+          <h3>${c.t}</h3>
+          ${backInner}
+        </div>
+      </div>
+    `;
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    grid.appendChild(card);
+  });
+  stats.innerHTML = `<b>${count}</b> Karte${count!==1?'n':''}`;
+}
+
+search.addEventListener('input', render);
+lessonFilter.addEventListener('change', render);
+
+backBtn.addEventListener('click', () => {
+  lessonFilter.value = 'all';
+  search.value = '';
+  cheatsBlock.classList.add('hidden');
+  compareBlock.classList.remove('visible');
+  cheatToggle.textContent = 'Cheat-Sheets anzeigen';
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+// Cheat-Toggle Button: ändert Filter statt direkter Toggle (saubere State-Verwaltung)
+cheatToggle.addEventListener('click', () => {
+  if (lessonFilter.value === 'cheats') {
+    // Cheats sind aktiv → zurück zur Übersicht
+    lessonFilter.value = 'all';
+    search.value = '';
+  } else {
+    // Cheats aktivieren
+    lessonFilter.value = 'cheats';
+  }
+  render();
+});
+
+// Floating to-top Button: nach 400px Scroll einblenden
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) toTop.classList.add('visible');
+  else toTop.classList.remove('visible');
+}, {passive:true});
+toTop.addEventListener('click', () => {
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+// iOS Fix: Suchfeld nach Fokus zentrieren (Tastatur überdeckt sonst)
+search.addEventListener('focus', () => {
+  setTimeout(() => {
+    search.scrollIntoView({behavior:'smooth', block:'center'});
+  }, 300);
+});
+
+// TOC Smooth-Scroll mit Offset für Sticky-Header
+document.querySelectorAll('.cheat-toc a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      const y = target.getBoundingClientRect().top + window.scrollY - 10;
+      window.scrollTo({top:y, behavior:'smooth'});
+    }
+  });
+});
+
 document.getElementById('randomBtn').addEventListener('click', () => {
   // Wenn Übersicht aktiv: zufällige Lektion + Karte zeigen
   if (overview.style.display !== 'none' && lessonFilter.value === 'all') {
