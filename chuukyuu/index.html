@@ -10,9 +10,12 @@
 <!-- Apple Web App / Home Screen -->
 
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="中級">
-<meta name="theme-color" content="#f4ede0">
+<meta name="theme-color" content="#7a1a14">
+
+<link rel="manifest" href="manifest.json">
 
 <!-- App Icon (180x180 inline SVG) -->
 
@@ -116,15 +119,6 @@ font-size:.85rem;color:#6b5d4a;
 background:#ebe1cd;padding:.5rem .9rem;border:1px solid #1a1612;
 }
 .stats b{color:#8a1f17;font-weight:800}
-
-.random-btn{
-padding:.6rem .9rem;background:#8a1f17;color:#f4ede0;
-border:2px solid #1a1612;font-size:1.1rem;cursor:pointer;
-box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);font-family:inherit;
-transition:transform .15s,background .2s;
-}
-.random-btn:hover{background:#c0362c;transform:scale(1.05)}
-.random-btn:active{transform:scale(.95)}
 
 .back-btn{
 padding:.6rem .85rem;background:#1a1612;color:#f4ede0;
@@ -629,7 +623,6 @@ border-bottom-color:#f4ede0;
   <select class="lesson-filter" id="lessonFilter">
     <option value="all">Alle Lektionen</option>
   </select>
-  <button class="random-btn" id="randomBtn" title="Zufällige Karte" aria-label="Zufällige Karte">🎲</button>
   <div class="stats" id="stats">— Karten</div>
 </div>
 
@@ -2774,33 +2767,6 @@ search.addEventListener('focus', () => {
   setTimeout(() => {
     search.scrollIntoView({behavior:'smooth', block:'center'});
   }, 300);
-});
-
-// TOC Smooth-Scroll mit Offset für Sticky-Header
-document.getElementById('randomBtn').addEventListener('click', () => {
-  // Wenn Übersicht aktiv: zufällige Lektion + Karte zeigen
-  if (overview.style.display !== 'none' && lessonFilter.value === 'all') {
-    const randomCard = CARDS[Math.floor(Math.random() * CARDS.length)];
-    lessonFilter.value = randomCard.l;
-    render();
-    setTimeout(() => {
-      const cards = [...document.querySelectorAll('.card')];
-      const matchIdx = cards.findIndex(c => c.querySelector('.grammar-jp').innerHTML === randomCard.t);
-      const target = matchIdx >= 0 ? cards[matchIdx] : cards[Math.floor(Math.random()*cards.length)];
-      if (target) {
-        target.scrollIntoView({behavior:'smooth', block:'center'});
-        setTimeout(() => target.classList.add('highlight'), 400);
-      }
-    }, 100);
-    return;
-  }
-  // Sonst: zufällige aus aktuell sichtbaren Karten
-  const visibleCards = [...document.querySelectorAll('.card')];
-  if (visibleCards.length === 0) return;
-  const target = visibleCards[Math.floor(Math.random() * visibleCards.length)];
-  document.querySelectorAll('.card.highlight').forEach(c => c.classList.remove('highlight'));
-  target.scrollIntoView({behavior:'smooth', block:'center'});
-  setTimeout(() => target.classList.add('highlight'), 400);
 });
 
 render();
