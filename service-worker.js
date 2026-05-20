@@ -2,7 +2,7 @@
 // Network-First Strategy: Updates kommen sofort an, Offline funktioniert weiter
 // Keine manuelle Versions-Bumperei mehr nötig!
 
-const CACHE_NAME = 'grammatik-cache-v7';
+const CACHE_NAME = 'grammatik-cache-v8';
 const FILES_TO_CACHE = [
   './',
   './index.html',
@@ -53,17 +53,21 @@ self.addEventListener('activate', (event) => {
 // 2. Wenn Netzwerk geht: Update den Cache + zeige neue Version
 // 3. Wenn Netzwerk weg: Nutze Cache (Offline-Modus)
 self.addEventListener('fetch', (event) => {
-  // Nur same-origin requests behandeln
-  if (!event.request.url.startsWith(self.location.origin)) {
-    return;
-  }
+  // Nur same-origin GET-Requests behandeln (cache.put wirft sonst TypeError)
+  if (event.request.method !== 'GET') return;
+  if (!event.request.url.startsWith(self.location.origin)) return;
 
   event.respondWith(
     // Schritt 1: Netzwerk versuchen
     fetch(event.request)
       .then((networkResponse) => {
-        // Erfolgreiche Antwort? Cache aktualisieren
-        if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
+        // Nur saubere 200-Responses cachen, keine Redirects/opaque/error
+        if (
+          networkResponse &&
+          networkResponse.status === 200 &&
+          networkResponse.type === 'basic' &&
+          !networkResponse.redirected
+        ) {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, responseToCache);
@@ -74,13 +78,17 @@ self.addEventListener('fetch', (event) => {
       .catch(() => {
         // Schritt 2: Netzwerk nicht erreichbar → Cache nutzen
         return caches.match(event.request).then((cachedResponse) => {
-          if (cachedResponse) {
-            return cachedResponse;
-          }
-          // Auch Cache leer? Hub-Page als Fallback
+          if (cachedResponse) return cachedResponse;
+          // Auch Cache leer? Hub-Page als Fallback, sonst minimale 503-Antwort
           if (event.request.mode === 'navigate') {
-            return caches.match('./index.html');
+            return caches.match('./index.html').then((fallback) => {
+              return fallback || new Response(
+                '<h1>Offline</h1><p>Diese Seite ist offline nicht verfügbar.</p>',
+                { status: 503, headers: { 'Content-Type': 'text/html; charset=utf-8' } }
+              );
+            });
           }
+          return new Response('', { status: 504, statusText: 'Offline' });
         });
       })
   );
