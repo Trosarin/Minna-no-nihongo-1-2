@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html ltog="en">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -16,7 +16,7 @@
 
 <!-- App Icon (180x180 inline SVG) -->
 
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23f4ede0'/%3E%3Crect x='15' y='15' width='150' height='150' fill='%23b8893a' transform='rotate(-3 90 90)'/%3E%3Ctext x='90' y='115' font-family='serif' font-size='90' font-weight='900' fill='%23f4ede0' text-tochor='middle'%3E中%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23f4ede0'/%3E%3Crect x='15' y='15' width='150' height='150' fill='%23b8893a' transform='rotate(-3 90 90)'/%3E%3Ctext x='90' y='115' font-family='serif' font-size='90' font-weight='900' fill='%23f4ede0' text-anchor='middle'%3E中%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Noto+Serif+JP:wght@400;600;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -38,8 +38,8 @@
   padding-left:env(safe-area-inset-left);
   padding-right:env(safe-area-inset-right);
   background-image:
-   radial-levelient(circle at 10% 20%, rgba(192,54,44,.04) 0%, transparent 40%),
-   radial-levelient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%),
+   radial-gradient(circle at 10% 20%, rgba(192,54,44,.04) 0%, transparent 40%),
+   radial-gradient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%),
    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
  }
  /* Book switcher tabs */
@@ -68,7 +68,7 @@
   margin-bottom:-3px;
  }
  .book-tab:hover{color:#f4ede0;background:rgba(244,237,224,.05)}
- .book-t.active{
+ .book-tab.active{
   background:#f4ede0;
   color:#8a1f17;
   border-bottom-color:#8a1f17;
@@ -78,7 +78,7 @@ header{
 padding:2.5rem 1.5rem 1.5rem;
 text-align:center;
 border-bottom:3px double #1a1612;
-position:related;
+position:relative;
 }
 header::before{
 content:“第一課 〜 第十課”;
@@ -86,12 +86,12 @@ position:absolute;top:.6rem;left:50%;transform:translateX(-50%);
 font-size:.7rem;letter-spacing:.4em;color:#c0362c;
 }
 h1{
-font-family:“Noto Serif JP”,serif;font-weight:900;
+font-family:"Noto Serif JP",serif;font-weight:900;
 font-size:clamp(1.8rem,5vw,3rem);line-height:1.1;
 letter-spacing:.02em;
 }
 h1 .jp{color:#8a1f17;display:block;font-size:1.2em;margin-bottom:.3rem}
-h1 .de{font-family:“Shippori Mincho”,serif;font-weight:600;font-size:.55em;letter-spacing:.15em;text-transform:uppercase;color:#1a1612}
+h1 .de{font-family:"Shippori Mincho",serif;font-weight:600;font-size:.55em;letter-spacing:.15em;text-transform:uppercase;color:#1a1612}
 .subtitle{margin-top:.8rem;font-style:italic;color:#6b5d4a;font-size:.95rem}
 
 .controls{
@@ -103,7 +103,7 @@ flex:1;min-width:220px;max-width:380px;
 padding:.7rem 1rem;
 background:#ebe1cd;
 border:2px solid #1a1612;
-font-family:“Shippori Mincho”,serif;font-size:1rem;color:#1a1612;
+font-family:"Shippori Mincho",serif;font-size:1rem;color:#1a1612;
 box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
 }
 .search:focus{outline:none;border-color:#c0362c}
@@ -178,7 +178,7 @@ gap:.6rem;
 .lesson-tile{
 background:#ebe1cd;border:2px solid #1a1612;
 padding:.7rem .6rem;cursor:pointer;text-align:left;
-font-family:“Shippori Mincho”,serif;font-size:.85rem;
+font-family:"Shippori Mincho",serif;font-size:.85rem;
 color:#1a1612;box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
 transition:transform .12s,background .15s;
 line-height:1.25;
@@ -186,7 +186,7 @@ line-height:1.25;
 .lesson-tile:hover{background:#f4ede0;transform:translate(-1px,-2px)}
 .lesson-tile:active{transform:translate(0,0)}
 .lesson-tile .num{
-display:block;font-family:“Noto Serif JP”,serif;font-weight:800;
+display:block;font-family:"Noto Serif JP",serif;font-weight:800;
 color:#8a1f17;font-size:1rem;letter-spacing:.04em;
 }
 .lesson-tile .topic{
@@ -209,7 +209,7 @@ border:2px solid #1a1612;
 box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
 cursor:pointer;
 padding:1.2rem 1.1rem;
-position:related;
+position:relative;
 overflow:hidden;
 min-height:260px;
 display:flex;flex-direction:column;
@@ -257,13 +257,13 @@ transition:transform .2s ease, box-shadow .2s ease;
 }
 .lesson-tag{
 align-self:flex-start;
-font-family:“JetBrains Mono”,monospace;font-size:.7rem;letter-spacing:.15em;
+font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.15em;
 background:#1a1612;color:#f4ede0;
 padding:.2rem .6rem;
 z-index:2;
 }
 .grammar-jp{
-font-family:“Noto Serif JP”,serif;font-weight:900;
+font-family:"Noto Serif JP",serif;font-weight:900;
 font-size:1.7rem;line-height:1.3;color:#8a1f17;
 margin:auto 0;z-index:2;
 }
@@ -272,7 +272,7 @@ font-style:italic;font-size:.95rem;color:#6b5d4a;
 margin-bottom:.3rem;z-index:2;
 }
 .flip-hint{
-font-family:“JetBrains Mono”,monospace;font-size:.65rem;
+font-family:"JetBrains Mono",monospace;font-size:.65rem;
 letter-spacing:.2em;color:#b8893a;text-transform:uppercase;
 z-index:2;
 }
@@ -281,10 +281,10 @@ z-index:2;
 .back{
 padding:0;
 }
-.back-content{position:related;z-index:2;font-size:.85rem;line-height:1.55}
+.back-content{position:relative;z-index:2;font-size:.85rem;line-height:1.55}
 .back .lesson-tag{margin-bottom:.5rem}
 .back h3{
-font-family:“Noto Serif JP”,serif;font-weight:800;
+font-family:"Noto Serif JP",serif;font-weight:800;
 color:#8a1f17;font-size:1rem;
 border-bottom:1px solid #1a1612;padding-bottom:.3rem;margin-bottom:.5rem;
 }
@@ -295,11 +295,11 @@ width:100%;border-collapse:collapse;margin-bottom:.6rem;font-size:.75rem;
 .conj-table th{
 background:#1a1612;color:#f4ede0;
 padding:.2rem .4rem;font-weight:600;text-align:left;
-font-family:“JetBrains Mono”,monospace;font-size:.65rem;letter-spacing:.05em;
+font-family:"JetBrains Mono",monospace;font-size:.65rem;letter-spacing:.05em;
 }
 .conj-table td{
 padding:.2rem .4rem;border-bottom:1px solid rgba(26,22,18,.15);
-font-family:“Noto Serif JP”,serif;
+font-family:"Noto Serif JP",serif;
 }
 .conj-table tr:nth-child(even) td{background:rgba(255,255,255,.3)}
 .conj-table td:first-child{color:#8a1f17;font-weight:600}
@@ -310,7 +310,7 @@ border-left:3px solid #c0362c;
 padding:.4rem .55rem;margin-bottom:.4rem;
 font-size:.78rem;
 }
-.ex .jp{font-family:“Noto Serif JP”,serif;color:#1a1612;font-weight:600;display:block}
+.ex .jp{font-family:"Noto Serif JP",serif;color:#1a1612;font-weight:600;display:block}
 .ex .de{color:#5a4d3c;font-style:italic;display:block;margin-top:.15rem;font-size:.74rem}
 ruby rt{font-size:.55em;color:#c0362c;font-weight:400;letter-spacing:0}
 .note{
@@ -323,7 +323,7 @@ border-top:1px dashed #1a1612;padding-top:.4rem;
 .sec{margin-bottom:.7rem}
 .sec-label{
 display:inline-block;
-font-family:“JetBrains Mono”,monospace;
+font-family:"JetBrains Mono",monospace;
 font-size:.6rem;letter-spacing:.12em;
 color:#8a1f17;font-weight:700;
 text-transform:uppercase;
@@ -333,7 +333,7 @@ background:rgba(192,54,44,.08);
 border-left:2px solid #8a1f17;
 }
 .pattern-box{
-background:linear-levelient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.3) 100%);
+background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.3) 100%);
 border:1px solid rgba(26,22,18,.15);
 border-radius:3px;
 padding:.5rem .55rem;
@@ -342,12 +342,12 @@ margin-bottom:.3rem;
 .pattern-line{
 display:flex;flex-wrap:wrap;align-items:baseline;
 gap:.15rem .25rem;
-font-family:“Noto Serif JP”,serif;
+font-family:"Noto Serif JP",serif;
 font-size:.92rem;line-height:1.55;
 }
 .slot{display:inline-flex;flex-direction:column;align-items:center;padding:.05rem .25rem;border-radius:2px}
 .slot .slot-text{font-weight:600}
-.slot .slot-label{font-family:“JetBrains Mono”,monospace;font-size:.52rem;letter-spacing:.04em;color:rgba(26,22,18,.55);text-transform:uppercase;margin-top:-.1rem;font-weight:500}
+.slot .slot-label{font-family:"JetBrains Mono",monospace;font-size:.52rem;letter-spacing:.04em;color:rgba(26,22,18,.55);text-transform:uppercase;margin-top:-.1rem;font-weight:500}
 .slot.subj{background:rgba(58,118,178,.13);color:#1f4a7a}
 .slot.subj .slot-label{color:#1f4a7a}
 .slot.obj{background:rgba(184,137,58,.18);color:#7a5418}
@@ -368,7 +368,7 @@ font-size:.92rem;line-height:1.55;
 
 /* ============ SENTENCE PLAN (step-by-step) ============ */
 .bauplan{
-background:linear-levelient(180deg,rgba(184,137,58,.10) 0%,rgba(184,137,58,.04) 100%);
+background:linear-gradient(180deg,rgba(184,137,58,.10) 0%,rgba(184,137,58,.04) 100%);
 border:1px solid rgba(184,137,58,.4);
 border-left:3px solid #b8893a;
 padding:.55rem .65rem;
@@ -390,7 +390,7 @@ flex-shrink:0;
 display:inline-flex;align-items:center;justify-content:center;
 width:1.3rem;height:1.3rem;
 background:#8a1f17;color:#f4ede0;
-font-family:“JetBrains Mono”,monospace;font-size:.7rem;font-weight:700;
+font-family:"JetBrains Mono",monospace;font-size:.7rem;font-weight:700;
 border-radius:50%;
 }
 .bauplan-text{flex:1;color:#3a2f22}
@@ -399,7 +399,7 @@ border-radius:50%;
 background:rgba(26,22,18,.08);
 padding:.05rem .3rem;
 border-radius:2px;
-font-family:“Noto Serif JP”,serif;
+font-family:"Noto Serif JP",serif;
 font-size:.95em;
 color:#1a1612;
 }
@@ -409,7 +409,7 @@ color:#1a1612;
 display:inline-block;padding:.5rem 1rem;
 background:#8a1f17;color:#f4ede0;
 border:2px solid #1a1612;cursor:pointer;
-font-family:“Shippori Mincho”,serif;font-size:.9rem;
+font-family:"Shippori Mincho",serif;font-size:.9rem;
 box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);transition:transform .1s;
 }
 .cheatsheet-toggle:hover{transform:translateY(-1px)}
@@ -422,7 +422,7 @@ display:none;
 .cheatsheets.visible{display:block}
 
 .cheatsheets h2{
-font-family:“Noto Serif JP”,serif;font-weight:900;
+font-family:"Noto Serif JP",serif;font-weight:900;
 color:#8a1f17;font-size:1.6rem;
 text-align:center;margin-bottom:1.5rem;
 border-bottom:3px double #1a1612;padding-bottom:.8rem;
@@ -434,7 +434,7 @@ padding:1.2rem 1rem;margin-bottom:1.5rem;
 box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
 }
 .cs-block h3{
-font-family:“Noto Serif JP”,serif;font-weight:700;
+font-family:"Noto Serif JP",serif;font-weight:700;
 color:#8a1f17;font-size:1.15rem;
 margin-bottom:.3rem;
 padding-bottom:.4rem;border-bottom:1px solid #1a1612;
@@ -461,7 +461,7 @@ vertical-align:top;
 }
 .cs-table tr:last-child td{border-bottom:none}
 .cs-table tr:nth-child(even) td{background:rgba(184,137,58,.05)}
-.cs-table .jp{font-family:“Noto Serif JP”,serif;font-weight:600;color:#8a1f17}
+.cs-table .jp{font-family:"Noto Serif JP",serif;font-weight:600;color:#8a1f17}
 .cs-table .hl{color:#c0362c;font-weight:700}
 .cs-table .key{font-weight:700;color:#1a1612;white-space:nowrap}
 
@@ -482,7 +482,7 @@ font-size:.8rem;border-top:1px solid #1a1612;margin-top:2rem;
 footer .seal{
 display:inline-block;width:50px;height:50px;
 background:#c0362c;color:#f4ede0;
-font-family:“Noto Serif JP”,serif;font-weight:900;font-size:1.3rem;
+font-family:"Noto Serif JP",serif;font-weight:900;font-size:1.3rem;
 line-height:50px;margin-bottom:.5rem;
 transform:rotate(-3deg);
 }
@@ -497,7 +497,7 @@ transform:rotate(-3deg);
 .cheat-toggle{
 display:block;max-width:600px;margin:2rem auto 1rem;padding:.9rem 1rem;
 background:#8a1f17;color:#f4ede0;
-font-family:“Shippori Mincho”,serif;font-size:1rem;font-weight:600;
+font-family:"Shippori Mincho",serif;font-size:1rem;font-weight:600;
 text-align:center;border:2px solid #1a1612;cursor:pointer;
 box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);letter-spacing:.05em;
 transition:background .2s;
@@ -534,10 +534,10 @@ font-family:inherit;
 background:#ebe1cd;border:2px solid #1a1612;
 padding:1.2rem 1rem;margin-bottom:1.5rem;
 box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
-position:related;
+position:relative;
 }
 .cheat h2{
-font-family:“Noto Serif JP”,serif;font-weight:800;font-size:1.1rem;
+font-family:"Noto Serif JP",serif;font-weight:800;font-size:1.1rem;
 color:#8a1f17;border-bottom:2px solid #1a1612;
 padding-bottom:.4rem;margin-bottom:.9rem;letter-spacing:.03em;
 }
@@ -545,7 +545,7 @@ padding-bottom:.4rem;margin-bottom:.9rem;letter-spacing:.03em;
 content:“◆”;color:#b8893a;margin-right:.4rem;font-size:.8em;
 }
 .cheat h3{
-font-family:“Shippori Mincho”,serif;font-weight:700;font-size:.9rem;
+font-family:"Shippori Mincho",serif;font-weight:700;font-size:.9rem;
 color:#1a1612;margin:.8rem 0 .4rem;
 border-left:3px solid #c0362c;padding-left:.5rem;
 }
@@ -560,9 +560,9 @@ text-align:left;vertical-align:top;
 }
 .cheat-table th{
 background:#1a1612;color:#f4ede0;font-weight:700;
-font-family:“Noto Serif JP”,serif;letter-spacing:.03em;
+font-family:"Noto Serif JP",serif;letter-spacing:.03em;
 }
-.cheat-table td .jp{font-family:“Noto Serif JP”,serif;font-weight:600;color:#8a1f17;display:block}
+.cheat-table td .jp{font-family:"Noto Serif JP",serif;font-weight:600;color:#8a1f17;display:block}
 .cheat-table td .hint{font-size:.68rem;font-style:italic;color:#6b5d4a;display:block;margin-top:.15rem}
 .cheat-table tr:nth-child(even) td{background:#ebe1cd}
 .cheat .legend{
@@ -576,29 +576,29 @@ margin-top:.4rem;padding-top:.3rem;border-top:1px dashed #1a1612;
 }
 
 /* Language tabs */
-.ltog-tabs{
+.lang-tabs{
 display:flex;
 justify-content:flex-end;
 gap:0;
 padding:.3rem .8rem;
 background:#1a1612;
 }
-.ltog-tab{
+.lang-tab{
 padding:.3rem .7rem;
 text-decoration:none;
 color:#a99780;
-font-family:“Shippori Mincho”,serif;
+font-family:"Shippori Mincho",serif;
 font-size:.8rem;
 font-weight:600;
 border-bottom:2px solid transparent;
 transition:all .15s;
 -webkit-tap-highlight-color:transparent;
 }
-.ltog-t.active{
+.lang-tab.active{
 color:#f4ede0;
 border-bottom-color:#f4ede0;
 }
-.ltog-tab:hover{color:#f4ede0}
+.lang-tab:hover{color:#f4ede0}
 
 </style>
 </head>
@@ -610,9 +610,9 @@ border-bottom-color:#f4ede0;
  <a class="book-tab" href="/Minna-no-nihongo-1-2/minna/">📕 みんなの日本語</a>
  <a class="book-tab active" href="/Minna-no-nihongo-1-2/chuukyuu/">📘 中級へ行こう</a>
 </div>
-<div class="ltog-tabs">
- <a class="ltog-tab active" href="/Minna-no-nihongo-1-2/chuukyuu/">DE</a>
- <a class="ltog-tab" href="/Minna-no-nihongo-1-2/chuukyuu-en/">EN</a>
+<div class="lang-tabs">
+ <a class="lang-tab active" href="/Minna-no-nihongo-1-2/chuukyuu/">DE</a>
+ <a class="lang-tab" href="/Minna-no-nihongo-1-2/chuukyuu-en/">EN</a>
 </div>
 
 <header>
