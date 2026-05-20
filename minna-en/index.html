@@ -1453,7 +1453,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
  <!-- 1. CONDITIONALS -->
 
  <div class="cheat" id="cheat-konditional">
-  <h2>Conditionas compared (と / たら / ば / なら)</h2>
+  <h2>Conditionals compared (と / たら / ば / なら)</h2>
   <table class="cheat-table">
    <thead><tr><th>form</th><th>usage</th><th>Example</th></tr></thead>
    <tbody>
@@ -2287,7 +2287,7 @@ const CARDS = [
  {l:18, t:"V <ruby>辞書形<rt>じしょけい</rt></ruby> こと が できます", de:"… can (ability)",
   rule:"Expresses ability or possibility. V-辞書形 + ことができます. For noun (suru-verbs): noun + が できます.",
   build:[{form:"verb-ability",verb:"V<sub>ル</sub> + こと が できます",de:"can V"},{form:"noun",verb:"N + が できます",de:"can N (no を!)"},{form:"negation",verb:"V<sub>ル</sub> + こと が できません",de:"can not V"},{form:"🔄 Compare L27",verb:"<ruby>話<rt>はな</rt></ruby>せます (shorter)",de:"Potential form from L27"}],
-  pattern:{slots:[{text:"V-辞書形",role:"verb"},{text:"こと が できます",role:"plain",label:"can"}],gloss:"'[V] can.' — Polite/Formulale form for ability. 🔄 vs. Potential-form (L27): <ruby>食<rt>た</rt></ruby>べる ことが できる = <ruby>食<rt>た</rt></ruby>べられる. Beides 'can eat'. ことができる is universal, sounds but something more formal."},
+  pattern:{slots:[{text:"V-辞書形",role:"verb"},{text:"こと が できます",role:"plain",label:"can"}],gloss:"'Can [V].' — Polite/formal expression of ability. 🔄 vs. Potential form (L27): <ruby>食<rt>た</rt></ruby>べる ことが できる = <ruby>食<rt>た</rt></ruby>べられる. Both mean 'can eat'. ことができる is universal but sounds slightly more formal."},
   ex:[{jp:"ミラーさんは <ruby>漢字<rt>かんじ</rt></ruby>を <ruby>読<rt>よ</rt></ruby>む ことが できます。",de:"Mr. Miller can read Kanji."},{jp:"カードで <ruby>払<rt>はら</rt></ruby>う ことが できますか。",de:"Can one pay with a card?"},{jp:"<ruby>私<rt>わたし</rt></ruby>は <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>話<rt>はな</rt></ruby>す ことが できます。",de:"I can speak Japanese."}],
   note:"⚠️ For N + が できます is NO を used! 運転が できます ✓ / 運転を できます ✗. 🔄 In L27 comes a shortenre form (話せます = 話すことができます)."},
  {l:18, t:"V <ruby>辞書形<rt>じしょけい</rt></ruby> / N の <ruby>前<rt>まえ</rt></ruby>に、V₂", de:"Before V₁/N₁ I do V₂",
@@ -2480,13 +2480,13 @@ const CARDS = [
  ], note:"⚠️ NO 'who/which/that'! NO comma! In a relative clause, the subject takes <b>が</b> (NEVER は). Order: first description → then noun (opposite to English)."},
  {l:22, t:"relative clause with various word classes", de:"all word classes as attribute", rule:"い-Adj: directly (高い本). な-Adj: な (きれいな町). N: の (日本語の本). verb: plain form (食べる人・食べた人).", build:[
   {form:"verb (Plain)",verb:"V<sub>ル</sub> / V<sub>タ</sub> / V<sub>ナイ</sub> + N",de:"<ruby>食<rt>た</rt></ruby>べる <ruby>人<rt>ひと</rt></ruby> = person, the eats"},
-  {form:"い-Adj",verb:"い-Adj + N (directly!)",de:"<ruby>赤<rt>あか</rt></ruby>い かばん = rote bag"},
+  {form:"い-Adj",verb:"い-Adj + N (directly!)",de:"<ruby>赤<rt>あか</rt></ruby>い かばん = red bag"},
   {form:"な-Adj",verb:"な-Adj + <b>な</b> + N",de:"<ruby>有名<rt>ゆうめい</rt></ruby><b>な</b> <ruby>寺<rt>てら</rt></ruby> = more famous temple"},
   {form:"noun",verb:"N₁ + <b>の</b> + N₂",de:"<ruby>日本語<rt>にほんご</rt></ruby><b>の</b> <ruby>本<rt>ほん</rt></ruby> = japan. book"},
   {form:"Negated な-Adj",verb:"な-Adj<b>じゃない</b> + N",de:"<ruby>有名<rt>ゆうめい</rt></ruby>じゃない <ruby>店<rt>みせ</rt></ruby> = not famouss shop"},
   {form:"Negated noun",verb:"N + <b>じゃない</b> + N₂",de:"<ruby>先生<rt>せんせい</rt></ruby>じゃない <ruby>人<rt>ひと</rt></ruby> = not-Teacher-person"}
  ], pattern:{slots:[{text:"verb(Plain)/い-Adj/な-Adj+な/N+の",role:"cond"},{text:"N",role:"obj"}],gloss:"い-Adj directly. な-Adj+な. N+の. verb: plain form. All written the noun before."},
-  ex:[  {jp:"<ruby>赤<rt>あか</rt></ruby>い かばんが <ruby>欲<rt>ほ</rt></ruby>しいです。",de:"I want a rote bag."},
+  ex:[  {jp:"<ruby>赤<rt>あか</rt></ruby>い かばんが <ruby>欲<rt>ほ</rt></ruby>しいです。",de:"I want a red bag."},
   {jp:"<ruby>有名<rt>ゆうめい</rt></ruby>な お<ruby>寺<rt>てら</rt></ruby>を <ruby>見<rt>み</rt></ruby>ました。",de:"I a famous temple seen."},
   {jp:"これは <ruby>日本<rt>にほん</rt></ruby>で <ruby>作<rt>つく</rt></ruby>られた <ruby>車<rt>くるま</rt></ruby>です。",de:"This is a car made in Japan."}
  ], note:"💡 Rule of thumb: verb/い-Adj directly before. な-Adj requires な. noun requires の. For negation the な-Adj/noun: じゃない (NOT じゃ ありません!)."},
@@ -3078,7 +3078,7 @@ const CARDS = [
   rule:"Review/extension from L13: movement with purpose. ます-stem + に + 行く/来る/帰る. Also with activity: スーパーへ <ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に <ruby>行<rt>い</rt></ruby>く.",
   build:[{form:"verb (ます-stem)",verb:"V<sub>マス</sub>-stem + に",de:"<ruby>食<rt>た</rt></ruby>べに <ruby>行<rt>い</rt></ruby>く = to go eat"},{form:"noun (activity)",verb:"N + に",de:"<ruby>映画<rt>えいが</rt></ruby>に <ruby>行<rt>い</rt></ruby>く = to go to the cinema"},{form:"+ motion verb",verb:"<ruby>行<rt>い</rt></ruby>く / <ruby>来<rt>く</rt></ruby>る / <ruby>帰<rt>かえ</rt></ruby>る",de:"to go / to come / go home"}],
   pattern:{slots:[{text:"subject は",role:"subj"},{text:"place へ/に",role:"place",label:"where to"},{text:"V-マス / N",role:"verb",label:"purpose"},{text:"に",role:"plain"},{text:"<ruby>行<rt>い</rt></ruby>きます/<ruby>来<rt>き</rt></ruby>ます",role:"verb",label:"movement"}],gloss:"'[subject] goes/comes after [place], and [V/N] to do.' — movements-purpose."},
-  ex:[{jp:"スーパーへ <ruby>買<rt>か</rt></ruby>い <ruby>物<rt>もの</rt></ruby>に <ruby>行<rt>い</rt></ruby>きます。",de:"I go to the supermarket to shop."},{jp:"<ruby>京都<rt>きょうと</rt></ruby>へ お<ruby>寺<rt>てら</rt></ruby>を <ruby>見<rt>み</rt></ruby>に <ruby>行<rt>い</rt></ruby>きました。",de:"I am go to Kyoton, and temple to see."},{jp:"<ruby>友達<rt>ともだち</rt></ruby>が <ruby>遊<rt>あそ</rt></ruby>びに <ruby>来<rt>き</rt></ruby>ます。",de:"A friend comes to Besuch (to the Gamesn/Treffen)."}],
+  ex:[{jp:"スーパーへ <ruby>買<rt>か</rt></ruby>い <ruby>物<rt>もの</rt></ruby>に <ruby>行<rt>い</rt></ruby>きます。",de:"I go to the supermarket to shop."},{jp:"<ruby>京都<rt>きょうと</rt></ruby>へ お<ruby>寺<rt>てら</rt></ruby>を <ruby>見<rt>み</rt></ruby>に <ruby>行<rt>い</rt></ruby>きました。",de:"I went to Kyoto to see temples."},{jp:"<ruby>友達<rt>ともだち</rt></ruby>が <ruby>遊<rt>あそ</rt></ruby>びに <ruby>来<rt>き</rt></ruby>ます。",de:"A friend is coming to visit (to play/meet)."}],
   note:"💡 Review from L13 — this time combined with more complex activities. Important: ます-stem (NOT 辞書形) before に."},
  {l:42, t:"qualifier + は (at least)", de:"at least (quantity/duration)",
   rule:"quantity specification + は = minimum: 'at least X', 'at least X'. In a positive sentence, it expresses an approximate lower limit.",
@@ -3132,7 +3132,7 @@ const CARDS = [
   rule:"choice/decision. に します = 'I take / choose / decide for N'. In restaurants, for shopping, for decisions very common.",
   build:[{form:"Connection",verb:"N + に します",de:"I take N / choose N"},{form:"vs. Adj に します",verb:"change",de:"previous card"},{form:"variant",verb:"〜に <ruby>決<rt>き</rt></ruby>めました",de:"have decided for N"}],
   pattern:{slots:[{text:"subject は",role:"subj"},{text:"N",role:"obj",label:"choice"},{text:"に",role:"plain"},{text:"します",role:"verb",label:"choose"}],gloss:"'I take/choose [N].' — typical phrase for ordering or deciding."},
-  ex:[{jp:"<ruby>私<rt>わたし</rt></ruby>は コーヒーに します。",de:"I'll have coffee. [in the Café]"},{jp:"<ruby>夕<rt>ゆう</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>は すしに しましょう。",de:"Let's have sushi for dinnererer choose."},{jp:"<ruby>赤<rt>あか</rt></ruby>い のに します。",de:"I take the rote."}],
+  ex:[{jp:"<ruby>私<rt>わたし</rt></ruby>は コーヒーに します。",de:"I'll have coffee. [in the Café]"},{jp:"<ruby>夕<rt>ゆう</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>は すしに しましょう。",de:"Let's have sushi for dinner."},{jp:"<ruby>赤<rt>あか</rt></ruby>い のに します。",de:"I'll take the red one."}],
   note:"💡 In the restaurant/Café almost always 〜に します. variant 〜に <ruby>決<rt>き</rt></ruby>めました sounds more formal ('decided')."},
  {l:44, t:"い-Adj く / な-Adj に + V (Adverbial)", de:"adverbial use: [Adj] + verb",
   rule:"adjectives becomes with く / に into adverbs. They describe the manner to action.",
