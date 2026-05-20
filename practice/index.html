@@ -512,6 +512,33 @@ const VOCAB = {
     {jp:'<ruby>朝<rt>あさ</rt></ruby>', de:'Morgen'},
     {jp:'<ruby>夜<rt>よる</rt></ruby>', de:'Nacht / Abend'},
   ],
+
+  // Aktivitäten / Substantive für Hobby + Können
+  activity: [
+    {jp:'ピアノ', de:'Klavier'},
+    {jp:'ギター', de:'Gitarre'},
+    {jp:'<ruby>歌<rt>うた</rt></ruby>', de:'Lied / Gesang'},
+    {jp:'<ruby>料理<rt>りょうり</rt></ruby>', de:'Kochen / Gericht'},
+    {jp:'<ruby>旅行<rt>りょこう</rt></ruby>', de:'Reise'},
+    {jp:'<ruby>運転<rt>うんてん</rt></ruby>', de:'Autofahren'},
+    {jp:'スポーツ', de:'Sport'},
+    {jp:'<ruby>水泳<rt>すいえい</rt></ruby>', de:'Schwimmen'},
+    {jp:'テニス', de:'Tennis'},
+    {jp:'サッカー', de:'Fußball'},
+    {jp:'<ruby>映画<rt>えいが</rt></ruby>', de:'Film'},
+    {jp:'<ruby>音楽<rt>おんがく</rt></ruby>', de:'Musik'},
+    {jp:'<ruby>仕事<rt>しごと</rt></ruby>', de:'Arbeit'},
+    {jp:'<ruby>勉強<rt>べんきょう</rt></ruby>', de:'Lernen'},
+  ],
+
+  // Wetter (für Adjektive)
+  weather: [
+    {jp:'<ruby>天気<rt>てんき</rt></ruby>', de:'Wetter'},
+    {jp:'<ruby>夏<rt>なつ</rt></ruby>', de:'Sommer'},
+    {jp:'<ruby>冬<rt>ふゆ</rt></ruby>', de:'Winter'},
+    {jp:'<ruby>春<rt>はる</rt></ruby>', de:'Frühling'},
+    {jp:'<ruby>秋<rt>あき</rt></ruby>', de:'Herbst'},
+  ],
 };
 
 /* ===================================================================
@@ -538,6 +565,17 @@ const VERBS = [
   {g:1, de:'warten',      jisho:'<ruby>待<rt>ま</rt></ruby>つ',     stem:'<ruby>待<rt>ま</rt></ruby>ち',     base:'ま', last:'つ', obj:['person']},
   {g:1, de:'hören',       jisho:'<ruby>聞<rt>き</rt></ruby>く',     stem:'<ruby>聞<rt>き</rt></ruby>き',     base:'き', last:'く', obj:['thing']},
   {g:1, de:'verstehen',   jisho:'<ruby>分<rt>わ</rt></ruby>かる',   stem:'<ruby>分<rt>わ</rt></ruby>かり',   base:'わか', last:'る', obj:['language'], g1ru:true},
+
+  // Mehr G1 / G2 Verben (für L13–L50)
+  {g:1, de:'singen',     jisho:'<ruby>歌<rt>うた</rt></ruby>う',     stem:'<ruby>歌<rt>うた</rt></ruby>い',     base:'うた', last:'う', obj:['thing']},
+  {g:1, de:'rauchen',    jisho:'<ruby>吸<rt>す</rt></ruby>う',       stem:'<ruby>吸<rt>す</rt></ruby>い',       base:'す',   last:'う', obj:['thing']},
+  {g:1, de:'spielen',    jisho:'<ruby>遊<rt>あそ</rt></ruby>ぶ',     stem:'<ruby>遊<rt>あそ</rt></ruby>び',     base:'あそ', last:'ぶ', obj:[]},
+  {g:1, de:'schwimmen',  jisho:'<ruby>泳<rt>およ</rt></ruby>ぐ',     stem:'<ruby>泳<rt>およ</rt></ruby>ぎ',     base:'およ', last:'ぐ', obj:[]},
+  {g:1, de:'rennen',     jisho:'<ruby>走<rt>はし</rt></ruby>る',     stem:'<ruby>走<rt>はし</rt></ruby>り',     base:'はし', last:'る', obj:[], g1ru:true},
+  {g:1, de:'machen / herstellen', jisho:'<ruby>作<rt>つく</rt></ruby>る', stem:'<ruby>作<rt>つく</rt></ruby>り', base:'つく', last:'る', obj:['thing','food'], g1ru:true},
+  {g:1, de:'aufnehmen / fotografieren', jisho:'<ruby>撮<rt>と</rt></ruby>る', stem:'<ruby>撮<rt>と</rt></ruby>り', base:'と', last:'る', obj:['thing'], g1ru:true},
+  {g:2, de:'aufmachen / öffnen', jisho:'<ruby>開<rt>あ</rt></ruby>ける', stem:'<ruby>開<rt>あ</rt></ruby>け', obj:['thing']},
+  {g:2, de:'zumachen / schließen', jisho:'<ruby>閉<rt>し</rt></ruby>める', stem:'<ruby>閉<rt>し</rt></ruby>め', obj:['thing']},
 
   // Gruppe 3 (unregelmäßig)
   {g:3, de:'machen / tun', jisho:'する',  stem:'し',  obj:['thing']},
@@ -601,6 +639,11 @@ const G1_TE_TA = {
   'す': {te:'して', ta:'した'},
 };
 
+// Vokalreihen-Wechsel für G1
+const U_TO_E = {'う':'え','つ':'て','る':'れ','む':'め','ぶ':'べ','ぬ':'ね','く':'け','ぐ':'げ','す':'せ'};
+const U_TO_A = {'う':'わ','つ':'た','る':'ら','む':'ま','ぶ':'ば','ぬ':'な','く':'か','ぐ':'が','す':'さ'};
+const U_TO_O = {'う':'お','つ':'と','る':'ろ','む':'も','ぶ':'ぼ','ぬ':'の','く':'こ','ぐ':'ご','す':'そ'};
+
 // Strip the last kana char from an HTML string (ruby-aware)
 function htmlStripLast(htmlStr, lastKana){
   // letztes Vorkommen des Zeichens entfernen
@@ -609,8 +652,27 @@ function htmlStripLast(htmlStr, lastKana){
   return htmlStr.slice(0, idx) + htmlStr.slice(idx + lastKana.length);
 }
 
+// Hilfsfunktion: rule-verb (G1-Verb) Endungen erzeugen
+function ruEndings(stripped, last){
+  return {
+    potential:           stripped + U_TO_E[last] + 'る',
+    potentialMasu:       stripped + U_TO_E[last] + 'ます',
+    potentialMasen:      stripped + U_TO_E[last] + 'ません',
+    potentialMashita:    stripped + U_TO_E[last] + 'ました',
+    potentialMasenDeshita: stripped + U_TO_E[last] + 'ませんでした',
+    passive:             stripped + U_TO_A[last] + 'れる',
+    passiveMasu:         stripped + U_TO_A[last] + 'れます',
+    causative:           stripped + U_TO_A[last] + 'せる',
+    causativeMasu:       stripped + U_TO_A[last] + 'せます',
+    volitional:          stripped + U_TO_O[last] + 'う',
+    volMasu:             stripped + 'ましょう',
+    imperative:          stripped + U_TO_E[last],
+    baForm:              stripped + U_TO_E[last] + 'ば',
+  };
+}
+
 function conjVerb(v){
-  const out = {jisho:v.jisho, de:v.de};
+  const out = {jisho:v.jisho, de:v.de, group:v.g};
   if(v.g === 2){
     // ru-Verb: 食べる → 食べ + Endung
     out.masu = v.stem + 'ます';
@@ -621,21 +683,55 @@ function conjVerb(v){
     out.ta = v.stem + 'た';
     out.nai = v.stem + 'ない';
     out.nakatta = v.stem + 'なかった';
+    out.tai = v.stem + 'たい';
+    out.takuNai = v.stem + 'たくない';
+    out.takatta = v.stem + 'たかった';
+    out.takuNakatta = v.stem + 'たくなかった';
+    out.potential = v.stem + 'られる';
+    out.potentialMasu = v.stem + 'られます';
+    out.potentialMasen = v.stem + 'られません';
+    out.potentialMashita = v.stem + 'られました';
+    out.potentialMasenDeshita = v.stem + 'られませんでした';
+    out.passive = v.stem + 'られる';
+    out.passiveMasu = v.stem + 'られます';
+    out.causative = v.stem + 'させる';
+    out.causativeMasu = v.stem + 'させます';
+    out.volitional = v.stem + 'よう';
+    out.volMasu = v.stem + 'ましょう';
+    out.imperative = v.stem + 'ろ';
+    out.baForm = v.stem + 'れば';
   } else if(v.g === 3){
     if(v.de === 'machen / tun'){
       out.masu='します'; out.masen='しません';
       out.mashita='しました'; out.masenDeshita='しませんでした';
       out.te='して'; out.ta='した'; out.nai='しない'; out.nakatta='しなかった';
+      out.tai='したい'; out.takuNai='したくない';
+      out.takatta='したかった'; out.takuNakatta='したくなかった';
+      out.potential='できる'; out.potentialMasu='できます';
+      out.potentialMasen='できません'; out.potentialMashita='できました';
+      out.potentialMasenDeshita='できませんでした';
+      out.passive='される'; out.passiveMasu='されます';
+      out.causative='させる'; out.causativeMasu='させます';
+      out.volitional='しよう'; out.volMasu='しましょう';
+      out.imperative='しろ'; out.baForm='すれば';
     } else {
       // 来る
-      out.masu='<ruby>来<rt>き</rt></ruby>ます';
-      out.masen='<ruby>来<rt>き</rt></ruby>ません';
-      out.mashita='<ruby>来<rt>き</rt></ruby>ました';
-      out.masenDeshita='<ruby>来<rt>き</rt></ruby>ませんでした';
-      out.te='<ruby>来<rt>き</rt></ruby>て';
-      out.ta='<ruby>来<rt>き</rt></ruby>た';
-      out.nai='<ruby>来<rt>こ</rt></ruby>ない';
-      out.nakatta='<ruby>来<rt>こ</rt></ruby>なかった';
+      const KI = '<ruby>来<rt>き</rt></ruby>';
+      const KO = '<ruby>来<rt>こ</rt></ruby>';
+      out.masu=KI+'ます'; out.masen=KI+'ません';
+      out.mashita=KI+'ました'; out.masenDeshita=KI+'ませんでした';
+      out.te=KI+'て'; out.ta=KI+'た';
+      out.nai=KO+'ない'; out.nakatta=KO+'なかった';
+      out.tai=KI+'たい'; out.takuNai=KI+'たくない';
+      out.takatta=KI+'たかった'; out.takuNakatta=KI+'たくなかった';
+      out.potential=KO+'られる'; out.potentialMasu=KO+'られます';
+      out.potentialMasen=KO+'られません';
+      out.potentialMashita=KO+'られました';
+      out.potentialMasenDeshita=KO+'られませんでした';
+      out.passive=KO+'られる'; out.passiveMasu=KO+'られます';
+      out.causative=KO+'させる'; out.causativeMasu=KO+'させます';
+      out.volitional=KO+'よう'; out.volMasu=KI+'ましょう';
+      out.imperative=KO+'い'; out.baForm=KO+'れば';
     }
   } else {
     // u-Verb (Gruppe 1)
@@ -643,6 +739,11 @@ function conjVerb(v){
     out.masen = v.stem + 'ません';
     out.mashita = v.stem + 'ました';
     out.masenDeshita = v.stem + 'ませんでした';
+    // たい-Form: stem + たい
+    out.tai = v.stem + 'たい';
+    out.takuNai = v.stem + 'たくない';
+    out.takatta = v.stem + 'たかった';
+    out.takuNakatta = v.stem + 'たくなかった';
     // て/た regelbasiert
     const teTa = G1_TE_TA[v.last] || {te:'って', ta:'った'};
     // Sonderfall: 行く → 行って (nicht 行いて)
@@ -660,7 +761,14 @@ function conjVerb(v){
     const NAKATTA_MAP = {'う':'わなかった','つ':'たなかった','る':'らなかった','む':'まなかった','ぶ':'ばなかった','ぬ':'ななかった','く':'かなかった','ぐ':'がなかった','す':'さなかった'};
     out.nai = stripped + (NAI_MAP[v.last] || 'らない');
     out.nakatta = stripped + (NAKATTA_MAP[v.last] || 'らなかった');
+    // Potential / Passiv / Kausativ / Volitiv / Imperativ / ば-Form
+    Object.assign(out, ruEndings(stripped, v.last));
   }
+  // Universelle Compound-Formen aus nai / stem
+  out.stemRaw = v.stem;
+  out.naiDe   = out.nai.replace(/ない$/, 'ないで');
+  out.naiKute = out.nai.replace(/ない$/, 'なくて');
+  out.nakereba = out.nai.replace(/ない$/, 'なければ');
   return out;
 }
 
@@ -943,6 +1051,1084 @@ const PATTERNS = [
       frage:'Ist {n1:de} auch {n2:de}?',
     }
   },
+
+  /* ===== L9: が 好き/嫌い/上手/下手 ===== */
+  {
+    id:'ga-suki',
+    l:9, title:'N₁ は N₂ が 好き/嫌い/上手/下手 です', de:'N₁ mag/kann N₂',
+    slots:[
+      {key:'s', label:'Person', cats:['person']},
+      {key:'n', label:'Objekt', cats:['food','drink','activity','language','place']},
+      {key:'a', label:'Empfindung', cats:['__naadj']},
+    ],
+    forms:{
+      aussage:        '{s}は {n}が {a:jisho}。',
+      verneinung:     '{s}は {n}が {a:negation}。',
+      vergangenheit:  '{s}は {n}が {a:past}。',
+      verg_verneinung:'{s}は {n}が {a:pastNeg}。',
+      frage:          '{s}は {n}が {a:jisho}か。',
+    },
+    deTpl:{
+      aussage:'{s:de} findet {n:de} {a:de}.',
+      verneinung:'{s:de} findet {n:de} nicht {a:de}.',
+      vergangenheit:'{s:de} fand {n:de} {a:de}.',
+      verg_verneinung:'{s:de} fand {n:de} nicht {a:de}.',
+      frage:'Findet {s:de} {n:de} {a:de}?',
+    }
+  },
+
+  /* ===== L10: あります (Sachen) ===== */
+  {
+    id:'arimasu',
+    l:10, title:'(Ort) に N が あります', de:'An (Ort) gibt es N (Sache)',
+    slots:[
+      {key:'p', label:'Ort', cats:['place']},
+      {key:'n', label:'Sache', cats:['thing','food','drink']},
+    ],
+    forms:{
+      aussage:        '{p}に {n}が あります。',
+      verneinung:     '{p}に {n}が ありません。',
+      vergangenheit:  '{p}に {n}が ありました。',
+      verg_verneinung:'{p}に {n}が ありませんでした。',
+      frage:          '{p}に {n}が ありますか。',
+    },
+    deTpl:{
+      aussage:'In/Bei {p:de} gibt es {n:de}.',
+      verneinung:'In/Bei {p:de} gibt es kein {n:de}.',
+      vergangenheit:'In/Bei {p:de} gab es {n:de}.',
+      verg_verneinung:'In/Bei {p:de} gab es kein {n:de}.',
+      frage:'Gibt es bei/in {p:de} {n:de}?',
+    }
+  },
+
+  /* ===== L10: います (Personen/Tiere) ===== */
+  {
+    id:'imasu',
+    l:10, title:'(Ort) に N が います', de:'An (Ort) ist N (Person/Tier)',
+    slots:[
+      {key:'p', label:'Ort', cats:['place']},
+      {key:'n', label:'Person', cats:['person']},
+    ],
+    forms:{
+      aussage:        '{p}に {n}が います。',
+      verneinung:     '{p}に {n}が いません。',
+      vergangenheit:  '{p}に {n}が いました。',
+      verg_verneinung:'{p}に {n}が いませんでした。',
+      frage:          '{p}に {n}が いますか。',
+    },
+    deTpl:{
+      aussage:'In/Bei {p:de} ist {n:de}.',
+      verneinung:'In/Bei {p:de} ist {n:de} nicht.',
+      vergangenheit:'In/Bei {p:de} war {n:de}.',
+      verg_verneinung:'In/Bei {p:de} war {n:de} nicht.',
+      frage:'Ist {n:de} bei/in {p:de}?',
+    }
+  },
+
+  /* ===== L12: より のほうが (Vergleich i-Adj) ===== */
+  {
+    id:'yori-houga',
+    l:12, title:'N₁ より N₂ のほうが i-Adj です', de:'N₂ ist Adj-er als N₁',
+    slots:[
+      {key:'n1', label:'verglichen mit', cats:['thing','food','place']},
+      {key:'n2', label:'ist Adj-er', cats:['thing','food','place']},
+      {key:'a', label:'i-Adj', cats:['__iadj']},
+    ],
+    forms:{
+      aussage:        '{n1}より {n2}のほうが {a:jisho}。',
+      verneinung:     '{n1}より {n2}のほうが {a:negation}。',
+      vergangenheit:  '{n1}より {n2}のほうが {a:past}。',
+      verg_verneinung:'{n1}より {n2}のほうが {a:pastNeg}。',
+      frage:          '{n1}と {n2}と どちらのほうが {a:jisho}か。',
+    },
+    deTpl:{
+      aussage:'{n2:de} ist {a:de}-er als {n1:de}.',
+      verneinung:'{n2:de} ist nicht {a:de}-er als {n1:de}.',
+      vergangenheit:'{n2:de} war {a:de}-er als {n1:de}.',
+      verg_verneinung:'{n2:de} war nicht {a:de}-er als {n1:de}.',
+      frage:'Welches ist {a:de}-er, {n1:de} oder {n2:de}?',
+    }
+  },
+
+  /* ===== L13: V〜たいです (Wunsch) ===== */
+  {
+    id:'v-tai',
+    l:13, title:'V〜たいです', de:'wollen / möchten',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing','activity']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {o}が {v:tai}です。',
+      verneinung:     '{s}は {o}が {v:takuNai}です。',
+      vergangenheit:  '{s}は {o}が {v:takatta}です。',
+      verg_verneinung:'{s}は {o}が {v:takuNakatta}です。',
+      frage:          '{s}は {o}が {v:tai}ですか。',
+    },
+    deTpl:{
+      aussage:'{s:de} möchte {o:de} {v:de}.',
+      verneinung:'{s:de} möchte {o:de} nicht {v:de}.',
+      vergangenheit:'{s:de} wollte {o:de} {v:de}.',
+      verg_verneinung:'{s:de} wollte {o:de} nicht {v:de}.',
+      frage:'Möchte {s:de} {o:de} {v:de}?',
+    }
+  },
+
+  /* ===== L13: (Ort) へ V-stem に 行きます (Zweck) ===== */
+  {
+    id:'ni-iku',
+    l:13, title:'(Ort) へ N を V-stem に <ruby>行<rt>い</rt></ruby>きます', de:'irgendwo hingehen, um …',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'p', label:'Ziel', cats:['place']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing','activity']},
+      {key:'v', label:'Zweck-Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {p}へ {o}を {v:stemRaw}に <ruby>行<rt>い</rt></ruby>きます。',
+      verneinung:     '{s}は {p}へ {o}を {v:stemRaw}に <ruby>行<rt>い</rt></ruby>きません。',
+      vergangenheit:  '{s}は {p}へ {o}を {v:stemRaw}に <ruby>行<rt>い</rt></ruby>きました。',
+      verg_verneinung:'{s}は {p}へ {o}を {v:stemRaw}に <ruby>行<rt>い</rt></ruby>きませんでした。',
+      frage:          '{s}は {p}へ {o}を {v:stemRaw}に <ruby>行<rt>い</rt></ruby>きますか。',
+    },
+    deTpl:{
+      aussage:'{s:de} geht nach {p:de}, um {o:de} zu {v:de}.',
+      verneinung:'{s:de} geht nicht nach {p:de}, um {o:de} zu {v:de}.',
+      vergangenheit:'{s:de} ging nach {p:de}, um {o:de} zu {v:de}.',
+      verg_verneinung:'{s:de} ging nicht nach {p:de}, um {o:de} zu {v:de}.',
+      frage:'Geht {s:de} nach {p:de}, um {o:de} zu {v:de}?',
+    }
+  },
+
+  /* ===== L14: V〜て ください (Bitte) ===== */
+  {
+    id:'te-kudasai',
+    l:14, title:'V〜て ください', de:'Bitte tu …',
+    slots:[
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:       '{o}を {v:te}ください。',
+      verneinung:    '{o}を {v:naiDe}ください。',
+      hoflich_frage: '{o}を {v:te}くださいませんか。',
+    },
+    deTpl:{
+      aussage:'Bitte {v:de} {o:de}.',
+      verneinung:'Bitte {v:de} {o:de} nicht.',
+      hoflich_frage:'Könnten Sie bitte {o:de} {v:de}?',
+    },
+    formOrder:['aussage','verneinung','hoflich_frage'],
+    formLabels:{
+      aussage:'Bitte · 〜てください',
+      verneinung:'Negative Bitte · 〜ないでください',
+      hoflich_frage:'höflich · 〜てくださいませんか',
+    }
+  },
+
+  /* ===== L14: V〜て います (Verlauf) ===== */
+  {
+    id:'te-imasu',
+    l:14, title:'V〜て います', de:'gerade dabei sein',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {o}を {v:te}います。',
+      verneinung:     '{s}は {o}を {v:te}いません。',
+      vergangenheit:  '{s}は {o}を {v:te}いました。',
+      verg_verneinung:'{s}は {o}を {v:te}いませんでした。',
+      frage:          '{s}は {o}を {v:te}いますか。',
+    },
+    deTpl:{
+      aussage:'{s:de} ist gerade dabei, {o:de} zu {v:de}.',
+      verneinung:'{s:de} ist nicht dabei, {o:de} zu {v:de}.',
+      vergangenheit:'{s:de} war dabei, {o:de} zu {v:de}.',
+      verg_verneinung:'{s:de} war nicht dabei, {o:de} zu {v:de}.',
+      frage:'Ist {s:de} dabei, {o:de} zu {v:de}?',
+    }
+  },
+
+  /* ===== L15: V〜ても いいです (Erlaubnis) ===== */
+  {
+    id:'temo-ii',
+    l:15, title:'V〜ても いいです / 〜ては いけません', de:'darf / darf nicht',
+    slots:[
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:       '{o}を {v:te}も いいです。',
+      verneinung:    '{o}を {v:te}は いけません。',
+      vergangenheit: '{o}を {v:te}も よかったです。',
+      frage:         '{o}を {v:te}も いいですか。',
+    },
+    deTpl:{
+      aussage:'Du darfst {o:de} {v:de}.',
+      verneinung:'Du darfst {o:de} nicht {v:de}.',
+      vergangenheit:'Es war OK, {o:de} zu {v:de}.',
+      frage:'Darf ich {o:de} {v:de}?',
+    },
+    formOrder:['aussage','verneinung','vergangenheit','frage'],
+    formLabels:{
+      aussage:'Erlaubnis · 〜てもいいです',
+      verneinung:'Verbot · 〜てはいけません',
+      vergangenheit:'Verg. · 〜てもよかったです',
+      frage:'Frage · 〜てもいいですか',
+    }
+  },
+
+  /* ===== L17: V〜なければ なりません (Notwendigkeit) ===== */
+  {
+    id:'nakereba-narimasen',
+    l:17, title:'V〜なければ なりません', de:'müssen',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing','activity']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:       '{s}は {o}を {v:nakereba}なりません。',
+      verneinung:    '{s}は {o}を {v:naiKute}も いいです。',
+      vergangenheit: '{s}は {o}を {v:nakereba}なりませんでした。',
+      frage:         '{s}は {o}を {v:nakereba}なりませんか。',
+    },
+    deTpl:{
+      aussage:'{s:de} muss {o:de} {v:de}.',
+      verneinung:'{s:de} muss {o:de} nicht {v:de}.',
+      vergangenheit:'{s:de} musste {o:de} {v:de}.',
+      frage:'Muss {s:de} {o:de} {v:de}?',
+    },
+    formOrder:['aussage','verneinung','vergangenheit','frage'],
+    formLabels:{
+      aussage:'Notwendigkeit · 〜なければなりません',
+      verneinung:'keine Notwendigkeit · 〜なくてもいいです',
+      vergangenheit:'Verg. · 〜なければなりませんでした',
+      frage:'Frage · 〜なければなりませんか',
+    }
+  },
+
+  /* ===== L18: V-jisho ことが できます (Können) ===== */
+  {
+    id:'koto-ga-dekimasu',
+    l:18, title:'V〜こと が できます', de:'können',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','activity','language']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {o}を {v:jisho}ことが できます。',
+      verneinung:     '{s}は {o}を {v:jisho}ことが できません。',
+      vergangenheit:  '{s}は {o}を {v:jisho}ことが できました。',
+      verg_verneinung:'{s}は {o}を {v:jisho}ことが できませんでした。',
+      frage:          '{s}は {o}を {v:jisho}ことが できますか。',
+    },
+    deTpl:{
+      aussage:'{s:de} kann {o:de} {v:de}.',
+      verneinung:'{s:de} kann {o:de} nicht {v:de}.',
+      vergangenheit:'{s:de} konnte {o:de} {v:de}.',
+      verg_verneinung:'{s:de} konnte {o:de} nicht {v:de}.',
+      frage:'Kann {s:de} {o:de} {v:de}?',
+    }
+  },
+
+  /* ===== L19: V〜たことが あります (Erfahrung) ===== */
+  {
+    id:'ta-koto-ga-arimasu',
+    l:19, title:'V〜た ことが あります', de:'Erfahrung — schon einmal …',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'p', label:'Ort', cats:['place']},
+      {key:'v', label:'Verb', cats:['__verb_motion']},
+    ],
+    forms:{
+      aussage:        '{s}は {p}へ {v:ta}ことが あります。',
+      verneinung:     '{s}は {p}へ {v:ta}ことが ありません。',
+      frage:          '{s}は {p}へ {v:ta}ことが ありますか。',
+    },
+    deTpl:{
+      aussage:'{s:de} ist schon mal nach {p:de} {v:de}.',
+      verneinung:'{s:de} ist noch nie nach {p:de} {v:de}.',
+      frage:'Ist {s:de} schon mal nach {p:de} {v:de}?',
+    },
+    formOrder:['aussage','verneinung','frage'],
+    formLabels:{
+      aussage:'Erfahrung · 〜たことがあります',
+      verneinung:'noch nie · 〜たことがありません',
+      frage:'Frage · 〜たことがありますか',
+    }
+  },
+
+  /* ===== L20: Plain-Form (Kurzform) ===== */
+  {
+    id:'plain',
+    l:20, title:'Plain-Form (Kurzform)', de:'Umgangssprachlich',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {o}を {v:jisho}。',
+      verneinung:     '{s}は {o}を {v:nai}。',
+      vergangenheit:  '{s}は {o}を {v:ta}。',
+      verg_verneinung:'{s}は {o}を {v:nakatta}。',
+      frage:          '{s}、{o} {v:jisho}？',
+    },
+    deTpl:{
+      aussage:'{s:de} {v:de} {o:de}. (locker)',
+      verneinung:'{s:de} {v:de} {o:de} nicht. (locker)',
+      vergangenheit:'{s:de} {v:de:past} {o:de}. (locker)',
+      verg_verneinung:'{s:de} {v:de:past} {o:de} nicht. (locker)',
+      frage:'{s:de}, {v:de:cap} du {o:de}?',
+    }
+  },
+
+  /* ===== L21: 〜と 思います (Vermutung) ===== */
+  {
+    id:'to-omoimasu',
+    l:21, title:'V-plain と <ruby>思<rt>おも</rt></ruby>います', de:'ich denke, dass …',
+    slots:[
+      {key:'s', label:'Subjekt im Inhalt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing','activity']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {o}を {v:jisho}と <ruby>思<rt>おも</rt></ruby>います。',
+      verneinung:     '{s}は {o}を {v:nai}と <ruby>思<rt>おも</rt></ruby>います。',
+      vergangenheit:  '{s}は {o}を {v:ta}と <ruby>思<rt>おも</rt></ruby>います。',
+      verg_verneinung:'{s}は {o}を {v:nakatta}と <ruby>思<rt>おも</rt></ruby>います。',
+      frage:          '{s}は {o}を {v:jisho}と <ruby>思<rt>おも</rt></ruby>いますか。',
+    },
+    deTpl:{
+      aussage:'Ich denke, dass {s:de} {o:de} {v:de}.',
+      verneinung:'Ich denke, dass {s:de} {o:de} nicht {v:de}.',
+      vergangenheit:'Ich denke, dass {s:de} {o:de} {v:de:past}.',
+      verg_verneinung:'Ich denke, dass {s:de} {o:de} nicht {v:de:past}.',
+      frage:'Denkst du, dass {s:de} {o:de} {v:de}?',
+    }
+  },
+
+  /* ===== L23: V-jisho とき (zeitliche Bedingung) ===== */
+  {
+    id:'toki',
+    l:23, title:'V-plain とき、〜', de:'wenn / als …',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'p', label:'Ort', cats:['place']},
+      {key:'v', label:'Verb', cats:['__verb_motion']},
+      {key:'o', label:'andere Sache', cats:['food','drink','thing']},
+    ],
+    forms:{
+      aussage:        '{s}は {p}へ {v:jisho}とき、{o}を <ruby>買<rt>か</rt></ruby>います。',
+      vergangenheit:  '{s}は {p}へ {v:ta}とき、{o}を <ruby>買<rt>か</rt></ruby>いました。',
+    },
+    deTpl:{
+      aussage:'Wenn {s:de} nach {p:de} {v:de}, kauft {s:de} {o:de}.',
+      vergangenheit:'Als {s:de} nach {p:de} {v:de}, kaufte {s:de} {o:de}.',
+    },
+    formOrder:['aussage','vergangenheit'],
+    formLabels:{
+      aussage:'wenn (allgemein) · V-jishoとき',
+      vergangenheit:'als (Verg.) · V-たとき',
+    }
+  },
+
+  /* ===== L24: (Empfänger) に N を あげます ===== */
+  {
+    id:'ageru',
+    l:24, title:'(Empfänger) に N を あげます', de:'jemandem etwas geben',
+    slots:[
+      {key:'s', label:'Geber', cats:['person']},
+      {key:'r', label:'Empfänger', cats:['person']},
+      {key:'o', label:'Geschenk', cats:['food','drink','thing']},
+    ],
+    forms:{
+      aussage:        '{s}は {r}に {o}を あげます。',
+      verneinung:     '{s}は {r}に {o}を あげません。',
+      vergangenheit:  '{s}は {r}に {o}を あげました。',
+      verg_verneinung:'{s}は {r}に {o}を あげませんでした。',
+      frage:          '{s}は {r}に {o}を あげますか。',
+    },
+    deTpl:{
+      aussage:'{s:de} gibt {r:de} {o:de}.',
+      verneinung:'{s:de} gibt {r:de} {o:de} nicht.',
+      vergangenheit:'{s:de} gab {r:de} {o:de}.',
+      verg_verneinung:'{s:de} gab {r:de} {o:de} nicht.',
+      frage:'Gibt {s:de} {r:de} {o:de}?',
+    }
+  },
+
+  /* ===== L25: V〜たら、〜 (Bedingung) ===== */
+  {
+    id:'tara',
+    l:25, title:'V〜たら、〜 (Konditional)', de:'wenn / falls …',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'p', label:'Ziel', cats:['place']},
+      {key:'v', label:'Bedingung-Verb', cats:['__verb_motion']},
+      {key:'o', label:'dann Objekt', cats:['food','drink','thing']},
+    ],
+    forms:{
+      aussage:        '{s}は {p}へ {v:ta}ら、{o}を <ruby>買<rt>か</rt></ruby>います。',
+      verneinung:     '{s}は {p}へ {v:nakatta}ら、{o}を <ruby>買<rt>か</rt></ruby>いません。',
+    },
+    deTpl:{
+      aussage:'Wenn {s:de} nach {p:de} {v:de}, kauft {s:de} {o:de}.',
+      verneinung:'Wenn {s:de} nicht nach {p:de} {v:de}, kauft {s:de} {o:de} nicht.',
+    },
+    formOrder:['aussage','verneinung'],
+    formLabels:{
+      aussage:'wenn (positiv) · V-たら',
+      verneinung:'wenn (negativ) · V-なかったら',
+    }
+  },
+
+  /* ===== L26: 〜んです (Erklärung) ===== */
+  {
+    id:'n-desu',
+    l:26, title:'V-plain んです', de:'Erklärung / Begründung',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {o}を {v:jisho}んです。',
+      verneinung:     '{s}は {o}を {v:nai}んです。',
+      vergangenheit:  '{s}は {o}を {v:ta}んです。',
+      verg_verneinung:'{s}は {o}を {v:nakatta}んです。',
+      frage:          'どうして {s}は {o}を {v:jisho}んですか。',
+    },
+    deTpl:{
+      aussage:'(Erklärung) {s:de} {v:de} ja {o:de}.',
+      verneinung:'(Erklärung) {s:de} {v:de} ja {o:de} nicht.',
+      vergangenheit:'(Erklärung) {s:de} {v:de:past} ja {o:de}.',
+      verg_verneinung:'(Erklärung) {s:de} {v:de:past} ja {o:de} nicht.',
+      frage:'Warum {v:de} {s:de} {o:de}?',
+    }
+  },
+
+  /* ===== L27: Potential-Form (können) ===== */
+  {
+    id:'potential',
+    l:27, title:'V-Potential (〜られる/〜える)', de:'können (Potentialform)',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','language','activity']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {o}が {v:potentialMasu}。',
+      verneinung:     '{s}は {o}が {v:potentialMasen}。',
+      vergangenheit:  '{s}は {o}が {v:potentialMashita}。',
+      verg_verneinung:'{s}は {o}が {v:potentialMasenDeshita}。',
+      frage:          '{s}は {o}が {v:potentialMasu}か。',
+    },
+    deTpl:{
+      aussage:'{s:de} kann {o:de} {v:de}.',
+      verneinung:'{s:de} kann {o:de} nicht {v:de}.',
+      vergangenheit:'{s:de} konnte {o:de} {v:de}.',
+      verg_verneinung:'{s:de} konnte {o:de} nicht {v:de}.',
+      frage:'Kann {s:de} {o:de} {v:de}?',
+    }
+  },
+
+  /* ===== L28: V-stem ながら、V (gleichzeitig) ===== */
+  {
+    id:'nagara',
+    l:28, title:'V-stem ながら、V', de:'während / gleichzeitig',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o1', label:'Begleitende Tätigkeit (Objekt)', cats:['drink','food']},
+      {key:'v1', label:'Begleitendes Verb', cats:['__verb_transitive']},
+      {key:'o2', label:'Haupttätigkeit (Objekt)', cats:['thing','activity']},
+      {key:'v2', label:'Hauptverb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {o1}を {v1:stemRaw}ながら、{o2}を {v2:masu}。',
+      vergangenheit:  '{s}は {o1}を {v1:stemRaw}ながら、{o2}を {v2:mashita}。',
+    },
+    deTpl:{
+      aussage:'{s:de} {v2:de} {o2:de}, während {s:de} {o1:de} {v1:de}.',
+      vergangenheit:'{s:de} {v2:de:past} {o2:de}, während {s:de} {o1:de} {v1:de:past}.',
+    },
+    formOrder:['aussage','vergangenheit'],
+    formLabels:{
+      aussage:'gleichzeitig · 〜ながら',
+      vergangenheit:'Verg. · 〜ながら〜ました',
+    }
+  },
+
+  /* ===== L29: V〜ている (Zustand nach Aktion) ===== */
+  {
+    id:'te-iru-zustand',
+    l:29, title:'V〜ている (Zustand)', de:'Zustand als Ergebnis',
+    slots:[
+      {key:'n', label:'Subjekt', cats:['thing']},
+      {key:'v', label:'Verb', cats:['__verb_state']},
+    ],
+    forms:{
+      aussage:        '{n}が {v:te}います。',
+      verneinung:     '{n}が {v:te}いません。',
+      vergangenheit:  '{n}が {v:te}いました。',
+      frage:          '{n}が {v:te}いますか。',
+    },
+    deTpl:{
+      aussage:'{n:de} ist {v:de} (Zustand).',
+      verneinung:'{n:de} ist nicht {v:de}.',
+      vergangenheit:'{n:de} war {v:de}.',
+      frage:'Ist {n:de} {v:de}?',
+    },
+    formOrder:['aussage','verneinung','vergangenheit','frage'],
+  },
+
+  /* ===== L30: V〜てあります (Zustand nach Vorbereitung) ===== */
+  {
+    id:'te-arimasu',
+    l:30, title:'V〜てあります', de:'Etwas wurde vorbereitet (Zustand)',
+    slots:[
+      {key:'n', label:'Subjekt (Sache)', cats:['thing','food']},
+      {key:'p', label:'Ort', cats:['place']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{p}に {n}が {v:te}あります。',
+      verneinung:     '{p}に {n}が {v:te}ありません。',
+      frage:          '{p}に {n}が {v:te}ありますか。',
+    },
+    deTpl:{
+      aussage:'In/Bei {p:de} ist {n:de} (vorbereitet) {v:de}.',
+      verneinung:'In/Bei {p:de} ist {n:de} nicht {v:de}.',
+      frage:'Ist in/bei {p:de} {n:de} {v:de}?',
+    },
+    formOrder:['aussage','verneinung','frage'],
+  },
+
+  /* ===== L31: V-volitional + と <ruby>思<rt>おも</rt></ruby>っています ===== */
+  {
+    id:'volitional-omotteimasu',
+    l:31, title:'V-Volitional と <ruby>思<rt>おも</rt></ruby>っています', de:'beabsichtigen / vorhaben',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','activity','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {o}を {v:volitional}と <ruby>思<rt>おも</rt></ruby>っています。',
+      frage:          '{s}は {o}を {v:volitional}と <ruby>思<rt>おも</rt></ruby>っていますか。',
+    },
+    deTpl:{
+      aussage:'{s:de} hat vor, {o:de} zu {v:de}.',
+      frage:'Hat {s:de} vor, {o:de} zu {v:de}?',
+    },
+    formOrder:['aussage','frage'],
+    formLabels:{
+      aussage:'Vorhaben · 〜ようと思っています',
+      frage:'Frage · 〜ようと思っていますか',
+    }
+  },
+
+  /* ===== L31: V-jisho/nai つもりです ===== */
+  {
+    id:'tsumori',
+    l:31, title:'V-Plain つもりです', de:'beabsichtigen (fester Plan)',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','activity']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:       '{s}は {o}を {v:jisho}つもりです。',
+      verneinung:    '{s}は {o}を {v:nai}つもりです。',
+      frage:         '{s}は {o}を {v:jisho}つもりですか。',
+    },
+    deTpl:{
+      aussage:'{s:de} beabsichtigt, {o:de} zu {v:de}.',
+      verneinung:'{s:de} beabsichtigt, {o:de} nicht zu {v:de}.',
+      frage:'Beabsichtigt {s:de}, {o:de} zu {v:de}?',
+    },
+    formOrder:['aussage','verneinung','frage'],
+    formLabels:{
+      aussage:'Plan · V-jisho つもりです',
+      verneinung:'kein Plan · V-ない つもりです',
+      frage:'Frage · 〜つもりですか',
+    }
+  },
+
+  /* ===== L32: V〜たほうがいいです (Empfehlung) ===== */
+  {
+    id:'tahouga-ii',
+    l:32, title:'V〜たほうが いいです', de:'sollte besser …',
+    slots:[
+      {key:'o', label:'Objekt', cats:['food','drink','activity']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:       '{o}を {v:ta}ほうが いいです。',
+      verneinung:    '{o}を {v:nai}ほうが いいです。',
+    },
+    deTpl:{
+      aussage:'Du solltest besser {o:de} {v:de}.',
+      verneinung:'Du solltest besser {o:de} nicht {v:de}.',
+    },
+    formOrder:['aussage','verneinung'],
+    formLabels:{
+      aussage:'Empfehlung · V-たほうがいいです',
+      verneinung:'gegenteilige Empfehlung · V-ないほうがいいです',
+    }
+  },
+
+  /* ===== L33: Imperativ / Verbot ===== */
+  {
+    id:'imperative',
+    l:33, title:'Imperativ V-ろ / V-な (Verbot)', de:'Befehlsform & Verbot',
+    slots:[
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:    '{o}を {v:imperative}！',
+      verneinung: '{o}を {v:jisho}な！',
+    },
+    deTpl:{
+      aussage:'{v:de:cap} {o:de}!',
+      verneinung:'{v:de:cap} {o:de} nicht!',
+    },
+    formOrder:['aussage','verneinung'],
+    formLabels:{
+      aussage:'Befehl · V-ろ / 〜え',
+      verneinung:'Verbot · V-jisho な',
+    }
+  },
+
+  /* ===== L34: V〜たあとで (zeitlich nach) ===== */
+  {
+    id:'ato-de',
+    l:34, title:'V〜たあとで、〜', de:'nachdem …',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o1', label:'erste Aktion (Objekt)', cats:['food','drink']},
+      {key:'v1', label:'erstes Verb', cats:['__verb_transitive']},
+      {key:'p', label:'dann nach …', cats:['place']},
+    ],
+    forms:{
+      aussage:       '{s}は {o1}を {v1:ta}あとで、{p}へ <ruby>行<rt>い</rt></ruby>きます。',
+      vergangenheit: '{s}は {o1}を {v1:ta}あとで、{p}へ <ruby>行<rt>い</rt></ruby>きました。',
+    },
+    deTpl:{
+      aussage:'Nachdem {s:de} {o1:de} {v1:de:past}, geht {s:de} nach {p:de}.',
+      vergangenheit:'Nachdem {s:de} {o1:de} {v1:de:past}, ging {s:de} nach {p:de}.',
+    },
+    formOrder:['aussage','vergangenheit'],
+    formLabels:{
+      aussage:'nachdem (Gegenwart) · 〜たあとで',
+      vergangenheit:'nachdem (Verg.) · 〜たあとで〜ました',
+    }
+  },
+
+  /* ===== L35: ば-Konditional ===== */
+  {
+    id:'ba-konditional',
+    l:35, title:'V〜ば、〜', de:'wenn (Konditional)',
+    slots:[
+      {key:'o', label:'Objekt Bedingung', cats:['food','drink']},
+      {key:'v', label:'Bedingung-Verb', cats:['__verb_transitive']},
+      {key:'a', label:'Folge (i-Adj)', cats:['__iadj']},
+    ],
+    forms:{
+      aussage: '{o}を {v:baForm}、{a:jisho}。',
+    },
+    deTpl:{
+      aussage:'Wenn man {o:de} {v:de}, ist es {a:de}.',
+    },
+    formOrder:['aussage'],
+    formLabels:{
+      aussage:'Konditional · V-ば',
+    }
+  },
+
+  /* ===== L36: V-jisho ように (Zweck) ===== */
+  {
+    id:'youni',
+    l:36, title:'V-jisho ように、〜', de:'damit / um zu …',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Ziel-Objekt', cats:['language','activity']},
+      {key:'v', label:'Ziel-Verb (Potential)', cats:['__verb_transitive']},
+      {key:'o2', label:'Aktivität', cats:['thing','activity']},
+      {key:'v2', label:'Verb-Aktivität', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage: '{s}は {o}が {v:potential}ように、{o2}を {v2:masu}。',
+    },
+    deTpl:{
+      aussage:'{s:de} {v2:de} {o2:de}, damit {s:de} {o:de} {v:de} kann.',
+    },
+    formOrder:['aussage'],
+    formLabels:{
+      aussage:'Zweck · V-jisho ように',
+    }
+  },
+
+  /* ===== L37: Passivform ===== */
+  {
+    id:'passiv',
+    l:37, title:'V-Passiv (〜れる/られる)', de:'Passiv / Leidensform',
+    slots:[
+      {key:'s', label:'Subjekt (Leider)', cats:['person']},
+      {key:'a', label:'Verursacher', cats:['person']},
+      {key:'o', label:'Sache', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {a}に {o}を {v:passiveMasu}。',
+      vergangenheit:  '{s}は {a}に {o}を {v:passiveMasu}でした。',
+    },
+    deTpl:{
+      aussage:'{s:de} bekommt von {a:de} {o:de} {v:de}.',
+      vergangenheit:'{s:de} bekam von {a:de} {o:de} {v:de:past}.',
+    },
+    formOrder:['aussage','vergangenheit'],
+    formLabels:{
+      aussage:'Passiv · 〜られます',
+      vergangenheit:'Passiv Verg. · 〜られました',
+    }
+  },
+
+  /* ===== L39: V〜て、〜 (Grund) ===== */
+  {
+    id:'te-grund',
+    l:39, title:'V〜て、〜 / i-Adj〜くて (Grund)', de:'weil / da …',
+    slots:[
+      {key:'a', label:'i-Adj (Grund)', cats:['__iadj']},
+      {key:'a2', label:'Folge (na-Adj/i-Adj)', cats:['__iadj']},
+    ],
+    forms:{
+      aussage:        '{a:te}、{a2:jisho}。',
+    },
+    deTpl:{
+      aussage:'Weil {a:de}, ist es {a2:de}.',
+    },
+    formOrder:['aussage'],
+    formLabels:{
+      aussage:'Grund · 〜くて',
+    }
+  },
+
+  /* ===== L42: V-jisho ために (Zweck) ===== */
+  {
+    id:'tame-ni',
+    l:42, title:'V-jisho ために、〜', de:'um zu … / für …',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Ziel-Objekt', cats:['thing','food','activity']},
+      {key:'v', label:'Ziel-Verb', cats:['__verb_transitive']},
+      {key:'o2', label:'gemachte Sache', cats:['activity','thing']},
+      {key:'v2', label:'gemachtes Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage: '{s}は {o}を {v:jisho}ために、{o2}を {v2:masu}。',
+    },
+    deTpl:{
+      aussage:'{s:de} {v2:de} {o2:de}, um {o:de} zu {v:de}.',
+    },
+    formOrder:['aussage'],
+    formLabels:{
+      aussage:'Zweck · 〜ために',
+    }
+  },
+
+  /* ===== L43: V-stem そうです (visuell) ===== */
+  {
+    id:'sou-visuell',
+    l:43, title:'i-Adj〜そうです (sieht aus wie)', de:'sieht … aus',
+    slots:[
+      {key:'n', label:'Subjekt', cats:['food','drink','thing']},
+      {key:'a', label:'i-Adj', cats:['__iadj']},
+    ],
+    forms:{
+      aussage: '{n}は {a:adverb}そうです。',
+    },
+    deTpl:{
+      aussage:'{n:de} sieht {a:de} aus.',
+    },
+    formOrder:['aussage'],
+    formLabels:{
+      aussage:'visueller Eindruck · 〜そうです',
+    }
+  },
+
+  /* ===== L44: V-stem すぎます (Übermaß) ===== */
+  {
+    id:'sugimasu',
+    l:44, title:'V-stem / Adj-Stamm すぎます', de:'zu sehr …',
+    slots:[
+      {key:'n', label:'Subjekt', cats:['food','drink','thing']},
+      {key:'a', label:'i-Adj', cats:['__iadj']},
+    ],
+    forms:{
+      aussage:        '{n}は {a:adverb}すぎます。',
+      vergangenheit:  '{n}は {a:adverb}すぎました。',
+    },
+    deTpl:{
+      aussage:'{n:de} ist zu {a:de}.',
+      vergangenheit:'{n:de} war zu {a:de}.',
+    },
+    formOrder:['aussage','vergangenheit'],
+    formLabels:{
+      aussage:'Übermaß · 〜すぎます',
+      vergangenheit:'Verg. · 〜すぎました',
+    }
+  },
+
+  /* ===== L47: V-Plain そうです (Hörensagen) ===== */
+  {
+    id:'sou-hoerensagen',
+    l:47, title:'V-Plain そうです (Hörensagen)', de:'Es heißt, dass …',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {o}を {v:jisho}そうです。',
+      verneinung:     '{s}は {o}を {v:nai}そうです。',
+      vergangenheit:  '{s}は {o}を {v:ta}そうです。',
+    },
+    deTpl:{
+      aussage:'Es heißt, dass {s:de} {o:de} {v:de}.',
+      verneinung:'Es heißt, dass {s:de} {o:de} nicht {v:de}.',
+      vergangenheit:'Es heißt, dass {s:de} {o:de} {v:de:past}.',
+    },
+    formOrder:['aussage','verneinung','vergangenheit'],
+    formLabels:{
+      aussage:'Hörensagen · V-plain そうです',
+      verneinung:'Hörensagen neg. · V-ない そうです',
+      vergangenheit:'Hörensagen Verg. · V-た そうです',
+    }
+  },
+
+  /* ===== L48: Kausativ ===== */
+  {
+    id:'kausativ',
+    l:48, title:'V-Kausativ (〜せる/させる)', de:'jemanden zu etwas bringen',
+    slots:[
+      {key:'s', label:'Veranlasser', cats:['person']},
+      {key:'r', label:'Ausführender', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing','activity']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {r}に {o}を {v:causativeMasu}。',
+      vergangenheit:  '{s}は {r}に {o}を {v:causativeMasu}でした。',
+    },
+    deTpl:{
+      aussage:'{s:de} lässt {r:de} {o:de} {v:de}.',
+      vergangenheit:'{s:de} ließ {r:de} {o:de} {v:de:past}.',
+    },
+    formOrder:['aussage','vergangenheit'],
+    formLabels:{
+      aussage:'Kausativ · 〜させます',
+      vergangenheit:'Kausativ Verg. · 〜させました',
+    }
+  },
+
+  /* ===== L11: 〜つ-Zähler ===== */
+  {
+    id:'counter-tsu',
+    l:11, title:'N を <Anzahl> V (〜つ Zähler)', de:'Anzahl mit dem 〜つ-Zähler',
+    slots:[
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'c', label:'Anzahl', cats:['__tsu']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{o}を {c} {v:masu}。',
+      verneinung:     '{o}を {c} {v:masen}。',
+      vergangenheit:  '{o}を {c} {v:mashita}。',
+      verg_verneinung:'{o}を {c} {v:masenDeshita}。',
+      frage:          '{o}を {c} {v:masu}か。',
+    },
+    deTpl:{
+      aussage:'Ich {v:de} {c:de} {o:de}.',
+      verneinung:'Ich {v:de} keine {c:de} {o:de}.',
+      vergangenheit:'Ich habe {c:de} {o:de} {v:de}.',
+      verg_verneinung:'Ich habe keine {c:de} {o:de} {v:de}.',
+      frage:'{v:de:cap} ich {c:de} {o:de}?',
+    }
+  },
+
+  /* ===== L16: V₁〜て、V₂ (Sequenz / Verkettung) ===== */
+  {
+    id:'te-verkettung',
+    l:16, title:'V₁〜て、V₂ (Reihenfolge)', de:'erst …, dann …',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o1', label:'erstes Objekt', cats:['food','drink']},
+      {key:'v1', label:'erstes Verb', cats:['__verb_transitive']},
+      {key:'o2', label:'zweites Objekt', cats:['thing','activity']},
+      {key:'v2', label:'zweites Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {o1}を {v1:te}、{o2}を {v2:masu}。',
+      vergangenheit:  '{s}は {o1}を {v1:te}、{o2}を {v2:mashita}。',
+    },
+    deTpl:{
+      aussage:'{s:de} {v1:de} {o1:de}, dann {v2:de} {o2:de}.',
+      vergangenheit:'{s:de} {v1:de:past} {o1:de}, dann {v2:de:past} {o2:de}.',
+    },
+    formOrder:['aussage','vergangenheit'],
+    formLabels:{
+      aussage:'Sequenz · 〜て、〜ます',
+      vergangenheit:'Verg. · 〜て、〜ました',
+    }
+  },
+
+  /* ===== L40: 〜か どうか ===== */
+  {
+    id:'ka-douka',
+    l:40, title:'V-Plain か どうか、〜', de:'ob (indirekte Frage)',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:'{s}は {o}を {v:jisho}か どうか <ruby>分<rt>わ</rt></ruby>かりません。',
+      vergangenheit:'{s}は {o}を {v:ta}か どうか <ruby>分<rt>わ</rt></ruby>かりません。',
+    },
+    deTpl:{
+      aussage:'Ich weiß nicht, ob {s:de} {o:de} {v:de}.',
+      vergangenheit:'Ich weiß nicht, ob {s:de} {o:de} {v:de:past}.',
+    },
+    formOrder:['aussage','vergangenheit'],
+    formLabels:{
+      aussage:'indirekte Frage · 〜か どうか',
+      vergangenheit:'Verg. · 〜たか どうか',
+    }
+  },
+
+  /* ===== L41: V〜て もらいます (Begünstigtenform) ===== */
+  {
+    id:'te-moraimasu',
+    l:41, title:'(Person) に V〜て もらいます', de:'jemand tut etwas für mich',
+    slots:[
+      {key:'s', label:'Empfänger', cats:['person']},
+      {key:'r', label:'Ausführender', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は {r}に {o}を {v:te}もらいます。',
+      vergangenheit:  '{s}は {r}に {o}を {v:te}もらいました。',
+      frage:          '{s}は {r}に {o}を {v:te}もらいますか。',
+    },
+    deTpl:{
+      aussage:'{s:de} lässt sich von {r:de} {o:de} {v:de}.',
+      vergangenheit:'{s:de} ließ sich von {r:de} {o:de} {v:de:past}.',
+      frage:'Lässt sich {s:de} von {r:de} {o:de} {v:de}?',
+    },
+    formOrder:['aussage','vergangenheit','frage'],
+    formLabels:{
+      aussage:'Begünstigung · 〜てもらいます',
+      vergangenheit:'Verg. · 〜てもらいました',
+      frage:'Frage · 〜てもらいますか',
+    }
+  },
+
+  /* ===== L45: V-Plain ばあいは、〜 ===== */
+  {
+    id:'baai',
+    l:45, title:'V-Plain ばあいは、〜', de:'im Falle / wenn der Fall …',
+    slots:[
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+      {key:'p', label:'dann Ort', cats:['place']},
+    ],
+    forms:{
+      aussage:    '{o}を {v:jisho}ばあいは、{p}へ <ruby>行<rt>い</rt></ruby>ってください。',
+      verneinung: '{o}を {v:nai}ばあいは、{p}へ <ruby>行<rt>い</rt></ruby>かないでください。',
+    },
+    deTpl:{
+      aussage:'Wenn der Fall ist, dass du {o:de} {v:de}, geh nach {p:de}.',
+      verneinung:'Wenn der Fall ist, dass du {o:de} nicht {v:de}, geh nicht nach {p:de}.',
+    },
+    formOrder:['aussage','verneinung'],
+    formLabels:{
+      aussage:'im Falle · V-jisho ばあいは',
+      verneinung:'im neg. Fall · V-ない ばあいは',
+    }
+  },
+
+  /* ===== L46: V-Plain ところです ===== */
+  {
+    id:'tokoro',
+    l:46, title:'V-Plain ところです', de:'gerade dabei sein / gerade getan',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:        '{s}は <ruby>今<rt>いま</rt></ruby> {o}を {v:jisho}ところです。',
+      vergangenheit:  '{s}は <ruby>今<rt>いま</rt></ruby> {o}を {v:ta}ところです。',
+    },
+    deTpl:{
+      aussage:'{s:de} ist gerade dabei, {o:de} zu {v:de}.',
+      vergangenheit:'{s:de} hat gerade {o:de} {v:de:past}.',
+    },
+    formOrder:['aussage','vergangenheit'],
+    formLabels:{
+      aussage:'gerade dabei · V-jisho ところです',
+      vergangenheit:'gerade getan · V-た ところです',
+    }
+  },
+
+  /* ===== L49: Sonkeigo (Respektsprache) ===== */
+  {
+    id:'sonkeigo',
+    l:49, title:'お + V-stem + に なります (Sonkeigo)', de:'höflich (Respekt)',
+    slots:[
+      {key:'s', label:'Subjekt (respektiert)', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:'{s}は {o}を お{v:stemRaw}に なります。',
+    },
+    deTpl:{
+      aussage:'{s:de} {v:de} (höflich/respektvoll) {o:de}.',
+    },
+    formOrder:['aussage'],
+    formLabels:{
+      aussage:'Sonkeigo · お〜になります',
+    }
+  },
+
+  /* ===== L50: Kenjougo (Bescheidenheit) ===== */
+  {
+    id:'kenjougo',
+    l:50, title:'お + V-stem + します (Kenjougo)', de:'bescheidene Form (eigene Aktion)',
+    slots:[
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb_transitive']},
+    ],
+    forms:{
+      aussage:'<ruby>私<rt>わたし</rt></ruby>が {o}を お{v:stemRaw}します。',
+    },
+    deTpl:{
+      aussage:'Ich {v:de} (bescheiden) {o:de}.',
+    },
+    formOrder:['aussage'],
+    formLabels:{
+      aussage:'Kenjougo · お〜します',
+    }
+  },
 ];
 
 // Spezial-Pools
@@ -955,6 +2141,18 @@ const KOKO_POOL = [
   {jp:'ここ', de:'hier'},
   {jp:'そこ', de:'dort'},
   {jp:'あそこ', de:'dort drüben'},
+];
+const TSU_POOL = [
+  {jp:'<ruby>一<rt>ひと</rt></ruby>つ', de:'1 Stück'},
+  {jp:'<ruby>二<rt>ふた</rt></ruby>つ', de:'2 Stück'},
+  {jp:'<ruby>三<rt>みっ</rt></ruby>つ', de:'3 Stück'},
+  {jp:'<ruby>四<rt>よっ</rt></ruby>つ', de:'4 Stück'},
+  {jp:'<ruby>五<rt>いつ</rt></ruby>つ', de:'5 Stück'},
+  {jp:'<ruby>六<rt>むっ</rt></ruby>つ', de:'6 Stück'},
+  {jp:'<ruby>七<rt>なな</rt></ruby>つ', de:'7 Stück'},
+  {jp:'<ruby>八<rt>やっ</rt></ruby>つ', de:'8 Stück'},
+  {jp:'<ruby>九<rt>ここの</rt></ruby>つ', de:'9 Stück'},
+  {jp:'<ruby>十<rt>とお</rt></ruby>', de:'10 Stück'},
 ];
 
 // Bewegungsverben (gehen / kommen / zurückkehren)
@@ -979,11 +2177,24 @@ function getSlotPool(slot){
   // Spezialfälle
   if(slot.cats.includes('__kore')) return KORE_POOL.map((v,i)=>({...v,_src:'kore',_idx:i}));
   if(slot.cats.includes('__koko')) return KOKO_POOL.map((v,i)=>({...v,_src:'koko',_idx:i}));
+  if(slot.cats.includes('__tsu')) return TSU_POOL.map((v,i)=>({...v,_src:'tsu',_idx:i}));
   if(slot.cats.includes('__iadj')) return I_ADJ_FORMS.map((v,i)=>({jp:v.base, de:v.de, _src:'iadj',_idx:i}));
   if(slot.cats.includes('__naadj')) return NA_ADJ_FORMS.map((v,i)=>({jp:v.base, de:v.de, _src:'naadj',_idx:i}));
   if(slot.cats.includes('__verb')) return VERB_FORMS.map((v,i)=>({jp:v.jisho, de:v.de, _src:'verb',_idx:i}));
   if(slot.cats.includes('__verb_motion')) return MOTION_VERB_IDX.map(i=>({jp:VERB_FORMS[i].jisho, de:VERB_FORMS[i].de, _src:'verb', _idx:i}));
   if(slot.cats.includes('__verb_no_motion')) return NO_MOTION_VERB_IDX.map(i=>({jp:VERB_FORMS[i].jisho, de:VERB_FORMS[i].de, _src:'verb', _idx:i}));
+  if(slot.cats.includes('__verb_transitive')){
+    // Verben mit Objekt (nicht Bewegungsverben, nicht 分かる)
+    return VERBS.map((v,i)=>({v,i}))
+      .filter(({v})=>v.obj && v.obj.length>0 && !['gehen','kommen','zurückkehren','verstehen'].includes(v.de))
+      .map(({i})=>({jp:VERB_FORMS[i].jisho, de:VERB_FORMS[i].de, _src:'verb', _idx:i}));
+  }
+  if(slot.cats.includes('__verb_state')){
+    // Verben die einen Zustand ausdrücken können (öffnen/schließen)
+    return VERBS.map((v,i)=>({v,i}))
+      .filter(({v})=>['aufmachen / öffnen','zumachen / schließen'].includes(v.de))
+      .map(({i})=>({jp:VERB_FORMS[i].jisho, de:VERB_FORMS[i].de, _src:'verb', _idx:i}));
+  }
   // Normale Vokabel-Pools mergen
   const out = [];
   slot.cats.forEach(cat=>{
@@ -1107,14 +2318,15 @@ function fillTemplate(tpl, isDe){
 function renderOutput(){
   const p = labState.pattern;
   const root = $('#output');
-  const labels = {
+  const defaultLabels = {
     aussage: 'Aussage · 肯定',
     verneinung: 'Verneinung · 否定',
     vergangenheit: 'Vergangenheit · 過去',
     verg_verneinung: 'Verg. Verneinung · 過去否定',
     frage: 'Frage · 疑問',
   };
-  const order = ['aussage','verneinung','vergangenheit','verg_verneinung','frage'];
+  const labels = {...defaultLabels, ...(p.formLabels || {})};
+  const order = p.formOrder || ['aussage','verneinung','vergangenheit','verg_verneinung','frage'];
   root.innerHTML = '';
   order.forEach(key=>{
     if(!p.forms[key]) return;
@@ -1123,7 +2335,7 @@ function renderOutput(){
     const line = document.createElement('div');
     line.className = 'output-line';
     line.innerHTML = `
-      <span class="form-label">${labels[key]}</span>
+      <span class="form-label">${labels[key] || key}</span>
       <span class="jp-sentence">${jp}</span>
       <span class="de-trans">${de}</span>
     `;
