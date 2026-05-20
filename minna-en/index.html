@@ -1991,7 +1991,7 @@ const CARDS = [
   ex:[{jp:"<ruby>電車<rt>でんしゃ</rt></ruby>で <ruby>会社<rt>かいしゃ</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。",de:"I drive with the train to the company."},{jp:"バスで <ruby>学校<rt>がっこう</rt></ruby>へ <ruby>来<rt>き</rt></ruby>ました。",de:"I came to school by bus."},{jp:"<ruby>歩<rt>ある</rt></ruby>いて <ruby>帰<rt>かえ</rt></ruby>ります。",de:"I go on foot home."}],
   note:"⚠️ 歩いて (on foot) NEVER with で. Remember: All mechanical means of transport (train, bus, car, bicycle) → で. To go on foot → 歩いて alone (て-form of 歩く)."},
  {l:5, t:"(person) と V", de:"With (person) do something",
-  rule:"と marks the person, with the one together do something. 'Alone' is with 一人で expressed.",
+  rule:"と marks the person with whom one does something together. 'Alone' is expressed with 一人で.",
   build:[{form:"companion",verb:"<ruby>友達<rt>ともだち</rt></ruby>と <ruby>行<rt>い</rt></ruby>く",de:"with a friend to go"},{form:"alone",verb:"<ruby>一人<rt>ひとり</rt></ruby>で <ruby>行<rt>い</rt></ruby>く",de:"alone to go"},{form:"vs. に",verb:"<ruby>先生<rt>せんせい</rt></ruby>に <ruby>聞<rt>き</rt></ruby>く",de:"(by the Teacher) question — not together"}],
   pattern:{slots:[{text:"person",role:"actor",label:"accompaniment"},{text:"と",role:"plain",label:"with"},{text:"V",role:"verb"}],gloss:"'With [person] together [V].' — と marks the BEGLEITER at Actions (to go, to eat, to speak). More as 2 people: <ruby>友達<rt>ともだち</rt></ruby>と たちと."},
   ex:[{jp:"<ruby>家族<rt>かぞく</rt></ruby>と <ruby>日本<rt>にほん</rt></ruby>へ <ruby>来<rt>き</rt></ruby>ました。",de:"I came to Japan with my family."},{jp:"<ruby>友達<rt>ともだち</rt></ruby>と <ruby>映画<rt>えいが</rt></ruby>を <ruby>見<rt>み</rt></ruby>ました。",de:"I saw a movie with a friend."},{jp:"<ruby>一人<rt>ひとり</rt></ruby>で <ruby>行<rt>い</rt></ruby>きます。",de:"I go alone."}],
@@ -2528,9 +2528,9 @@ const CARDS = [
  ], note:"⚠️ <ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>くとき = before departure (still in Germany). <ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>ったとき = in Japan (already there). tense BEFORE とき decides, whether the main action BEFORE or NACH the Before-verb happens."},
  {l:23, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby> と、…", de:"When/as soon as …, automatically …", rule:"Conditional 'と': when A, then B always happens automatically. Natural law, habit, mechanism. No will or request in the main clause!", build:[
   {form:"Connection",verb:"V<sub>ル</sub> + と、…",de:"when V happens, then automatically …"},
-  {form:"Example",verb:"このボタンを <ruby>押<rt>お</rt></ruby>す と、お<ruby>釣<rt>つ</rt></ruby>りが <ruby>出<rt>で</rt></ruby>ます",de:"when one expresses, comes change"},
+  {form:"Example",verb:"このボタンを <ruby>押<rt>お</rt></ruby>す と、お<ruby>釣<rt>つ</rt></ruby>りが <ruby>出<rt>で</rt></ruby>ます",de:"when one presses (the button), change comes out"},
   {form:"natural law",verb:"<ruby>春<rt>はる</rt></ruby>に なる と、<ruby>桜<rt>さくら</rt></ruby>が <ruby>咲<rt>さ</rt></ruby>きます",de:"when spring comes, bloom cherries"},
-  {form:"Negated",verb:"V<sub>ナイ</sub> + と、…",de:"when one V NOT does, then …"},
+  {form:"Negated",verb:"V<sub>ナイ</sub> + と、…",de:"if one does NOT V, then …"},
   {form:"Example negated",verb:"<ruby>勉強<rt>べんきょう</rt></ruby>しない と、<ruby>試験<rt>しけん</rt></ruby>に <ruby>落<rt>お</rt></ruby>ちます",de:"Who doesn't study fails"}
  ], pattern:{slots:[{text:"V-辞書形",role:"cond"},{text:"と、",role:"plain",label:"automatically →"},{text:"consequence",role:"verb"}],gloss:"'When V, then consequence automatically/always happens.' ⚠️ No wish/request in the main clause!"},
   ex:[  {jp:"このボタンを <ruby>押<rt>お</rt></ruby>すと、お<ruby>釣<rt>つ</rt></ruby>りが <ruby>出<rt>で</rt></ruby>ます。",de:"When you press this button, change comes out."},
@@ -2585,7 +2585,7 @@ const CARDS = [
   {jp:"どの <ruby>色<rt>いろ</rt></ruby>が いちばん <ruby>好<rt>す</rt></ruby>きですか。",de:"Which Farbe do you like at the loveen?"}
  ], note:"💡 Rule of thumb: Answers to 'だれが〜?' questions always use が. は chooses a topic (known), が identified (new/contrasted). ⚠️ question words as subject (だれが/なにが) require always が — never は."},
  {l:25, t:"V たら、… (Conditional 'たら')", de:"When/if …, then …", rule:"Very flexible: hypothetical, sequential, 'after'. た-form + ら. main clause may wish/request contain (in contrast to と).", build:[
-  {form:"た-form + ら",verb:"<ruby>食<rt>た</rt></ruby>べたら → <ruby>飲<rt>の</rt></ruby>んだら → <ruby>来<rt>き</rt></ruby>たら",de:"when one eaten/drunk/come is"},
+  {form:"た-form + ら",verb:"<ruby>食<rt>た</rt></ruby>べたら → <ruby>飲<rt>の</rt></ruby>んだら → <ruby>来<rt>き</rt></ruby>たら",de:"when one has eaten/drunk/come"},
   {form:"い-Adj: かったら",verb:"<ruby>安<rt>やす</rt></ruby>かったら",de:"when it were affordable"},
   {form:"な-Adj/N: だったら",verb:"<ruby>元気<rt>げんき</rt></ruby>だったら / <ruby>学生<rt>がくせい</rt></ruby>だったら",de:"when he healthy would be / when he Student would be"}
  ], pattern:{slots:[{text:"V-たら",role:"cond"},{text:"main clause",role:"verb",label:"request allowed!"}],gloss:"'When/if [V], then …' — most universal Conditional. い-Adj: かったら. な-Adj/N: だったら."},
@@ -2833,7 +2833,7 @@ const CARDS = [
   build:[{form:"very polite",verb:"〜と <ruby>伝<rt>つた</rt></ruby>えて いただけませんか",de:"could you please pass on"},{form:"polite",verb:"〜と <ruby>伝<rt>つた</rt></ruby>えて ください",de:"please pass on"}],
   pattern:{slots:[{text:"(addressee) に",role:"actor",label:"to whom"},{text:"content (Plain)",role:"verb"},{text:"と",role:"plain"},{text:"<ruby>伝<rt>つた</rt></ruby>えて いただけませんか",role:"verb",label:"pass on (pol.)"}],gloss:"'Could you please tell [person] that [content]?' — polite message passing."},
   ex:[{jp:"<ruby>田中<rt>たなか</rt></ruby>さんに <ruby>会議<rt>かいぎ</rt></ruby>が <ruby>3時<rt>さんじ</rt></ruby>からだと <ruby>伝<rt>つた</rt></ruby>えて いただけませんか。",de:"Could you please tell Ms. Tanaka that the meeting starts at 3?"},{jp:"あとで <ruby>電話<rt>でんわ</rt></ruby>すると <ruby>伝<rt>つた</rt></ruby>えて ください。",de:"please tell him/her that I will call later."},{jp:"<ruby>部長<rt>ぶちょう</rt></ruby>に きょうは <ruby>休<rt>やす</rt></ruby>むと <ruby>伝<rt>つた</rt></ruby>えて いただけませんか。",de:"Could you please tell the department head that I won't come today?"}],
-  note:"💡 In the office routino and at the phone very typical — when one not directly with the goalperson can speak."},
+  note:"💡 Very typical in office routine and on the phone — when one cannot speak directly with the target person."},
  {l:34, t:"V-dictionary form / V-た + とおりに", de:"exactly like / so like …",
   rule:"Do something exactly as given. V + とおりに or N + のとおりに. 辞書形 = 'as one does', た-form = 'as it was already done'.",
   build:[{form:"V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + とおりに",verb:"<ruby>言<rt>い</rt></ruby>うとおりに",de:"just as I/one says"},{form:"V<sub>た</sub> + とおりに",verb:"<ruby>聞<rt>き</rt></ruby>いたとおりに",de:"just as I heard"},{form:"N + のとおりに",verb:"<ruby>説明書<rt>せつめいしょ</rt></ruby>のとおりに",de:"just as in the instructions"}],
@@ -3184,9 +3184,9 @@ const CARDS = [
   note:"⚠️ そうです comes in 3 meanings: ① Appearance for adjective (L40, おいし<b>そう</b>), ② Appearance for verb (L43, ます-stem 降り<b>そう</b>), ③ hearsay (L47, Plain 降る<b>そう</b>). Formation & content distinguish she!"},
  {l:47, t:"Plain + ようです (Appearance/presumption)", de:"It seems, as if … (own presumption)",
   rule:"Speaker's subjective conclusion based on personal observations. For な-Adj: な+ようです. For N: の+ようです. In conversation also みたいです (more informal).",
-  build:[{form:"verb/い-Adj",verb:"V<sub><ruby>普通形<rt>ふつうけい</rt></ruby></sub> / い-Adj + ようです",de:"seems V/Adj"},{form:"な-Adj",verb:"な-Adj + な + ようです",de:"seems Adj to be"},{form:"noun",verb:"N + の + ようです",de:"seems N to be"},{form:"informal variant",verb:"〜みたいです",de:"= ようです, casualer"}],
+  build:[{form:"verb/い-Adj",verb:"V<sub><ruby>普通形<rt>ふつうけい</rt></ruby></sub> / い-Adj + ようです",de:"seems V/Adj"},{form:"な-Adj",verb:"な-Adj + な + ようです",de:"seems to be Adj"},{form:"noun",verb:"N + の + ようです",de:"seems to be N"},{form:"informal variant",verb:"〜みたいです",de:"= ようです, more casual"}],
   pattern:{slots:[{text:"(observation)",role:"cond",label:"clues"},{text:"content (Plain)",role:"verb"},{text:"ようです",role:"actor",label:"seems so"}],gloss:"'It seems, as if [content].' — own conclusion by own perception (in contrast to そうです/hearsay)."},
-  ex:[{jp:"<ruby>外<rt>そと</rt></ruby>は <ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>って いる ようです。",de:"It seems outside to rain. [clues: nasser floor, sounds]"},{jp:"<ruby>田中<rt>たなか</rt></ruby>さんは <ruby>元気<rt>げんき</rt></ruby>な ようです。",de:"Ms. Tanaka seems healthy to be."},{jp:"だれも いない みたいです。",de:"It seems no one there to be. [and.]"}],
+  ex:[{jp:"<ruby>外<rt>そと</rt></ruby>は <ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>って いる ようです。",de:"It seems to be raining outside. [clues: wet ground, sounds]"},{jp:"<ruby>田中<rt>たなか</rt></ruby>さんは <ruby>元気<rt>げんき</rt></ruby>な ようです。",de:"Ms. Tanaka seems to be healthy."},{jp:"だれも いない みたいです。",de:"It seems nobody is there. [colloquial]"}],
   note:"💡 difference to そうです: そう = HEARSAY (Source mention). よう = OWN conclusion by observation. らしい (advanced) = mixed form."},
  {l:47, t:"〜<ruby>声<rt>こえ</rt></ruby>/<ruby>音<rt>おと</rt></ruby>/におい/<ruby>味<rt>あじ</rt></ruby> が します", de:"It sounds/smells/tastes after …",
   rule:"Sensory perception: します with a sensory noun expresses what one perceives. The subject of perception is marked with が.",
