@@ -2286,7 +2286,7 @@ const CARDS = [
   note:"💡 The 辞書形 is the 'raw-data form' — it appears in the dictionary and is the basis for all further derivations. ⚠️ False friends: 帰る, 走る, 知る etc. — Gr. I despite -iru/-eru!"},
  {l:18, t:"V <ruby>辞書形<rt>じしょけい</rt></ruby> こと が できます", de:"… can (ability)",
   rule:"Expresses ability or possibility. V-辞書形 + ことができます. For noun (suru-verbs): noun + が できます.",
-  build:[{form:"verb-ability",verb:"V<sub>ル</sub> + こと が できます",de:"can V"},{form:"noun",verb:"N + が できます",de:"can N (no を!)"},{form:"negation",verb:"V<sub>ル</sub> + こと が できません",de:"can not V"},{form:"🔄 Compare L27",verb:"<ruby>話<rt>はな</rt></ruby>せます (shorter)",de:"Potential form from L27"}],
+  build:[{form:"verb-ability",verb:"V<sub>ル</sub> + こと が できます",de:"can V"},{form:"noun",verb:"N + が できます",de:"can N (no を!)"},{form:"negation",verb:"V<sub>ル</sub> + こと が できません",de:"cannot V"},{form:"🔄 Compare L27",verb:"<ruby>話<rt>はな</rt></ruby>せます (shorter)",de:"Potential form from L27"}],
   pattern:{slots:[{text:"V-辞書形",role:"verb"},{text:"こと が できます",role:"plain",label:"can"}],gloss:"'Can [V].' — Polite/formal expression of ability. 🔄 vs. Potential form (L27): <ruby>食<rt>た</rt></ruby>べる ことが できる = <ruby>食<rt>た</rt></ruby>べられる. Both mean 'can eat'. ことができる is universal but sounds slightly more formal."},
   ex:[{jp:"ミラーさんは <ruby>漢字<rt>かんじ</rt></ruby>を <ruby>読<rt>よ</rt></ruby>む ことが できます。",de:"Mr. Miller can read Kanji."},{jp:"カードで <ruby>払<rt>はら</rt></ruby>う ことが できますか。",de:"Can one pay with a card?"},{jp:"<ruby>私<rt>わたし</rt></ruby>は <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>話<rt>はな</rt></ruby>す ことが できます。",de:"I can speak Japanese."}],
   note:"⚠️ For N + が できます is NO を used! 運転が できます ✓ / 運転を できます ✗. 🔄 In L27 comes a shortenre form (話せます = 話すことができます)."},
@@ -2699,9 +2699,9 @@ const CARDS = [
  {l:28, t:"それで (therefore / therefore)", de:"therefore / therefore / therefore",
   rule:"Conjunction at the sentence start: 'that's the reason why …'. Connects a previously mentioned reason with a consequence. More neutral than だから.",
   build:[{form:"Connection",verb:"[reason] 。それで、[consequence]",de:"therefore [consequence]"},{form:"vs. だから",verb:"だから = more personal/more emotional",de:"それで = neutral, objective"},{form:"vs. ですから",verb:"ですから = polite-formal",de:"それで = neutral-polite"}],
-  pattern:{slots:[[{text:"[reason]",role:"cond",label:"Before"},{text:"。",role:"plain"}],[{text:"それで、",role:"actor",label:"therefore"},{text:"[consequence]",role:"verb",label:"consequence"}]],gloss:"Only the reason (independent sentence), then それで at the beginning of the next sentence with the consequence."},
+  pattern:{slots:[[{text:"[reason]",role:"cond",label:"Before"},{text:"。",role:"plain"}],[{text:"それで、",role:"actor",label:"therefore"},{text:"[consequence]",role:"verb",label:"consequence"}]],gloss:"First the reason (as an independent sentence), then それで at the start of the next sentence with the consequence."},
   ex:[{jp:"きのうは <ruby>頭<rt>あたま</rt></ruby>が <ruby>痛<rt>いた</rt></ruby>かったです。<b>それで</b>、<ruby>会社<rt>かいしゃ</rt></ruby>を <ruby>休<rt>やす</rt></ruby>みました。",de:"Yesterday I had a headache. So I didn't go to work."},{jp:"<ruby>道<rt>みち</rt></ruby>が <ruby>込<rt>こ</rt></ruby>んで いました。<b>それで</b>、<ruby>遅<rt>おく</rt></ruby>れました。",de:"The street was congested. So I came late."},{jp:"<ruby>電車<rt>でんしゃ</rt></ruby>が <ruby>止<rt>と</rt></ruby>まりました。<b>それで</b>、タクシーで <ruby>来<rt>き</rt></ruby>ました。",de:"The train wasn't running. So I came by taxi."}],
-  note:"💡 order: それで comes ALWAYS to the beginning of the consequence-sentence, never in the middle."},
+  note:"💡 Order: それで ALWAYS comes at the beginning of the consequence sentence, never in the middle."},
  {l:29, t:"V て います (state after Action)", de:"state after change",
   rule:"For intransitive verbs, ています expresses a state that has arisen after an action and still continues: the window IS open, the chair IS broken.",
   build:[{form:"<ruby>開<rt>あ</rt></ruby>く (open)",verb:"<ruby>開<rt>あ</rt></ruby>いて います",de:"is open (state)"},{form:"<ruby>閉<rt>し</rt></ruby>まる (close)",verb:"<ruby>閉<rt>し</rt></ruby>まって います",de:"is closed"},{form:"<ruby>壊<rt>こわ</rt></ruby>れる (break)",verb:"<ruby>壊<rt>こわ</rt></ruby>れて います",de:"is broken"},{form:"<ruby>消<rt>き</rt></ruby>える (go out)",verb:"<ruby>消<rt>き</rt></ruby>えて います",de:"is out (off)"},{form:"⚠ Compare",verb:"<ruby>食<rt>た</rt></ruby>べて います",de:"eating right now (= L14)"}],
@@ -3358,7 +3358,7 @@ function updateStatsCard() {
 
 // Reset
 document.getElementById('statsReset').addEventlistener('click', () => {
- if (confirm('actually all Statistics reset? The can not undone be done.')) {
+ if (confirm('Really reset all statistics? This cannot be undone.')) {
   localStorage.removeItem(STORAGE_KEY);
   updateStatsCard();
   renderOverview();
@@ -4080,7 +4080,7 @@ function renderCompare() {
   // Pragmatic approach: require that a Kanji/Katakana precedes, OR that the Hiragana is at a word boundary after a space
   if (!before) return false; // beginning of the sentence — rather no Particle
   if (isKanji(before) || isKatakana(before)) return true;
-  if (isBoundary(before)) return false; // space previous — Particle can not alone stand
+  if (isBoundary(before)) return false; // preceding space — particle cannot stand alone
   if (isHiragana(before)) {
    // Difficult to say — use a simple whitelist approach:
    // When Hiragana appears at the beginning or after a space, it could be a word ending.
