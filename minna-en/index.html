@@ -1722,7 +1722,7 @@ cursor:pointer;font-family:“Shippori Mincho”,serif;margin:.3rem;
 <h3>🔀 そうです — three different meanings!</h3>
 <p><b>Key question:</b> where does the information come from?</p>
 <table class="cheat-table"><tbody>
- <tr><td><span class="jp">Adj-そう</span><span class="hint">L40 · APPEARANCE for adjective</span></td><td>い drops away + そう: おいし<b>そう</b>です</td><td>Looks delicious (judging by appearance)</td></tr>
+ <tr><td><span class="jp">Adj-そう</span><span class="hint">L40 · APPEARANCE for adjective</span></td><td>い drops + そう: おいし<b>そう</b>です</td><td>Looks delicious (judging by appearance)</td></tr>
  <tr><td><span class="jp">Vます-stem-そう</span><span class="hint">L43 · APPEARANCE for verb</span></td><td><ruby>降<rt>ふ</rt></ruby>り<b>そう</b>です</td><td>Looks like rain (visual impression)</td></tr>
  <tr><td><span class="jp">Plain + そうだ</span><span class="hint">L47 · HEARSAY</span></td><td><ruby>降<rt>ふ</rt></ruby>る<b>そうだ</b> / 〜に よると 〜そうだ</td><td>They say it will rain (heard, read)</td></tr>
 </tbody></table>
@@ -2367,21 +2367,21 @@ const CARDS = [
   ex:[  {jp:"お<ruby>腹<rt>なか</rt></ruby> すいた? (plain, friends)",de:"Are you hungry?"},
   {jp:"お<ruby>腹<rt>なか</rt></ruby>が すきましたか。(polite)",de:"Are you hungry?"},
   {jp:"ごめん、わからない。(plain) / すみません、わかりません。(polite)",de:"I'm sorry, I don't know."}
- ], note:"💡 Ms.en use tend to less だ in Plain-statements. For Questions: だ is often omitted."},
- {l:20, t:"plain conversation (Questions & Answers)", de:"conversation in plain style", rule:"For questions in plain style: だ often drops away, and the particle か is replaced by rising intonation. For な-Adj/N in questions, also drop だ. Answers tend to have shortened forms.", build:[
+ ], note:"💡 Women tend to use less だ in plain statements. For questions, だ is often omitted."},
+ {l:20, t:"plain conversation (Questions & Answers)", de:"conversation in plain style", rule:"For questions in plain style: だ often drops, and the particle か is replaced by rising intonation. For な-Adj/N in questions, also drop だ. Answers tend to have shortened forms.", build:[
   {form:"Question: V plain + ?",verb:"<ruby>行<rt>い</rt></ruby>く?",de:"Are you going? (instead 行きますか)"},
   {form:"Question: N/な-Adj WITHOUT だ",verb:"<ruby>元気<rt>げんき</rt></ruby>? / <ruby>学生<rt>がくせい</rt></ruby>?",de:"Are you well? / Are you a student?"},
   {form:"yes/no plain",verb:"うん / ううん",de:"yes / no (friends)"}
- ], pattern:{slots:[{text:"V-Plain",role:"verb"},{text:"? (intonation instead か)",role:"plain",label:"Question"}],gloss:"In plain style: か drops away, question marked by rising intonation. だ also drops away in questions with な-Adj/N."},
+ ], pattern:{slots:[{text:"V-Plain",role:"verb"},{text:"? (intonation instead of か)",role:"plain",label:"Question"}],gloss:"In plain style: か drops, question marked by rising intonation. だ also drops in questions with な-Adj/N."},
   ex:[  {jp:"<ruby>明日<rt>あした</rt></ruby> <ruby>暇<rt>ひま</rt></ruby>? — うん、<ruby>暇<rt>ひま</rt></ruby>だよ。",de:"Have you tomorrow time? — Yes, hab I."},
   {jp:"これ <ruby>食<rt>た</rt></ruby>べる? — ううん、いらない。",de:"Are you eating the? — No, I is not."},
-  {jp:"どこ <ruby>行<rt>い</rt></ruby>くの? (with の instead か)",de:"Where are you going?"}
- ], note:"💡 の at the end (at Ms.en/informal) = instead か. よ/ね for emphasis."},
+  {jp:"どこ <ruby>行<rt>い</rt></ruby>くの? (with の instead of か)",de:"Where are you going?"}
+ ], note:"💡 の at the end (women/informal speech) = instead of か. よ/ね for emphasis."},
  {l:20, t:"〜て(い)る・〜て(い)く・〜て(お)く (い/お-Drop)", de:"omitting by い and お in Plain", rule:"In informal conversation is the い in ている/ていく/ていく often omitted. Genauso the お in ておく → とく. typical for youth slang and corresponding conversation.", build:[
   {form:"〜ている → 〜てる",verb:"<ruby>食<rt>た</rt></ruby>べてる (instead <ruby>食<rt>た</rt></ruby>べている)",de:"is eating right now"},
   {form:"〜ていく → 〜てく",verb:"<ruby>持<rt>も</rt></ruby>ってく (instead <ruby>持<rt>も</rt></ruby>っていく)",de:"take along"},
   {form:"〜ておく → 〜とく",verb:"やっとく (instead やっておく)",de:"previously do"}
- ], pattern:{slots:[{text:"V-て",role:"verb"},{text:"(い)る/(い)く/(お)く",role:"plain",label:"い/お drops away"}],gloss:"Informal: ている→てる, ていく→てく, ておく→とく. ONLY in informal conversation!"},
+ ], pattern:{slots:[{text:"V-て",role:"verb"},{text:"(い)る/(い)く/(お)く",role:"plain",label:"い/お drops"}],gloss:"Informal: ている→てる, ていく→てく, ておく→とく. ONLY in informal conversation!"},
   ex:[  {jp:"<ruby>何<rt>なに</rt></ruby> してる? — テレビ <ruby>見<rt>み</rt></ruby>てる。",de:"What are you doing? — I'm watching TV."},
   {jp:"<ruby>傘<rt>かさ</rt></ruby> <ruby>持<rt>も</rt></ruby>ってく? — うん、<ruby>持<rt>も</rt></ruby>ってく。",de:"Are you taking an umbrella? — Yes, I am."},
   {jp:"あとで やっとくね。",de:"I do it later (previously)."}
@@ -2925,7 +2925,7 @@ const CARDS = [
   ex:[{jp:"どろぼうに かばんを <ruby>盗<rt>ぬす</rt></ruby>まれました。",de:"My bag was stolen by a thief. [possession gone]"},{jp:"<ruby>弟<rt>おとうと</rt></ruby>に ケーキを <ruby>食<rt>た</rt></ruby>べられました。",de:"My little brother ate my cake. [possession gone]"},{jp:"<ruby>子供<rt>こども</rt></ruby>に <ruby>泣<rt>な</rt></ruby>かれて、<ruby>寝<rt>ね</rt></ruby>られませんでした。",de:"The child cried and I couldn't sleep. [intransitive: 泣く]"},{jp:"<ruby>雨<rt>あめ</rt></ruby>に <ruby>降<rt>ふ</rt></ruby>られて、<ruby>風邪<rt>かぜ</rt></ruby>を ひきました。",de:"I was caught in the rain and caught a cold. [intransitive: 降る]"}],
   note:"💡 test for adversity passive: can the same sentence in the active without 'I' stand, without loss of meaning? どろぼうがかばんを盗んだ = 'a thief stole a bag' — no clear reference to me. Only the adversity passive (盗まれました) makes clear: I am the affected one. ⚠️ In English one says instead active: 'someone stole my bag'."},
  {l:37, t:"N(thing) が/は V<ruby>受身<rt>うけみ</rt></ruby> (thing passive)", de:"… is … done / produced / held",
-  rule:"thing passive: subject is a THING (no person). The actor is usually unimportant or general ('one', 'the world') and drops away. typical for events, production, languages, famous works, general statements.",
+  rule:"thing passive: subject is a THING (no person). The actor is usually unimportant or general ('one', 'the world') and drops. typical for events, production, languages, famous works, general statements.",
   build:[{form:"vs. direct passive",verb:"directly: person is affected",de:"私が褒められた"},{form:"here: thing is subject",verb:"thing is in focus, actor omitted",de:"会議が開かれる"},{form:"without actor",verb:"N が/は V<sub><ruby>受身<rt>うけみ</rt></ruby></sub>",de:"N is V-ed"},{form:"with creator (formal)",verb:"N₁ は N₂ に よって V<sub><ruby>受身<rt>うけみ</rt></ruby></sub>",de:"see next card"},{form:"with material",verb:"N から/で <ruby>作<rt>つく</rt></ruby>られる",de:"made from material"}],
   pattern:{slots:[{text:"N (thing)",role:"subj",label:"thing in focus"},{text:"が/は",role:"plain"},{text:"(place で)",role:"place",label:"optional"},{text:"V-passive",role:"verb"}],gloss:"'[N] is (to place) [V].' — actor is often omitted, because unimportant or general."},
   ex:[{jp:"<ruby>東京<rt>とうきょう</rt></ruby>で オリンピックが <ruby>行<rt>おこな</rt></ruby>われました。",de:"In Tokyo the Olympic Games were held."},{jp:"この <ruby>本<rt>ほん</rt></ruby>は <ruby>世界中<rt>せかいじゅう</rt></ruby>で <ruby>読<rt>よ</rt></ruby>まれて います。",de:"This book is read worldwide."},{jp:"<ruby>日本<rt>にほん</rt></ruby>の <ruby>車<rt>くるま</rt></ruby>は <ruby>世界<rt>せかい</rt></ruby>に <ruby>輸出<rt>ゆしゅつ</rt></ruby>されて います。",de:"Japanese cars are exported worldwide."},{jp:"<ruby>会議<rt>かいぎ</rt></ruby>は <ruby>来週<rt>らいしゅう</rt></ruby> <ruby>開<rt>ひら</rt></ruby>かれます。",de:"The meeting becomes held next week."}],
@@ -3027,8 +3027,8 @@ const CARDS = [
   ex:[{jp:"<ruby>納豆<rt>なっとう</rt></ruby>を <ruby>食<rt>た</rt></ruby>べて みました。",de:"I tried Natto."},{jp:"この <ruby>服<rt>ふく</rt></ruby>を <ruby>着<rt>き</rt></ruby>て みても いいですか。",de:"May I may I try on this piece of clothing?"},{jp:"<ruby>富士山<rt>ふじさん</rt></ruby>に <ruby>登<rt>のぼ</rt></ruby>って みたいです。",de:"I want times the Fuji climb."}],
   note:"💡 みる comes from 見る (to see) — analogous to 'do it and see how it is'. Very frequent in everyday language."},
  {l:40, t:"Adj/N + そうです (presumption based on appearance)", de:"looks as if …",
-  rule:"Appearance-based presumption: Something looks (by appearance) like that. ⚠️ For い-Adj: い drops away + そう (おいしそう). For な-Adj/N: only + そう (元気そう). NOT with verbs (this is L43).",
-  build:[{form:"い-Adj",verb:"い drops away + そう",de:"おいしい → おいし<b>そう</b>"},{form:"な-Adj",verb:"+ そう",de:"<ruby>元気<rt>げんき</rt></ruby> → <ruby>元気<rt>げんき</rt></ruby>そう"},{form:"⚠ いい",verb:"いい → よさそう (NOT いそう)",de:"sees good by"},{form:"⚠ ない",verb:"ない → なさそう",de:"gives it offenbar not"},{form:"negation い-Adj",verb:"〜くなさそう",de:"sees not Adj by"}],
+  rule:"Appearance-based presumption: Something looks (by appearance) like that. ⚠️ For い-Adj: い drops + そう (おいしそう). For な-Adj/N: only + そう (元気そう). NOT with verbs (this is L43).",
+  build:[{form:"い-Adj",verb:"い drops + そう",de:"おいしい → おいし<b>そう</b>"},{form:"な-Adj",verb:"+ そう",de:"<ruby>元気<rt>げんき</rt></ruby> → <ruby>元気<rt>げんき</rt></ruby>そう"},{form:"⚠ いい",verb:"いい → よさそう (NOT いそう)",de:"looks good"},{form:"⚠ ない",verb:"ない → なさそう",de:"apparently doesn't exist"},{form:"negation い-Adj",verb:"〜くなさそう",de:"doesn't look Adj"}],
   pattern:{slots:[{text:"N",role:"subj",label:"concerned"},{text:"は/が",role:"plain"},{text:"Adj-そう",role:"verb",label:"looks like that"},{text:"です",role:"plain"}],gloss:"\'[N] looks (apparently) [Adj].\' — impression based on appearance, not on information."},
   ex:[{jp:"この ケーキは おいし<b>そう</b>です。",de:"This cake looks delicious."},{jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>元気<rt>げんき</rt></ruby><b>そう</b>です。",de:"He looks healthy."},{jp:"この <ruby>本<rt>ほん</rt></ruby>は <ruby>難<rt>むずか</rt></ruby>し<b>そう</b>です。",de:"This book looks difficult."},{jp:"<ruby>時間<rt>じかん</rt></ruby>が なさ<b>そう</b>です。",de:"There seems to be no time."}],
   note:"⚠️ そうです gives\'s in 2 meanings: ① appearance (this card), ② hearsay (L47, with plain form). context and formation distinguish them!"},
@@ -3094,7 +3094,7 @@ const CARDS = [
   note:"💡 In the negativen sentence: 何も/誰も/どこも + ない = 'nothing/no one/nowhere' (complete negation)."},
  {l:43, t:"V<ruby>マス<rt></rt></ruby>-stem + そうです (Appearance)", de:"looks as if … (verb)",
   rule:"Apparent assumption with VERBS. ます-stem + そうです = looks as if V is about to happen. ⚠️ This is the SECOND そうです usage, alongside L40 (Adj/N).",
-  build:[{form:"verb",verb:"V<sub>マス</sub>-stem + そう",de:"<ruby>降<rt>ふ</rt></ruby>り → <ruby>降<rt>ふ</rt></ruby>りそう = looks like rain"},{form:"い-Adj (L40)",verb:"い drops away + そう",de:"おいしい → おいしそう"},{form:"な-Adj (L40)",verb:"+ そう",de:"<ruby>元気<rt>げんき</rt></ruby> → <ruby>元気<rt>げんき</rt></ruby>そう"},{form:"⚠ ない/いい",verb:"なさそう / よさそう",de:"specifically"},{form:"negation verb",verb:"V<sub>マス</sub>-stem + そうにない",de:"looks like that, as if NOT"}],
+  build:[{form:"verb",verb:"V<sub>マス</sub>-stem + そう",de:"<ruby>降<rt>ふ</rt></ruby>り → <ruby>降<rt>ふ</rt></ruby>りそう = looks like rain"},{form:"い-Adj (L40)",verb:"い drops + そう",de:"おいしい → おいしそう"},{form:"な-Adj (L40)",verb:"+ そう",de:"<ruby>元気<rt>げんき</rt></ruby> → <ruby>元気<rt>げんき</rt></ruby>そう"},{form:"⚠ ない/いい",verb:"なさそう / よさそう",de:"specifically"},{form:"negation verb",verb:"V<sub>マス</sub>-stem + そうにない",de:"doesn't look like it will"}],
   pattern:{slots:[{text:"subject は/が",role:"subj"},{text:"V-マス-stem",role:"verb",label:"Action (short)"},{text:"そうです",role:"actor",label:"Appearance"}],gloss:"'It looks like that, as if [V] same happen.' — visual impression, not Information."},
   ex:[{jp:"<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>りそうです。",de:"It looks like rain."},{jp:"<ruby>木<rt>き</rt></ruby>から りんごが <ruby>落<rt>お</rt></ruby>ちそうです。",de:"The apple looks like it's about to fall from the tree."},{jp:"<ruby>子供<rt>こども</rt></ruby>が <ruby>泣<rt>な</rt></ruby>きそうです。",de:"The child looks like it's about to cry."},{jp:"この ケーキは とても おいし<b>そう</b>ですね。",de:"This cake looks very delicious, doesn't it? [Adj-Appearance]"}],
   note:"⚠️ Not to be confused with: 〜<b>plain form</b> + そうです (L47) = HEARSAY. Here ます-stem = APPEARANCE."},
@@ -3923,7 +3923,7 @@ const PAIRS = [
   id:'sou', title:'そうです — 3 meanings',
   decision:'form reveals the meaning: <strong>い-Adj without い + そう</strong> / <strong>な-Adj without な + そう</strong> / <strong>Vます-stem + そう</strong> = Appearance (I see it). <strong>Plain + そうだ</strong> = hearsay (I heard/heard it).',
   cards:[
-   {tag:'L40', t:'Adj-そう', de:'sees … by (Adj)', when:'い drops away, then + そう. subjective glance/impression.', ex:{jp:'このケーキはおいしそう。',de:'This cake looks delicious.'}},
+   {tag:'L40', t:'Adj-そう', de:'looks … (Adj)', when:'drop い, then add + そう. Subjective impression.', ex:{jp:'このケーキはおいしそう。',de:'This cake looks delicious.'}},
    {tag:'L43', t:'Vます-そう', de:'looks as if V', when:'ます-stem + そう. Something seems about to happen.', ex:{jp:'<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>りそうだ。',de:'It looks like rain.'}},
    {tag:'L47', t:'Plain + そうだ', de:'they say that …', when:'plain form unchanged + そうだ. Information from third parties.', ex:{jp:'<ruby>明日<rt>あした</rt></ruby>は <ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>るそうだ。',de:'They say it will rain tomorrow.'}}
   ]
