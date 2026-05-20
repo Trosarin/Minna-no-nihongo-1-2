@@ -1941,7 +1941,7 @@ const CARDS = [
   build:[{form:"Question",verb:"(N は) いくらですか",de:"How much is N cost?"},{form:"more polite",verb:"おいくらですか",de:"How much please?"},{form:"Answer",verb:"〜<ruby>円<rt>えん</rt></ruby>です",de:"〜 Yen."},{form:"Price examples",verb:"<ruby>2000円<rt>にせんえん</rt></ruby> / <ruby>15000円<rt>いちまんごせんえん</rt></ruby>",de:"2.000 ¥ / 15.000 ¥"}],
   pattern:{slots:[{text:"(N は)",role:"subj",label:"optional"},{text:"いくらですか",role:"verb",label:"price question"}],gloss:"'How much is [N]?' — いくら asks for the price. Answer: number + 円. A standard question in shops."},
   ex:[{jp:"この <ruby>本<rt>ほん</rt></ruby>は いくらですか。— <ruby>2000円<rt>にせんえん</rt></ruby>です。",de:"How much is this book? — 2.000 Yen."},{jp:"その かばんは いくらですか。— <ruby>15000円<rt>いちまんごせんえん</rt></ruby>です。",de:"How much is that bag? — 15.000 Yen."},{jp:"おいくらですか。— <ruby>3500円<rt>さんぜんごひゃくえん</rt></ruby>に なります。",de:"How much please? — The does 3.500 Yen."}],
-  note:"💡 に なります at the price end is in the shop more natural than ただの〜円です — remember as firm cashier phrase."},
+  note:"💡 に なります sounds more natural in shops at the end of a price than just ただの〜円です — remember it as a fixed cashier phrase."},
  {l:4, t:"<ruby>今<rt>いま</rt></ruby> 〜<ruby>時<rt>じ</rt></ruby> 〜<ruby>分<rt>ふん</rt></ruby>です", de:"It is now … o'clock … minutes",
   rule:"time specification. hours with 時, minutes with 分 (ふん/ぷん depending on number). Question: 何時ですか / 何時間ですか (duration).",
   build:[{form:"hours",verb:"<ruby>9時<rt>くじ</rt></ruby> / <ruby>12時<rt>じゅうにじ</rt></ruby>",de:"9 o'clock / 12 o'clock"},{form:"minutes",verb:"<ruby>15分<rt>じゅうごふん</rt></ruby> / <ruby>30分<rt>さんじっぷん</rt></ruby>",de:"15 Min / 30 Min"},{form:"⚠ ぷん-exceptions",verb:"1・3・4・6・8・10<ruby>分<rt>ふん</rt></ruby> = ぷん",de:"休・発音注意"},{form:"Question",verb:"<ruby>今<rt>いま</rt></ruby> <ruby>何時<rt>なんじ</rt></ruby>ですか",de:"How late is it?"}],
@@ -2223,7 +2223,7 @@ const CARDS = [
   build:[{form:"Connection",verb:"V<sub>テ</sub> + は いけません",de:"you may not V"},{form:"Plain",verb:"V<sub>テ</sub> + は いけない",de:"informal"},{form:"🔄 alternative",verb:"V<sub>ナイ</sub> + で ください",de:"please not V (L17)"}],
   pattern:{slots:[{text:"V-て",role:"verb"},{text:"は いけません",role:"plain",label:"prohibition"}],gloss:"'[V] is forbidden / may not.' — Vて + は + いけません. In daily use shorter: 〜ちゃ いけない / 〜ちゃ だめ. Formulal: 〜ては なりません."},
   ex:[{jp:"ここで タバコを <ruby>吸<rt>す</rt></ruby>っては いけません。",de:"Smoking is not allowed here."},{jp:"<ruby>授業中<rt>じゅぎょうちゅう</rt></ruby>、<ruby>話<rt>はな</rt></ruby>しては いけません。",de:"One must not talk during class."},{jp:"ここで <ruby>走<rt>はし</rt></ruby>っては いけません。",de:"Ono must not run here."}],
-  note:"🔄 てもいいです (permission) ↔ てはいけません (prohibition). 💡 On signs often shorten forms: 禁煙 (No smoking), 立入禁止 (Zutritt forbidden)."},
+  note:"🔄 てもいいです (permission) ↔ てはいけません (prohibition). 💡 On signs often shorten forms: 禁煙 (No smoking), 立入禁止 (No entry)."},
  {l:15, t:"〜を <ruby>知<rt>し</rt></ruby>って います", de:"to know / know",
   rule:"知る as stateverb: knewnis-haved = 知っています. negation is ALWAYS 知りません (NEVER 知っていません!).",
   build:[{form:"positive",verb:"<ruby>知<rt>し</rt></ruby>って います",de:"I knew / know"},{form:"★ negation",verb:"<ruby>知<rt>し</rt></ruby>りません",de:"I don't know (NEVER 知っていません!)"},{form:"Past +",verb:"<ruby>知<rt>し</rt></ruby>って いました",de:"I knew"},{form:"Past −",verb:"<ruby>知<rt>し</rt></ruby>りませんでした",de:"I don't know"}],
@@ -2292,7 +2292,7 @@ const CARDS = [
   note:"⚠️ For N + が できます is NO を used! 運転が できます ✓ / 運転を できます ✗. 🔄 In L27 comes a shortenre form (話せます = 話すことができます)."},
  {l:18, t:"V <ruby>辞書形<rt>じしょけい</rt></ruby> / N の <ruby>前<rt>まえ</rt></ruby>に、V₂", de:"Before V₁/N₁ I do V₂",
   rule:"Temporal order: V₂ happens BEFORE V₁. For verbs, always dictionary form (even when the main clause is in past tense). For nouns: N + の + 前に.",
-  build:[{form:"verb",verb:"V<sub>ル</sub> + <ruby>前<rt>まえ</rt></ruby>に、V₂",de:"before V"},{form:"noun",verb:"N + の + <ruby>前<rt>まえ</rt></ruby>に、V₂",de:"before N"},{form:"⚠ ALWAYS 辞書形",verb:"<ruby>食<rt>た</rt></ruby>べ<b>る</b> <ruby>前<rt>まえ</rt></ruby>に (NOT <ruby>食<rt>た</rt></ruby>べた)",de:"also at Vg. in the main clause"}],
+  build:[{form:"verb",verb:"V<sub>ル</sub> + <ruby>前<rt>まえ</rt></ruby>に、V₂",de:"before V"},{form:"noun",verb:"N + の + <ruby>前<rt>まえ</rt></ruby>に、V₂",de:"before N"},{form:"⚠ ALWAYS 辞書形",verb:"<ruby>食<rt>た</rt></ruby>べ<b>る</b> <ruby>前<rt>まえ</rt></ruby>に (NOT <ruby>食<rt>た</rt></ruby>べた)",de:"even when past tense is used in the main clause"}],
   pattern:{slots:[{text:"V-辞書形/N+の",role:"cond"},{text:"<ruby>前<rt>まえ</rt></ruby>に、",role:"plain",label:"before/before"},{text:"V₂",role:"verb"}],gloss:"'Before [V/N], [V₂].' — temporal preceding statement. ⚠ Before 前に ALWAYS <ruby>辞書形<rt>じしょけい</rt></ruby> (even when past tense is meant!): <ruby>食<rt>た</rt></ruby>べる <ruby>前<rt>まえ</rt></ruby>に <ruby>手<rt>て</rt></ruby>を <ruby>洗<rt>あら</rt></ruby>った = I washed my hands before the meal."},
   ex:[{jp:"<ruby>寝<rt>ね</rt></ruby>る <ruby>前<rt>まえ</rt></ruby>に、<ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます。",de:"Before sleeping I read a book."},{jp:"<ruby>出<rt>で</rt></ruby>かける <ruby>前<rt>まえ</rt></ruby>に、<ruby>鍵<rt>かぎ</rt></ruby>を かけます。",de:"Before going out I close."},{jp:"<ruby>日本<rt>にほん</rt></ruby>へ <ruby>来<rt>く</rt></ruby>る <ruby>前<rt>まえ</rt></ruby>に、<ruby>日本語<rt>にほんご</rt></ruby>を <ruby>勉強<rt>べんきょう</rt></ruby>しました。",de:"Before I came to Japan, I learned Japanese."}],
   note:"⚠️ ALWAYS dictionary form before 前に! Also when the main clause Past tense has: 来る前に〜しました ✓ / 来た前に〜しました ✗. 🔄 opposite: V た + あとで (L34)."},
@@ -2311,7 +2311,7 @@ const CARDS = [
   {form:"★ Irregular verbs",verb:"―",de:"―"},
   {form:"する",verb:"した",de:"before"},
   {form:"来る",verb:"<ruby>来<rt>き</rt></ruby>た",de:"come"}
- ], pattern:{slots:[{text:"V-Plain",role:"verb"},{text:"た/だ",role:"plain",label:"Vg.-ending"}],gloss:"た-form = て-form with た instead て. Same rules — う/つ/る→った, ぬ/ぶ/む→んだ, く→いた, ぐ→いだ, す→した."},
+ ], pattern:{slots:[{text:"V-Plain",role:"verb"},{text:"た/だ",role:"plain",label:"past tense ending"}],gloss:"た-form = て-form with た instead て. Same rules — う/つ/る→った, ぬ/ぶ/む→んだ, く→いた, ぐ→いだ, す→した."},
   ex:[  {jp:"<ruby>映画<rt>えいが</rt></ruby>を <ruby>見<rt>み</rt></ruby>た。",de:"I saw a movie. (plain)"},
   {jp:"コーヒーを <ruby>飲<rt>の</rt></ruby>んだ。",de:"I coffee drunk. (plain)"},
   {jp:"<ruby>手紙<rt>てがみ</rt></ruby>を <ruby>書<rt>か</rt></ruby>いた。",de:"I a letter written. (plain)"}
@@ -2458,8 +2458,8 @@ const CARDS = [
   {jp:"<ruby>散歩<rt>さんぽ</rt></ruby>でも しませんか。",de:"How would it be with a walk?"}
  ], note:"💡 でも does suggestions softer and less pushy ('coffee or so?'). Signals openness for alternatives."},
  {l:21, t:"V<ruby>ない<rt></rt></ruby>-form + と…", de:"I must … (short form)", rule:"Very common short form of なければならない. ない-form + と… (the rest is omitted, because clear). Especially in plain conversation. Can also my 'otherwise happens something bad'.", build:[
-  {form:"〜ないと (short form)",verb:"<ruby>行<rt>い</rt></ruby>かないと",de:"I must to go"},
-  {form:"Vollform: 〜ないといけない",verb:"<ruby>行<rt>い</rt></ruby>かないと いけない",de:"I must to go"},
+  {form:"〜ないと (short form)",verb:"<ruby>行<rt>い</rt></ruby>かないと",de:"I must go"},
+  {form:"Full form: 〜ないといけない",verb:"<ruby>行<rt>い</rt></ruby>かないと いけない",de:"I must go"},
   {form:"Cf. more formal: 〜なければならない",verb:"<ruby>行<rt>い</rt></ruby>かなければ ならない",de:"I must to go (formal)"}
  ], pattern:{slots:[{text:"V-ない",role:"cond"},{text:"と…",role:"plain",label:"(must) otherwise →"},{text:"(omitted)",role:"verb"}],gloss:"'I must [V].' short form of ないといけない. Am end of sentence canceld, because consequence clear is."},
   ex:[  {jp:"もう <ruby>行<rt>い</rt></ruby>かないと…",de:"I must now to go…"},
@@ -2491,8 +2491,8 @@ const CARDS = [
   {jp:"これは <ruby>日本<rt>にほん</rt></ruby>で <ruby>作<rt>つく</rt></ruby>られた <ruby>車<rt>くるま</rt></ruby>です。",de:"This is a car made in Japan."}
  ], note:"💡 Rule of thumb: verb/い-Adj directly before. な-Adj requires な. noun requires の. For negation the な-Adj/noun: じゃない (NOT じゃ ありません!)."},
  {l:22, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby> + <ruby>時間<rt>じかん</rt></ruby>/<ruby>約束<rt>やくそく</rt></ruby>/<ruby>用事<rt>ようじ</rt></ruby>", de:"time/appointment/schedule, something to do", rule:"typical collocations: dictionary form-sentence + time-noun. Expresses that one time/appointment/something to do for a described activity.", build:[
-  {form:"Vdict+時間 (time for …)",verb:"<ruby>食<rt>た</rt></ruby>べる <ruby>時間<rt>じかん</rt></ruby>",de:"time to the food"},
-  {form:"Vdict+約束 (appointment to …)",verb:"<ruby>会<rt>あ</rt></ruby>う <ruby>約束<rt>やくそく</rt></ruby>",de:"appointment, to meet"},
+  {form:"Vdict+時間 (time for …)",verb:"<ruby>食<rt>た</rt></ruby>べる <ruby>時間<rt>じかん</rt></ruby>",de:"time to eat"},
+  {form:"Vdict+約束 (appointment to …)",verb:"<ruby>会<rt>あ</rt></ruby>う <ruby>約束<rt>やくそく</rt></ruby>",de:"appointment to meet"},
   {form:"Vdict+用事 (something to do)",verb:"<ruby>銀行<rt>ぎんこう</rt></ruby>へ <ruby>行<rt>い</rt></ruby>く <ruby>用事<rt>ようじ</rt></ruby>",de:"something to do at the bank"}
  ], pattern:{slots:[{text:"V-辞書形",role:"verb"},{text:"時間/約束/用事",role:"obj",label:"time/appointment/schedule"},{text:"が あります",role:"verb"}],gloss:"'time/appointment/schedule to have, and [V] to do.' negation: 〜時間がありません."},
   ex:[  {jp:"<ruby>朝<rt>あさ</rt></ruby>ごはんを <ruby>食<rt>た</rt></ruby>べる <ruby>時間<rt>じかん</rt></ruby>が ありません。",de:"I have no time for breakfast."},
@@ -2796,11 +2796,11 @@ const CARDS = [
   rule:"Stronger, brusque command. Only in emergencies, sport-encouragement, between men (informal), commanding tone, traffic signs use. ⚠️ Among friends/family usually TOO HARSH!",
   build:[{form:"group I: u → e",verb:"<ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby>け",de:"write!"},{form:"group I",verb:"<ruby>飲<rt>の</rt></ruby>む → <ruby>飲<rt>の</rt></ruby>め",de:"trink!"},{form:"group I",verb:"<ruby>急<rt>いそ</rt></ruby>ぐ → <ruby>急<rt>いそ</rt></ruby>げ",de:"beeil you!"},{form:"group II: る → ろ",verb:"<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べろ",de:"want!"},{form:"group II",verb:"<ruby>見<rt>み</rt></ruby>る → <ruby>見<rt>み</rt></ruby>ろ",de:"schau!"},{form:"Irregular",verb:"する → しろ / <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>い",de:"do! / come!"}],
   pattern:{slots:[{text:"V-command",role:"verb",label:"imperative"},{text:"!",role:"plain"}],gloss:"Stands usually alone as terser command. tonefall is very directly — only in fitting contexts."},
-  ex:[{jp:"<ruby>早<rt>はや</rt></ruby>く <ruby>来<rt>こ</rt></ruby>い!",de:"Come on! [sport/emergency]"},{jp:"がんばれ!",de:"Gib everything! [encouragement]"},{jp:"<ruby>止<rt>と</rt></ruby>まれ。",de:"Halt! [Verkehrsschild]"}],
+  ex:[{jp:"<ruby>早<rt>はや</rt></ruby>く <ruby>来<rt>こ</rt></ruby>い!",de:"Come quickly! [sport/emergency]"},{jp:"がんばれ!",de:"Give it your all! [encouragement]"},{jp:"<ruby>止<rt>と</rt></ruby>まれ。",de:"Stop! [traffic sign]"}],
   note:"⚠️ More polite alternatives: V<sub>テ</sub> ください (L14) / V<sub>テ</sub> いただけませんか (L26). imperative form NEVER in the normal conversation use."},
  {l:33, t:"Prohibitivform <ruby>禁止形<rt>きんしけい</rt></ruby> (prohibition)", de:"Do it NOT! (prohibition)",
   rule:"Strong prohibition. Formation is THE SAME FOR ALL GROUPS: dictionary form + な. Very brusque — on warning signs, between men (informal), in emergency situations.",
-  build:[{form:"Universalregel: V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + な",verb:"all groups same",de:"—"},{form:"Example Gr. I",verb:"<ruby>触<rt>さわ</rt></ruby>る → <ruby>触<rt>さわ</rt></ruby>るな",de:"not tofassen!"},{form:"Example Gr. II",verb:"<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べるな",de:"not to eat!"},{form:"Irregular",verb:"する → するな / <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>く</rt></ruby>るな",de:"not do! / not to come!"}],
+  build:[{form:"Universal rule: V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + な",verb:"all groups same",de:"—"},{form:"Example Gr. I",verb:"<ruby>触<rt>さわ</rt></ruby>る → <ruby>触<rt>さわ</rt></ruby>るな",de:"don't touch!"},{form:"Example Gr. II",verb:"<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べるな",de:"don't eat!"},{form:"Irregular",verb:"する → するな / <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>く</rt></ruby>るな",de:"don't do! / don't come!"}],
   pattern:{slots:[{text:"V-辞書",role:"verb"},{text:"な",role:"actor",label:"prohibition"},{text:"!",role:"plain"}],gloss:"'Do [V] NOT!' — very directly, often on prohibition signs."},
   ex:[{jp:"<ruby>触<rt>さわ</rt></ruby>るな!",de:"Do not touch! [sign]"},{jp:"ここで タバコを <ruby>吸<rt>す</rt></ruby>うな。",de:"Here not smoke!"},{jp:"<ruby>嘘<rt>うそ</rt></ruby>を つくな!",de:"lie not!"}],
   note:"⚠️ More polite alternatives: V<sub>ない</sub>で ください (L17) / 〜ては いけません (L17). 禁止形 only on signs or in extreme situations."},
@@ -2809,7 +2809,7 @@ const CARDS = [
   build:[{form:"positive",verb:"V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + ように <ruby>言<rt>い</rt></ruby>います",de:"tell to do V"},{form:"negative",verb:"V<sub>ない</sub> + ように <ruby>言<rt>い</rt></ruby>います",de:"tell NOT to do V"},{form:"variants",verb:"<ruby>頼<rt>たの</rt></ruby>む / <ruby>伝<rt>つた</rt></ruby>える / <ruby>注意<rt>ちゅうい</rt></ruby>する",de:"ask / pass on / admonish"}],
   pattern:{slots:[{text:"speaker は",role:"subj"},{text:"recipient に",role:"actor",label:"whom"},{text:"V-辞書/ない",role:"verb"},{text:"ように",role:"plain"},{text:"<ruby>言<rt>い</rt></ruby>います",role:"verb",label:"please"}],gloss:"'[speaker] tells [recipient] to (not) do [V].' — indirect rendering of a request."},
   ex:[{jp:"<ruby>先生<rt>せんせい</rt></ruby>は <ruby>学生<rt>がくせい</rt></ruby>に <ruby>宿題<rt>しゅくだい</rt></ruby>を する<b>ように</b> <ruby>言<rt>い</rt></ruby>いました。",de:"The teacher told the students to do the homework."},{jp:"<ruby>母<rt>はは</rt></ruby>は <ruby>遅<rt>おそ</rt></ruby>く <ruby>帰<rt>かえ</rt></ruby>らない<b>ように</b> <ruby>言<rt>い</rt></ruby>いました。",de:"My mother told me not to come home late."},{jp:"<ruby>医者<rt>いしゃ</rt></ruby>は <ruby>父<rt>ちち</rt></ruby>に お<ruby>酒<rt>さけ</rt></ruby>を <ruby>飲<rt>の</rt></ruby>まない<b>ように</b> <ruby>言<rt>い</rt></ruby>いました。",de:"The doctor told my father not to drink alcohol."},{jp:"[<ruby>店長<rt>てんちょう</rt></ruby>] あした <ruby>10時<rt>じゅうじ</rt></ruby>までに <ruby>来<rt>き</rt></ruby>てください。<br>[ミラーさん] はい、わかりました。<br>→ <ruby>店長<rt>てんちょう</rt></ruby>は ミラーさんに <ruby>10時<rt>じゅうじ</rt></ruby>までに <ruby>来<rt>く</rt></ruby>る<b>ように</b> <ruby>言<rt>い</rt></ruby>いました。",de:"[Q&A in the textbook style: direct speech → indirect request] Store manager: 'Please come tomorrow by 10 o'clock.' — Miller: 'Understood.' → The store manager told Miller to come by 10 o'clock."}],
-  note:"💡 Direct Zidid against it with と: '<ruby>食<rt>た</rt></ruby>べて' と <ruby>言<rt>い</rt></ruby>いました = said 'want'."},
+  note:"💡 Direct quotation with と: '<ruby>食<rt>た</rt></ruby>べて' と <ruby>言<rt>い</rt></ruby>いました = said 'eat'."},
  {l:33, t:"〜と <ruby>読<rt>よ</rt></ruby>みます / 〜と <ruby>書<rt>か</rt></ruby>いて あります", de:"is read as / is written",
   rule:"Describes how a word is read, or what stands on a sign / in a text. Frequent with signs and Kanji readings.",
   build:[{form:"reading",verb:"〜と <ruby>読<rt>よ</rt></ruby>みます",de:"is read as"},{form:"Written",verb:"〜と <ruby>書<rt>か</rt></ruby>いて あります",de:"stands written"},{form:"meaning",verb:"〜と いう <ruby>意味<rt>いみ</rt></ruby>です",de:"means (see next card)"}],
