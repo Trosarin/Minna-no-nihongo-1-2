@@ -2,7 +2,7 @@
 // Network-First Strategy: Updates kommen sofort an, Offline funktioniert weiter
 // Keine manuelle Versions-Bumperei mehr nötig!
 
-const CACHE_NAME = 'grammatik-cache-v9';
+const CACHE_NAME = 'grammatik-cache-v10';
 const FILES_TO_CACHE = [
   './',
   './index.html',
@@ -22,6 +22,8 @@ const FILES_TO_CACHE = [
   './chuukyuu-en/',
   './chuukyuu-en/index.html',
   './chuukyuu-en/manifest.json',
+  './practice/',
+  './practice/index.html',
 ];
 
 // Installation: Cache initial befüllen

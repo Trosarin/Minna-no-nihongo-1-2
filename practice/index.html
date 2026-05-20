@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>日本語 — Übungen</title>
+<meta name="description" content="Satzlabor & Konjugations-Übungen für Minna no Nihongo">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="日本語">
+<meta name="theme-color" content="#7a1a14">
+
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Noto+Serif+JP:wght@400;600;900&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#1a1612;
+    --paper:#f4ede0;
+    --paper-2:#ebe1cd;
+    --red:#c0362c;
+    --red-deep:#8a1f17;
+    --gold:#b8893a;
+    --green:#2f6e3a;
+    --green-deep:#1f4a26;
+    --shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#f4ede0;color:#1a1612;font-family:"Shippori Mincho",serif;min-height:100vh}
+  body{
+    padding-top:env(safe-area-inset-top);
+    padding-bottom:env(safe-area-inset-bottom);
+    padding-left:env(safe-area-inset-left);
+    padding-right:env(safe-area-inset-right);
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(192,54,44,.04) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  ruby rt{font-size:.55em;color:#8a1f17}
+
+  /* Top bar with back link + title */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    background:#1a1612;color:#f4ede0;
+    padding:.7rem 1rem;
+    border-bottom:3px solid #1a1612;
+  }
+  .topbar a.back{
+    color:#f4ede0;text-decoration:none;
+    padding:.4rem .7rem;border:1px solid rgba(244,237,224,.3);
+    font-size:.9rem;font-family:inherit;
+    transition:background .15s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .topbar a.back:hover{background:rgba(244,237,224,.1)}
+  .topbar .title{font-family:"Noto Serif JP",serif;font-weight:600;font-size:1rem;letter-spacing:.05em}
+  .topbar .spacer{width:60px}
+
+  header{
+    padding:2rem 1.5rem 1.2rem;
+    text-align:center;
+    border-bottom:3px double #1a1612;
+    position:relative;
+  }
+  header::before{
+    content:"練習帳";
+    position:absolute;top:.4rem;left:50%;transform:translateX(-50%);
+    font-size:.7rem;letter-spacing:.4em;color:#c0362c;
+  }
+  h1{
+    font-family:"Noto Serif JP",serif;font-weight:900;
+    font-size:clamp(1.6rem,5vw,2.6rem);line-height:1.1;
+    letter-spacing:.02em;
+  }
+  h1 .jp{color:#8a1f17;display:block;font-size:1.2em;margin-bottom:.3rem}
+  h1 .de{font-family:"Shippori Mincho",serif;font-weight:600;font-size:.55em;letter-spacing:.15em;text-transform:uppercase;color:#1a1612}
+  .subtitle{margin-top:.6rem;font-style:italic;color:#6b5d4a;font-size:.9rem}
+
+  /* Mode tabs */
+  .mode-tabs{
+    display:flex;justify-content:center;gap:0;
+    max-width:720px;margin:1.2rem auto 0;padding:0 1rem;
+  }
+  .mode-tab{
+    flex:1;
+    padding:.8rem 1rem;
+    background:#ebe1cd;
+    border:2px solid #1a1612;
+    border-bottom:none;
+    font-family:"Shippori Mincho",serif;font-size:.95rem;font-weight:600;
+    color:#1a1612;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    transition:background .15s;
+  }
+  .mode-tab + .mode-tab{border-left:none}
+  .mode-tab:hover{background:#f4ede0}
+  .mode-tab.active{background:#8a1f17;color:#f4ede0;border-color:#8a1f17}
+  .mode-tab .jp{font-family:"Noto Serif JP",serif;font-weight:800;display:block;font-size:1.1em;letter-spacing:.05em}
+  .mode-tab .de{font-size:.7rem;opacity:.85;display:block;margin-top:.1rem;letter-spacing:.1em;text-transform:uppercase}
+
+  /* Cards / Panels */
+  .panel{
+    max-width:720px;margin:0 auto 1.5rem;
+    background:#f4ede0;
+    border:2px solid #1a1612;
+    border-top:none;
+    padding:1.4rem 1.1rem;
+    box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+  }
+  .panel h2{
+    font-family:"Noto Serif JP",serif;font-weight:800;
+    color:#8a1f17;font-size:1.15rem;
+    margin-bottom:.4rem;letter-spacing:.04em;
+  }
+  .panel .help{
+    font-size:.85rem;color:#6b5d4a;font-style:italic;margin-bottom:1rem;
+  }
+
+  .controls-row{
+    display:flex;flex-wrap:wrap;gap:.6rem;align-items:flex-end;
+    margin-bottom:1rem;
+  }
+  .field{display:flex;flex-direction:column;gap:.25rem;flex:1;min-width:140px}
+  .field label{
+    font-size:.7rem;letter-spacing:.1em;color:#6b5d4a;
+    text-transform:uppercase;font-weight:600;
+  }
+  select, input[type=text]{
+    padding:.55rem .7rem;
+    background:#ebe1cd;
+    border:2px solid #1a1612;
+    font-family:"Shippori Mincho",serif;font-size:1rem;color:#1a1612;
+    box-shadow:0 2px 0 rgba(26,22,18,.15);
+    width:100%;
+  }
+  select:focus, input[type=text]:focus{outline:none;border-color:#c0362c}
+
+  button.btn{
+    padding:.6rem 1rem;
+    background:#1a1612;color:#f4ede0;
+    border:2px solid #1a1612;
+    font-family:"Shippori Mincho",serif;font-size:.95rem;font-weight:600;
+    cursor:pointer;
+    box-shadow:0 2px 0 rgba(26,22,18,.15);
+    transition:transform .12s, background .15s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  button.btn:hover{background:#8a1f17}
+  button.btn:active{transform:translateY(1px)}
+  button.btn.red{background:#8a1f17;border-color:#8a1f17}
+  button.btn.red:hover{background:#c0362c;border-color:#c0362c}
+  button.btn.gold{background:#b8893a;border-color:#b8893a;color:#1a1612}
+  button.btn.gold:hover{background:#cfa055}
+
+  .pattern-info{
+    background:#ebe1cd;
+    border-left:4px solid #b8893a;
+    padding:.7rem .9rem;
+    margin-bottom:1rem;
+    font-size:.9rem;
+  }
+  .pattern-info .ptn-title{
+    font-family:"Noto Serif JP",serif;font-weight:700;
+    color:#8a1f17;font-size:1.05rem;margin-bottom:.2rem;
+  }
+  .pattern-info .ptn-de{color:#6b5d4a;font-style:italic;font-size:.85rem}
+  .pattern-info .ptn-lesson{
+    display:inline-block;font-size:.65rem;color:#b8893a;
+    font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    margin-top:.3rem;
+  }
+
+  /* Output box */
+  .output{
+    background:#fffdf6;
+    border:2px solid #1a1612;
+    border-left:6px solid #8a1f17;
+    padding:1rem 1.1rem;
+    box-shadow:0 2px 0 rgba(26,22,18,.15);
+    margin-top:1rem;
+  }
+  .output-line{
+    display:flex;flex-direction:column;gap:.2rem;
+    padding:.6rem 0;
+    border-bottom:1px dashed #c9bda3;
+  }
+  .output-line:last-child{border-bottom:none}
+  .output-line .form-label{
+    font-size:.65rem;letter-spacing:.15em;color:#b8893a;
+    text-transform:uppercase;font-weight:700;
+  }
+  .output-line .jp-sentence{
+    font-family:"Noto Serif JP",serif;font-size:1.2rem;
+    color:#1a1612;line-height:1.7;
+  }
+  .output-line .de-trans{
+    font-size:.85rem;color:#6b5d4a;font-style:italic;
+  }
+
+  .slot-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:.7rem;
+    margin-bottom:.6rem;
+  }
+  .button-row{
+    display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem;
+  }
+
+  /* Konjugation drill */
+  .drill-card{
+    background:#fffdf6;
+    border:2px solid #1a1612;
+    padding:1.3rem 1.1rem;
+    text-align:center;
+    box-shadow:0 2px 0 rgba(26,22,18,.15);
+    margin:1rem 0;
+  }
+  .drill-prompt{
+    font-family:"Noto Serif JP",serif;
+    font-size:2rem;color:#8a1f17;font-weight:800;
+    margin-bottom:.3rem;
+  }
+  .drill-de{
+    color:#6b5d4a;font-style:italic;font-size:.9rem;margin-bottom:.7rem;
+  }
+  .drill-instruction{
+    font-size:.95rem;color:#1a1612;margin-bottom:1rem;
+  }
+  .drill-instruction b{color:#8a1f17}
+  .drill-choices{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;
+  }
+  @media(max-width:480px){
+    .drill-choices{grid-template-columns:1fr}
+  }
+  .choice{
+    padding:.85rem .6rem;
+    background:#ebe1cd;
+    border:2px solid #1a1612;
+    font-family:"Noto Serif JP",serif;font-size:1.05rem;
+    cursor:pointer;
+    box-shadow:0 2px 0 rgba(26,22,18,.15);
+    transition:background .15s, transform .12s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .choice:hover{background:#f4ede0}
+  .choice:active{transform:translateY(1px)}
+  .choice.right{background:#d6e9c8;border-color:#2f6e3a;color:#1f4a26}
+  .choice.wrong{background:#f0c8c0;border-color:#8a1f17;color:#5a0e08}
+  .choice.disabled{cursor:default;opacity:.85}
+
+  .feedback{
+    margin-top:.9rem;font-size:.95rem;font-weight:600;
+    min-height:1.3em;
+  }
+  .feedback.ok{color:#1f4a26}
+  .feedback.bad{color:#8a1f17}
+
+  .score-row{
+    display:flex;justify-content:space-between;align-items:center;
+    background:#ebe1cd;border:1px solid #1a1612;
+    padding:.5rem .8rem;font-size:.85rem;
+    margin-bottom:.8rem;
+  }
+  .score-row b{color:#8a1f17;font-weight:800}
+
+  .filter-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+    gap:.4rem;
+    margin-bottom:.8rem;
+  }
+  .chk{
+    display:flex;align-items:center;gap:.3rem;
+    background:#ebe1cd;border:1.5px solid #1a1612;
+    padding:.35rem .55rem;font-size:.8rem;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    user-select:none;
+  }
+  .chk input{margin:0;accent-color:#8a1f17}
+  .chk.checked{background:#f4ede0;border-color:#8a1f17;color:#8a1f17;font-weight:600}
+
+  .hidden{display:none !important}
+
+  footer{
+    text-align:center;color:#999;font-size:.7rem;
+    padding:1rem;margin-top:1rem;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back" href="../">← Hub</a>
+  <div class="title">練習 · Übungen</div>
+  <div class="spacer"></div>
+</div>
+
+<header>
+  <h1>
+    <span class="jp">練習帳</span>
+    <span class="de">Satzlabor &amp; Konjugationsdrill</span>
+  </h1>
+  <p class="subtitle">Vokabeln + Satzmuster — frei kombinieren</p>
+</header>
+
+<div class="mode-tabs">
+  <button class="mode-tab active" data-mode="lab">
+    <span class="jp">文型あそび</span>
+    <span class="de">Satzlabor</span>
+  </button>
+  <button class="mode-tab" data-mode="drill">
+    <span class="jp">活用練習</span>
+    <span class="de">Konjugation</span>
+  </button>
+</div>
+
+<!-- ============== MODE 1: SATZLABOR ============== -->
+<section id="mode-lab" class="panel">
+  <h2>Satzmuster wählen, Vokabeln einsetzen</h2>
+  <p class="help">Wähle ein Satzmuster, fülle die Lücken (oder lass würfeln) — der Satz erscheint in fünf Varianten: Aussage, Verneinung, Vergangenheit, verneinte Vergangenheit und Frage.</p>
+
+  <div class="controls-row">
+    <div class="field">
+      <label for="pattern-select">Satzmuster</label>
+      <select id="pattern-select"></select>
+    </div>
+  </div>
+
+  <div id="pattern-info" class="pattern-info"></div>
+
+  <div id="slots" class="slot-grid"></div>
+
+  <div class="button-row">
+    <button class="btn red" id="shuffle-btn">🎲 Zufallsvokabeln</button>
+    <button class="btn" id="clear-btn">Zurücksetzen</button>
+  </div>
+
+  <div id="output" class="output"></div>
+</section>
+
+<!-- ============== MODE 2: KONJUGATION ============== -->
+<section id="mode-drill" class="panel hidden">
+  <h2>Konjugations-Übungen</h2>
+  <p class="help">Verbformen, i- und na-Adjektive — wähle die richtige Form aus vier Möglichkeiten.</p>
+
+  <div class="controls-row">
+    <div class="field">
+      <label for="drill-cat">Kategorie</label>
+      <select id="drill-cat">
+        <option value="verb">Verben</option>
+        <option value="iadj">i-Adjektive</option>
+        <option value="naadj">na-Adjektive</option>
+      </select>
+    </div>
+  </div>
+
+  <label style="font-size:.7rem;letter-spacing:.1em;color:#6b5d4a;text-transform:uppercase;font-weight:600;display:block;margin-bottom:.3rem">Zielformen</label>
+  <div id="drill-filters" class="filter-grid"></div>
+
+  <div class="score-row">
+    <span>Richtig: <b id="score-ok">0</b> / Total: <b id="score-total">0</b></span>
+    <button class="btn gold" id="reset-score" style="padding:.3rem .6rem;font-size:.8rem">Reset</button>
+  </div>
+
+  <div id="drill-card" class="drill-card">
+    <div class="drill-prompt" id="drill-prompt">—</div>
+    <div class="drill-de" id="drill-de">—</div>
+    <div class="drill-instruction" id="drill-instruction">Bilde die <b>?-Form</b></div>
+    <div class="drill-choices" id="drill-choices"></div>
+    <div class="feedback" id="drill-feedback"></div>
+  </div>
+
+  <div class="button-row">
+    <button class="btn red" id="next-drill">Nächste Aufgabe →</button>
+  </div>
+</section>
+
+<footer>練習帳 · Minna no Nihongo · Matze is awesome GmbH</footer>
+
+<script>
+/* ===================================================================
+   VOKABEL-POOL (N5 + N4, mit Furigana)
+   =================================================================== */
+
+const VOCAB = {
+  // Personen / Pronomen
+  person: [
+    {jp:'<ruby>私<rt>わたし</rt></ruby>', de:'ich'},
+    {jp:'あなた', de:'du / Sie'},
+    {jp:'<ruby>彼<rt>かれ</rt></ruby>', de:'er'},
+    {jp:'<ruby>彼女<rt>かのじょ</rt></ruby>', de:'sie'},
+    {jp:'ミラーさん', de:'Herr Miller'},
+    {jp:'<ruby>田中<rt>たなか</rt></ruby>さん', de:'Frau Tanaka'},
+    {jp:'<ruby>山田<rt>やまだ</rt></ruby>さん', de:'Herr Yamada'},
+    {jp:'<ruby>友達<rt>ともだち</rt></ruby>', de:'Freund'},
+    {jp:'<ruby>子<rt>こ</rt></ruby>ども', de:'Kind'},
+  ],
+
+  // Berufe / Status
+  profession: [
+    {jp:'<ruby>学生<rt>がくせい</rt></ruby>', de:'Student'},
+    {jp:'<ruby>先生<rt>せんせい</rt></ruby>', de:'Lehrer'},
+    {jp:'<ruby>会社員<rt>かいしゃいん</rt></ruby>', de:'Firmenangestellter'},
+    {jp:'<ruby>医者<rt>いしゃ</rt></ruby>', de:'Arzt'},
+    {jp:'<ruby>銀行員<rt>ぎんこういん</rt></ruby>', de:'Bankangestellter'},
+    {jp:'エンジニア', de:'Ingenieur'},
+    {jp:'<ruby>主婦<rt>しゅふ</rt></ruby>', de:'Hausfrau'},
+  ],
+
+  // Länder / Nationalitäten
+  country: [
+    {jp:'<ruby>日本人<rt>にほんじん</rt></ruby>', de:'Japaner'},
+    {jp:'ドイツ<ruby>人<rt>じん</rt></ruby>', de:'Deutscher'},
+    {jp:'アメリカ<ruby>人<rt>じん</rt></ruby>', de:'Amerikaner'},
+    {jp:'<ruby>中国人<rt>ちゅうごくじん</rt></ruby>', de:'Chinese'},
+    {jp:'フランス<ruby>人<rt>じん</rt></ruby>', de:'Franzose'},
+    {jp:'<ruby>韓国人<rt>かんこくじん</rt></ruby>', de:'Koreaner'},
+  ],
+
+  // Dinge / Gegenstände
+  thing: [
+    {jp:'<ruby>本<rt>ほん</rt></ruby>', de:'Buch'},
+    {jp:'かばん', de:'Tasche'},
+    {jp:'ペン', de:'Kuli'},
+    {jp:'<ruby>傘<rt>かさ</rt></ruby>', de:'Regenschirm'},
+    {jp:'<ruby>時計<rt>とけい</rt></ruby>', de:'Uhr'},
+    {jp:'<ruby>車<rt>くるま</rt></ruby>', de:'Auto'},
+    {jp:'<ruby>自転車<rt>じてんしゃ</rt></ruby>', de:'Fahrrad'},
+    {jp:'カメラ', de:'Kamera'},
+    {jp:'<ruby>電話<rt>でんわ</rt></ruby>', de:'Telefon'},
+    {jp:'<ruby>新聞<rt>しんぶん</rt></ruby>', de:'Zeitung'},
+    {jp:'<ruby>辞書<rt>じしょ</rt></ruby>', de:'Wörterbuch'},
+    {jp:'<ruby>手紙<rt>てがみ</rt></ruby>', de:'Brief'},
+    {jp:'<ruby>写真<rt>しゃしん</rt></ruby>', de:'Foto'},
+    {jp:'<ruby>椅子<rt>いす</rt></ruby>', de:'Stuhl'},
+    {jp:'<ruby>机<rt>つくえ</rt></ruby>', de:'Tisch'},
+  ],
+
+  // Essen
+  food: [
+    {jp:'パン', de:'Brot'},
+    {jp:'<ruby>魚<rt>さかな</rt></ruby>', de:'Fisch'},
+    {jp:'<ruby>肉<rt>にく</rt></ruby>', de:'Fleisch'},
+    {jp:'<ruby>野菜<rt>やさい</rt></ruby>', de:'Gemüse'},
+    {jp:'<ruby>果物<rt>くだもの</rt></ruby>', de:'Obst'},
+    {jp:'ご<ruby>飯<rt>はん</rt></ruby>', de:'Reis (gekocht)'},
+    {jp:'<ruby>寿司<rt>すし</rt></ruby>', de:'Sushi'},
+    {jp:'ラーメン', de:'Ramen'},
+    {jp:'<ruby>卵<rt>たまご</rt></ruby>', de:'Ei'},
+    {jp:'りんご', de:'Apfel'},
+  ],
+
+  // Getränke
+  drink: [
+    {jp:'<ruby>水<rt>みず</rt></ruby>', de:'Wasser'},
+    {jp:'お<ruby>茶<rt>ちゃ</rt></ruby>', de:'(grüner) Tee'},
+    {jp:'コーヒー', de:'Kaffee'},
+    {jp:'<ruby>紅茶<rt>こうちゃ</rt></ruby>', de:'schwarzer Tee'},
+    {jp:'<ruby>牛乳<rt>ぎゅうにゅう</rt></ruby>', de:'Milch'},
+    {jp:'ビール', de:'Bier'},
+    {jp:'ジュース', de:'Saft'},
+    {jp:'お<ruby>酒<rt>さけ</rt></ruby>', de:'Alkohol / Sake'},
+  ],
+
+  // Orte
+  place: [
+    {jp:'<ruby>家<rt>いえ</rt></ruby>', de:'Haus / Zuhause'},
+    {jp:'<ruby>学校<rt>がっこう</rt></ruby>', de:'Schule'},
+    {jp:'<ruby>会社<rt>かいしゃ</rt></ruby>', de:'Firma'},
+    {jp:'<ruby>大学<rt>だいがく</rt></ruby>', de:'Universität'},
+    {jp:'<ruby>駅<rt>えき</rt></ruby>', de:'Bahnhof'},
+    {jp:'<ruby>銀行<rt>ぎんこう</rt></ruby>', de:'Bank'},
+    {jp:'<ruby>病院<rt>びょういん</rt></ruby>', de:'Krankenhaus'},
+    {jp:'<ruby>公園<rt>こうえん</rt></ruby>', de:'Park'},
+    {jp:'<ruby>図書館<rt>としょかん</rt></ruby>', de:'Bibliothek'},
+    {jp:'デパート', de:'Kaufhaus'},
+    {jp:'スーパー', de:'Supermarkt'},
+    {jp:'<ruby>店<rt>みせ</rt></ruby>', de:'Laden'},
+    {jp:'レストラン', de:'Restaurant'},
+    {jp:'<ruby>喫茶店<rt>きっさてん</rt></ruby>', de:'Café'},
+    {jp:'<ruby>東京<rt>とうきょう</rt></ruby>', de:'Tokio'},
+    {jp:'<ruby>京都<rt>きょうと</rt></ruby>', de:'Kioto'},
+    {jp:'ドイツ', de:'Deutschland'},
+    {jp:'<ruby>日本<rt>にほん</rt></ruby>', de:'Japan'},
+  ],
+
+  // Sprachen
+  language: [
+    {jp:'<ruby>日本語<rt>にほんご</rt></ruby>', de:'Japanisch'},
+    {jp:'<ruby>英語<rt>えいご</rt></ruby>', de:'Englisch'},
+    {jp:'ドイツ<ruby>語<rt>ご</rt></ruby>', de:'Deutsch'},
+    {jp:'<ruby>中国語<rt>ちゅうごくご</rt></ruby>', de:'Chinesisch'},
+    {jp:'フランス<ruby>語<rt>ご</rt></ruby>', de:'Französisch'},
+  ],
+
+  // Zeit
+  time: [
+    {jp:'<ruby>今日<rt>きょう</rt></ruby>', de:'heute'},
+    {jp:'<ruby>明日<rt>あした</rt></ruby>', de:'morgen'},
+    {jp:'<ruby>昨日<rt>きのう</rt></ruby>', de:'gestern'},
+    {jp:'<ruby>今朝<rt>けさ</rt></ruby>', de:'heute Morgen'},
+    {jp:'<ruby>今晩<rt>こんばん</rt></ruby>', de:'heute Abend'},
+    {jp:'<ruby>朝<rt>あさ</rt></ruby>', de:'Morgen'},
+    {jp:'<ruby>夜<rt>よる</rt></ruby>', de:'Nacht / Abend'},
+  ],
+};
+
+/* ===================================================================
+   VERBEN (für Satzlabor + Konjugationsdrill)
+   group: 1=u-Verb, 2=ru-Verb, 3=unregelmäßig
+   =================================================================== */
+
+const VERBS = [
+  // Gruppe 2 (ru-Verben)
+  {g:2, de:'essen',     jisho:'<ruby>食<rt>た</rt></ruby>べる',  stem:'<ruby>食<rt>た</rt></ruby>べ',  obj:['food']},
+  {g:2, de:'sehen',     jisho:'<ruby>見<rt>み</rt></ruby>る',    stem:'<ruby>見<rt>み</rt></ruby>',    obj:['thing']},
+  {g:2, de:'aufstehen', jisho:'<ruby>起<rt>お</rt></ruby>きる',  stem:'<ruby>起<rt>お</rt></ruby>き',  obj:[]},
+  {g:2, de:'schlafen',  jisho:'<ruby>寝<rt>ね</rt></ruby>る',    stem:'<ruby>寝<rt>ね</rt></ruby>',    obj:[]},
+  {g:2, de:'lehren',    jisho:'<ruby>教<rt>おし</rt></ruby>える',stem:'<ruby>教<rt>おし</rt></ruby>え',obj:['language']},
+
+  // Gruppe 1 (u-Verben) — typische Endungen: u, ku, gu, su, tsu, nu, bu, mu, ru
+  {g:1, de:'trinken',     jisho:'<ruby>飲<rt>の</rt></ruby>む',     stem:'<ruby>飲<rt>の</rt></ruby>み',     base:'の', last:'む', obj:['drink']},
+  {g:1, de:'lesen',       jisho:'<ruby>読<rt>よ</rt></ruby>む',     stem:'<ruby>読<rt>よ</rt></ruby>み',     base:'よ', last:'む', obj:['thing']},
+  {g:1, de:'schreiben',   jisho:'<ruby>書<rt>か</rt></ruby>く',     stem:'<ruby>書<rt>か</rt></ruby>き',     base:'か', last:'く', obj:['thing']},
+  {g:1, de:'sprechen',    jisho:'<ruby>話<rt>はな</rt></ruby>す',   stem:'<ruby>話<rt>はな</rt></ruby>し',   base:'はな', last:'す', obj:['language']},
+  {g:1, de:'kaufen',      jisho:'<ruby>買<rt>か</rt></ruby>う',     stem:'<ruby>買<rt>か</rt></ruby>い',     base:'か', last:'う', obj:['thing','food']},
+  {g:1, de:'gehen',       jisho:'<ruby>行<rt>い</rt></ruby>く',     stem:'<ruby>行<rt>い</rt></ruby>き',     base:'い', last:'く', obj:[]},
+  {g:1, de:'zurückkehren',jisho:'<ruby>帰<rt>かえ</rt></ruby>る',   stem:'<ruby>帰<rt>かえ</rt></ruby>り',   base:'かえ', last:'る', obj:[], g1ru:true},
+  {g:1, de:'warten',      jisho:'<ruby>待<rt>ま</rt></ruby>つ',     stem:'<ruby>待<rt>ま</rt></ruby>ち',     base:'ま', last:'つ', obj:['person']},
+  {g:1, de:'hören',       jisho:'<ruby>聞<rt>き</rt></ruby>く',     stem:'<ruby>聞<rt>き</rt></ruby>き',     base:'き', last:'く', obj:['thing']},
+  {g:1, de:'verstehen',   jisho:'<ruby>分<rt>わ</rt></ruby>かる',   stem:'<ruby>分<rt>わ</rt></ruby>かり',   base:'わか', last:'る', obj:['language'], g1ru:true},
+
+  // Gruppe 3 (unregelmäßig)
+  {g:3, de:'machen / tun', jisho:'する',  stem:'し',  obj:['thing']},
+  {g:3, de:'kommen',       jisho:'<ruby>来<rt>く</rt></ruby>る', stem:'<ruby>来<rt>き</rt></ruby>', obj:[]},
+];
+
+/* ===================================================================
+   ADJEKTIVE
+   =================================================================== */
+
+const I_ADJ = [
+  {base:'<ruby>高<rt>たか</rt></ruby>', kana:'たか', de:'teuer / hoch'},
+  {base:'<ruby>安<rt>やす</rt></ruby>', kana:'やす', de:'billig'},
+  {base:'<ruby>大<rt>おお</rt></ruby>き', kana:'おおき', de:'groß'},
+  {base:'<ruby>小<rt>ちい</rt></ruby>さ', kana:'ちいさ', de:'klein'},
+  {base:'<ruby>新<rt>あたら</rt></ruby>し', kana:'あたらし', de:'neu'},
+  {base:'<ruby>古<rt>ふる</rt></ruby>', kana:'ふる', de:'alt (Dinge)'},
+  {base:'おいし', kana:'おいし', de:'lecker'},
+  {base:'<ruby>暑<rt>あつ</rt></ruby>', kana:'あつ', de:'heiß (Wetter)'},
+  {base:'<ruby>寒<rt>さむ</rt></ruby>', kana:'さむ', de:'kalt (Wetter)'},
+  {base:'<ruby>面白<rt>おもしろ</rt></ruby>', kana:'おもしろ', de:'interessant'},
+  {base:'<ruby>難<rt>むずか</rt></ruby>し', kana:'むずかし', de:'schwierig'},
+  {base:'<ruby>易<rt>やさ</rt></ruby>し', kana:'やさし', de:'einfach / nett'},
+  {base:'いい', kana:'いい', de:'gut', irregular:true},
+  // Sonderfall: いい / よい — past/neg etc. werden mit よ gebildet
+];
+
+const NA_ADJ = [
+  {base:'<ruby>元気<rt>げんき</rt></ruby>', de:'gesund / munter'},
+  {base:'<ruby>静<rt>しず</rt></ruby>か', de:'leise'},
+  {base:'<ruby>賑<rt>にぎ</rt></ruby>やか', de:'lebhaft'},
+  {base:'きれい', de:'schön / sauber'},
+  {base:'<ruby>有名<rt>ゆうめい</rt></ruby>', de:'berühmt'},
+  {base:'<ruby>親切<rt>しんせつ</rt></ruby>', de:'freundlich'},
+  {base:'<ruby>暇<rt>ひま</rt></ruby>', de:'frei (Zeit)'},
+  {base:'<ruby>便利<rt>べんり</rt></ruby>', de:'praktisch'},
+  {base:'<ruby>好<rt>す</rt></ruby>き', de:'mögen'},
+  {base:'<ruby>嫌<rt>きら</rt></ruby>い', de:'nicht mögen'},
+  {base:'<ruby>上手<rt>じょうず</rt></ruby>', de:'gut können'},
+  {base:'<ruby>下手<rt>へた</rt></ruby>', de:'schlecht können'},
+];
+
+/* ===================================================================
+   VERB-KONJUGATION (Helfer)
+   ます-Form: stem + ます
+   ません: stem + ません
+   ました: stem + ました
+   ませんでした: stem + ませんでした
+   =================================================================== */
+
+// て-Form, た-Form für Gruppe-1-Verben (regelbasiert)
+const G1_TE_TA = {
+  'う': {te:'って', ta:'った'},
+  'つ': {te:'って', ta:'った'},
+  'る': {te:'って', ta:'った'},
+  'む': {te:'んで', ta:'んだ'},
+  'ぶ': {te:'んで', ta:'んだ'},
+  'ぬ': {te:'んで', ta:'んだ'},
+  'く': {te:'いて', ta:'いた'},
+  'ぐ': {te:'いで', ta:'いだ'},
+  'す': {te:'して', ta:'した'},
+};
+
+// Strip the last kana char from an HTML string (ruby-aware)
+function htmlStripLast(htmlStr, lastKana){
+  // letztes Vorkommen des Zeichens entfernen
+  const idx = htmlStr.lastIndexOf(lastKana);
+  if(idx === -1) return htmlStr;
+  return htmlStr.slice(0, idx) + htmlStr.slice(idx + lastKana.length);
+}
+
+function conjVerb(v){
+  const out = {jisho:v.jisho, de:v.de};
+  if(v.g === 2){
+    // ru-Verb: 食べる → 食べ + Endung
+    out.masu = v.stem + 'ます';
+    out.masen = v.stem + 'ません';
+    out.mashita = v.stem + 'ました';
+    out.masenDeshita = v.stem + 'ませんでした';
+    out.te = v.stem + 'て';
+    out.ta = v.stem + 'た';
+    out.nai = v.stem + 'ない';
+    out.nakatta = v.stem + 'なかった';
+  } else if(v.g === 3){
+    if(v.de === 'machen / tun'){
+      out.masu='します'; out.masen='しません';
+      out.mashita='しました'; out.masenDeshita='しませんでした';
+      out.te='して'; out.ta='した'; out.nai='しない'; out.nakatta='しなかった';
+    } else {
+      // 来る
+      out.masu='<ruby>来<rt>き</rt></ruby>ます';
+      out.masen='<ruby>来<rt>き</rt></ruby>ません';
+      out.mashita='<ruby>来<rt>き</rt></ruby>ました';
+      out.masenDeshita='<ruby>来<rt>き</rt></ruby>ませんでした';
+      out.te='<ruby>来<rt>き</rt></ruby>て';
+      out.ta='<ruby>来<rt>き</rt></ruby>た';
+      out.nai='<ruby>来<rt>こ</rt></ruby>ない';
+      out.nakatta='<ruby>来<rt>こ</rt></ruby>なかった';
+    }
+  } else {
+    // u-Verb (Gruppe 1)
+    out.masu = v.stem + 'ます';
+    out.masen = v.stem + 'ません';
+    out.mashita = v.stem + 'ました';
+    out.masenDeshita = v.stem + 'ませんでした';
+    // て/た regelbasiert
+    const teTa = G1_TE_TA[v.last] || {te:'って', ta:'った'};
+    // Sonderfall: 行く → 行って (nicht 行いて)
+    let teEnd = teTa.te;
+    let taEnd = teTa.ta;
+    if(v.de === 'gehen'){
+      teEnd = 'って'; taEnd = 'った';
+    }
+    // jisho ohne letzte kana → Stamm für て/た
+    const stripped = htmlStripLast(v.jisho, v.last);
+    out.te = stripped + teEnd;
+    out.ta = stripped + taEnd;
+    // ない-Form: う → わ, sonst i-Reihe der entsprechenden Spalte
+    const NAI_MAP = {'う':'わない','つ':'たない','る':'らない','む':'まない','ぶ':'ばない','ぬ':'なない','く':'かない','ぐ':'がない','す':'さない'};
+    const NAKATTA_MAP = {'う':'わなかった','つ':'たなかった','る':'らなかった','む':'まなかった','ぶ':'ばなかった','ぬ':'ななかった','く':'かなかった','ぐ':'がなかった','す':'さなかった'};
+    out.nai = stripped + (NAI_MAP[v.last] || 'らない');
+    out.nakatta = stripped + (NAKATTA_MAP[v.last] || 'らなかった');
+  }
+  return out;
+}
+
+const VERB_FORMS = VERBS.map(conjVerb);
+
+function conjIAdj(a){
+  // base = z.B. "たか" oder "おおき" — endet vor dem い
+  // Sonderfall: いい
+  if(a.irregular){
+    return {
+      jisho: a.base + 'です',
+      de: a.de,
+      base: 'いい',
+      negation: 'よくないです',
+      past: 'よかったです',
+      pastNeg: 'よくなかったです',
+      te: 'よくて',
+      adverb: 'よく',
+    };
+  }
+  return {
+    jisho: a.base + 'いです',
+    de: a.de,
+    base: a.base + 'い',
+    negation: a.base + 'くないです',
+    past: a.base + 'かったです',
+    pastNeg: a.base + 'くなかったです',
+    te: a.base + 'くて',
+    adverb: a.base + 'く',
+  };
+}
+
+const I_ADJ_FORMS = I_ADJ.map(conjIAdj);
+
+function conjNaAdj(a){
+  return {
+    jisho: a.base + 'です',
+    de: a.de,
+    base: a.base,
+    naForm: a.base + 'な',
+    negation: a.base + 'じゃ ありません',
+    past: a.base + 'でした',
+    pastNeg: a.base + 'じゃ ありませんでした',
+    te: a.base + 'で',
+  };
+}
+
+const NA_ADJ_FORMS = NA_ADJ.map(conjNaAdj);
+
+/* ===================================================================
+   SATZMUSTER für Satzlabor
+   Slots: {key, label, cats:[...VOCAB-Keys]} — Pool aus dem Vokabel-Stamm
+   forms.X = Template-String; {key} und {key:de} werden ersetzt.
+   {V:masu} etc. lädt die entsprechende Verbform
+   =================================================================== */
+
+const PATTERNS = [
+  {
+    id:'n1-wa-n2',
+    l:1, title:'N₁ は N₂ です', de:'N₁ ist N₂',
+    slots:[
+      {key:'n1', label:'Thema', cats:['person']},
+      {key:'n2', label:'Aussage', cats:['profession','country']},
+    ],
+    forms:{
+      aussage:        '{n1}は {n2}です。',
+      verneinung:     '{n1}は {n2}じゃ ありません。',
+      vergangenheit:  '{n1}は {n2}でした。',
+      verg_verneinung:'{n1}は {n2}じゃ ありませんでした。',
+      frage:          '{n1}は {n2}ですか。',
+    },
+    deTpl:{
+      aussage: '{n1:de} ist {n2:de}.',
+      verneinung: '{n1:de} ist nicht {n2:de}.',
+      vergangenheit: '{n1:de} war {n2:de}.',
+      verg_verneinung: '{n1:de} war nicht {n2:de}.',
+      frage: 'Ist {n1:de} {n2:de}?',
+    }
+  },
+  {
+    id:'kore-wa-n',
+    l:2, title:'これ/それ/あれ は N です', de:'Das hier/dort/dort drüben ist N',
+    slots:[
+      {key:'k', label:'Demonstrativ', cats:['__kore']},
+      {key:'n', label:'Nomen', cats:['thing','food','drink']},
+    ],
+    forms:{
+      aussage:        '{k}は {n}です。',
+      verneinung:     '{k}は {n}じゃ ありません。',
+      vergangenheit:  '{k}は {n}でした。',
+      verg_verneinung:'{k}は {n}じゃ ありませんでした。',
+      frage:          '{k}は {n}ですか。',
+    },
+    deTpl:{
+      aussage:'{k:de} ist {n:de}.',
+      verneinung:'{k:de} ist nicht {n:de}.',
+      vergangenheit:'{k:de} war {n:de}.',
+      verg_verneinung:'{k:de} war nicht {n:de}.',
+      frage:'Ist {k:de} {n:de}?',
+    }
+  },
+  {
+    id:'koko-wa-n',
+    l:3, title:'ここ/そこ/あそこ は N です', de:'Hier/dort/dort drüben ist N',
+    slots:[
+      {key:'k', label:'Ort-Demonstrativ', cats:['__koko']},
+      {key:'n', label:'Ort', cats:['place']},
+    ],
+    forms:{
+      aussage:        '{k}は {n}です。',
+      verneinung:     '{k}は {n}じゃ ありません。',
+      vergangenheit:  '{k}は {n}でした。',
+      verg_verneinung:'{k}は {n}じゃ ありませんでした。',
+      frage:          '{k}は {n}ですか。',
+    },
+    deTpl:{
+      aussage:'{k:de} ist {n:de}.',
+      verneinung:'{k:de} ist nicht {n:de}.',
+      vergangenheit:'{k:de} war {n:de}.',
+      verg_verneinung:'{k:de} war nicht {n:de}.',
+      frage:'Ist {k:de} {n:de}?',
+    }
+  },
+  {
+    id:'n-wa-iadj',
+    l:8, title:'N は i-Adj です', de:'N ist i-Adj',
+    slots:[
+      {key:'n', label:'Subjekt', cats:['thing','food','drink','place']},
+      {key:'a', label:'i-Adjektiv', cats:['__iadj']},
+    ],
+    forms:{
+      aussage:        '{n}は {a:jisho}。',
+      verneinung:     '{n}は {a:negation}。',
+      vergangenheit:  '{n}は {a:past}。',
+      verg_verneinung:'{n}は {a:pastNeg}。',
+      frage:          '{n}は {a:jisho}か。',
+    },
+    deTpl:{
+      aussage:'{n:de} ist {a:de}.',
+      verneinung:'{n:de} ist nicht {a:de}.',
+      vergangenheit:'{n:de} war {a:de}.',
+      verg_verneinung:'{n:de} war nicht {a:de}.',
+      frage:'Ist {n:de} {a:de}?',
+    }
+  },
+  {
+    id:'n-wa-naadj',
+    l:8, title:'N は na-Adj です', de:'N ist na-Adj',
+    slots:[
+      {key:'n', label:'Subjekt', cats:['person','thing','place']},
+      {key:'a', label:'na-Adjektiv', cats:['__naadj']},
+    ],
+    forms:{
+      aussage:        '{n}は {a:jisho}。',
+      verneinung:     '{n}は {a:negation}。',
+      vergangenheit:  '{n}は {a:past}。',
+      verg_verneinung:'{n}は {a:pastNeg}。',
+      frage:          '{n}は {a:jisho}か。',
+    },
+    deTpl:{
+      aussage:'{n:de} ist {a:de}.',
+      verneinung:'{n:de} ist nicht {a:de}.',
+      vergangenheit:'{n:de} war {a:de}.',
+      verg_verneinung:'{n:de} war nicht {a:de}.',
+      frage:'Ist {n:de} {a:de}?',
+    }
+  },
+  {
+    id:'n-wo-v',
+    l:6, title:'N を V', de:'N + Verb',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb']},
+    ],
+    forms:{
+      aussage:        '{s}は {o}を {v:masu}。',
+      verneinung:     '{s}は {o}を {v:masen}。',
+      vergangenheit:  '{s}は {o}を {v:mashita}。',
+      verg_verneinung:'{s}は {o}を {v:masenDeshita}。',
+      frage:          '{s}は {o}を {v:masu}か。',
+    },
+    deTpl:{
+      aussage:'{s:de} {v:de} {o:de}.',
+      verneinung:'{s:de} {v:de} nicht {o:de}.',
+      vergangenheit:'{s:de} {v:de:past} {o:de}.',
+      verg_verneinung:'{s:de} {v:de:past} nicht {o:de}.',
+      frage:'{v:de:cap} {s:de} {o:de}?',
+    }
+  },
+  {
+    id:'place-de-n-wo-v',
+    l:6, title:'(Ort) で N を V', de:'An (Ort) + N + Verb',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'p', label:'Ort', cats:['place']},
+      {key:'o', label:'Objekt', cats:['food','drink','thing']},
+      {key:'v', label:'Verb', cats:['__verb']},
+    ],
+    forms:{
+      aussage:        '{s}は {p}で {o}を {v:masu}。',
+      verneinung:     '{s}は {p}で {o}を {v:masen}。',
+      vergangenheit:  '{s}は {p}で {o}を {v:mashita}。',
+      verg_verneinung:'{s}は {p}で {o}を {v:masenDeshita}。',
+      frage:          '{s}は {p}で {o}を {v:masu}か。',
+    },
+    deTpl:{
+      aussage:'{s:de} {v:de} {o:de} in/im {p:de}.',
+      verneinung:'{s:de} {v:de} {o:de} nicht in/im {p:de}.',
+      vergangenheit:'{s:de} {v:de:past} {o:de} in/im {p:de}.',
+      verg_verneinung:'{s:de} {v:de:past} {o:de} nicht in/im {p:de}.',
+      frage:'{v:de:cap} {s:de} {o:de} in/im {p:de}?',
+    }
+  },
+  {
+    id:'place-e-ikimasu',
+    l:5, title:'(Ort) へ <ruby>行<rt>い</rt></ruby>きます', de:'Nach (Ort) gehen/kommen/zurückkehren',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'p', label:'Ziel', cats:['place']},
+      {key:'v', label:'Verb', cats:['__verb_motion']},
+    ],
+    forms:{
+      aussage:        '{s}は {p}へ {v:masu}。',
+      verneinung:     '{s}は {p}へ {v:masen}。',
+      vergangenheit:  '{s}は {p}へ {v:mashita}。',
+      verg_verneinung:'{s}は {p}へ {v:masenDeshita}。',
+      frage:          '{s}は {p}へ {v:masu}か。',
+    },
+    deTpl:{
+      aussage:'{s:de} {v:de} nach {p:de}.',
+      verneinung:'{s:de} {v:de} nicht nach {p:de}.',
+      vergangenheit:'{s:de} {v:de:past} nach {p:de}.',
+      verg_verneinung:'{s:de} {v:de:past} nicht nach {p:de}.',
+      frage:'{v:de:cap} {s:de} nach {p:de}?',
+    }
+  },
+  {
+    id:'time-ni-v',
+    l:4, title:'(Zeit) に V', de:'Zur Zeit (Zeit) + Verb',
+    slots:[
+      {key:'s', label:'Subjekt', cats:['person']},
+      {key:'t', label:'Zeit', cats:['time']},
+      {key:'v', label:'Verb', cats:['__verb_no_motion']},
+    ],
+    forms:{
+      aussage:        '{s}は {t} {v:masu}。',
+      verneinung:     '{s}は {t} {v:masen}。',
+      vergangenheit:  '{s}は {t} {v:mashita}。',
+      verg_verneinung:'{s}は {t} {v:masenDeshita}。',
+      frage:          '{s}は {t} {v:masu}か。',
+    },
+    deTpl:{
+      aussage:'{s:de} {v:de} {t:de}.',
+      verneinung:'{s:de} {v:de} {t:de} nicht.',
+      vergangenheit:'{s:de} {v:de:past} {t:de}.',
+      verg_verneinung:'{s:de} {v:de:past} {t:de} nicht.',
+      frage:'{v:de:cap} {s:de} {t:de}?',
+    }
+  },
+  {
+    id:'n1-mo-n2',
+    l:1, title:'N₁ も N₂ です', de:'N₁ ist auch N₂',
+    slots:[
+      {key:'n1', label:'Thema', cats:['person']},
+      {key:'n2', label:'Aussage', cats:['profession','country']},
+    ],
+    forms:{
+      aussage:        '{n1}も {n2}です。',
+      verneinung:     '{n1}も {n2}じゃ ありません。',
+      vergangenheit:  '{n1}も {n2}でした。',
+      verg_verneinung:'{n1}も {n2}じゃ ありませんでした。',
+      frage:          '{n1}も {n2}ですか。',
+    },
+    deTpl:{
+      aussage:'{n1:de} ist auch {n2:de}.',
+      verneinung:'{n1:de} ist auch nicht {n2:de}.',
+      vergangenheit:'{n1:de} war auch {n2:de}.',
+      verg_verneinung:'{n1:de} war auch nicht {n2:de}.',
+      frage:'Ist {n1:de} auch {n2:de}?',
+    }
+  },
+];
+
+// Spezial-Pools
+const KORE_POOL = [
+  {jp:'これ', de:'das hier'},
+  {jp:'それ', de:'das (bei dir)'},
+  {jp:'あれ', de:'jenes (dort)'},
+];
+const KOKO_POOL = [
+  {jp:'ここ', de:'hier'},
+  {jp:'そこ', de:'dort'},
+  {jp:'あそこ', de:'dort drüben'},
+];
+
+// Bewegungsverben (gehen / kommen / zurückkehren)
+const MOTION_VERB_IDX = VERBS.map((v,i)=>['gehen','kommen','zurückkehren'].includes(v.de)?i:-1).filter(i=>i>=0);
+const NO_MOTION_VERB_IDX = VERBS.map((v,i)=>['gehen','kommen','zurückkehren'].includes(v.de)?-1:i).filter(i=>i>=0);
+
+/* ===================================================================
+   SATZLABOR-UI
+   =================================================================== */
+
+const labState = {
+  pattern: null,
+  slots: {}, // key -> {pool, idx} oder {custom}
+};
+
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+function pickRandom(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+function getSlotPool(slot){
+  // Spezialfälle
+  if(slot.cats.includes('__kore')) return KORE_POOL.map((v,i)=>({...v,_src:'kore',_idx:i}));
+  if(slot.cats.includes('__koko')) return KOKO_POOL.map((v,i)=>({...v,_src:'koko',_idx:i}));
+  if(slot.cats.includes('__iadj')) return I_ADJ_FORMS.map((v,i)=>({jp:v.base, de:v.de, _src:'iadj',_idx:i}));
+  if(slot.cats.includes('__naadj')) return NA_ADJ_FORMS.map((v,i)=>({jp:v.base, de:v.de, _src:'naadj',_idx:i}));
+  if(slot.cats.includes('__verb')) return VERB_FORMS.map((v,i)=>({jp:v.jisho, de:v.de, _src:'verb',_idx:i}));
+  if(slot.cats.includes('__verb_motion')) return MOTION_VERB_IDX.map(i=>({jp:VERB_FORMS[i].jisho, de:VERB_FORMS[i].de, _src:'verb', _idx:i}));
+  if(slot.cats.includes('__verb_no_motion')) return NO_MOTION_VERB_IDX.map(i=>({jp:VERB_FORMS[i].jisho, de:VERB_FORMS[i].de, _src:'verb', _idx:i}));
+  // Normale Vokabel-Pools mergen
+  const out = [];
+  slot.cats.forEach(cat=>{
+    if(VOCAB[cat]) VOCAB[cat].forEach((v,i)=>out.push({...v, _src:cat,_idx:i}));
+  });
+  return out;
+}
+
+function renderPatternSelect(){
+  const sel = $('#pattern-select');
+  sel.innerHTML = '';
+  PATTERNS.forEach((p,i)=>{
+    const tmp = document.createElement('div');
+    tmp.innerHTML = p.title;
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = `L${p.l}: ${tmp.textContent} — ${p.de}`;
+    sel.appendChild(opt);
+  });
+}
+
+function selectPattern(idx){
+  labState.pattern = PATTERNS[idx];
+  labState.slots = {};
+  labState.pattern.slots.forEach(s=>{
+    const pool = getSlotPool(s);
+    labState.slots[s.key] = {pool, idx:0};
+  });
+  renderPatternInfo();
+  renderSlots();
+  renderOutput();
+}
+
+function renderPatternInfo(){
+  const p = labState.pattern;
+  $('#pattern-info').innerHTML = `
+    <div class="ptn-title">${p.title}</div>
+    <div class="ptn-de">${p.de}</div>
+    <span class="ptn-lesson">Aus L${p.l}</span>
+  `;
+}
+
+function renderSlots(){
+  const root = $('#slots');
+  root.innerHTML = '';
+  labState.pattern.slots.forEach(slot=>{
+    const state = labState.slots[slot.key];
+    const wrap = document.createElement('div');
+    wrap.className = 'field';
+    const lbl = document.createElement('label');
+    lbl.textContent = slot.label;
+    wrap.appendChild(lbl);
+    const sel = document.createElement('select');
+    state.pool.forEach((v,i)=>{
+      const opt = document.createElement('option');
+      opt.value = i;
+      const tmp = document.createElement('div');
+      tmp.innerHTML = v.jp;
+      opt.textContent = `${tmp.textContent} — ${v.de}`;
+      if(i === state.idx) opt.selected = true;
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', e=>{
+      state.idx = parseInt(e.target.value, 10);
+      renderOutput();
+    });
+    wrap.appendChild(sel);
+    root.appendChild(wrap);
+  });
+}
+
+function fillTemplate(tpl, isDe){
+  // Ersetze {key} oder {key:subkey} oder {key:de} oder {key:de:past} etc.
+  return tpl.replace(/\{([^}]+)\}/g, (m, expr)=>{
+    const parts = expr.split(':');
+    const key = parts[0];
+    const sub = parts[1];
+    const mod = parts[2];
+    const state = labState.slots[key];
+    if(!state) return m;
+    const v = state.pool[state.idx];
+    if(!v) return m;
+    if(isDe){
+      // DE-Template
+      if(sub === 'de' || !sub){
+        let de = v.de;
+        if(v._src === 'verb' && mod === 'past'){
+          // Vergangenheit für DE-Verben: einfache Heuristik "hat XYZ"
+          // statt komplexer Konjugation: "hat gegessen" → kompliziert. Wir nehmen "+ (Vergangenheit)" einfach in Form: "...te" o.ä.
+          // Pragmatisch: wir nehmen die Infinitiv-Form (Lerner versteht's eh als "hat …")
+          return de;
+        }
+        if(mod === 'cap') return de.charAt(0).toUpperCase() + de.slice(1);
+        return de;
+      }
+      return v.de;
+    } else {
+      // JP-Template
+      if(!sub){
+        // einfaches JP
+        return v.jp;
+      }
+      // Subkey: für Verben/Adjektive → Form aus VERB_FORMS / I_ADJ_FORMS / NA_ADJ_FORMS
+      if(v._src === 'verb'){
+        const vf = VERB_FORMS[v._idx];
+        return vf[sub] || v.jp;
+      }
+      if(v._src === 'iadj'){
+        const af = I_ADJ_FORMS[v._idx];
+        return af[sub] || v.jp;
+      }
+      if(v._src === 'naadj'){
+        const af = NA_ADJ_FORMS[v._idx];
+        return af[sub] || v.jp;
+      }
+      return v.jp;
+    }
+  });
+}
+
+function renderOutput(){
+  const p = labState.pattern;
+  const root = $('#output');
+  const labels = {
+    aussage: 'Aussage · 肯定',
+    verneinung: 'Verneinung · 否定',
+    vergangenheit: 'Vergangenheit · 過去',
+    verg_verneinung: 'Verg. Verneinung · 過去否定',
+    frage: 'Frage · 疑問',
+  };
+  const order = ['aussage','verneinung','vergangenheit','verg_verneinung','frage'];
+  root.innerHTML = '';
+  order.forEach(key=>{
+    if(!p.forms[key]) return;
+    const jp = fillTemplate(p.forms[key], false);
+    const de = fillTemplate(p.deTpl[key] || '', true);
+    const line = document.createElement('div');
+    line.className = 'output-line';
+    line.innerHTML = `
+      <span class="form-label">${labels[key]}</span>
+      <span class="jp-sentence">${jp}</span>
+      <span class="de-trans">${de}</span>
+    `;
+    root.appendChild(line);
+  });
+}
+
+function shuffleSlots(){
+  Object.keys(labState.slots).forEach(k=>{
+    const s = labState.slots[k];
+    s.idx = Math.floor(Math.random()*s.pool.length);
+  });
+  renderSlots();
+  renderOutput();
+}
+
+function clearSlots(){
+  Object.keys(labState.slots).forEach(k=>{
+    labState.slots[k].idx = 0;
+  });
+  renderSlots();
+  renderOutput();
+}
+
+/* ===================================================================
+   KONJUGATIONS-DRILL
+   =================================================================== */
+
+const DRILL_TARGETS = {
+  verb: [
+    {key:'masu',          label:'ます-Form',          de:'höflich, Gegenwart'},
+    {key:'masen',         label:'ません-Form',        de:'höflich, Verneinung'},
+    {key:'mashita',       label:'ました-Form',        de:'höflich, Vergangenheit'},
+    {key:'masenDeshita',  label:'ませんでした',        de:'höflich, Verg. Verneinung'},
+    {key:'te',            label:'て-Form',            de:'Verbindungsform'},
+    {key:'ta',            label:'た-Form',            de:'einfach, Vergangenheit'},
+    {key:'nai',           label:'ない-Form',          de:'einfach, Verneinung'},
+    {key:'nakatta',       label:'なかった-Form',       de:'einfach, Verg. Verneinung'},
+  ],
+  iadj: [
+    {key:'negation',  label:'〜くないです',       de:'Verneinung'},
+    {key:'past',      label:'〜かったです',       de:'Vergangenheit'},
+    {key:'pastNeg',   label:'〜くなかったです',   de:'Verg. Verneinung'},
+    {key:'te',        label:'〜くて',             de:'Verbindungsform'},
+    {key:'adverb',    label:'〜く (Adverb)',      de:'als Adverb'},
+  ],
+  naadj: [
+    {key:'naForm',    label:'〜な + Nomen',       de:'vor Nomen'},
+    {key:'negation',  label:'〜じゃ ありません',  de:'Verneinung'},
+    {key:'past',      label:'〜でした',           de:'Vergangenheit'},
+    {key:'pastNeg',   label:'〜じゃ ありませんでした', de:'Verg. Verneinung'},
+    {key:'te',        label:'〜で',               de:'Verbindungsform'},
+  ],
+};
+
+const drillState = {
+  category: 'verb',
+  enabledTargets: new Set(),
+  current: null,
+  answered: false,
+  score: 0,
+  total: 0,
+};
+
+function getDataForCat(cat){
+  if(cat === 'verb') return VERB_FORMS;
+  if(cat === 'iadj') return I_ADJ_FORMS;
+  if(cat === 'naadj') return NA_ADJ_FORMS;
+  return [];
+}
+
+function renderDrillFilters(){
+  const root = $('#drill-filters');
+  root.innerHTML = '';
+  const targets = DRILL_TARGETS[drillState.category];
+  // Default: alle aktiviert
+  drillState.enabledTargets = new Set(targets.map(t=>t.key));
+  targets.forEach(t=>{
+    const lbl = document.createElement('label');
+    lbl.className = 'chk checked';
+    lbl.innerHTML = `<input type="checkbox" checked data-key="${t.key}"><span>${t.label}</span>`;
+    lbl.querySelector('input').addEventListener('change', e=>{
+      if(e.target.checked){
+        drillState.enabledTargets.add(t.key);
+        lbl.classList.add('checked');
+      } else {
+        drillState.enabledTargets.delete(t.key);
+        lbl.classList.remove('checked');
+      }
+    });
+    root.appendChild(lbl);
+  });
+}
+
+function nextDrill(){
+  drillState.answered = false;
+  const cat = drillState.category;
+  const data = getDataForCat(cat);
+  const targets = DRILL_TARGETS[cat].filter(t=>drillState.enabledTargets.has(t.key));
+  if(data.length === 0 || targets.length === 0){
+    $('#drill-prompt').textContent = '—';
+    $('#drill-de').textContent = '—';
+    $('#drill-instruction').innerHTML = '<i>Bitte mindestens eine Zielform aktivieren.</i>';
+    $('#drill-choices').innerHTML = '';
+    $('#drill-feedback').textContent = '';
+    return;
+  }
+  const item = pickRandom(data);
+  const target = pickRandom(targets);
+  const correct = item[target.key];
+  // Distraktoren: verwende dieselbe Form von anderen items + andere Formen vom selben item
+  const pool = new Set([correct]);
+  const otherForms = Object.keys(item).filter(k=>typeof item[k] === 'string' && k !== 'de' && k !== target.key);
+  while(pool.size < 4){
+    // entweder andere Form vom selben Wort oder gleiche Form von anderem Wort
+    if(Math.random() < 0.5 && otherForms.length){
+      const k = pickRandom(otherForms);
+      if(item[k]) pool.add(item[k]);
+    } else {
+      const other = pickRandom(data);
+      if(other !== item && other[target.key]) pool.add(other[target.key]);
+    }
+    if(pool.size >= 4 || pool.size >= data.length + otherForms.length) break;
+  }
+  const choices = Array.from(pool);
+  // Mische
+  for(let i=choices.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [choices[i],choices[j]] = [choices[j],choices[i]];
+  }
+  drillState.current = {item, target, correct, choices};
+  // Render
+  $('#drill-prompt').innerHTML = item.jisho;
+  $('#drill-de').textContent = item.de;
+  $('#drill-instruction').innerHTML = `Bilde die <b>${target.label}</b> <span style="color:#6b5d4a;font-size:.8em">(${target.de})</span>`;
+  const choicesRoot = $('#drill-choices');
+  choicesRoot.innerHTML = '';
+  choices.forEach(c=>{
+    const btn = document.createElement('button');
+    btn.className = 'choice';
+    btn.innerHTML = c;
+    btn.dataset.choice = c;
+    btn.addEventListener('click', ()=>handleChoice(btn, c));
+    choicesRoot.appendChild(btn);
+  });
+  $('#drill-feedback').textContent = '';
+  $('#drill-feedback').className = 'feedback';
+}
+
+function handleChoice(btn, choiceVal){
+  if(drillState.answered) return;
+  drillState.answered = true;
+  const correct = drillState.current.correct;
+  drillState.total++;
+  $$('.choice').forEach(b=>{
+    b.classList.add('disabled');
+    if(b.dataset.choice === correct) b.classList.add('right');
+  });
+  if(choiceVal === correct){
+    btn.classList.add('right');
+    drillState.score++;
+    $('#drill-feedback').textContent = '✓ Richtig!';
+    $('#drill-feedback').className = 'feedback ok';
+  } else {
+    btn.classList.add('wrong');
+    $('#drill-feedback').innerHTML = `✗ Richtig wäre: <b>${correct}</b>`;
+    $('#drill-feedback').className = 'feedback bad';
+  }
+  updateScore();
+}
+
+function updateScore(){
+  $('#score-ok').textContent = drillState.score;
+  $('#score-total').textContent = drillState.total;
+}
+
+function resetScore(){
+  drillState.score = 0;
+  drillState.total = 0;
+  updateScore();
+}
+
+/* ===================================================================
+   MODE-SWITCH + INIT
+   =================================================================== */
+
+function switchMode(mode){
+  $$('.mode-tab').forEach(t=>t.classList.toggle('active', t.dataset.mode === mode));
+  $('#mode-lab').classList.toggle('hidden', mode !== 'lab');
+  $('#mode-drill').classList.toggle('hidden', mode !== 'drill');
+}
+
+function init(){
+  // Satzlabor
+  renderPatternSelect();
+  selectPattern(0);
+  $('#pattern-select').addEventListener('change', e=>selectPattern(parseInt(e.target.value, 10)));
+  $('#shuffle-btn').addEventListener('click', shuffleSlots);
+  $('#clear-btn').addEventListener('click', clearSlots);
+
+  // Mode-Tabs
+  $$('.mode-tab').forEach(t=>{
+    t.addEventListener('click', ()=>switchMode(t.dataset.mode));
+  });
+
+  // Drill
+  renderDrillFilters();
+  nextDrill();
+  $('#drill-cat').addEventListener('change', e=>{
+    drillState.category = e.target.value;
+    renderDrillFilters();
+    nextDrill();
+  });
+  $('#next-drill').addEventListener('click', nextDrill);
+  $('#reset-score').addEventListener('click', resetScore);
+}
+
+document.addEventListener('DOMContentLoaded', init);
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('../service-worker.js')
+      .catch(err => console.log('SW failed:', err));
+  });
+}
+</script>
+
+</body>
+</html>
