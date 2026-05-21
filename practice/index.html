@@ -516,23 +516,43 @@
 
 const VOCAB_BY_LESSON = {
   1: [
+    // Pronomen + Personen (für N₁ は ... です)
     {jp:'<ruby>私<rt>わたし</rt></ruby>', de:'ich', t:'n'},
+    {jp:'<ruby>私達<rt>わたしたち</rt></ruby>', de:'wir', t:'n'},
     {jp:'あなた', de:'du / Sie', t:'n'},
+    {jp:'<ruby>彼<rt>かれ</rt></ruby>', de:'er', t:'n'},
+    {jp:'<ruby>彼女<rt>かのじょ</rt></ruby>', de:'sie', t:'n'},
     {jp:'あの <ruby>人<rt>ひと</rt></ruby>', de:'jene Person', t:'n'},
     {jp:'<ruby>方<rt>かた</rt></ruby>', de:'Person (höflich)', t:'n'},
     {jp:'〜さん', de:'Herr/Frau (höflich)', t:'e'},
+    {jp:'〜<ruby>君<rt>くん</rt></ruby>', de:'Anrede (Junge/Kollege)', t:'e'},
+    {jp:'〜ちゃん', de:'Anrede (Kind/freundlich)', t:'e'},
+    // Berufe
     {jp:'<ruby>先生<rt>せんせい</rt></ruby>', de:'Lehrer', t:'n'},
+    {jp:'<ruby>教師<rt>きょうし</rt></ruby>', de:'Lehrer (Beruf)', t:'n'},
     {jp:'<ruby>学生<rt>がくせい</rt></ruby>', de:'Student', t:'n'},
     {jp:'<ruby>会社員<rt>かいしゃいん</rt></ruby>', de:'Firmenangestellter', t:'n'},
-    {jp:'<ruby>医者<rt>いしゃ</rt></ruby>', de:'Arzt', t:'n'},
+    {jp:'<ruby>社員<rt>しゃいん</rt></ruby>', de:'Angestellter (von)', t:'n'},
     {jp:'<ruby>銀行員<rt>ぎんこういん</rt></ruby>', de:'Bankangestellter', t:'n'},
+    {jp:'<ruby>医者<rt>いしゃ</rt></ruby>', de:'Arzt', t:'n'},
+    {jp:'<ruby>看護師<rt>かんごし</rt></ruby>', de:'Krankenschwester/-pfleger', t:'n'},
+    {jp:'<ruby>研究者<rt>けんきゅうしゃ</rt></ruby>', de:'Forscher', t:'n'},
     {jp:'エンジニア', de:'Ingenieur', t:'n'},
-    {jp:'<ruby>大学<rt>だいがく</rt></ruby>', de:'Universität', t:'n'},
+    {jp:'<ruby>主婦<rt>しゅふ</rt></ruby>', de:'Hausfrau', t:'n'},
+    // Länder & Nationalitäten
     {jp:'<ruby>日本人<rt>にほんじん</rt></ruby>', de:'Japaner', t:'n'},
     {jp:'ドイツ<ruby>人<rt>じん</rt></ruby>', de:'Deutscher', t:'n'},
     {jp:'アメリカ<ruby>人<rt>じん</rt></ruby>', de:'Amerikaner', t:'n'},
+    {jp:'<ruby>中国人<rt>ちゅうごくじん</rt></ruby>', de:'Chinese', t:'n'},
+    {jp:'<ruby>韓国人<rt>かんこくじん</rt></ruby>', de:'Koreaner', t:'n'},
+    {jp:'フランス<ruby>人<rt>じん</rt></ruby>', de:'Franzose', t:'n'},
+    {jp:'イギリス<ruby>人<rt>じん</rt></ruby>', de:'Brite', t:'n'},
+    {jp:'<ruby>大学<rt>だいがく</rt></ruby>', de:'Universität', t:'n'},
+    {jp:'<ruby>病院<rt>びょういん</rt></ruby>', de:'Krankenhaus', t:'n'},
+    // Antworten
     {jp:'はい', de:'ja', t:'e'},
     {jp:'いいえ', de:'nein', t:'e'},
+    {jp:'そう', de:'so / richtig', t:'e'},
   ],
   2: [
     {jp:'これ', de:'das hier (Sprecher-nah)', t:'dem'},
@@ -1736,6 +1756,14 @@ function init(){
   });
   $('#next-drill').addEventListener('click', nextDrill);
   $('#reset-score').addEventListener('click', resetScore);
+
+  // Deep-Link via ?lesson=N → direkt diese Lektion öffnen
+  const params = new URLSearchParams(window.location.search);
+  const wantLesson = parseInt(params.get('lesson'), 10);
+  if (wantLesson >= 1 && wantLesson <= 50) {
+    switchMode('lessons');
+    showLessonDetail(wantLesson);
+  }
 }
 
 window.backToGrid = backToGrid;

@@ -48,6 +48,28 @@
       radial-gradient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
   }
+  /* Practice-Link in Lektions-Ansicht */
+  .practice-link{
+    display:block;
+    max-width:1300px;
+    margin:1rem auto;
+    padding:.75rem 1rem;
+    text-align:center;
+    background:#8a1f17;
+    color:#f4ede0;
+    text-decoration:none;
+    font-family:"Shippori Mincho",serif;
+    font-weight:600;
+    font-size:.95rem;
+    letter-spacing:.04em;
+    border:2px solid #1a1612;
+    box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+    transition:background .15s, transform .12s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .practice-link:hover{background:#c0362c}
+  .practice-link:active{transform:translateY(1px)}
+
   /* Buch-Wechsler Tabs */
   .book-tabs{
     display:flex;
@@ -784,6 +806,7 @@ border:1px solid rgba(184,137,58,.35);font-size:.72rem;
 <div class="book-tabs">
   <a class="book-tab active" href="/Minna-no-nihongo-1-2/minna/">📕 みんなの日本語</a>
   <a class="book-tab" href="/Minna-no-nihongo-1-2/chuukyuu/">📘 中級へ行こう</a>
+  <a class="book-tab" href="/Minna-no-nihongo-1-2/practice/">✏️ 練習帳</a>
 </div>
 <div class="lang-tabs">
   <a class="lang-tab active" href="/Minna-no-nihongo-1-2/minna/">DE</a>
@@ -824,6 +847,8 @@ border:1px solid rgba(184,137,58,.35);font-size:.72rem;
   <p class="overview-intro">Wähle eine Lektion, suche nach Inhalten, oder öffne die Cheat-Sheets ↓</p>
   <div class="lesson-grid" id="lessonGrid"></div>
 </div>
+
+<a id="practiceLink" class="practice-link" href="/Minna-no-nihongo-1-2/practice/" style="display:none">✏️ Übungen zu dieser Lektion →</a>
 
 <div class="grid" id="grid"></div>
 
@@ -2837,6 +2862,19 @@ function buildSectionedBack(c) {
 function render(){
   const q = search.value.toLowerCase().trim();
   const lf = lessonFilter.value;
+
+  // Practice-Link nur zeigen wenn eine konkrete Lektion gewählt ist
+  const practiceLink = document.getElementById('practiceLink');
+  if (practiceLink) {
+    const isNumLesson = lf && lf !== 'all' && lf !== 'cheats' && lf !== 'compare' && !isNaN(parseInt(lf,10));
+    if (isNumLesson) {
+      practiceLink.href = '/Minna-no-nihongo-1-2/practice/?lesson=' + lf;
+      practiceLink.innerHTML = `✏️ Übungen zu Lektion ${lf} →`;
+      practiceLink.style.display = 'block';
+    } else {
+      practiceLink.style.display = 'none';
+    }
+  }
 
   // SPEZIALFALL: Cheat-Sheets ausgewählt UND keine Suche
   if (lf === 'cheats' && !q) {
