@@ -263,6 +263,97 @@
     user-select:none;
   }
 
+  /* Übungs-Box pro Unterpunkt */
+  .ex-toggle{
+    display:block;
+    width:100%;
+    margin-top:.7rem;
+    padding:.55rem .8rem;
+    background:#b8893a;color:#1a1612;
+    border:2px solid #1a1612;
+    font-family:"Shippori Mincho",serif;font-size:.9rem;font-weight:600;
+    cursor:pointer;letter-spacing:.04em;
+    -webkit-tap-highlight-color:transparent;
+    box-shadow:0 2px 0 rgba(26,22,18,.15);
+    transition:background .15s;
+  }
+  .ex-toggle:hover{background:#cfa055}
+  .ex-toggle.active{background:#8a1f17;color:#f4ede0}
+  .exercise-box{
+    margin-top:.6rem;
+    padding:.9rem;
+    background:#ebe1cd;
+    border:2px dashed #8a1f17;
+    border-radius:3px;
+  }
+  .ex-help{
+    font-size:.82rem;color:#1a1612;
+    margin-bottom:.6rem;
+    font-style:italic;
+  }
+  .ex-word-pool{
+    display:flex;flex-wrap:wrap;gap:.4rem;
+    margin-bottom:.7rem;
+    padding:.6rem;
+    background:#fffdf6;
+    border:1px solid #c9bda3;
+  }
+  .ex-word{
+    display:inline-flex;flex-direction:column;align-items:center;
+    background:#f4ede0;
+    border:1.5px solid #1a1612;
+    padding:.35rem .55rem;
+    border-radius:3px;
+    font-family:"Noto Serif JP",serif;
+    font-size:.95rem;color:#1a1612;
+    line-height:1.2;
+    box-shadow:0 1px 0 rgba(26,22,18,.1);
+  }
+  .ex-word .ex-word-de{
+    font-family:"Shippori Mincho",serif;
+    font-size:.62rem;color:#6b5d4a;
+    margin-top:.1rem;
+    letter-spacing:.02em;
+  }
+  .ex-word .ex-word-type{
+    position:absolute;
+  }
+  .ex-actions{
+    display:flex;flex-wrap:wrap;gap:.4rem;
+    margin-bottom:.4rem;
+  }
+  .ex-actions button{
+    padding:.4rem .7rem;
+    font-size:.78rem;font-family:"Shippori Mincho",serif;
+    background:#1a1612;color:#f4ede0;
+    border:2px solid #1a1612;
+    cursor:pointer;font-weight:600;
+    -webkit-tap-highlight-color:transparent;
+    transition:background .15s;
+  }
+  .ex-actions button:hover{background:#8a1f17}
+  .ex-actions button.gold{background:#b8893a;color:#1a1612;border-color:#b8893a}
+  .ex-actions button.gold:hover{background:#cfa055}
+  .ex-solution{
+    margin-top:.6rem;
+    padding:.65rem .8rem;
+    background:#d6e9c8;
+    border:1.5px solid #2f6e3a;
+  }
+  .ex-sol-label{
+    font-size:.65rem;letter-spacing:.15em;
+    color:#1f4a26;text-transform:uppercase;font-weight:700;
+    margin-bottom:.25rem;
+  }
+  .ex-sol-jp{
+    font-family:"Noto Serif JP",serif;font-size:1.05rem;
+    color:#1a1612;line-height:1.7;
+  }
+  .ex-sol-de{
+    margin-top:.3rem;
+    font-size:.82rem;color:#1f4a26;font-style:italic;
+  }
+
   /* Vokabel-Liste */
   .vocab-section{
     margin-top:1.5rem;
@@ -1491,15 +1582,16 @@ function showLessonDetail(lessonNum){
     <div class="lesson-detail-sub">${LESSON_TOPICS[lessonNum] || ''} · ${entries.length} Unterpunkt${entries.length===1?'':'e'}</div>
   `;
   entries.forEach((c, idx) => {
+    const entryId = `ex-${lessonNum}-${idx}`;
     html += `
-      <div class="unterpunkt">
+      <div class="unterpunkt" data-lesson="${lessonNum}" data-idx="${idx}">
         <span class="unterpunkt-num">Unterpunkt ${idx+1}</span>
         <div class="unterpunkt-title">${c.t}</div>
         <div class="unterpunkt-de">${c.de}</div>
         ${renderSlotDiagram(c.slots)}
         ${c.gloss ? `<div class="pattern-gloss">${c.gloss}</div>` : ''}
         ${c.ex ? `
-          <div class="example-reveal" onclick="revealExample(this)">▶ Beispiel zeigen</div>
+          <div class="example-reveal" onclick="revealExample(this)">▶ Beispiel aus dem Lehrbuch zeigen</div>
         ` : ''}
         ${c.ex ? `
           <div class="example-shown hidden">
@@ -1507,6 +1599,8 @@ function showLessonDetail(lessonNum){
             <div class="example-de hidden-de" onclick="this.classList.remove('hidden-de')" title="zum Aufdecken tippen">${c.ex.de}</div>
           </div>
         ` : ''}
+        <button class="ex-toggle" onclick="toggleExercise(this, ${lessonNum}, ${idx})">🎯 Übung starten</button>
+        <div class="exercise-box hidden" id="${entryId}"></div>
       </div>
     `;
   });
@@ -1548,6 +1642,127 @@ function revealExample(el){
   el.classList.add('hidden');
   const shown = el.parentElement.querySelector('.example-shown');
   if(shown) shown.classList.remove('hidden');
+}
+
+/* ===================================================================
+   ÜBUNGEN PRO UNTERPUNKT
+   Wähle 4-6 Wörter aus dem Lektions-Pool, achte darauf dass die
+   für die Slots benötigten Typen (Verb / i-Adj / na-Adj) dabei sind.
+   =================================================================== */
+
+function detectSlotNeeds(slots){
+  if(!slots || !slots.length) return {nouns:1};
+  const slotsText = slots.map(s => (s.text||'') + ' ' + (s.label||'')).join(' ').toLowerCase();
+  const stripped = slotsText.replace(/<[^>]+>/g, '');
+  return {
+    verb: /\bv[^a-zA-Z]|verb|動詞|〜ます|stem|stamm|jisho|辞書/.test(stripped),
+    iadj: /i-adj|イ形|い-adj|i\s|〜い|い-form/.test(stripped),
+    naadj: /na-adj|ナ形|な-adj|na\s|な-form/.test(stripped),
+    place: /ort|場所|place|どこ/.test(stripped),
+    time:  /zeit|時|time|いつ/.test(stripped),
+    person: /person|人|誰|だれ/.test(stripped),
+  };
+}
+
+function pickExerciseWords(lessonNum, slots){
+  const pool = (VOCAB_BY_LESSON[lessonNum] || []).slice();
+  if(!pool.length) return [];
+  const needs = detectSlotNeeds(slots);
+  const picked = [];
+  function takeOne(predicate){
+    for(let i = 0; i < pool.length; i++){
+      if(predicate(pool[i])){
+        picked.push(pool[i]);
+        pool.splice(i, 1);
+        return true;
+      }
+    }
+    return false;
+  }
+  function shufflePool(){
+    for(let i = pool.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+  }
+  shufflePool();
+  if(needs.verb)  takeOne(w => w.t === 'v');
+  if(needs.iadj)  takeOne(w => w.t === 'i');
+  if(needs.naadj) takeOne(w => w.t === 'na');
+  if(needs.place) takeOne(w => /Ort|Stadt|Bahnhof|Schule|Haus|Park|Restaurant|Land|Café|Krankenhaus|Bibliothek/i.test(w.de) || /<ruby>[^<]*<rt>[^<]*<\/rt><\/ruby>(<ruby>[^<]*<rt>[^<]*<\/rt><\/ruby>)?/.test(w.jp) && /place|place|館|店|室|園|院|校/.test(w.jp));
+  if(needs.time)  takeOne(w => /heute|morgen|gestern|jetzt|abend|nacht|jahr|Stunde|Tag|Woche|Monat|Mal/i.test(w.de));
+  if(needs.person)takeOne(w => /ich|du|er|sie|Herr|Frau|Lehrer|Student|Person|Familie|Freund|Mann|Kind/i.test(w.de));
+  // Auffüllen auf 5–6 Wörter mit den übriggebliebenen
+  shufflePool();
+  const target = 5 + Math.floor(Math.random()*2); // 5 oder 6
+  while(picked.length < target && pool.length){
+    picked.push(pool.shift());
+  }
+  // Mische die finale Reihenfolge damit die "wichtigen" nicht immer zuerst kommen
+  for(let i = picked.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [picked[i], picked[j]] = [picked[j], picked[i]];
+  }
+  return picked;
+}
+
+function renderExerciseBox(boxEl, lessonNum, idx){
+  const c = MINNA_LESSONS.filter(x => x.l === lessonNum)[idx];
+  if(!c){ boxEl.innerHTML = '<i>Keine Daten.</i>'; return; }
+  const words = pickExerciseWords(lessonNum, c.slots);
+  if(!words.length){
+    boxEl.innerHTML = '<div class="ex-help">Für diese Lektion sind noch keine Vokabeln zum Üben hinterlegt.</div>';
+    return;
+  }
+  boxEl.innerHTML = `
+    <div class="ex-help">🧠 Bilde mit diesen Wörtern einen Satz nach dem Muster oben. Versuch's erst im Kopf, dann vergleiche mit dem Lehrbuch-Beispiel.</div>
+    <div class="ex-word-pool">
+      ${words.map(w => `
+        <span class="ex-word">
+          <span>${w.jp}</span>
+          <span class="ex-word-de">${w.de}</span>
+        </span>
+      `).join('')}
+    </div>
+    <div class="ex-actions">
+      <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Andere Wörter</button>
+      ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
+    </div>
+    ${c.ex ? `
+      <div class="ex-solution hidden">
+        <div class="ex-sol-label">Beispiel aus dem Lehrbuch</div>
+        <div class="ex-sol-jp">${c.ex.jp}</div>
+        <div class="ex-sol-de">${c.ex.de}</div>
+      </div>
+    ` : ''}
+  `;
+}
+
+function toggleExercise(btn, lessonNum, idx){
+  const box = btn.nextElementSibling;
+  if(!box) return;
+  const isHidden = box.classList.contains('hidden');
+  if(isHidden){
+    renderExerciseBox(box, lessonNum, idx);
+    box.classList.remove('hidden');
+    btn.classList.add('active');
+    btn.textContent = '🎯 Übung schließen';
+  } else {
+    box.classList.add('hidden');
+    btn.classList.remove('active');
+    btn.textContent = '🎯 Übung starten';
+  }
+}
+
+function newExerciseWords(btn, lessonNum, idx){
+  const box = btn.closest('.exercise-box');
+  if(box) renderExerciseBox(box, lessonNum, idx);
+}
+
+function revealExerciseSolution(btn){
+  const box = btn.closest('.exercise-box');
+  const sol = box ? box.querySelector('.ex-solution') : null;
+  if(sol){ sol.classList.remove('hidden'); btn.disabled = true; btn.style.opacity = '.5'; }
 }
 
 function toggleVocabReveal(mode){
@@ -1770,6 +1985,9 @@ window.backToGrid = backToGrid;
 window.revealExample = revealExample;
 window.toggleVocabReveal = toggleVocabReveal;
 window.shuffleVocabRows = shuffleVocabRows;
+window.toggleExercise = toggleExercise;
+window.newExerciseWords = newExerciseWords;
+window.revealExerciseSolution = revealExerciseSolution;
 
 document.addEventListener('DOMContentLoaded', init);
 
