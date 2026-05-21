@@ -1664,10 +1664,158 @@ function detectSlotNeeds(slots){
   };
 }
 
+// Semantische Tags für Vokabeln — by German label.
+// Damit Verb+Objekt-Paare in der Übung Sinn ergeben.
+const SEMANTIC_TAGS = {
+  // Essen
+  'Brot':['food'], 'Ei':['food'], 'Fleisch':['food'], 'Fisch':['food'],
+  'Gemüse':['food'], 'Obst':['food'], 'Reis (gekocht)':['food'],
+  'Sushi':['food'], 'Ramen':['food'], 'Apfel':['food'],
+  // Trinken
+  'Wasser':['drink'], 'Tee (grün)':['drink'], 'Kaffee':['drink'],
+  'schwarzer Tee':['drink'], 'Milch':['drink'], 'Bier':['drink'],
+  'Saft':['drink'], 'Alkohol / Sake':['drink'], 'Saft':['drink'],
+  // Lesbar (auch teils schreibbar)
+  'Buch':['readable','thing'], 'Zeitung':['readable','thing'],
+  'Wörterbuch':['readable','thing'], 'Brief':['readable','writable'],
+  'Zeitschrift':['readable','thing'], 'Heft':['writable','readable'],
+  'Notizbuch':['writable','readable'], 'Karte':['readable','writable','thing'],
+  'Visitenkarte':['readable','thing'], 'E-Mail':['readable','writable'],
+  'Tagebuch':['writable','readable'], 'Telefon / Anruf':['thing'],
+  // Schreibbar (spezielle)
+  'Name':['writable'],
+  // Sehen
+  'Film':['visual','activity'], 'Foto':['visual','photo_subject'],
+  // Hören
+  'Musik':['audible'], 'Lied':['audible','song'], 'Nachrichten':['audible'],
+  'Rede':['audible'], 'Stimme':['audible'],
+  // Personen
+  'ich':['person'], 'du / Sie':['person'], 'er':['person'], 'sie':['person'],
+  'wir':['person'], 'jene Person':['person'], 'Herr Miller':['person'],
+  'Frau Tanaka':['person'], 'Herr Yamada':['person'], 'Freund':['person'],
+  'Familie':['person'], 'Kind':['person'], 'Lehrer':['person'],
+  'Student':['person'], 'Firmenangestellter':['person'], 'Arzt':['person'],
+  // Aktivitäten (mit します)
+  'Sport':['activity'], 'Tennis':['activity'], 'Fußball':['activity'],
+  'Reise':['activity'], 'Kochen / Gericht':['activity'],
+  'Schwimmen':['activity'], 'Lernen':['activity'], 'Arbeit':['activity'],
+  'Spaziergang':['activity'], 'Skifahren':['activity'], 'Tanz':['activity'],
+  'Autofahren':['activity'], 'Einkaufen':['activity'], 'Mahlzeit':['activity'],
+  'Sport treiben':['activity'], 'Karaoke':['activity','song'],
+  // Photo-Motive
+  'Berg Fuji':['photo_subject','place'], 'Kirschblüte':['photo_subject'],
+  'Blume':['photo_subject'], 'Landschaft':['photo_subject'],
+  // Instrumente
+  'Klavier':['instrument'], 'Gitarre':['instrument'],
+  // Sprachen
+  'Japanisch':['language'], 'Englisch':['language'], 'Deutsch':['language'],
+  'Chinesisch':['language'], 'Französisch':['language'],
+};
+
+// Verb → akzeptierte Objekt-Kategorien
+const VERB_ACCEPTS = {
+  'essen':['food'],
+  'trinken':['drink'],
+  'rauchen':[],
+  'sehen':['visual','photo_subject'],
+  'hören':['audible'],
+  'lesen':['readable'],
+  'schreiben':['writable'],
+  'kaufen':['food','drink','readable','writable','thing','instrument'],
+  'fotografieren':['photo_subject','person'],
+  'machen':['activity'],
+  'machen / tun':['activity'],
+  'machen / herstellen':['food','thing'],
+  'treffen':['person'],
+  'singen':['song'],
+  'spielen':['activity'],
+  'spielen (Instrument)':['instrument'],
+  'üben':['activity','language'],
+  'lernen (von jmd.)':['language','activity'],
+  'lehren / beibringen':['language','activity'],
+  'verstehen':['language'],
+  'sprechen':['language'],
+  'sammeln':['thing'],
+  'benutzen':['thing','instrument','language'],
+  'lehren':['language','activity'],
+  'aufmachen / öffnen':['thing'],
+  'zumachen / schließen':['thing'],
+  'tragen / haben':['thing'],
+  'anziehen (Oberteil)':['thing'],
+  'anziehen (Hose/Schuhe)':['thing'],
+  'aufsetzen (Hut)':['thing'],
+  'aufsetzen (Brille)':['thing'],
+};
+
+function getTags(word){
+  if(SEMANTIC_TAGS[word.de]) return SEMANTIC_TAGS[word.de];
+  // Defaults nach Type
+  if(word.t === 'n') return ['thing'];
+  return [];
+}
+
+function verbAccepts(verb){
+  // Suche flexibel — manchmal heißt das Verb "essen" mal in jisho-Form (食べる) mal in ます-Form (食べます)
+  return VERB_ACCEPTS[verb.de] || null;
+}
+
+function isCompatible(noun, verb){
+  const accepts = verbAccepts(verb);
+  if(!accepts) return true;            // unbekanntes Verb → erlauben
+  if(accepts.length === 0) return false; // Verb hat keine passenden Objekte (z.B. rauchen ohne Zigarette)
+  const tags = getTags(noun);
+  if(!tags.length) return false;       // unbekanntes Nomen → ausschließen (sicher)
+  return tags.some(t => accepts.includes(t));
+}
+
 function pickExerciseWords(lessonNum, slots){
   const pool = (VOCAB_BY_LESSON[lessonNum] || []).slice();
   if(!pool.length) return [];
   const needs = detectSlotNeeds(slots);
+
+  function shuffle(arr){
+    for(let i = arr.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  // === Spezial-Fall: Verb+Objekt-Pattern ===
+  if(needs.verb){
+    const verbs = pool.filter(w => w.t === 'v');
+    const nouns = pool.filter(w => w.t === 'n');
+    if(verbs.length && nouns.length){
+      // Zähle pro Verb wie viele passende Nomen es gibt
+      const scored = verbs.map(v => ({
+        verb: v,
+        compat: nouns.filter(n => isCompatible(n, v))
+      }));
+      // Nur Verben mit ≥2 passenden Nomen behalten
+      const good = scored.filter(s => s.compat.length >= 2);
+      if(good.length){
+        // Zufällig eins der "guten" Verben wählen
+        const chosen = good[Math.floor(Math.random()*good.length)];
+        const verb = chosen.verb;
+        const compatNouns = shuffle(chosen.compat.slice());
+        // 3-4 passende Nomen
+        const want = 3 + Math.floor(Math.random()*2);
+        const picked = [verb, ...compatNouns.slice(0, want)];
+        // Falls i-Adj / na-Adj auch noch gebraucht → noch hinzufügen
+        if(needs.iadj){
+          const iadj = pool.filter(w => w.t === 'i');
+          if(iadj.length) picked.push(iadj[Math.floor(Math.random()*iadj.length)]);
+        }
+        if(needs.naadj){
+          const naadj = pool.filter(w => w.t === 'na');
+          if(naadj.length) picked.push(naadj[Math.floor(Math.random()*naadj.length)]);
+        }
+        return shuffle(picked);
+      }
+    }
+  }
+
+  // === Fallback: alte Logik (i-Adj / na-Adj patterns, oder kein Verb-Match) ===
   const picked = [];
   function takeOne(predicate){
     for(let i = 0; i < pool.length; i++){
@@ -1679,31 +1827,19 @@ function pickExerciseWords(lessonNum, slots){
     }
     return false;
   }
-  function shufflePool(){
-    for(let i = pool.length - 1; i > 0; i--){
-      const j = Math.floor(Math.random()*(i+1));
-      [pool[i], pool[j]] = [pool[j], pool[i]];
-    }
-  }
-  shufflePool();
+  shuffle(pool);
   if(needs.verb)  takeOne(w => w.t === 'v');
   if(needs.iadj)  takeOne(w => w.t === 'i');
   if(needs.naadj) takeOne(w => w.t === 'na');
-  if(needs.place) takeOne(w => /Ort|Stadt|Bahnhof|Schule|Haus|Park|Restaurant|Land|Café|Krankenhaus|Bibliothek/i.test(w.de) || /<ruby>[^<]*<rt>[^<]*<\/rt><\/ruby>(<ruby>[^<]*<rt>[^<]*<\/rt><\/ruby>)?/.test(w.jp) && /place|place|館|店|室|園|院|校/.test(w.jp));
+  if(needs.place) takeOne(w => /Ort|Stadt|Bahnhof|Schule|Haus|Park|Restaurant|Land|Café|Krankenhaus|Bibliothek|Bank|Bahnhof|Flughafen|Tokio|Japan/i.test(w.de));
   if(needs.time)  takeOne(w => /heute|morgen|gestern|jetzt|abend|nacht|jahr|Stunde|Tag|Woche|Monat|Mal/i.test(w.de));
   if(needs.person)takeOne(w => /ich|du|er|sie|Herr|Frau|Lehrer|Student|Person|Familie|Freund|Mann|Kind/i.test(w.de));
-  // Auffüllen auf 5–6 Wörter mit den übriggebliebenen
-  shufflePool();
-  const target = 5 + Math.floor(Math.random()*2); // 5 oder 6
+  shuffle(pool);
+  const target = 5 + Math.floor(Math.random()*2);
   while(picked.length < target && pool.length){
     picked.push(pool.shift());
   }
-  // Mische die finale Reihenfolge damit die "wichtigen" nicht immer zuerst kommen
-  for(let i = picked.length - 1; i > 0; i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [picked[i], picked[j]] = [picked[j], picked[i]];
-  }
-  return picked;
+  return shuffle(picked);
 }
 
 function renderExerciseBox(boxEl, lessonNum, idx){
