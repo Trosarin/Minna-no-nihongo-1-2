@@ -796,6 +796,10 @@ border:1px solid rgba(184,137,58,.35);font-size:.72rem;
 }
 .flow-note{color:#6b5d4a;font-style:italic;font-size:.68rem}
 
+.simpel{background:#8a1f17;color:#f4ede0;padding:.5rem .7rem;border-radius:5px;margin-bottom:.6rem;font-size:.78rem;line-height:1.5}
+.simpel .jp{color:#ffd97a}
+.simpel-label{font-weight:700;margin-right:.4rem}
+
 </style>
 
 </head>
@@ -1956,7 +1960,7 @@ const CARDS = [
     {jp:"<ruby>何<rt>なに</rt></ruby>が いちばん おいしいですか。",de:"Was ist am leckersten?"},
     {jp:"どの <ruby>色<rt>いろ</rt></ruby>が いちばん <ruby>好<rt>す</rt></ruby>きですか。",de:"Welche Farbe magst du am liebsten?"}
   ], note:"💡 Faustregel: Antwort auf »だれが〜?«-Fragen immer mit が. は wählt ein Thema (bekannt), が identifiziert (neu/kontrastiert). ⚠️ Fragewörter als Subjekt (だれが/なにが) verlangen immer が — nie は."},
-  {l:25, t:"V たら、… (Konditional »たら«)", de:"Wenn/falls …, dann …", rule:"Sehr flexibel: hypothetisch, sequenziell, »nachdem«. た-Form + ら. Hauptsatz darf Wille/Bitte/Aufforderung enthalten (im Gegensatz zu と).", build:[
+  {l:25, t:"V たら、… (Konditional »たら«)", de:"Wenn/falls …, dann …", simpel:"Nimm die <b>た-Form</b> und häng <b>ら</b> dran — fertig ist »wenn/falls«.<br><span class=\"jp\"><ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>ったら、<ruby>家<rt>いえ</rt></ruby>に います</span> = „Wenn es regnet, bleibe ich zu Hause\"", rule:"Sehr flexibel: hypothetisch, sequenziell, »nachdem«. た-Form + ら. Hauptsatz darf Wille/Bitte/Aufforderung enthalten (im Gegensatz zu と).", build:[
     {form:"た-Form + ら",verb:"<ruby>食<rt>た</rt></ruby>べたら → <ruby>飲<rt>の</rt></ruby>んだら → <ruby>来<rt>き</rt></ruby>たら",de:"wenn man gegessen/getrunken/gekommen ist"},
     {form:"い-Adj: かったら",verb:"<ruby>安<rt>やす</rt></ruby>かったら",de:"wenn es günstig wäre"},
     {form:"な-Adj/N: だったら",verb:"<ruby>元気<rt>げんき</rt></ruby>だったら / <ruby>学生<rt>がくせい</rt></ruby>だったら",de:"wenn er gesund wäre / wenn er Student wäre"}
@@ -1965,7 +1969,7 @@ const CARDS = [
     {jp:"<ruby>家<rt>いえ</rt></ruby>へ <ruby>帰<rt>かえ</rt></ruby>ったら、すぐ シャワーを <ruby>浴<rt>あ</rt></ruby>びます。",de:"Sobald ich nach Hause komme, dusche ich."},
     {jp:"わからなかったら、<ruby>聞<rt>き</rt></ruby>いて ください。",de:"Falls Sie es nicht verstehen, fragen Sie bitte."}
   ], note:"🔄 たら (hypothetisch) vs. とき (faktische Zeit). »Nach Hause kommen«: 帰ったら=wenn/falls / 帰ったとき=als ich zurückkam"},
-  {l:25, t:"V て も、… (Konzessiv)", de:"Auch wenn …", rule:"Drückt aus, dass etwas trotz einer Bedingung gilt. て-Form + も. Bei Adjektiven/Nomen: くても / でも.", build:[
+  {l:25, t:"V て も、… (Konzessiv)", de:"Auch wenn …", simpel:"Einfach <b>て-Form + も</b> = »auch wenn«. い-Adj: <b>くても</b>, な-Adj/N: <b>でも</b>.<br><span class=\"jp\"><ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>っても、<ruby>行<rt>い</rt></ruby>きます</span> = „Auch wenn es regnet, gehe ich\"", rule:"Drückt aus, dass etwas trotz einer Bedingung gilt. て-Form + も. Bei Adjektiven/Nomen: くても / でも.", build:[
     {form:"Verb",verb:"V<sub>テ</sub> + も、…",de:"auch wenn V"},
     {form:"い-Adj",verb:"〜<b>く</b>ても、…",de:"<ruby>高<rt>たか</rt></ruby><b>く</b>ても = auch wenn teuer"},
     {form:"な-Adj",verb:"〜<b>で</b>も、…",de:"<ruby>元気<rt>げんき</rt></ruby><b>で</b>も = auch wenn gesund"},
@@ -1977,7 +1981,7 @@ const CARDS = [
     {jp:"<ruby>高<rt>たか</rt></ruby>くても、<ruby>買<rt>か</rt></ruby>います。 / <ruby>日曜日<rt>にちようび</rt></ruby>でも、<ruby>働<rt>はたら</rt></ruby>きます。",de:"Auch wenn teuer / Auch sonntags…"},
     {jp:"どんなに <ruby>疲<rt>つか</rt></ruby>れても、<ruby>続<rt>つづ</rt></ruby>けます。",de:"Auch wenn ich noch so müde bin, mache ich weiter."}
   ], note:"💡 Memory aid: ても = \"even if\". Achtung: Verneint NICHT 〜なくても (das wäre \"auch wenn nicht\"), sondern 〜<b>なくて</b>+も!"},
-  {l:25, t:"もし / いくら …ても", de:"Falls / egal wie sehr …", rule:"もし = »falls« (oft mit たら, verstärkt hypothetischen Charakter). いくら〜ても = »egal wie sehr A, B«. Betonung, dass A keinen Einfluss auf B hat.", build:[
+  {l:25, t:"もし / いくら …ても", de:"Falls / egal wie sehr …", simpel:"<b>もし</b> vor たら betont »rein hypothetisch«. <b>いくら〜ても</b> = »egal wie sehr/viel«.<br><span class=\"jp\">いくら <ruby>食<rt>た</rt></ruby>べても、<ruby>太<rt>ふと</rt></ruby>りません</span> = „Egal wie viel ich esse, ich nehme nicht zu\"", rule:"もし = »falls« (oft mit たら, verstärkt hypothetischen Charakter). いくら〜ても = »egal wie sehr A, B«. Betonung, dass A keinen Einfluss auf B hat.", build:[
     {form:"もし …たら",verb:"もし <ruby>時間<rt>じかん</rt></ruby>が あったら",de:"falls ich Zeit habe"},
     {form:"いくら …ても",verb:"いくら <ruby>高<rt>たか</rt></ruby>くても",de:"egal wie teuer"},
     {form:"いくら V ても",verb:"いくら <ruby>食<rt>た</rt></ruby>べても",de:"egal wie viel ich esse"}
@@ -1987,7 +1991,7 @@ const CARDS = [
     {jp:"いくら <ruby>高<rt>たか</rt></ruby>くても、<ruby>買<rt>か</rt></ruby>います。",de:"Egal wie teuer es ist, ich kaufe es."},
     {jp:"いくら <ruby>勉強<rt>べんきょう</rt></ruby>しても、<ruby>覚<rt>おぼ</rt></ruby>えられません。",de:"Egal wie viel ich lerne, ich kann es mir nicht merken."}
   ], note:"💡 もし verstärkt nur die Hypothese — たら/ば folgt trotzdem mit den normalen Regeln. いくら〜ても = konzessiv mit Extremwert-Betonung (»selbst beim Maximum«). 🔄 Vgl. てもいいです (Erlaubnis) ≠ いくら〜ても (egal wie viel)."},
-  {l:25, t:"N が (unerwartetes/neues Subjekt)", de:"が hebt neues/unerwartetes Subjekt hervor", rule:"が (statt は) wird verwendet, um ein NEUES, unerwartetes oder kontrastiertes Subjekt einzuführen. Antwort auf »wer/was?«-Fragen. Auch in existenziellen Sätzen nach Positionsangaben.", build:[
+  {l:25, t:"N が (unerwartetes/neues Subjekt)", de:"が hebt neues/unerwartetes Subjekt hervor", simpel:"<b>が</b> statt は, wenn das Subjekt <b>neu oder unerwartet</b> ist — typisch als Antwort auf »wer/was?«.<br><span class=\"jp\">だれが <ruby>来<rt>き</rt></ruby>ましたか。— ミラーさん<b>が</b> <ruby>来<rt>き</rt></ruby>ました</span> = „Wer kam? — Miller kam\"", rule:"が (statt は) wird verwendet, um ein NEUES, unerwartetes oder kontrastiertes Subjekt einzuführen. Antwort auf »wer/was?«-Fragen. Auch in existenziellen Sätzen nach Positionsangaben.", build:[
     {form:"は (bekanntes Thema)",verb:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>医者<rt>いしゃ</rt></ruby>です",de:"Er ist Arzt (Thema bekannt)"},
     {form:"が (neue Info/Antwort)",verb:"<ruby>彼<rt>かれ</rt></ruby>が <ruby>医者<rt>いしゃ</rt></ruby>です",de:"ER ist der Arzt (wer? er!)"},
     {form:"が bei Existenz",verb:"<ruby>猫<rt>ねこ</rt></ruby>が います",de:"Da ist eine Katze"}
@@ -2835,7 +2839,11 @@ function buildPattern(pattern) {
 
 // 4-Sektionen-Backside für Karten ab L26 (mit pattern-Feld)
 function buildSectionedBack(c) {
-  let html = `<div class="rule">${c.rule}</div>`;
+  let html = '';
+  if (c.simpel) {
+    html += `<div class="simpel"><span class="simpel-label">💡 Kurz gesagt</span>${c.simpel}</div>`;
+  }
+  html += `<div class="rule">${c.rule}</div>`;
   if (c.build && c.build.length > 0) {
     html += '<div class="sec"><span class="sec-label">① Bildung</span>';
     html += '<table class="conj-table"><tbody>';
@@ -2941,7 +2949,8 @@ function render(){
       if (c.pattern.gloss) patternText += ' ' + c.pattern.gloss;
     }
     const exText = (c.ex || []).map(e => e.jp + ' ' + e.de).join(' ');
-    const haystack = (c.t + ' ' + c.de + ' ' + c.rule + ' ' + conjText + ' ' + buildText + ' ' + patternText + ' ' + exText + ' L' + c.l + ' Lektion' + c.l).toLowerCase();
+    const simpelText = c.simpel || '';
+    const haystack = (c.t + ' ' + c.de + ' ' + c.rule + ' ' + conjText + ' ' + buildText + ' ' + patternText + ' ' + exText + ' ' + simpelText + ' L' + c.l + ' Lektion' + c.l).toLowerCase();
     const matchSearch = (!q || haystack.includes(q));
     if(!matchLesson || !matchSearch) return;
     count++;
