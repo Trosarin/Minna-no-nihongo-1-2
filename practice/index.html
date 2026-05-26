@@ -2849,6 +2849,169 @@ const EXERCISE_SETS = {
     {jp:'<ruby>電話<rt>でんわ</rt></ruby>して みる', de:'mal anrufen', role:'Versuch'},
     {jp:'<ruby>聞<rt>き</rt></ruby>いて みる', de:'mal nachfragen', role:'Versuch'},
   ],
+  // === L41: Höfliches Geben/Bekommen ===
+  'L41-1': [ // て いただきます
+    {jp:'<ruby>荷物<rt>にもつ</rt></ruby>を <ruby>持<rt>も</rt></ruby>つ', de:'Gepäck tragen', role:'Handlung'},
+    {jp:'<ruby>道<rt>みち</rt></ruby>を <ruby>教<rt>おし</rt></ruby>える', de:'den Weg zeigen', role:'Handlung'},
+    {jp:'<ruby>空港<rt>くうこう</rt></ruby>まで <ruby>送<rt>おく</rt></ruby>る', de:'zum Flughafen bringen', role:'Handlung'},
+    {jp:'<ruby>推薦状<rt>すいせんじょう</rt></ruby>を <ruby>書<rt>か</rt></ruby>く', de:'Empfehlungsschreiben schreiben', role:'Handlung'},
+    {jp:'<ruby>先生<rt>せんせい</rt></ruby>', de:'Lehrer', role:'Ausführender'},
+    {jp:'<ruby>社長<rt>しゃちょう</rt></ruby>', de:'Chef', role:'Ausführender'},
+    {jp:'<ruby>先輩<rt>せんぱい</rt></ruby>', de:'Senpai', role:'Ausführender'},
+  ],
+
+  // === L42: ために / のに ===
+  'L42-0': [ // ために (Zweck)
+    {jp:'<ruby>家<rt>いえ</rt></ruby>を <ruby>買<rt>か</rt></ruby>う', de:'ein Haus kaufen', role:'Ziel'},
+    {jp:'<ruby>試験<rt>しけん</rt></ruby>に <ruby>合格<rt>ごうかく</rt></ruby>する', de:'Prüfung bestehen', role:'Ziel'},
+    {jp:'<ruby>留学<rt>りゅうがく</rt></ruby>する', de:'im Ausland studieren', role:'Ziel'},
+    {jp:'<ruby>健康<rt>けんこう</rt></ruby>', de:'Gesundheit', role:'Ziel (Nomen)'},
+    {jp:'<ruby>子供<rt>こども</rt></ruby>の <ruby>教育<rt>きょういく</rt></ruby>', de:'Ausbildung der Kinder', role:'Ziel (Nomen)'},
+    {jp:'お<ruby>金<rt>かね</rt></ruby>を <ruby>貯<rt>た</rt></ruby>めます', de:'Geld sparen', role:'Handlung'},
+    {jp:'<ruby>毎日<rt>まいにち</rt></ruby> <ruby>勉強<rt>べんきょう</rt></ruby>します', de:'jeden Tag lernen', role:'Handlung'},
+    {jp:'アルバイトを します', de:'jobben', role:'Handlung'},
+    {jp:'<ruby>運動<rt>うんどう</rt></ruby>します', de:'Sport treiben', role:'Handlung'},
+  ],
+  'L42-1': [ // のに 使います / いいです
+    {jp:'この はさみ', de:'diese Schere', role:'Werkzeug'},
+    {jp:'この アプリ', de:'diese App', role:'Werkzeug'},
+    {jp:'この <ruby>辞書<rt>じしょ</rt></ruby>', de:'dieses Wörterbuch', role:'Werkzeug'},
+    {jp:'<ruby>紙<rt>かみ</rt></ruby>を <ruby>切<rt>き</rt></ruby>る', de:'Papier schneiden', role:'Zweck'},
+    {jp:'<ruby>漢字<rt>かんじ</rt></ruby>を <ruby>調<rt>しら</rt></ruby>べる', de:'Kanji nachschlagen', role:'Zweck'},
+    {jp:'<ruby>日本語<rt>にほんご</rt></ruby>を <ruby>勉強<rt>べんきょう</rt></ruby>する', de:'Japanisch lernen', role:'Zweck'},
+  ],
+
+  // === L43: そう (Anschein) / てくる ===
+  'L43-0': [ // V-stem そうです (visuell)
+    {jp:'<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>り', de:'Regen fällt', role:'V-Stamm + そう'},
+    {jp:'<ruby>荷物<rt>にもつ</rt></ruby>が <ruby>落<rt>お</rt></ruby>ち', de:'Gepäck fällt', role:'V-Stamm + そう'},
+    {jp:'この ケーキはおいし', de:'Kuchen lecker', role:'Adj-Stamm + そう'},
+    {jp:'<ruby>彼<rt>かれ</rt></ruby>は <ruby>元気<rt>げんき</rt></ruby>', de:'er ist fit', role:'na-Adj + そう'},
+    {jp:'<ruby>暖<rt>あたた</rt></ruby>か', de:'warm', role:'Adj-Stamm + そう'},
+    {jp:'この <ruby>仕事<rt>しごと</rt></ruby>は <ruby>大変<rt>たいへん</rt></ruby>', de:'Arbeit anstrengend', role:'na-Adj + そう'},
+  ],
+
+  // === L44: すぎる / やすい / にくい ===
+  'L44-0': [ // すぎます
+    {jp:'<ruby>食<rt>た</rt></ruby>べ', de:'essen', role:'V-Stamm + すぎ'},
+    {jp:'<ruby>飲<rt>の</rt></ruby>み', de:'trinken', role:'V-Stamm + すぎ'},
+    {jp:'<ruby>働<rt>はたら</rt></ruby>き', de:'arbeiten', role:'V-Stamm + すぎ'},
+    {jp:'<ruby>高<rt>たか</rt></ruby>', de:'teuer', role:'i-Adj + すぎ'},
+    {jp:'<ruby>辛<rt>から</rt></ruby>', de:'scharf', role:'i-Adj + すぎ'},
+    {jp:'<ruby>静<rt>しず</rt></ruby>か', de:'ruhig', role:'na-Adj + すぎ'},
+  ],
+  'L44-1': [ // やすい / にくい
+    {jp:'<ruby>壊<rt>こわ</rt></ruby>れ', de:'kaputt gehen', role:'V + やすい'},
+    {jp:'<ruby>使<rt>つか</rt></ruby>い', de:'benutzen', role:'V + やすい'},
+    {jp:'<ruby>読<rt>よ</rt></ruby>み', de:'lesen', role:'V + やすい'},
+    {jp:'<ruby>食<rt>た</rt></ruby>べ', de:'essen', role:'V + にくい'},
+    {jp:'<ruby>分<rt>わ</rt></ruby>かり', de:'verstehen', role:'V + にくい'},
+    {jp:'<ruby>覚<rt>おぼ</rt></ruby>え', de:'sich merken', role:'V + にくい'},
+  ],
+
+  // === L45: ばあい / のに ===
+  'L45-0': [ // ばあいは
+    {jp:'<ruby>地震<rt>じしん</rt></ruby>の', de:'Erdbeben-', role:'Fall (Nomen)'},
+    {jp:'<ruby>火事<rt>かじ</rt></ruby>の', de:'Brand-', role:'Fall (Nomen)'},
+    {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>が <ruby>止<rt>と</rt></ruby>まった', de:'Zug stehengeblieben', role:'Fall (Verb)'},
+    {jp:'<ruby>熱<rt>ねつ</rt></ruby>がある', de:'Fieber haben', role:'Fall (Verb)'},
+    {jp:'すぐ <ruby>逃<rt>に</rt></ruby>げてください', de:'bitte sofort fliehen', role:'Anweisung'},
+    {jp:'<ruby>会社<rt>かいしゃ</rt></ruby>に <ruby>連絡<rt>れんらく</rt></ruby>してください', de:'bitte Firma kontaktieren', role:'Anweisung'},
+  ],
+  'L45-1': [ // のに (obwohl)
+    {jp:'<ruby>薬<rt>くすり</rt></ruby>を <ruby>飲<rt>の</rt></ruby>んだ', de:'Medizin genommen', role:'Obwohl'},
+    {jp:'たくさん <ruby>勉強<rt>べんきょう</rt></ruby>した', de:'viel gelernt', role:'Obwohl'},
+    {jp:'<ruby>約束<rt>やくそく</rt></ruby>した', de:'versprochen', role:'Obwohl'},
+    {jp:'まだ <ruby>治<rt>なお</rt></ruby>らない', de:'immer noch nicht geheilt', role:'Trotzdem'},
+    {jp:'テストに <ruby>落<rt>お</rt></ruby>ちた', de:'den Test nicht bestanden', role:'Trotzdem'},
+    {jp:'<ruby>来<rt>こ</rt></ruby>なかった', de:'nicht gekommen', role:'Trotzdem'},
+  ],
+
+  // === L46: ところ / ばかり / はず ===
+  'L46-0': [ // ところです
+    {jp:'<ruby>今<rt>いま</rt></ruby>から <ruby>食<rt>た</rt></ruby>べる', de:'gleich essen', role:'Vor (jisho+ところ)'},
+    {jp:'<ruby>今<rt>いま</rt></ruby> <ruby>食<rt>た</rt></ruby>べている', de:'gerade am Essen', role:'Während (ている+ところ)'},
+    {jp:'<ruby>今<rt>いま</rt></ruby> <ruby>食<rt>た</rt></ruby>べた', de:'gerade gegessen', role:'Nach (た+ところ)'},
+    {jp:'<ruby>出<rt>で</rt></ruby>かける', de:'gleich losgehen', role:'Vor (jisho+ところ)'},
+    {jp:'<ruby>帰<rt>かえ</rt></ruby>って <ruby>来<rt>き</rt></ruby>た', de:'gerade heimgekommen', role:'Nach (た+ところ)'},
+    {jp:'<ruby>会議<rt>かいぎ</rt></ruby>が <ruby>始<rt>はじ</rt></ruby>まった', de:'Meeting gerade angefangen', role:'Nach (た+ところ)'},
+  ],
+  'L46-2': [ // はずです
+    {jp:'もう <ruby>届<rt>とど</rt></ruby>いている', de:'müsste schon angekommen sein', role:'Erwartung'},
+    {jp:'ミラーさんは <ruby>知<rt>し</rt></ruby>っている', de:'Miller müsste es wissen', role:'Erwartung'},
+    {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>は <ruby>来<rt>く</rt></ruby>る', de:'der Zug müsste kommen', role:'Erwartung'},
+    {jp:'<ruby>予約<rt>よやく</rt></ruby>して ある', de:'müsste reserviert sein', role:'Erwartung'},
+    {jp:'3<ruby>時<rt>じ</rt></ruby>に <ruby>着<rt>つ</rt></ruby>く', de:'sollte um 3 ankommen', role:'Erwartung'},
+  ],
+
+  // === L47: そう Hörensagen / よう ===
+  'L47-0': [ // そうです (Hörensagen)
+    {jp:'ミラーさんは <ruby>来月<rt>らいげつ</rt></ruby> <ruby>国<rt>くに</rt></ruby>へ <ruby>帰<rt>かえ</rt></ruby>る', de:'Miller geht nächsten Monat heim', role:'Inhalt'},
+    {jp:'あの レストランは おいしい', de:'jenes Restaurant ist lecker', role:'Inhalt'},
+    {jp:'<ruby>来年<rt>らいねん</rt></ruby> <ruby>消費税<rt>しょうひぜい</rt></ruby>が <ruby>上<rt>あ</rt></ruby>がる', de:'nächstes Jahr steigt die MwSt', role:'Inhalt'},
+    {jp:'<ruby>田中<rt>たなか</rt></ruby>さんは <ruby>結婚<rt>けっこん</rt></ruby>した', de:'Tanaka hat geheiratet', role:'Inhalt'},
+    {jp:'<ruby>天気予報<rt>てんきよほう</rt></ruby>に よると', de:'laut Wetterbericht', role:'Quelle'},
+    {jp:'<ruby>新聞<rt>しんぶん</rt></ruby>に よると', de:'laut Zeitung', role:'Quelle'},
+  ],
+  'L47-1': [ // ようです
+    {jp:'<ruby>誰<rt>だれ</rt></ruby>か <ruby>来<rt>き</rt></ruby>た', de:'jemand ist gekommen', role:'Vermutung'},
+    {jp:'<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>っている', de:'es regnet', role:'Vermutung'},
+    {jp:'<ruby>彼<rt>かれ</rt></ruby>は <ruby>疲<rt>つか</rt></ruby>れている', de:'er ist müde', role:'Vermutung'},
+    {jp:'この ケーキは <ruby>手作<rt>てづく</rt></ruby>りだ', de:'Kuchen ist selbstgemacht', role:'Vermutung'},
+    {jp:'<ruby>音<rt>おと</rt></ruby>がする', de:'man hört ein Geräusch', role:'Beobachtung'},
+    {jp:'いい においがする', de:'es riecht gut', role:'Beobachtung'},
+  ],
+
+  // === L48: Kausativ ===
+  'L48-0': [ // Kausativ Bildung + Anwendung
+    {jp:'<ruby>子供<rt>こども</rt></ruby>に', de:'dem Kind', role:'Ausführender'},
+    {jp:'<ruby>部下<rt>ぶか</rt></ruby>に', de:'dem Untergebenen', role:'Ausführender'},
+    {jp:'<ruby>学生<rt>がくせい</rt></ruby>に', de:'dem Studenten', role:'Ausführender'},
+    {jp:'<ruby>野菜<rt>やさい</rt></ruby>を <ruby>食<rt>た</rt></ruby>べさせる', de:'Gemüse essen lassen', role:'Kausativ'},
+    {jp:'<ruby>掃除<rt>そうじ</rt></ruby>させる', de:'putzen lassen', role:'Kausativ'},
+    {jp:'<ruby>宿題<rt>しゅくだい</rt></ruby>を やらせる', de:'Hausaufgaben machen lassen', role:'Kausativ'},
+    {jp:'<ruby>残業<rt>ざんぎょう</rt></ruby>させる', de:'Überstunden machen lassen', role:'Kausativ'},
+    {jp:'<ruby>練習<rt>れんしゅう</rt></ruby>させる', de:'üben lassen', role:'Kausativ'},
+  ],
+  'L48-2': [ // V使役て ください (Erlaubnis erbitten)
+    {jp:'<ruby>休<rt>やす</rt></ruby>ませて ください', de:'Lass mich bitte ausruhen', role:'Erlaubnis'},
+    {jp:'やらせて ください', de:'Lass mich es versuchen', role:'Erlaubnis'},
+    {jp:'<ruby>行<rt>い</rt></ruby>かせて ください', de:'Lass mich bitte gehen', role:'Erlaubnis'},
+    {jp:'<ruby>手伝<rt>てつだ</rt></ruby>わせて ください', de:'Lass mich helfen', role:'Erlaubnis'},
+    {jp:'<ruby>考<rt>かんが</rt></ruby>えさせて ください', de:'Lass mich nachdenken', role:'Erlaubnis'},
+    {jp:'<ruby>説明<rt>せつめい</rt></ruby>させて ください', de:'Lass mich erklären', role:'Erlaubnis'},
+  ],
+
+  // === L49: Sonkeigo ===
+  'L49-0': [ // Spezialverben + お〜になる
+    {jp:'いらっしゃいます', de:'sein/gehen (respektvoll)', role:'Sonkeigo'},
+    {jp:'<ruby>召<rt>め</rt></ruby>し<ruby>上<rt>あ</rt></ruby>がります', de:'essen/trinken (respektvoll)', role:'Sonkeigo'},
+    {jp:'おっしゃいます', de:'sagen (respektvoll)', role:'Sonkeigo'},
+    {jp:'ご<ruby>覧<rt>らん</rt></ruby>に なります', de:'sehen (respektvoll)', role:'Sonkeigo'},
+    {jp:'お<ruby>休<rt>やす</rt></ruby>みに なります', de:'ausruhen (respektvoll)', role:'Sonkeigo'},
+    {jp:'<ruby>社長<rt>しゃちょう</rt></ruby>', de:'Firmenchef', role:'Person (Respekt)'},
+    {jp:'お<ruby>客<rt>きゃく</rt></ruby>さま', de:'Kunde', role:'Person (Respekt)'},
+    {jp:'<ruby>先生<rt>せんせい</rt></ruby>', de:'Lehrer / Respektperson', role:'Person (Respekt)'},
+  ],
+
+  // === L50: Kenjougo ===
+  'L50-0': [ // お〜します / いたします
+    {jp:'お<ruby>持<rt>も</rt></ruby>ちします', de:'ich trage (bescheiden)', role:'Kenjougo'},
+    {jp:'ご<ruby>案内<rt>あんない</rt></ruby>します', de:'ich führe herum (bescheiden)', role:'Kenjougo'},
+    {jp:'お<ruby>伝<rt>つた</rt></ruby>えします', de:'ich richte aus (bescheiden)', role:'Kenjougo'},
+    {jp:'お<ruby>送<rt>おく</rt></ruby>りします', de:'ich begleite (bescheiden)', role:'Kenjougo'},
+    {jp:'お<ruby>客<rt>きゃく</rt></ruby>さま', de:'Kunde', role:'Gesprächspartner'},
+    {jp:'<ruby>社長<rt>しゃちょう</rt></ruby>', de:'Firmenchef', role:'Gesprächspartner'},
+  ],
+  'L50-1': [ // Spezialverben Kenjougo
+    {jp:'まいります', de:'ich gehe/komme', role:'Kenjougo'},
+    {jp:'いたします', de:'ich tue', role:'Kenjougo'},
+    {jp:'いただきます', de:'ich esse/bekomme', role:'Kenjougo'},
+    {jp:'<ruby>申<rt>もう</rt></ruby>します', de:'ich sage', role:'Kenjougo'},
+    {jp:'<ruby>拝見<rt>はいけん</rt></ruby>します', de:'ich sehe an', role:'Kenjougo'},
+    {jp:'おります', de:'ich bin (da)', role:'Kenjougo'},
+    {jp:'<ruby>存<rt>ぞん</rt></ruby>じています', de:'ich weiß', role:'Kenjougo'},
+  ],
 };
 
 // Semantische Tags für Vokabeln — by German label.
