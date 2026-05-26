@@ -309,6 +309,15 @@
     line-height:1.2;
     box-shadow:0 1px 0 rgba(26,22,18,.1);
   }
+  .ex-word .ex-word-role{
+    display:block;
+    font-family:"JetBrains Mono",monospace;
+    font-size:.52rem;letter-spacing:.08em;
+    color:#8a1f17;
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:.05rem;
+  }
   .ex-word .ex-word-de{
     font-family:"Shippori Mincho",serif;
     font-size:.62rem;color:#6b5d4a;
@@ -2521,6 +2530,130 @@ function detectSlotNeeds(slots){
   };
 }
 
+/* ===================================================================
+   KURATIERTE ÜBUNGS-SETS PRO UNTERPUNKT (L26+)
+   Key: "L{N}-{idx}". Jedes Wort hat jp, de, role (Satzrolle).
+   Wenn vorhanden → nutzt renderExerciseBox diese statt des
+   generischen pickExerciseWords-Fallbacks.
+   =================================================================== */
+
+const EXERCISE_SETS = {
+  // === L26: んです (Erklärung) ===
+  'L26-0': [ // んです
+    {jp:'<ruby>風邪<rt>かぜ</rt></ruby>を <ruby>引<rt>ひ</rt></ruby>いた', de:'sich erkältet haben', role:'Grund'},
+    {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>が <ruby>遅<rt>おく</rt></ruby>れた', de:'Zug hatte Verspätung', role:'Grund'},
+    {jp:'<ruby>明日<rt>あした</rt></ruby> テストがある', de:'morgen einen Test haben', role:'Grund'},
+    {jp:'<ruby>来月<rt>らいげつ</rt></ruby> <ruby>結婚<rt>けっこん</rt></ruby>する', de:'nächsten Monat heiraten', role:'Grund'},
+    {jp:'お<ruby>腹<rt>なか</rt></ruby>が <ruby>痛<rt>いた</rt></ruby>い', de:'Bauchweh haben', role:'Grund'},
+    {jp:'<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>した', de:'umgezogen sein', role:'Grund'},
+    {jp:'<ruby>財布<rt>さいふ</rt></ruby>を なくした', de:'Geldbörse verloren', role:'Grund'},
+    {jp:'<ruby>道<rt>みち</rt></ruby>に <ruby>迷<rt>まよ</rt></ruby>った', de:'sich verlaufen haben', role:'Grund'},
+  ],
+  'L26-1': [ // どうして んですか
+    {jp:'<ruby>遅刻<rt>ちこく</rt></ruby>した', de:'sich verspätet', role:'Situation'},
+    {jp:'<ruby>休<rt>やす</rt></ruby>む', de:'fehlen / Pause machen', role:'Situation'},
+    {jp:'<ruby>泣<rt>な</rt></ruby>いている', de:'weinen', role:'Situation'},
+    {jp:'<ruby>笑<rt>わら</rt></ruby>っている', de:'lachen', role:'Situation'},
+    {jp:'<ruby>元気<rt>げんき</rt></ruby>がない', de:'nicht fit sein', role:'Situation'},
+    {jp:'<ruby>食<rt>た</rt></ruby>べない', de:'nicht essen', role:'Situation'},
+  ],
+  'L26-2': [ // て いただけませんか
+    {jp:'<ruby>説明<rt>せつめい</rt></ruby>する', de:'erklären', role:'Bitte'},
+    {jp:'<ruby>手伝<rt>てつだ</rt></ruby>う', de:'helfen', role:'Bitte'},
+    {jp:'<ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>る', de:'Foto machen', role:'Bitte'},
+    {jp:'ここに <ruby>名前<rt>なまえ</rt></ruby>を <ruby>書<rt>か</rt></ruby>く', de:'hier Namen schreiben', role:'Bitte'},
+    {jp:'もう <ruby>一度<rt>いちど</rt></ruby> <ruby>言<rt>い</rt></ruby>う', de:'noch einmal sagen', role:'Bitte'},
+    {jp:'<ruby>地図<rt>ちず</rt></ruby>を <ruby>描<rt>か</rt></ruby>く', de:'Karte zeichnen', role:'Bitte'},
+  ],
+  'L26-3': [ // 疑問詞 + V たら いいですか
+    {jp:'<ruby>何<rt>なに</rt></ruby>を する', de:'was tun', role:'W-Frage'},
+    {jp:'どこへ <ruby>行<rt>い</rt></ruby>く', de:'wohin gehen', role:'W-Frage'},
+    {jp:'<ruby>誰<rt>だれ</rt></ruby>に <ruby>聞<rt>き</rt></ruby>く', de:'wen fragen', role:'W-Frage'},
+    {jp:'どう やる', de:'wie machen', role:'W-Frage'},
+    {jp:'いつ <ruby>出<rt>で</rt></ruby>る', de:'wann losgehen', role:'W-Frage'},
+    {jp:'どの バスに <ruby>乗<rt>の</rt></ruby>る', de:'welchen Bus nehmen', role:'W-Frage'},
+  ],
+
+  // === L27: Potential ===
+  'L27-0': [ // Potential-Form Bildung
+    {jp:'<ruby>読<rt>よ</rt></ruby>む → <ruby>読<rt>よ</rt></ruby>める', de:'lesen → lesen können', role:'G1 Beispiel'},
+    {jp:'<ruby>泳<rt>およ</rt></ruby>ぐ → <ruby>泳<rt>およ</rt></ruby>げる', de:'schwimmen → können', role:'G1 Beispiel'},
+    {jp:'<ruby>話<rt>はな</rt></ruby>す → <ruby>話<rt>はな</rt></ruby>せる', de:'sprechen → können', role:'G1 Beispiel'},
+    {jp:'<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べられる', de:'essen → können', role:'G2 Beispiel'},
+    {jp:'する → できる', de:'tun → können', role:'G3 Beispiel'},
+    {jp:'<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>られる', de:'kommen → können', role:'G3 Beispiel'},
+    {jp:'<ruby>漢字<rt>かんじ</rt></ruby>', de:'Kanji', role:'Objekt'},
+    {jp:'<ruby>日本語<rt>にほんご</rt></ruby>', de:'Japanisch', role:'Objekt'},
+    {jp:'<ruby>自転車<rt>じてんしゃ</rt></ruby>', de:'Fahrrad', role:'Objekt'},
+  ],
+  'L27-1': [ // 見えます / 聞こえます
+    {jp:'<ruby>富士山<rt>ふじさん</rt></ruby>が <ruby>見<rt>み</rt></ruby>える', de:'Fuji sichtbar', role:'Visuell'},
+    {jp:'<ruby>海<rt>うみ</rt></ruby>が <ruby>見<rt>み</rt></ruby>える', de:'Meer sichtbar', role:'Visuell'},
+    {jp:'<ruby>星<rt>ほし</rt></ruby>が <ruby>見<rt>み</rt></ruby>える', de:'Sterne sichtbar', role:'Visuell'},
+    {jp:'<ruby>音楽<rt>おんがく</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえる', de:'Musik hörbar', role:'Auditiv'},
+    {jp:'<ruby>声<rt>こえ</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえる', de:'Stimme hörbar', role:'Auditiv'},
+    {jp:'<ruby>鳥<rt>とり</rt></ruby>の <ruby>声<rt>こえ</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえる', de:'Vogelstimme hörbar', role:'Auditiv'},
+  ],
+
+  // === L28: ながら / し ===
+  'L28-0': [ // ながら
+    {jp:'<ruby>音楽<rt>おんがく</rt></ruby>を <ruby>聞<rt>き</rt></ruby>く', de:'Musik hören', role:'Nebenhandlung'},
+    {jp:'コーヒーを <ruby>飲<rt>の</rt></ruby>む', de:'Kaffee trinken', role:'Nebenhandlung'},
+    {jp:'テレビを <ruby>見<rt>み</rt></ruby>る', de:'fernsehen', role:'Nebenhandlung'},
+    {jp:'<ruby>歩<rt>ある</rt></ruby>く', de:'gehen', role:'Nebenhandlung'},
+    {jp:'<ruby>勉強<rt>べんきょう</rt></ruby>する', de:'lernen', role:'Haupthandlung'},
+    {jp:'ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べる', de:'essen', role:'Haupthandlung'},
+    {jp:'<ruby>仕事<rt>しごと</rt></ruby>をする', de:'arbeiten', role:'Haupthandlung'},
+    {jp:'<ruby>話<rt>はな</rt></ruby>す', de:'reden', role:'Haupthandlung'},
+  ],
+  'L28-2': [ // し、し (Gründe aufzählen)
+    {jp:'<ruby>安<rt>やす</rt></ruby>い', de:'billig', role:'Grund 1'},
+    {jp:'おいしい', de:'lecker', role:'Grund 1'},
+    {jp:'<ruby>便利<rt>べんり</rt></ruby>', de:'praktisch', role:'Grund 1'},
+    {jp:'きれい', de:'schön', role:'Grund 2'},
+    {jp:'<ruby>近<rt>ちか</rt></ruby>い', de:'nah', role:'Grund 2'},
+    {jp:'<ruby>静<rt>しず</rt></ruby>か', de:'ruhig', role:'Grund 2'},
+    {jp:'あの レストラン', de:'jenes Restaurant', role:'Subjekt'},
+    {jp:'この <ruby>町<rt>まち</rt></ruby>', de:'diese Stadt', role:'Subjekt'},
+  ],
+
+  // === L29: ている (Zustand) / てしまう ===
+  'L29-0': [ // ている Zustand
+    {jp:'<ruby>窓<rt>まど</rt></ruby>が <ruby>開<rt>あ</rt></ruby>いている', de:'Fenster ist offen', role:'Zustand'},
+    {jp:'<ruby>電気<rt>でんき</rt></ruby>が <ruby>付<rt>つ</rt></ruby>いている', de:'Licht ist an', role:'Zustand'},
+    {jp:'ドアが <ruby>閉<rt>し</rt></ruby>まっている', de:'Tür ist geschlossen', role:'Zustand'},
+    {jp:'<ruby>椅子<rt>いす</rt></ruby>が <ruby>壊<rt>こわ</rt></ruby>れている', de:'Stuhl ist kaputt', role:'Zustand'},
+    {jp:'シャツが <ruby>汚<rt>よご</rt></ruby>れている', de:'Hemd ist schmutzig', role:'Zustand'},
+    {jp:'<ruby>時計<rt>とけい</rt></ruby>が <ruby>止<rt>と</rt></ruby>まっている', de:'Uhr steht still', role:'Zustand'},
+  ],
+  'L29-2': [ // てしまう
+    {jp:'<ruby>財布<rt>さいふ</rt></ruby>を なくして しまった', de:'Geldbörse leider verloren', role:'Bedauern'},
+    {jp:'<ruby>約束<rt>やくそく</rt></ruby>を <ruby>忘<rt>わす</rt></ruby>れて しまった', de:'Versprechen leider vergessen', role:'Bedauern'},
+    {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>に <ruby>乗<rt>の</rt></ruby>り<ruby>遅<rt>おく</rt></ruby>れて しまった', de:'Zug leider verpasst', role:'Bedauern'},
+    {jp:'ケーキを <ruby>全部<rt>ぜんぶ</rt></ruby> <ruby>食<rt>た</rt></ruby>べて しまった', de:'Kuchen komplett aufgegessen', role:'Vollständig'},
+    {jp:'<ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>んで しまった', de:'Buch fertig gelesen', role:'Vollständig'},
+    {jp:'<ruby>宿題<rt>しゅくだい</rt></ruby>を やって しまった', de:'Hausaufgabe erledigt', role:'Vollständig'},
+  ],
+
+  // === L30: てある / ておく ===
+  'L30-0': [ // てある (Zustand nach Vorbereitung)
+    {jp:'<ruby>窓<rt>まど</rt></ruby>が <ruby>開<rt>あ</rt></ruby>けて ある', de:'Fenster ist geöffnet (worden)', role:'Zustand'},
+    {jp:'エアコンが <ruby>付<rt>つ</rt></ruby>けて ある', de:'Klimaanlage ist eingeschaltet', role:'Zustand'},
+    {jp:'<ruby>花<rt>はな</rt></ruby>が <ruby>飾<rt>かざ</rt></ruby>って ある', de:'Blumen sind geschmückt', role:'Zustand'},
+    {jp:'ポスターが <ruby>貼<rt>は</rt></ruby>って ある', de:'Poster ist aufgehängt', role:'Zustand'},
+    {jp:'<ruby>予約<rt>よやく</rt></ruby>して ある', de:'ist reserviert', role:'Zustand'},
+    {jp:'<ruby>準備<rt>じゅんび</rt></ruby>して ある', de:'ist vorbereitet', role:'Zustand'},
+  ],
+  'L30-1': [ // ておく (im Voraus tun)
+    {jp:'ホテルを <ruby>予約<rt>よやく</rt></ruby>する', de:'Hotel reservieren', role:'Vorbereitung'},
+    {jp:'<ruby>資料<rt>しりょう</rt></ruby>を コピーする', de:'Unterlagen kopieren', role:'Vorbereitung'},
+    {jp:'<ruby>飛行機<rt>ひこうき</rt></ruby>のチケットを <ruby>買<rt>か</rt></ruby>う', de:'Flugticket kaufen', role:'Vorbereitung'},
+    {jp:'<ruby>地図<rt>ちず</rt></ruby>を <ruby>調<rt>しら</rt></ruby>べる', de:'Karte nachschauen', role:'Vorbereitung'},
+    {jp:'お<ruby>弁当<rt>べんとう</rt></ruby>を <ruby>作<rt>つく</rt></ruby>る', de:'Bentō vorbereiten', role:'Vorbereitung'},
+    {jp:'<ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に <ruby>入<rt>い</rt></ruby>れる', de:'in den Kühlschrank tun', role:'Vorbereitung'},
+  ],
+};
+
 // Semantische Tags für Vokabeln — by German label.
 // Damit Verb+Objekt-Paare in der Übung Sinn ergeben.
 const SEMANTIC_TAGS = {
@@ -2702,16 +2835,52 @@ function pickExerciseWords(lessonNum, slots){
 function renderExerciseBox(boxEl, lessonNum, idx){
   const c = MINNA_LESSONS.filter(x => x.l === lessonNum)[idx];
   if(!c){ boxEl.innerHTML = '<i>Keine Daten.</i>'; return; }
-  const words = pickExerciseWords(lessonNum, c.slots);
-  if(!words.length){
-    boxEl.innerHTML = '<div class="ex-help">Für diese Lektion sind noch keine Vokabeln zum Üben hinterlegt.</div>';
+
+  // Kuratiertes Set vorhanden?
+  const key = `L${lessonNum}-${idx}`;
+  const customSet = EXERCISE_SETS[key];
+
+  let words;
+  if(customSet && customSet.length > 0){
+    // Aus kuratiertem Set 4-6 Wörter ziehen (mit Rollen-Mix)
+    const shuffled = customSet.slice();
+    for(let i = shuffled.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    // Verschiedene Rollen möglichst abdecken
+    const roles = [...new Set(customSet.map(w => w.role))];
+    const picked = [];
+    roles.forEach(r => {
+      const ofRole = shuffled.filter(w => w.role === r && !picked.includes(w));
+      if(ofRole.length) picked.push(ofRole[0]);
+    });
+    // Auffüllen bis 5-6
+    const target = Math.min(5 + Math.floor(Math.random()*2), customSet.length);
+    for(const w of shuffled){
+      if(picked.length >= target) break;
+      if(!picked.includes(w)) picked.push(w);
+    }
+    // Mischen
+    for(let i = picked.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [picked[i], picked[j]] = [picked[j], picked[i]];
+    }
+    words = picked;
+  } else {
+    words = pickExerciseWords(lessonNum, c.slots);
+  }
+
+  if(!words || !words.length){
+    boxEl.innerHTML = '<div class="ex-help">Für diesen Unterpunkt sind noch keine Übungswörter hinterlegt.</div>';
     return;
   }
   boxEl.innerHTML = `
-    <div class="ex-help">🧠 Bilde mit diesen Wörtern einen Satz nach dem Muster oben. Versuch's erst im Kopf, dann vergleiche mit dem Lehrbuch-Beispiel.</div>
+    <div class="ex-help">🧠 Bilde mit diesen Bausteinen einen Satz nach dem Muster oben. Die Rolle zeigt dir, wohin jedes Wort gehört.</div>
     <div class="ex-word-pool">
       ${words.map(w => `
         <span class="ex-word">
+          ${w.role ? `<span class="ex-word-role">${w.role}</span>` : ''}
           <span>${w.jp}</span>
           <span class="ex-word-de">${w.de}</span>
         </span>
