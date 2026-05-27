@@ -653,6 +653,33 @@ const VOCAB_BY_LESSON = {
     {jp:'はい', de:'ja', t:'e'},
     {jp:'いいえ', de:'nein', t:'e'},
     {jp:'そう', de:'so / richtig', t:'e'},
+    // Weitere Berufe
+    {jp:'<ruby>弁護士<rt>べんごし</rt></ruby>', de:'Rechtsanwalt', t:'n'},
+    {jp:'<ruby>警察官<rt>けいさつかん</rt></ruby>', de:'Polizist', t:'n'},
+    {jp:'<ruby>記者<rt>きしゃ</rt></ruby>', de:'Reporter', t:'n'},
+    {jp:'<ruby>店員<rt>てんいん</rt></ruby>', de:'Verkäufer', t:'n'},
+    {jp:'<ruby>公務員<rt>こうむいん</rt></ruby>', de:'Beamter', t:'n'},
+    {jp:'<ruby>歯医者<rt>はいしゃ</rt></ruby>', de:'Zahnarzt', t:'n'},
+    {jp:'<ruby>建築家<rt>けんちくか</rt></ruby>', de:'Architekt', t:'n'},
+    {jp:'<ruby>運転手<rt>うんてんしゅ</rt></ruby>', de:'Fahrer', t:'n'},
+    {jp:'<ruby>料理人<rt>りょうりにん</rt></ruby>', de:'Koch', t:'n'},
+    // Weitere Nationalitäten
+    {jp:'オーストラリア<ruby>人<rt>じん</rt></ruby>', de:'Australier', t:'n'},
+    {jp:'インド<ruby>人<rt>じん</rt></ruby>', de:'Inder', t:'n'},
+    {jp:'タイ<ruby>人<rt>じん</rt></ruby>', de:'Thailänder', t:'n'},
+    {jp:'ブラジル<ruby>人<rt>じん</rt></ruby>', de:'Brasilianer', t:'n'},
+    // Institutionen
+    {jp:'<ruby>学校<rt>がっこう</rt></ruby>', de:'Schule', t:'n'},
+    {jp:'<ruby>図書館<rt>としょかん</rt></ruby>', de:'Bibliothek', t:'n'},
+    {jp:'<ruby>高校<rt>こうこう</rt></ruby>', de:'Oberschule', t:'n'},
+    // Alter
+    {jp:'<ruby>何歳<rt>なんさい</rt></ruby>', de:'wie alt?', t:'e'},
+    {jp:'〜<ruby>歳<rt>さい</rt></ruby>', de:'… Jahre alt', t:'num'},
+    // Nützliche Ausdrücke
+    {jp:'はじめまして', de:'freut mich (erste Begegnung)', t:'e'},
+    {jp:'どうぞ よろしく', de:'freut mich, Sie kennenzulernen', t:'e'},
+    {jp:'<ruby>失礼<rt>しつれい</rt></ruby>ですが', de:'entschuldigen Sie, aber …', t:'e'},
+    {jp:'お<ruby>名前<rt>なまえ</rt></ruby>は', de:'wie heißen Sie?', t:'e'},
   ],
   2: [
     {jp:'これ', de:'das hier (Sprecher-nah)', t:'dem'},
@@ -699,6 +726,23 @@ const VOCAB_BY_LESSON = {
     {jp:'<ruby>何<rt>なん</rt></ruby>ですか', de:'was ist das?', t:'e'},
     {jp:'すみません', de:'Entschuldigung', t:'e'},
     {jp:'ありがとう', de:'danke', t:'e'},
+    // Weitere Büro-/Alltagsgegenstände
+    {jp:'<ruby>定規<rt>じょうぎ</rt></ruby>', de:'Lineal', t:'n', tag:'thing'},
+    {jp:'ホッチキス', de:'Hefter', t:'n', tag:'thing'},
+    {jp:'セロテープ', de:'Klebeband', t:'n', tag:'thing'},
+    {jp:'<ruby>電話<rt>でんわ</rt></ruby>', de:'Telefon', t:'n', tag:'thing'},
+    {jp:'<ruby>写真<rt>しゃしん</rt></ruby>', de:'Foto', t:'n', tag:'thing visual'},
+    {jp:'チケット', de:'Ticket / Eintrittskarte', t:'n', tag:'thing'},
+    {jp:'<ruby>眼鏡<rt>めがね</rt></ruby>', de:'Brille', t:'n', tag:'thing'},
+    {jp:'<ruby>靴<rt>くつ</rt></ruby>', de:'Schuhe', t:'n', tag:'thing'},
+    {jp:'ハンカチ', de:'Taschentuch', t:'n', tag:'thing'},
+    {jp:'<ruby>教科書<rt>きょうかしょ</rt></ruby>', de:'Lehrbuch', t:'n', tag:'readable thing'},
+    // Materialien
+    {jp:'ガラス', de:'Glas (Material)', t:'n', tag:'thing'},
+    {jp:'プラスチック', de:'Plastik', t:'n', tag:'thing'},
+    // Herkunft / Zugehörigkeit
+    {jp:'<ruby>何<rt>なん</rt></ruby>の<ruby>本<rt>ほん</rt></ruby>', de:'was für ein Buch?', t:'e'},
+    {jp:'<ruby>誰<rt>だれ</rt></ruby>の', de:'wessen?', t:'e'},
   ],
   3: [
     {jp:'ここ', de:'hier', t:'dem'},
@@ -740,6 +784,27 @@ const VOCAB_BY_LESSON = {
     {jp:'<ruby>店<rt>みせ</rt></ruby>', de:'Laden', t:'n', tag:'place'},
     // Produkte
     {jp:'<ruby>製品<rt>せいひん</rt></ruby>', de:'Produkt / Ware', t:'n', tag:'thing'},
+    // Weitere Gebäude / Orte
+    {jp:'<ruby>郵便局<rt>ゆうびんきょく</rt></ruby>', de:'Postamt', t:'n', tag:'place'},
+    {jp:'<ruby>銀行<rt>ぎんこう</rt></ruby>', de:'Bank', t:'n', tag:'place'},
+    {jp:'<ruby>図書館<rt>としょかん</rt></ruby>', de:'Bibliothek', t:'n', tag:'place'},
+    {jp:'<ruby>美術館<rt>びじゅつかん</rt></ruby>', de:'Kunstmuseum', t:'n', tag:'place'},
+    {jp:'<ruby>公園<rt>こうえん</rt></ruby>', de:'Park', t:'n', tag:'place'},
+    {jp:'<ruby>病院<rt>びょういん</rt></ruby>', de:'Krankenhaus', t:'n', tag:'place'},
+    {jp:'<ruby>学校<rt>がっこう</rt></ruby>', de:'Schule', t:'n', tag:'place'},
+    {jp:'<ruby>大学<rt>だいがく</rt></ruby>', de:'Universität', t:'n', tag:'place'},
+    {jp:'ホテル', de:'Hotel', t:'n', tag:'place'},
+    {jp:'レストラン', de:'Restaurant', t:'n', tag:'place'},
+    {jp:'<ruby>喫茶店<rt>きっさてん</rt></ruby>', de:'Café', t:'n', tag:'place'},
+    {jp:'<ruby>本屋<rt>ほんや</rt></ruby>', de:'Buchhandlung', t:'n', tag:'place'},
+    {jp:'<ruby>花屋<rt>はなや</rt></ruby>', de:'Blumenladen', t:'n', tag:'place'},
+    {jp:'<ruby>映画館<rt>えいがかん</rt></ruby>', de:'Kino', t:'n', tag:'place'},
+    {jp:'<ruby>駐車場<rt>ちゅうしゃじょう</rt></ruby>', de:'Parkplatz', t:'n', tag:'place'},
+    // Etagen
+    {jp:'<ruby>三階<rt>さんがい</rt></ruby>', de:'3. Stock', t:'n', tag:'place'},
+    {jp:'<ruby>何階<rt>なんがい</rt></ruby>', de:'welcher Stock?', t:'e'},
+    // Länderwörter
+    {jp:'<ruby>売<rt>う</rt></ruby>り<ruby>場<rt>ば</rt></ruby>', de:'Verkaufsabteilung', t:'n', tag:'place'},
   ],
   4: [
     {jp:'<ruby>今<rt>いま</rt></ruby>', de:'jetzt', t:'n', tag:'time'},
@@ -780,6 +845,32 @@ const VOCAB_BY_LESSON = {
     {jp:'<ruby>勉強<rt>べんきょう</rt></ruby>します', de:'lernen / studieren', t:'v'},
     {jp:'<ruby>始<rt>はじ</rt></ruby>まります', de:'beginnen', t:'v'},
     {jp:'<ruby>終<rt>お</rt></ruby>わります', de:'enden', t:'v'},
+    // Weitere Uhrzeiten
+    {jp:'<ruby>一時<rt>いちじ</rt></ruby>', de:'1 Uhr', t:'n', tag:'time'},
+    {jp:'<ruby>二時<rt>にじ</rt></ruby>', de:'2 Uhr', t:'n', tag:'time'},
+    {jp:'<ruby>三時<rt>さんじ</rt></ruby>', de:'3 Uhr', t:'n', tag:'time'},
+    {jp:'<ruby>四時<rt>よじ</rt></ruby>', de:'4 Uhr', t:'n', tag:'time'},
+    {jp:'<ruby>五時<rt>ごじ</rt></ruby>', de:'5 Uhr', t:'n', tag:'time'},
+    {jp:'<ruby>六時<rt>ろくじ</rt></ruby>', de:'6 Uhr', t:'n', tag:'time'},
+    {jp:'<ruby>七時<rt>しちじ</rt></ruby>', de:'7 Uhr', t:'n', tag:'time'},
+    {jp:'<ruby>八時<rt>はちじ</rt></ruby>', de:'8 Uhr', t:'n', tag:'time'},
+    {jp:'<ruby>九時<rt>くじ</rt></ruby>', de:'9 Uhr', t:'n', tag:'time'},
+    {jp:'<ruby>十時<rt>じゅうじ</rt></ruby>', de:'10 Uhr', t:'n', tag:'time'},
+    {jp:'<ruby>十一時<rt>じゅういちじ</rt></ruby>', de:'11 Uhr', t:'n', tag:'time'},
+    {jp:'<ruby>十二時<rt>じゅうにじ</rt></ruby>', de:'12 Uhr', t:'n', tag:'time'},
+    // Weitere Tagesablauf-Verben
+    {jp:'<ruby>食<rt>た</rt></ruby>べます', de:'essen', t:'v'},
+    {jp:'<ruby>飲<rt>の</rt></ruby>みます', de:'trinken', t:'v'},
+    {jp:'<ruby>見<rt>み</rt></ruby>ます', de:'sehen / anschauen', t:'v'},
+    {jp:'<ruby>読<rt>よ</rt></ruby>みます', de:'lesen', t:'v'},
+    {jp:'<ruby>帰<rt>かえ</rt></ruby>ります', de:'nach Hause gehen', t:'v'},
+    // Zeitadverbien
+    {jp:'<ruby>来週<rt>らいしゅう</rt></ruby>', de:'nächste Woche', t:'n', tag:'time'},
+    {jp:'<ruby>先週<rt>せんしゅう</rt></ruby>', de:'letzte Woche', t:'n', tag:'time'},
+    {jp:'<ruby>今週<rt>こんしゅう</rt></ruby>', de:'diese Woche', t:'n', tag:'time'},
+    {jp:'<ruby>週末<rt>しゅうまつ</rt></ruby>', de:'Wochenende', t:'n', tag:'time'},
+    {jp:'<ruby>休<rt>やす</rt></ruby>み', de:'Pause / freier Tag', t:'n', tag:'time'},
+    {jp:'<ruby>昼休<rt>ひるやす</rt></ruby>み', de:'Mittagspause', t:'n', tag:'time'},
   ],
   5: [
     // Bewegungsverben
@@ -816,6 +907,35 @@ const VOCAB_BY_LESSON = {
     // Partikeln/Hilfen
     {jp:'いつ', de:'wann?', t:'e'},
     {jp:'<ruby>誕生日<rt>たんじょうび</rt></ruby>', de:'Geburtstag', t:'n', tag:'time'},
+    // Weitere Länder
+    {jp:'フランス', de:'Frankreich', t:'n', tag:'place'},
+    {jp:'イギリス', de:'England', t:'n', tag:'place'},
+    {jp:'<ruby>韓国<rt>かんこく</rt></ruby>', de:'Südkorea', t:'n', tag:'place'},
+    {jp:'オーストラリア', de:'Australien', t:'n', tag:'place'},
+    {jp:'インド', de:'Indien', t:'n', tag:'place'},
+    {jp:'タイ', de:'Thailand', t:'n', tag:'place'},
+    {jp:'ブラジル', de:'Brasilien', t:'n', tag:'place'},
+    {jp:'エジプト', de:'Ägypten', t:'n', tag:'place'},
+    // Weitere Orte
+    {jp:'<ruby>学校<rt>がっこう</rt></ruby>', de:'Schule', t:'n', tag:'place'},
+    {jp:'<ruby>公園<rt>こうえん</rt></ruby>', de:'Park', t:'n', tag:'place'},
+    {jp:'<ruby>美術館<rt>びじゅつかん</rt></ruby>', de:'Kunstmuseum', t:'n', tag:'place'},
+    {jp:'<ruby>図書館<rt>としょかん</rt></ruby>', de:'Bibliothek', t:'n', tag:'place'},
+    {jp:'<ruby>映画館<rt>えいがかん</rt></ruby>', de:'Kino', t:'n', tag:'place'},
+    {jp:'ホテル', de:'Hotel', t:'n', tag:'place'},
+    // Partikeln für Bewegung
+    {jp:'で', de:'mit (Mittel)', t:'e'},
+    {jp:'に/へ', de:'nach / zu (Richtung)', t:'e'},
+    // Zeitausdrücke
+    {jp:'<ruby>来月<rt>らいげつ</rt></ruby>', de:'nächsten Monat', t:'n', tag:'time'},
+    {jp:'<ruby>先月<rt>せんげつ</rt></ruby>', de:'letzten Monat', t:'n', tag:'time'},
+    {jp:'<ruby>来年<rt>らいねん</rt></ruby>', de:'nächstes Jahr', t:'n', tag:'time'},
+    {jp:'<ruby>去年<rt>きょねん</rt></ruby>', de:'letztes Jahr', t:'n', tag:'time'},
+    {jp:'<ruby>今年<rt>ことし</rt></ruby>', de:'dieses Jahr', t:'n', tag:'time'},
+    // Nützliche Ausdrücke
+    {jp:'<ruby>一人<rt>ひとり</rt></ruby>で', de:'allein', t:'e'},
+    {jp:'よく', de:'oft', t:'e'},
+    {jp:'ときどき', de:'manchmal', t:'e'},
   ],
   6: [
     // Transitive Verben
@@ -879,6 +999,25 @@ const VOCAB_BY_LESSON = {
     // Partikel-Hilfen
     {jp:'<ruby>一緒<rt>いっしょ</rt></ruby>に', de:'zusammen', t:'e'},
     {jp:'<ruby>何<rt>なに</rt></ruby>', de:'was?', t:'e'},
+    // Weitere Speisen
+    {jp:'そば', de:'Soba (Buchweizennudeln)', t:'n', tag:'food'},
+    {jp:'<ruby>天<rt>てん</rt></ruby>ぷら', de:'Tempura', t:'n', tag:'food'},
+    {jp:'サラダ', de:'Salat', t:'n', tag:'food'},
+    {jp:'サンドイッチ', de:'Sandwich', t:'n', tag:'food'},
+    {jp:'ケーキ', de:'Kuchen', t:'n', tag:'food'},
+    {jp:'アイスクリーム', de:'Eiscreme', t:'n', tag:'food'},
+    {jp:'<ruby>刺身<rt>さしみ</rt></ruby>', de:'Sashimi', t:'n', tag:'food'},
+    // Weitere Getränke
+    {jp:'コーラ', de:'Cola', t:'n', tag:'drink'},
+    // Weitere Aktivitäten
+    {jp:'サッカー', de:'Fußball', t:'n', tag:'activity'},
+    {jp:'テニス', de:'Tennis', t:'n', tag:'activity'},
+    {jp:'<ruby>花見<rt>はなみ</rt></ruby>', de:'Kirschblütenschauen', t:'n', tag:'activity'},
+    {jp:'パーティー', de:'Party', t:'n', tag:'activity'},
+    // Orte für Aktivitäten
+    {jp:'<ruby>公園<rt>こうえん</rt></ruby>', de:'Park', t:'n', tag:'place'},
+    {jp:'<ruby>喫茶店<rt>きっさてん</rt></ruby>', de:'Café', t:'n', tag:'place'},
+    {jp:'レストラン', de:'Restaurant', t:'n', tag:'place'},
   ],
   7: [
     // Geben/Bekommen
@@ -919,6 +1058,34 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'もう', de:'schon', t:'e'},
     {jp:'まだ', de:'noch (nicht)', t:'e'},
+    // Weitere Familienmitglieder
+    {jp:'<ruby>弟<rt>おとうと</rt></ruby>', de:'jüngerer Bruder', t:'n', tag:'person'},
+    {jp:'<ruby>妹<rt>いもうと</rt></ruby>', de:'jüngere Schwester', t:'n', tag:'person'},
+    {jp:'お<ruby>兄<rt>にい</rt></ruby>さん', de:'älterer Bruder (höflich)', t:'n', tag:'person'},
+    {jp:'お<ruby>姉<rt>ねえ</rt></ruby>さん', de:'ältere Schwester (höflich)', t:'n', tag:'person'},
+    {jp:'<ruby>祖父<rt>そふ</rt></ruby>', de:'Großvater', t:'n', tag:'person'},
+    {jp:'<ruby>祖母<rt>そぼ</rt></ruby>', de:'Großmutter', t:'n', tag:'person'},
+    {jp:'おじいさん', de:'Großvater (höflich)', t:'n', tag:'person'},
+    {jp:'おばあさん', de:'Großmutter (höflich)', t:'n', tag:'person'},
+    {jp:'<ruby>主人<rt>しゅじん</rt></ruby>', de:'Ehemann (eigener)', t:'n', tag:'person'},
+    {jp:'<ruby>奥<rt>おく</rt></ruby>さん', de:'Ehefrau (andere)', t:'n', tag:'person'},
+    {jp:'ご<ruby>主人<rt>しゅじん</rt></ruby>', de:'Ehemann (anderer, höflich)', t:'n', tag:'person'},
+    // Weitere Personen
+    {jp:'<ruby>彼氏<rt>かれし</rt></ruby>', de:'Freund (Partner)', t:'n', tag:'person'},
+    {jp:'<ruby>彼女<rt>かのじょ</rt></ruby>', de:'Freundin (Partnerin)', t:'n', tag:'person'},
+    {jp:'<ruby>上司<rt>じょうし</rt></ruby>', de:'Vorgesetzter', t:'n', tag:'person'},
+    {jp:'<ruby>同僚<rt>どうりょう</rt></ruby>', de:'Kollege', t:'n', tag:'person'},
+    // Weitere Sprachen
+    {jp:'フランス<ruby>語<rt>ご</rt></ruby>', de:'Französisch', t:'n', tag:'language'},
+    {jp:'<ruby>韓国語<rt>かんこくご</rt></ruby>', de:'Koreanisch', t:'n', tag:'language'},
+    {jp:'スペイン<ruby>語<rt>ご</rt></ruby>', de:'Spanisch', t:'n', tag:'language'},
+    // Weitere Geschenke
+    {jp:'ネクタイ', de:'Krawatte', t:'n', tag:'thing'},
+    {jp:'<ruby>時計<rt>とけい</rt></ruby>', de:'Uhr (Geschenk)', t:'n', tag:'thing'},
+    {jp:'<ruby>本<rt>ほん</rt></ruby>', de:'Buch (Geschenk)', t:'n', tag:'readable thing'},
+    // Verben
+    {jp:'かけます', de:'telefonieren', t:'v'},
+    {jp:'<ruby>届<rt>とど</rt></ruby>けます', de:'liefern / zustellen', t:'v'},
   ],
   8: [
     // i-Adjektive (Größe / Alter / Qualität)
@@ -989,6 +1156,26 @@ const VOCAB_BY_LESSON = {
     {jp:'ちょっと', de:'ein wenig', t:'e'},
     {jp:'<ruby>少<rt>すこ</rt></ruby>し', de:'ein wenig (förmlich)', t:'e'},
     {jp:'<ruby>本当<rt>ほんとう</rt></ruby>に', de:'wirklich', t:'e'},
+    // Weitere i-Adjektive
+    {jp:'<ruby>重<rt>おも</rt></ruby>い', de:'schwer', t:'i'},
+    {jp:'<ruby>軽<rt>かる</rt></ruby>い', de:'leicht (Gewicht)', t:'i'},
+    {jp:'<ruby>丸<rt>まる</rt></ruby>い', de:'rund', t:'i'},
+    {jp:'うるさい', de:'laut / lästig', t:'i'},
+    {jp:'<ruby>危<rt>あぶ</rt></ruby>ない', de:'gefährlich', t:'i'},
+    {jp:'<ruby>近<rt>ちか</rt></ruby>い', de:'nah', t:'i'},
+    {jp:'<ruby>遠<rt>とお</rt></ruby>い', de:'weit / fern', t:'i'},
+    {jp:'<ruby>若<rt>わか</rt></ruby>い', de:'jung', t:'i'},
+    {jp:'<ruby>優<rt>やさ</rt></ruby>しい', de:'freundlich / sanft', t:'i'},
+    {jp:'<ruby>厳<rt>きび</rt></ruby>しい', de:'streng', t:'i'},
+    // Weitere na-Adjektive
+    {jp:'<ruby>安全<rt>あんぜん</rt></ruby>', de:'sicher', t:'na'},
+    {jp:'<ruby>複雑<rt>ふくざつ</rt></ruby>', de:'kompliziert', t:'na'},
+    {jp:'<ruby>特別<rt>とくべつ</rt></ruby>', de:'besonders', t:'na'},
+    {jp:'<ruby>丈夫<rt>じょうぶ</rt></ruby>', de:'robust / haltbar', t:'na'},
+    // Weitere beschreibbare Nomen
+    {jp:'<ruby>天気<rt>てんき</rt></ruby>', de:'Wetter', t:'n'},
+    {jp:'<ruby>生活<rt>せいかつ</rt></ruby>', de:'Leben / Alltag', t:'n', tag:'activity'},
+    {jp:'<ruby>桜<rt>さくら</rt></ruby>', de:'Kirschblüte', t:'n', tag:'thing photo_subject'},
   ],
   9: [
     // na-Adjektive für が
@@ -1030,6 +1217,34 @@ const VOCAB_BY_LESSON = {
     {jp:'どうして', de:'warum?', t:'e'},
     {jp:'だから', de:'deshalb', t:'e'},
     {jp:'それで', de:'und deshalb', t:'e'},
+    // Weitere Hobbys / Aktivitäten
+    {jp:'ゲーム', de:'Videospiel', t:'n', tag:'activity'},
+    {jp:'<ruby>読書<rt>どくしょ</rt></ruby>', de:'Lesen (Hobby)', t:'n', tag:'activity'},
+    {jp:'ハイキング', de:'Wandern', t:'n', tag:'activity'},
+    {jp:'<ruby>園芸<rt>えんげい</rt></ruby>', de:'Gärtnern', t:'n', tag:'activity'},
+    {jp:'ジョギング', de:'Joggen', t:'n', tag:'activity'},
+    {jp:'サッカー', de:'Fußball', t:'n', tag:'activity'},
+    {jp:'<ruby>野球<rt>やきゅう</rt></ruby>', de:'Baseball', t:'n', tag:'activity'},
+    {jp:'テニス', de:'Tennis', t:'n', tag:'activity'},
+    {jp:'<ruby>水泳<rt>すいえい</rt></ruby>', de:'Schwimmen', t:'n', tag:'activity'},
+    {jp:'ドライブ', de:'Autofahrt (Hobby)', t:'n', tag:'activity'},
+    {jp:'ヨガ', de:'Yoga', t:'n', tag:'activity'},
+    // Instrumente / Kunst
+    {jp:'ピアノ', de:'Klavier', t:'n', tag:'instrument'},
+    {jp:'ギター', de:'Gitarre', t:'n', tag:'instrument'},
+    {jp:'バイオリン', de:'Violine', t:'n', tag:'instrument'},
+    // Weitere Essen/Trinken (Vorlieben)
+    {jp:'<ruby>刺身<rt>さしみ</rt></ruby>', de:'Sashimi', t:'n', tag:'food'},
+    {jp:'<ruby>天<rt>てん</rt></ruby>ぷら', de:'Tempura', t:'n', tag:'food'},
+    {jp:'ケーキ', de:'Kuchen', t:'n', tag:'food'},
+    {jp:'アイスクリーム', de:'Eiscreme', t:'n', tag:'food'},
+    {jp:'ビール', de:'Bier', t:'n', tag:'drink'},
+    {jp:'ワイン', de:'Wein', t:'n', tag:'drink'},
+    // Ausdrücke
+    {jp:'<ruby>大好<rt>だいす</rt></ruby>き', de:'sehr gern mögen', t:'na'},
+    {jp:'<ruby>大嫌<rt>だいきら</rt></ruby>い', de:'gar nicht mögen', t:'na'},
+    {jp:'よく', de:'gut / oft', t:'e'},
+    {jp:'だいたい', de:'ungefähr / meistens', t:'e'},
   ],
   10: [
     // Existenz-Verben
@@ -1075,6 +1290,36 @@ const VOCAB_BY_LESSON = {
     // Mengen
     {jp:'たくさん', de:'viel', t:'e'},
     {jp:'<ruby>少<rt>すこ</rt></ruby>し', de:'wenig', t:'e'},
+    // Weitere Tiere
+    {jp:'うさぎ', de:'Kaninchen', t:'n', tag:'animal'},
+    {jp:'<ruby>象<rt>ぞう</rt></ruby>', de:'Elefant', t:'n', tag:'animal'},
+    {jp:'<ruby>牛<rt>うし</rt></ruby>', de:'Rind / Kuh', t:'n', tag:'animal'},
+    {jp:'<ruby>豚<rt>ぶた</rt></ruby>', de:'Schwein', t:'n', tag:'animal'},
+    {jp:'<ruby>羊<rt>ひつじ</rt></ruby>', de:'Schaf', t:'n', tag:'animal'},
+    {jp:'<ruby>猿<rt>さる</rt></ruby>', de:'Affe', t:'n', tag:'animal'},
+    {jp:'<ruby>虫<rt>むし</rt></ruby>', de:'Insekt', t:'n', tag:'animal'},
+    // Weitere Möbel / Haushalt
+    {jp:'<ruby>棚<rt>たな</rt></ruby>', de:'Regal', t:'n', tag:'thing'},
+    {jp:'<ruby>箱<rt>はこ</rt></ruby>', de:'Schachtel / Kiste', t:'n', tag:'thing'},
+    {jp:'カーテン', de:'Vorhang', t:'n', tag:'thing'},
+    {jp:'<ruby>壁<rt>かべ</rt></ruby>', de:'Wand', t:'n', tag:'thing'},
+    {jp:'<ruby>床<rt>ゆか</rt></ruby>', de:'Boden / Fußboden', t:'n', tag:'thing'},
+    {jp:'カレンダー', de:'Kalender', t:'n', tag:'thing'},
+    {jp:'<ruby>時計<rt>とけい</rt></ruby>', de:'Uhr (Wand-)', t:'n', tag:'thing'},
+    {jp:'<ruby>電気<rt>でんき</rt></ruby>', de:'Licht / Strom', t:'n', tag:'thing'},
+    {jp:'エアコン', de:'Klimaanlage', t:'n', tag:'thing'},
+    {jp:'<ruby>花瓶<rt>かびん</rt></ruby>', de:'Blumenvase', t:'n', tag:'thing'},
+    {jp:'ポスター', de:'Poster', t:'n', tag:'thing visual'},
+    // Weitere Positionswörter
+    {jp:'<ruby>右<rt>みぎ</rt></ruby>', de:'rechts', t:'n', tag:'position direction'},
+    {jp:'<ruby>左<rt>ひだり</rt></ruby>', de:'links', t:'n', tag:'position direction'},
+    // Weitere Orte
+    {jp:'<ruby>庭<rt>にわ</rt></ruby>', de:'Garten', t:'n', tag:'place'},
+    {jp:'<ruby>台所<rt>だいどころ</rt></ruby>', de:'Küche', t:'n', tag:'place'},
+    {jp:'<ruby>玄関<rt>げんかん</rt></ruby>', de:'Eingangsbereich', t:'n', tag:'place'},
+    // Nützliche Ausdrücke
+    {jp:'<ruby>何<rt>なに</rt></ruby>も', de:'nichts (mit Verneinung)', t:'e'},
+    {jp:'<ruby>誰<rt>だれ</rt></ruby>も', de:'niemand (mit Verneinung)', t:'e'},
   ],
   11: [
     // 〜つ-Zähler
@@ -1112,6 +1357,50 @@ const VOCAB_BY_LESSON = {
     {jp:'<ruby>両親<rt>りょうしん</rt></ruby>', de:'Eltern', t:'n', tag:'person'},
     {jp:'<ruby>子供<rt>こども</rt></ruby>', de:'Kind(er)', t:'n', tag:'person'},
     {jp:'<ruby>外国<rt>がいこく</rt></ruby>', de:'Ausland', t:'n', tag:'place'},
+    // Dauer
+    {jp:'<ruby>一<rt>いっ</rt></ruby>か<ruby>月<rt>げつ</rt></ruby>', de:'1 Monat', t:'num'},
+    {jp:'<ruby>二<rt>に</rt></ruby>か<ruby>月<rt>げつ</rt></ruby>', de:'2 Monate', t:'num'},
+    {jp:'<ruby>三<rt>さん</rt></ruby>か<ruby>月<rt>げつ</rt></ruby>', de:'3 Monate', t:'num'},
+    {jp:'<ruby>一<rt>いち</rt></ruby><ruby>年<rt>ねん</rt></ruby>', de:'1 Jahr', t:'num'},
+    {jp:'<ruby>一<rt>いっ</rt></ruby><ruby>週間<rt>しゅうかん</rt></ruby>', de:'1 Woche', t:'num'},
+    {jp:'<ruby>一日<rt>いちにち</rt></ruby>', de:'1 Tag', t:'num'},
+    {jp:'<ruby>何<rt>なん</rt></ruby>か<ruby>月<rt>げつ</rt></ruby>', de:'wie viele Monate?', t:'e'},
+    // Häufigkeit/Dauer
+    {jp:'<ruby>毎週<rt>まいしゅう</rt></ruby>', de:'jede Woche', t:'n', tag:'time'},
+    {jp:'<ruby>毎月<rt>まいつき</rt></ruby>', de:'jeden Monat', t:'n', tag:'time'},
+    {jp:'<ruby>毎年<rt>まいとし</rt></ruby>', de:'jedes Jahr', t:'n', tag:'time'},
+    // Weitere Zähler
+    {jp:'<ruby>二枚<rt>にまい</rt></ruby>', de:'2 (flach)', t:'num'},
+    {jp:'<ruby>三本<rt>さんぼん</rt></ruby>', de:'3 (länglich)', t:'num'},
+    {jp:'<ruby>二冊<rt>にさつ</rt></ruby>', de:'2 (Bücher)', t:'num'},
+    {jp:'<ruby>二台<rt>にだい</rt></ruby>', de:'2 (Geräte)', t:'num'},
+    {jp:'<ruby>二匹<rt>にひき</rt></ruby>', de:'2 (kl. Tiere)', t:'num'},
+    {jp:'<ruby>何枚<rt>なんまい</rt></ruby>', de:'wie viele (flach)?', t:'e'},
+    {jp:'<ruby>何本<rt>なんぼん</rt></ruby>', de:'wie viele (länglich)?', t:'e'},
+    {jp:'<ruby>何冊<rt>なんさつ</rt></ruby>', de:'wie viele (Bücher)?', t:'e'},
+    // Weitere Familienausdrücke
+    {jp:'<ruby>姉妹<rt>しまい</rt></ruby>', de:'Schwestern', t:'n', tag:'person'},
+    {jp:'おじ', de:'Onkel', t:'n', tag:'person'},
+    {jp:'おば', de:'Tante', t:'n', tag:'person'},
+    {jp:'いとこ', de:'Cousin/Cousine', t:'n', tag:'person'},
+    // Verben zum Zählen
+    {jp:'<ruby>送<rt>おく</rt></ruby>ります', de:'schicken', t:'v'},
+    {jp:'もらいます', de:'bekommen', t:'v'},
+    {jp:'<ruby>切<rt>き</rt></ruby>ります', de:'schneiden', t:'v'},
+    {jp:'<ruby>半年<rt>はんとし</rt></ruby>', de:'ein halbes Jahr', t:'num'},
+    // Weitere Familie
+    {jp:'<ruby>父<rt>ちち</rt></ruby>', de:'(mein) Vater', t:'n', tag:'person'},
+    {jp:'<ruby>母<rt>はは</rt></ruby>', de:'(meine) Mutter', t:'n', tag:'person'},
+    {jp:'<ruby>兄<rt>あに</rt></ruby>', de:'(mein) älterer Bruder', t:'n', tag:'person'},
+    {jp:'<ruby>姉<rt>あね</rt></ruby>', de:'(meine) ältere Schwester', t:'n', tag:'person'},
+    {jp:'<ruby>弟<rt>おとうと</rt></ruby>', de:'(mein) jüngerer Bruder', t:'n', tag:'person'},
+    {jp:'<ruby>妹<rt>いもうと</rt></ruby>', de:'(meine) jüngere Schwester', t:'n', tag:'person'},
+    {jp:'<ruby>祖父<rt>そふ</rt></ruby>', de:'(mein) Großvater', t:'n', tag:'person'},
+    {jp:'<ruby>祖母<rt>そぼ</rt></ruby>', de:'(meine) Großmutter', t:'n', tag:'person'},
+    // Sonstiges L11
+    {jp:'いくつ', de:'wie viele?', t:'e'},
+    {jp:'だけ', de:'nur', t:'e'},
+    {jp:'かかります', de:'dauern / kosten', t:'v'},
   ],
   12: [
     // Jahreszeiten
@@ -1148,6 +1437,52 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'やっぱり', de:'wie erwartet', t:'e'},
     {jp:'もちろん', de:'natürlich', t:'e'},
+    // Vergleichbare Sportarten
+    {jp:'サッカー', de:'Fußball', t:'n', tag:'activity'},
+    {jp:'<ruby>野球<rt>やきゅう</rt></ruby>', de:'Baseball', t:'n', tag:'activity'},
+    {jp:'テニス', de:'Tennis', t:'n', tag:'activity'},
+    {jp:'バスケットボール', de:'Basketball', t:'n', tag:'activity'},
+    // Vergleichbare Länder
+    {jp:'タイ', de:'Thailand', t:'n', tag:'place'},
+    {jp:'インド', de:'Indien', t:'n', tag:'place'},
+    {jp:'ブラジル', de:'Brasilien', t:'n', tag:'place'},
+    // Vergleichbare Städte
+    {jp:'<ruby>名古屋<rt>なごや</rt></ruby>', de:'Nagoya', t:'n', tag:'place'},
+    {jp:'<ruby>神戸<rt>こうべ</rt></ruby>', de:'Kobe', t:'n', tag:'place'},
+    {jp:'<ruby>横浜<rt>よこはま</rt></ruby>', de:'Yokohama', t:'n', tag:'place'},
+    // Vergleich-Adj
+    {jp:'<ruby>速<rt>はや</rt></ruby>い', de:'schnell', t:'i'},
+    {jp:'<ruby>遅<rt>おそ</rt></ruby>い', de:'langsam', t:'i'},
+    {jp:'<ruby>近<rt>ちか</rt></ruby>い', de:'nah', t:'i'},
+    {jp:'<ruby>遠<rt>とお</rt></ruby>い', de:'weit', t:'i'},
+    {jp:'<ruby>多<rt>おお</rt></ruby>い', de:'viel', t:'i'},
+    {jp:'<ruby>少<rt>すく</rt></ruby>ない', de:'wenig', t:'i'},
+    {jp:'<ruby>人気<rt>にんき</rt></ruby>', de:'beliebt', t:'na'},
+    // Monate
+    {jp:'<ruby>一月<rt>いちがつ</rt></ruby>', de:'Januar', t:'n', tag:'time'},
+    {jp:'<ruby>四月<rt>しがつ</rt></ruby>', de:'April', t:'n', tag:'time'},
+    {jp:'<ruby>七月<rt>しちがつ</rt></ruby>', de:'Juli', t:'n', tag:'time'},
+    {jp:'<ruby>十二月<rt>じゅうにがつ</rt></ruby>', de:'Dezember', t:'n', tag:'time'},
+    {jp:'<ruby>何月<rt>なんがつ</rt></ruby>', de:'welcher Monat?', t:'e'},
+    // Weitere Wetter-Vokabeln
+    {jp:'<ruby>気温<rt>きおん</rt></ruby>', de:'Temperatur', t:'n'},
+    {jp:'<ruby>梅雨<rt>つゆ</rt></ruby>', de:'Regenzeit', t:'n', tag:'time'},
+    {jp:'<ruby>湿度<rt>しつど</rt></ruby>', de:'Luftfeuchtigkeit', t:'n'},
+    {jp:'<ruby>天気予報<rt>てんきよほう</rt></ruby>', de:'Wetterbericht', t:'n', tag:'audible'},
+    {jp:'<ruby>蒸<rt>む</rt></ruby>し<ruby>暑<rt>あつ</rt></ruby>い', de:'schwül', t:'i'},
+    // Vergleichbare Nomen
+    {jp:'<ruby>生活<rt>せいかつ</rt></ruby>', de:'Leben / Alltag', t:'n'},
+    {jp:'<ruby>物価<rt>ぶっか</rt></ruby>', de:'Lebenshaltungskosten', t:'n'},
+    {jp:'<ruby>人口<rt>じんこう</rt></ruby>', de:'Bevölkerung', t:'n'},
+    {jp:'<ruby>交通<rt>こうつう</rt></ruby>', de:'Verkehr', t:'n'},
+    // Sportarten (für Vergleiche)
+    {jp:'バレーボール', de:'Volleyball', t:'n', tag:'activity'},
+    {jp:'ゴルフ', de:'Golf', t:'n', tag:'activity'},
+    // Länder (für Vergleiche)
+    {jp:'スイス', de:'Schweiz', t:'n', tag:'place'},
+    // Weitere Vergleichs-Adj
+    {jp:'<ruby>広<rt>ひろ</rt></ruby>い', de:'weit / geräumig', t:'i'},
+    {jp:'<ruby>狭<rt>せま</rt></ruby>い', de:'eng / klein (Raum)', t:'i'},
   ],
   13: [
     // Wunschform-Marker
@@ -1183,6 +1518,43 @@ const VOCAB_BY_LESSON = {
     {jp:'ぜひ', de:'unbedingt', t:'e'},
     {jp:'きっと', de:'bestimmt', t:'e'},
     {jp:'<ruby>将来<rt>しょうらい</rt></ruby>', de:'in der Zukunft', t:'n', tag:'time'},
+    // Weitere Wunsch-Verben
+    {jp:'<ruby>登<rt>のぼ</rt></ruby>ります', de:'besteigen', t:'v'},
+    {jp:'<ruby>釣<rt>つ</rt></ruby>ります', de:'angeln', t:'v'},
+    {jp:'<ruby>撮<rt>と</rt></ruby>ります', de:'fotografieren', t:'v'},
+    {jp:'キャンプします', de:'campen', t:'v'},
+    {jp:'ダイビングします', de:'tauchen', t:'v'},
+    // Weitere Wunsch-Orte
+    {jp:'ロンドン', de:'London', t:'n', tag:'place'},
+    {jp:'ニューヨーク', de:'New York', t:'n', tag:'place'},
+    {jp:'<ruby>沖縄<rt>おきなわ</rt></ruby>', de:'Okinawa', t:'n', tag:'place'},
+    {jp:'ヨーロッパ', de:'Europa', t:'n', tag:'place'},
+    {jp:'<ruby>遊園地<rt>ゆうえんち</rt></ruby>', de:'Vergnügungspark', t:'n', tag:'place'},
+    {jp:'<ruby>動物園<rt>どうぶつえん</rt></ruby>', de:'Zoo', t:'n', tag:'place'},
+    // Weitere Wunsch-Objekte
+    {jp:'カメラ', de:'Kamera', t:'n', tag:'thing'},
+    {jp:'パソコン', de:'Laptop', t:'n', tag:'thing'},
+    {jp:'ペット', de:'Haustier', t:'n', tag:'thing'},
+    {jp:'<ruby>友達<rt>ともだち</rt></ruby>', de:'Freund', t:'n', tag:'person'},
+    {jp:'<ruby>休<rt>やす</rt></ruby>み', de:'Urlaub / Pause', t:'n', tag:'time'},
+    {jp:'まだ', de:'noch (nicht)', t:'e'},
+    {jp:'どこか', de:'irgendwo', t:'e'},
+    {jp:'<ruby>何<rt>なに</rt></ruby>か', de:'irgendetwas', t:'e'},
+    // Weitere Wunsch-Verben
+    {jp:'<ruby>留学<rt>りゅうがく</rt></ruby>します', de:'im Ausland studieren', t:'v'},
+    {jp:'<ruby>登山<rt>とざん</rt></ruby>します', de:'bergsteigen', t:'v'},
+    // Weitere Wunsch-Orte
+    {jp:'<ruby>韓国<rt>かんこく</rt></ruby>', de:'Südkorea', t:'n', tag:'place'},
+    {jp:'エジプト', de:'Ägypten', t:'n', tag:'place'},
+    {jp:'オーストラリア', de:'Australien', t:'n', tag:'place'},
+    {jp:'<ruby>島<rt>しま</rt></ruby>', de:'Insel', t:'n', tag:'place photo_subject'},
+    {jp:'<ruby>湖<rt>みずうみ</rt></ruby>', de:'See', t:'n', tag:'place photo_subject'},
+    // Weitere Wunsch-Objekte
+    {jp:'<ruby>自由<rt>じゆう</rt></ruby>', de:'Freiheit', t:'na'},
+    // Weitere Sonderwörter L13
+    {jp:'いつか', de:'irgendwann', t:'e'},
+    {jp:'<ruby>一人<rt>ひとり</rt></ruby>で', de:'allein', t:'e'},
+    {jp:'<ruby>友達<rt>ともだち</rt></ruby>と', de:'mit Freunden', t:'e'},
   ],
   14: [
     // て-Bitten-Verben
@@ -1221,6 +1593,27 @@ const VOCAB_BY_LESSON = {
     {jp:'もう<ruby>一度<rt>いちど</rt></ruby>', de:'noch einmal', t:'e'},
     {jp:'すみません', de:'Entschuldigung', t:'e'},
     {jp:'お<ruby>願<rt>ねが</rt></ruby>いします', de:'bitte (Anliegen)', t:'e'},
+    // Weitere て-Bitten-Verben
+    {jp:'<ruby>見<rt>み</rt></ruby>せます', de:'zeigen', t:'v'},
+    {jp:'<ruby>呼<rt>よ</rt></ruby>びます', de:'rufen', t:'v'},
+    {jp:'<ruby>連<rt>つ</rt></ruby>れて <ruby>行<rt>い</rt></ruby>きます', de:'mitnehmen (Person)', t:'v'},
+    {jp:'<ruby>貸<rt>か</rt></ruby>します', de:'verleihen', t:'v'},
+    {jp:'<ruby>渡<rt>わた</rt></ruby>します', de:'übergeben', t:'v'},
+    {jp:'<ruby>教<rt>おし</rt></ruby>えます', de:'lehren / zeigen (Weg)', t:'v'},
+    {jp:'<ruby>送<rt>おく</rt></ruby>ります', de:'begleiten / schicken', t:'v'},
+    // Weitere Wege / Orte
+    {jp:'<ruby>横断歩道<rt>おうだんほどう</rt></ruby>', de:'Zebrastreifen', t:'n', tag:'place'},
+    {jp:'<ruby>駐車場<rt>ちゅうしゃじょう</rt></ruby>', de:'Parkplatz', t:'n', tag:'place'},
+    {jp:'<ruby>歩道<rt>ほどう</rt></ruby>', de:'Gehweg', t:'n', tag:'place'},
+    {jp:'<ruby>階段<rt>かいだん</rt></ruby>', de:'Treppe', t:'n', tag:'place'},
+    {jp:'エレベーター', de:'Aufzug', t:'n', tag:'thing'},
+    {jp:'エスカレーター', de:'Rolltreppe', t:'n', tag:'thing'},
+    // Weitere Geräte
+    {jp:'テレビ', de:'Fernseher', t:'n', tag:'thing'},
+    {jp:'パソコン', de:'Computer', t:'n', tag:'thing'},
+    {jp:'ストーブ', de:'Heizung', t:'n', tag:'thing'},
+    {jp:'<ruby>扇風機<rt>せんぷうき</rt></ruby>', de:'Ventilator', t:'n', tag:'thing'},
+    {jp:'<ruby>電子<rt>でんし</rt></ruby>レンジ', de:'Mikrowelle', t:'n', tag:'thing'},
   ],
   15: [
     // Erlaubnis-relevante Verben
@@ -1248,6 +1641,32 @@ const VOCAB_BY_LESSON = {
     {jp:'だめ', de:'verboten / geht nicht', t:'na'},
     {jp:'いい', de:'gut / okay', t:'i'},
     {jp:'<ruby>禁煙<rt>きんえん</rt></ruby>', de:'Rauchverbot', t:'n'},
+    // Weitere Erlaubnis-Verben
+    {jp:'<ruby>座<rt>すわ</rt></ruby>ります', de:'sich setzen', t:'v'},
+    {jp:'<ruby>使<rt>つか</rt></ruby>います', de:'benutzen', t:'v'},
+    {jp:'<ruby>吸<rt>す</rt></ruby>います', de:'rauchen / einatmen', t:'v'},
+    {jp:'<ruby>飲<rt>の</rt></ruby>みます', de:'trinken', t:'v'},
+    {jp:'<ruby>泳<rt>およ</rt></ruby>ぎます', de:'schwimmen', t:'v'},
+    {jp:'<ruby>走<rt>はし</rt></ruby>ります', de:'rennen', t:'v'},
+    {jp:'<ruby>電話<rt>でんわ</rt></ruby>をかけます', de:'telefonieren', t:'v'},
+    {jp:'<ruby>置<rt>お</rt></ruby>きます', de:'hinstellen / lassen', t:'v'},
+    // Verbots-Orte / Verwaltung
+    {jp:'<ruby>美術館<rt>びじゅつかん</rt></ruby>', de:'Kunstmuseum', t:'n', tag:'place'},
+    {jp:'<ruby>図書館<rt>としょかん</rt></ruby>', de:'Bibliothek', t:'n', tag:'place'},
+    {jp:'<ruby>神社<rt>じんじゃ</rt></ruby>', de:'Shinto-Schrein', t:'n', tag:'place'},
+    {jp:'<ruby>教会<rt>きょうかい</rt></ruby>', de:'Kirche', t:'n', tag:'place'},
+    {jp:'<ruby>入口<rt>いりぐち</rt></ruby>', de:'Eingang', t:'n', tag:'place'},
+    {jp:'<ruby>出口<rt>でぐち</rt></ruby>', de:'Ausgang', t:'n', tag:'place'},
+    {jp:'<ruby>非常口<rt>ひじょうぐち</rt></ruby>', de:'Notausgang', t:'n', tag:'place'},
+    // Status
+    {jp:'<ruby>自由<rt>じゆう</rt></ruby>', de:'frei / ungehindert', t:'na'},
+    {jp:'<ruby>安全<rt>あんぜん</rt></ruby>', de:'sicher', t:'na'},
+    {jp:'<ruby>危険<rt>きけん</rt></ruby>', de:'gefährlich', t:'na'},
+    {jp:'<ruby>特別<rt>とくべつ</rt></ruby>', de:'besonders', t:'na'},
+    // Sonstiges L15
+    {jp:'<ruby>携帯電話<rt>けいたいでんわ</rt></ruby>', de:'Handy', t:'n', tag:'thing'},
+    {jp:'タバコ', de:'Zigarette', t:'n', tag:'thing'},
+    {jp:'ガム', de:'Kaugummi', t:'n', tag:'food'},
   ],
   16: [
     // Sequenz-Verben (て-Verkettung = Morgenroutine, Tagesablauf)
@@ -1285,6 +1704,32 @@ const VOCAB_BY_LESSON = {
     {jp:'それから', de:'danach / und dann', t:'e'},
     {jp:'まず', de:'zuerst', t:'e'},
     {jp:'<ruby>最後<rt>さいご</rt></ruby>に', de:'zuletzt', t:'e'},
+    // Weitere Tagesablauf-Verben
+    {jp:'<ruby>化粧<rt>けしょう</rt></ruby>します', de:'sich schminken', t:'v'},
+    {jp:'<ruby>寝<rt>ね</rt></ruby>ます', de:'schlafen gehen', t:'v'},
+    {jp:'<ruby>帰<rt>かえ</rt></ruby>ります', de:'nach Hause gehen', t:'v'},
+    {jp:'<ruby>散歩<rt>さんぽ</rt></ruby>します', de:'spazieren gehen', t:'v'},
+    {jp:'<ruby>料理<rt>りょうり</rt></ruby>します', de:'kochen', t:'v'},
+    {jp:'<ruby>準備<rt>じゅんび</rt></ruby>します', de:'vorbereiten', t:'v'},
+    {jp:'<ruby>片付<rt>かたづ</rt></ruby>けます', de:'aufräumen', t:'v'},
+    {jp:'<ruby>洗<rt>あら</rt></ruby>います', de:'waschen', t:'v'},
+    // Weitere Körperteile
+    {jp:'<ruby>鼻<rt>はな</rt></ruby>', de:'Nase', t:'n', tag:'thing'},
+    {jp:'<ruby>首<rt>くび</rt></ruby>', de:'Hals / Nacken', t:'n', tag:'thing'},
+    {jp:'<ruby>背中<rt>せなか</rt></ruby>', de:'Rücken', t:'n', tag:'thing'},
+    {jp:'<ruby>肩<rt>かた</rt></ruby>', de:'Schulter', t:'n', tag:'thing'},
+    {jp:'<ruby>指<rt>ゆび</rt></ruby>', de:'Finger', t:'n', tag:'thing'},
+    {jp:'<ruby>歯<rt>は</rt></ruby>', de:'Zahn', t:'n', tag:'thing'},
+    {jp:'<ruby>腕<rt>うで</rt></ruby>', de:'Arm', t:'n', tag:'thing'},
+    {jp:'<ruby>膝<rt>ひざ</rt></ruby>', de:'Knie', t:'n', tag:'thing'},
+    // Weitere Adj (〜くて / 〜で Verbindung)
+    {jp:'<ruby>優<rt>やさ</rt></ruby>しい', de:'freundlich / sanft', t:'i'},
+    {jp:'<ruby>厳<rt>きび</rt></ruby>しい', de:'streng', t:'i'},
+    {jp:'<ruby>丸<rt>まる</rt></ruby>い', de:'rund', t:'i'},
+    // Sequenz-Wörter
+    {jp:'<ruby>次<rt>つぎ</rt></ruby>に', de:'als nächstes', t:'e'},
+    {jp:'<ruby>先<rt>さき</rt></ruby>に', de:'zuerst / vorher', t:'e'},
+    {jp:'<ruby>後<rt>あと</rt></ruby>で', de:'danach / später', t:'e'},
   ],
   17: [
     // Pflicht-Verben (なければ)
@@ -1316,6 +1761,32 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'<ruby>必<rt>かなら</rt></ruby>ず', de:'unbedingt', t:'e'},
     {jp:'そろそろ', de:'es wird langsam Zeit', t:'e'},
+    // Weitere Pflicht-Verben
+    {jp:'<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みます', de:'sich anmelden / beantragen', t:'v'},
+    {jp:'<ruby>片付<rt>かたづ</rt></ruby>けます', de:'aufräumen', t:'v'},
+    {jp:'<ruby>準備<rt>じゅんび</rt></ruby>します', de:'vorbereiten', t:'v'},
+    {jp:'<ruby>連絡<rt>れんらく</rt></ruby>します', de:'Kontakt aufnehmen', t:'v'},
+    {jp:'<ruby>相談<rt>そうだん</rt></ruby>します', de:'sich beraten', t:'v'},
+    {jp:'<ruby>確認<rt>かくにん</rt></ruby>します', de:'bestätigen / überprüfen', t:'v'},
+    {jp:'<ruby>練習<rt>れんしゅう</rt></ruby>します', de:'üben', t:'v'},
+    // Pflicht-Nomen (Verwaltung / Gesundheit)
+    {jp:'<ruby>保険<rt>ほけん</rt></ruby>', de:'Versicherung', t:'n', tag:'thing'},
+    {jp:'<ruby>届<rt>とどけ</rt></ruby>', de:'Meldung / Anmeldung', t:'n', tag:'thing'},
+    {jp:'<ruby>証明書<rt>しょうめいしょ</rt></ruby>', de:'Bescheinigung', t:'n', tag:'thing readable'},
+    {jp:'<ruby>免許証<rt>めんきょしょう</rt></ruby>', de:'Führerschein', t:'n', tag:'thing readable'},
+    {jp:'<ruby>書類<rt>しょるい</rt></ruby>', de:'Dokument / Unterlagen', t:'n', tag:'thing readable'},
+    {jp:'<ruby>申込書<rt>もうしこみしょ</rt></ruby>', de:'Antragsformular', t:'n', tag:'thing writable'},
+    // Gesundheit
+    {jp:'<ruby>風邪<rt>かぜ</rt></ruby>', de:'Erkältung', t:'n', tag:'thing'},
+    {jp:'<ruby>咳<rt>せき</rt></ruby>', de:'Husten', t:'n', tag:'thing'},
+    {jp:'<ruby>頭痛<rt>ずつう</rt></ruby>', de:'Kopfschmerzen', t:'n', tag:'thing'},
+    {jp:'<ruby>病院<rt>びょういん</rt></ruby>', de:'Krankenhaus', t:'n', tag:'place'},
+    {jp:'<ruby>医者<rt>いしゃ</rt></ruby>', de:'Arzt', t:'n', tag:'person'},
+    {jp:'<ruby>注射<rt>ちゅうしゃ</rt></ruby>', de:'Spritze / Impfung', t:'n', tag:'thing'},
+    // Sonstiges L17
+    {jp:'まだ', de:'noch', t:'e'},
+    {jp:'もう', de:'schon', t:'e'},
+    {jp:'<ruby>無理<rt>むり</rt></ruby>', de:'unmöglich / übertrieben', t:'na'},
   ],
   18: [
     // Können-Aktivitäten (ことが できます)
@@ -1346,6 +1817,33 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'<ruby>一度<rt>いちど</rt></ruby>', de:'einmal', t:'e'},
     {jp:'なかなか', de:'nicht so leicht (+ neg)', t:'e'},
+    // Weitere Sportarten / Aktivitäten
+    {jp:'ジョギング', de:'Joggen', t:'n', tag:'activity'},
+    {jp:'バドミントン', de:'Badminton', t:'n', tag:'activity'},
+    {jp:'<ruby>卓球<rt>たっきゅう</rt></ruby>', de:'Tischtennis', t:'n', tag:'activity'},
+    {jp:'<ruby>柔道<rt>じゅうどう</rt></ruby>', de:'Judo', t:'n', tag:'activity'},
+    {jp:'<ruby>空手<rt>からて</rt></ruby>', de:'Karate', t:'n', tag:'activity'},
+    {jp:'ヨガ', de:'Yoga', t:'n', tag:'activity'},
+    // Weitere Instrumente
+    {jp:'バイオリン', de:'Geige', t:'n', tag:'instrument'},
+    {jp:'フルート', de:'Flöte', t:'n', tag:'instrument'},
+    {jp:'ドラム', de:'Schlagzeug', t:'n', tag:'instrument'},
+    // Weitere Sprachen
+    {jp:'スペイン<ruby>語<rt>ご</rt></ruby>', de:'Spanisch', t:'n', tag:'language'},
+    {jp:'<ruby>韓国語<rt>かんこくご</rt></ruby>', de:'Koreanisch', t:'n', tag:'language'},
+    {jp:'ポルトガル<ruby>語<rt>ご</rt></ruby>', de:'Portugiesisch', t:'n', tag:'language'},
+    {jp:'イタリア<ruby>語<rt>ご</rt></ruby>', de:'Italienisch', t:'n', tag:'language'},
+    {jp:'ロシア<ruby>語<rt>ご</rt></ruby>', de:'Russisch', t:'n', tag:'language'},
+    // Weitere Können-Verben
+    {jp:'<ruby>作<rt>つく</rt></ruby>ります', de:'herstellen / kochen', t:'v'},
+    {jp:'<ruby>直<rt>なお</rt></ruby>します', de:'reparieren / korrigieren', t:'v'},
+    {jp:'<ruby>運転<rt>うんてん</rt></ruby>します', de:'fahren (Auto)', t:'v'},
+    {jp:'<ruby>予約<rt>よやく</rt></ruby>します', de:'reservieren', t:'v'},
+    // Fähigkeits-Nomen
+    {jp:'<ruby>料理<rt>りょうり</rt></ruby>', de:'Kochen / Gericht', t:'n', tag:'activity food'},
+    {jp:'<ruby>漢字<rt>かんじ</rt></ruby>', de:'Kanji', t:'n', tag:'readable'},
+    {jp:'<ruby>会話<rt>かいわ</rt></ruby>', de:'Konversation', t:'n', tag:'activity'},
+    {jp:'<ruby>翻訳<rt>ほんやく</rt></ruby>', de:'Übersetzung', t:'n', tag:'activity'},
   ],
   19: [
     // Erfahrungs-Verben
@@ -1379,6 +1877,34 @@ const VOCAB_BY_LESSON = {
     {jp:'<ruby>一度<rt>いちど</rt></ruby>', de:'einmal', t:'e'},
     {jp:'<ruby>何度<rt>なんど</rt></ruby>も', de:'viele Male', t:'e'},
     {jp:'まだ', de:'noch nicht (+ neg)', t:'e'},
+    // Weitere Erfahrungs-Verben
+    {jp:'<ruby>見<rt>み</rt></ruby>ます', de:'sehen / anschauen', t:'v'},
+    {jp:'<ruby>飲<rt>の</rt></ruby>みます', de:'trinken', t:'v'},
+    {jp:'<ruby>作<rt>つく</rt></ruby>ります', de:'herstellen', t:'v'},
+    {jp:'<ruby>習<rt>なら</rt></ruby>います', de:'lernen (bei jmd.)', t:'v'},
+    {jp:'<ruby>参加<rt>さんか</rt></ruby>します', de:'teilnehmen', t:'v'},
+    // Japanische Kultur-Erfahrungen
+    {jp:'<ruby>茶道<rt>さどう</rt></ruby>', de:'Teezeremonie', t:'n', tag:'activity'},
+    {jp:'<ruby>花見<rt>はなみ</rt></ruby>', de:'Kirschblütenschau', t:'n', tag:'activity photo_subject'},
+    {jp:'<ruby>祭<rt>まつ</rt></ruby>り', de:'Fest / Festival', t:'n', tag:'activity visual'},
+    {jp:'<ruby>盆踊<rt>ぼんおど</rt></ruby>り', de:'Bon-Tanz', t:'n', tag:'activity'},
+    {jp:'<ruby>書道<rt>しょどう</rt></ruby>', de:'Kalligraphie', t:'n', tag:'activity'},
+    {jp:'<ruby>生<rt>い</rt></ruby>け<ruby>花<rt>ばな</rt></ruby>', de:'Blumenarrangement', t:'n', tag:'activity'},
+    {jp:'<ruby>歌舞伎<rt>かぶき</rt></ruby>', de:'Kabuki-Theater', t:'n', tag:'activity visual'},
+    // Weitere japanische Speisen
+    {jp:'<ruby>天<rt>てん</rt></ruby>ぷら', de:'Tempura', t:'n', tag:'food'},
+    {jp:'うどん', de:'Udon-Nudeln', t:'n', tag:'food'},
+    {jp:'そば', de:'Soba-Nudeln', t:'n', tag:'food'},
+    {jp:'ラーメン', de:'Ramen', t:'n', tag:'food'},
+    {jp:'<ruby>寿司<rt>すし</rt></ruby>', de:'Sushi', t:'n', tag:'food'},
+    {jp:'<ruby>餅<rt>もち</rt></ruby>', de:'Reiskuchen', t:'n', tag:'food'},
+    {jp:'<ruby>日本酒<rt>にほんしゅ</rt></ruby>', de:'Sake', t:'n', tag:'drink'},
+    // Weitere Erfahrungs-Orte
+    {jp:'<ruby>奈良<rt>なら</rt></ruby>', de:'Nara', t:'n', tag:'place'},
+    {jp:'<ruby>広島<rt>ひろしま</rt></ruby>', de:'Hiroshima', t:'n', tag:'place'},
+    {jp:'<ruby>大阪<rt>おおさか</rt></ruby>', de:'Osaka', t:'n', tag:'place'},
+    {jp:'<ruby>神社<rt>じんじゃ</rt></ruby>', de:'Shinto-Schrein', t:'n', tag:'place'},
+    {jp:'<ruby>新幹線<rt>しんかんせん</rt></ruby>', de:'Shinkansen', t:'n', tag:'vehicle'},
   ],
   20: [
     // Plain-Form: Alltags-Verben
@@ -1407,6 +1933,35 @@ const VOCAB_BY_LESSON = {
     {jp:'そうか', de:'ach so', t:'e'},
     {jp:'<ruby>結構<rt>けっこう</rt></ruby>', de:'ziemlich / nein danke', t:'e'},
     {jp:'<ruby>別<rt>べつ</rt></ruby>に', de:'nicht besonders', t:'e'},
+    // Weitere Alltags-Verben (plain)
+    {jp:'<ruby>知<rt>し</rt></ruby>る', de:'wissen / erfahren (plain)', t:'v'},
+    {jp:'<ruby>思<rt>おも</rt></ruby>う', de:'denken / meinen (plain)', t:'v'},
+    {jp:'<ruby>言<rt>い</rt></ruby>う', de:'sagen (plain)', t:'v'},
+    {jp:'<ruby>買<rt>か</rt></ruby>う', de:'kaufen (plain)', t:'v'},
+    {jp:'<ruby>行<rt>い</rt></ruby>く', de:'gehen (plain)', t:'v'},
+    {jp:'<ruby>来<rt>く</rt></ruby>る', de:'kommen (plain)', t:'v'},
+    {jp:'する', de:'machen (plain)', t:'v'},
+    {jp:'<ruby>食<rt>た</rt></ruby>べる', de:'essen (plain)', t:'v'},
+    {jp:'<ruby>見<rt>み</rt></ruby>る', de:'sehen (plain)', t:'v'},
+    {jp:'<ruby>遊<rt>あそ</rt></ruby>ぶ', de:'spielen (plain)', t:'v'},
+    {jp:'<ruby>飲<rt>の</rt></ruby>む', de:'trinken (plain)', t:'v'},
+    // Weitere Alltagsnomen
+    {jp:'<ruby>彼<rt>かれ</rt></ruby>', de:'er / Freund', t:'n', tag:'person'},
+    {jp:'<ruby>彼女<rt>かのじょ</rt></ruby>', de:'sie / Freundin', t:'n', tag:'person'},
+    {jp:'<ruby>皆<rt>みんな</rt></ruby>', de:'alle', t:'n', tag:'person'},
+    {jp:'<ruby>自分<rt>じぶん</rt></ruby>', de:'selbst / ich', t:'n', tag:'person'},
+    {jp:'<ruby>趣味<rt>しゅみ</rt></ruby>', de:'Hobby', t:'n', tag:'thing'},
+    // Weitere lässige Ausdrücke
+    {jp:'マジ', de:'echt? / ernst?', t:'e'},
+    {jp:'やばい', de:'krass / schlimm', t:'e'},
+    {jp:'うそ', de:'Lüge / echt?!', t:'e'},
+    {jp:'だよ', de:'(betont, informell)', t:'e'},
+    {jp:'だね', de:'nicht wahr? (informell)', t:'e'},
+    {jp:'じゃん', de:'(bekräftigend, informell)', t:'e'},
+    {jp:'ちがう', de:'stimmt nicht / falsch', t:'e'},
+    {jp:'<ruby>面白<rt>おもしろ</rt></ruby>い', de:'interessant / lustig', t:'i'},
+    {jp:'つまらない', de:'langweilig', t:'i'},
+    {jp:'うるさい', de:'laut / nervig', t:'i'},
   ],
   21: [
     // Meinung/Denken
@@ -1433,6 +1988,28 @@ const VOCAB_BY_LESSON = {
     {jp:'でしょう？', de:'nicht wahr? (Bestätig.)', t:'e'},
     {jp:'なるほど', de:'ach so / verstehe', t:'e'},
     {jp:'つまり', de:'das heißt / also', t:'e'},
+    // Weitere Meinungs-Verben
+    {jp:'<ruby>賛成<rt>さんせい</rt></ruby>します', de:'zustimmen', t:'v'},
+    {jp:'<ruby>反対<rt>はんたい</rt></ruby>します', de:'widersprechen', t:'v'},
+    {jp:'<ruby>決<rt>き</rt></ruby>めます', de:'entscheiden', t:'v'},
+    {jp:'<ruby>感<rt>かん</rt></ruby>じます', de:'empfinden', t:'v'},
+    {jp:'<ruby>心配<rt>しんぱい</rt></ruby>します', de:'sich Sorgen machen', t:'v'},
+    // Weitere Themen
+    {jp:'<ruby>教育<rt>きょういく</rt></ruby>', de:'Bildung', t:'n', tag:'thing'},
+    {jp:'<ruby>文化<rt>ぶんか</rt></ruby>', de:'Kultur', t:'n', tag:'thing'},
+    {jp:'<ruby>技術<rt>ぎじゅつ</rt></ruby>', de:'Technik', t:'n', tag:'thing'},
+    {jp:'<ruby>戦争<rt>せんそう</rt></ruby>', de:'Krieg', t:'n', tag:'thing'},
+    {jp:'<ruby>平和<rt>へいわ</rt></ruby>', de:'Frieden', t:'n', tag:'thing'},
+    {jp:'<ruby>自然<rt>しぜん</rt></ruby>', de:'Natur', t:'n', tag:'thing'},
+    {jp:'<ruby>結婚<rt>けっこん</rt></ruby>', de:'Ehe', t:'n', tag:'thing'},
+    {jp:'<ruby>生活<rt>せいかつ</rt></ruby>', de:'Leben / Alltag', t:'n', tag:'thing'},
+    // Weitere Diskurs-Ausdrücke
+    {jp:'<ruby>確<rt>たし</rt></ruby>かに', de:'sicherlich', t:'e'},
+    {jp:'<ruby>例<rt>たと</rt></ruby>えば', de:'zum Beispiel', t:'e'},
+    {jp:'しかし', de:'aber / jedoch', t:'e'},
+    {jp:'<ruby>絶対<rt>ぜったい</rt></ruby>に', de:'auf jeden Fall', t:'e'},
+    {jp:'<ruby>残念<rt>ざんねん</rt></ruby>ながら', de:'leider', t:'e'},
+    {jp:'それに', de:'außerdem', t:'e'},
   ],
   22: [
     // Relativsatz-Verben (Person die X, Ding das Y)
@@ -1460,6 +2037,30 @@ const VOCAB_BY_LESSON = {
     {jp:'ネクタイ', de:'Krawatte', t:'n', tag:'thing'},
     {jp:'<ruby>指輪<rt>ゆびわ</rt></ruby>', de:'Ring', t:'n', tag:'thing'},
     {jp:'<ruby>時計<rt>とけい</rt></ruby>', de:'Armbanduhr', t:'n', tag:'thing'},
+    // Weitere Kleidung
+    {jp:'セーター', de:'Pullover', t:'n', tag:'thing'},
+    {jp:'ジャケット', de:'Jacke', t:'n', tag:'thing'},
+    {jp:'ワンピース', de:'Kleid', t:'n', tag:'thing'},
+    {jp:'スカート', de:'Rock', t:'n', tag:'thing'},
+    {jp:'Tシャツ', de:'T-Shirt', t:'n', tag:'thing'},
+    {jp:'マフラー', de:'Schal', t:'n', tag:'thing'},
+    {jp:'<ruby>手袋<rt>てぶくろ</rt></ruby>', de:'Handschuhe', t:'n', tag:'thing'},
+    {jp:'サンダル', de:'Sandalen', t:'n', tag:'thing'},
+    {jp:'ブーツ', de:'Stiefel', t:'n', tag:'thing'},
+    // Beschreibungs-Adjektive
+    {jp:'<ruby>太<rt>ふと</rt></ruby>い', de:'dick', t:'i'},
+    {jp:'<ruby>細<rt>ほそ</rt></ruby>い', de:'dünn / schlank', t:'i'},
+    {jp:'<ruby>若<rt>わか</rt></ruby>い', de:'jung', t:'i'},
+    {jp:'<ruby>赤<rt>あか</rt></ruby>い', de:'rot', t:'i'},
+    {jp:'<ruby>青<rt>あお</rt></ruby>い', de:'blau', t:'i'},
+    {jp:'<ruby>白<rt>しろ</rt></ruby>い', de:'weiß', t:'i'},
+    {jp:'<ruby>黒<rt>くろ</rt></ruby>い', de:'schwarz', t:'i'},
+    // Weitere Verben
+    {jp:'<ruby>持<rt>も</rt></ruby>っています', de:'besitzen', t:'v'},
+    {jp:'<ruby>知<rt>し</rt></ruby>っています', de:'kennen', t:'v'},
+    {jp:'<ruby>働<rt>はたら</rt></ruby>いています', de:'arbeiten (Zustand)', t:'v'},
+    {jp:'<ruby>太<rt>ふと</rt></ruby>っています', de:'dick sein', t:'e'},
+    {jp:'<ruby>痩<rt>や</rt></ruby>せています', de:'dünn sein', t:'e'},
   ],
   23: [
     // とき-Verben (Zeitpunkt/Bedingung)
@@ -1485,6 +2086,29 @@ const VOCAB_BY_LESSON = {
     {jp:'ATM', de:'Geldautomat', t:'n', tag:'thing'},
     {jp:'<ruby>自動販売機<rt>じどうはんばいき</rt></ruby>', de:'Automat', t:'n', tag:'thing'},
     {jp:'<ruby>電子<rt>でんし</rt></ruby>レンジ', de:'Mikrowelle', t:'n', tag:'thing'},
+    // Weitere とき-Verben
+    {jp:'<ruby>疲<rt>つか</rt></ruby>れます', de:'müde werden', t:'v'},
+    {jp:'<ruby>眠<rt>ねむ</rt></ruby>い', de:'müde / schläfrig', t:'i'},
+    {jp:'<ruby>怒<rt>おこ</rt></ruby>ります', de:'wütend werden', t:'v'},
+    {jp:'<ruby>泣<rt>な</rt></ruby>きます', de:'weinen', t:'v'},
+    {jp:'<ruby>笑<rt>わら</rt></ruby>います', de:'lachen', t:'v'},
+    {jp:'<ruby>出<rt>で</rt></ruby>かけます', de:'ausgehen', t:'v'},
+    {jp:'<ruby>急<rt>いそ</rt></ruby>ぎます', de:'sich beeilen', t:'v'},
+    // Weitere Zustände/Situationen
+    {jp:'<ruby>元気<rt>げんき</rt></ruby>', de:'gesund / munter', t:'na'},
+    {jp:'<ruby>病気<rt>びょうき</rt></ruby>', de:'krank', t:'n', tag:'thing'},
+    {jp:'<ruby>若<rt>わか</rt></ruby>い', de:'jung', t:'i'},
+    {jp:'<ruby>忙<rt>いそが</rt></ruby>しい', de:'beschäftigt', t:'i'},
+    {jp:'<ruby>天気<rt>てんき</rt></ruby>', de:'Wetter', t:'n', tag:'thing'},
+    // Weitere Geräte
+    {jp:'<ruby>洗濯機<rt>せんたくき</rt></ruby>', de:'Waschmaschine', t:'n', tag:'thing'},
+    {jp:'<ruby>掃除機<rt>そうじき</rt></ruby>', de:'Staubsauger', t:'n', tag:'thing'},
+    {jp:'パソコン', de:'Computer', t:'n', tag:'thing'},
+    {jp:'コピー<ruby>機<rt>き</rt></ruby>', de:'Kopierer', t:'n', tag:'thing'},
+    {jp:'ファックス', de:'Fax', t:'n', tag:'thing'},
+    // Zeitausdrücke
+    {jp:'<ruby>学生<rt>がくせい</rt></ruby>の<ruby>時<rt>とき</rt></ruby>', de:'als Student', t:'e'},
+    {jp:'<ruby>高校生<rt>こうこうせい</rt></ruby>の<ruby>時<rt>とき</rt></ruby>', de:'als Oberschüler', t:'e'},
   ],
   24: [
     // Geben/Bekommen erweitert
@@ -1514,6 +2138,23 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'わざわざ', de:'extra / eigens', t:'e'},
     {jp:'せっかく', de:'mit viel Mühe / extra', t:'e'},
+    // Weitere Verben für Gefallen
+    {jp:'<ruby>紹介<rt>しょうかい</rt></ruby>します', de:'vorstellen', t:'v'},
+    {jp:'<ruby>直<rt>なお</rt></ruby>します', de:'reparieren', t:'v'},
+    {jp:'<ruby>説明<rt>せつめい</rt></ruby>します', de:'erklären', t:'v'},
+    {jp:'<ruby>翻訳<rt>ほんやく</rt></ruby>します', de:'übersetzen', t:'v'},
+    {jp:'<ruby>手伝<rt>てつだ</rt></ruby>います', de:'helfen', t:'v'},
+    // Weitere Geschenke
+    {jp:'チョコレート', de:'Schokolade', t:'n', tag:'food thing'},
+    {jp:'ワイン', de:'Wein', t:'n', tag:'drink thing'},
+    {jp:'<ruby>本<rt>ほん</rt></ruby>', de:'Buch', t:'n', tag:'readable thing'},
+    {jp:'アクセサリー', de:'Schmuck', t:'n', tag:'thing'},
+    {jp:'ぬいぐるみ', de:'Stofftier', t:'n', tag:'thing'},
+    // Weitere Personen
+    {jp:'<ruby>友達<rt>ともだち</rt></ruby>', de:'Freund', t:'n', tag:'person'},
+    {jp:'<ruby>隣<rt>となり</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>', de:'Nachbar', t:'n', tag:'person'},
+    {jp:'<ruby>同僚<rt>どうりょう</rt></ruby>', de:'Kollege', t:'n', tag:'person'},
+    {jp:'<ruby>知<rt>し</rt></ruby>り<ruby>合<rt>あ</rt></ruby>い', de:'Bekannter', t:'n', tag:'person'},
   ],
   25: [
     // Konditional (たら/ても)
@@ -1541,6 +2182,22 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'<ruby>全然<rt>ぜんぜん</rt></ruby>', de:'überhaupt (nicht)', t:'e'},
     {jp:'どうしても', de:'unbedingt / egal was', t:'e'},
+    // Weitere Konditional-Verben
+    {jp:'<ruby>当<rt>あ</rt></ruby>たります', de:'gewinnen (Lotterie)', t:'v'},
+    {jp:'<ruby>合格<rt>ごうかく</rt></ruby>します', de:'bestehen (Prüfung)', t:'v'},
+    {jp:'<ruby>失敗<rt>しっぱい</rt></ruby>します', de:'scheitern', t:'v'},
+    {jp:'<ruby>成功<rt>せいこう</rt></ruby>します', de:'Erfolg haben', t:'v'},
+    {jp:'<ruby>就職<rt>しゅうしょく</rt></ruby>します', de:'eine Stelle finden', t:'v'},
+    {jp:'<ruby>結婚<rt>けっこん</rt></ruby>します', de:'heiraten', t:'v'},
+    // Weitere Bedingung-Nomen
+    {jp:'<ruby>百万<rt>ひゃくまん</rt></ruby><ruby>円<rt>えん</rt></ruby>', de:'1 Million Yen', t:'n', tag:'thing'},
+    {jp:'<ruby>大学<rt>だいがく</rt></ruby>', de:'Universität', t:'n', tag:'place'},
+    {jp:'<ruby>仕事<rt>しごと</rt></ruby>', de:'Arbeit', t:'n', tag:'thing'},
+    {jp:'<ruby>時間<rt>じかん</rt></ruby>', de:'Zeit', t:'n', tag:'thing'},
+    {jp:'<ruby>休<rt>やす</rt></ruby>み', de:'Urlaub / freier Tag', t:'n', tag:'time'},
+    {jp:'<ruby>天気<rt>てんき</rt></ruby>', de:'Wetter', t:'n', tag:'thing'},
+    {jp:'<ruby>明日<rt>あした</rt></ruby>', de:'morgen', t:'n', tag:'time'},
+    {jp:'<ruby>暇<rt>ひま</rt></ruby>', de:'frei (Zeit)', t:'na'},
   ],
   26: [
     // んです Erklärungs-Verben
@@ -1563,6 +2220,26 @@ const VOCAB_BY_LESSON = {
     {jp:'<ruby>実<rt>じつ</rt></ruby>は', de:'eigentlich / tatsächlich', t:'e'},
     {jp:'なるほど', de:'ach so / verstehe', t:'e'},
     {jp:'それで', de:'und deshalb', t:'e'},
+    // Weitere Erklärungs-Verben
+    {jp:'<ruby>太<rt>ふと</rt></ruby>ります', de:'zunehmen (Gewicht)', t:'v'},
+    {jp:'<ruby>痩<rt>や</rt></ruby>せます', de:'abnehmen (Gewicht)', t:'v'},
+    {jp:'<ruby>別<rt>わか</rt></ruby>れます', de:'sich trennen', t:'v'},
+    {jp:'<ruby>辞<rt>や</rt></ruby>めます', de:'kündigen', t:'v'},
+    {jp:'<ruby>転<rt>ころ</rt></ruby>びます', de:'hinfallen', t:'v'},
+    {jp:'<ruby>盗<rt>ぬす</rt></ruby>まれます', de:'gestohlen werden', t:'v'},
+    // Weitere Ursachen
+    {jp:'けが', de:'Verletzung', t:'n', tag:'thing'},
+    {jp:'<ruby>頭痛<rt>ずつう</rt></ruby>', de:'Kopfschmerzen', t:'n', tag:'thing'},
+    {jp:'<ruby>腹痛<rt>ふくつう</rt></ruby>', de:'Bauchschmerzen', t:'n', tag:'thing'},
+    {jp:'<ruby>歯<rt>は</rt></ruby>', de:'Zahn', t:'n', tag:'thing'},
+    {jp:'アレルギー', de:'Allergie', t:'n', tag:'thing'},
+    {jp:'<ruby>残業<rt>ざんぎょう</rt></ruby>', de:'Überstunden', t:'n', tag:'activity'},
+    {jp:'<ruby>財布<rt>さいふ</rt></ruby>', de:'Geldbörse', t:'n', tag:'thing'},
+    {jp:'<ruby>鍵<rt>かぎ</rt></ruby>', de:'Schlüssel', t:'n', tag:'thing'},
+    // Weitere Diskurswörter
+    {jp:'すみません', de:'Entschuldigung', t:'e'},
+    {jp:'<ruby>残念<rt>ざんねん</rt></ruby>ですが', de:'leider', t:'e'},
+    {jp:'ちょっと…', de:'ein bisschen … (Absage)', t:'e'},
   ],
   27: [
     // Potential — Sinne + Fähigkeiten
@@ -1589,6 +2266,23 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'ぜんぜん', de:'überhaupt nicht', t:'e'},
     {jp:'やっと', de:'endlich', t:'e'},
+    // Weitere Potential-Verben
+    {jp:'<ruby>走<rt>はし</rt></ruby>れます', de:'rennen können', t:'v'},
+    {jp:'<ruby>書<rt>か</rt></ruby>けます', de:'schreiben können', t:'v'},
+    {jp:'<ruby>弾<rt>ひ</rt></ruby>けます', de:'spielen können (Instr.)', t:'v'},
+    {jp:'<ruby>食<rt>た</rt></ruby>べられます', de:'essen können', t:'v'},
+    {jp:'<ruby>起<rt>お</rt></ruby>きられます', de:'aufstehen können', t:'v'},
+    // Weitere Sinnesobjekte
+    {jp:'<ruby>富士山<rt>ふじさん</rt></ruby>', de:'Berg Fuji', t:'n', tag:'visual photo_subject'},
+    {jp:'<ruby>花火<rt>はなび</rt></ruby>', de:'Feuerwerk', t:'n', tag:'visual audible'},
+    {jp:'<ruby>鐘<rt>かね</rt></ruby>', de:'Glocke', t:'n', tag:'audible'},
+    {jp:'<ruby>鳥<rt>とり</rt></ruby>の<ruby>声<rt>こえ</rt></ruby>', de:'Vogelgesang', t:'n', tag:'audible'},
+    {jp:'<ruby>海<rt>うみ</rt></ruby>', de:'Meer', t:'n', tag:'visual photo_subject'},
+    // Einschränkungen
+    {jp:'<ruby>時間<rt>じかん</rt></ruby>', de:'Zeit', t:'n', tag:'thing'},
+    {jp:'<ruby>予算<rt>よさん</rt></ruby>', de:'Budget', t:'n', tag:'thing'},
+    {jp:'まだまだ', de:'noch lange nicht', t:'e'},
+    {jp:'<ruby>少<rt>すこ</rt></ruby>しずつ', de:'nach und nach', t:'e'},
   ],
   28: [
     // ながら — gleichzeitige Aktivitäten (Paare!)
@@ -1618,6 +2312,23 @@ const VOCAB_BY_LESSON = {
     {jp:'たいてい', de:'meistens', t:'e'},
     {jp:'たまに', de:'manchmal', t:'e'},
     {jp:'ときどき', de:'ab und zu', t:'e'},
+    // Weitere ながら-Verben
+    {jp:'<ruby>走<rt>はし</rt></ruby>ります', de:'rennen', t:'v'},
+    {jp:'<ruby>泣<rt>な</rt></ruby>きます', de:'weinen', t:'v'},
+    {jp:'<ruby>笑<rt>わら</rt></ruby>います', de:'lachen', t:'v'},
+    {jp:'<ruby>料理<rt>りょうり</rt></ruby>します', de:'kochen', t:'v'},
+    {jp:'<ruby>掃除<rt>そうじ</rt></ruby>します', de:'putzen', t:'v'},
+    {jp:'<ruby>勉強<rt>べんきょう</rt></ruby>します', de:'lernen', t:'v'},
+    {jp:'<ruby>電話<rt>でんわ</rt></ruby>します', de:'telefonieren', t:'v'},
+    // Weitere Objekte
+    {jp:'お<ruby>茶<rt>ちゃ</rt></ruby>', de:'Tee', t:'n', tag:'drink'},
+    {jp:'お<ruby>菓子<rt>かし</rt></ruby>', de:'Süßigkeiten', t:'n', tag:'food'},
+    {jp:'<ruby>新聞<rt>しんぶん</rt></ruby>', de:'Zeitung', t:'n', tag:'readable'},
+    {jp:'スマホ', de:'Smartphone', t:'n', tag:'thing'},
+    {jp:'ポッドキャスト', de:'Podcast', t:'n', tag:'audible'},
+    // Lebensgewohnheiten
+    {jp:'<ruby>共働<rt>ともばたら</rt></ruby>き', de:'Doppelverdiener', t:'n', tag:'thing'},
+    {jp:'アルバイト', de:'Nebenjob', t:'n', tag:'activity'},
   ],
   29: [
     // ている/てしまう — Zustandsverben (intransitiv)
@@ -1643,6 +2354,28 @@ const VOCAB_BY_LESSON = {
     {jp:'<ruby>鏡<rt>かがみ</rt></ruby>', de:'Spiegel', t:'n', tag:'thing'},
     {jp:'<ruby>傘<rt>かさ</rt></ruby>', de:'Regenschirm', t:'n', tag:'thing'},
     {jp:'ボタン', de:'Knopf', t:'n', tag:'thing'},
+    // Transitive Gegenstücke
+    {jp:'<ruby>割<rt>わ</rt></ruby>ります', de:'zerbrechen (tr.)', t:'v'},
+    {jp:'<ruby>壊<rt>こわ</rt></ruby>します', de:'kaputt machen (tr.)', t:'v'},
+    {jp:'<ruby>汚<rt>よご</rt></ruby>します', de:'schmutzig machen (tr.)', t:'v'},
+    {jp:'<ruby>付<rt>つ</rt></ruby>けます', de:'einschalten (tr.)', t:'v'},
+    {jp:'<ruby>消<rt>け</rt></ruby>します', de:'ausschalten (tr.)', t:'v'},
+    {jp:'<ruby>開<rt>あ</rt></ruby>けます', de:'öffnen (tr.)', t:'v'},
+    {jp:'<ruby>閉<rt>し</rt></ruby>めます', de:'schließen (tr.)', t:'v'},
+    // Weitere Zustandsverben
+    {jp:'<ruby>濡<rt>ぬ</rt></ruby>れます', de:'nass werden', t:'v'},
+    {jp:'<ruby>乾<rt>かわ</rt></ruby>きます', de:'trocknen', t:'v'},
+    {jp:'<ruby>外<rt>はず</rt></ruby>れます', de:'sich lösen', t:'v'},
+    {jp:'<ruby>曲<rt>ま</rt></ruby>がります', de:'sich verbiegen', t:'v'},
+    // Weitere Sachen
+    {jp:'<ruby>棚<rt>たな</rt></ruby>', de:'Regal', t:'n', tag:'thing'},
+    {jp:'カーテン', de:'Vorhang', t:'n', tag:'thing'},
+    {jp:'<ruby>時計<rt>とけい</rt></ruby>', de:'Uhr', t:'n', tag:'thing'},
+    {jp:'スマホ', de:'Smartphone', t:'n', tag:'thing'},
+    {jp:'<ruby>自転車<rt>じてんしゃ</rt></ruby>', de:'Fahrrad', t:'n', tag:'thing vehicle'},
+    // Bedauern
+    {jp:'しまいました', de:'(versehentlich) getan', t:'e'},
+    {jp:'うっかり', de:'aus Versehen', t:'e'},
   ],
   30: [
     // てある/ておく — Vorbereitungs-Verben
@@ -1669,6 +2402,23 @@ const VOCAB_BY_LESSON = {
     {jp:'もう', de:'schon / gleich', t:'e'},
     {jp:'まだ', de:'noch nicht', t:'e'},
     {jp:'<ruby>先<rt>さき</rt></ruby>に', de:'vorher / zuerst', t:'e'},
+    // Weitere Vorbereitungs-Verben
+    {jp:'<ruby>片付<rt>かたづ</rt></ruby>けます', de:'aufräumen', t:'v'},
+    {jp:'<ruby>冷<rt>ひ</rt></ruby>やします', de:'kühlen', t:'v'},
+    {jp:'<ruby>温<rt>あたた</rt></ruby>めます', de:'aufwärmen', t:'v'},
+    {jp:'<ruby>包<rt>つつ</rt></ruby>みます', de:'einpacken', t:'v'},
+    {jp:'<ruby>飾<rt>かざ</rt></ruby>ります', de:'dekorieren', t:'v'},
+    {jp:'<ruby>調<rt>しら</rt></ruby>べます', de:'nachschauen', t:'v'},
+    // Weitere Nomen
+    {jp:'<ruby>花<rt>はな</rt></ruby>', de:'Blumen', t:'n', tag:'thing photo_subject'},
+    {jp:'<ruby>椅子<rt>いす</rt></ruby>', de:'Stuhl', t:'n', tag:'thing'},
+    {jp:'<ruby>机<rt>つくえ</rt></ruby>', de:'Tisch', t:'n', tag:'thing'},
+    {jp:'ビール', de:'Bier', t:'n', tag:'drink'},
+    {jp:'お<ruby>弁当<rt>べんとう</rt></ruby>', de:'Bentō-Box', t:'n', tag:'food'},
+    {jp:'プログラム', de:'Programm', t:'n', tag:'readable thing'},
+    {jp:'<ruby>名簿<rt>めいぼ</rt></ruby>', de:'Namensliste', t:'n', tag:'readable thing'},
+    {jp:'<ruby>地図<rt>ちず</rt></ruby>', de:'Karte', t:'n', tag:'readable thing'},
+    {jp:'<ruby>切符<rt>きっぷ</rt></ruby>', de:'Fahrkarte', t:'n', tag:'thing'},
   ],
   31: [
     // Volitional / Absicht
@@ -1692,6 +2442,24 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'そろそろ', de:'es wird langsam Zeit', t:'e'},
     {jp:'<ruby>一応<rt>いちおう</rt></ruby>', de:'vorerst / sicherheitshalber', t:'e'},
+    // Weitere Absicht-Verben
+    {jp:'<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みます', de:'sich anmelden', t:'v'},
+    {jp:'<ruby>貯金<rt>ちょきん</rt></ruby>します', de:'sparen', t:'v'},
+    {jp:'ダイエットします', de:'Diät machen', t:'v'},
+    {jp:'<ruby>始<rt>はじ</rt></ruby>めます', de:'anfangen', t:'v'},
+    {jp:'<ruby>転職<rt>てんしょく</rt></ruby>します', de:'den Job wechseln', t:'v'},
+    // Weitere Absicht-Nomen
+    {jp:'<ruby>旅行<rt>りょこう</rt></ruby>', de:'Reise', t:'n', tag:'activity'},
+    {jp:'<ruby>連休<rt>れんきゅう</rt></ruby>', de:'zusammenhängende Feiertage', t:'n', tag:'time'},
+    {jp:'お<ruby>正月<rt>しょうがつ</rt></ruby>', de:'Neujahr', t:'n', tag:'time'},
+    {jp:'ゴールデンウィーク', de:'Golden Week', t:'n', tag:'time'},
+    {jp:'<ruby>資格<rt>しかく</rt></ruby>', de:'Qualifikation', t:'n', tag:'thing'},
+    {jp:'マラソン', de:'Marathon', t:'n', tag:'activity'},
+    {jp:'<ruby>日本語能力試験<rt>にほんごのうりょくしけん</rt></ruby>', de:'JLPT', t:'n', tag:'thing'},
+    // Weitere Sonderwörter
+    {jp:'まだ', de:'noch', t:'e'},
+    {jp:'もうすぐ', de:'bald', t:'e'},
+    {jp:'<ruby>絶対<rt>ぜったい</rt></ruby>に', de:'auf jeden Fall', t:'e'},
   ],
   32: [
     // Vermutung / Empfehlung
@@ -1717,6 +2485,24 @@ const VOCAB_BY_LESSON = {
     {jp:'もう<ruby>少<rt>すこ</rt></ruby>し', de:'ein bisschen mehr', t:'e'},
     {jp:'かもしれません', de:'vielleicht', t:'e'},
     {jp:'でしょう', de:'wahrscheinlich (Vermutung)', t:'e'},
+    // Weitere Vermutungs-Verben
+    {jp:'<ruby>治<rt>なお</rt></ruby>ります', de:'heilen', t:'v'},
+    {jp:'<ruby>倒<rt>たお</rt></ruby>れます', de:'zusammenbrechen', t:'v'},
+    {jp:'<ruby>風邪<rt>かぜ</rt></ruby>を<ruby>引<rt>ひ</rt></ruby>きます', de:'sich erkälten', t:'v'},
+    {jp:'<ruby>熱<rt>ねつ</rt></ruby>が<ruby>出<rt>で</rt></ruby>ます', de:'Fieber bekommen', t:'v'},
+    // Weitere Sport-Nomen
+    {jp:'ワールドカップ', de:'Weltmeisterschaft', t:'n', tag:'activity'},
+    {jp:'<ruby>決勝<rt>けっしょう</rt></ruby>', de:'Finale', t:'n', tag:'activity'},
+    {jp:'<ruby>監督<rt>かんとく</rt></ruby>', de:'Trainer / Regisseur', t:'n', tag:'person'},
+    {jp:'<ruby>応援<rt>おうえん</rt></ruby>', de:'Anfeuern', t:'n', tag:'activity'},
+    // Gesundheitsratschläge
+    {jp:'<ruby>野菜<rt>やさい</rt></ruby>', de:'Gemüse', t:'n', tag:'food'},
+    {jp:'<ruby>散歩<rt>さんぽ</rt></ruby>', de:'Spaziergang', t:'n', tag:'activity'},
+    {jp:'<ruby>睡眠<rt>すいみん</rt></ruby>', de:'Schlaf', t:'n', tag:'thing'},
+    {jp:'ストレス', de:'Stress', t:'n', tag:'thing'},
+    {jp:'<ruby>医者<rt>いしゃ</rt></ruby>', de:'Arzt', t:'n', tag:'person'},
+    {jp:'<ruby>手術<rt>しゅじゅつ</rt></ruby>', de:'Operation', t:'n', tag:'thing'},
+    {jp:'<ruby>検査<rt>けんさ</rt></ruby>', de:'Untersuchung', t:'n', tag:'thing'},
   ],
   33: [
     // Imperativ / Verbot
@@ -1739,6 +2525,25 @@ const VOCAB_BY_LESSON = {
     {jp:'<ruby>急<rt>きゅう</rt></ruby>に', de:'plötzlich', t:'e'},
     {jp:'<ruby>絶対<rt>ぜったい</rt></ruby>(に)', de:'auf keinen Fall / unbedingt', t:'e'},
     {jp:'<ruby>危<rt>あぶ</rt></ruby>ない', de:'Gefahr! / gefährlich', t:'i'},
+    // Weitere Imperativ-Verben
+    {jp:'<ruby>頑張<rt>がんば</rt></ruby>ります', de:'sich anstrengen', t:'v'},
+    {jp:'<ruby>静<rt>しず</rt></ruby>かにします', de:'still sein', t:'v'},
+    {jp:'<ruby>急<rt>いそ</rt></ruby>ぎます', de:'sich beeilen', t:'v'},
+    {jp:'<ruby>諦<rt>あきら</rt></ruby>めます', de:'aufgeben', t:'v'},
+    {jp:'<ruby>捨<rt>す</rt></ruby>てます', de:'wegwerfen', t:'v'},
+    {jp:'<ruby>押<rt>お</rt></ruby>します', de:'drücken', t:'v'},
+    {jp:'<ruby>引<rt>ひ</rt></ruby>きます', de:'ziehen', t:'v'},
+    // Weitere Schilder/Situationen
+    {jp:'<ruby>使用禁止<rt>しようきんし</rt></ruby>', de:'Benutzung verboten', t:'n', tag:'thing'},
+    {jp:'<ruby>飲食禁止<rt>いんしょくきんし</rt></ruby>', de:'Essen/Trinken verboten', t:'n', tag:'thing'},
+    {jp:'<ruby>携帯電話<rt>けいたいでんわ</rt></ruby>', de:'Handy', t:'n', tag:'thing'},
+    {jp:'<ruby>非常口<rt>ひじょうぐち</rt></ruby>', de:'Notausgang', t:'n', tag:'place'},
+    {jp:'<ruby>廊下<rt>ろうか</rt></ruby>', de:'Flur', t:'n', tag:'place'},
+    {jp:'<ruby>芝生<rt>しばふ</rt></ruby>', de:'Rasen', t:'n', tag:'place'},
+    // Sport-Befehle
+    {jp:'がんばれ', de:'Streng dich an!', t:'e'},
+    {jp:'<ruby>止<rt>と</rt></ruby>まれ', de:'Halt!', t:'e'},
+    {jp:'<ruby>気<rt>き</rt></ruby>をつけて', de:'Pass auf!', t:'e'},
   ],
   34: [
     // とおりに / ないで (Methode)
@@ -1759,6 +2564,27 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'そのとおりに', de:'genau so', t:'e'},
     {jp:'<ruby>自分<rt>じぶん</rt></ruby>で', de:'selbst', t:'e'},
+    // Weitere Methoden-Verben
+    {jp:'<ruby>混<rt>ま</rt></ruby>ぜます', de:'mischen', t:'v'},
+    {jp:'<ruby>切<rt>き</rt></ruby>ります', de:'schneiden', t:'v'},
+    {jp:'<ruby>焼<rt>や</rt></ruby>きます', de:'braten / grillen', t:'v'},
+    {jp:'<ruby>煮<rt>に</rt></ruby>ます', de:'kochen (in Brühe)', t:'v'},
+    {jp:'<ruby>揚<rt>あ</rt></ruby>げます', de:'frittieren', t:'v'},
+    {jp:'<ruby>巻<rt>ま</rt></ruby>きます', de:'rollen / wickeln', t:'v'},
+    {jp:'<ruby>包<rt>つつ</rt></ruby>みます', de:'einwickeln', t:'v'},
+    {jp:'<ruby>塗<rt>ぬ</rt></ruby>ります', de:'anstreichen', t:'v'},
+    // Weitere Nomen
+    {jp:'<ruby>先生<rt>せんせい</rt></ruby>', de:'Lehrer', t:'n', tag:'person'},
+    {jp:'<ruby>手順<rt>てじゅん</rt></ruby>', de:'Reihenfolge', t:'n', tag:'thing'},
+    {jp:'<ruby>矢印<rt>やじるし</rt></ruby>', de:'Pfeil', t:'n', tag:'thing'},
+    {jp:'<ruby>作<rt>つく</rt></ruby>り<ruby>方<rt>かた</rt></ruby>', de:'Herstellungsweise', t:'n', tag:'thing'},
+    {jp:'<ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby>', de:'Gebrauchsanweisung', t:'n', tag:'thing'},
+    {jp:'<ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby>', de:'Leseweise', t:'n', tag:'thing'},
+    {jp:'<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>', de:'Schreibweise', t:'n', tag:'thing'},
+    // Weitere Ausdrücke
+    {jp:'<ruby>先<rt>さき</rt></ruby>に', de:'zuerst', t:'e'},
+    {jp:'<ruby>次<rt>つぎ</rt></ruby>に', de:'als nächstes', t:'e'},
+    {jp:'<ruby>最後<rt>さいご</rt></ruby>に', de:'zuletzt', t:'e'},
   ],
   35: [
     // ば-Konditional
@@ -1780,6 +2606,27 @@ const VOCAB_BY_LESSON = {
     {jp:'もし', de:'falls', t:'e'},
     {jp:'たとえ', de:'selbst wenn', t:'e'},
     {jp:'<ruby>何<rt>なに</rt></ruby>か', de:'irgendetwas', t:'e'},
+    // Weitere ば-Verben
+    {jp:'<ruby>練習<rt>れんしゅう</rt></ruby>します', de:'üben', t:'v'},
+    {jp:'<ruby>調<rt>しら</rt></ruby>べます', de:'nachschauen', t:'v'},
+    {jp:'<ruby>急<rt>いそ</rt></ruby>ぎます', de:'sich beeilen', t:'v'},
+    {jp:'<ruby>聞<rt>き</rt></ruby>きます', de:'fragen', t:'v'},
+    {jp:'<ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みます', de:'Medizin nehmen', t:'v'},
+    // Weitere Konditional-Nomen
+    {jp:'<ruby>辞書<rt>じしょ</rt></ruby>', de:'Wörterbuch', t:'n', tag:'readable thing'},
+    {jp:'<ruby>先生<rt>せんせい</rt></ruby>', de:'Lehrer', t:'n', tag:'person'},
+    {jp:'インターネット', de:'Internet', t:'n', tag:'thing'},
+    {jp:'<ruby>地図<rt>ちず</rt></ruby>', de:'Karte', t:'n', tag:'readable thing'},
+    {jp:'<ruby>空気<rt>くうき</rt></ruby>', de:'Luft', t:'n', tag:'thing'},
+    {jp:'<ruby>水<rt>みず</rt></ruby>', de:'Wasser', t:'n', tag:'drink'},
+    // Weitere Adjektive
+    {jp:'<ruby>便利<rt>べんり</rt></ruby>', de:'praktisch', t:'na'},
+    {jp:'<ruby>安<rt>やす</rt></ruby>い', de:'billig', t:'i'},
+    {jp:'<ruby>暖<rt>あたた</rt></ruby>かい', de:'warm', t:'i'},
+    {jp:'<ruby>楽<rt>たの</rt></ruby>しい', de:'macht Spaß', t:'i'},
+    // Sonderwörter
+    {jp:'<ruby>例<rt>たと</rt></ruby>えば', de:'zum Beispiel', t:'e'},
+    {jp:'きっと', de:'bestimmt', t:'e'},
   ],
   36: [
     // ように (Zweck)
@@ -1800,6 +2647,35 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'<ruby>毎日<rt>まいにち</rt></ruby>', de:'jeden Tag', t:'e'},
     {jp:'<ruby>一生<rt>いっしょう</rt></ruby><ruby>懸命<rt>けんめい</rt></ruby>', de:'mit aller Kraft', t:'e'},
+    // Weitere Verben L36
+    {jp:'<ruby>間<rt>ま</rt></ruby>に <ruby>合<rt>あ</rt></ruby>います', de:'rechtzeitig schaffen', t:'v'},
+    {jp:'<ruby>遅<rt>おく</rt></ruby>れます', de:'sich verspäten', t:'v'},
+    {jp:'<ruby>繰<rt>く</rt></ruby>り<ruby>返<rt>かえ</rt></ruby>します', de:'wiederholen', t:'v'},
+    {jp:'<ruby>続<rt>つづ</rt></ruby>けます', de:'fortsetzen', t:'v'},
+    {jp:'<ruby>変<rt>か</rt></ruby>えます', de:'verändern', t:'v'},
+    {jp:'<ruby>増<rt>ふ</rt></ruby>やします', de:'vermehren', t:'v'},
+    {jp:'<ruby>減<rt>へ</rt></ruby>らします', de:'verringern', t:'v'},
+    {jp:'<ruby>直<rt>なお</rt></ruby>します', de:'korrigieren / reparieren', t:'v'},
+    {jp:'<ruby>走<rt>はし</rt></ruby>ります', de:'rennen', t:'v'},
+    {jp:'<ruby>泳<rt>およ</rt></ruby>ぎます', de:'schwimmen', t:'v'},
+    // Weitere Nomen L36
+    {jp:'<ruby>生活<rt>せいかつ</rt></ruby>', de:'Leben / Alltag', t:'n', tag:'thing'},
+    {jp:'<ruby>習慣<rt>しゅうかん</rt></ruby>', de:'Gewohnheit', t:'n', tag:'thing'},
+    {jp:'<ruby>成績<rt>せいせき</rt></ruby>', de:'Noten / Leistung', t:'n', tag:'thing'},
+    {jp:'<ruby>実力<rt>じつりょく</rt></ruby>', de:'wahre Fähigkeit', t:'n', tag:'thing'},
+    {jp:'<ruby>技術<rt>ぎじゅつ</rt></ruby>', de:'Technik / Fähigkeit', t:'n', tag:'thing'},
+    {jp:'<ruby>規則<rt>きそく</rt></ruby>', de:'Regel', t:'n', tag:'thing'},
+    {jp:'<ruby>約束<rt>やくそく</rt></ruby>', de:'Versprechen / Verabredung', t:'n', tag:'thing'},
+    {jp:'<ruby>発表<rt>はっぴょう</rt></ruby>', de:'Vortrag / Präsentation', t:'n', tag:'activity'},
+    {jp:'マラソン', de:'Marathon', t:'n', tag:'activity'},
+    // Weitere Sonderwörter L36
+    {jp:'なるべく', de:'möglichst', t:'e'},
+    {jp:'やっと', de:'endlich', t:'e'},
+    {jp:'だんだん', de:'allmählich', t:'e'},
+    {jp:'ように', de:'so dass / damit', t:'e'},
+    {jp:'ようになります', de:'es kommt dazu, dass', t:'e'},
+    {jp:'ようにします', de:'dafür sorgen, dass', t:'e'},
+    {jp:'ようにしてください', de:'bitte achten Sie darauf', t:'e'},
   ],
   37: [
     // Passiv
@@ -1824,6 +2700,28 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'<ruby>残念<rt>ざんねん</rt></ruby>', de:'schade', t:'na'},
     {jp:'<ruby>迷惑<rt>めいわく</rt></ruby>', de:'störend / lästig', t:'na'},
+    // Weitere Verben L37
+    {jp:'<ruby>殴<rt>なぐ</rt></ruby>ります', de:'schlagen', t:'v'},
+    {jp:'<ruby>怒<rt>おこ</rt></ruby>ります', de:'wütend werden / schimpfen', t:'v'},
+    {jp:'<ruby>笑<rt>わら</rt></ruby>います', de:'lachen', t:'v'},
+    {jp:'<ruby>注意<rt>ちゅうい</rt></ruby>します', de:'ermahnen / aufpassen', t:'v'},
+    {jp:'<ruby>翻訳<rt>ほんやく</rt></ruby>します', de:'übersetzen', t:'v'},
+    {jp:'<ruby>発明<rt>はつめい</rt></ruby>します', de:'erfinden', t:'v'},
+    {jp:'<ruby>建<rt>た</rt></ruby>てます', de:'bauen / errichten', t:'v'},
+    {jp:'<ruby>見<rt>み</rt></ruby>つけます', de:'finden / entdecken', t:'v'},
+    {jp:'<ruby>噛<rt>か</rt></ruby>みます', de:'beißen', t:'v'},
+    // Weitere Nomen L37
+    {jp:'<ruby>犯人<rt>はんにん</rt></ruby>', de:'Täter', t:'n', tag:'person'},
+    {jp:'<ruby>被害<rt>ひがい</rt></ruby>', de:'Schaden', t:'n', tag:'thing'},
+    {jp:'<ruby>事件<rt>じけん</rt></ruby>', de:'Vorfall / Fall', t:'n', tag:'thing'},
+    {jp:'<ruby>足<rt>あし</rt></ruby>', de:'Fuß / Bein', t:'n', tag:'thing'},
+    {jp:'<ruby>傘<rt>かさ</rt></ruby>', de:'Regenschirm', t:'n', tag:'thing'},
+    {jp:'<ruby>鍵<rt>かぎ</rt></ruby>', de:'Schlüssel', t:'n', tag:'thing'},
+    {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>', de:'Zug', t:'n', tag:'vehicle'},
+    {jp:'<ruby>部屋<rt>へや</rt></ruby>', de:'Zimmer', t:'n', tag:'place'},
+    // Weitere Sonderwörter L37
+    {jp:'<ruby>突然<rt>とつぜん</rt></ruby>', de:'plötzlich', t:'e'},
+    {jp:'<ruby>被害<rt>ひがい</rt></ruby>に あいます', de:'Schaden erleiden', t:'e'},
   ],
   38: [
     // Nominalisierung (のは / ことは)
@@ -1849,6 +2747,28 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'<ruby>特<rt>とく</rt></ruby>に', de:'besonders', t:'e'},
     {jp:'なんと<ruby>言<rt>い</rt></ruby>っても', de:'was auch passiert', t:'e'},
+    // Weitere Verben L38
+    {jp:'<ruby>片<rt>かた</rt></ruby>づけます', de:'aufräumen', t:'v'},
+    {jp:'<ruby>泳<rt>およ</rt></ruby>ぎます', de:'schwimmen', t:'v'},
+    {jp:'<ruby>登<rt>のぼ</rt></ruby>ります', de:'klettern / besteigen', t:'v'},
+    {jp:'<ruby>釣<rt>つ</rt></ruby>ります', de:'angeln', t:'v'},
+    {jp:'<ruby>弾<rt>ひ</rt></ruby>きます', de:'spielen (Instrument)', t:'v'},
+    {jp:'<ruby>植<rt>う</rt></ruby>えます', de:'pflanzen', t:'v'},
+    {jp:'<ruby>直<rt>なお</rt></ruby>します', de:'reparieren', t:'v'},
+    // Weitere Nomen/Adj L38
+    {jp:'<ruby>趣味<rt>しゅみ</rt></ruby>', de:'Hobby', t:'n', tag:'thing'},
+    {jp:'<ruby>経験<rt>けいけん</rt></ruby>', de:'Erfahrung', t:'n', tag:'thing'},
+    {jp:'<ruby>外国語<rt>がいこくご</rt></ruby>', de:'Fremdsprache', t:'n', tag:'language'},
+    {jp:'<ruby>料理<rt>りょうり</rt></ruby>', de:'Kochen / Gericht', t:'n', tag:'activity food'},
+    {jp:'<ruby>旅行<rt>りょこう</rt></ruby>', de:'Reise', t:'n', tag:'activity'},
+    {jp:'<ruby>音楽<rt>おんがく</rt></ruby>', de:'Musik', t:'n', tag:'audible'},
+    {jp:'<ruby>危険<rt>きけん</rt></ruby>', de:'gefährlich', t:'na'},
+    {jp:'<ruby>複雑<rt>ふくざつ</rt></ruby>', de:'kompliziert', t:'na'},
+    {jp:'つまらない', de:'langweilig', t:'i'},
+    {jp:'<ruby>気持<rt>きも</rt></ruby>ちいい', de:'angenehm', t:'i'},
+    // Weitere Sonderwörter L38
+    {jp:'ことがあります', de:'es kommt vor, dass', t:'e'},
+    {jp:'ことができます', de:'man kann …', t:'e'},
   ],
   39: [
     // ので / て (Grund)
@@ -1875,6 +2795,28 @@ const VOCAB_BY_LESSON = {
     {jp:'それで', de:'deshalb', t:'e'},
     {jp:'だから', de:'deswegen', t:'e'},
     {jp:'<ruby>仕方<rt>しかた</rt></ruby>がない', de:'man kann nichts machen', t:'e'},
+    // Weitere Verben L39
+    {jp:'<ruby>困<rt>こま</rt></ruby>ります', de:'in Verlegenheit sein', t:'v'},
+    {jp:'がっかりします', de:'enttäuscht sein', t:'v'},
+    {jp:'<ruby>安心<rt>あんしん</rt></ruby>します', de:'beruhigt sein', t:'v'},
+    {jp:'<ruby>心配<rt>しんぱい</rt></ruby>します', de:'sich Sorgen machen', t:'v'},
+    {jp:'<ruby>感動<rt>かんどう</rt></ruby>します', de:'gerührt / beeindruckt sein', t:'v'},
+    {jp:'<ruby>緊張<rt>きんちょう</rt></ruby>します', de:'nervös / angespannt sein', t:'v'},
+    {jp:'<ruby>遅<rt>おく</rt></ruby>れます', de:'sich verspäten', t:'v'},
+    {jp:'<ruby>壊<rt>こわ</rt></ruby>れます', de:'kaputt gehen', t:'v'},
+    {jp:'<ruby>倒<rt>たお</rt></ruby>れます', de:'umfallen / zusammenbrechen', t:'v'},
+    // Weitere Nomen/Adj L39
+    {jp:'<ruby>原因<rt>げんいん</rt></ruby>', de:'Ursache', t:'n', tag:'thing'},
+    {jp:'<ruby>結果<rt>けっか</rt></ruby>', de:'Ergebnis', t:'n', tag:'thing'},
+    {jp:'<ruby>病気<rt>びょうき</rt></ruby>', de:'Krankheit', t:'n', tag:'thing'},
+    {jp:'<ruby>故障<rt>こしょう</rt></ruby>', de:'Panne / Defekt', t:'n', tag:'thing'},
+    {jp:'<ruby>洪水<rt>こうずい</rt></ruby>', de:'Überschwemmung', t:'n', tag:'thing'},
+    {jp:'<ruby>怖<rt>こわ</rt></ruby>い', de:'unheimlich / furchtbar', t:'i'},
+    {jp:'<ruby>恥<rt>は</rt></ruby>ずかしい', de:'peinlich / beschämend', t:'i'},
+    {jp:'<ruby>残念<rt>ざんねん</rt></ruby>', de:'bedauerlich / schade', t:'na'},
+    // Weitere Sonderwörter L39
+    {jp:'そのため', de:'aus diesem Grund', t:'e'},
+    {jp:'ので', de:'weil (höflich)', t:'e'},
   ],
   40: [
     // か どうか (Indirekte Frage)
@@ -1897,6 +2839,28 @@ const VOCAB_BY_LESSON = {
     {jp:'どうか', de:'ob (indirekte Frage)', t:'e'},
     {jp:'まだ', de:'noch / noch nicht', t:'e'},
     {jp:'もう', de:'schon / gleich', t:'e'},
+    // Weitere Verben L40
+    {jp:'<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>します', de:'sich erinnern', t:'v'},
+    {jp:'<ruby>考<rt>かんが</rt></ruby>えます', de:'nachdenken', t:'v'},
+    {jp:'<ruby>迷<rt>まよ</rt></ruby>います', de:'zögern / sich verirren', t:'v'},
+    {jp:'<ruby>届<rt>とど</rt></ruby>きます', de:'ankommen (Sendung)', t:'v'},
+    {jp:'<ruby>間<rt>ま</rt></ruby>に <ruby>合<rt>あ</rt></ruby>います', de:'rechtzeitig sein', t:'v'},
+    {jp:'<ruby>決<rt>き</rt></ruby>めます', de:'entscheiden', t:'v'},
+    {jp:'<ruby>相談<rt>そうだん</rt></ruby>します', de:'sich beraten', t:'v'},
+    {jp:'<ruby>報告<rt>ほうこく</rt></ruby>します', de:'berichten', t:'v'},
+    // Weitere Nomen L40
+    {jp:'<ruby>問題<rt>もんだい</rt></ruby>', de:'Problem / Frage', t:'n', tag:'thing'},
+    {jp:'<ruby>住所<rt>じゅうしょ</rt></ruby>', de:'Adresse', t:'n', tag:'thing'},
+    {jp:'<ruby>電話番号<rt>でんわばんごう</rt></ruby>', de:'Telefonnummer', t:'n', tag:'thing'},
+    {jp:'<ruby>値段<rt>ねだん</rt></ruby>', de:'Preis', t:'n', tag:'thing'},
+    {jp:'<ruby>意味<rt>いみ</rt></ruby>', de:'Bedeutung', t:'n', tag:'thing'},
+    {jp:'<ruby>理由<rt>りゆう</rt></ruby>', de:'Grund', t:'n', tag:'thing'},
+    {jp:'<ruby>日程<rt>にってい</rt></ruby>', de:'Zeitplan', t:'n', tag:'thing'},
+    {jp:'<ruby>申込書<rt>もうしこみしょ</rt></ruby>', de:'Anmeldeformular', t:'n', tag:'readable thing'},
+    // Weitere Sonderwörter L40
+    {jp:'かどうか', de:'ob … oder nicht', t:'e'},
+    {jp:'<ruby>確<rt>たし</rt></ruby>か', de:'sicher / gewiss', t:'e'},
+    {jp:'さあ', de:'tja / also', t:'e'},
   ],
   41: [
     // Höflich geben/bekommen (て いただく / てくださる / て差し上げる)
@@ -1918,6 +2882,28 @@ const VOCAB_BY_LESSON = {
     {jp:'お<ruby>客<rt>きゃく</rt></ruby>さま', de:'Kunde (höflich)', t:'n', tag:'person'},
     // Sonderwörter
     {jp:'わざわざ', de:'extra / eigens', t:'e'},
+    // Weitere Verben L41
+    {jp:'<ruby>送<rt>おく</rt></ruby>ります', de:'schicken', t:'v'},
+    {jp:'<ruby>届<rt>とど</rt></ruby>けます', de:'liefern / zustellen', t:'v'},
+    {jp:'<ruby>紹介<rt>しょうかい</rt></ruby>します', de:'vorstellen', t:'v'},
+    {jp:'<ruby>案内<rt>あんない</rt></ruby>します', de:'führen / leiten', t:'v'},
+    {jp:'<ruby>説明<rt>せつめい</rt></ruby>します', de:'erklären', t:'v'},
+    {jp:'<ruby>連<rt>つ</rt></ruby>れて <ruby>行<rt>い</rt></ruby>きます', de:'mitnehmen (Person)', t:'v'},
+    {jp:'<ruby>見<rt>み</rt></ruby>せます', de:'zeigen', t:'v'},
+    {jp:'<ruby>貸<rt>か</rt></ruby>します', de:'verleihen', t:'v'},
+    // Weitere Nomen L41
+    {jp:'<ruby>花束<rt>はなたば</rt></ruby>', de:'Blumenstrauß', t:'n', tag:'thing'},
+    {jp:'<ruby>指輪<rt>ゆびわ</rt></ruby>', de:'Ring', t:'n', tag:'thing'},
+    {jp:'<ruby>結婚式<rt>けっこんしき</rt></ruby>', de:'Hochzeitsfeier', t:'n', tag:'activity'},
+    {jp:'<ruby>誕生日<rt>たんじょうび</rt></ruby>', de:'Geburtstag', t:'n', tag:'time'},
+    {jp:'<ruby>葬式<rt>そうしき</rt></ruby>', de:'Beerdigung', t:'n', tag:'activity'},
+    {jp:'<ruby>先輩<rt>せんぱい</rt></ruby>', de:'Älterer / Vorgesetzter', t:'n', tag:'person'},
+    {jp:'<ruby>後輩<rt>こうはい</rt></ruby>', de:'Jüngerer / Untergebener', t:'n', tag:'person'},
+    {jp:'<ruby>目上<rt>めうえ</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>', de:'höhergestellte Person', t:'n', tag:'person'},
+    // Weitere Sonderwörter L41
+    {jp:'ていただけませんか', de:'könnten Sie bitte …?', t:'e'},
+    {jp:'てくださいませんか', de:'würden Sie bitte …?', t:'e'},
+    {jp:'おかげさまで', de:'dank Ihrer Hilfe', t:'e'},
   ],
   42: [
     // ために (Zweck)
@@ -1939,6 +2925,28 @@ const VOCAB_BY_LESSON = {
     {jp:'<ruby>子供<rt>こども</rt></ruby>', de:'Kind(er)', t:'n', tag:'person'},
     // Sonderwörter
     {jp:'のに', de:'obwohl / wozu (Kontrast)', t:'e'},
+    // Weitere Verben L42
+    {jp:'<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みます', de:'sich bewerben / anmelden', t:'v'},
+    {jp:'<ruby>受<rt>う</rt></ruby>けます', de:'empfangen / teilnehmen (Prüfung)', t:'v'},
+    {jp:'<ruby>集<rt>あつ</rt></ruby>めます', de:'sammeln', t:'v'},
+    {jp:'<ruby>探<rt>さが</rt></ruby>します', de:'suchen', t:'v'},
+    {jp:'<ruby>調<rt>しら</rt></ruby>べます', de:'nachforschen', t:'v'},
+    {jp:'<ruby>勉強<rt>べんきょう</rt></ruby>します', de:'lernen / studieren', t:'v'},
+    {jp:'<ruby>入学<rt>にゅうがく</rt></ruby>します', de:'an der Schule eintreten', t:'v'},
+    {jp:'<ruby>卒業<rt>そつぎょう</rt></ruby>します', de:'abschließen / graduieren', t:'v'},
+    // Weitere Nomen L42
+    {jp:'<ruby>奨学金<rt>しょうがくきん</rt></ruby>', de:'Stipendium', t:'n', tag:'thing'},
+    {jp:'<ruby>留学<rt>りゅうがく</rt></ruby>', de:'Auslandsstudium', t:'n', tag:'activity'},
+    {jp:'<ruby>試合<rt>しあい</rt></ruby>', de:'Wettkampf / Spiel', t:'n', tag:'activity'},
+    {jp:'<ruby>論文<rt>ろんぶん</rt></ruby>', de:'Abhandlung / Aufsatz', t:'n', tag:'readable thing'},
+    {jp:'<ruby>面接<rt>めんせつ</rt></ruby>', de:'Vorstellungsgespräch', t:'n', tag:'activity'},
+    {jp:'<ruby>国際交流<rt>こくさいこうりゅう</rt></ruby>', de:'internationaler Austausch', t:'n', tag:'activity'},
+    {jp:'<ruby>教育<rt>きょういく</rt></ruby>', de:'Erziehung / Bildung', t:'n', tag:'thing'},
+    {jp:'<ruby>計画<rt>けいかく</rt></ruby>', de:'Plan', t:'n', tag:'thing'},
+    // Weitere Sonderwörter L42
+    {jp:'ために', de:'um … zu / wegen', t:'e'},
+    {jp:'<ruby>一生<rt>いっしょう</rt></ruby>に <ruby>一度<rt>いちど</rt></ruby>', de:'einmal im Leben', t:'e'},
+    {jp:'いつか', de:'irgendwann', t:'e'},
   ],
   43: [
     // そうです (visueller Anschein)
@@ -1963,6 +2971,29 @@ const VOCAB_BY_LESSON = {
     {jp:'<ruby>雪<rt>ゆき</rt></ruby>', de:'Schnee', t:'n', tag:'thing'},
     {jp:'<ruby>様子<rt>ようす</rt></ruby>', de:'Aussehen / Zustand', t:'n', tag:'thing'},
     {jp:'<ruby>顔<rt>かお</rt></ruby>', de:'Gesicht', t:'n', tag:'thing'},
+    // Weitere Verben L43
+    {jp:'<ruby>晴<rt>は</rt></ruby>れます', de:'aufklaren (Wetter)', t:'v'},
+    {jp:'<ruby>曇<rt>くも</rt></ruby>ります', de:'sich bewölken', t:'v'},
+    {jp:'<ruby>溶<rt>と</rt></ruby>けます', de:'schmelzen', t:'v'},
+    {jp:'<ruby>割<rt>わ</rt></ruby>れます', de:'zerbrechen', t:'v'},
+    {jp:'<ruby>消<rt>き</rt></ruby>えます', de:'ausgehen / erlöschen', t:'v'},
+    {jp:'<ruby>太<rt>ふと</rt></ruby>ります', de:'zunehmen (Gewicht)', t:'v'},
+    {jp:'<ruby>痩<rt>や</rt></ruby>せます', de:'abnehmen (Gewicht)', t:'v'},
+    // Weitere Adj L43
+    {jp:'<ruby>眠<rt>ねむ</rt></ruby>い', de:'schläfrig', t:'i'},
+    {jp:'<ruby>固<rt>かた</rt></ruby>い', de:'hart / fest', t:'i'},
+    {jp:'<ruby>柔<rt>やわ</rt></ruby>らかい', de:'weich', t:'i'},
+    {jp:'<ruby>丈夫<rt>じょうぶ</rt></ruby>', de:'robust / stabil', t:'na'},
+    {jp:'<ruby>静<rt>しず</rt></ruby>か', de:'ruhig / still', t:'na'},
+    {jp:'にぎやか', de:'belebt / lebhaft', t:'na'},
+    // Weitere Nomen L43
+    {jp:'<ruby>空<rt>そら</rt></ruby>', de:'Himmel', t:'n', tag:'thing photo_subject'},
+    {jp:'<ruby>雲<rt>くも</rt></ruby>', de:'Wolke', t:'n', tag:'thing'},
+    {jp:'<ruby>風<rt>かぜ</rt></ruby>', de:'Wind', t:'n', tag:'thing'},
+    {jp:'<ruby>味<rt>あじ</rt></ruby>', de:'Geschmack', t:'n', tag:'thing'},
+    // Sonderwörter L43
+    {jp:'そうです', de:'sieht so aus, als ob', t:'e'},
+    {jp:'そうもない', de:'sieht nicht so aus', t:'e'},
   ],
   44: [
     // すぎる / やすい / にくい
@@ -1985,6 +3016,30 @@ const VOCAB_BY_LESSON = {
     {jp:'<ruby>薄<rt>うす</rt></ruby>い', de:'leicht / dünn', t:'i'},
     {jp:'<ruby>多<rt>おお</rt></ruby>い', de:'viel', t:'i'},
     {jp:'<ruby>少<rt>すく</rt></ruby>ない', de:'wenig', t:'i'},
+    // Weitere Verben L44
+    {jp:'<ruby>疲<rt>つか</rt></ruby>れます', de:'müde werden', t:'v'},
+    {jp:'<ruby>慣<rt>な</rt></ruby>れます', de:'sich gewöhnen', t:'v'},
+    {jp:'<ruby>太<rt>ふと</rt></ruby>ります', de:'zunehmen (Gewicht)', t:'v'},
+    {jp:'<ruby>滑<rt>すべ</rt></ruby>ります', de:'ausrutschen', t:'v'},
+    {jp:'<ruby>分<rt>わ</rt></ruby>かります', de:'verstehen', t:'v'},
+    {jp:'<ruby>間違<rt>まちが</rt></ruby>えます', de:'verwechseln', t:'v'},
+    {jp:'<ruby>歩<rt>ある</rt></ruby>きます', de:'gehen / laufen', t:'v'},
+    // Weitere Adj L44
+    {jp:'<ruby>苦<rt>にが</rt></ruby>い', de:'bitter', t:'i'},
+    {jp:'<ruby>塩辛<rt>しおから</rt></ruby>い', de:'salzig', t:'i'},
+    {jp:'<ruby>酸<rt>す</rt></ruby>っぱい', de:'sauer', t:'i'},
+    {jp:'<ruby>暗<rt>くら</rt></ruby>い', de:'dunkel', t:'i'},
+    {jp:'<ruby>明<rt>あか</rt></ruby>るい', de:'hell', t:'i'},
+    {jp:'<ruby>狭<rt>せま</rt></ruby>い', de:'eng', t:'i'},
+    {jp:'<ruby>広<rt>ひろ</rt></ruby>い', de:'weit / breit', t:'i'},
+    // Weitere Nomen L44
+    {jp:'<ruby>量<rt>りょう</rt></ruby>', de:'Menge', t:'n', tag:'thing'},
+    {jp:'<ruby>色<rt>いろ</rt></ruby>', de:'Farbe', t:'n', tag:'thing'},
+    {jp:'<ruby>字<rt>じ</rt></ruby>', de:'Schriftzeichen', t:'n', tag:'thing'},
+    {jp:'<ruby>道<rt>みち</rt></ruby>', de:'Weg / Straße', t:'n', tag:'place'},
+    // Sonderwörter L44
+    {jp:'<ruby>動<rt>うご</rt></ruby>きやすい', de:'leicht zu bewegen', t:'e'},
+    {jp:'<ruby>読<rt>よ</rt></ruby>みにくい', de:'schwer zu lesen', t:'e'},
   ],
   45: [
     // ばあい / のに
@@ -2004,6 +3059,28 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'<ruby>万<rt>まん</rt></ruby>が<ruby>一<rt>いち</rt></ruby>', de:'für den Fall der Fälle', t:'e'},
     {jp:'せっかく', de:'obwohl man sich Mühe gegeben hat', t:'e'},
+    // Weitere Verben L45
+    {jp:'<ruby>逃<rt>に</rt></ruby>げます', de:'fliehen', t:'v'},
+    {jp:'<ruby>届<rt>とど</rt></ruby>けます', de:'melden / einreichen', t:'v'},
+    {jp:'<ruby>知<rt>し</rt></ruby>らせます', de:'benachrichtigen', t:'v'},
+    {jp:'<ruby>助<rt>たす</rt></ruby>けます', de:'helfen / retten', t:'v'},
+    {jp:'<ruby>集<rt>あつ</rt></ruby>まります', de:'sich versammeln', t:'v'},
+    {jp:'<ruby>避難<rt>ひなん</rt></ruby>します', de:'evakuieren / flüchten', t:'v'},
+    {jp:'<ruby>延期<rt>えんき</rt></ruby>します', de:'verschieben', t:'v'},
+    {jp:'<ruby>参加<rt>さんか</rt></ruby>します', de:'teilnehmen', t:'v'},
+    // Weitere Nomen L45
+    {jp:'<ruby>津波<rt>つなみ</rt></ruby>', de:'Tsunami', t:'n', tag:'thing'},
+    {jp:'<ruby>洪水<rt>こうずい</rt></ruby>', de:'Überschwemmung', t:'n', tag:'thing'},
+    {jp:'<ruby>消防車<rt>しょうぼうしゃ</rt></ruby>', de:'Feuerwehrauto', t:'n', tag:'vehicle'},
+    {jp:'<ruby>救急車<rt>きゅうきゅうしゃ</rt></ruby>', de:'Krankenwagen', t:'n', tag:'vehicle'},
+    {jp:'<ruby>避難所<rt>ひなんじょ</rt></ruby>', de:'Zufluchtsort', t:'n', tag:'place'},
+    {jp:'<ruby>保険<rt>ほけん</rt></ruby>', de:'Versicherung', t:'n', tag:'thing'},
+    {jp:'<ruby>予定<rt>よてい</rt></ruby>', de:'Plan / Termin', t:'n', tag:'thing'},
+    {jp:'<ruby>規則<rt>きそく</rt></ruby>', de:'Regel / Vorschrift', t:'n', tag:'thing'},
+    // Weitere Sonderwörter L45
+    {jp:'<ruby>必<rt>かなら</rt></ruby>ず', de:'unbedingt', t:'e'},
+    {jp:'<ruby>念<rt>ねん</rt></ruby>のため', de:'sicherheitshalber', t:'e'},
+    {jp:'ばあいは', de:'im Falle von', t:'e'},
   ],
   46: [
     // ところ / ばかり / はず
@@ -2024,6 +3101,28 @@ const VOCAB_BY_LESSON = {
     {jp:'そろそろ', de:'es wird langsam Zeit', t:'e'},
     {jp:'さっき', de:'eben gerade (vorhin)', t:'e'},
     {jp:'たった<ruby>今<rt>いま</rt></ruby>', de:'genau jetzt', t:'e'},
+    // Weitere Verben L46
+    {jp:'<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>します', de:'umziehen', t:'v'},
+    {jp:'<ruby>入<rt>はい</rt></ruby>ります', de:'eintreten / hineingehen', t:'v'},
+    {jp:'<ruby>食<rt>た</rt></ruby>べます', de:'essen', t:'v'},
+    {jp:'<ruby>準備<rt>じゅんび</rt></ruby>します', de:'vorbereiten', t:'v'},
+    {jp:'<ruby>掃除<rt>そうじ</rt></ruby>します', de:'putzen', t:'v'},
+    {jp:'<ruby>洗濯<rt>せんたく</rt></ruby>します', de:'Wäsche waschen', t:'v'},
+    {jp:'<ruby>到着<rt>とうちゃく</rt></ruby>します', de:'ankommen (an Ort)', t:'v'},
+    {jp:'<ruby>出発<rt>しゅっぱつ</rt></ruby>します', de:'abfahren / aufbrechen', t:'v'},
+    // Weitere Nomen L46
+    {jp:'<ruby>飛行機<rt>ひこうき</rt></ruby>', de:'Flugzeug', t:'n', tag:'vehicle'},
+    {jp:'<ruby>荷物<rt>にもつ</rt></ruby>', de:'Gepäck', t:'n', tag:'thing'},
+    {jp:'<ruby>約束<rt>やくそく</rt></ruby>', de:'Versprechen / Verabredung', t:'n', tag:'thing'},
+    {jp:'<ruby>手紙<rt>てがみ</rt></ruby>', de:'Brief', t:'n', tag:'readable thing'},
+    {jp:'<ruby>宿題<rt>しゅくだい</rt></ruby>', de:'Hausaufgabe', t:'n', tag:'thing'},
+    {jp:'<ruby>会議<rt>かいぎ</rt></ruby>', de:'Konferenz', t:'n', tag:'activity'},
+    // Weitere Sonderwörter L46
+    {jp:'ところです', de:'gerade dabei sein', t:'e'},
+    {jp:'たところです', de:'gerade erst getan haben', t:'e'},
+    {jp:'ばかりです', de:'gerade erst … haben', t:'e'},
+    {jp:'はずです', de:'es sollte so sein', t:'e'},
+    {jp:'はずがない', de:'kann nicht sein, dass', t:'e'},
   ],
   47: [
     // そうです (Hörensagen)
@@ -2045,6 +3144,27 @@ const VOCAB_BY_LESSON = {
     {jp:'そうですか', de:'ach wirklich?', t:'e'},
     {jp:'そんなに', de:'so sehr', t:'e'},
     {jp:'まさか', de:'unmöglich / nicht doch!', t:'e'},
+    // Weitere Verben L47
+    {jp:'<ruby>辞<rt>や</rt></ruby>めます', de:'aufhören / kündigen', t:'v'},
+    {jp:'<ruby>倒産<rt>とうさん</rt></ruby>します', de:'bankrott gehen', t:'v'},
+    {jp:'<ruby>優勝<rt>ゆうしょう</rt></ruby>します', de:'den Sieg erringen', t:'v'},
+    {jp:'<ruby>合格<rt>ごうかく</rt></ruby>します', de:'bestehen (Prüfung)', t:'v'},
+    {jp:'<ruby>入院<rt>にゅういん</rt></ruby>します', de:'ins Krankenhaus eingeliefert werden', t:'v'},
+    {jp:'<ruby>退院<rt>たいいん</rt></ruby>します', de:'aus dem Krankenhaus entlassen werden', t:'v'},
+    {jp:'<ruby>転勤<rt>てんきん</rt></ruby>します', de:'versetzt werden', t:'v'},
+    {jp:'<ruby>値上<rt>ねあ</rt></ruby>がりします', de:'im Preis steigen', t:'v'},
+    // Weitere Nomen L47
+    {jp:'<ruby>首相<rt>しゅしょう</rt></ruby>', de:'Premierminister', t:'n', tag:'person'},
+    {jp:'<ruby>大統領<rt>だいとうりょう</rt></ruby>', de:'Präsident', t:'n', tag:'person'},
+    {jp:'<ruby>経済<rt>けいざい</rt></ruby>', de:'Wirtschaft', t:'n', tag:'thing'},
+    {jp:'<ruby>政治<rt>せいじ</rt></ruby>', de:'Politik', t:'n', tag:'thing'},
+    {jp:'<ruby>人口<rt>じんこう</rt></ruby>', de:'Bevölkerung', t:'n', tag:'thing'},
+    {jp:'<ruby>事故<rt>じこ</rt></ruby>', de:'Unfall', t:'n', tag:'thing'},
+    {jp:'<ruby>選挙<rt>せんきょ</rt></ruby>', de:'Wahl', t:'n', tag:'activity'},
+    {jp:'<ruby>番組<rt>ばんぐみ</rt></ruby>', de:'Sendung / Programm', t:'n', tag:'visual audible'},
+    // Weitere Sonderwörter L47
+    {jp:'によると', de:'laut / gemäß', t:'e'},
+    {jp:'<ruby>話<rt>はなし</rt></ruby>によると', de:'dem Gespräch nach', t:'e'},
   ],
   48: [
     // Kausativ — Person A lässt Person B X tun
@@ -2064,6 +3184,28 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'<ruby>無理<rt>むり</rt></ruby>', de:'unmöglich / übertrieben', t:'na'},
     {jp:'<ruby>自由<rt>じゆう</rt></ruby>に', de:'frei / nach Belieben', t:'e'},
+    // Weitere Kausativ-Verben L48
+    {jp:'<ruby>行<rt>い</rt></ruby>かせます', de:'gehen lassen', t:'v'},
+    {jp:'<ruby>来<rt>こ</rt></ruby>させます', de:'kommen lassen', t:'v'},
+    {jp:'<ruby>持<rt>も</rt></ruby>たせます', de:'tragen lassen', t:'v'},
+    {jp:'<ruby>読<rt>よ</rt></ruby>ませます', de:'lesen lassen', t:'v'},
+    {jp:'<ruby>書<rt>か</rt></ruby>かせます', de:'schreiben lassen', t:'v'},
+    {jp:'<ruby>走<rt>はし</rt></ruby>らせます', de:'rennen lassen', t:'v'},
+    {jp:'<ruby>習<rt>なら</rt></ruby>わせます', de:'lernen lassen', t:'v'},
+    {jp:'<ruby>掃除<rt>そうじ</rt></ruby>させます', de:'putzen lassen', t:'v'},
+    // Weitere Nomen L48
+    {jp:'<ruby>上司<rt>じょうし</rt></ruby>', de:'Vorgesetzter', t:'n', tag:'person'},
+    {jp:'<ruby>親<rt>おや</rt></ruby>', de:'Elternteil', t:'n', tag:'person'},
+    {jp:'<ruby>監督<rt>かんとく</rt></ruby>', de:'Trainer / Regisseur', t:'n', tag:'person'},
+    {jp:'<ruby>先生<rt>せんせい</rt></ruby>', de:'Lehrer', t:'n', tag:'person'},
+    {jp:'<ruby>社員<rt>しゃいん</rt></ruby>', de:'Angestellter', t:'n', tag:'person'},
+    {jp:'<ruby>習<rt>なら</rt></ruby>い<ruby>事<rt>ごと</rt></ruby>', de:'Unterricht (Hobby)', t:'n', tag:'activity'},
+    {jp:'<ruby>塾<rt>じゅく</rt></ruby>', de:'Nachhilfeschule', t:'n', tag:'place'},
+    {jp:'<ruby>用事<rt>ようじ</rt></ruby>', de:'Angelegenheit / Besorgung', t:'n', tag:'thing'},
+    // Weitere Sonderwörter L48
+    {jp:'させてください', de:'lassen Sie mich bitte …', t:'e'},
+    {jp:'させていただけませんか', de:'dürfte ich …? (höflich)', t:'e'},
+    {jp:'<ruby>嫌<rt>いや</rt></ruby>', de:'unangenehm / ungern', t:'na'},
   ],
   49: [
     // Sonkeigo (Respektsprache)
@@ -2084,6 +3226,28 @@ const VOCAB_BY_LESSON = {
     // Sonderwörter
     {jp:'お<ruby>忙<rt>いそが</rt></ruby>しい', de:'beschäftigt (höflich)', t:'e'},
     {jp:'お<ruby>疲<rt>つか</rt></ruby>れさまです', de:'Sie haben sich bemüht', t:'e'},
+    // Weitere Sonkeigo-Verben L49
+    {jp:'お<ruby>出<rt>で</rt></ruby>になります', de:'hinausgehen / ausgehen (Sonk.)', t:'v'},
+    {jp:'お<ruby>帰<rt>かえ</rt></ruby>りになります', de:'zurückkehren (Sonk.)', t:'v'},
+    {jp:'お<ruby>読<rt>よ</rt></ruby>みになります', de:'lesen (Sonk.)', t:'v'},
+    {jp:'お<ruby>書<rt>か</rt></ruby>きになります', de:'schreiben (Sonk.)', t:'v'},
+    {jp:'お<ruby>持<rt>も</rt></ruby>ちになります', de:'tragen / besitzen (Sonk.)', t:'v'},
+    {jp:'お<ruby>使<rt>つか</rt></ruby>いになります', de:'benutzen (Sonk.)', t:'v'},
+    {jp:'お<ruby>待<rt>ま</rt></ruby>ちになります', de:'warten (Sonk.)', t:'v'},
+    {jp:'お<ruby>聞<rt>き</rt></ruby>きになります', de:'hören / fragen (Sonk.)', t:'v'},
+    // Weitere Nomen L49
+    {jp:'<ruby>校長<rt>こうちょう</rt></ruby>', de:'Schulleiter', t:'n', tag:'person'},
+    {jp:'<ruby>会長<rt>かいちょう</rt></ruby>', de:'Vorsitzender', t:'n', tag:'person'},
+    {jp:'お<ruby>嬢<rt>じょう</rt></ruby>さん', de:'Tochter (höflich)', t:'n', tag:'person'},
+    {jp:'<ruby>息子<rt>むすこ</rt></ruby>さん', de:'Sohn (höflich)', t:'n', tag:'person'},
+    {jp:'<ruby>家族<rt>かぞく</rt></ruby>', de:'Familie', t:'n', tag:'person'},
+    {jp:'ご<ruby>住所<rt>じゅうしょ</rt></ruby>', de:'Adresse (höflich)', t:'n', tag:'thing'},
+    {jp:'お<ruby>名前<rt>なまえ</rt></ruby>', de:'Name (höflich)', t:'n', tag:'thing'},
+    // Weitere Sonderwörter L49
+    {jp:'お<ruby>元気<rt>げんき</rt></ruby>ですか', de:'Wie geht es Ihnen? (höflich)', t:'e'},
+    {jp:'ご<ruby>連絡<rt>れんらく</rt></ruby>', de:'Kontaktaufnahme (höflich)', t:'e'},
+    {jp:'お<ruby>変<rt>か</rt></ruby>わりありませんか', de:'geht es Ihnen gut?', t:'e'},
+    {jp:'お<ruby>越<rt>こ</rt></ruby>しください', de:'bitte kommen Sie', t:'e'},
   ],
   50: [
     // Kenjougo (Bescheidenheit)
@@ -2105,6 +3269,31 @@ const VOCAB_BY_LESSON = {
     {jp:'お<ruby>先<rt>さき</rt></ruby>に <ruby>失礼<rt>しつれい</rt></ruby>します', de:'ich gehe dann mal', t:'e'},
     {jp:'<ruby>恐<rt>おそ</rt></ruby>れ<ruby>入<rt>い</rt></ruby>りますが', de:'es tut mir leid, aber …', t:'e'},
     {jp:'お<ruby>手数<rt>てすう</rt></ruby>ですが', de:'entschuldigen Sie die Umstände', t:'e'},
+    // Weitere Kenjougo-Verben L50
+    {jp:'うかがいます', de:'besuchen / fragen (Kenjougo)', t:'v'},
+    {jp:'<ruby>参<rt>まい</rt></ruby>ります', de:'gehen / kommen (Kenjougo)', t:'v'},
+    {jp:'お<ruby>目<rt>め</rt></ruby>にかかります', de:'treffen (Kenjougo)', t:'v'},
+    {jp:'<ruby>差<rt>さ</rt></ruby>し<ruby>上<rt>あ</rt></ruby>げます', de:'geben (Kenjougo)', t:'v'},
+    {jp:'ご<ruby>案内<rt>あんない</rt></ruby>します', de:'führen (bescheiden)', t:'v'},
+    {jp:'ご<ruby>説明<rt>せつめい</rt></ruby>します', de:'erklären (bescheiden)', t:'v'},
+    {jp:'ご<ruby>報告<rt>ほうこく</rt></ruby>します', de:'berichten (bescheiden)', t:'v'},
+    {jp:'お<ruby>届<rt>とど</rt></ruby>けします', de:'liefern (bescheiden)', t:'v'},
+    {jp:'お<ruby>待<rt>ま</rt></ruby>ちしております', de:'ich warte (bescheiden)', t:'v'},
+    // Weitere Nomen L50
+    {jp:'<ruby>御社<rt>おんしゃ</rt></ruby>', de:'Ihre Firma (höflich)', t:'n', tag:'place'},
+    {jp:'<ruby>担当<rt>たんとう</rt></ruby>', de:'Zuständiger / Verantwortlicher', t:'n', tag:'person'},
+    {jp:'<ruby>上司<rt>じょうし</rt></ruby>', de:'Vorgesetzter', t:'n', tag:'person'},
+    {jp:'<ruby>受付<rt>うけつけ</rt></ruby>', de:'Empfang / Rezeption', t:'n', tag:'place'},
+    {jp:'<ruby>会議室<rt>かいぎしつ</rt></ruby>', de:'Konferenzraum', t:'n', tag:'place'},
+    {jp:'<ruby>契約<rt>けいやく</rt></ruby>', de:'Vertrag', t:'n', tag:'readable thing'},
+    {jp:'<ruby>打<rt>う</rt></ruby>ち<ruby>合<rt>あ</rt></ruby>わせ', de:'Besprechung / Meeting', t:'n', tag:'activity'},
+    {jp:'<ruby>商品<rt>しょうひん</rt></ruby>', de:'Ware / Produkt', t:'n', tag:'thing'},
+    // Weitere Sonderwörter L50
+    {jp:'<ruby>承知<rt>しょうち</rt></ruby>しました', de:'verstanden (bescheiden)', t:'e'},
+    {jp:'かしこまりました', de:'jawohl / wie Sie wünschen', t:'e'},
+    {jp:'お<ruby>電話<rt>でんわ</rt></ruby>いたします', de:'ich rufe an (bescheiden)', t:'e'},
+    {jp:'<ruby>少々<rt>しょうしょう</rt></ruby>お<ruby>待<rt>ま</rt></ruby>ちください', de:'bitte warten Sie kurz', t:'e'},
+    {jp:'ただいま', de:'ich bin wieder da / gerade eben', t:'e'},
   ],
 };
 
