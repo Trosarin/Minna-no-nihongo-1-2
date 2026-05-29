@@ -462,6 +462,27 @@
   .vq-bar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;font-size:.8rem;color:#6b5d4a}
   .vq-bar button{padding:.35rem .7rem;font-size:.78rem;font-family:"Shippori Mincho",serif;background:#1a1612;color:#f4ede0;border:2px solid #1a1612;cursor:pointer;font-weight:600}
   .vq-bar button:hover{background:#8a1f17}
+  .vq-srs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.5rem}
+  .vq-srs button{flex:1;min-width:120px;padding:.55rem;font-size:.85rem;font-family:"Shippori Mincho",serif;font-weight:700;border:2px solid #1a1612;cursor:pointer}
+  .vq-srs .srs-no{background:#f3d9d4;color:#8a1f17;border-color:#8a1f17}
+  .vq-srs .srs-yes{background:#d6e9c8;color:#1f4a26;border-color:#2f6e3a}
+  .vq-listen{text-align:center;margin:.4rem 0 .8rem}
+  .vq-listen button{font-size:2rem;background:none;border:none;cursor:pointer}
+
+  /* Fortschritts-Dashboard */
+  .dash-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.6rem;margin:.4rem 0 1rem}
+  .dash-card{background:#fffdf6;border:1.5px solid #c9bda3;border-radius:3px;padding:.7rem;text-align:center}
+  .dash-card .big{font-size:1.7rem;font-weight:800;color:#8a1f17;font-family:"Noto Serif JP",serif;display:block}
+  .dash-card .lbl{font-size:.7rem;color:#6b5d4a;letter-spacing:.04em;margin-top:.2rem;display:block}
+  .dash-h{font-family:"Noto Serif JP",serif;font-weight:800;color:#8a1f17;font-size:1rem;margin:1rem 0 .5rem}
+  .dash-lesson{display:flex;align-items:center;gap:.5rem;margin-bottom:.3rem;font-size:.8rem}
+  .dash-lesson .ln{width:2.5rem;font-weight:700;color:#1a1612}
+  .dash-bar{flex:1;height:.7rem;background:#e0d6c2;border-radius:3px;overflow:hidden}
+  .dash-bar span{display:block;height:100%;background:#2f6e3a}
+  .dash-lesson .pct{width:3rem;text-align:right;color:#6b5d4a;font-size:.72rem}
+  .dash-weak{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.3rem}
+  .dash-weak .w{background:#f3d9d4;border:1px solid #c98;border-radius:3px;padding:.2rem .45rem;font-size:.78rem}
+  .dash-weak .w .jp{font-family:"Noto Serif JP",serif;margin-right:.25rem}
 
   /* Vokabel-Liste */
   .vocab-section{
@@ -649,6 +670,14 @@
     <span class="jp">活用</span>
     <span class="de">Konjugation</span>
   </button>
+  <button class="mode-tab" data-mode="review">
+    <span class="jp">復習</span>
+    <span class="de">Wiederholung</span>
+  </button>
+  <button class="mode-tab" data-mode="progress">
+    <span class="jp">進度</span>
+    <span class="de">Fortschritt</span>
+  </button>
 </div>
 
 <div class="status-bar">
@@ -707,6 +736,35 @@
   <div style="display:flex;gap:.5rem;flex-wrap:wrap">
     <button class="btn red" id="next-drill">Nächste Aufgabe →</button>
   </div>
+</section>
+
+<section id="mode-review" class="panel hidden">
+  <p class="help">Spaced Repetition über <b>alle</b> Lektionen: fällige Vokabeln zuerst, dann ein paar neue. „Gewusst" verlängert den Abstand, „Nicht gewusst" bringt das Wort bald zurück.</p>
+  <div class="controls-row">
+    <div class="field">
+      <label for="review-mode">Abfrage-Richtung</label>
+      <select id="review-mode">
+        <option value="jp2de">Japanisch → Deutsch</option>
+        <option value="de2jp">Deutsch → Japanisch</option>
+        <option value="listen">🎧 Hören → Deutsch</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="review-new">Neue Wörter pro Runde</label>
+      <select id="review-new">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="20">20</option>
+        <option value="0">keine (nur Wiederholung)</option>
+      </select>
+    </div>
+  </div>
+  <div id="review-stats" class="status-bar"></div>
+  <div id="review-card" class="vq"></div>
+</section>
+
+<section id="mode-progress" class="panel hidden">
+  <div id="progress-view"></div>
 </section>
 
 <footer>練習帳 · Minna no Nihongo · Matze is awesome GmbH</footer>
@@ -5435,16 +5493,15 @@ function vocabQuizAnswer(btn){
   if(chosen !== correctDe) btn.classList.add('wrong');
   const fb = $('#vocab-quiz .vq-feedback');
   vocabQuiz.total++;
-  const rec = STORE.vocab[correctDe] || {seen:0, ok:0};
-  rec.seen++;
-  if(chosen === correctDe){
-    rec.ok++; vocabQuiz.correct++;
+  const ok = chosen === correctDe;
+  if(ok){
+    vocabQuiz.correct++;
     fb.textContent = '✓ Richtig!'; fb.className = 'vq-feedback ok';
   } else {
     fb.innerHTML = `✗ Richtig: <b>${correctDe}</b>`; fb.className = 'vq-feedback bad';
   }
-  STORE.vocab[correctDe] = rec;
-  saveStore();
+  // Erfassen + Wiederholung planen (gemeinsame SRS-Logik).
+  srsSchedule(correctDe, ok);
   $('#vq-ok').textContent = vocabQuiz.correct;
   $('#vq-total').textContent = vocabQuiz.total;
   bumpStreak();
@@ -5455,6 +5512,194 @@ function vocabQuizAnswer(btn){
 function vocabQuizNext(){ vocabQuizQuestion(); }
 function toggleVocabDir(){ vocabQuiz.dir = vocabQuiz.dir === 'jp2de' ? 'de2jp' : 'jp2de'; vocabQuizQuestion(); }
 function closeVocabQuiz(){ $('#vocab-quiz').classList.add('hidden'); }
+
+/* ===================================================================
+   SPACED REPETITION (SRS) — globale Wiederholung + Hörverstehen + Dashboard
+   =================================================================== */
+function epochDay(){ return Math.floor((Date.now() - new Date().getTimezoneOffset()*60000) / 864e5); }
+
+let VOCAB_FLAT = null;
+function vocabFlat(){
+  if(VOCAB_FLAT) return VOCAB_FLAT;
+  const out = [], seen = new Set();
+  for(const arr of Object.values(VOCAB_BY_LESSON)) for(const v of arr){
+    if(v.de && v.jp && !seen.has(v.de)){ seen.add(v.de); out.push(v); }
+  }
+  VOCAB_FLAT = out;
+  return out;
+}
+
+// SM-2-light: aktualisiert Trefferzähler UND plant die nächste Fälligkeit.
+function srsSchedule(de, correct){
+  const r = STORE.vocab[de] || {seen:0, ok:0};
+  r.seen = (r.seen||0) + 1;
+  if(correct) r.ok = (r.ok||0) + 1;
+  r.ease = r.ease || 2.3;
+  if(correct){
+    r.reps = (r.reps||0) + 1;
+    r.interval = r.reps === 1 ? 1 : r.reps === 2 ? 3 : Math.round((r.interval||3) * r.ease);
+    r.ease = Math.min(2.8, r.ease + 0.1);
+  } else {
+    r.reps = 0; r.interval = 0;
+    r.ease = Math.max(1.5, r.ease - 0.2);
+  }
+  r.due = epochDay() + r.interval;
+  STORE.vocab[de] = r;
+  saveStore();
+}
+
+const review = { queue:[], idx:0, current:null, answered:false, ok:0, total:0 };
+
+function buildReviewQueue(maxNew){
+  const flat = vocabFlat(), today = epochDay();
+  const due = [], fresh = [];
+  for(const v of flat){
+    const r = STORE.vocab[v.de];
+    if(!r || !r.seen) fresh.push(v);
+    else if((r.due||0) <= today) due.push(v);
+  }
+  due.sort((a,b) => ((STORE.vocab[a.de].due)||0) - ((STORE.vocab[b.de].due)||0));
+  for(let i = fresh.length-1; i>0; i--){ const j = Math.floor(Math.random()*(i+1)); [fresh[i],fresh[j]]=[fresh[j],fresh[i]]; }
+  return due.concat(fresh.slice(0, maxNew));
+}
+
+function startReview(){
+  const maxNew = parseInt(($('#review-new')||{}).value, 10) || 0;
+  review.queue = buildReviewQueue(maxNew);
+  review.idx = 0; review.ok = 0; review.total = 0;
+  renderReviewCard();
+}
+
+function updateReviewStats(){
+  const flat = vocabFlat(), today = epochDay();
+  let due = 0, seen = 0;
+  for(const v of flat){ const r = STORE.vocab[v.de]; if(r && r.seen){ seen++; if((r.due||0) <= today) due++; } }
+  const el = $('#review-stats');
+  if(el) el.innerHTML = `📚 Fällig: <b>${due}</b> · Gesehen: <b>${seen}</b>/${flat.length} · Runde: <b>${review.ok}/${review.total}</b>`;
+}
+
+function renderReviewCard(){
+  const card = $('#review-card');
+  updateReviewStats();
+  if(review.idx >= review.queue.length){
+    card.innerHTML = review.queue.length
+      ? `<div class="vq-q">🎉 Runde geschafft! <b>${review.ok}/${review.total}</b> richtig.</div>
+         <div class="vq-bar"><button onclick="startReview()">Neue Runde →</button></div>`
+      : `<div class="vq-q">✅ Nichts fällig — alles wiederholt!</div>
+         <div class="vq-bar"><span>Stelle „neue Wörter" höher, um Neues zu lernen.</span><button onclick="startReview()">Nochmal prüfen</button></div>`;
+    return;
+  }
+  const v = review.current = review.queue[review.idx];
+  review.answered = false;
+  const mode = $('#review-mode').value;
+  const flat = vocabFlat();
+  let pool = flat.filter(x => x.de !== v.de && x.t === v.t);
+  if(pool.length < 3) pool = flat.filter(x => x.de !== v.de);
+  for(let i = pool.length-1; i>0; i--){ const j = Math.floor(Math.random()*(i+1)); [pool[i],pool[j]]=[pool[j],pool[i]]; }
+  const choices = [v, ...pool.slice(0,3)];
+  for(let i = choices.length-1; i>0; i--){ const j = Math.floor(Math.random()*(i+1)); [choices[i],choices[j]]=[choices[j],choices[i]]; }
+  const answerWithJP = (mode === 'de2jp');
+  const dir = mode === 'de2jp' ? 'Deutsch → Japanisch' : mode === 'listen' ? '🎧 Hören → Deutsch' : 'Japanisch → Deutsch';
+  const prompt = mode === 'de2jp'
+      ? v.de
+      : mode === 'listen'
+        ? `<div class="vq-listen"><button title="nochmal hören" data-speak="${jpReading(v.jp)}" onclick="speak(this.dataset.speak)">🔊</button><div style="font-size:.78rem;color:#6b5d4a">tippen zum nochmal Hören</div></div>`
+        : `${v.jp} ${spkBtn(v.jp)}`;
+  card.innerHTML = `
+    <div class="vq-q"><span class="vq-dir">${dir}</span>${prompt}</div>
+    <div class="vq-choices">
+      ${choices.map(c => `<button class="vq-choice" data-de="${c.de}" onclick="reviewAnswer(this)">${answerWithJP ? c.jp : c.de}</button>`).join('')}
+    </div>
+    <div class="vq-feedback"></div>
+    <div class="vq-bar">
+      <span>Karte <b>${review.idx+1}</b>/${review.queue.length}</span>
+      <button onclick="reviewNext()">Weiter →</button>
+    </div>`;
+  if(mode === 'listen') speak(jpReading(v.jp));
+}
+
+function reviewAnswer(btn){
+  if(review.answered) return;
+  review.answered = true;
+  const v = review.current, correctDe = v.de, chosen = btn.dataset.de;
+  const ok = chosen === correctDe;
+  $$('#review-card .vq-choice').forEach(b => { b.classList.add('disabled'); if(b.dataset.de === correctDe) b.classList.add('right'); });
+  if(!ok) btn.classList.add('wrong');
+  const fb = $('#review-card .vq-feedback');
+  fb.innerHTML = (ok ? '✓ ' : '✗ ') + `<b>${v.jp}</b> = ${v.de}`;
+  fb.className = 'vq-feedback ' + (ok ? 'ok' : 'bad');
+  srsSchedule(correctDe, ok);
+  review.total++; if(ok) review.ok++;
+  bumpStreak(); updateStatusBar(); updateReviewStats();
+  if($('#review-mode').value !== 'de2jp') speak(jpReading(v.jp));
+}
+function reviewNext(){ review.idx++; renderReviewCard(); }
+
+/* ===================================================================
+   FORTSCHRITTS-DASHBOARD
+   =================================================================== */
+function renderProgress(){
+  const root = $('#progress-view');
+  const flat = vocabFlat(), today = epochDay();
+  let seen = 0, mastered = 0, due = 0;
+  const weak = [];
+  for(const v of flat){
+    const r = STORE.vocab[v.de];
+    if(r && r.seen){
+      seen++;
+      const str = r.ok / r.seen;
+      if(str >= 0.8 && (r.reps||0) >= 2) mastered++;
+      if((r.due||0) <= today) due++;
+      if(str < 0.6) weak.push({v, str});
+    }
+  }
+  const exCounts = {};
+  MINNA_LESSONS.forEach(c => exCounts[c.l] = (exCounts[c.l]||0) + 1);
+  const totalEx = MINNA_LESSONS.length, doneEx = totalDone();
+  weak.sort((a,b) => a.str - b.str);
+
+  let lessonRows = '';
+  for(let l = 1; l <= 50; l++){
+    const cnt = exCounts[l] || 0; if(!cnt) continue;
+    const d = lessonDoneCount(l), pct = Math.round(d/cnt*100);
+    if(d === 0) continue;
+    lessonRows += `<div class="dash-lesson"><span class="ln">L${l}</span><div class="dash-bar"><span style="width:${pct}%"></span></div><span class="pct">${d}/${cnt}</span></div>`;
+  }
+
+  root.innerHTML = `
+    <div class="dash-cards">
+      <div class="dash-card"><span class="big">🔥 ${STORE.streak.count||0}</span><span class="lbl">Tage Streak</span></div>
+      <div class="dash-card"><span class="big">${doneEx}/${totalEx}</span><span class="lbl">Übungen gemeistert</span></div>
+      <div class="dash-card"><span class="big">${seen}</span><span class="lbl">Vokabeln gesehen</span></div>
+      <div class="dash-card"><span class="big">${mastered}</span><span class="lbl">Vokabeln sitzen</span></div>
+      <div class="dash-card"><span class="big">${due}</span><span class="lbl">heute fällig</span></div>
+      <div class="dash-card"><span class="big">${STORE.drill.score||0}/${STORE.drill.total||0}</span><span class="lbl">Drill-Punkte</span></div>
+    </div>
+    ${due > 0 ? `<div style="text-align:center;margin-bottom:1rem"><button class="btn red" onclick="switchMode('review')">📚 ${due} fällige Vokabeln wiederholen →</button></div>` : ''}
+    <div class="dash-h">Fortschritt pro Lektion</div>
+    ${lessonRows || '<p class="help">Noch keine gemeisterten Übungen — leg in einer Lektion los!</p>'}
+    <div class="dash-h">Schwächste Vokabeln${weak.length ? ` (${Math.min(weak.length,20)})` : ''}</div>
+    ${weak.length
+      ? `<div class="dash-weak">${weak.slice(0,20).map(x => `<span class="w"><span class="jp">${x.v.jp}</span>${x.v.de} ${spkBtn(x.v.jp)}</span>`).join('')}</div>`
+      : '<p class="help">Noch keine Schwachstellen erfasst — übe ein paar Vokabeln im Wiederholungs-Modus.</p>'}
+    <div style="margin-top:1.5rem;text-align:center">
+      <button onclick="resetAllProgress()" style="padding:.4rem .8rem;font-size:.78rem;background:none;border:1.5px solid #8a1f17;color:#8a1f17;cursor:pointer">Allen Fortschritt zurücksetzen</button>
+    </div>`;
+}
+
+function resetAllProgress(){
+  if(!confirm('Allen Fortschritt löschen (Drill-Punkte, gemeisterte Übungen, Vokabel-Wiederholung, Streak)?')) return;
+  STORE.drill = {score:0, total:0};
+  STORE.done = {};
+  STORE.vocab = {};
+  STORE.streak = {count:0, last:null};
+  saveStore();
+  drillState.score = 0; drillState.total = 0;
+  $('#score-ok').textContent = 0; $('#score-total').textContent = 0;
+  updateStatusBar();
+  renderLessonGrid();
+  renderProgress();
+}
 
 function toggleExercise(btn, lessonNum, idx){
   const box = btn.nextElementSibling;
@@ -5744,6 +5989,10 @@ function switchMode(mode){
   $$('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
   $('#mode-lessons').classList.toggle('hidden', mode !== 'lessons');
   $('#mode-drill').classList.toggle('hidden', mode !== 'drill');
+  $('#mode-review').classList.toggle('hidden', mode !== 'review');
+  $('#mode-progress').classList.toggle('hidden', mode !== 'progress');
+  if(mode === 'review') startReview();
+  if(mode === 'progress') renderProgress();
 }
 
 function init(){
@@ -5773,6 +6022,8 @@ function init(){
   });
   $('#next-drill').addEventListener('click', nextDrill);
   $('#reset-score').addEventListener('click', resetScore);
+  $('#review-mode').addEventListener('change', renderReviewCard);
+  $('#review-new').addEventListener('change', startReview);
 
   // Deep-Link via ?lesson=N → direkt diese Lektion öffnen
   const params = new URLSearchParams(window.location.search);
@@ -5800,6 +6051,12 @@ window.vocabQuizAnswer = vocabQuizAnswer;
 window.vocabQuizNext = vocabQuizNext;
 window.toggleVocabDir = toggleVocabDir;
 window.closeVocabQuiz = closeVocabQuiz;
+window.switchMode = switchMode;
+window.startReview = startReview;
+window.reviewAnswer = reviewAnswer;
+window.reviewNext = reviewNext;
+window.renderProgress = renderProgress;
+window.resetAllProgress = resetAllProgress;
 
 document.addEventListener('DOMContentLoaded', init);
 
