@@ -3707,15 +3707,33 @@ function revealExample(el){
 
 function detectSlotNeeds(slots){
   if(!slots || !slots.length) return {nouns:1};
+
+  // Primärsignal sind die Slot-Rollen — zuverlässiger als Text-Heuristik.
+  const roles = slots.map(s => s.role || '');
+
+  // role:"verb" ist überladen: es markiert auch die Kopula (です / じゃ ありません)
+  // und Uhrzeit-/Zahl-Prädikate (z.B. 9時15分). Diese sind KEINE echten Verben.
+  const hasRealVerb = slots.some(s => {
+    if(s.role !== 'verb') return false;
+    const txt = (s.text || '').replace(/<[^>]+>/g, '');
+    if(/^(です|だ)$|じゃ\s*ありません|じゃ\/では|では\s*ありません|でした|でしょう/.test(txt)) return false; // Kopula
+    if(/[0-9０-９].*(時|分|円|歳|月|日)/.test(txt)) return false; // Uhrzeit / Zahlangabe
+    return true;
+  });
+
   const slotsText = slots.map(s => (s.text||'') + ' ' + (s.label||'')).join(' ').toLowerCase();
   const stripped = slotsText.replace(/<[^>]+>/g, '');
+
   return {
-    verb: /\bv[^a-zA-Z]|verb|動詞|〜ます|stem|stamm|jisho|辞書/.test(stripped),
-    iadj: /i-adj|イ形|い-adj|i\s|〜い|い-form/.test(stripped),
-    naadj: /na-adj|ナ形|な-adj|na\s|な-form/.test(stripped),
-    place: /ort|場所|place|どこ/.test(stripped),
-    time:  /zeit|時|time|いつ/.test(stripped),
-    person: /person|人|誰|だれ/.test(stripped),
+    // Text-Heuristik nur noch mit Wortgrenzen, um Treffer wie "Adverb" zu vermeiden.
+    verb: hasRealVerb || /\bv\b|\bverb|動詞|〜ます|\bv-?stamm|\bv-?stem|jisho|辞書/.test(stripped),
+    iadj: /i-adj|イ形|い-adj|〜い|い-form/.test(stripped),
+    naadj: /na-adj|ナ形|な-adj|な-form/.test(stripped),
+    // Ort/Zeit/Person bevorzugt über die Rolle erkennen (keine Substring-Fehltreffer
+    // mehr in "Wort", "normal", "nicht" …).
+    place: roles.includes('place') || /場所|どこ/.test(stripped),
+    time:  roles.includes('time') || /いつ/.test(stripped),
+    person: roles.includes('actor') || /誰|だれ/.test(stripped),
   };
 }
 
@@ -4749,9 +4767,14 @@ function verbAccepts(verb){
 
 function isCompatible(noun, verb){
   const accepts = verbAccepts(verb);
-  if(!accepts) return true;            // unbekanntes Verb → erlauben
-  if(accepts.length === 0) return false; // Verb hat keine passenden Objekte (z.B. rauchen ohne Zigarette)
   const tags = getTags(noun);
+  if(!accepts){
+    // Unbekanntes Verb: nur mit generischen Objekten ('thing') paaren, NICHT mit
+    // spezialisierten Nomen (Essen/Getränk/Person/Ort/Sprache …), die ein
+    // bestimmtes Verb verlangen. Vermeidet Unsinn wie "Brot fahren".
+    return tags.includes('thing');
+  }
+  if(accepts.length === 0) return false; // Verb hat keine passenden Objekte (z.B. rauchen ohne Zigarette)
   if(!tags.length) return false;       // unbekanntes Nomen → ausschließen (sicher)
   return tags.some(t => accepts.includes(t));
 }
@@ -4846,15 +4869,17 @@ function renderExerciseBox(boxEl, lessonNum, idx){
       const j = Math.floor(Math.random()*(i+1));
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
-    // Verschiedene Rollen möglichst abdecken
+    // Zielgröße zuerst festlegen, damit auch die Rollen-Abdeckung sie respektiert.
+    const target = Math.min(5 + Math.floor(Math.random()*2), customSet.length);
+    // Verschiedene Rollen möglichst abdecken (aber nie mehr als target Wörter).
     const roles = [...new Set(customSet.map(w => w.role))];
     const picked = [];
-    roles.forEach(r => {
+    for(const r of roles){
+      if(picked.length >= target) break;
       const ofRole = shuffled.filter(w => w.role === r && !picked.includes(w));
       if(ofRole.length) picked.push(ofRole[0]);
-    });
+    }
     // Auffüllen bis 5-6
-    const target = Math.min(5 + Math.floor(Math.random()*2), customSet.length);
     for(const w of shuffled){
       if(picked.length >= target) break;
       if(!picked.includes(w)) picked.push(w);
