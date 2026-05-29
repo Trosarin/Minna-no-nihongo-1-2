@@ -363,6 +363,60 @@
     font-size:.82rem;color:#1f4a26;font-style:italic;
   }
 
+  /* Interaktiver Satzbau */
+  .ex-answer{
+    display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;
+    min-height:3.1rem;
+    padding:.55rem;margin-bottom:.55rem;
+    background:#fffdf6;
+    border:2px dashed #8a1f17;border-radius:3px;
+  }
+  .ex-answer.empty::before{
+    content:"⬇ Bausteine in der richtigen Reihenfolge antippen";
+    font-size:.78rem;color:#8a7a63;font-style:italic;
+    font-family:"Shippori Mincho",serif;
+  }
+  .ex-source-label{
+    font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+    color:#6b5d4a;font-weight:700;margin:.2rem 0 .3rem;
+  }
+  .ex-chip{
+    display:inline-flex;flex-direction:column;align-items:center;
+    background:#f4ede0;border:1.5px solid #1a1612;
+    padding:.3rem .5rem;border-radius:3px;cursor:pointer;
+    font-family:"Noto Serif JP",serif;font-size:.95rem;color:#1a1612;
+    line-height:1.2;box-shadow:0 1px 0 rgba(26,22,18,.1);
+    -webkit-tap-highlight-color:transparent;transition:transform .1s,background .1s;
+  }
+  .ex-chip:hover{background:#ece2cf}
+  .ex-chip:active{transform:scale(.96)}
+  .ex-chip.placed{background:#e7efd9;border-color:#2f6e3a}
+  .ex-chip-role{
+    font-family:"JetBrains Mono",monospace;font-size:.5rem;letter-spacing:.07em;
+    color:#8a1f17;text-transform:uppercase;font-weight:700;margin-bottom:.04rem;
+  }
+  .ex-chip-jp .ex-chip-part{color:#8a1f17;font-weight:700;margin-left:.1rem}
+  .ex-chip-de{
+    font-family:"Shippori Mincho",serif;font-size:.6rem;color:#6b5d4a;margin-top:.08rem;
+  }
+  .ex-feedback{
+    font-size:.85rem;font-weight:600;margin:.2rem 0 .5rem;font-family:"Shippori Mincho",serif;
+  }
+  .ex-feedback.ok{color:#2f6e3a}
+  .ex-feedback.bad{color:#8a1f17}
+  .ex-chip.misplaced{border-color:#8a1f17;background:#f3d9d4}
+  .ex-model{
+    margin-top:.5rem;padding:.6rem .8rem;
+    background:#e8eef6;border:1.5px solid #3a76b2;
+  }
+  .ex-model-label{
+    font-size:.65rem;letter-spacing:.13em;text-transform:uppercase;
+    color:#1f4a7a;font-weight:700;margin-bottom:.25rem;
+  }
+  .ex-model-jp{font-family:"Noto Serif JP",serif;font-size:1.02rem;color:#1a1612;line-height:1.7}
+  .ex-model-jp .ex-chip-part{color:#8a1f17;font-weight:700}
+  .ex-model-note{margin-top:.3rem;font-size:.74rem;color:#1f4a7a;font-style:italic}
+
   /* Vokabel-Liste */
   .vocab-section{
     margin-top:1.5rem;
@@ -4933,6 +4987,70 @@ function pickExerciseWords(lessonNum, slots){
   return shuffle(picked);
 }
 
+/* ===================================================================
+   ROLLEN, PARTIKELN & MODELL-REIHENFOLGE (generischer Pfad L1–25)
+   =================================================================== */
+
+// Reihenfolge-Index der Satzglieder im Japanischen (SOV):
+// Zeit → Subjekt/Person → Ort → Objekt → Adjektiv → Verb.
+const ROLE_ORDER = {
+  'Zeit':1, 'Person':2, 'Subjekt':2, 'Ort':3, 'Anzahl':4, 'Objekt':4,
+  'i-Adj':5, 'na-Adj':5, 'Verb':6,
+};
+
+// Leitet die strukturelle Rolle eines generisch gezogenen Worts aus Typ & Tags ab.
+function structuralRole(w){
+  if(w.role) return w.role;
+  switch(w.t){
+    case 'v':   return 'Verb';
+    case 'i':   return 'i-Adj';
+    case 'na':  return 'na-Adj';
+    case 'num': return 'Anzahl';
+    case 'dem': return 'Demonstr.';
+    case 'e':   return 'Ausdruck';
+    case 'n': {
+      if(/heute|morgen|gestern|jetzt|vormittag|nachmittag|abend|nacht|woche|monat|jahr|uhr|stunde|minute|montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag|wochenende|früh|spät|tag\b/i.test(w.de)) return 'Zeit';
+      const tags = getTags(w);
+      if(tags.includes('place'))  return 'Ort';
+      if(tags.includes('person')) return 'Person';
+      return 'Objekt';
+    }
+    default: return '';
+  }
+}
+
+// Kontext-Partikel für "Ort": Bewegungsverb im Set → へ, sonst で.
+function ortParticle(words){
+  const move = words.some(w => w.t === 'v' && /行|来|帰|戻|登|通|出かけ/.test(w.jp || ''));
+  return move ? 'へ' : 'で';
+}
+
+// Typische Partikel je Rolle (を/に sicher; bei Ort/Subjekt Alternativen).
+function particleForRole(role, words){
+  switch(role){
+    case 'Objekt':  return 'を';
+    case 'Ort':     return ortParticle(words);
+    case 'Zeit':    return 'に';
+    case 'Person':  return 'は';
+    case 'Subjekt': return 'は';
+    default:        return '';   // Verb, Adjektive, Ausdruck, Anzahl, Demonstr.
+  }
+}
+
+// Baut die Modell-Reihenfolge: Bausteine nach ROLE_ORDER sortiert, mit Partikeln,
+// Verb am Ende. Kein voll flektierter Satz — Verb ggf. anpassen.
+function buildModelOrder(words){
+  const withMeta = words.map(w => {
+    const role = structuralRole(w);
+    return { w, role, order: ROLE_ORDER[role] != null ? ROLE_ORDER[role] : 4.5 };
+  });
+  withMeta.sort((a,b) => a.order - b.order);
+  return withMeta.map(m => {
+    const p = particleForRole(m.role, words);
+    return m.w.jp + (p ? `<span class="ex-chip-part">${p}</span>` : '');
+  }).join(' ');
+}
+
 function renderExerciseBox(boxEl, lessonNum, idx){
   const c = MINNA_LESSONS.filter(x => x.l === lessonNum)[idx];
   if(!c){ boxEl.innerHTML = '<i>Keine Daten.</i>'; return; }
@@ -4978,29 +5096,141 @@ function renderExerciseBox(boxEl, lessonNum, idx){
     boxEl.innerHTML = '<div class="ex-help">Für diesen Unterpunkt sind noch keine Übungswörter hinterlegt.</div>';
     return;
   }
-  boxEl.innerHTML = `
-    <div class="ex-help">🧠 Bilde mit diesen Bausteinen einen Satz nach dem Muster oben. Die Rolle zeigt dir, wohin jedes Wort gehört.</div>
-    <div class="ex-word-pool">
-      ${words.map(w => `
-        <span class="ex-word">
-          ${w.role ? `<span class="ex-word-role">${w.role}</span>` : ''}
-          <span>${w.jp}</span>
-          <span class="ex-word-de">${w.de}</span>
-        </span>
-      `).join('')}
+
+  const solutionHtml = c.ex ? `
+    <div class="ex-solution hidden">
+      <div class="ex-sol-label">Beispiel aus dem Lehrbuch</div>
+      <div class="ex-sol-jp">${c.ex.jp}</div>
+      <div class="ex-sol-de">${c.ex.de}</div>
     </div>
+  ` : '';
+
+  if(customSet){
+    // Kuratierte Phrasen-Sets: bewährte Pool-Ansicht mit Rollen (Reihenfolge-Üben
+    // passt bei fertigen Teilsätzen nicht).
+    boxEl.innerHTML = `
+      <div class="ex-help">🧠 Bilde mit diesen Bausteinen einen Satz nach dem Muster oben. Die Rolle zeigt dir, wohin jedes Wort gehört.</div>
+      <div class="ex-word-pool">
+        ${words.map(w => `
+          <span class="ex-word">
+            ${w.role ? `<span class="ex-word-role">${w.role}</span>` : ''}
+            <span>${w.jp}</span>
+            <span class="ex-word-de">${w.de}</span>
+          </span>
+        `).join('')}
+      </div>
+      <div class="ex-actions">
+        <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Andere Wörter</button>
+        ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
+      </div>
+      ${solutionHtml}
+    `;
+    return;
+  }
+
+  // Generischer Pfad: Rollen + Partikel-Hinweise + interaktiver Satzbau.
+  const chip = w => {
+    const role = structuralRole(w);
+    const part = particleForRole(role, words);
+    return `<span class="ex-chip" onclick="exPickChip(this)"
+        data-order="${ROLE_ORDER[role] != null ? ROLE_ORDER[role] : ''}" data-role="${role}">
+      ${role ? `<span class="ex-chip-role">${role}</span>` : ''}
+      <span class="ex-chip-jp">${w.jp}${part ? `<span class="ex-chip-part">${part}</span>` : ''}</span>
+      <span class="ex-chip-de">${w.de}</span>
+    </span>`;
+  };
+
+  boxEl.innerHTML = `
+    <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an (japanisch: Zeit → Subjekt → Ort → Objekt → Verb). Die kleine rote Partikel ist ein Hinweis.</div>
+    <div class="ex-answer empty"></div>
+    <div class="ex-source-label">Bausteine</div>
+    <div class="ex-word-pool ex-source">
+      ${words.map(chip).join('')}
+    </div>
+    <div class="ex-feedback"></div>
     <div class="ex-actions">
+      <button onclick="exCheckOrder(this)">✓ Prüfen</button>
+      <button onclick="exResetBuild(this)">↺ Zurücksetzen</button>
       <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Andere Wörter</button>
+      <button onclick="exRevealModel(this)">💡 Modell-Reihenfolge</button>
       ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
     </div>
-    ${c.ex ? `
-      <div class="ex-solution hidden">
-        <div class="ex-sol-label">Beispiel aus dem Lehrbuch</div>
-        <div class="ex-sol-jp">${c.ex.jp}</div>
-        <div class="ex-sol-de">${c.ex.de}</div>
-      </div>
-    ` : ''}
+    <div class="ex-model hidden">
+      <div class="ex-model-label">Modell-Reihenfolge</div>
+      <div class="ex-model-jp">${buildModelOrder(words)}</div>
+      <div class="ex-model-note">Reihenfolge & Partikeln als Orientierung — das Verb ggf. passend konjugieren.</div>
+    </div>
+    ${solutionHtml}
   `;
+}
+
+// Baustein zwischen Quelle und Bauzone hin- und herbewegen.
+function exPickChip(chip){
+  const box = chip.closest('.exercise-box');
+  if(!box) return;
+  const answer = box.querySelector('.ex-answer');
+  const source = box.querySelector('.ex-source');
+  chip.classList.remove('misplaced');
+  if(chip.parentElement === source){
+    chip.classList.add('placed');
+    answer.appendChild(chip);
+  } else {
+    chip.classList.remove('placed');
+    source.appendChild(chip);
+  }
+  answer.classList.toggle('empty', !answer.querySelector('.ex-chip'));
+  const fb = box.querySelector('.ex-feedback');
+  if(fb){ fb.textContent = ''; fb.className = 'ex-feedback'; }
+}
+
+// Prüft die gelegte Reihenfolge: Bausteine mit definierter Rolle müssen in
+// nicht-fallender SOV-Reihenfolge stehen (funktioniert für jede Teilauswahl).
+function exCheckOrder(btn){
+  const box = btn.closest('.exercise-box');
+  const answer = box.querySelector('.ex-answer');
+  const fb = box.querySelector('.ex-feedback');
+  const placed = [...answer.querySelectorAll('.ex-chip')];
+  placed.forEach(c => c.classList.remove('misplaced'));
+  if(placed.length < 2){
+    fb.textContent = 'Lege mindestens zwei Bausteine in die Bauzone.';
+    fb.className = 'ex-feedback bad';
+    return;
+  }
+  const ordered = placed
+    .map(c => ({ el:c, order: c.dataset.order === '' ? null : Number(c.dataset.order) }))
+    .filter(x => x.order != null);
+  let firstBad = null, prev = -Infinity;
+  for(const x of ordered){
+    if(x.order < prev){ firstBad = x.el; break; }
+    prev = x.order;
+  }
+  if(firstBad){
+    firstBad.classList.add('misplaced');
+    fb.innerHTML = '✗ Reihenfolge nicht ganz richtig — der markierte Baustein steht zu weit hinten. Tipp: Verb ans Ende.';
+    fb.className = 'ex-feedback bad';
+  } else {
+    fb.innerHTML = '✓ Richtige Reihenfolge!';
+    fb.className = 'ex-feedback ok';
+  }
+}
+
+function exResetBuild(btn){
+  const box = btn.closest('.exercise-box');
+  const answer = box.querySelector('.ex-answer');
+  const source = box.querySelector('.ex-source');
+  [...answer.querySelectorAll('.ex-chip')].forEach(c => {
+    c.classList.remove('placed','misplaced');
+    source.appendChild(c);
+  });
+  answer.classList.add('empty');
+  const fb = box.querySelector('.ex-feedback');
+  if(fb){ fb.textContent = ''; fb.className = 'ex-feedback'; }
+}
+
+function exRevealModel(btn){
+  const box = btn.closest('.exercise-box');
+  const model = box.querySelector('.ex-model');
+  if(model){ model.classList.remove('hidden'); btn.disabled = true; btn.style.opacity = '.5'; }
 }
 
 function toggleExercise(btn, lessonNum, idx){
@@ -5253,6 +5483,10 @@ window.shuffleVocabRows = shuffleVocabRows;
 window.toggleExercise = toggleExercise;
 window.newExerciseWords = newExerciseWords;
 window.revealExerciseSolution = revealExerciseSolution;
+window.exPickChip = exPickChip;
+window.exCheckOrder = exCheckOrder;
+window.exResetBuild = exResetBuild;
+window.exRevealModel = exRevealModel;
 
 document.addEventListener('DOMContentLoaded', init);
 
