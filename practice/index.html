@@ -83,24 +83,32 @@
   /* Mode tabs */
   .mode-tabs{
     display:flex;justify-content:center;gap:0;
-    max-width:720px;margin:1.2rem auto 0;padding:0 1rem;
+    max-width:720px;margin:1.2rem auto 0;padding:0 .5rem;
   }
   .mode-tab{
-    flex:1;
-    padding:.8rem 1rem;
+    flex:1 1 0;min-width:0;
+    padding:.6rem .25rem;
     background:#ebe1cd;
     border:2px solid #1a1612;
     border-bottom:none;
     font-family:"Shippori Mincho",serif;font-size:.95rem;font-weight:600;
-    color:#1a1612;cursor:pointer;
+    color:#1a1612;cursor:pointer;text-align:center;
     -webkit-tap-highlight-color:transparent;
     transition:background .15s;
   }
   .mode-tab + .mode-tab{border-left:none}
   .mode-tab:hover{background:#f4ede0}
   .mode-tab.active{background:#8a1f17;color:#f4ede0;border-color:#8a1f17}
-  .mode-tab .jp{font-family:"Noto Serif JP",serif;font-weight:800;display:block;font-size:1.1em;letter-spacing:.05em}
-  .mode-tab .de{font-size:.7rem;opacity:.85;display:block;margin-top:.1rem;letter-spacing:.1em;text-transform:uppercase}
+  .mode-tab .jp{font-family:"Noto Serif JP",serif;font-weight:800;display:block;font-size:1.05em;letter-spacing:.04em}
+  .mode-tab .de{font-size:.6rem;opacity:.85;display:block;margin-top:.15rem;letter-spacing:.03em;text-transform:uppercase;line-height:1.15;overflow-wrap:break-word}
+  @media(max-width:560px){
+    .mode-tab{padding:.5rem .15rem}
+    .mode-tab .jp{font-size:1em}
+    .mode-tab .de{font-size:.52rem;letter-spacing:.01em}
+  }
+  @media(max-width:380px){
+    .mode-tab .de{font-size:.46rem}
+  }
 
   .panel{
     max-width:760px;margin:0 auto 1.5rem;
@@ -656,9 +664,9 @@
 <header>
   <h1>
     <span class="jp">練習帳</span>
-    <span class="de">Lektionen &amp; Konjugationsdrill</span>
+    <span class="de">Üben · Drills · Wiederholung</span>
   </h1>
-  <p class="subtitle">Pro Lektion: Bausteine, Beispiel, Vokabeln</p>
+  <p class="subtitle">Bausteine, Vokabel-Quiz, Spaced Repetition &amp; Fortschritt</p>
 </header>
 
 <div class="mode-tabs">
@@ -668,7 +676,7 @@
   </button>
   <button class="mode-tab" data-mode="drill">
     <span class="jp">活用</span>
-    <span class="de">Konjugation</span>
+    <span class="de">Drills</span>
   </button>
   <button class="mode-tab" data-mode="review">
     <span class="jp">復習</span>
