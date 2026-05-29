@@ -4751,6 +4751,37 @@ const VERB_ACCEPTS = {
   'anziehen (Hose/Schuhe)':['thing'],
   'aufsetzen (Hut)':['thing'],
   'aufsetzen (Brille)':['thing'],
+  // — Erweiterung: weitere häufige transitive Verben mit klarer Objekt-Kategorie —
+  'verkaufen':['food','drink','readable','writable','thing','instrument'],
+  'kochen':['food'],
+  'kochen (in Brühe)':['food'],
+  'herstellen / kochen':['food','thing'],
+  'braten / grillen':['food'],
+  'frittieren':['food'],
+  'sehen / anschauen':['visual','photo_subject'],
+  'hören / zuhören':['audible'],
+  'übersetzen':['language','readable'],
+  'lernen / studieren':['language','activity'],
+  'lernen (bei jmd.)':['language','activity'],
+  'malen':['photo_subject'],
+  'zeichnen / malen':['photo_subject'],
+  'einladen':['person'],
+  'rufen':['person'],
+  'loben':['person'],
+  'schimpfen':['person'],
+  'vorstellen':['person'],
+  'großziehen':['person'],
+  'waschen':['thing'],
+  'putzen':['thing'],
+  'aufräumen':['thing'],
+  'reparieren':['thing'],
+  'reparieren / korrigieren':['thing'],
+  'wegwerfen':['thing'],
+  'suchen':['thing'],
+  'finden / entdecken':['thing'],
+  'verlieren':['thing'],
+  'reservieren':['thing'],
+  'mitbringen':['food','drink','thing'],
 };
 
 function getTags(word){
@@ -4760,17 +4791,66 @@ function getTags(word){
   return [];
 }
 
+// Normalisiert ein Verb-Label auf seine Grundform, indem reine Höflichkeits-/
+// Konjugationszusätze entfernt werden (z.B. "kaufen (plain)" → "kaufen"). So
+// greifen Tabellen-Einträge auch für Sonkeigo-/Kenjougo-/plain-Varianten.
+function verbKey(de){
+  return (de || '')
+    .toLowerCase()
+    .replace(/\s*\((plain|sonkeigo|sonk\.|kenjougo|kenj\.|bescheiden|zustand)\)\s*$/,'')
+    .trim();
+}
+
+// Einmalig normalisierter Index über VERB_ACCEPTS (Schlüssel case-insensitiv).
+const VERB_ACCEPTS_IDX = {};
+for(const k in VERB_ACCEPTS){ VERB_ACCEPTS_IDX[verbKey(k)] = VERB_ACCEPTS[k]; }
+
+// Intransitive Verben (kein を-Objekt): Bewegung, Existenz, Zustandswechsel.
+// Heuristik unten fängt zusätzlich "… sein", "… werden" und "sich …" ab —
+// dadurch werden auch künftig ergänzte Vokabeln automatisch korrekt behandelt.
+const INTRANSITIVE_SET = new Set([
+  // Bewegung / Ankunft / Aufbruch
+  'gehen','gehen / kommen','gehen / laufen','gehen/kommen','kommen','zurückkehren',
+  'zurückkommen','ankommen','abfahren / aufbrechen','aussteigen','einsteigen','abbiegen',
+  'anhalten / parken','ausgehen','ausgehen / erlöschen','hineingehen','hinausgehen',
+  'hinausgehen / ausgehen','hinfallen','herunterfallen','fallen','ausrutschen','fliehen',
+  'rennen','schwimmen','tauchen','pendeln','aufstehen','aufstehen / stehen','stehen bleiben',
+  'aufwachsen','bergsteigen','campen','eintreten','eintreten / hineingehen',
+  'umfallen / zusammenbrechen','zusammenbrechen','bankrott gehen','nach hause gehen',
+  'schlafen gehen','spazieren gehen','zu fuß gehen','in ruhestand gehen',
+  'ins krankenhaus gehen','an der schule eintreten','evakuieren / flüchten',
+  // Existenz / Zustand / Veränderung (ohne "sein"/"werden"-Endung)
+  'haben / es gibt','wohnen','dauern / kosten','heilen','repariert werden / heilen',
+  'blühen','schmelzen','trocknen','aufklaren','kaputt gehen','zunehmen','abnehmen',
+  'im preis steigen',
+  // Aktivitäten / Ereignisse ohne direktes Objekt
+  'arbeiten','scheitern','gewinnen','den sieg erringen','bestehen','erfolg haben',
+  'teilnehmen','tanzen','weinen','lachen','enden','übernachten',
+].map(verbKey));
+
+function isIntransitive(verb){
+  const de = (verb.de || '').toLowerCase();
+  if(/(^|\s)sich\s/.test(de)) return true;   // reflexiv (sich freuen, sich setzen …)
+  if(/\bsein$/.test(de))      return true;   // Zustand (anwesend sein, offen sein …)
+  if(/\bwerden$/.test(de))    return true;   // Veränderung/Passiv (müde werden, gestohlen werden …)
+  return INTRANSITIVE_SET.has(verbKey(verb.de));
+}
+
 function verbAccepts(verb){
-  // Suche flexibel — manchmal heißt das Verb "essen" mal in jisho-Form (食べる) mal in ます-Form (食べます)
-  return VERB_ACCEPTS[verb.de] || null;
+  // Greift auch für Höflichkeits-/plain-Varianten dank verbKey-Normalisierung.
+  const k = verbKey(verb.de);
+  return (k in VERB_ACCEPTS_IDX) ? VERB_ACCEPTS_IDX[k] : null;
 }
 
 function isCompatible(noun, verb){
+  // Intransitive Verben nehmen kein を-Objekt → nie in Verb+Objekt-Paare.
+  // Verhindert Unsinn wie "Stuhl aufstehen" oder "Buch gehen".
+  if(isIntransitive(verb)) return false;
   const accepts = verbAccepts(verb);
   const tags = getTags(noun);
   if(!accepts){
-    // Unbekanntes Verb: nur mit generischen Objekten ('thing') paaren, NICHT mit
-    // spezialisierten Nomen (Essen/Getränk/Person/Ort/Sprache …), die ein
+    // Unbekanntes (transitives) Verb: nur mit generischen Objekten ('thing') paaren,
+    // NICHT mit spezialisierten Nomen (Essen/Getränk/Person/Ort/Sprache …), die ein
     // bestimmtes Verb verlangen. Vermeidet Unsinn wie "Brot fahren".
     return tags.includes('thing');
   }
