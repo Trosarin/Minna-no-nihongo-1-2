@@ -417,6 +417,52 @@
   .ex-model-jp .ex-chip-part{color:#8a1f17;font-weight:700}
   .ex-model-note{margin-top:.3rem;font-size:.74rem;color:#1f4a7a;font-style:italic}
 
+  /* Audio-Button */
+  .spk{
+    background:none;border:none;cursor:pointer;
+    font-size:.95rem;line-height:1;padding:.1rem .25rem;
+    -webkit-tap-highlight-color:transparent;opacity:.65;
+  }
+  .spk:hover{opacity:1}
+
+  /* Streak / Fortschritt */
+  .status-bar{
+    display:flex;gap:.6rem;align-items:center;justify-content:center;flex-wrap:wrap;
+    margin:.5rem 0 .2rem;font-size:.82rem;color:#6b5d4a;
+  }
+  .status-bar b{color:#8a1f17}
+  .lesson-tile .progress{
+    display:block;margin-top:.2rem;font-size:.62rem;color:#2f6e3a;font-weight:700;letter-spacing:.04em;
+  }
+  .unterpunkt-num .done-tick{color:#2f6e3a;margin-left:.3rem}
+
+  /* Vokabel-Quiz */
+  .vq{
+    margin-top:.8rem;padding:.8rem;
+    background:#ebe1cd;border:2px dashed #1f4a7a;border-radius:3px;
+  }
+  .vq-q{
+    font-family:"Noto Serif JP",serif;font-size:1.4rem;color:#1a1612;
+    text-align:center;margin:.3rem 0 .7rem;line-height:1.5;
+  }
+  .vq-q .vq-dir{display:block;font-size:.62rem;color:#1f4a7a;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.25rem;font-family:"JetBrains Mono",monospace}
+  .vq-choices{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-bottom:.5rem}
+  .vq-choice{
+    padding:.5rem;font-size:.95rem;font-family:"Noto Serif JP",serif;
+    background:#fffdf6;border:1.5px solid #1a1612;border-radius:3px;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;color:#1a1612;
+  }
+  .vq-choice:hover{background:#f4ede0}
+  .vq-choice.right{background:#d6e9c8;border-color:#2f6e3a;font-weight:700}
+  .vq-choice.wrong{background:#f3d9d4;border-color:#8a1f17}
+  .vq-choice.disabled{cursor:default;pointer-events:none}
+  .vq-feedback{font-size:.85rem;font-weight:600;min-height:1.2em;margin-bottom:.4rem;font-family:"Shippori Mincho",serif}
+  .vq-feedback.ok{color:#2f6e3a}
+  .vq-feedback.bad{color:#8a1f17}
+  .vq-bar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;font-size:.8rem;color:#6b5d4a}
+  .vq-bar button{padding:.35rem .7rem;font-size:.78rem;font-family:"Shippori Mincho",serif;background:#1a1612;color:#f4ede0;border:2px solid #1a1612;cursor:pointer;font-weight:600}
+  .vq-bar button:hover{background:#8a1f17}
+
   /* Vokabel-Liste */
   .vocab-section{
     margin-top:1.5rem;
@@ -605,6 +651,11 @@
   </button>
 </div>
 
+<div class="status-bar">
+  <span id="streak-badge"></span>
+  <span id="overall-progress"></span>
+</div>
+
 <section id="mode-lessons" class="panel">
   <div id="lesson-grid-view">
     <p class="help">Wähle eine Lektion. Pro Lektion siehst du alle Unterpunkte mit Bausteinen, Beispiel-Reveal und einer Vokabel-Liste am Ende.</p>
@@ -614,7 +665,7 @@
 </section>
 
 <section id="mode-drill" class="panel hidden">
-  <p class="help">Konjugations-Drill für Verben, i- und na-Adjektive. Wähle die richtige Form aus vier Möglichkeiten.</p>
+  <p class="help">Drill für Konjugationen (Verben, i-/na-Adjektive) und Partikeln. Wähle die richtige Antwort aus vier Möglichkeiten. Punkte & Streak werden gespeichert.</p>
 
   <div class="controls-row">
     <div class="field">
@@ -623,6 +674,7 @@
         <option value="verb">Verben (Top 100)</option>
         <option value="iadj">i-Adjektive</option>
         <option value="naadj">na-Adjektive</option>
+        <option value="particle">Partikeln (を/が/に/へ/で …)</option>
       </select>
     </div>
     <div class="field">
@@ -3647,6 +3699,76 @@ const LESSON_TOPICS = {
   50: 'Kenjougo (Bescheidenheit)',
 };
 
+/* ===================================================================
+   PERSISTENZ (localStorage): Punkte, erledigte Übungen, Vokabel-Stärke, Streak
+   =================================================================== */
+const STORE_KEY = 'minna_practice_v1';
+function loadStore(){
+  try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch(e){ return {}; }
+}
+function saveStore(){
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(STORE)); } catch(e){}
+}
+const STORE = loadStore();
+STORE.drill  = STORE.drill  || {score:0, total:0};
+STORE.done   = STORE.done   || {};     // "L6-0": true (richtig gebaut)
+STORE.vocab  = STORE.vocab  || {};     // de-Label: {seen, ok}
+STORE.streak = STORE.streak || {count:0, last:null};
+
+function todayStr(){ const d=new Date(); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
+function yesterdayStr(){ const d=new Date(Date.now()-864e5); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
+function bumpStreak(){
+  const s = STORE.streak, t = todayStr();
+  if(s.last === t) return;
+  s.count = (s.last === yesterdayStr()) ? (s.count+1) : 1;
+  s.last = t;
+  saveStore();
+  updateStatusBar();
+}
+function totalDone(){ return Object.keys(STORE.done).length; }
+function lessonDoneCount(l){ return Object.keys(STORE.done).filter(k => k.startsWith('L'+l+'-')).length; }
+function markExerciseDone(l, idx){
+  const k = 'L'+l+'-'+idx;
+  if(!STORE.done[k]){ STORE.done[k] = true; saveStore(); }
+}
+function updateStatusBar(){
+  const sb = $('#streak-badge');
+  if(sb) sb.innerHTML = STORE.streak.count > 0 ? `🔥 Streak: <b>${STORE.streak.count}</b> Tag${STORE.streak.count===1?'':'e'}` : '';
+  const op = $('#overall-progress');
+  if(op){ const n = totalDone(); op.innerHTML = n > 0 ? `· ✓ <b>${n}</b> Übungen gemeistert` : ''; }
+}
+
+/* ===================================================================
+   AUDIO / AUSSPRACHE (Web Speech API)
+   =================================================================== */
+// Wandelt Ruby-Markup in eine reine Lese-/Kana-Form für die Sprachausgabe um
+// (nutzt die rt-Lesung, verwirft Klammer-Zusätze).
+function jpReading(html){
+  return (html || '')
+    .replace(/<rp>.*?<\/rp>/g,'')
+    .replace(/<ruby>(.*?)<rt>(.*?)<\/rt><\/ruby>/g, '$2')
+    .replace(/<[^>]+>/g,'')
+    .replace(/[（(][^）)]*[）)]/g,'')
+    .trim();
+}
+function speak(text){
+  if(!text || !('speechSynthesis' in window)) return;
+  try {
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ja-JP'; u.rate = 0.9;
+    const voices = speechSynthesis.getVoices();
+    const jv = voices.find(v => /^ja(-|$)/i.test(v.lang)) || voices.find(v => /japan/i.test(v.name||''));
+    if(jv) u.voice = jv;
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+  } catch(e){}
+}
+// Kleiner 🔊-Button als HTML-Schnipsel (data-speak = reine Lesung).
+function spkBtn(jp){
+  const r = jpReading(jp);
+  return r ? `<button class="spk" title="Vorlesen" onclick="speak(this.dataset.speak)" data-speak="${r}">🔊</button>` : '';
+}
+
 function renderLessonGrid(){
   const root = $('#lesson-grid');
   root.innerHTML = '';
@@ -3656,10 +3778,12 @@ function renderLessonGrid(){
     const tile = document.createElement('button');
     tile.className = 'lesson-tile';
     const cnt = counts[l] || 0;
+    const done = lessonDoneCount(l);
     tile.innerHTML = `
       <span class="num">L${l}</span>
       <span class="topic">${LESSON_TOPICS[l] || ''}</span>
       <span class="count">${cnt} Unterpunkt${cnt===1?'':'e'}</span>
+      ${done > 0 ? `<span class="progress">✓ ${done}/${cnt} gemeistert</span>` : ''}
     `;
     tile.addEventListener('click', ()=>showLessonDetail(l));
     root.appendChild(tile);
@@ -3694,7 +3818,7 @@ function showLessonDetail(lessonNum){
     const entryId = `ex-${lessonNum}-${idx}`;
     html += `
       <div class="unterpunkt" data-lesson="${lessonNum}" data-idx="${idx}">
-        <span class="unterpunkt-num">Unterpunkt ${idx+1}</span>
+        <span class="unterpunkt-num">Unterpunkt ${idx+1}${STORE.done['L'+lessonNum+'-'+idx] ? '<span class="done-tick">✓ gemeistert</span>' : ''}</span>
         <div class="unterpunkt-title">${c.t}</div>
         <div class="unterpunkt-de">${c.de}</div>
         ${renderSlotDiagram(c.slots)}
@@ -3704,7 +3828,7 @@ function showLessonDetail(lessonNum){
         ` : ''}
         ${c.ex ? `
           <div class="example-shown hidden">
-            <div class="example-jp">${c.ex.jp}</div>
+            <div class="example-jp">${c.ex.jp} ${spkBtn(c.ex.jp)}</div>
             <div class="example-de hidden-de" onclick="this.classList.remove('hidden-de')" title="zum Aufdecken tippen">${c.ex.de}</div>
           </div>
         ` : ''}
@@ -3722,11 +3846,13 @@ function showLessonDetail(lessonNum){
           <button onclick="toggleVocabReveal('all')">Alle aufdecken</button>
           <button onclick="toggleVocabReveal('hide')">Alle verstecken</button>
           <button onclick="shuffleVocabRows()">Reihenfolge mischen</button>
+          ${vocab.length >= 4 ? `<button class="active" onclick="startVocabQuiz(${lessonNum})">🎯 Vokabel-Quiz</button>` : ''}
         </div>
+        <div id="vocab-quiz" class="vq hidden"></div>
         <table class="vocab-table" id="vocab-table">
           ${vocab.map(v => `
             <tr>
-              <td class="jp">${v.jp}</td>
+              <td class="jp">${v.jp} ${spkBtn(v.jp)}</td>
               <td class="type">${v.t || ''}</td>
               <td class="de hidden-de" onclick="this.classList.toggle('hidden-de')">${v.de}</td>
             </tr>
@@ -5211,6 +5337,15 @@ function exCheckOrder(btn){
   } else {
     fb.innerHTML = '✓ Richtige Reihenfolge!';
     fb.className = 'ex-feedback ok';
+    // Übung als gemeistert speichern + Streak/Status aktualisieren.
+    const m = /^ex-(\d+)-(\d+)$/.exec(box.id || '');
+    if(m){
+      markExerciseDone(+m[1], +m[2]);
+      const num = box.closest('.unterpunkt') && box.closest('.unterpunkt').querySelector('.unterpunkt-num');
+      if(num && !num.querySelector('.done-tick')) num.innerHTML += '<span class="done-tick">✓ gemeistert</span>';
+    }
+    bumpStreak();
+    updateStatusBar();
   }
 }
 
@@ -5232,6 +5367,94 @@ function exRevealModel(btn){
   const model = box.querySelector('.ex-model');
   if(model){ model.classList.remove('hidden'); btn.disabled = true; btn.style.opacity = '.5'; }
 }
+
+/* ===================================================================
+   VOKABEL-QUIZ (aktiver Abruf, JP↔DE) — mit Wiederholung schwacher Wörter
+   =================================================================== */
+const vocabQuiz = { lesson:null, dir:'jp2de', current:null, correct:0, total:0 };
+
+function startVocabQuiz(lessonNum){
+  vocabQuiz.lesson = lessonNum;
+  vocabQuiz.correct = 0; vocabQuiz.total = 0;
+  const panel = $('#vocab-quiz');
+  panel.classList.remove('hidden');
+  vocabQuizQuestion();
+  panel.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+// Stärke eines Worts: 0 (unbekannt/schwach) … 1 (sicher).
+function vocabStrength(de){
+  const r = STORE.vocab[de];
+  if(!r || !r.seen) return 0;
+  return r.ok / r.seen;
+}
+
+function vocabQuizQuestion(){
+  const pool = (VOCAB_BY_LESSON[vocabQuiz.lesson] || []).filter(v => v.de && v.jp);
+  if(pool.length < 4){ $('#vocab-quiz').innerHTML = '<i>Zu wenige Vokabeln für ein Quiz.</i>'; return; }
+  // Zielwort gewichtet ziehen: schwache/ungesehene Wörter häufiger.
+  const weighted = [];
+  pool.forEach(v => { const w = 1 + Math.round((1 - vocabStrength(v.de)) * 3); for(let i=0;i<w;i++) weighted.push(v); });
+  const target = weighted[Math.floor(Math.random()*weighted.length)];
+  // 3 Distraktoren aus derselben Lektion.
+  const others = pool.filter(v => v.de !== target.de);
+  for(let i = others.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [others[i],others[j]]=[others[j],others[i]]; }
+  const distract = others.slice(0,3);
+  const choices = [target, ...distract];
+  for(let i = choices.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [choices[i],choices[j]]=[choices[j],choices[i]]; }
+
+  const dir = vocabQuiz.dir;
+  vocabQuiz.current = { target };
+  const promptJP = dir === 'jp2de';
+  const qHtml = promptJP
+    ? `${target.jp} ${spkBtn(target.jp)}`
+    : target.de;
+  $('#vocab-quiz').innerHTML = `
+    <div class="vq-q"><span class="vq-dir">${promptJP ? 'Japanisch → Deutsch' : 'Deutsch → Japanisch'}</span>${qHtml}</div>
+    <div class="vq-choices">
+      ${choices.map(c => {
+        const label = promptJP ? c.de : c.jp;
+        return `<button class="vq-choice" data-de="${c.de}" onclick="vocabQuizAnswer(this)">${label}</button>`;
+      }).join('')}
+    </div>
+    <div class="vq-feedback"></div>
+    <div class="vq-bar">
+      <span>Richtig: <b id="vq-ok">${vocabQuiz.correct}</b> / <b id="vq-total">${vocabQuiz.total}</b></span>
+      <button onclick="vocabQuizNext()">Nächste →</button>
+      <button onclick="toggleVocabDir()">↔ Richtung: ${promptJP ? 'JP→DE' : 'DE→JP'}</button>
+      <button onclick="closeVocabQuiz()">✕ Schließen</button>
+    </div>
+  `;
+}
+
+function vocabQuizAnswer(btn){
+  const correctDe = vocabQuiz.current.target.de;
+  const chosen = btn.dataset.de;
+  const all = $$('#vocab-quiz .vq-choice');
+  all.forEach(b => { b.classList.add('disabled'); if(b.dataset.de === correctDe) b.classList.add('right'); });
+  if(chosen !== correctDe) btn.classList.add('wrong');
+  const fb = $('#vocab-quiz .vq-feedback');
+  vocabQuiz.total++;
+  const rec = STORE.vocab[correctDe] || {seen:0, ok:0};
+  rec.seen++;
+  if(chosen === correctDe){
+    rec.ok++; vocabQuiz.correct++;
+    fb.textContent = '✓ Richtig!'; fb.className = 'vq-feedback ok';
+  } else {
+    fb.innerHTML = `✗ Richtig: <b>${correctDe}</b>`; fb.className = 'vq-feedback bad';
+  }
+  STORE.vocab[correctDe] = rec;
+  saveStore();
+  $('#vq-ok').textContent = vocabQuiz.correct;
+  $('#vq-total').textContent = vocabQuiz.total;
+  bumpStreak();
+  // Sprich das japanische Wort bei JP→DE automatisch nach.
+  if(vocabQuiz.dir === 'jp2de') speak(jpReading(vocabQuiz.current.target.jp));
+}
+
+function vocabQuizNext(){ vocabQuizQuestion(); }
+function toggleVocabDir(){ vocabQuiz.dir = vocabQuiz.dir === 'jp2de' ? 'de2jp' : 'jp2de'; vocabQuizQuestion(); }
+function closeVocabQuiz(){ $('#vocab-quiz').classList.add('hidden'); }
 
 function toggleExercise(btn, lessonNum, idx){
   const box = btn.nextElementSibling;
@@ -5310,6 +5533,45 @@ const DRILL_TARGETS = {
   ],
 };
 
+/* ===================================================================
+   PARTIKEL-DRILL — kuratierte Sätze mit eindeutiger Lücke.
+   p = richtige Partikel; avoid = Partikeln, die als Distraktor unfair wären
+   (z.B. に neben へ bei Richtungsangaben, da beide möglich).
+   =================================================================== */
+const PARTICLE_POOL = ['は','が','を','に','へ','で','と','も','から','まで','の'];
+const PARTICLE_ITEMS = [
+  {jp:'わたし＿ ミラーです。', p:'は', de:'Ich bin Miller.'},
+  {jp:'これ＿ <ruby>本<rt>ほん</rt></ruby>です。', p:'は', de:'Das ist ein Buch.'},
+  {jp:'<ruby>毎日<rt>まいにち</rt></ruby> コーヒー＿ <ruby>飲<rt>の</rt></ruby>みます。', p:'を', de:'Ich trinke jeden Tag Kaffee.'},
+  {jp:'ごはん＿ <ruby>食<rt>た</rt></ruby>べます。', p:'を', de:'Ich esse Reis/Essen.'},
+  {jp:'<ruby>手紙<rt>てがみ</rt></ruby>＿ <ruby>書<rt>か</rt></ruby>きます。', p:'を', de:'Ich schreibe einen Brief.'},
+  {jp:'<ruby>日本語<rt>にほんご</rt></ruby>＿ わかります。', p:'が', de:'Ich verstehe Japanisch. (分かる → が)'},
+  {jp:'わたしは <ruby>犬<rt>いぬ</rt></ruby>＿ <ruby>好<rt>す</rt></ruby>きです。', p:'が', de:'Ich mag Hunde. (好き → が)'},
+  {jp:'<ruby>机<rt>つくえ</rt></ruby>の <ruby>上<rt>うえ</rt></ruby>に <ruby>猫<rt>ねこ</rt></ruby>＿ います。', p:'が', de:'Auf dem Tisch ist eine Katze. (いる → が)'},
+  {jp:'<ruby>7時<rt>しちじ</rt></ruby>＿ <ruby>起<rt>お</rt></ruby>きます。', p:'に', de:'Ich stehe um 7 Uhr auf. (Zeit → に)'},
+  {jp:'<ruby>友<rt>とも</rt></ruby>だち＿ <ruby>会<rt>あ</rt></ruby>います。', p:'に', de:'Ich treffe einen Freund. (会う → に)'},
+  {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>＿ <ruby>乗<rt>の</rt></ruby>ります。', p:'に', de:'Ich steige in den Zug. (乗る → に)'},
+  {jp:'<ruby>家<rt>うち</rt></ruby>＿ います。', p:'に', de:'Ich bin zu Hause. (Existenzort → に)'},
+  {jp:'レストラン＿ <ruby>食<rt>た</rt></ruby>べます。', p:'で', de:'Ich esse im Restaurant. (Handlungsort → で)'},
+  {jp:'<ruby>図書館<rt>としょかん</rt></ruby>＿ <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます。', p:'で', de:'Ich lese in der Bibliothek. (Ort → で)'},
+  {jp:'バス＿ <ruby>行<rt>い</rt></ruby>きます。', p:'で', de:'Ich fahre mit dem Bus. (Mittel → で)'},
+  {jp:'<ruby>日本語<rt>にほんご</rt></ruby>＿ <ruby>話<rt>はな</rt></ruby>します。', p:'で', de:'Ich spreche auf Japanisch. (Mittel → で)'},
+  {jp:'<ruby>学校<rt>がっこう</rt></ruby>＿ <ruby>行<rt>い</rt></ruby>きます。', p:'へ', de:'Ich gehe zur Schule. (Richtung → へ)', avoid:['に']},
+  {jp:'<ruby>来年<rt>らいねん</rt></ruby> <ruby>日本<rt>にほん</rt></ruby>＿ <ruby>帰<rt>かえ</rt></ruby>ります。', p:'へ', de:'Nächstes Jahr kehre ich nach Japan zurück. (Richtung → へ)', avoid:['に']},
+  {jp:'<ruby>友<rt>とも</rt></ruby>だち＿ <ruby>行<rt>い</rt></ruby>きます。', p:'と', de:'Ich gehe mit einem Freund. (zusammen → と)'},
+  {jp:'パン＿ <ruby>卵<rt>たまご</rt></ruby>を <ruby>買<rt>か</rt></ruby>います。', p:'と', de:'Ich kaufe Brot und Ei. (und → と)'},
+  {jp:'コーヒーを <ruby>飲<rt>の</rt></ruby>みます。<ruby>紅茶<rt>こうちゃ</rt></ruby>＿ <ruby>飲<rt>の</rt></ruby>みます。', p:'も', de:'Ich trinke Kaffee. Auch Tee. (auch → も)'},
+  {jp:'<ruby>映画<rt>えいが</rt></ruby>は <ruby>9時<rt>くじ</rt></ruby>＿ <ruby>始<rt>はじ</rt></ruby>まります。', p:'から', de:'Der Film beginnt ab 9 Uhr. (ab → から)'},
+  {jp:'アメリカ＿ <ruby>来<rt>き</rt></ruby>ました。', p:'から', de:'Ich bin aus Amerika gekommen. (aus → から)'},
+  {jp:'<ruby>5時<rt>ごじ</rt></ruby>＿ <ruby>働<rt>はたら</rt></ruby>きます。', p:'まで', de:'Ich arbeite bis 5 Uhr. (bis → まで)'},
+  {jp:'これは わたし＿ <ruby>本<rt>ほん</rt></ruby>です。', p:'の', de:'Das ist mein Buch. (Genitiv → の)'},
+  {jp:'<ruby>日本語<rt>にほんご</rt></ruby>＿ <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます。', p:'の', de:'Ich lese ein Japanisch-Buch. (Verbindung → の)'},
+  {jp:'<ruby>音楽<rt>おんがく</rt></ruby>＿ <ruby>聞<rt>き</rt></ruby>きます。', p:'を', de:'Ich höre Musik.'},
+  {jp:'<ruby>誕生日<rt>たんじょうび</rt></ruby>は <ruby>3月<rt>さんがつ</rt></ruby>＿ です。', p:'に', de:'Mein Geburtstag ist im März. (Datum → に)'},
+  {jp:'<ruby>公園<rt>こうえん</rt></ruby>＿ <ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>ります。', p:'で', de:'Ich mache im Park Fotos. (Ort → で)'},
+  {jp:'<ruby>母<rt>はは</rt></ruby>＿ プレゼントを あげます。', p:'に', de:'Ich gebe der Mutter ein Geschenk. (Empfänger → に)'},
+];
+
 const drillState = {
   category: 'verb',
   groupFilter: 'all',
@@ -5327,12 +5589,18 @@ function getDataForCat(cat){
   }
   if(cat === 'iadj') return I_ADJ_FORMS;
   if(cat === 'naadj') return NA_ADJ_FORMS;
+  if(cat === 'particle') return PARTICLE_ITEMS;
   return [];
 }
 
 function renderDrillFilters(){
   const root = $('#drill-filters');
   root.innerHTML = '';
+  // Partikel-Drill braucht keine Zielform-/Gruppen-Filter.
+  if(drillState.category === 'particle'){
+    $('#drill-group').parentElement.style.display = 'none';
+    return;
+  }
   const targets = DRILL_TARGETS[drillState.category];
   drillState.enabledTargets = new Set(targets.map(t => t.key));
   targets.forEach(t => {
@@ -5357,6 +5625,32 @@ function renderDrillFilters(){
 
 function nextDrill(){
   drillState.answered = false;
+
+  // Partikel-Drill: eigener Pfad (Satz mit Lücke → richtige Partikel wählen).
+  if(drillState.category === 'particle'){
+    const item = pickRandom(PARTICLE_ITEMS);
+    const avoid = new Set([item.p, ...(item.avoid || [])]);
+    const distractPool = PARTICLE_POOL.filter(p => !avoid.has(p));
+    for(let i = distractPool.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [distractPool[i],distractPool[j]]=[distractPool[j],distractPool[i]]; }
+    const choices = [item.p, ...distractPool.slice(0,3)];
+    for(let i = choices.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [choices[i],choices[j]]=[choices[j],choices[i]]; }
+    drillState.current = { correct: item.p };
+    $('#drill-prompt').innerHTML = item.jp.replace('＿', '<span style="color:#8a1f17;font-weight:800">（　）</span>');
+    $('#drill-de').textContent = item.de;
+    $('#drill-instruction').innerHTML = 'Wähle die richtige <b>Partikel</b>';
+    const choicesRoot = $('#drill-choices');
+    choicesRoot.innerHTML = '';
+    choices.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'choice'; btn.textContent = c; btn.dataset.choice = c;
+      btn.addEventListener('click', () => handleChoice(btn, c));
+      choicesRoot.appendChild(btn);
+    });
+    $('#drill-feedback').textContent = '';
+    $('#drill-feedback').className = 'feedback';
+    return;
+  }
+
   const data = getDataForCat(drillState.category);
   const targets = DRILL_TARGETS[drillState.category].filter(t => drillState.enabledTargets.has(t.key));
   if(data.length === 0 || targets.length === 0){
@@ -5427,6 +5721,10 @@ function handleChoice(btn, choiceVal){
   }
   $('#score-ok').textContent = drillState.score;
   $('#score-total').textContent = drillState.total;
+  // Punktestand speichern + Tages-Streak hochzählen.
+  STORE.drill = {score: drillState.score, total: drillState.total};
+  saveStore();
+  bumpStreak();
 }
 
 function resetScore(){
@@ -5434,6 +5732,8 @@ function resetScore(){
   drillState.total = 0;
   $('#score-ok').textContent = 0;
   $('#score-total').textContent = 0;
+  STORE.drill = {score:0, total:0};
+  saveStore();
 }
 
 /* ===================================================================
@@ -5451,10 +5751,17 @@ function init(){
     document.body.innerHTML = '<div style="padding:2rem;text-align:center"><h2>Daten konnten nicht geladen werden</h2><p>lessons.js fehlt oder ist defekt.</p></div>';
     return;
   }
+  // Gespeicherten Drill-Punktestand & Status laden.
+  drillState.score = STORE.drill.score || 0;
+  drillState.total = STORE.drill.total || 0;
+  updateStatusBar();
+
   renderLessonGrid();
   $$('.mode-tab').forEach(t => t.addEventListener('click', () => switchMode(t.dataset.mode)));
   renderDrillFilters();
   nextDrill();
+  $('#score-ok').textContent = drillState.score;
+  $('#score-total').textContent = drillState.total;
   $('#drill-cat').addEventListener('change', e => {
     drillState.category = e.target.value;
     renderDrillFilters();
@@ -5487,6 +5794,12 @@ window.exPickChip = exPickChip;
 window.exCheckOrder = exCheckOrder;
 window.exResetBuild = exResetBuild;
 window.exRevealModel = exRevealModel;
+window.speak = speak;
+window.startVocabQuiz = startVocabQuiz;
+window.vocabQuizAnswer = vocabQuizAnswer;
+window.vocabQuizNext = vocabQuizNext;
+window.toggleVocabDir = toggleVocabDir;
+window.closeVocabQuiz = closeVocabQuiz;
 
 document.addEventListener('DOMContentLoaded', init);
 
