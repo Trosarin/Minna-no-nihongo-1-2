@@ -5293,6 +5293,53 @@ function curatedChip(w){
   </span>`;
 }
 
+// Zeitform-Varianten: schaltet höfliche Prädikat-Endungen sicher zwischen
+// Gegenwart und Vergangenheit um (reiner Suffix-Tausch → immer grammatikalisch
+// korrekt). Plain-Formen, Fragen (…か) und Adjektivstämme bleiben unverändert.
+const TENSE_RULES = [
+  [/ませんでした$/, ['ません', 'ませんでした']],
+  [/ました$/,       ['ます', 'ました']],
+  [/ません$/,       ['ません', 'ませんでした']],
+  [/ます$/,         ['ます', 'ました']],
+  [/でした$/,       ['です', 'でした']],
+  [/です$/,         ['です', 'でした']],
+];
+function tenseVariants(jp){
+  for(const [re, forms] of TENSE_RULES){
+    if(re.test(jp)){ const stem = jp.replace(re, ''); return forms.map(f => stem + f); }
+  }
+  return [jp];
+}
+
+// Rotationszustand je Übungsschlüssel: aufeinanderfolgende Aufgaben wandern
+// durch ALLE Bausteine je Rolle → selten bis gar keine Wiederholung.
+const curatedRot = {};
+
+// Wählt je Rolle bis zu zwei Bausteine (rotierend) und variiert die Zeitform
+// einer Prädikat-Phrase zufällig — für viele, wechselnde Satzmöglichkeiten.
+function pickCuratedBuildWords(key, set){
+  const groups = {}, order = [];
+  set.forEach(w => { if(!groups[w.role]){ groups[w.role] = []; order.push(w.role); } groups[w.role].push(w); });
+  const st = curatedRot[key] || (curatedRot[key] = {});
+  const picked = [];
+  for(const role of order){
+    const blocks = groups[role];
+    const start = st[role] || 0;
+    const take = Math.min(2, blocks.length);
+    for(let i = 0; i < take; i++) picked.push(blocks[(start + i) % blocks.length]);
+    st[role] = (start + take) % blocks.length;
+  }
+  const out = picked.map(w => {
+    if(curatedOrder(w.role) === 6){
+      const vs = tenseVariants(w.jp);
+      if(vs.length > 1) return { ...w, jp: vs[Math.floor(Math.random() * vs.length)] };
+    }
+    return w;
+  });
+  for(let i = out.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [out[i], out[j]] = [out[j], out[i]]; }
+  return out;
+}
+
 // Prüfung für kuratierte Bau-Übungen. Streng genug, dass NUR korrekte Sätze
 // bestehen: (1) Reihenfolge nicht fallend nach Positionsstufe und (2) jede
 // vorhandene Positionsstufe muss belegt sein (sonst ist es nur ein Fragment,
@@ -5402,12 +5449,13 @@ function renderExerciseBox(boxEl, lessonNum, idx){
     // Ordnbare Phrasen-Sets (Grund→Folge, Subjekt→Verb, …): interaktiver Bau
     // mit Reihenfolge-Prüfung. Wähle je Rolle einen Baustein und ordne sie.
     if(curatedBuildable(customSet)){
+      const buildWords = pickCuratedBuildWords(key, customSet);
       boxEl.innerHTML = `
-        <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an, um einen Satz nach dem Muster oben zu bilden. Tipp: Wähle je Rolle einen Baustein — das Prädikat steht am Ende.</div>
+        <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an, um einen Satz nach dem Muster oben zu bilden. Tipp: Wähle je Rolle einen Baustein — das Prädikat steht am Ende. Die Zeitform (Gegenwart/Vergangenheit) wechselt.</div>
         <div class="ex-answer empty"></div>
         <div class="ex-source-label">Bausteine</div>
         <div class="ex-word-pool ex-source">
-          ${words.map(curatedChip).join('')}
+          ${buildWords.map(curatedChip).join('')}
         </div>
         <div class="ex-feedback"></div>
         <div class="ex-actions">
@@ -5419,7 +5467,7 @@ function renderExerciseBox(boxEl, lessonNum, idx){
         </div>
         <div class="ex-model hidden">
           <div class="ex-model-label">Modell-Reihenfolge</div>
-          <div class="ex-model-jp">${buildCuratedModelOrder(words)}</div>
+          <div class="ex-model-jp">${buildCuratedModelOrder(buildWords)}</div>
           <div class="ex-model-note">Eine mögliche Reihenfolge — bei mehreren Bausteinen je Rolle zählt die Position der Rolle.</div>
         </div>
         ${solutionHtml}
