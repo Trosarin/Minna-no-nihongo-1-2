@@ -5260,16 +5260,19 @@ function curatedOrder(role){
   return 6; // Prädikat / Folge / Modus (Handlung, Folge, Verb, Vermutung, …)
 }
 
-// Set ist "baubar", wenn man daraus eine sinnvolle Reihenfolge legen kann:
-// ≥2 verschiedene Rollen, keine reinen Konjugations-/Beispiellisten, und die
-// Rollen verteilen sich auf ≥2 Positionsstufen.
+// Set ist "baubar", wenn sich eine eindeutige, korrekte Reihenfolge legen lässt:
+// ≥2 verschiedene Rollen, keine reinen Konjugations-/Beispiellisten und GENAU
+// zwei Positionsstufen (saubere 2-Teiler wie Grund→Folge, Subjekt→Verb).
+// Sets mit 3+ Stufen werden bewusst ausgeschlossen — dort sind die Rollen oft
+// Alternativen für dieselbe Position oder die Labels passen nicht zur Satzstelle,
+// sodass eine Reihenfolge-Prüfung falsche Treffer erzeugen würde.
 function curatedBuildable(set){
   if(!set || set.length < 2) return false;
   const roles = new Set(set.map(w => w.role));
   if(roles.size < 2) return false;
   if(set.some(w => /→|⇆/.test(w.jp || '') ||
        /Beispiel|G[123]\b|普通|丁寧語|尊敬語|謙譲語|normal →|自動|他動/.test(w.role || ''))) return false;
-  return new Set([...roles].map(curatedOrder)).size >= 2;
+  return new Set([...roles].map(curatedOrder)).size === 2;
 }
 
 // Eine mögliche Modell-Reihenfolge: nach Positionsstufe sortiert (stabil),
@@ -5288,6 +5291,57 @@ function curatedChip(w){
     <span class="ex-chip-jp">${w.jp}</span>
     <span class="ex-chip-de">${w.de}</span>
   </span>`;
+}
+
+// Prüfung für kuratierte Bau-Übungen. Streng genug, dass NUR korrekte Sätze
+// bestehen: (1) Reihenfolge nicht fallend nach Positionsstufe und (2) jede
+// vorhandene Positionsstufe muss belegt sein (sonst ist es nur ein Fragment,
+// z. B. zwei Bausteine derselben Rolle ohne Prädikat).
+function curatedCheckOrder(btn){
+  const box = btn.closest('.exercise-box');
+  const answer = box.querySelector('.ex-answer');
+  const fb = box.querySelector('.ex-feedback');
+  const placed = [...answer.querySelectorAll('.ex-chip')];
+  placed.forEach(c => c.classList.remove('misplaced'));
+  if(placed.length < 2){
+    fb.textContent = 'Lege mindestens zwei Bausteine in die Bauzone.';
+    fb.className = 'ex-feedback bad';
+    return;
+  }
+  // (1) Reihenfolge: nicht fallend nach Positionsstufe.
+  let firstBad = null, prev = -Infinity;
+  for(const c of placed){
+    const o = Number(c.dataset.order);
+    if(o < prev){ firstBad = c; break; }
+    prev = o;
+  }
+  if(firstBad){
+    firstBad.classList.add('misplaced');
+    fb.innerHTML = '✗ Reihenfolge nicht ganz richtig — der markierte Baustein steht zu weit hinten. Tipp: Das Prädikat (Handlung/Folge) gehört ans Ende.';
+    fb.className = 'ex-feedback bad';
+    return;
+  }
+  // (2) Vollständigkeit: alle vorhandenen Positionsstufen müssen vertreten sein.
+  const required = new Set([...box.querySelectorAll('.ex-chip')].map(c => c.dataset.order));
+  const have = new Set(placed.map(c => c.dataset.order));
+  for(const r of required){
+    if(!have.has(r)){
+      fb.innerHTML = '○ Fast! Der Satz ist noch unvollständig — wähle je Rolle einen Baustein (z. B. Bedingung/Grund <b>und</b> Folge).';
+      fb.className = 'ex-feedback bad';
+      return;
+    }
+  }
+  // Korrekt — wie exCheckOrder: als gemeistert speichern, Streak & Status.
+  fb.innerHTML = '✓ Richtiger Satzbau!';
+  fb.className = 'ex-feedback ok';
+  const m = /^ex-(\d+)-(\d+)$/.exec(box.id || '');
+  if(m){
+    markExerciseDone(+m[1], +m[2]);
+    const num = box.closest('.unterpunkt') && box.closest('.unterpunkt').querySelector('.unterpunkt-num');
+    if(num && !num.querySelector('.done-tick')) num.innerHTML += '<span class="done-tick">✓ gemeistert</span>';
+  }
+  bumpStreak();
+  updateStatusBar();
 }
 
 function renderExerciseBox(boxEl, lessonNum, idx){
@@ -5357,7 +5411,7 @@ function renderExerciseBox(boxEl, lessonNum, idx){
         </div>
         <div class="ex-feedback"></div>
         <div class="ex-actions">
-          <button onclick="exCheckOrder(this)">✓ Prüfen</button>
+          <button onclick="curatedCheckOrder(this)">✓ Prüfen</button>
           <button onclick="exResetBuild(this)">↺ Zurücksetzen</button>
           <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Andere Wörter</button>
           <button onclick="exRevealModel(this)">💡 Modell-Reihenfolge</button>
@@ -6124,6 +6178,7 @@ window.newExerciseWords = newExerciseWords;
 window.revealExerciseSolution = revealExerciseSolution;
 window.exPickChip = exPickChip;
 window.exCheckOrder = exCheckOrder;
+window.curatedCheckOrder = curatedCheckOrder;
 window.exResetBuild = exResetBuild;
 window.exRevealModel = exRevealModel;
 window.speak = speak;
