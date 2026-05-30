@@ -424,27 +424,6 @@
   .ex-model-jp{font-family:"Noto Serif JP",serif;font-size:1.02rem;color:#1a1612;line-height:1.7}
   .ex-model-jp .ex-chip-part{color:#8a1f17;font-weight:700}
   .ex-model-note{margin-top:.3rem;font-size:.74rem;color:#1f4a7a;font-style:italic}
-  .satzbau-goal{
-    background:#fffdf6;
-    border:1px solid #c9bda3;
-    border-left:4px solid #8a1f17;
-    padding:.7rem .8rem;
-    margin-bottom:.8rem;
-  }
-  .satzbau-goal-label{
-    font-family:"JetBrains Mono",monospace;
-    font-size:.6rem;letter-spacing:.1em;
-    color:#8a1f17;text-transform:uppercase;font-weight:700;
-    margin-bottom:.2rem;
-  }
-  .satzbau-goal-title{
-    font-family:"Noto Serif JP",serif;
-    font-size:1.1rem;color:#1a1612;font-weight:800;
-    line-height:1.4;
-  }
-  .satzbau-goal-de{
-    font-size:.82rem;color:#6b5d4a;margin-top:.1rem;
-  }
 
   /* Audio-Button */
   .spk{
@@ -699,10 +678,6 @@
     <span class="jp">活用</span>
     <span class="de">Drills</span>
   </button>
-  <button class="mode-tab" data-mode="satzbau">
-    <span class="jp">文</span>
-    <span class="de">Satzbau</span>
-  </button>
   <button class="mode-tab" data-mode="review">
     <span class="jp">復習</span>
     <span class="de">Wiederholung</span>
@@ -769,24 +744,6 @@
   <div style="display:flex;gap:.5rem;flex-wrap:wrap">
     <button class="btn red" id="next-drill">Nächste Aufgabe →</button>
   </div>
-</section>
-
-<section id="mode-satzbau" class="panel hidden">
-  <p class="help">Wähle eine Lektion. Die App stellt dir ein Grammatik-Muster und passende <b>Satzbausteine</b> bereit. Tippe die Bausteine in der richtigen Reihenfolge an (japanisch: Zeit → Subjekt → Ort → Objekt → Verb) und lass deinen Satz <b>prüfen</b>.</p>
-
-  <div class="controls-row">
-    <div class="field">
-      <label for="satzbau-lesson">Lektion</label>
-      <select id="satzbau-lesson"></select>
-    </div>
-  </div>
-
-  <div class="score-row">
-    <span>Richtig: <b id="satzbau-ok">0</b> / Versuche: <b id="satzbau-total">0</b></span>
-    <button class="btn gold" id="satzbau-new" style="padding:.3rem .6rem;font-size:.8rem">🎲 Neue Aufgabe</button>
-  </div>
-
-  <div id="satzbau-card"></div>
 </section>
 
 <section id="mode-review" class="panel hidden">
@@ -3820,7 +3777,6 @@ function saveStore(){
 }
 const STORE = loadStore();
 STORE.drill  = STORE.drill  || {score:0, total:0};
-STORE.satzbau= STORE.satzbau|| {score:0, total:0};
 STORE.done   = STORE.done   || {};     // "L6-0": true (richtig gebaut)
 STORE.vocab  = STORE.vocab  || {};     // de-Label: {seen, ok}
 STORE.streak = STORE.streak || {count:0, last:null};
@@ -5287,6 +5243,53 @@ function buildModelOrder(words){
   }).join(' ');
 }
 
+/* ===================================================================
+   KURATIERTE SETS: aus Phrasen-Bausteinen einen Satz bauen + prüfen
+   Die kuratierten Rollen sind semantisch (Grund, Folge, Subjekt, …).
+   curatedOrder bildet sie auf eine grobe SOV-Position ab (Rahmen → Subjekt
+   → Grund/Nebensatz → Objekt → Adjektiv → Prädikat), sodass z. B. „Grund vor
+   Folge" oder „Subjekt vor Verb" geprüft werden kann.
+   =================================================================== */
+function curatedOrder(role){
+  const r = role || '';
+  if(/Zeit|Situation|とき|Fall|Während|^Vor\b|^Nach\b|Zuerst|Bedingung|Thema \(なら\)/.test(r)) return 1; // Rahmen / Zeit
+  if(/Subjekt|Person|Sprecher|Ausführend|Verursacher|Urheber|höhere Person|niedrigere Person|Gesprächspartner|Empfänger/.test(r)) return 2; // Subjekt / Agens
+  if(/Grund|Ursache|Material|Quelle|Vorbereitung|Nebenhandlung|Obwohl|Einleitung|Einschränkung|Kontrast|neg\. Grund/.test(r)) return 3; // Nebensatz / Grund
+  if(/Objekt|Inhalt|Nachricht|Frage|Wahl|Produkt|Geld|Strecke|Werkzeug|Zweck|Ziel|Ort|Bewegung|Anweisung|Vorbild/.test(r)) return 4; // Objekt / Ort
+  if(/Adjektiv|Zustand|Sinneseindruck|Bewertung|Visuell|Auditiv/.test(r)) return 5; // Eigenschaft / Zustand
+  return 6; // Prädikat / Folge / Modus (Handlung, Folge, Verb, Vermutung, …)
+}
+
+// Set ist "baubar", wenn man daraus eine sinnvolle Reihenfolge legen kann:
+// ≥2 verschiedene Rollen, keine reinen Konjugations-/Beispiellisten, und die
+// Rollen verteilen sich auf ≥2 Positionsstufen.
+function curatedBuildable(set){
+  if(!set || set.length < 2) return false;
+  const roles = new Set(set.map(w => w.role));
+  if(roles.size < 2) return false;
+  if(set.some(w => /→|⇆/.test(w.jp || '') ||
+       /Beispiel|G[123]\b|普通|丁寧語|尊敬語|謙譲語|normal →|自動|他動/.test(w.role || ''))) return false;
+  return new Set([...roles].map(curatedOrder)).size >= 2;
+}
+
+// Eine mögliche Modell-Reihenfolge: nach Positionsstufe sortiert (stabil),
+// reine JP-Phrasen aneinandergereiht.
+function buildCuratedModelOrder(words){
+  return words.slice()
+    .map((w, i) => ({ w, o: curatedOrder(w.role), i }))
+    .sort((a, b) => a.o - b.o || a.i - b.i)
+    .map(m => m.w.jp)
+    .join(' ');
+}
+
+function curatedChip(w){
+  return `<span class="ex-chip" onclick="exPickChip(this)" data-order="${curatedOrder(w.role)}" data-role="${w.role || ''}">
+    ${w.role ? `<span class="ex-chip-role">${w.role}</span>` : ''}
+    <span class="ex-chip-jp">${w.jp}</span>
+    <span class="ex-chip-de">${w.de}</span>
+  </span>`;
+}
+
 function renderExerciseBox(boxEl, lessonNum, idx){
   const c = MINNA_LESSONS.filter(x => x.l === lessonNum)[idx];
   if(!c){ boxEl.innerHTML = '<i>Keine Daten.</i>'; return; }
@@ -5342,8 +5345,34 @@ function renderExerciseBox(boxEl, lessonNum, idx){
   ` : '';
 
   if(customSet){
-    // Kuratierte Phrasen-Sets: bewährte Pool-Ansicht mit Rollen (Reihenfolge-Üben
-    // passt bei fertigen Teilsätzen nicht).
+    // Ordnbare Phrasen-Sets (Grund→Folge, Subjekt→Verb, …): interaktiver Bau
+    // mit Reihenfolge-Prüfung. Wähle je Rolle einen Baustein und ordne sie.
+    if(curatedBuildable(customSet)){
+      boxEl.innerHTML = `
+        <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an, um einen Satz nach dem Muster oben zu bilden. Tipp: Wähle je Rolle einen Baustein — das Prädikat steht am Ende.</div>
+        <div class="ex-answer empty"></div>
+        <div class="ex-source-label">Bausteine</div>
+        <div class="ex-word-pool ex-source">
+          ${words.map(curatedChip).join('')}
+        </div>
+        <div class="ex-feedback"></div>
+        <div class="ex-actions">
+          <button onclick="exCheckOrder(this)">✓ Prüfen</button>
+          <button onclick="exResetBuild(this)">↺ Zurücksetzen</button>
+          <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Andere Wörter</button>
+          <button onclick="exRevealModel(this)">💡 Modell-Reihenfolge</button>
+          ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
+        </div>
+        <div class="ex-model hidden">
+          <div class="ex-model-label">Modell-Reihenfolge</div>
+          <div class="ex-model-jp">${buildCuratedModelOrder(words)}</div>
+          <div class="ex-model-note">Eine mögliche Reihenfolge — bei mehreren Bausteinen je Rolle zählt die Position der Rolle.</div>
+        </div>
+        ${solutionHtml}
+      `;
+      return;
+    }
+    // Sonst (Einzelrolle, Konjugations-/Beispiellisten): bewährte Pool-Ansicht.
     boxEl.innerHTML = `
       <div class="ex-help">🧠 Bilde mit diesen Bausteinen einen Satz nach dem Muster oben. Die Rolle zeigt dir, wohin jedes Wort gehört.</div>
       <div class="ex-word-pool">
@@ -5476,163 +5505,6 @@ function exRevealModel(btn){
   const box = btn.closest('.exercise-box');
   const model = box.querySelector('.ex-model');
   if(model){ model.classList.remove('hidden'); btn.disabled = true; btn.style.opacity = '.5'; }
-}
-
-/* ===================================================================
-   SATZBAU-MODUS — Bausteine wählen, Satz legen, prüfen
-   Eigenständiger Modus auf Basis des generischen Baustein-Pfades:
-   Lektion wählen → zufälliges Muster + passende Wörter → Satz legen → prüfen.
-   =================================================================== */
-const satzbau = { lesson:null, c:null, words:[], current:false };
-
-// Lektionen mit genügend kuratierten Vokabeln (nur die liefern Bausteine).
-function satzbauLessons(){
-  return Object.keys(VOCAB_BY_LESSON)
-    .map(Number)
-    .filter(l => (VOCAB_BY_LESSON[l]||[]).length >= 4)
-    .sort((a,b) => a-b);
-}
-
-function populateSatzbauLessons(){
-  const sel = $('#satzbau-lesson');
-  if(!sel || sel.options.length) return;
-  satzbauLessons().forEach(l => {
-    const o = document.createElement('option');
-    o.value = l;
-    o.textContent = `L${l} · ${LESSON_TOPICS[l] || ''}`;
-    sel.appendChild(o);
-  });
-}
-
-function startSatzbau(){
-  populateSatzbauLessons();
-  const sel = $('#satzbau-lesson');
-  if(!satzbau.lesson){
-    satzbau.lesson = sel && sel.value ? +sel.value : (satzbauLessons()[0] || 1);
-  }
-  if(sel) sel.value = satzbau.lesson;
-  $('#satzbau-ok').textContent = STORE.satzbau.score || 0;
-  $('#satzbau-total').textContent = STORE.satzbau.total || 0;
-  if(!satzbau.current) satzbauNewTask();
-}
-
-// Sucht in der gewählten Lektion ein Muster, für das sich ≥2 geordnete
-// Bausteine ziehen lassen (einige Versuche), damit die Prüfung greift.
-function satzbauNewTask(){
-  const lesson = satzbau.lesson;
-  const patterns = MINNA_LESSONS.filter(c => c.l === lesson);
-  const card = $('#satzbau-card');
-  if(!patterns.length){ if(card) card.innerHTML = '<div class="ex-help">Keine Muster für diese Lektion.</div>'; return; }
-  let c = null, words = null;
-  for(let t = 0; t < 12; t++){
-    const cand = patterns[Math.floor(Math.random()*patterns.length)];
-    const w = pickExerciseWords(lesson, cand.slots);
-    const orderable = (w||[]).filter(x => ROLE_ORDER[structuralRole(x)] != null);
-    if(orderable.length >= 2){ c = cand; words = w; break; }
-  }
-  if(!c){ c = patterns[0]; words = pickExerciseWords(lesson, c.slots) || []; }
-  satzbau.c = c;
-  satzbau.words = words;
-  satzbau.current = true;
-  renderSatzbauTask();
-}
-
-function satzbauChip(w){
-  const role = structuralRole(w);
-  const part = particleForRole(role, satzbau.words);
-  return `<span class="ex-chip" onclick="exPickChip(this)"
-      data-order="${ROLE_ORDER[role] != null ? ROLE_ORDER[role] : ''}" data-role="${role}">
-    ${role ? `<span class="ex-chip-role">${role}</span>` : ''}
-    <span class="ex-chip-jp">${w.jp}${part ? `<span class="ex-chip-part">${part}</span>` : ''}</span>
-    <span class="ex-chip-de">${w.de}</span>
-  </span>`;
-}
-
-function renderSatzbauTask(){
-  const c = satzbau.c, words = satzbau.words;
-  const card = $('#satzbau-card');
-  if(!words || !words.length){
-    card.innerHTML = '<div class="ex-help">Für diese Lektion sind noch keine Übungswörter hinterlegt. Wähle eine andere Lektion.</div>';
-    return;
-  }
-  const solutionHtml = c.ex ? `
-    <div class="ex-solution hidden">
-      <div class="ex-sol-label">Beispiel aus dem Lehrbuch</div>
-      <div class="ex-sol-jp">${c.ex.jp}</div>
-      <div class="ex-sol-de">${c.ex.de}</div>
-    </div>` : '';
-  card.innerHTML = `
-    <div class="satzbau-goal">
-      <div class="satzbau-goal-label">Muster · Lektion ${c.l}</div>
-      <div class="satzbau-goal-title">${c.t}</div>
-      <div class="satzbau-goal-de">${c.de}</div>
-      ${renderSlotDiagram(c.slots)}
-    </div>
-    <div class="exercise-box">
-      <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an. Die kleine rote Partikel ist ein Hinweis.</div>
-      <div class="ex-answer empty"></div>
-      <div class="ex-source-label">Bausteine</div>
-      <div class="ex-word-pool ex-source">
-        ${words.map(satzbauChip).join('')}
-      </div>
-      <div class="ex-feedback"></div>
-      <div class="ex-actions">
-        <button onclick="satzbauCheck(this)">✓ Prüfen</button>
-        <button onclick="exResetBuild(this)">↺ Zurücksetzen</button>
-        <button onclick="exRevealModel(this)">💡 Modell-Reihenfolge</button>
-        ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
-      </div>
-      <div class="ex-model hidden">
-        <div class="ex-model-label">Modell-Reihenfolge</div>
-        <div class="ex-model-jp">${buildModelOrder(words)}</div>
-        <div class="ex-model-note">Reihenfolge & Partikeln als Orientierung — das Verb ggf. passend konjugieren.</div>
-      </div>
-      ${solutionHtml}
-    </div>
-  `;
-}
-
-// Prüfung im Satzbau-Modus: ALLE Bausteine müssen gelegt sein und in
-// nicht-fallender SOV-Reihenfolge stehen. Zählt Punkte & Streak.
-function satzbauCheck(btn){
-  const box = btn.closest('.exercise-box');
-  const answer = box.querySelector('.ex-answer');
-  const source = box.querySelector('.ex-source');
-  const fb = box.querySelector('.ex-feedback');
-  const placed = [...answer.querySelectorAll('.ex-chip')];
-  placed.forEach(c => c.classList.remove('misplaced'));
-  if(source.querySelector('.ex-chip')){
-    fb.textContent = 'Lege zuerst alle Bausteine in die Bauzone.';
-    fb.className = 'ex-feedback bad';
-    return;
-  }
-  if(placed.length < 2){
-    fb.textContent = 'Lege mindestens zwei Bausteine in die Bauzone.';
-    fb.className = 'ex-feedback bad';
-    return;
-  }
-  const ordered = placed
-    .map(c => ({ el:c, order: c.dataset.order === '' ? null : Number(c.dataset.order) }))
-    .filter(x => x.order != null);
-  let firstBad = null, prev = -Infinity;
-  for(const x of ordered){
-    if(x.order < prev){ firstBad = x.el; break; }
-    prev = x.order;
-  }
-  STORE.satzbau.total = (STORE.satzbau.total||0) + 1;
-  if(firstBad){
-    firstBad.classList.add('misplaced');
-    fb.innerHTML = '✗ Reihenfolge nicht ganz richtig — der markierte Baustein steht zu weit hinten. Tipp: Verb ans Ende.';
-    fb.className = 'ex-feedback bad';
-  } else {
-    STORE.satzbau.score = (STORE.satzbau.score||0) + 1;
-    fb.innerHTML = '✓ Richtiger Satzbau!';
-    fb.className = 'ex-feedback ok';
-    bumpStreak();
-  }
-  saveStore();
-  $('#satzbau-ok').textContent = STORE.satzbau.score || 0;
-  $('#satzbau-total').textContent = STORE.satzbau.total || 0;
 }
 
 /* ===================================================================
@@ -6198,10 +6070,8 @@ function switchMode(mode){
   $$('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
   $('#mode-lessons').classList.toggle('hidden', mode !== 'lessons');
   $('#mode-drill').classList.toggle('hidden', mode !== 'drill');
-  $('#mode-satzbau').classList.toggle('hidden', mode !== 'satzbau');
   $('#mode-review').classList.toggle('hidden', mode !== 'review');
   $('#mode-progress').classList.toggle('hidden', mode !== 'progress');
-  if(mode === 'satzbau') startSatzbau();
   if(mode === 'review') startReview();
   if(mode === 'progress') renderProgress();
 }
@@ -6233,11 +6103,6 @@ function init(){
   });
   $('#next-drill').addEventListener('click', nextDrill);
   $('#reset-score').addEventListener('click', resetScore);
-  $('#satzbau-lesson').addEventListener('change', e => {
-    satzbau.lesson = +e.target.value;
-    satzbauNewTask();
-  });
-  $('#satzbau-new').addEventListener('click', satzbauNewTask);
   $('#review-mode').addEventListener('change', renderReviewCard);
   $('#review-new').addEventListener('change', startReview);
 
@@ -6261,9 +6126,6 @@ window.exPickChip = exPickChip;
 window.exCheckOrder = exCheckOrder;
 window.exResetBuild = exResetBuild;
 window.exRevealModel = exRevealModel;
-window.startSatzbau = startSatzbau;
-window.satzbauNewTask = satzbauNewTask;
-window.satzbauCheck = satzbauCheck;
 window.speak = speak;
 window.startVocabQuiz = startVocabQuiz;
 window.vocabQuizAnswer = vocabQuizAnswer;
