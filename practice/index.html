@@ -4006,30 +4006,35 @@ const EXERCISE_SETS = {
     {jp:'<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>した', de:'umgezogen sein', role:'Grund'},
     {jp:'<ruby>財布<rt>さいふ</rt></ruby>を なくした', de:'Geldbörse verloren', role:'Grund'},
     {jp:'<ruby>道<rt>みち</rt></ruby>に <ruby>迷<rt>まよ</rt></ruby>った', de:'sich verlaufen haben', role:'Grund'},
+    {jp:'んです', de:'…, nämlich (Erklärung)', role:'Erklärung', fixed:true},
   ],
   'L26-1': [ // どうして んですか
+    {jp:'どうして', de:'warum', role:'Frage-Wort', fixed:true},
     {jp:'<ruby>遅刻<rt>ちこく</rt></ruby>した', de:'sich verspätet', role:'Situation'},
     {jp:'<ruby>休<rt>やす</rt></ruby>む', de:'fehlen / Pause machen', role:'Situation'},
     {jp:'<ruby>泣<rt>な</rt></ruby>いている', de:'weinen', role:'Situation'},
     {jp:'<ruby>笑<rt>わら</rt></ruby>っている', de:'lachen', role:'Situation'},
     {jp:'<ruby>元気<rt>げんき</rt></ruby>がない', de:'nicht fit sein', role:'Situation'},
     {jp:'<ruby>食<rt>た</rt></ruby>べない', de:'nicht essen', role:'Situation'},
+    {jp:'んですか', de:'…? (nach dem Grund fragen)', role:'Nachfrage', fixed:true},
   ],
   'L26-2': [ // て いただけませんか
-    {jp:'<ruby>説明<rt>せつめい</rt></ruby>する', de:'erklären', role:'Bitte'},
-    {jp:'<ruby>手伝<rt>てつだ</rt></ruby>う', de:'helfen', role:'Bitte'},
-    {jp:'<ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>る', de:'Foto machen', role:'Bitte'},
-    {jp:'ここに <ruby>名前<rt>なまえ</rt></ruby>を <ruby>書<rt>か</rt></ruby>く', de:'hier Namen schreiben', role:'Bitte'},
-    {jp:'もう <ruby>一度<rt>いちど</rt></ruby> <ruby>言<rt>い</rt></ruby>う', de:'noch einmal sagen', role:'Bitte'},
-    {jp:'<ruby>地図<rt>ちず</rt></ruby>を <ruby>描<rt>か</rt></ruby>く', de:'Karte zeichnen', role:'Bitte'},
+    {jp:'<ruby>説明<rt>せつめい</rt></ruby>して', de:'erklären', role:'Bitte'},
+    {jp:'<ruby>手伝<rt>てつだ</rt></ruby>って', de:'helfen', role:'Bitte'},
+    {jp:'<ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>って', de:'Foto machen', role:'Bitte'},
+    {jp:'ここに <ruby>名前<rt>なまえ</rt></ruby>を <ruby>書<rt>か</rt></ruby>いて', de:'hier Namen schreiben', role:'Bitte'},
+    {jp:'もう <ruby>一度<rt>いちど</rt></ruby> <ruby>言<rt>い</rt></ruby>って', de:'noch einmal sagen', role:'Bitte'},
+    {jp:'<ruby>地図<rt>ちず</rt></ruby>を <ruby>描<rt>か</rt></ruby>いて', de:'Karte zeichnen', role:'Bitte'},
+    {jp:'いただけませんか', de:'…würden Sie bitte …? (höfliche Bitte)', role:'Höflichkeitsbitte', fixed:true},
   ],
   'L26-3': [ // 疑問詞 + V たら いいですか
-    {jp:'<ruby>何<rt>なに</rt></ruby>を する', de:'was tun', role:'W-Frage'},
-    {jp:'どこへ <ruby>行<rt>い</rt></ruby>く', de:'wohin gehen', role:'W-Frage'},
-    {jp:'<ruby>誰<rt>だれ</rt></ruby>に <ruby>聞<rt>き</rt></ruby>く', de:'wen fragen', role:'W-Frage'},
-    {jp:'どう やる', de:'wie machen', role:'W-Frage'},
-    {jp:'いつ <ruby>出<rt>で</rt></ruby>る', de:'wann losgehen', role:'W-Frage'},
-    {jp:'どの バスに <ruby>乗<rt>の</rt></ruby>る', de:'welchen Bus nehmen', role:'W-Frage'},
+    {jp:'<ruby>何<rt>なに</rt></ruby>を したら', de:'was tun', role:'W-Frage'},
+    {jp:'どこへ <ruby>行<rt>い</rt></ruby>ったら', de:'wohin gehen', role:'W-Frage'},
+    {jp:'<ruby>誰<rt>だれ</rt></ruby>に <ruby>聞<rt>き</rt></ruby>いたら', de:'wen fragen', role:'W-Frage'},
+    {jp:'どう やったら', de:'wie machen', role:'W-Frage'},
+    {jp:'いつ <ruby>出<rt>で</rt></ruby>たら', de:'wann losgehen', role:'W-Frage'},
+    {jp:'どの バスに <ruby>乗<rt>の</rt></ruby>ったら', de:'welchen Bus nehmen', role:'W-Frage'},
+    {jp:'いいですか', de:'…wäre gut? (um Rat fragen)', role:'Rat-Frage', fixed:true},
   ],
 
   // === L27: Potential ===
@@ -5271,6 +5276,10 @@ function curatedOrder(role){
 // (z. B. „Zweck" ist mal früh, mal Prädikat). Für solche 2-teiligen Muster wird
 // hier pro Set die korrekte Satzstelle festgelegt (verifiziert). Prädikat = 6.
 const CURATED_SEQ = {
+  'L26-0': { 'Grund': 4, 'Erklärung': 6 },                                 // …んです
+  'L26-1': { 'Frage-Wort': 1, 'Situation': 4, 'Nachfrage': 6 },            // どうして …んですか
+  'L26-2': { 'Bitte': 4, 'Höflichkeitsbitte': 6 },                         // …て いただけませんか
+  'L26-3': { 'W-Frage': 4, 'Rat-Frage': 6 },                               // 疑問詞 …たら いいですか
   'L34-2': { 'Ohne': 3, 'Handlung': 6 },                                   // …ないで …する
   'L42-1': { 'Werkzeug': 4, 'Zweck': 6 },                                  // …で …する
   'L42-3': { 'Zweck (V-stem に)': 4, 'Bewegung': 6 },                      // …に 行く/来る/帰る
@@ -5296,13 +5305,17 @@ function orderFor(key){
 // Sets mit 3+ Stufen werden bewusst ausgeschlossen — dort sind die Rollen oft
 // Alternativen für dieselbe Position oder die Labels passen nicht zur Satzstelle,
 // sodass eine Reihenfolge-Prüfung falsche Treffer erzeugen würde.
-function curatedBuildable(set, ord = curatedOrder){
+function curatedBuildable(set, ord = curatedOrder, hasSeq = false){
   if(!set || set.length < 2) return false;
   const roles = new Set(set.map(w => w.role));
   if(roles.size < 2) return false;
   if(set.some(w => /→|⇆/.test(w.jp || '') ||
        /Beispiel|G[123]\b|普通|丁寧語|尊敬語|謙譲語|normal →|自動|他動/.test(w.role || ''))) return false;
-  return new Set([...roles].map(ord)).size === 2;
+  const levels = new Set([...roles].map(ord)).size;
+  // Ohne explizite Reihenfolge (CURATED_SEQ) bleibt der strenge 2-Stufen-Schutz,
+  // damit die Heuristik nie eine falsche Reihenfolge erzwingt. Mit geprüfter
+  // Sequenz sind auch 3+ Stufen erlaubt (z. B. Frage-Wort → Situation → Endung).
+  return hasSeq ? levels >= 2 : levels === 2;
 }
 
 // Eine mögliche Modell-Reihenfolge: nach Positionsstufe sortiert (stabil),
@@ -5368,7 +5381,7 @@ function pickCuratedBuildWords(key, set, ord = curatedOrder){
     st[role] = (start + take) % blocks.length;
   }
   const out = picked.map(w => {
-    if(ord(w.role) === 6){
+    if(ord(w.role) === 6 && !w.fixed){ // feste Grammatik-Endungen (w.fixed) nicht konjugieren
       const vs = tenseVariants(w.jp);
       if(vs.length > 1) return { ...w, jp: vs[Math.floor(Math.random() * vs.length)] };
     }
@@ -5618,7 +5631,7 @@ function renderExerciseBox(boxEl, lessonNum, idx){
     // Ordnbare Phrasen-Sets (Grund→Folge, Subjekt→Verb, …): interaktiver Bau
     // mit Reihenfolge-Prüfung. Wähle je Rolle einen Baustein und ordne sie.
     const ord = orderFor(key);
-    if(curatedBuildable(customSet, ord)){
+    if(curatedBuildable(customSet, ord, !!CURATED_SEQ[key])){
       const buildWords = pickCuratedBuildWords(key, customSet, ord);
       boxEl.innerHTML = `
         <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an, um einen Satz nach dem Muster oben zu bilden. Tipp: Wähle je Rolle einen Baustein — das Prädikat steht am Ende. Die Zeitform (Gegenwart/Vergangenheit) wechselt.</div>
