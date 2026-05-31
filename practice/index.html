@@ -407,6 +407,11 @@
   .ex-chip-de{
     font-family:"Shippori Mincho",serif;font-size:.6rem;color:#6b5d4a;margin-top:.08rem;
   }
+  .ex-chip-form{
+    display:block;margin-top:.1rem;
+    font-family:"JetBrains Mono",monospace;font-size:.48rem;letter-spacing:.04em;
+    color:#1f4a7a;font-style:italic;
+  }
   .ex-feedback{
     font-size:.85rem;font-weight:600;margin:.2rem 0 .5rem;font-family:"Shippori Mincho",serif;
   }
@@ -5243,6 +5248,331 @@ function buildModelOrder(words){
   }).join(' ');
 }
 
+/* ===================================================================
+   KURATIERTE SETS: aus Phrasen-Bausteinen einen Satz bauen + prüfen
+   Die kuratierten Rollen sind semantisch (Grund, Folge, Subjekt, …).
+   curatedOrder bildet sie auf eine grobe SOV-Position ab (Rahmen → Subjekt
+   → Grund/Nebensatz → Objekt → Adjektiv → Prädikat), sodass z. B. „Grund vor
+   Folge" oder „Subjekt vor Verb" geprüft werden kann.
+   =================================================================== */
+function curatedOrder(role){
+  const r = role || '';
+  if(/Zeit|Situation|とき|Fall|Während|^Vor\b|^Nach\b|Zuerst|Bedingung|Thema \(なら\)/.test(r)) return 1; // Rahmen / Zeit
+  if(/Subjekt|Person|Sprecher|Ausführend|Verursacher|Urheber|höhere Person|niedrigere Person|Gesprächspartner|Empfänger/.test(r)) return 2; // Subjekt / Agens
+  if(/Grund|Ursache|Material|Quelle|Vorbereitung|Nebenhandlung|Obwohl|Einleitung|Einschränkung|Kontrast|neg\. Grund/.test(r)) return 3; // Nebensatz / Grund
+  if(/Objekt|Inhalt|Nachricht|Frage|Wahl|Produkt|Geld|Strecke|Werkzeug|Zweck|Ziel|Ort|Bewegung|Anweisung|Vorbild/.test(r)) return 4; // Objekt / Ort
+  if(/Adjektiv|Zustand|Sinneseindruck|Bewertung|Visuell|Auditiv/.test(r)) return 5; // Eigenschaft / Zustand
+  return 6; // Prädikat / Folge / Modus (Handlung, Folge, Verb, Vermutung, …)
+}
+
+// Set ist "baubar", wenn sich eine eindeutige, korrekte Reihenfolge legen lässt:
+// ≥2 verschiedene Rollen, keine reinen Konjugations-/Beispiellisten und GENAU
+// zwei Positionsstufen (saubere 2-Teiler wie Grund→Folge, Subjekt→Verb).
+// Sets mit 3+ Stufen werden bewusst ausgeschlossen — dort sind die Rollen oft
+// Alternativen für dieselbe Position oder die Labels passen nicht zur Satzstelle,
+// sodass eine Reihenfolge-Prüfung falsche Treffer erzeugen würde.
+function curatedBuildable(set){
+  if(!set || set.length < 2) return false;
+  const roles = new Set(set.map(w => w.role));
+  if(roles.size < 2) return false;
+  if(set.some(w => /→|⇆/.test(w.jp || '') ||
+       /Beispiel|G[123]\b|普通|丁寧語|尊敬語|謙譲語|normal →|自動|他動/.test(w.role || ''))) return false;
+  return new Set([...roles].map(curatedOrder)).size === 2;
+}
+
+// Eine mögliche Modell-Reihenfolge: nach Positionsstufe sortiert (stabil),
+// reine JP-Phrasen aneinandergereiht.
+function buildCuratedModelOrder(words){
+  return words.slice()
+    .map((w, i) => ({ w, o: curatedOrder(w.role), i }))
+    .sort((a, b) => a.o - b.o || a.i - b.i)
+    .map(m => m.w.jp)
+    .join(' ');
+}
+
+function curatedChip(w){
+  return `<span class="ex-chip" onclick="exPickChip(this)" data-order="${curatedOrder(w.role)}" data-role="${w.role || ''}">
+    ${w.role ? `<span class="ex-chip-role">${w.role}</span>` : ''}
+    <span class="ex-chip-jp">${w.jp}</span>
+    <span class="ex-chip-de">${w.de}</span>
+  </span>`;
+}
+
+// Zeitform-Varianten: schaltet höfliche Prädikat-Endungen sicher zwischen
+// Gegenwart und Vergangenheit um (reiner Suffix-Tausch → immer grammatikalisch
+// korrekt). Plain-Formen, Fragen (…か) und Adjektivstämme bleiben unverändert.
+const TENSE_RULES = [
+  [/ませんでした$/, ['ません', 'ませんでした']],
+  [/ました$/,       ['ます', 'ました']],
+  [/ません$/,       ['ません', 'ませんでした']],
+  [/ます$/,         ['ます', 'ました']],
+  [/でした$/,       ['です', 'でした']],
+  [/です$/,         ['です', 'でした']],
+];
+function tenseVariants(jp){
+  const out = [];
+  for(const [re, forms] of TENSE_RULES){
+    if(re.test(jp)){ const stem = jp.replace(re, ''); out.push(...forms.map(f => stem + f)); break; }
+  }
+  if(!out.length) out.push(jp);
+  // Grundform (Plain) ergänzen, wenn das Prädikat ein positives höfliches Verb
+  // ist (…ます/…ました) und sicher konjugierbar. Negative/です-Formen bleiben höflich.
+  if(/ます$/.test(jp) || /ました$/.test(jp)){
+    const plain = verbPlain(jp.replace(/ました$/, 'ます'));
+    if(plain){ out.push(plain[0], plain[1]); } // Grundform + Plain-Vergangenheit
+  }
+  return [...new Set(out)];
+}
+
+// Rotationszustand je Übungsschlüssel: aufeinanderfolgende Aufgaben wandern
+// durch ALLE Bausteine je Rolle → selten bis gar keine Wiederholung.
+const curatedRot = {};
+
+// Wählt je Rolle bis zu zwei Bausteine (rotierend) und variiert die Zeitform
+// einer Prädikat-Phrase zufällig — für viele, wechselnde Satzmöglichkeiten.
+function pickCuratedBuildWords(key, set){
+  const groups = {}, order = [];
+  set.forEach(w => { if(!groups[w.role]){ groups[w.role] = []; order.push(w.role); } groups[w.role].push(w); });
+  const st = curatedRot[key] || (curatedRot[key] = {});
+  const picked = [];
+  for(const role of order){
+    const blocks = groups[role];
+    const start = st[role] || 0;
+    const take = Math.min(2, blocks.length);
+    for(let i = 0; i < take; i++) picked.push(blocks[(start + i) % blocks.length]);
+    st[role] = (start + take) % blocks.length;
+  }
+  const out = picked.map(w => {
+    if(curatedOrder(w.role) === 6){
+      const vs = tenseVariants(w.jp);
+      if(vs.length > 1) return { ...w, jp: vs[Math.floor(Math.random() * vs.length)] };
+    }
+    return w;
+  });
+  for(let i = out.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [out[i], out[j]] = [out[j], out[i]]; }
+  return out;
+}
+
+/* ===================================================================
+   FORM-VARIANTEN FÜR DEN GENERISCHEN BUILDER (Verben & Adjektive)
+   Bietet pro Wort mehrere korrekte Formen an — höflich UND Grundform
+   (Plain), Gegenwart/Vergangenheit, bejaht/verneint. Es wird ausschließlich
+   sicher konjugiert (nie geraten); im Zweifel bleibt die Form unverändert.
+   =================================================================== */
+
+// Ruby-Markup entfernen, sichtbaren Text (mit Kanji) behalten.
+function jpBare(s){ return (s || '').replace(/<rp>.*?<\/rp>/g, '').replace(/<rt>.*?<\/rt>/g, '').replace(/<[^>]+>/g, ''); }
+
+// Lazy-Index: höfliche ます-Form (sichtbarer Text mit Kanji) → vollständige
+// Konjugation aus der geprüften VERB_FORMS-Engine. Abgleich über den Kanji-Text
+// (nicht die Lesung), damit Homophone wie 取る/撮る nicht verwechselt werden.
+let _verbMasuIdx = null;
+function verbMasuIndex(){
+  if(_verbMasuIdx) return _verbMasuIdx;
+  _verbMasuIdx = {};
+  VERB_FORMS.forEach(f => { _verbMasuIdx[jpBare(f.masu)] = f; });
+  return _verbMasuIdx;
+}
+// Index nach Grundform (für Plain-Form-Vokabeln, z. B. aus Lektion 20).
+let _verbDictIdx = null;
+function verbDictIndex(){
+  if(_verbDictIdx) return _verbDictIdx;
+  _verbDictIdx = {};
+  VERB_FORMS.forEach(f => { _verbDictIdx[jpBare(f.jisho)] = f; });
+  return _verbDictIdx;
+}
+
+/* --- Verbgruppen-Bestimmung & Plain-Formen aus der ます-Form -----------------
+   Höfliche Formen sind ein reiner Suffix-Tausch (immer sicher). Plain-Formen
+   sind verbgruppen-abhängig und werden deterministisch abgeleitet:
+   - geprüfte Engine (Kanji-Abgleich) hat Vorrang,
+   - unregelmäßige Keigo-Verben & godan-„す" explizit,
+   - ichidan (Gruppe 2) via え-Reihe / Kanji-Stamm / ている / Ausnahmeliste,
+   - sonst godan (Gruppe 1): い-Reihe → う-Reihe + Engine-Tabellen für て/た/ない.
+   Die Ausnahmelisten decken das gesamte Lektions-Vokabular ab (geprüft). */
+const EROW = new Set('えけせてねへめれげぜでべぺ'.split(''));
+const I2U = {き:'く', ぎ:'ぐ', し:'す', ち:'つ', に:'ぬ', び:'ぶ', み:'む', り:'る', い:'う', じ:'ず'};
+function isJpKanji(ch){ return !!ch && !/[぀-ヿｦ-ﾟ]/.test(ch); }
+// ichidan-Verben mit い-Reihe-Kana-Stamm (nicht über え-Reihe/Kanji erkennbar):
+const ICHIDAN_TAILS = ['借ります', '浴びます', '信じます', '感じます'];
+// godan-„す"-Verben (sonst würde „…します" fälschlich als する gelesen):
+const GODAN_SU = ['消します','渡します','出します','返します','直します','無くします','壊します','汚します','冷やします','繰り返します','増やします','減らします','試します','思い出します','引っ越します','申します','いたします'];
+// unregelmäßige Keigo-Verben (…あいます → …ある): jpBare-Endung → Plain-Stamm.
+const KEIGO_IRREG = { 'いらっしゃいます':'いらっしゃ', 'くださいます':'くださ', 'なさいます':'なさ', 'おっしゃいます':'おっしゃ' };
+
+// Plain-Formen [Grundform, た, ない, なかった] oder null, wenn nicht sicher ableitbar.
+function verbPlain(jp){
+  const bare = jpBare(jp);
+  const eng = verbMasuIndex()[bare];
+  if(eng) return [eng.jisho, eng.ta, eng.nai, eng.nakatta];
+  if(bare.endsWith('あります')){ const p = jp.replace(/あります$/, ''); return [p+'ある', p+'あった', p+'ない', p+'なかった']; } // ある: Verneinung = ない
+  for(const k in KEIGO_IRREG){
+    if(bare.endsWith(k)){ const r = KEIGO_IRREG[k]; return [r+'る', r+'った', r+'らない', r+'らなかった']; }
+  }
+  if(GODAN_SU.some(t => bare.endsWith(t))){
+    const s = jp.replace(/します$/, '');
+    return [s+'す', s+'した', s+'さない', s+'さなかった'];
+  }
+  if(/します$/.test(bare)){
+    const p = jp.replace(/します$/, '');
+    return [p+'する', p+'した', p+'しない', p+'しなかった'];
+  }
+  if(!/ます$/.test(bare)) return null;
+  const vstem = jp.replace(/ます$/, ''), vb = jpBare(vstem);
+  const lastR = jpReading(jp).replace(/ます$/, '').slice(-1);
+  const ichidan = EROW.has(lastR) || isJpKanji(vb.slice(-1)) || /[てで]い$/.test(vb)
+                || bare === 'います' || ICHIDAN_TAILS.some(t => bare.endsWith(t));
+  if(ichidan) return [vstem+'る', vstem+'た', vstem+'ない', vstem+'なかった'];
+  if(/行きます$/.test(bare)){ const sb = vstem.slice(0, -1); return [sb+'く', sb+'った', sb+'かない', sb+'かなかった']; }
+  const dk = I2U[vb.slice(-1)];
+  if(!dk) return null;
+  const sb = vstem.slice(0, -1), tt = G1_TE_TA[dk] || {ta:'った'};
+  return [sb+dk, sb+tt.ta, sb+(NAI_MAP[dk]||'らない'), sb+(NAKATTA_MAP[dk]||'らなかった')];
+}
+
+// う-Reihe (Grundform-Endung) → い-Reihe (ます-Stamm) für godan-Verben.
+const U2I = {く:'き', ぐ:'ぎ', す:'し', つ:'ち', ぬ:'に', ぶ:'び', む:'み', る:'り', う:'い'};
+
+// Aus einer Grundform die übrigen Formen ableiten (für Plain-Form-Vokabeln, die
+// nicht in der Engine stehen). [ます,ました,ません,ませんでした,た,ない,なかった] oder null.
+function conjFromDict(jp){
+  const bare = jpBare(jp);
+  if(/です$/.test(bare)) return null;   // Kopula-Ausdruck (z. B. ご存じです), kein Verb
+  if(/する$/.test(bare)){ const p = jp.replace(/する$/, ''); return [p+'します',p+'しました',p+'しません',p+'しませんでした',p+'した',p+'しない',p+'しなかった']; }
+  if(bare === 'ある') return ['あります','ありました','ありません','ありませんでした','あった','ない','なかった'];
+  const last = bare.slice(-1);
+  if(last === 'る'){
+    const before = jpReading(jp).slice(-2, -1);
+    if(EROW.has(before) || /すぎる$/.test(bare)){ const s = jp.replace(/る$/, ''); return [s+'ます',s+'ました',s+'ません',s+'ませんでした',s+'た',s+'ない',s+'なかった']; } // え-Reihe oder すぎる (ichidan)
+    // sonst godan-る
+  }
+  if(!U2I[last]) return null;
+  const sb = jp.slice(0, -1), iStem = sb + U2I[last];
+  const tt = G1_TE_TA[last] || {ta:'った'};
+  const ta = /行く$/.test(bare) ? 'った' : tt.ta;
+  return [iStem+'ます', iStem+'ました', iStem+'ません', iStem+'ませんでした',
+          sb+ta, sb+(NAI_MAP[last]||'らない'), sb+(NAKATTA_MAP[last]||'らなかった')];
+}
+
+// Form-Etiketten (für die Anzeige am Chip).
+const POLITE_TAGS = ['höflich', 'höfl. Vergangenheit', 'höflich verneint', 'höfl. Vergangenheit verneint'];
+const PLAIN_TAGS  = ['Grundform', 'Vergangenheit', 'verneint', 'Vergangenheit verneint'];
+const ADJ_TAGS    = PLAIN_TAGS.concat(POLITE_TAGS); // 4 Plain + 4 höflich
+function tagForms(forms, tags){ return forms.map((f, i) => ({ jp: f, tag: tags[i] || '' })); }
+
+function verbForms(jp){
+  let out = [];
+  if(/ます$/.test(jp)){
+    const p = jp.replace(/ます$/, '');
+    out = tagForms([p+'ます', p+'ました', p+'ません', p+'ませんでした'], POLITE_TAGS); // immer sicher
+    const plain = verbPlain(jp);
+    if(plain) out = out.concat(tagForms(plain, PLAIN_TAGS));
+  } else {
+    out.push({ jp, tag: 'Grundform' }); // bereits Grundform (z. B. Plain-Form-Vokabeln aus L20)
+    const eng = verbDictIndex()[jpBare(jp)];
+    if(eng){
+      out = out.concat(tagForms([eng.masu, eng.mashita, eng.masen, eng.masenDeshita], POLITE_TAGS));
+      out = out.concat(tagForms([eng.ta, eng.nai, eng.nakatta], PLAIN_TAGS.slice(1)));
+    } else {
+      const f = conjFromDict(jp);
+      if(f){
+        out = out.concat(tagForms([f[0], f[1], f[2], f[3]], POLITE_TAGS));
+        out = out.concat(tagForms([f[4], f[5], f[6]], PLAIN_TAGS.slice(1)));
+      }
+    }
+  }
+  const seen = new Set();
+  return out.filter(o => !seen.has(o.jp) && seen.add(o.jp));
+}
+
+// i-Adjektive: Stamm = ohne finales „い". Suffixregel ist universell sicher.
+// 良い/いい (unregelmäßig) konjugieren mit „よ": よかった/よくない … — erkannt nur
+// für das echte いい (=良い) und bekannte Komposita, NICHT für reguläre Adjektive
+// wie 可愛い.
+const IADJ_II_IRREG = ['かっこいい', '格好いい', '気持ちいい', 'ちょうどいい', '都合がいい', '心地いい'];
+function iAdjForms(jp){
+  if(!/い$/.test(jp)) return [{ jp, tag: 'Grundform' }];
+  const bare = jpBare(jp);
+  if(bare === 'いい' || IADJ_II_IRREG.some(w => bare.endsWith(w))){
+    const p = jp.slice(0, jp.length - 2); // finales „いい" entfernen
+    return tagForms([
+      p+'いい', p+'よかった', p+'よくない', p+'よくなかった',
+      p+'いいです', p+'よかったです', p+'よくないです', p+'よくなかったです',
+    ], ADJ_TAGS);
+  }
+  const s = jp.replace(/い$/, '');
+  return tagForms([
+    s+'い', s+'かった', s+'くない', s+'くなかった',
+    s+'いです', s+'かったです', s+'くないです', s+'くなかったです',
+  ], ADJ_TAGS);
+}
+
+// na-Adjektive sind Basen (元気, 静か …); Kopula anhängen ist immer sicher.
+function naAdjForms(jp){
+  return tagForms([
+    jp+'だ', jp+'だった', jp+'じゃ ない', jp+'じゃ なかった',
+    jp+'です', jp+'でした', jp+'じゃ ないです', jp+'じゃ なかったです',
+  ], ADJ_TAGS);
+}
+
+function wordForms(w){
+  if(w.t === 'v')  return verbForms(w.jp);
+  if(w.t === 'i')  return iAdjForms(w.jp);
+  if(w.t === 'na') return naAdjForms(w.jp);
+  return [{ jp: w.jp, tag: '' }];
+}
+
+// Prüfung für kuratierte Bau-Übungen. Streng genug, dass NUR korrekte Sätze
+// bestehen: (1) Reihenfolge nicht fallend nach Positionsstufe und (2) jede
+// vorhandene Positionsstufe muss belegt sein (sonst ist es nur ein Fragment,
+// z. B. zwei Bausteine derselben Rolle ohne Prädikat).
+function curatedCheckOrder(btn){
+  const box = btn.closest('.exercise-box');
+  const answer = box.querySelector('.ex-answer');
+  const fb = box.querySelector('.ex-feedback');
+  const placed = [...answer.querySelectorAll('.ex-chip')];
+  placed.forEach(c => c.classList.remove('misplaced'));
+  if(placed.length < 2){
+    fb.textContent = 'Lege mindestens zwei Bausteine in die Bauzone.';
+    fb.className = 'ex-feedback bad';
+    return;
+  }
+  // (1) Reihenfolge: nicht fallend nach Positionsstufe.
+  let firstBad = null, prev = -Infinity;
+  for(const c of placed){
+    const o = Number(c.dataset.order);
+    if(o < prev){ firstBad = c; break; }
+    prev = o;
+  }
+  if(firstBad){
+    firstBad.classList.add('misplaced');
+    fb.innerHTML = '✗ Reihenfolge nicht ganz richtig — der markierte Baustein steht zu weit hinten. Tipp: Das Prädikat (Handlung/Folge) gehört ans Ende.';
+    fb.className = 'ex-feedback bad';
+    return;
+  }
+  // (2) Vollständigkeit: alle vorhandenen Positionsstufen müssen vertreten sein.
+  const required = new Set([...box.querySelectorAll('.ex-chip')].map(c => c.dataset.order));
+  const have = new Set(placed.map(c => c.dataset.order));
+  for(const r of required){
+    if(!have.has(r)){
+      fb.innerHTML = '○ Fast! Der Satz ist noch unvollständig — wähle je Rolle einen Baustein (z. B. Bedingung/Grund <b>und</b> Folge).';
+      fb.className = 'ex-feedback bad';
+      return;
+    }
+  }
+  // Korrekt — wie exCheckOrder: als gemeistert speichern, Streak & Status.
+  fb.innerHTML = '✓ Richtiger Satzbau!';
+  fb.className = 'ex-feedback ok';
+  const m = /^ex-(\d+)-(\d+)$/.exec(box.id || '');
+  if(m){
+    markExerciseDone(+m[1], +m[2]);
+    const num = box.closest('.unterpunkt') && box.closest('.unterpunkt').querySelector('.unterpunkt-num');
+    if(num && !num.querySelector('.done-tick')) num.innerHTML += '<span class="done-tick">✓ gemeistert</span>';
+  }
+  bumpStreak();
+  updateStatusBar();
+}
+
 function renderExerciseBox(boxEl, lessonNum, idx){
   const c = MINNA_LESSONS.filter(x => x.l === lessonNum)[idx];
   if(!c){ boxEl.innerHTML = '<i>Keine Daten.</i>'; return; }
@@ -5298,8 +5628,35 @@ function renderExerciseBox(boxEl, lessonNum, idx){
   ` : '';
 
   if(customSet){
-    // Kuratierte Phrasen-Sets: bewährte Pool-Ansicht mit Rollen (Reihenfolge-Üben
-    // passt bei fertigen Teilsätzen nicht).
+    // Ordnbare Phrasen-Sets (Grund→Folge, Subjekt→Verb, …): interaktiver Bau
+    // mit Reihenfolge-Prüfung. Wähle je Rolle einen Baustein und ordne sie.
+    if(curatedBuildable(customSet)){
+      const buildWords = pickCuratedBuildWords(key, customSet);
+      boxEl.innerHTML = `
+        <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an, um einen Satz nach dem Muster oben zu bilden. Tipp: Wähle je Rolle einen Baustein — das Prädikat steht am Ende. Die Zeitform (Gegenwart/Vergangenheit) wechselt.</div>
+        <div class="ex-answer empty"></div>
+        <div class="ex-source-label">Bausteine</div>
+        <div class="ex-word-pool ex-source">
+          ${buildWords.map(curatedChip).join('')}
+        </div>
+        <div class="ex-feedback"></div>
+        <div class="ex-actions">
+          <button onclick="curatedCheckOrder(this)">✓ Prüfen</button>
+          <button onclick="exResetBuild(this)">↺ Zurücksetzen</button>
+          <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Andere Wörter</button>
+          <button onclick="exRevealModel(this)">💡 Modell-Reihenfolge</button>
+          ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
+        </div>
+        <div class="ex-model hidden">
+          <div class="ex-model-label">Modell-Reihenfolge</div>
+          <div class="ex-model-jp">${buildCuratedModelOrder(buildWords)}</div>
+          <div class="ex-model-note">Eine mögliche Reihenfolge — bei mehreren Bausteinen je Rolle zählt die Position der Rolle.</div>
+        </div>
+        ${solutionHtml}
+      `;
+      return;
+    }
+    // Sonst (Einzelrolle, Konjugations-/Beispiellisten): bewährte Pool-Ansicht.
     boxEl.innerHTML = `
       <div class="ex-help">🧠 Bilde mit diesen Bausteinen einen Satz nach dem Muster oben. Die Rolle zeigt dir, wohin jedes Wort gehört.</div>
       <div class="ex-word-pool">
@@ -5321,6 +5678,15 @@ function renderExerciseBox(boxEl, lessonNum, idx){
   }
 
   // Generischer Pfad: Rollen + Partikel-Hinweise + interaktiver Satzbau.
+  // Verben & Adjektive in wechselnden Formen anbieten (höflich + Grundform,
+  // Gegenwart/Vergangenheit, bejaht/verneint — nur sicher konjugiert).
+  // Vor dem Rendern anwenden, damit Chips und Modell-Reihenfolge übereinstimmen.
+  words = words.map(w => {
+    const forms = wordForms(w);
+    if(forms.length <= 1) return w;
+    const pick = forms[Math.floor(Math.random() * forms.length)];
+    return { ...w, jp: pick.jp, form: pick.tag };
+  });
   const chip = w => {
     const role = structuralRole(w);
     const part = particleForRole(role, words);
@@ -5329,11 +5695,12 @@ function renderExerciseBox(boxEl, lessonNum, idx){
       ${role ? `<span class="ex-chip-role">${role}</span>` : ''}
       <span class="ex-chip-jp">${w.jp}${part ? `<span class="ex-chip-part">${part}</span>` : ''}</span>
       <span class="ex-chip-de">${w.de}</span>
+      ${w.form ? `<span class="ex-chip-form">${w.form}</span>` : ''}
     </span>`;
   };
 
   boxEl.innerHTML = `
-    <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an (japanisch: Zeit → Subjekt → Ort → Objekt → Verb). Die kleine rote Partikel ist ein Hinweis.</div>
+    <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an (japanisch: Zeit → Subjekt → Ort → Objekt → Verb). Die kleine rote Partikel ist ein Hinweis. Verben & Adjektive erscheinen in wechselnden Formen — höflich und Grundform, Gegenwart/Vergangenheit, bejaht/verneint.</div>
     <div class="ex-answer empty"></div>
     <div class="ex-source-label">Bausteine</div>
     <div class="ex-word-pool ex-source">
@@ -6051,6 +6418,7 @@ window.newExerciseWords = newExerciseWords;
 window.revealExerciseSolution = revealExerciseSolution;
 window.exPickChip = exPickChip;
 window.exCheckOrder = exCheckOrder;
+window.curatedCheckOrder = curatedCheckOrder;
 window.exResetBuild = exResetBuild;
 window.exRevealModel = exRevealModel;
 window.speak = speak;
