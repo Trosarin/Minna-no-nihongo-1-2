@@ -5340,15 +5340,81 @@ function pickCuratedBuildWords(key, set){
   return out;
 }
 
-// Höfliche Zeit-/Polaritätsformen für Vokabel-Verben (generischer Pfad).
-// Die Lektions-Verben stehen in ます-Form; der Suffix-Tausch ist für JEDES
-// Verb grammatikalisch korrekt (Gruppe egal). Wörterbuchformen ohne ます
-// (要る, 買う, 行く …) werden sicherheitshalber nicht verändert.
-const VERB_TENSES = ['ます', 'ました', 'ません', 'ませんでした'];
-function randomVerbTense(jp){
-  if(!/ます$/.test(jp)) return jp;
-  const stem = jp.replace(/ます$/, '');
-  return stem + VERB_TENSES[Math.floor(Math.random() * VERB_TENSES.length)];
+/* ===================================================================
+   FORM-VARIANTEN FÜR DEN GENERISCHEN BUILDER (Verben & Adjektive)
+   Bietet pro Wort mehrere korrekte Formen an — höflich UND Grundform
+   (Plain), Gegenwart/Vergangenheit, bejaht/verneint. Es wird ausschließlich
+   sicher konjugiert (nie geraten); im Zweifel bleibt die Form unverändert.
+   =================================================================== */
+
+// Ruby-Markup entfernen, sichtbaren Text (mit Kanji) behalten.
+function jpBare(s){ return (s || '').replace(/<rp>.*?<\/rp>/g, '').replace(/<rt>.*?<\/rt>/g, '').replace(/<[^>]+>/g, ''); }
+
+// Lazy-Index: höfliche ます-Form (sichtbarer Text mit Kanji) → vollständige
+// Konjugation aus der geprüften VERB_FORMS-Engine. Abgleich über den Kanji-Text
+// (nicht die Lesung), damit Homophone wie 取る/撮る nicht verwechselt werden.
+let _verbMasuIdx = null;
+function verbMasuIndex(){
+  if(_verbMasuIdx) return _verbMasuIdx;
+  _verbMasuIdx = {};
+  VERB_FORMS.forEach(f => { _verbMasuIdx[jpBare(f.masu)] = f; });
+  return _verbMasuIdx;
+}
+
+// え-Reihe-Endung der ます-Stamm-Lesung ⇒ eindeutig Gruppe 2 (ichidan) ⇒
+// Plain-Formen sicher per Suffix. い-Reihe ist mehrdeutig und bleibt höflich.
+const EROW = new Set('えけせてねへめれげぜでべぺ'.split(''));
+
+function verbForms(jp){
+  const out = [];
+  if(/ます$/.test(jp)){
+    const p = jp.replace(/ます$/, '');
+    out.push(p + 'ます', p + 'ました', p + 'ません', p + 'ませんでした'); // höflich (immer sicher)
+  } else {
+    out.push(jp);
+  }
+  // Plain-Formen nur, wenn sicher ableitbar:
+  const reading = jpReading(jp);
+  const eng = verbMasuIndex()[jpBare(jp)];
+  if(eng){
+    out.push(eng.jisho, eng.ta, eng.nai, eng.nakatta);          // aus geprüfter Engine
+  } else if(/します$/.test(jp)){
+    const pre = jp.replace(/します$/, '');
+    out.push(pre + 'する', pre + 'した', pre + 'しない', pre + 'しなかった'); // する-Verben
+  } else if(/ます$/.test(jp)){
+    const rstem = reading.replace(/ます$/, '');
+    if(EROW.has(rstem.slice(-1))){
+      const stem = jp.replace(/ます$/, '');
+      out.push(stem + 'る', stem + 'た', stem + 'ない', stem + 'なかった'); // Gruppe 2
+    }
+  }
+  return [...new Set(out)];
+}
+
+// i-Adjektive: Stamm = ohne finales „い". Suffixregel ist universell sicher.
+// 良い/いい-Komposita (unregelmäßig) bleiben unverändert.
+function iAdjForms(jp){
+  if(/いい$/.test(jp) || !/い$/.test(jp)) return [jp];
+  const s = jp.replace(/い$/, '');
+  return [
+    s + 'い', s + 'かった', s + 'くない', s + 'くなかった',
+    s + 'いです', s + 'かったです', s + 'くないです', s + 'くなかったです',
+  ];
+}
+
+// na-Adjektive sind Basen (元気, 静か …); Kopula anhängen ist immer sicher.
+function naAdjForms(jp){
+  return [
+    jp + 'だ', jp + 'だった', jp + 'じゃ ない', jp + 'じゃ なかった',
+    jp + 'です', jp + 'でした', jp + 'じゃ ないです', jp + 'じゃ なかったです',
+  ];
+}
+
+function wordForms(w){
+  if(w.t === 'v')  return verbForms(w.jp);
+  if(w.t === 'i')  return iAdjForms(w.jp);
+  if(w.t === 'na') return naAdjForms(w.jp);
+  return [w.jp];
 }
 
 // Prüfung für kuratierte Bau-Übungen. Streng genug, dass NUR korrekte Sätze
@@ -5507,9 +5573,13 @@ function renderExerciseBox(boxEl, lessonNum, idx){
   }
 
   // Generischer Pfad: Rollen + Partikel-Hinweise + interaktiver Satzbau.
-  // Verben in wechselnden höflichen Zeitformen anbieten (sicherer ます-Tausch).
+  // Verben & Adjektive in wechselnden Formen anbieten (höflich + Grundform,
+  // Gegenwart/Vergangenheit, bejaht/verneint — nur sicher konjugiert).
   // Vor dem Rendern anwenden, damit Chips und Modell-Reihenfolge übereinstimmen.
-  words = words.map(w => (w.t === 'v') ? { ...w, jp: randomVerbTense(w.jp) } : w);
+  words = words.map(w => {
+    const forms = wordForms(w);
+    return forms.length > 1 ? { ...w, jp: forms[Math.floor(Math.random() * forms.length)] } : w;
+  });
   const chip = w => {
     const role = structuralRole(w);
     const part = particleForRole(role, words);
@@ -5522,7 +5592,7 @@ function renderExerciseBox(boxEl, lessonNum, idx){
   };
 
   boxEl.innerHTML = `
-    <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an (japanisch: Zeit → Subjekt → Ort → Objekt → Verb). Die kleine rote Partikel ist ein Hinweis. Die Zeitform des Verbs wechselt (Gegenwart/Vergangenheit, bejaht/verneint).</div>
+    <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an (japanisch: Zeit → Subjekt → Ort → Objekt → Verb). Die kleine rote Partikel ist ein Hinweis. Verben & Adjektive erscheinen in wechselnden Formen — höflich und Grundform, Gegenwart/Vergangenheit, bejaht/verneint.</div>
     <div class="ex-answer empty"></div>
     <div class="ex-source-label">Bausteine</div>
     <div class="ex-word-pool ex-source">
