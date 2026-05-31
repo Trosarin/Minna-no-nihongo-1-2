@@ -4049,13 +4049,15 @@ const EXERCISE_SETS = {
     {jp:'<ruby>日本語<rt>にほんご</rt></ruby>', de:'Japanisch', role:'Objekt'},
     {jp:'<ruby>自転車<rt>じてんしゃ</rt></ruby>', de:'Fahrrad', role:'Objekt'},
   ],
-  'L27-1': [ // 見えます / 聞こえます
-    {jp:'<ruby>富士山<rt>ふじさん</rt></ruby>が <ruby>見<rt>み</rt></ruby>える', de:'Fuji sichtbar', role:'Visuell'},
-    {jp:'<ruby>海<rt>うみ</rt></ruby>が <ruby>見<rt>み</rt></ruby>える', de:'Meer sichtbar', role:'Visuell'},
-    {jp:'<ruby>星<rt>ほし</rt></ruby>が <ruby>見<rt>み</rt></ruby>える', de:'Sterne sichtbar', role:'Visuell'},
-    {jp:'<ruby>音楽<rt>おんがく</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえる', de:'Musik hörbar', role:'Auditiv'},
-    {jp:'<ruby>声<rt>こえ</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえる', de:'Stimme hörbar', role:'Auditiv'},
-    {jp:'<ruby>鳥<rt>とり</rt></ruby>の <ruby>声<rt>こえ</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえる', de:'Vogelstimme hörbar', role:'Auditiv'},
+  'L27-1': [ // …が 見えます / 聞こえます  (Ort + Wahrnehmung — alle Kombinationen korrekt)
+    {jp:'ここから', de:'von hier aus', role:'Ort'},
+    {jp:'ホテルの <ruby>部屋<rt>へや</rt></ruby>から', de:'vom Hotelzimmer aus', role:'Ort'},
+    {jp:'<ruby>山<rt>やま</rt></ruby>の <ruby>上<rt>うえ</rt></ruby>から', de:'vom Berg aus', role:'Ort'},
+    {jp:'<ruby>富士山<rt>ふじさん</rt></ruby>が <ruby>見<rt>み</rt></ruby>えます', de:'ist der Fuji zu sehen', role:'Wahrnehmung'},
+    {jp:'<ruby>海<rt>うみ</rt></ruby>が <ruby>見<rt>み</rt></ruby>えます', de:'ist das Meer zu sehen', role:'Wahrnehmung'},
+    {jp:'<ruby>星<rt>ほし</rt></ruby>が <ruby>見<rt>み</rt></ruby>えます', de:'sind Sterne zu sehen', role:'Wahrnehmung'},
+    {jp:'<ruby>音楽<rt>おんがく</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえます', de:'ist Musik zu hören', role:'Wahrnehmung'},
+    {jp:'<ruby>波<rt>なみ</rt></ruby>の <ruby>音<rt>おと</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえます', de:'ist das Rauschen der Wellen zu hören', role:'Wahrnehmung'},
   ],
 
   // === L28: ながら / し ===
@@ -4115,13 +4117,15 @@ const EXERCISE_SETS = {
     {jp:'お<ruby>弁当<rt>べんとう</rt></ruby>を <ruby>作<rt>つく</rt></ruby>る', de:'Bentō vorbereiten', role:'Vorbereitung'},
     {jp:'<ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に <ruby>入<rt>い</rt></ruby>れる', de:'in den Kühlschrank tun', role:'Vorbereitung'},
   ],
-  'L27-2': [ // しか〜ない
-    {jp:'<ruby>千<rt>せん</rt></ruby><ruby>円<rt>えん</rt></ruby>しか ない', de:'nur 1000 Yen haben', role:'Einschränkung'},
-    {jp:'<ruby>一人<rt>ひとり</rt></ruby>しか いない', de:'nur eine Person da', role:'Einschränkung'},
-    {jp:'ひらがなしか <ruby>読<rt>よ</rt></ruby>めない', de:'nur Hiragana lesen können', role:'Einschränkung'},
-    {jp:'コーヒーしか <ruby>飲<rt>の</rt></ruby>まない', de:'nur Kaffee trinken', role:'Einschränkung'},
-    {jp:'<ruby>日本語<rt>にほんご</rt></ruby>しか <ruby>話<rt>はな</rt></ruby>せない', de:'nur Japanisch sprechen können', role:'Einschränkung'},
-    {jp:'<ruby>少<rt>すこ</rt></ruby>ししか <ruby>分<rt>わ</rt></ruby>からない', de:'nur ein wenig verstehen', role:'Einschränkung'},
+  'L27-2': [ // …しか …ません (nur) — Thema + Einschränkungssatz
+    {jp:'<ruby>私<rt>わたし</rt></ruby>は', de:'ich', role:'Thema'},
+    {jp:'ミラーさんは', de:'Herr Miller', role:'Thema'},
+    {jp:'<ruby>今日<rt>きょう</rt></ruby>は', de:'heute', role:'Thema'},
+    {jp:'<ruby>千<rt>せん</rt></ruby><ruby>円<rt>えん</rt></ruby>しか ありません', de:'nur 1000 Yen haben', role:'Einschränkung'},
+    {jp:'ひらがなしか <ruby>読<rt>よ</rt></ruby>めません', de:'nur Hiragana lesen können', role:'Einschränkung'},
+    {jp:'コーヒーしか <ruby>飲<rt>の</rt></ruby>みません', de:'nur Kaffee trinken', role:'Einschränkung'},
+    {jp:'<ruby>日本語<rt>にほんご</rt></ruby>しか <ruby>話<rt>はな</rt></ruby>せません', de:'nur Japanisch sprechen können', role:'Einschränkung'},
+    {jp:'<ruby>少<rt>すこ</rt></ruby>ししか <ruby>分<rt>わ</rt></ruby>かりません', de:'nur ein wenig verstehen', role:'Einschränkung'},
   ],
   'L27-3': [ // Kombinierte Partikeln mit は
     {jp:'<ruby>東京<rt>とうきょう</rt></ruby>には', de:'was Tokio betrifft (Ort)', role:'に + は'},
@@ -4131,13 +4135,13 @@ const EXERCISE_SETS = {
     {jp:'<ruby>午後<rt>ごご</rt></ruby>からは', de:'ab nachmittags (betont)', role:'から + は'},
     {jp:'<ruby>写真<rt>しゃしん</rt></ruby>は <ruby>撮<rt>と</rt></ruby>れない', de:'Fotos kann man nicht machen', role:'Ergebnis'},
   ],
-  'L27-4': [ // は〜が、〜は〜 (Kontrast)
-    {jp:'<ruby>肉<rt>にく</rt></ruby>は <ruby>食<rt>た</rt></ruby>べます', de:'Fleisch esse ich', role:'Kontrast A ✓'},
-    {jp:'<ruby>魚<rt>さかな</rt></ruby>は <ruby>食<rt>た</rt></ruby>べません', de:'Fisch esse ich nicht', role:'Kontrast A ✗'},
-    {jp:'ビールは <ruby>飲<rt>の</rt></ruby>みます', de:'Bier trinke ich', role:'Kontrast B ✓'},
-    {jp:'ワインは <ruby>飲<rt>の</rt></ruby>みません', de:'Wein trinke ich nicht', role:'Kontrast B ✗'},
-    {jp:'<ruby>漢字<rt>かんじ</rt></ruby>は <ruby>読<rt>よ</rt></ruby>めます', de:'Kanji kann ich lesen', role:'Kontrast C ✓'},
-    {jp:'<ruby>漢字<rt>かんじ</rt></ruby>は <ruby>書<rt>か</rt></ruby>けません', de:'Kanji kann ich nicht schreiben', role:'Kontrast C ✗'},
+  'L27-4': [ // …は …ますが、…は …ません (Kontrast)
+    {jp:'<ruby>肉<rt>にく</rt></ruby>は <ruby>食<rt>た</rt></ruby>べますが', de:'Fleisch esse ich, aber', role:'Bejaht'},
+    {jp:'ビールは <ruby>飲<rt>の</rt></ruby>みますが', de:'Bier trinke ich, aber', role:'Bejaht'},
+    {jp:'<ruby>漢字<rt>かんじ</rt></ruby>は <ruby>読<rt>よ</rt></ruby>めますが', de:'Kanji lesen kann ich, aber', role:'Bejaht'},
+    {jp:'<ruby>魚<rt>さかな</rt></ruby>は <ruby>食<rt>た</rt></ruby>べません', de:'Fisch esse ich nicht', role:'Verneint'},
+    {jp:'ワインは <ruby>飲<rt>の</rt></ruby>みません', de:'Wein trinke ich nicht', role:'Verneint'},
+    {jp:'<ruby>字<rt>じ</rt></ruby>は <ruby>書<rt>か</rt></ruby>けません', de:'Schriftzeichen schreiben kann ich nicht', role:'Verneint'},
   ],
 
   'L28-1': [ // ている (Gewohnheit)
@@ -5280,6 +5284,9 @@ const CURATED_SEQ = {
   'L26-1': { 'Frage-Wort': 1, 'Situation': 4, 'Nachfrage': 6 },            // どうして …んですか
   'L26-2': { 'Bitte': 4, 'Höflichkeitsbitte': 6 },                         // …て いただけませんか
   'L26-3': { 'W-Frage': 4, 'Rat-Frage': 6 },                               // 疑問詞 …たら いいですか
+  'L27-1': { 'Ort': 1, 'Wahrnehmung': 6 },                                 // …から …が 見えます/聞こえます
+  'L27-2': { 'Thema': 1, 'Einschränkung': 6 },                             // …は …しか …ません
+  'L27-4': { 'Bejaht': 1, 'Verneint': 6 },                                 // …は …ますが、…は …ません
   'L34-2': { 'Ohne': 3, 'Handlung': 6 },                                   // …ないで …する
   'L42-1': { 'Werkzeug': 4, 'Zweck': 6 },                                  // …で …する
   'L42-3': { 'Zweck (V-stem に)': 4, 'Bewegung': 6 },                      // …に 行く/来る/帰る
