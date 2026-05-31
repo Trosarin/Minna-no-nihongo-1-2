@@ -4401,15 +4401,16 @@ const EXERCISE_SETS = {
     {jp:'<ruby>遅刻<rt>ちこく</rt></ruby>しない', de:'sich nicht verspäten', role:'Gewohnheit'},
     {jp:'なるべく <ruby>歩<rt>ある</rt></ruby>く', de:'möglichst zu Fuß gehen', role:'Gewohnheit'},
     {jp:'<ruby>甘<rt>あま</rt></ruby>い ものを <ruby>食<rt>た</rt></ruby>べない', de:'keine Süßigkeiten essen', role:'Gewohnheit'},
+    {jp:'ように して います', de:'…, achte ich darauf / bemühe mich', role:'Bemühung'},
   ],
-  'L36-3': [ // とか とか (Aufzählung)
-    {jp:'<ruby>寿司<rt>すし</rt></ruby>', de:'Sushi', role:'Beispiel 1'},
-    {jp:'ラーメン', de:'Ramen', role:'Beispiel 1'},
-    {jp:'テニス', de:'Tennis', role:'Beispiel 1'},
-    {jp:'<ruby>天<rt>てん</rt></ruby>ぷら', de:'Tempura', role:'Beispiel 2'},
-    {jp:'サッカー', de:'Fußball', role:'Beispiel 2'},
-    {jp:'カラオケ', de:'Karaoke', role:'Beispiel 2'},
-    {jp:'<ruby>日本料理<rt>にほんりょうり</rt></ruby>が <ruby>好<rt>す</rt></ruby>きです', de:'ich mag japanisches Essen', role:'Hauptsatz'},
+  'L36-3': [ // …とか …とか …
+    {jp:'お<ruby>寿司<rt>すし</rt></ruby>とか', de:'Sushi etwa', role:'Speise 1'},
+    {jp:'ラーメンとか', de:'Ramen etwa', role:'Speise 1'},
+    {jp:'<ruby>天<rt>てん</rt></ruby>ぷらとか', de:'Tempura etwa', role:'Speise 1'},
+    {jp:'<ruby>刺身<rt>さしみ</rt></ruby>とか', de:'Sashimi etwa', role:'Speise 2'},
+    {jp:'うどんとか', de:'Udon etwa', role:'Speise 2'},
+    {jp:'やきとりとか', de:'Yakitori etwa', role:'Speise 2'},
+    {jp:'が <ruby>好<rt>す</rt></ruby>きです', de:'…mag ich', role:'Hauptsatz', fixed:true},
   ],
 
   // === L36: ように ===
@@ -4419,6 +4420,7 @@ const EXERCISE_SETS = {
     {jp:'<ruby>早<rt>はや</rt></ruby>く <ruby>起<rt>お</rt></ruby>きる', de:'früh aufstehen', role:'neuer Zustand'},
     {jp:'<ruby>納豆<rt>なっとう</rt></ruby>が <ruby>食<rt>た</rt></ruby>べられる', de:'Nattō essen können', role:'neuer Zustand'},
     {jp:'<ruby>自転車<rt>じてんしゃ</rt></ruby>に <ruby>乗<rt>の</rt></ruby>れる', de:'Fahrrad fahren können', role:'neuer Zustand'},
+    {jp:'ように なりました', de:'…, ist es geworden (Veränderung)', role:'Veränderung'},
   ],
   'L36-2': [ // ように (Ziel)
     {jp:'<ruby>試験<rt>しけん</rt></ruby>に <ruby>合格<rt>ごうかく</rt></ruby>できる', de:'Prüfung bestehen können', role:'Ziel'},
@@ -4455,13 +4457,16 @@ const EXERCISE_SETS = {
     {jp:'する → される', de:'tun → getan werden', role:'G3 Beispiel'},
     {jp:'<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>られる', de:'kommen → gekommen werden', role:'G3 Beispiel'},
   ],
-  'L37-3': [ // Sachen-Passiv (Dinge werden V)
-    {jp:'この <ruby>車<rt>くるま</rt></ruby>は <ruby>日本<rt>にほん</rt></ruby>で', de:'dieses Auto wurde in Japan', role:'Subjekt + Ort'},
-    {jp:'この ワインは フランスで', de:'dieser Wein wurde in Frankreich', role:'Subjekt + Ort'},
-    {jp:'この <ruby>祭<rt>まつ</rt></ruby>りは <ruby>毎年<rt>まいとし</rt></ruby>', de:'dieses Fest wird jedes Jahr', role:'Subjekt + Zeit'},
-    {jp:'<ruby>作<rt>つく</rt></ruby>られました', de:'hergestellt', role:'Passiv'},
-    {jp:'<ruby>行<rt>おこな</rt></ruby>われます', de:'veranstaltet', role:'Passiv'},
-    {jp:'<ruby>使<rt>つか</rt></ruby>われて います', de:'wird benutzt', role:'Passiv'},
+  'L37-3': [ // …は …で 作られました (Sachen-Passiv, alle Kombinationen korrekt)
+    {jp:'この <ruby>車<rt>くるま</rt></ruby>は', de:'dieses Auto', role:'Subjekt'},
+    {jp:'この ワインは', de:'dieser Wein', role:'Subjekt'},
+    {jp:'この カメラは', de:'diese Kamera', role:'Subjekt'},
+    {jp:'この <ruby>時計<rt>とけい</rt></ruby>は', de:'diese Uhr', role:'Subjekt'},
+    {jp:'<ruby>日本<rt>にほん</rt></ruby>で', de:'in Japan', role:'Ort'},
+    {jp:'フランスで', de:'in Frankreich', role:'Ort'},
+    {jp:'ドイツで', de:'in Deutschland', role:'Ort'},
+    {jp:'スイスで', de:'in der Schweiz', role:'Ort'},
+    {jp:'<ruby>作<rt>つく</rt></ruby>られました', de:'wurde hergestellt', role:'Passiv'},
   ],
   'L37-4': [ // によって V受身
     {jp:'この <ruby>小説<rt>しょうせつ</rt></ruby>は', de:'dieser Roman', role:'Subjekt'},
@@ -4491,13 +4496,12 @@ const EXERCISE_SETS = {
     {jp:'<ruby>嫌<rt>きら</rt></ruby>いです', de:'mag ich nicht', role:'Aussage'},
     {jp:'<ruby>大変<rt>たいへん</rt></ruby>です', de:'ist anstrengend', role:'Aussage'},
   ],
-  'L38-3': [ // V の を 忘れました
-    {jp:'<ruby>鍵<rt>かぎ</rt></ruby>を <ruby>掛<rt>か</rt></ruby>けるの', de:'abschließen', role:'vergessene Handlung'},
-    {jp:'<ruby>薬<rt>くすり</rt></ruby>を <ruby>飲<rt>の</rt></ruby>むの', de:'Medizin nehmen', role:'vergessene Handlung'},
-    {jp:'<ruby>約束<rt>やくそく</rt></ruby>の <ruby>時間<rt>じかん</rt></ruby>', de:'die verabredete Zeit', role:'vergessene Sache'},
-    {jp:'<ruby>電気<rt>でんき</rt></ruby>を <ruby>消<rt>け</rt></ruby>すの', de:'Licht ausmachen', role:'vergessene Handlung'},
-    {jp:'<ruby>忘<rt>わす</rt></ruby>れました', de:'habe vergessen', role:'Hauptverb'},
-    {jp:'<ruby>忘<rt>わす</rt></ruby>れないで ください', de:'bitte nicht vergessen', role:'Bitte'},
+  'L38-3': [ // …の を 忘れました
+    {jp:'<ruby>鍵<rt>かぎ</rt></ruby>を <ruby>掛<rt>か</rt></ruby>けるの', de:'abzuschließen', role:'vergessene Handlung'},
+    {jp:'<ruby>薬<rt>くすり</rt></ruby>を <ruby>飲<rt>の</rt></ruby>むの', de:'die Medizin zu nehmen', role:'vergessene Handlung'},
+    {jp:'<ruby>電気<rt>でんき</rt></ruby>を <ruby>消<rt>け</rt></ruby>すの', de:'das Licht auszumachen', role:'vergessene Handlung'},
+    {jp:'メールを <ruby>送<rt>おく</rt></ruby>るの', de:'die Mail zu senden', role:'vergessene Handlung'},
+    {jp:'を <ruby>忘<rt>わす</rt></ruby>れました', de:'…habe ich vergessen', role:'Hauptverb'},
   ],
   'L38-4': [ // V の を 知っていますか
     {jp:'ミラーさんが <ruby>結婚<rt>けっこん</rt></ruby>した', de:'dass Miller geheiratet hat', role:'Inhalt (の)'},
@@ -5321,6 +5325,11 @@ const CURATED_SEQ = {
   'L33-1': { 'Kontext': 1, 'Verbot': 6 },                                  // …(Kontext) …な
   'L33-3': { 'Schild': 1, 'Aufschrift': 6 },                               // …と 書いて あります
   'L33-4': { 'Ausdruck': 4, 'Bedeutung': 6 },                              // 「…」は「…」と いう 意味です
+  'L36-0': { 'neuer Zustand': 4, 'Veränderung': 6 },                       // …ように なりました
+  'L36-1': { 'Gewohnheit': 4, 'Bemühung': 6 },                             // …ように して います
+  'L36-3': { 'Speise 1': 2, 'Speise 2': 4, 'Hauptsatz': 6 },               // …とか …とか …
+  'L37-3': { 'Subjekt': 1, 'Ort': 2, 'Passiv': 6 },                        // …は …で 作られました
+  'L38-3': { 'vergessene Handlung': 4, 'Hauptverb': 6 },                   // …の を 忘れました
   'L34-2': { 'Ohne': 3, 'Handlung': 6 },                                   // …ないで …する
   'L42-1': { 'Werkzeug': 4, 'Zweck': 6 },                                  // …で …する
   'L42-3': { 'Zweck (V-stem に)': 4, 'Bewegung': 6 },                      // …に 行く/来る/帰る
