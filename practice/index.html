@@ -4226,13 +4226,14 @@ const EXERCISE_SETS = {
     {jp:'テストが <ruby>延期<rt>えんき</rt></ruby>に なる', de:'Test wird verschoben', role:'Vermutung'},
   ],
 
-  'L33-2': [ // ように 言います
-    {jp:'<ruby>早<rt>はや</rt></ruby>く <ruby>来<rt>く</rt></ruby>る', de:'früh kommen', role:'Inhalt (ように)'},
-    {jp:'<ruby>静<rt>しず</rt></ruby>かに する', de:'leise sein', role:'Inhalt (ように)'},
-    {jp:'レポートを <ruby>出<rt>だ</rt></ruby>す', de:'Bericht abgeben', role:'Inhalt (ように)'},
+  'L33-2': [ // …が …ように 言いました
     {jp:'<ruby>先生<rt>せんせい</rt></ruby>が', de:'der Lehrer', role:'Sprecher'},
     {jp:'<ruby>母<rt>はは</rt></ruby>が', de:'die Mutter', role:'Sprecher'},
     {jp:'<ruby>部長<rt>ぶちょう</rt></ruby>が', de:'der Abteilungsleiter', role:'Sprecher'},
+    {jp:'<ruby>早<rt>はや</rt></ruby>く <ruby>来<rt>く</rt></ruby>るように', de:'früh zu kommen', role:'Inhalt (ように)'},
+    {jp:'<ruby>静<rt>しず</rt></ruby>かに するように', de:'leise zu sein', role:'Inhalt (ように)'},
+    {jp:'レポートを <ruby>出<rt>だ</rt></ruby>すように', de:'den Bericht abzugeben', role:'Inhalt (ように)'},
+    {jp:'<ruby>言<rt>い</rt></ruby>いました', de:'…hat gesagt', role:'Ansage'},
   ],
   'L33-3': [ // と読みます / と書いてあります
     {jp:'<ruby>入口<rt>いりぐち</rt></ruby>', de:'Eingang', role:'Schild'},
@@ -4337,29 +4338,29 @@ const EXERCISE_SETS = {
   ],
 
   // === L34: とおりに / あとで / ないで ===
-  'L34-0': [ // とおりに
-    {jp:'<ruby>先生<rt>せんせい</rt></ruby>が <ruby>言<rt>い</rt></ruby>った', de:'was der Lehrer sagte', role:'Vorbild'},
-    {jp:'<ruby>説明書<rt>せつめいしょ</rt></ruby>に <ruby>書<rt>か</rt></ruby>いて ある', de:'was in der Anleitung steht', role:'Vorbild'},
-    {jp:'やる', de:'tun / machen', role:'Handlung'},
-    {jp:'<ruby>作<rt>つく</rt></ruby>る', de:'herstellen', role:'Handlung'},
-    {jp:'<ruby>料理<rt>りょうり</rt></ruby>する', de:'kochen', role:'Handlung'},
-    {jp:'レシピ', de:'Rezept', role:'Vorbild'},
+  'L34-0': [ // …とおりに …ます
+    {jp:'<ruby>先生<rt>せんせい</rt></ruby>が <ruby>言<rt>い</rt></ruby>ったとおりに', de:'so wie der Lehrer es sagte', role:'Vorbild'},
+    {jp:'<ruby>説明書<rt>せつめいしょ</rt></ruby>に <ruby>書<rt>か</rt></ruby>いて あるとおりに', de:'so wie es in der Anleitung steht', role:'Vorbild'},
+    {jp:'レシピの とおりに', de:'nach dem Rezept', role:'Vorbild'},
+    {jp:'やります', de:'…mache ich', role:'Handlung'},
+    {jp:'<ruby>作<rt>つく</rt></ruby>ります', de:'…stelle ich her', role:'Handlung'},
+    {jp:'<ruby>料理<rt>りょうり</rt></ruby>します', de:'…koche ich', role:'Handlung'},
   ],
-  'L34-1': [ // たあとで
-    {jp:'ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べた', de:'gegessen haben', role:'Zuerst'},
-    {jp:'シャワーを <ruby>浴<rt>あ</rt></ruby>びた', de:'geduscht haben', role:'Zuerst'},
-    {jp:'<ruby>仕事<rt>しごと</rt></ruby>が <ruby>終<rt>お</rt></ruby>わった', de:'Arbeit beendet haben', role:'Zuerst'},
-    {jp:'<ruby>映画<rt>えいが</rt></ruby>を <ruby>見<rt>み</rt></ruby>る', de:'Film schauen', role:'Danach'},
-    {jp:'<ruby>散歩<rt>さんぽ</rt></ruby>する', de:'spazieren gehen', role:'Danach'},
-    {jp:'<ruby>友達<rt>ともだち</rt></ruby>に <ruby>会<rt>あ</rt></ruby>う', de:'Freund treffen', role:'Danach'},
+  'L34-1': [ // …たあとで …ます
+    {jp:'ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べたあとで', de:'nachdem ich gegessen habe', role:'Zuerst'},
+    {jp:'シャワーを <ruby>浴<rt>あ</rt></ruby>びたあとで', de:'nachdem ich geduscht habe', role:'Zuerst'},
+    {jp:'<ruby>仕事<rt>しごと</rt></ruby>が <ruby>終<rt>お</rt></ruby>わったあとで', de:'nachdem die Arbeit fertig ist', role:'Zuerst'},
+    {jp:'<ruby>映画<rt>えいが</rt></ruby>を <ruby>見<rt>み</rt></ruby>ます', de:'…schaue ich einen Film', role:'Danach'},
+    {jp:'<ruby>散歩<rt>さんぽ</rt></ruby>します', de:'…gehe ich spazieren', role:'Danach'},
+    {jp:'<ruby>友達<rt>ともだち</rt></ruby>に <ruby>会<rt>あ</rt></ruby>います', de:'…treffe ich einen Freund', role:'Danach'},
   ],
-  'L34-2': [ // ないで V₂
-    {jp:'<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べない', de:'nicht frühstücken', role:'Ohne'},
-    {jp:'<ruby>傘<rt>かさ</rt></ruby>を <ruby>持<rt>も</rt></ruby>たない', de:'keinen Schirm mitnehmen', role:'Ohne'},
-    {jp:'<ruby>辞書<rt>じしょ</rt></ruby>を <ruby>使<rt>つか</rt></ruby>わない', de:'Wörterbuch nicht benutzen', role:'Ohne'},
-    {jp:'<ruby>会社<rt>かいしゃ</rt></ruby>に <ruby>行<rt>い</rt></ruby>く', de:'zur Firma gehen', role:'Handlung'},
-    {jp:'<ruby>出<rt>で</rt></ruby>かける', de:'ausgehen', role:'Handlung'},
-    {jp:'<ruby>読<rt>よ</rt></ruby>む', de:'lesen', role:'Handlung'},
+  'L34-2': [ // …ないで …ます
+    {jp:'<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べないで', de:'ohne zu frühstücken', role:'Ohne'},
+    {jp:'<ruby>傘<rt>かさ</rt></ruby>を <ruby>持<rt>も</rt></ruby>たないで', de:'ohne Schirm', role:'Ohne'},
+    {jp:'<ruby>辞書<rt>じしょ</rt></ruby>を <ruby>使<rt>つか</rt></ruby>わないで', de:'ohne Wörterbuch', role:'Ohne'},
+    {jp:'<ruby>会社<rt>かいしゃ</rt></ruby>に <ruby>行<rt>い</rt></ruby>きます', de:'…gehe ich zur Firma', role:'Handlung'},
+    {jp:'<ruby>出<rt>で</rt></ruby>かけます', de:'…gehe ich aus', role:'Handlung'},
+    {jp:'<ruby>読<rt>よ</rt></ruby>みます', de:'…lese ich', role:'Handlung'},
   ],
 
   // === L35: ば-Konditional ===
@@ -4432,10 +4433,10 @@ const EXERCISE_SETS = {
     {jp:'<ruby>自転車<rt>じてんしゃ</rt></ruby>に <ruby>乗<rt>の</rt></ruby>れる', de:'Fahrrad fahren können', role:'neuer Zustand'},
     {jp:'ように なりました', de:'…, ist es geworden (Veränderung)', role:'Veränderung'},
   ],
-  'L36-2': [ // ように (Ziel)
-    {jp:'<ruby>試験<rt>しけん</rt></ruby>に <ruby>合格<rt>ごうかく</rt></ruby>できる', de:'Prüfung bestehen können', role:'Ziel'},
-    {jp:'<ruby>遅刻<rt>ちこく</rt></ruby>しない', de:'sich nicht verspäten', role:'Ziel'},
-    {jp:'<ruby>忘<rt>わす</rt></ruby>れない', de:'nicht vergessen', role:'Ziel'},
+  'L36-2': [ // …ように …ます (Ziel)
+    {jp:'<ruby>試験<rt>しけん</rt></ruby>に <ruby>合格<rt>ごうかく</rt></ruby>できるように', de:'um die Prüfung zu bestehen', role:'Ziel'},
+    {jp:'<ruby>遅刻<rt>ちこく</rt></ruby>しないように', de:'um nicht zu spät zu kommen', role:'Ziel'},
+    {jp:'<ruby>忘<rt>わす</rt></ruby>れないように', de:'um nichts zu vergessen', role:'Ziel'},
     {jp:'<ruby>毎日<rt>まいにち</rt></ruby> <ruby>練習<rt>れんしゅう</rt></ruby>します', de:'jeden Tag üben', role:'Handlung'},
     {jp:'メモを <ruby>取<rt>と</rt></ruby>ります', de:'Notizen machen', role:'Handlung'},
     {jp:'<ruby>早<rt>はや</rt></ruby>く <ruby>寝<rt>ね</rt></ruby>ます', de:'früh schlafen gehen', role:'Handlung'},
@@ -4497,14 +4498,14 @@ const EXERCISE_SETS = {
     {jp:'<ruby>豆腐<rt>とうふ</rt></ruby>が <ruby>作<rt>つく</rt></ruby>られます', de:'Tofu wird hergestellt', role:'Produkt'},
   ],
 
-  'L38-0': [ // の Nominalisierung Grundlage
-    {jp:'<ruby>食<rt>た</rt></ruby>べるの', de:'das Essen', role:'V + の'},
-    {jp:'<ruby>泳<rt>およ</rt></ruby>ぐの', de:'das Schwimmen', role:'V + の'},
-    {jp:'<ruby>旅行<rt>りょこう</rt></ruby>するの', de:'das Reisen', role:'V + の'},
-    {jp:'<ruby>早<rt>はや</rt></ruby>く <ruby>起<rt>お</rt></ruby>きるの', de:'das frühe Aufstehen', role:'V + の'},
-    {jp:'<ruby>好<rt>す</rt></ruby>きです', de:'mag ich', role:'Aussage'},
-    {jp:'<ruby>嫌<rt>きら</rt></ruby>いです', de:'mag ich nicht', role:'Aussage'},
-    {jp:'<ruby>大変<rt>たいへん</rt></ruby>です', de:'ist anstrengend', role:'Aussage'},
+  'L38-0': [ // …のが …です
+    {jp:'<ruby>食<rt>た</rt></ruby>べるのが', de:'das Essen', role:'V + の'},
+    {jp:'<ruby>泳<rt>およ</rt></ruby>ぐのが', de:'das Schwimmen', role:'V + の'},
+    {jp:'<ruby>旅行<rt>りょこう</rt></ruby>するのが', de:'das Reisen', role:'V + の'},
+    {jp:'<ruby>早<rt>はや</rt></ruby>く <ruby>起<rt>お</rt></ruby>きるのが', de:'das frühe Aufstehen', role:'V + の'},
+    {jp:'<ruby>好<rt>す</rt></ruby>きです', de:'…mag ich', role:'Aussage'},
+    {jp:'<ruby>嫌<rt>きら</rt></ruby>いです', de:'…mag ich nicht', role:'Aussage'},
+    {jp:'<ruby>大変<rt>たいへん</rt></ruby>です', de:'…ist anstrengend', role:'Aussage'},
   ],
   'L38-3': [ // …の を 忘れました
     {jp:'<ruby>鍵<rt>かぎ</rt></ruby>を <ruby>掛<rt>か</rt></ruby>けるの', de:'abzuschließen', role:'vergessene Handlung'},
@@ -4513,12 +4514,12 @@ const EXERCISE_SETS = {
     {jp:'メールを <ruby>送<rt>おく</rt></ruby>るの', de:'die Mail zu senden', role:'vergessene Handlung'},
     {jp:'を <ruby>忘<rt>わす</rt></ruby>れました', de:'…habe ich vergessen', role:'Hauptverb'},
   ],
-  'L38-4': [ // V の を 知っていますか
-    {jp:'ミラーさんが <ruby>結婚<rt>けっこん</rt></ruby>した', de:'dass Miller geheiratet hat', role:'Inhalt (の)'},
-    {jp:'<ruby>来月<rt>らいげつ</rt></ruby> テストがある', de:'dass nächsten Monat Test ist', role:'Inhalt (の)'},
-    {jp:'この <ruby>店<rt>みせ</rt></ruby>が <ruby>有名<rt>ゆうめい</rt></ruby>だ', de:'dass dieser Laden berühmt ist', role:'Inhalt (の)'},
-    {jp:'<ruby>知<rt>し</rt></ruby>って いますか', de:'wissen Sie?', role:'Frage'},
-    {jp:'<ruby>知<rt>し</rt></ruby>りませんでした', de:'wusste ich nicht', role:'Antwort'},
+  'L38-4': [ // …のを 知っていますか
+    {jp:'ミラーさんが <ruby>結婚<rt>けっこん</rt></ruby>したのを', de:'dass Miller geheiratet hat', role:'Inhalt (の)'},
+    {jp:'<ruby>来月<rt>らいげつ</rt></ruby> テストが あるのを', de:'dass nächsten Monat Test ist', role:'Inhalt (の)'},
+    {jp:'この <ruby>店<rt>みせ</rt></ruby>が <ruby>有名<rt>ゆうめい</rt></ruby>なのを', de:'dass dieser Laden berühmt ist', role:'Inhalt (の)'},
+    {jp:'<ruby>知<rt>し</rt></ruby>って いますか', de:'…wissen Sie?', role:'Frage'},
+    {jp:'<ruby>知<rt>し</rt></ruby>りませんでした', de:'…wusste ich nicht', role:'Frage'},
   ],
   'L38-5': [ // のは N です (Hervorhebung)
     {jp:'ケーキを <ruby>作<rt>つく</rt></ruby>ったのは', de:'derjenige der Kuchen machte', role:'Hervorgehoben (の)'},
@@ -4538,24 +4539,24 @@ const EXERCISE_SETS = {
   ],
 
   // === L38: Nominalisierung ===
-  'L38-1': [ // V の は Adj です
-    {jp:'<ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>む', de:'Bücher lesen', role:'Handlung (の)'},
-    {jp:'<ruby>料理<rt>りょうり</rt></ruby>する', de:'kochen', role:'Handlung (の)'},
-    {jp:'<ruby>外国語<rt>がいこくご</rt></ruby>を <ruby>覚<rt>おぼ</rt></ruby>える', de:'Fremdsprache lernen', role:'Handlung (の)'},
-    {jp:'<ruby>泳<rt>およ</rt></ruby>ぐ', de:'schwimmen', role:'Handlung (の)'},
-    {jp:'<ruby>楽<rt>たの</rt></ruby>しい', de:'macht Spaß', role:'Adjektiv'},
-    {jp:'<ruby>難<rt>むずか</rt></ruby>しい', de:'schwierig', role:'Adjektiv'},
-    {jp:'<ruby>大変<rt>たいへん</rt></ruby>', de:'anstrengend', role:'Adjektiv'},
-    {jp:'<ruby>好<rt>す</rt></ruby>き', de:'gern', role:'Adjektiv'},
+  'L38-1': [ // …のは …です
+    {jp:'<ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>むのは', de:'Bücher lesen', role:'Handlung (の)'},
+    {jp:'<ruby>料理<rt>りょうり</rt></ruby>するのは', de:'kochen', role:'Handlung (の)'},
+    {jp:'<ruby>外国語<rt>がいこくご</rt></ruby>を <ruby>覚<rt>おぼ</rt></ruby>えるのは', de:'eine Fremdsprache lernen', role:'Handlung (の)'},
+    {jp:'<ruby>泳<rt>およ</rt></ruby>ぐのは', de:'schwimmen', role:'Handlung (の)'},
+    {jp:'<ruby>楽<rt>たの</rt></ruby>しいです', de:'…macht Spaß', role:'Adjektiv', fixed:true},
+    {jp:'<ruby>難<rt>むずか</rt></ruby>しいです', de:'…ist schwierig', role:'Adjektiv', fixed:true},
+    {jp:'<ruby>大変<rt>たいへん</rt></ruby>です', de:'…ist anstrengend', role:'Adjektiv'},
+    {jp:'<ruby>好<rt>す</rt></ruby>きです', de:'…mag ich', role:'Adjektiv'},
   ],
-  'L38-2': [ // V の が 好き/上手
-    {jp:'<ruby>絵<rt>え</rt></ruby>を <ruby>描<rt>か</rt></ruby>く', de:'Bilder malen', role:'Handlung (の)'},
-    {jp:'ピアノを <ruby>弾<rt>ひ</rt></ruby>く', de:'Klavier spielen', role:'Handlung (の)'},
-    {jp:'<ruby>歌<rt>うた</rt></ruby>を <ruby>歌<rt>うた</rt></ruby>う', de:'Lieder singen', role:'Handlung (の)'},
-    {jp:'<ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>る', de:'Fotos machen', role:'Handlung (の)'},
-    {jp:'<ruby>上手<rt>じょうず</rt></ruby>', de:'gut können', role:'Bewertung'},
-    {jp:'<ruby>下手<rt>へた</rt></ruby>', de:'schlecht können', role:'Bewertung'},
-    {jp:'<ruby>好<rt>す</rt></ruby>き', de:'gern mögen', role:'Bewertung'},
+  'L38-2': [ // …のが …です
+    {jp:'<ruby>絵<rt>え</rt></ruby>を <ruby>描<rt>か</rt></ruby>くのが', de:'Bilder malen', role:'Handlung (の)'},
+    {jp:'ピアノを <ruby>弾<rt>ひ</rt></ruby>くのが', de:'Klavier spielen', role:'Handlung (の)'},
+    {jp:'<ruby>歌<rt>うた</rt></ruby>を <ruby>歌<rt>うた</rt></ruby>うのが', de:'Lieder singen', role:'Handlung (の)'},
+    {jp:'<ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>るのが', de:'Fotos machen', role:'Handlung (の)'},
+    {jp:'<ruby>上手<rt>じょうず</rt></ruby>です', de:'…kann ich gut', role:'Bewertung'},
+    {jp:'<ruby>下手<rt>へた</rt></ruby>です', de:'…kann ich schlecht', role:'Bewertung'},
+    {jp:'<ruby>好<rt>す</rt></ruby>きです', de:'…mag ich', role:'Bewertung'},
   ],
 
   // === L39: ので / て (Grund) ===
@@ -4605,21 +4606,21 @@ const EXERCISE_SETS = {
   ],
 
   // === L40: か どうか / てみる ===
-  'L40-0': [ // 疑問詞 + V か
-    {jp:'どこで <ruby>買<rt>か</rt></ruby>える', de:'wo man kaufen kann', role:'Eingebettete Frage'},
-    {jp:'<ruby>何時<rt>なんじ</rt></ruby>に <ruby>始<rt>はじ</rt></ruby>まる', de:'wann es anfängt', role:'Eingebettete Frage'},
-    {jp:'<ruby>誰<rt>だれ</rt></ruby>が <ruby>来<rt>く</rt></ruby>る', de:'wer kommt', role:'Eingebettete Frage'},
-    {jp:'いくら かかる', de:'wie viel es kostet', role:'Eingebettete Frage'},
-    {jp:'<ruby>知<rt>し</rt></ruby>っていますか', de:'wissen Sie?', role:'Hauptsatz'},
-    {jp:'<ruby>教<rt>おし</rt></ruby>えてください', de:'bitte sagen Sie mir', role:'Hauptsatz'},
+  'L40-0': [ // 疑問詞 …か、…
+    {jp:'どこで <ruby>買<rt>か</rt></ruby>えるか', de:'wo man es kaufen kann', role:'Eingebettete Frage'},
+    {jp:'<ruby>何時<rt>なんじ</rt></ruby>に <ruby>始<rt>はじ</rt></ruby>まるか', de:'wann es anfängt', role:'Eingebettete Frage'},
+    {jp:'<ruby>誰<rt>だれ</rt></ruby>が <ruby>来<rt>く</rt></ruby>るか', de:'wer kommt', role:'Eingebettete Frage'},
+    {jp:'いくら かかるか', de:'wie viel es kostet', role:'Eingebettete Frage'},
+    {jp:'<ruby>知<rt>し</rt></ruby>って いますか', de:'…wissen Sie?', role:'Hauptsatz'},
+    {jp:'<ruby>教<rt>おし</rt></ruby>えて ください', de:'…sagen Sie es mir bitte', role:'Hauptsatz'},
   ],
-  'L40-1': [ // か どうか
-    {jp:'<ruby>正<rt>ただ</rt></ruby>しい', de:'richtig', role:'Inhalt'},
-    {jp:'<ruby>間<rt>ま</rt></ruby>に <ruby>合<rt>あ</rt></ruby>う', de:'rechtzeitig sein', role:'Inhalt'},
-    {jp:'<ruby>予約<rt>よやく</rt></ruby>できる', de:'reservieren können', role:'Inhalt'},
-    {jp:'<ruby>合格<rt>ごうかく</rt></ruby>した', de:'bestanden haben', role:'Inhalt'},
-    {jp:'<ruby>確<rt>たし</rt></ruby>かめます', de:'überprüfen', role:'Hauptverb'},
-    {jp:'<ruby>分<rt>わ</rt></ruby>かりません', de:'weiß nicht', role:'Hauptverb'},
+  'L40-1': [ // …かどうか、…
+    {jp:'<ruby>正<rt>ただ</rt></ruby>しいかどうか', de:'ob es richtig ist', role:'Inhalt'},
+    {jp:'<ruby>間<rt>ま</rt></ruby>に <ruby>合<rt>あ</rt></ruby>うかどうか', de:'ob es rechtzeitig ist', role:'Inhalt'},
+    {jp:'<ruby>予約<rt>よやく</rt></ruby>できるかどうか', de:'ob man reservieren kann', role:'Inhalt'},
+    {jp:'<ruby>合格<rt>ごうかく</rt></ruby>したかどうか', de:'ob man bestanden hat', role:'Inhalt'},
+    {jp:'<ruby>確<rt>たし</rt></ruby>かめます', de:'…überprüfe ich', role:'Hauptverb'},
+    {jp:'<ruby>分<rt>わ</rt></ruby>かりません', de:'…weiß ich nicht', role:'Hauptverb'},
   ],
   'L40-2': [ // …(Anlauf) …て みます
     {jp:'まず', de:'zuerst', role:'Anlauf'},
@@ -4632,14 +4633,15 @@ const EXERCISE_SETS = {
     {jp:'<ruby>聞<rt>き</rt></ruby>いて みます', de:'mal nachfragen', role:'Versuch'},
   ],
   // === L41: Höfliches Geben/Bekommen ===
-  'L41-1': [ // て いただきます
-    {jp:'<ruby>荷物<rt>にもつ</rt></ruby>を <ruby>持<rt>も</rt></ruby>つ', de:'Gepäck tragen', role:'Handlung'},
-    {jp:'<ruby>道<rt>みち</rt></ruby>を <ruby>教<rt>おし</rt></ruby>える', de:'den Weg zeigen', role:'Handlung'},
-    {jp:'<ruby>空港<rt>くうこう</rt></ruby>まで <ruby>送<rt>おく</rt></ruby>る', de:'zum Flughafen bringen', role:'Handlung'},
-    {jp:'<ruby>推薦状<rt>すいせんじょう</rt></ruby>を <ruby>書<rt>か</rt></ruby>く', de:'Empfehlungsschreiben schreiben', role:'Handlung'},
-    {jp:'<ruby>先生<rt>せんせい</rt></ruby>', de:'Lehrer', role:'Ausführender'},
-    {jp:'<ruby>社長<rt>しゃちょう</rt></ruby>', de:'Chef', role:'Ausführender'},
-    {jp:'<ruby>先輩<rt>せんぱい</rt></ruby>', de:'Senpai', role:'Ausführender'},
+  'L41-1': [ // …に …て いただきます
+    {jp:'<ruby>先生<rt>せんせい</rt></ruby>に', de:'vom Lehrer', role:'Ausführender'},
+    {jp:'<ruby>社長<rt>しゃちょう</rt></ruby>に', de:'vom Chef', role:'Ausführender'},
+    {jp:'<ruby>先輩<rt>せんぱい</rt></ruby>に', de:'vom Senpai', role:'Ausführender'},
+    {jp:'<ruby>荷物<rt>にもつ</rt></ruby>を <ruby>持<rt>も</rt></ruby>って', de:'das Gepäck tragen', role:'Handlung'},
+    {jp:'<ruby>道<rt>みち</rt></ruby>を <ruby>教<rt>おし</rt></ruby>えて', de:'den Weg zeigen', role:'Handlung'},
+    {jp:'<ruby>空港<rt>くうこう</rt></ruby>まで <ruby>送<rt>おく</rt></ruby>って', de:'zum Flughafen bringen', role:'Handlung'},
+    {jp:'<ruby>推薦状<rt>すいせんじょう</rt></ruby>を <ruby>書<rt>か</rt></ruby>いて', de:'ein Empfehlungsschreiben schreiben', role:'Handlung'},
+    {jp:'いただきます', de:'…lasse ich (höflich) für mich tun', role:'Bekommen'},
   ],
 
   'L41-0': [ // Höfliche Geben-Verben Übersicht
@@ -4676,13 +4678,14 @@ const EXERCISE_SETS = {
     {jp:'アルバイトを します', de:'jobben', role:'Handlung'},
     {jp:'<ruby>運動<rt>うんどう</rt></ruby>します', de:'Sport treiben', role:'Handlung'},
   ],
-  'L42-1': [ // のに 使います / いいです
-    {jp:'この はさみ', de:'diese Schere', role:'Werkzeug'},
-    {jp:'この アプリ', de:'diese App', role:'Werkzeug'},
-    {jp:'この <ruby>辞書<rt>じしょ</rt></ruby>', de:'dieses Wörterbuch', role:'Werkzeug'},
-    {jp:'<ruby>紙<rt>かみ</rt></ruby>を <ruby>切<rt>き</rt></ruby>る', de:'Papier schneiden', role:'Zweck'},
-    {jp:'<ruby>漢字<rt>かんじ</rt></ruby>を <ruby>調<rt>しら</rt></ruby>べる', de:'Kanji nachschlagen', role:'Zweck'},
-    {jp:'<ruby>日本語<rt>にほんご</rt></ruby>を <ruby>勉強<rt>べんきょう</rt></ruby>する', de:'Japanisch lernen', role:'Zweck'},
+  'L42-1': [ // …は …のに 使います
+    {jp:'この はさみは', de:'diese Schere', role:'Werkzeug'},
+    {jp:'この アプリは', de:'diese App', role:'Werkzeug'},
+    {jp:'この <ruby>辞書<rt>じしょ</rt></ruby>は', de:'dieses Wörterbuch', role:'Werkzeug'},
+    {jp:'<ruby>紙<rt>かみ</rt></ruby>を <ruby>切<rt>き</rt></ruby>るのに', de:'zum Papierschneiden', role:'Zweck'},
+    {jp:'<ruby>漢字<rt>かんじ</rt></ruby>を <ruby>調<rt>しら</rt></ruby>べるのに', de:'zum Kanji-Nachschlagen', role:'Zweck'},
+    {jp:'<ruby>日本語<rt>にほんご</rt></ruby>を <ruby>勉強<rt>べんきょう</rt></ruby>するのに', de:'zum Japanischlernen', role:'Zweck'},
+    {jp:'<ruby>使<rt>つか</rt></ruby>います', de:'…benutze ich', role:'Verwendung'},
   ],
 
   'L42-2': [ // …のに …かかります
@@ -5376,7 +5379,7 @@ const CURATED_SEQ = {
   'L49-1': { 'Person': 1, 'Sonkeigo-Verb': 6 },                            // …は …(ら)れました
   'L49-2': { 'Einladung': 1, 'Aufforderung': 6 },                          // …お/ご …ください
   'L34-2': { 'Ohne': 3, 'Handlung': 6 },                                   // …ないで …する
-  'L42-1': { 'Werkzeug': 4, 'Zweck': 6 },                                  // …で …する
+  'L42-1': { 'Werkzeug': 1, 'Zweck': 4, 'Verwendung': 6 },                 // …は …のに 使います
   'L42-3': { 'Zweck (V-stem に)': 4, 'Bewegung': 6 },                      // …に 行く/来る/帰る
   'L42-4': { 'Minimum': 4, 'Verb': 6 },                                    // …は かかります
   'L42-5': { 'Überraschung': 4, 'Verb': 6 },                               // …も …ました
@@ -5388,6 +5391,17 @@ const CURATED_SEQ = {
   'L46-1': { 'ばかり': 4, 'Abschluss': 6 },                                 // …た ばかりです
   'L43-0': { 'V-Stamm + そう': 5, 'Adj-Stamm + そう': 5, 'na-Adj + そう': 5, 'Anschein': 6 }, // …そうです
   'L44-0': { 'V-Stamm + すぎ': 5, 'i-Adj + すぎ': 5, 'na-Adj + すぎ': 5, 'すぎ': 6 },           // …すぎます
+  // — Reparierte vorbestehende Sets (Partikel/Struktur ergänzt) —
+  'L33-2': { 'Sprecher': 2, 'Inhalt (ように)': 4, 'Ansage': 6 },            // …が …ように 言いました
+  'L34-0': { 'Vorbild': 4, 'Handlung': 6 },                                // …とおりに …ます
+  'L34-1': { 'Zuerst': 1, 'Danach': 6 },                                   // …たあとで …ます
+  'L36-2': { 'Ziel': 4, 'Handlung': 6 },                                   // …ように …ます
+  'L38-1': { 'Handlung (の)': 2, 'Adjektiv': 6 },                          // …のは …です
+  'L38-2': { 'Handlung (の)': 2, 'Bewertung': 6 },                         // …のが …です
+  'L38-4': { 'Inhalt (の)': 4, 'Frage': 6 },                               // …のを 知っていますか
+  'L40-0': { 'Eingebettete Frage': 4, 'Hauptsatz': 6 },                    // 疑問詞 …か、…
+  'L40-1': { 'Inhalt': 4, 'Hauptverb': 6 },                               // …かどうか、…
+  'L41-1': { 'Ausführender': 2, 'Handlung': 4, 'Bekommen': 6 },            // …に …て いただきます
 };
 
 // Optionale Auftakt-/Füllwörter je Übung — werden zur Laufzeit als gestrichelte,
@@ -5508,9 +5522,14 @@ function curatedBuildable(set, ord = curatedOrder, hasSeq = false){
 // Eine mögliche Modell-Reihenfolge: nach Positionsstufe sortiert (stabil),
 // reine JP-Phrasen aneinandergereiht.
 function buildCuratedModelOrder(words, ord = curatedOrder){
+  // Nur EINEN Baustein je Positionsstufe zeigen → ein kohärenter Beispielsatz
+  // statt einer Aneinanderreihung mehrerer Alternativen für dieselbe Satzstelle
+  // (sonst „食べるの 泳ぐの 好き 嫌い" oder „旅行する 結婚しない つもりです").
+  const seen = new Set();
   return words.slice()
     .map((w, i) => ({ w, o: ord(w.role), i }))
     .sort((a, b) => a.o - b.o || a.i - b.i)
+    .filter(m => { if(seen.has(m.o)) return false; seen.add(m.o); return true; })
     .map(m => m.w.jp)
     .join(' ');
 }
@@ -5786,6 +5805,20 @@ function curatedCheckOrder(btn){
     fb.innerHTML = '✗ Reihenfolge nicht ganz richtig — der markierte Baustein steht zu weit hinten. Tipp: Das Prädikat (Handlung/Folge) gehört ans Ende.';
     fb.className = 'ex-feedback bad';
     return;
+  }
+  // (1b) Höchstens EIN Baustein je Positionsstufe — Bausteine derselben Stufe
+  // sind Alternativen für dieselbe Satzstelle (sonst Unsinn wie „食べるの 泳ぐの
+  // 好きです" oder „旅行する 結婚しない つもりです").
+  const orderSeen = {};
+  for(const c of placed){
+    const o = c.dataset.order;
+    if(orderSeen[o]){
+      c.classList.add('misplaced');
+      fb.innerHTML = '✗ Du hast zwei Bausteine für dieselbe Satzstelle gelegt. Wähle pro Stufe nur <b>einen</b> Baustein.';
+      fb.className = 'ex-feedback bad';
+      return;
+    }
+    orderSeen[o] = true;
   }
   // (2) Vollständigkeit: alle vorhandenen Positionsstufen müssen vertreten sein.
   // Optionale Auftakt-Bausteine (data-filler) zählen NICHT zur Pflicht.
