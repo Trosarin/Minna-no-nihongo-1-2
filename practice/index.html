@@ -4684,6 +4684,7 @@ const EXERCISE_SETS = {
     {jp:'<ruby>彼<rt>かれ</rt></ruby>は <ruby>元気<rt>げんき</rt></ruby>', de:'er ist fit', role:'na-Adj + そう'},
     {jp:'<ruby>暖<rt>あたた</rt></ruby>か', de:'warm', role:'Adj-Stamm + そう'},
     {jp:'この <ruby>仕事<rt>しごと</rt></ruby>は <ruby>大変<rt>たいへん</rt></ruby>', de:'Arbeit anstrengend', role:'na-Adj + そう'},
+    {jp:'そうです', de:'(Anschein)', role:'Anschein'},
   ],
 
   'L43-1': [ // てくる / ていく
@@ -4711,6 +4712,7 @@ const EXERCISE_SETS = {
     {jp:'<ruby>高<rt>たか</rt></ruby>', de:'teuer', role:'i-Adj + すぎ'},
     {jp:'<ruby>辛<rt>から</rt></ruby>', de:'scharf', role:'i-Adj + すぎ'},
     {jp:'<ruby>静<rt>しず</rt></ruby>か', de:'ruhig', role:'na-Adj + すぎ'},
+    {jp:'すぎます', de:'(zu sehr)', role:'すぎ'},
   ],
   'L44-1': [ // やすい / にくい
     {jp:'<ruby>壊<rt>こわ</rt></ruby>れ', de:'kaputt gehen', role:'V + やすい'},
@@ -5265,33 +5267,56 @@ function curatedOrder(role){
   return 6; // Prädikat / Folge / Modus (Handlung, Folge, Verb, Vermutung, …)
 }
 
+// Set-spezifische Reihenfolge: Rollennamen sind nicht global eindeutig
+// (z. B. „Zweck" ist mal früh, mal Prädikat). Für solche 2-teiligen Muster wird
+// hier pro Set die korrekte Satzstelle festgelegt (verifiziert). Prädikat = 6.
+const CURATED_SEQ = {
+  'L34-2': { 'Ohne': 3, 'Handlung': 6 },                                   // …ないで …する
+  'L42-1': { 'Werkzeug': 4, 'Zweck': 6 },                                  // …で …する
+  'L42-3': { 'Zweck (V-stem に)': 4, 'Bewegung': 6 },                      // …に 行く/来る/帰る
+  'L42-4': { 'Minimum': 4, 'Verb': 6 },                                    // …は かかります
+  'L42-5': { 'Überraschung': 4, 'Verb': 6 },                               // …も …ました
+  'L41-2': { 'Handlung (くださる)': 4, 'Abschluss': 6 },                    // …て くださいました
+  'L41-3': { 'Handlung (やる)': 4, 'Abschluss': 6 },                        // …て やりました
+  'L43-2': { 'V-stem + そうにない': 4, 'Abschluss': 6 },                    // …そうにありません
+  'L38-5': { 'Hervorgehoben (の)': 2, 'Antwort': 6 },                       // …のは …です
+  'L38-0': { 'V + の': 2, 'Aussage': 6 },                                   // …のが 好きです
+  'L46-1': { 'ばかり': 4, 'Abschluss': 6 },                                 // …た ばかりです
+  'L43-0': { 'V-Stamm + そう': 5, 'Adj-Stamm + そう': 5, 'na-Adj + そう': 5, 'Anschein': 6 }, // …そうです
+  'L44-0': { 'V-Stamm + すぎ': 5, 'i-Adj + すぎ': 5, 'na-Adj + すぎ': 5, 'すぎ': 6 },           // …すぎます
+};
+function orderFor(key){
+  const ov = CURATED_SEQ[key];
+  return ov ? (role => (role in ov ? ov[role] : curatedOrder(role))) : curatedOrder;
+}
+
 // Set ist "baubar", wenn sich eine eindeutige, korrekte Reihenfolge legen lässt:
 // ≥2 verschiedene Rollen, keine reinen Konjugations-/Beispiellisten und GENAU
 // zwei Positionsstufen (saubere 2-Teiler wie Grund→Folge, Subjekt→Verb).
 // Sets mit 3+ Stufen werden bewusst ausgeschlossen — dort sind die Rollen oft
 // Alternativen für dieselbe Position oder die Labels passen nicht zur Satzstelle,
 // sodass eine Reihenfolge-Prüfung falsche Treffer erzeugen würde.
-function curatedBuildable(set){
+function curatedBuildable(set, ord = curatedOrder){
   if(!set || set.length < 2) return false;
   const roles = new Set(set.map(w => w.role));
   if(roles.size < 2) return false;
   if(set.some(w => /→|⇆/.test(w.jp || '') ||
        /Beispiel|G[123]\b|普通|丁寧語|尊敬語|謙譲語|normal →|自動|他動/.test(w.role || ''))) return false;
-  return new Set([...roles].map(curatedOrder)).size === 2;
+  return new Set([...roles].map(ord)).size === 2;
 }
 
 // Eine mögliche Modell-Reihenfolge: nach Positionsstufe sortiert (stabil),
 // reine JP-Phrasen aneinandergereiht.
-function buildCuratedModelOrder(words){
+function buildCuratedModelOrder(words, ord = curatedOrder){
   return words.slice()
-    .map((w, i) => ({ w, o: curatedOrder(w.role), i }))
+    .map((w, i) => ({ w, o: ord(w.role), i }))
     .sort((a, b) => a.o - b.o || a.i - b.i)
     .map(m => m.w.jp)
     .join(' ');
 }
 
-function curatedChip(w){
-  return `<span class="ex-chip" onclick="exPickChip(this)" data-order="${curatedOrder(w.role)}" data-role="${w.role || ''}">
+function curatedChip(w, ord = curatedOrder){
+  return `<span class="ex-chip" onclick="exPickChip(this)" data-order="${ord(w.role)}" data-role="${w.role || ''}">
     ${w.role ? `<span class="ex-chip-role">${w.role}</span>` : ''}
     <span class="ex-chip-jp">${w.jp}</span>
     <span class="ex-chip-de">${w.de}</span>
@@ -5330,7 +5355,7 @@ const curatedRot = {};
 
 // Wählt je Rolle bis zu zwei Bausteine (rotierend) und variiert die Zeitform
 // einer Prädikat-Phrase zufällig — für viele, wechselnde Satzmöglichkeiten.
-function pickCuratedBuildWords(key, set){
+function pickCuratedBuildWords(key, set, ord = curatedOrder){
   const groups = {}, order = [];
   set.forEach(w => { if(!groups[w.role]){ groups[w.role] = []; order.push(w.role); } groups[w.role].push(w); });
   const st = curatedRot[key] || (curatedRot[key] = {});
@@ -5343,7 +5368,7 @@ function pickCuratedBuildWords(key, set){
     st[role] = (start + take) % blocks.length;
   }
   const out = picked.map(w => {
-    if(curatedOrder(w.role) === 6){
+    if(ord(w.role) === 6){
       const vs = tenseVariants(w.jp);
       if(vs.length > 1) return { ...w, jp: vs[Math.floor(Math.random() * vs.length)] };
     }
@@ -5394,7 +5419,7 @@ const EROW = new Set('えけせてねへめれげぜでべぺ'.split(''));
 const I2U = {き:'く', ぎ:'ぐ', し:'す', ち:'つ', に:'ぬ', び:'ぶ', み:'む', り:'る', い:'う', じ:'ず'};
 function isJpKanji(ch){ return !!ch && !/[぀-ヿｦ-ﾟ]/.test(ch); }
 // ichidan-Verben mit い-Reihe-Kana-Stamm (nicht über え-Reihe/Kanji erkennbar):
-const ICHIDAN_TAILS = ['借ります', '浴びます', '信じます', '感じます'];
+const ICHIDAN_TAILS = ['借ります', '浴びます', '信じます', '感じます', 'すぎます'];
 // godan-„す"-Verben (sonst würde „…します" fälschlich als する gelesen):
 const GODAN_SU = ['消します','渡します','出します','返します','直します','無くします','壊します','汚します','冷やします','繰り返します','増やします','減らします','試します','思い出します','引っ越します','申します','いたします'];
 // unregelmäßige Keigo-Verben (…あいます → …ある): jpBare-Endung → Plain-Stamm.
@@ -5630,14 +5655,15 @@ function renderExerciseBox(boxEl, lessonNum, idx){
   if(customSet){
     // Ordnbare Phrasen-Sets (Grund→Folge, Subjekt→Verb, …): interaktiver Bau
     // mit Reihenfolge-Prüfung. Wähle je Rolle einen Baustein und ordne sie.
-    if(curatedBuildable(customSet)){
-      const buildWords = pickCuratedBuildWords(key, customSet);
+    const ord = orderFor(key);
+    if(curatedBuildable(customSet, ord)){
+      const buildWords = pickCuratedBuildWords(key, customSet, ord);
       boxEl.innerHTML = `
         <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an, um einen Satz nach dem Muster oben zu bilden. Tipp: Wähle je Rolle einen Baustein — das Prädikat steht am Ende. Die Zeitform (Gegenwart/Vergangenheit) wechselt.</div>
         <div class="ex-answer empty"></div>
         <div class="ex-source-label">Bausteine</div>
         <div class="ex-word-pool ex-source">
-          ${buildWords.map(curatedChip).join('')}
+          ${buildWords.map(w => curatedChip(w, ord)).join('')}
         </div>
         <div class="ex-feedback"></div>
         <div class="ex-actions">
@@ -5649,7 +5675,7 @@ function renderExerciseBox(boxEl, lessonNum, idx){
         </div>
         <div class="ex-model hidden">
           <div class="ex-model-label">Modell-Reihenfolge</div>
-          <div class="ex-model-jp">${buildCuratedModelOrder(buildWords)}</div>
+          <div class="ex-model-jp">${buildCuratedModelOrder(buildWords, ord)}</div>
           <div class="ex-model-note">Eine mögliche Reihenfolge — bei mehreren Bausteinen je Rolle zählt die Position der Rolle.</div>
         </div>
         ${solutionHtml}
