@@ -5305,10 +5305,18 @@ const TENSE_RULES = [
   [/です$/,         ['です', 'でした']],
 ];
 function tenseVariants(jp){
+  const out = [];
   for(const [re, forms] of TENSE_RULES){
-    if(re.test(jp)){ const stem = jp.replace(re, ''); return forms.map(f => stem + f); }
+    if(re.test(jp)){ const stem = jp.replace(re, ''); out.push(...forms.map(f => stem + f)); break; }
   }
-  return [jp];
+  if(!out.length) out.push(jp);
+  // Grundform (Plain) ergänzen, wenn das Prädikat ein positives höfliches Verb
+  // ist (…ます/…ました) und sicher konjugierbar. Negative/です-Formen bleiben höflich.
+  if(/ます$/.test(jp) || /ました$/.test(jp)){
+    const plain = verbPlain(jp.replace(/ました$/, 'ます'));
+    if(plain){ out.push(plain[0], plain[1]); } // Grundform + Plain-Vergangenheit
+  }
+  return [...new Set(out)];
 }
 
 // Rotationszustand je Übungsschlüssel: aufeinanderfolgende Aufgaben wandern
@@ -5360,41 +5368,118 @@ function verbMasuIndex(){
   VERB_FORMS.forEach(f => { _verbMasuIdx[jpBare(f.masu)] = f; });
   return _verbMasuIdx;
 }
+// Index nach Grundform (für Plain-Form-Vokabeln, z. B. aus Lektion 20).
+let _verbDictIdx = null;
+function verbDictIndex(){
+  if(_verbDictIdx) return _verbDictIdx;
+  _verbDictIdx = {};
+  VERB_FORMS.forEach(f => { _verbDictIdx[jpBare(f.jisho)] = f; });
+  return _verbDictIdx;
+}
 
-// え-Reihe-Endung der ます-Stamm-Lesung ⇒ eindeutig Gruppe 2 (ichidan) ⇒
-// Plain-Formen sicher per Suffix. い-Reihe ist mehrdeutig und bleibt höflich.
+/* --- Verbgruppen-Bestimmung & Plain-Formen aus der ます-Form -----------------
+   Höfliche Formen sind ein reiner Suffix-Tausch (immer sicher). Plain-Formen
+   sind verbgruppen-abhängig und werden deterministisch abgeleitet:
+   - geprüfte Engine (Kanji-Abgleich) hat Vorrang,
+   - unregelmäßige Keigo-Verben & godan-„す" explizit,
+   - ichidan (Gruppe 2) via え-Reihe / Kanji-Stamm / ている / Ausnahmeliste,
+   - sonst godan (Gruppe 1): い-Reihe → う-Reihe + Engine-Tabellen für て/た/ない.
+   Die Ausnahmelisten decken das gesamte Lektions-Vokabular ab (geprüft). */
 const EROW = new Set('えけせてねへめれげぜでべぺ'.split(''));
+const I2U = {き:'く', ぎ:'ぐ', し:'す', ち:'つ', に:'ぬ', び:'ぶ', み:'む', り:'る', い:'う', じ:'ず'};
+function isJpKanji(ch){ return !!ch && !/[぀-ヿｦ-ﾟ]/.test(ch); }
+// ichidan-Verben mit い-Reihe-Kana-Stamm (nicht über え-Reihe/Kanji erkennbar):
+const ICHIDAN_TAILS = ['借ります', '浴びます', '信じます', '感じます'];
+// godan-„す"-Verben (sonst würde „…します" fälschlich als する gelesen):
+const GODAN_SU = ['消します','渡します','出します','返します','直します','無くします','壊します','汚します','冷やします','繰り返します','増やします','減らします','試します','思い出します','引っ越します','申します','いたします'];
+// unregelmäßige Keigo-Verben (…あいます → …ある): jpBare-Endung → Plain-Stamm.
+const KEIGO_IRREG = { 'いらっしゃいます':'いらっしゃ', 'くださいます':'くださ', 'なさいます':'なさ', 'おっしゃいます':'おっしゃ' };
+
+// Plain-Formen [Grundform, た, ない, なかった] oder null, wenn nicht sicher ableitbar.
+function verbPlain(jp){
+  const bare = jpBare(jp);
+  const eng = verbMasuIndex()[bare];
+  if(eng) return [eng.jisho, eng.ta, eng.nai, eng.nakatta];
+  if(bare.endsWith('あります')){ const p = jp.replace(/あります$/, ''); return [p+'ある', p+'あった', p+'ない', p+'なかった']; } // ある: Verneinung = ない
+  for(const k in KEIGO_IRREG){
+    if(bare.endsWith(k)){ const r = KEIGO_IRREG[k]; return [r+'る', r+'った', r+'らない', r+'らなかった']; }
+  }
+  if(GODAN_SU.some(t => bare.endsWith(t))){
+    const s = jp.replace(/します$/, '');
+    return [s+'す', s+'した', s+'さない', s+'さなかった'];
+  }
+  if(/します$/.test(bare)){
+    const p = jp.replace(/します$/, '');
+    return [p+'する', p+'した', p+'しない', p+'しなかった'];
+  }
+  if(!/ます$/.test(bare)) return null;
+  const vstem = jp.replace(/ます$/, ''), vb = jpBare(vstem);
+  const lastR = jpReading(jp).replace(/ます$/, '').slice(-1);
+  const ichidan = EROW.has(lastR) || isJpKanji(vb.slice(-1)) || /[てで]い$/.test(vb)
+                || bare === 'います' || ICHIDAN_TAILS.some(t => bare.endsWith(t));
+  if(ichidan) return [vstem+'る', vstem+'た', vstem+'ない', vstem+'なかった'];
+  if(/行きます$/.test(bare)){ const sb = vstem.slice(0, -1); return [sb+'く', sb+'った', sb+'かない', sb+'かなかった']; }
+  const dk = I2U[vb.slice(-1)];
+  if(!dk) return null;
+  const sb = vstem.slice(0, -1), tt = G1_TE_TA[dk] || {ta:'った'};
+  return [sb+dk, sb+tt.ta, sb+(NAI_MAP[dk]||'らない'), sb+(NAKATTA_MAP[dk]||'らなかった')];
+}
+
+// う-Reihe (Grundform-Endung) → い-Reihe (ます-Stamm) für godan-Verben.
+const U2I = {く:'き', ぐ:'ぎ', す:'し', つ:'ち', ぬ:'に', ぶ:'び', む:'み', る:'り', う:'い'};
+
+// Aus einer Grundform die übrigen Formen ableiten (für Plain-Form-Vokabeln, die
+// nicht in der Engine stehen). [ます,ました,ません,ませんでした,た,ない,なかった] oder null.
+function conjFromDict(jp){
+  const bare = jpBare(jp);
+  if(/です$/.test(bare)) return null;   // Kopula-Ausdruck (z. B. ご存じです), kein Verb
+  if(/する$/.test(bare)){ const p = jp.replace(/する$/, ''); return [p+'します',p+'しました',p+'しません',p+'しませんでした',p+'した',p+'しない',p+'しなかった']; }
+  if(bare === 'ある') return ['あります','ありました','ありません','ありませんでした','あった','ない','なかった'];
+  const last = bare.slice(-1);
+  if(last === 'る'){
+    const before = jpReading(jp).slice(-2, -1);
+    if(EROW.has(before) || /すぎる$/.test(bare)){ const s = jp.replace(/る$/, ''); return [s+'ます',s+'ました',s+'ません',s+'ませんでした',s+'た',s+'ない',s+'なかった']; } // え-Reihe oder すぎる (ichidan)
+    // sonst godan-る
+  }
+  if(!U2I[last]) return null;
+  const sb = jp.slice(0, -1), iStem = sb + U2I[last];
+  const tt = G1_TE_TA[last] || {ta:'った'};
+  const ta = /行く$/.test(bare) ? 'った' : tt.ta;
+  return [iStem+'ます', iStem+'ました', iStem+'ません', iStem+'ませんでした',
+          sb+ta, sb+(NAI_MAP[last]||'らない'), sb+(NAKATTA_MAP[last]||'らなかった')];
+}
 
 function verbForms(jp){
   const out = [];
   if(/ます$/.test(jp)){
     const p = jp.replace(/ます$/, '');
-    out.push(p + 'ます', p + 'ました', p + 'ません', p + 'ませんでした'); // höflich (immer sicher)
+    out.push(p+'ます', p+'ました', p+'ません', p+'ませんでした'); // höflich (immer sicher)
+    const plain = verbPlain(jp);
+    if(plain) out.push(...plain);
   } else {
-    out.push(jp);
-  }
-  // Plain-Formen nur, wenn sicher ableitbar:
-  const reading = jpReading(jp);
-  const eng = verbMasuIndex()[jpBare(jp)];
-  if(eng){
-    out.push(eng.jisho, eng.ta, eng.nai, eng.nakatta);          // aus geprüfter Engine
-  } else if(/します$/.test(jp)){
-    const pre = jp.replace(/します$/, '');
-    out.push(pre + 'する', pre + 'した', pre + 'しない', pre + 'しなかった'); // する-Verben
-  } else if(/ます$/.test(jp)){
-    const rstem = reading.replace(/ます$/, '');
-    if(EROW.has(rstem.slice(-1))){
-      const stem = jp.replace(/ます$/, '');
-      out.push(stem + 'る', stem + 'た', stem + 'ない', stem + 'なかった'); // Gruppe 2
-    }
+    out.push(jp); // bereits Grundform (z. B. Plain-Form-Vokabeln aus L20)
+    const eng = verbDictIndex()[jpBare(jp)];
+    if(eng) out.push(eng.masu, eng.mashita, eng.masen, eng.masenDeshita, eng.jisho, eng.ta, eng.nai, eng.nakatta);
+    else { const f = conjFromDict(jp); if(f) out.push(...f); }
   }
   return [...new Set(out)];
 }
 
 // i-Adjektive: Stamm = ohne finales „い". Suffixregel ist universell sicher.
-// 良い/いい-Komposita (unregelmäßig) bleiben unverändert.
+// 良い/いい (unregelmäßig) konjugieren mit „よ": よかった/よくない … — erkannt nur
+// für das echte いい (=良い) und bekannte Komposita, NICHT für reguläre Adjektive
+// wie 可愛い.
+const IADJ_II_IRREG = ['かっこいい', '格好いい', '気持ちいい', 'ちょうどいい', '都合がいい', '心地いい'];
 function iAdjForms(jp){
-  if(/いい$/.test(jp) || !/い$/.test(jp)) return [jp];
+  if(!/い$/.test(jp)) return [jp];
+  const bare = jpBare(jp);
+  if(bare === 'いい' || IADJ_II_IRREG.some(w => bare.endsWith(w))){
+    const p = jp.slice(0, jp.length - 2); // finales „いい" entfernen
+    return [
+      p + 'いい', p + 'よかった', p + 'よくない', p + 'よくなかった',
+      p + 'いいです', p + 'よかったです', p + 'よくないです', p + 'よくなかったです',
+    ];
+  }
   const s = jp.replace(/い$/, '');
   return [
     s + 'い', s + 'かった', s + 'くない', s + 'くなかった',
