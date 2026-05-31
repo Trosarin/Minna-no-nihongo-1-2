@@ -5340,6 +5340,17 @@ function pickCuratedBuildWords(key, set){
   return out;
 }
 
+// Höfliche Zeit-/Polaritätsformen für Vokabel-Verben (generischer Pfad).
+// Die Lektions-Verben stehen in ます-Form; der Suffix-Tausch ist für JEDES
+// Verb grammatikalisch korrekt (Gruppe egal). Wörterbuchformen ohne ます
+// (要る, 買う, 行く …) werden sicherheitshalber nicht verändert.
+const VERB_TENSES = ['ます', 'ました', 'ません', 'ませんでした'];
+function randomVerbTense(jp){
+  if(!/ます$/.test(jp)) return jp;
+  const stem = jp.replace(/ます$/, '');
+  return stem + VERB_TENSES[Math.floor(Math.random() * VERB_TENSES.length)];
+}
+
 // Prüfung für kuratierte Bau-Übungen. Streng genug, dass NUR korrekte Sätze
 // bestehen: (1) Reihenfolge nicht fallend nach Positionsstufe und (2) jede
 // vorhandene Positionsstufe muss belegt sein (sonst ist es nur ein Fragment,
@@ -5496,6 +5507,9 @@ function renderExerciseBox(boxEl, lessonNum, idx){
   }
 
   // Generischer Pfad: Rollen + Partikel-Hinweise + interaktiver Satzbau.
+  // Verben in wechselnden höflichen Zeitformen anbieten (sicherer ます-Tausch).
+  // Vor dem Rendern anwenden, damit Chips und Modell-Reihenfolge übereinstimmen.
+  words = words.map(w => (w.t === 'v') ? { ...w, jp: randomVerbTense(w.jp) } : w);
   const chip = w => {
     const role = structuralRole(w);
     const part = particleForRole(role, words);
@@ -5508,7 +5522,7 @@ function renderExerciseBox(boxEl, lessonNum, idx){
   };
 
   boxEl.innerHTML = `
-    <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an (japanisch: Zeit → Subjekt → Ort → Objekt → Verb). Die kleine rote Partikel ist ein Hinweis.</div>
+    <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an (japanisch: Zeit → Subjekt → Ort → Objekt → Verb). Die kleine rote Partikel ist ein Hinweis. Die Zeitform des Verbs wechselt (Gegenwart/Vergangenheit, bejaht/verneint).</div>
     <div class="ex-answer empty"></div>
     <div class="ex-source-label">Bausteine</div>
     <div class="ex-word-pool ex-source">
