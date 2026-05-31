@@ -4035,12 +4035,13 @@ const EXERCISE_SETS = {
   'L26-3': [ // 疑問詞 + V たら いいですか
     {jp:'あのう、', de:'Entschuldigung… (Anrede)', role:'Auftakt', filler:true},
     {jp:'すみませんが、', de:'Verzeihung, aber…', role:'Auftakt', filler:true},
-    {jp:'<ruby>何<rt>なに</rt></ruby>を したら', de:'was tun', role:'W-Frage'},
-    {jp:'どこへ <ruby>行<rt>い</rt></ruby>ったら', de:'wohin gehen', role:'W-Frage'},
-    {jp:'<ruby>誰<rt>だれ</rt></ruby>に <ruby>聞<rt>き</rt></ruby>いたら', de:'wen fragen', role:'W-Frage'},
-    {jp:'どう やったら', de:'wie machen', role:'W-Frage'},
-    {jp:'いつ <ruby>出<rt>で</rt></ruby>たら', de:'wann losgehen', role:'W-Frage'},
-    {jp:'どの バスに <ruby>乗<rt>の</rt></ruby>ったら', de:'welchen Bus nehmen', role:'W-Frage'},
+    {jp:'<ruby>何<rt>なに</rt></ruby>を した', de:'was getan', role:'W-Frage'},
+    {jp:'どこへ <ruby>行<rt>い</rt></ruby>った', de:'wohin gegangen', role:'W-Frage'},
+    {jp:'<ruby>誰<rt>だれ</rt></ruby>に <ruby>聞<rt>き</rt></ruby>いた', de:'wen gefragt', role:'W-Frage'},
+    {jp:'どう やった', de:'wie gemacht', role:'W-Frage'},
+    {jp:'いつ <ruby>出<rt>で</rt></ruby>た', de:'wann losgegangen', role:'W-Frage'},
+    {jp:'どの バスに <ruby>乗<rt>の</rt></ruby>った', de:'welchen Bus genommen', role:'W-Frage'},
+    {jp:'ら', de:'…, wenn (Bedingung)', role:'ら', fixed:true},
     {jp:'いいですか', de:'…wäre gut? (um Rat fragen)', role:'Rat-Frage', fixed:true},
   ],
 
@@ -4069,10 +4070,11 @@ const EXERCISE_SETS = {
 
   // === L28: ながら / し ===
   'L28-0': [ // …ながら …
-    {jp:'<ruby>音楽<rt>おんがく</rt></ruby>を <ruby>聞<rt>き</rt></ruby>きながら', de:'Musik hörend', role:'Nebenhandlung'},
-    {jp:'コーヒーを <ruby>飲<rt>の</rt></ruby>みながら', de:'Kaffee trinkend', role:'Nebenhandlung'},
-    {jp:'テレビを <ruby>見<rt>み</rt></ruby>ながら', de:'fernsehend', role:'Nebenhandlung'},
-    {jp:'<ruby>歩<rt>ある</rt></ruby>きながら', de:'gehend', role:'Nebenhandlung'},
+    {jp:'<ruby>音楽<rt>おんがく</rt></ruby>を <ruby>聞<rt>き</rt></ruby>き', de:'Musik hören (Verb-Stamm)', role:'Nebenhandlung'},
+    {jp:'コーヒーを <ruby>飲<rt>の</rt></ruby>み', de:'Kaffee trinken (Stamm)', role:'Nebenhandlung'},
+    {jp:'テレビを <ruby>見<rt>み</rt></ruby>', de:'fernsehen (Stamm)', role:'Nebenhandlung'},
+    {jp:'<ruby>歩<rt>ある</rt></ruby>き', de:'gehen (Stamm)', role:'Nebenhandlung'},
+    {jp:'ながら', de:'…während (gleichzeitig)', role:'ながら', fixed:true},
     {jp:'<ruby>勉強<rt>べんきょう</rt></ruby>します', de:'lernen', role:'Haupthandlung'},
     {jp:'ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べます', de:'essen', role:'Haupthandlung'},
     {jp:'<ruby>仕事<rt>しごと</rt></ruby>を します', de:'arbeiten', role:'Haupthandlung'},
@@ -4081,12 +4083,14 @@ const EXERCISE_SETS = {
   'L28-2': [ // …は …し、…し
     {jp:'あの レストランは', de:'jenes Restaurant', role:'Subjekt'},
     {jp:'この <ruby>町<rt>まち</rt></ruby>は', de:'diese Stadt', role:'Subjekt'},
-    {jp:'<ruby>安<rt>やす</rt></ruby>いし、', de:'ist billig, und', role:'Grund 1'},
-    {jp:'おいしいし、', de:'ist lecker, und', role:'Grund 1'},
-    {jp:'<ruby>便利<rt>べんり</rt></ruby>だし、', de:'ist praktisch, und', role:'Grund 1'},
-    {jp:'きれいだし', de:'ist schön, und', role:'Grund 2'},
-    {jp:'<ruby>近<rt>ちか</rt></ruby>いし', de:'ist nah, und', role:'Grund 2'},
-    {jp:'<ruby>静<rt>しず</rt></ruby>かだし', de:'ist ruhig, und', role:'Grund 2'},
+    {jp:'<ruby>安<rt>やす</rt></ruby>い', de:'ist billig', role:'Grund 1'},
+    {jp:'おいしい', de:'ist lecker', role:'Grund 1'},
+    {jp:'<ruby>便利<rt>べんり</rt></ruby>だ', de:'ist praktisch', role:'Grund 1'},
+    {jp:'し、', de:'…, und (Aufzählung)', role:'し①', fixed:true},
+    {jp:'きれいだ', de:'ist schön', role:'Grund 2'},
+    {jp:'<ruby>近<rt>ちか</rt></ruby>い', de:'ist nah', role:'Grund 2'},
+    {jp:'<ruby>静<rt>しず</rt></ruby>かだ', de:'ist ruhig', role:'Grund 2'},
+    {jp:'し', de:'…, und (Aufzählung)', role:'し②', fixed:true},
   ],
 
   // === L29: ている (Zustand) / てしまう ===
@@ -4361,9 +4365,10 @@ const EXERCISE_SETS = {
     {jp:'<ruby>友達<rt>ともだち</rt></ruby>に <ruby>会<rt>あ</rt></ruby>います', de:'…treffe ich einen Freund', role:'Danach'},
   ],
   'L34-2': [ // …ないで …ます
-    {jp:'<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べないで', de:'ohne zu frühstücken', role:'Ohne'},
-    {jp:'<ruby>傘<rt>かさ</rt></ruby>を <ruby>持<rt>も</rt></ruby>たないで', de:'ohne Schirm', role:'Ohne'},
-    {jp:'<ruby>辞書<rt>じしょ</rt></ruby>を <ruby>使<rt>つか</rt></ruby>わないで', de:'ohne Wörterbuch', role:'Ohne'},
+    {jp:'<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べ', de:'frühstücken (Verneinungs-Stamm)', role:'Ohne'},
+    {jp:'<ruby>傘<rt>かさ</rt></ruby>を <ruby>持<rt>も</rt></ruby>た', de:'Schirm nehmen (Stamm)', role:'Ohne'},
+    {jp:'<ruby>辞書<rt>じしょ</rt></ruby>を <ruby>使<rt>つか</rt></ruby>わ', de:'Wörterbuch benutzen (Stamm)', role:'Ohne'},
+    {jp:'ないで', de:'ohne … zu', role:'ないで', fixed:true},
     {jp:'<ruby>会社<rt>かいしゃ</rt></ruby>に <ruby>行<rt>い</rt></ruby>きます', de:'…gehe ich zur Firma', role:'Handlung'},
     {jp:'<ruby>出<rt>で</rt></ruby>かけます', de:'…gehe ich aus', role:'Handlung'},
     {jp:'<ruby>読<rt>よ</rt></ruby>みます', de:'…lese ich', role:'Handlung'},
@@ -4371,9 +4376,10 @@ const EXERCISE_SETS = {
 
   // === L35: ば-Konditional ===
   'L35-0': [ // ば-Form
-    {jp:'<ruby>春<rt>はる</rt></ruby>に なれば', de:'wenn es Frühling wird', role:'Bedingung'},
-    {jp:'<ruby>薬<rt>くすり</rt></ruby>を <ruby>飲<rt>の</rt></ruby>めば', de:'wenn man Medizin nimmt', role:'Bedingung'},
-    {jp:'もっと <ruby>練習<rt>れんしゅう</rt></ruby>すれば', de:'wenn man mehr übt', role:'Bedingung'},
+    {jp:'<ruby>春<rt>はる</rt></ruby>に なれ', de:'Frühling werden (ば-Stamm)', role:'Bedingung'},
+    {jp:'<ruby>薬<rt>くすり</rt></ruby>を <ruby>飲<rt>の</rt></ruby>め', de:'Medizin nehmen (ば-Stamm)', role:'Bedingung'},
+    {jp:'もっと <ruby>練習<rt>れんしゅう</rt></ruby>すれ', de:'mehr üben (ば-Stamm)', role:'Bedingung'},
+    {jp:'ば', de:'wenn / falls', role:'ば', fixed:true},
     {jp:'<ruby>桜<rt>さくら</rt></ruby>が <ruby>咲<rt>さ</rt></ruby>きます', de:'Kirschblüten blühen', role:'Folge'},
     {jp:'<ruby>元気<rt>げんき</rt></ruby>に なります', de:'gesund werden', role:'Folge'},
     {jp:'<ruby>上手<rt>じょうず</rt></ruby>に なります', de:'gut werden', role:'Folge'},
@@ -4396,12 +4402,13 @@ const EXERCISE_SETS = {
     {jp:'ミラーさんに <ruby>聞<rt>き</rt></ruby>いてください', de:'fragen Sie Miller', role:'Empfehlung'},
   ],
   'L35-3': [ // 疑問詞 Vば いいですか
-    {jp:'<ruby>何<rt>なに</rt></ruby>を すれば', de:'was soll ich tun', role:'W-Frage + ば'},
-    {jp:'どこへ <ruby>行<rt>い</rt></ruby>けば', de:'wohin soll ich gehen', role:'W-Frage + ば'},
-    {jp:'どう すれば', de:'wie soll ich', role:'W-Frage + ば'},
-    {jp:'<ruby>誰<rt>だれ</rt></ruby>に <ruby>聞<rt>き</rt></ruby>けば', de:'wen soll ich fragen', role:'W-Frage + ば'},
-    {jp:'いつ <ruby>出<rt>で</rt></ruby>れば', de:'wann soll ich losgehen', role:'W-Frage + ば'},
-    {jp:'いいですか', de:'(soll ich)?', role:'Abschluss'},
+    {jp:'<ruby>何<rt>なに</rt></ruby>を すれ', de:'was tun (ば-Stamm)', role:'W-Frage'},
+    {jp:'どこへ <ruby>行<rt>い</rt></ruby>け', de:'wohin gehen (ば-Stamm)', role:'W-Frage'},
+    {jp:'どう すれ', de:'wie (ば-Stamm)', role:'W-Frage'},
+    {jp:'<ruby>誰<rt>だれ</rt></ruby>に <ruby>聞<rt>き</rt></ruby>け', de:'wen fragen (ば-Stamm)', role:'W-Frage'},
+    {jp:'いつ <ruby>出<rt>で</rt></ruby>れ', de:'wann losgehen (ば-Stamm)', role:'W-Frage'},
+    {jp:'ば', de:'…, soll ich? (wenn)', role:'ば', fixed:true},
+    {jp:'いいですか', de:'…wäre gut?', role:'Abschluss'},
   ],
   'L35-4': [ // ば〜ほど
     {jp:'<ruby>練習<rt>れんしゅう</rt></ruby>すれば するほど', de:'je mehr man übt', role:'Bedingung'},
@@ -5347,13 +5354,13 @@ const CURATED_SEQ = {
   'L26-0': { 'Grund': 4, 'Erklärung': 6 },                                 // …んです
   'L26-1': { 'Frage-Wort': 1, 'Situation': 4, 'Nachfrage': 6 },            // どうして …んですか
   'L26-2': { 'Auftakt': 0, 'Bitte': 4, 'Höflichkeitsbitte': 6 },                         // …て いただけませんか
-  'L26-3': { 'Auftakt': 0, 'W-Frage': 4, 'Rat-Frage': 6 },                               // 疑問詞 …たら いいですか
+  'L26-3': { 'Auftakt': 0, 'W-Frage': 4, 'ら': 5, 'Rat-Frage': 6 },                       // 疑問詞 …たら いいですか
   'L27-1': { 'Ort': 1, 'Wahrnehmung': 6 },                                 // …から …が 見えます/聞こえます
   'L27-2': { 'Thema': 1, 'Einschränkung': 6 },                             // …は …しか …ません
   'L27-4': { 'Bejaht': 1, 'Verneint': 6 },                                 // …は …ますが、…は …ません
-  'L28-0': { 'Nebenhandlung': 2, 'Haupthandlung': 6 },                     // …ながら …
+  'L28-0': { 'Nebenhandlung': 2, 'ながら': 3, 'Haupthandlung': 6 },          // …ながら …
   'L28-1': { 'Häufigkeit': 1, 'Tätigkeit': 6 },                            // …ています (Gewohnheit)
-  'L28-2': { 'Subjekt': 1, 'Grund 1': 4, 'Grund 2': 5 },                   // …は …し、…し
+  'L28-2': { 'Subjekt': 1, 'Grund 1': 2, 'し①': 3, 'Grund 2': 4, 'し②': 5 }, // …は …し、…し
   'L28-3': { 'Ursache': 1, 'Folgewort': 3, 'Folge': 5 },                   // …。それで …
   'L29-2': { 'Subjekt': 1, 'Geschehen': 6 },                               // …は …て しまいました
   'L30-1': { 'Auftakt': 0, 'Anlass': 1, '前に': 2, 'Vorbereitung': 6 },                    // …前に …て おきます
@@ -5388,7 +5395,9 @@ const CURATED_SEQ = {
   'L48-2': { 'Höflichkeit': 1, 'Erlaubnis': 6 },                           // …(使役)て ください
   'L49-1': { 'Person': 1, 'Sonkeigo-Verb': 6 },                            // …は …(ら)れました
   'L49-2': { 'Einladung': 1, 'Aufforderung': 6 },                          // …お/ご …ください
-  'L34-2': { 'Ohne': 3, 'Handlung': 6 },                                   // …ないで …する
+  'L34-2': { 'Ohne': 3, 'ないで': 4, 'Handlung': 6 },                        // …ないで …ます
+  'L35-0': { 'Bedingung': 1, 'ば': 2, 'Folge': 6 },                          // …ば …ます
+  'L35-3': { 'W-Frage': 4, 'ば': 5, 'Abschluss': 6 },                        // 疑問詞 …ば いいですか
   'L42-1': { 'Werkzeug': 1, 'Zweck': 4, 'のに': 5, 'Verwendung': 6 },       // …は …のに 使います
   'L42-3': { 'Zweck (V-stem に)': 4, 'Bewegung': 6 },                      // …に 行く/来る/帰る
   'L42-4': { 'Minimum': 4, 'Verb': 6 },                                    // …は かかります
