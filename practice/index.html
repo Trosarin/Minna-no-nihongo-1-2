@@ -4668,12 +4668,13 @@ const EXERCISE_SETS = {
   ],
 
   // === L42: ために / のに ===
-  'L42-0': [ // …ために …ます (Zweck)
-    {jp:'<ruby>家<rt>いえ</rt></ruby>を <ruby>買<rt>か</rt></ruby>うために', de:'um ein Haus zu kaufen', role:'Ziel'},
-    {jp:'<ruby>試験<rt>しけん</rt></ruby>に <ruby>合格<rt>ごうかく</rt></ruby>するために', de:'um die Prüfung zu bestehen', role:'Ziel'},
-    {jp:'<ruby>留学<rt>りゅうがく</rt></ruby>するために', de:'um im Ausland zu studieren', role:'Ziel'},
-    {jp:'<ruby>健康<rt>けんこう</rt></ruby>の ために', de:'für die Gesundheit', role:'Ziel'},
-    {jp:'<ruby>子供<rt>こども</rt></ruby>の <ruby>教育<rt>きょういく</rt></ruby>の ために', de:'für die Ausbildung der Kinder', role:'Ziel'},
+  'L42-0': [ // …(の) ために …ます (Zweck)
+    {jp:'<ruby>家<rt>いえ</rt></ruby>を <ruby>買<rt>か</rt></ruby>う', de:'ein Haus kaufen', role:'Ziel'},
+    {jp:'<ruby>試験<rt>しけん</rt></ruby>に <ruby>合格<rt>ごうかく</rt></ruby>する', de:'die Prüfung bestehen', role:'Ziel'},
+    {jp:'<ruby>留学<rt>りゅうがく</rt></ruby>する', de:'im Ausland studieren', role:'Ziel'},
+    {jp:'<ruby>健康<rt>けんこう</rt></ruby>の', de:'Gesundheit (Nomen + の)', role:'Ziel'},
+    {jp:'<ruby>子供<rt>こども</rt></ruby>の <ruby>教育<rt>きょういく</rt></ruby>の', de:'Ausbildung der Kinder (+ の)', role:'Ziel'},
+    {jp:'ために', de:'um … zu / für', role:'Zweck', fixed:true},
     {jp:'お<ruby>金<rt>かね</rt></ruby>を <ruby>貯<rt>た</rt></ruby>めます', de:'…spare ich Geld', role:'Handlung'},
     {jp:'<ruby>毎日<rt>まいにち</rt></ruby> <ruby>頑張<rt>がんば</rt></ruby>ります', de:'…gebe ich täglich mein Bestes', role:'Handlung'},
     {jp:'アルバイトを します', de:'…jobbe ich', role:'Handlung'},
@@ -5405,7 +5406,7 @@ const CURATED_SEQ = {
   'L33-6': { 'Empfänger': 2, 'Nachricht': 4, 'Bitte': 6 },                 // …に …と 伝えていただけませんか
   'L37-4': { 'Subjekt': 1, 'Urheber': 2, 'Passiv': 6 },                    // …は …によって V受身
   'L40-3': { 'Subjekt': 1, 'Adj-Stamm': 5, 'Anschein': 6 },                // …は …そうです
-  'L42-0': { 'Ziel': 4, 'Handlung': 6 },                                   // …ために …ます
+  'L42-0': { 'Ziel': 4, 'Zweck': 5, 'Handlung': 6 },                       // …(の) ために …ます
   'L45-0': { 'Fall (Nomen)': 1, 'Fall (Verb)': 1, 'Anweisung': 6 },        // …場合は …てください
   'L47-0': { 'Quelle': 1, 'Inhalt': 4, 'Hörensagen': 6 },                  // …によると …そうです
   'L50-0': { 'Gast': 4, 'Kenjougo': 6 },                                   // …を お〜します
