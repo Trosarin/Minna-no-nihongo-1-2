@@ -5318,6 +5318,7 @@ function buildModelOrder(words){
    =================================================================== */
 function curatedOrder(role){
   const r = role || '';
+  if(/Auftakt/.test(r)) return 0; // optionales Auftakt-/Füllwort ganz vorne
   if(/Zeit|Situation|とき|Fall|Während|^Vor\b|^Nach\b|Zuerst|Bedingung|Thema \(なら\)/.test(r)) return 1; // Rahmen / Zeit
   if(/Subjekt|Person|Sprecher|Ausführend|Verursacher|Urheber|höhere Person|niedrigere Person|Gesprächspartner|Empfänger/.test(r)) return 2; // Subjekt / Agens
   if(/Grund|Ursache|Material|Quelle|Vorbereitung|Nebenhandlung|Obwohl|Einleitung|Einschränkung|Kontrast|neg\. Grund/.test(r)) return 3; // Nebensatz / Grund
@@ -5387,6 +5388,98 @@ const CURATED_SEQ = {
   'L46-1': { 'ばかり': 4, 'Abschluss': 6 },                                 // …た ばかりです
   'L43-0': { 'V-Stamm + そう': 5, 'Adj-Stamm + そう': 5, 'na-Adj + そう': 5, 'Anschein': 6 }, // …そうです
   'L44-0': { 'V-Stamm + すぎ': 5, 'i-Adj + すぎ': 5, 'na-Adj + すぎ': 5, 'すぎ': 6 },           // …すぎます
+};
+
+// Optionale Auftakt-/Füllwörter je Übung — werden zur Laufzeit als gestrichelte,
+// NICHT verpflichtende Bausteine (Position 0) eingeblendet. Pro Mustertyp passend
+// gewählt (じゃ für Entscheidungen, たぶん für Vermutungen, あっ für „vergessen" …).
+// Sets mit eigenem Auftakt (L26-2/3, L30-1, L31-0, L44-3 inline; L32-3 もしかしたら,
+// L48-2, L49-2 どうぞ) sind bewusst ausgespart.
+const FILLERS = {
+  'L26-0': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['あのう、','ähm…']],
+  'L26-1': [['あのう、','ähm…'],['すみません、','Entschuldigung']],
+  'L27-1': [['ほら、','schau mal'],['あっ、','ah!']],
+  'L27-2': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L27-4': [['そうですね、','also…']],
+  'L28-0': [['いつも、','immer'],['たいてい、','meistens']],
+  'L28-1': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L28-2': [['そうですね、','also…'],['ええと、','mal sehen…']],
+  'L28-3': [['この<ruby>前<rt>まえ</rt></ruby>、','neulich'],['<ruby>昨日<rt>きのう</rt></ruby>、','gestern']],
+  'L29-2': [['あっ、','ah!'],['しまった、','Mist!']],
+  'L31-1': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['そうですね、','also…']],
+  'L31-3': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L31-4': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L32-0': [['そうですね、','also…'],['やっぱり、','wie gedacht']],
+  'L32-1': [['たぶん、','wahrscheinlich'],['きっと、','bestimmt']],
+  'L32-2': [['もしかしたら、','eventuell'],['ひょっとすると、','womöglich']],
+  'L33-0': [['おい、','hey!'],['さあ、','los!']],
+  'L33-1': [['こら、','he, du!'],['おい、','hey!']],
+  'L33-2': [['ええと、','also…']],
+  'L33-3': [['ほら、','schau'],['あそこに、','dort']],
+  'L33-4': [['つまり、','das heißt'],['ええと、','also…']],
+  'L33-5': [['そういえば、','übrigens'],['あのう、','ähm…']],
+  'L33-6': [['すみませんが、','Verzeihung, aber…'],['あのう、','ähm…']],
+  'L34-0': [['ええと、','also…']],
+  'L34-1': [['ええと、','also…']],
+  'L34-2': [['いつも、','immer']],
+  'L35-0': [['そうですね、','also…'],['ええと、','mal sehen…']],
+  'L35-1': [['さあ、','tja…'],['ええと、','also…']],
+  'L35-2': [['そうですね、','also…']],
+  'L35-3': [['あのう、','ähm…'],['ええと、','also…']],
+  'L35-4': [['そうですね、','also…']],
+  'L36-0': [['やっと、','endlich'],['<ruby>最近<rt>さいきん</rt></ruby>、','in letzter Zeit']],
+  'L36-1': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L36-2': [['ええと、','also…']],
+  'L36-3': [['そうですね、','also…'],['ええと、','mal sehen…']],
+  'L37-1': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L37-2': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L37-3': [['たしか、','wenn ich mich recht erinnere'],['ええと、','also…']],
+  'L37-4': [['たしか、','wenn ich mich recht erinnere']],
+  'L37-5': [['ええと、','also…'],['そうですね、','nun…']],
+  'L38-0': [['そうですね、','also…']],
+  'L38-1': [['そうですね、','also…'],['ええと、','mal sehen…']],
+  'L38-2': [['そうですね、','also…']],
+  'L38-3': [['あっ、','ah!'],['しまった、','Mist!']],
+  'L38-4': [['そういえば、','übrigens'],['ええと、','also…']],
+  'L38-5': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['ええと、','also…']],
+  'L38-6': [['そういえば、','übrigens']],
+  'L39-0': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L39-1': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L39-2': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['ええと、','also…']],
+  'L39-3': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L40-0': [['あのう、','ähm…'],['ええと、','also…']],
+  'L40-1': [['ええと、','also…']],
+  'L40-2': [['じゃ、','also dann']],
+  'L40-3': [['わあ、','wow!'],['あっ、','ah!']],
+  'L41-1': [['すみませんが、','Verzeihung, aber…'],['あのう、','ähm…']],
+  'L41-2': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L41-3': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L42-0': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L42-1': [['ええと、','also…']],
+  'L42-2': [['ええと、','also…'],['そうですね、','nun…']],
+  'L42-3': [['ちょっと、','kurz mal']],
+  'L42-4': [['そうですね、','nun…'],['ええと、','also…']],
+  'L42-5': [['なんと、','sage und schreibe'],['えっ、','was?!']],
+  'L43-0': [['あっ、','ah!'],['わあ、','wow!']],
+  'L43-1': [['ちょっと、','kurz mal']],
+  'L43-2': [['うーん、','hmm…'],['ええと、','also…']],
+  'L44-0': [['ちょっと、','etwas']],
+  'L44-1': [['そうですね、','also…']],
+  'L44-2': [['じゃ、','also dann'],['そうですね、','also…']],
+  'L44-4': [['すみませんが、','Verzeihung, aber…'],['ちょっと、','kurz mal']],
+  'L45-0': [['ええと、','also…']],
+  'L45-1': [['おかしいな、','seltsam…'],['ええと、','also…']],
+  'L45-2': [['あれ、','huch?'],['おかしいな、','seltsam…']],
+  'L46-0': [['ちょうど、','gerade'],['あっ、','ah!']],
+  'L46-1': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L46-2': [['たぶん、','wahrscheinlich'],['きっと、','bestimmt']],
+  'L47-0': [['そういえば、','übrigens'],['ええと、','also…']],
+  'L47-1': [['どうも、','irgendwie'],['なんだか、','irgendwie']],
+  'L47-2': [['あっ、','ah!'],['なんだか、','irgendwie']],
+  'L48-0': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['ええと、','also…']],
+  'L49-0': [['あのう、','ähm…']],
+  'L49-1': [['ええと、','also…'],['あのう、','ähm…']],
+  'L50-0': [['あのう、','ähm…']],
 };
 function orderFor(key){
   const ov = CURATED_SEQ[key];
@@ -5471,6 +5564,12 @@ function pickCuratedBuildWords(key, set, ord = curatedOrder){
   set.forEach(w => { if(!groups[w.role]){ groups[w.role] = []; order.push(w.role); } groups[w.role].push(w); });
   const st = curatedRot[key] || (curatedRot[key] = {});
   const picked = [];
+  // Optionale Auftakt-Füllwörter aus der zentralen Tabelle einblenden (sofern das
+  // Set nicht ohnehin schon einen Auftakt-Baustein mitbringt). Sie sind nicht
+  // pflichtig (filler:true) und stehen an Position 0.
+  if(FILLERS[key] && !set.some(w => w.filler)){
+    FILLERS[key].forEach(([jp, de]) => picked.push({ jp, de, role: 'Auftakt', filler: true }));
+  }
   for(const role of order){
     const blocks = groups[role];
     const start = st[role] || 0;
