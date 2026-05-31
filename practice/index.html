@@ -5673,6 +5673,7 @@ function renderSlotExercise(boxEl, c, lessonNum, idx, solutionHtml){
   }
   const order = slots.map((s, i) => ({ s, i }));
   for(let i = order.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
+  if(order.length > 1 && order.every((o, i) => o.i === i)){ [order[0], order[1]] = [order[1], order[0]]; } // nie bereits gelöst starten
   boxEl.innerHTML = `
     <div class="ex-help">🧩 Bringe die Bausteine des Musters in die richtige Reihenfolge und lass deinen Satz prüfen.</div>
     <div class="ex-answer empty"></div>
@@ -5713,6 +5714,7 @@ function renderPhraseBuilder(boxEl, c, lessonNum, idx, set, solutionHtml){
   const toks = chosen.toks;
   const order = toks.map((t, i) => ({ t, i }));
   for(let i = order.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [order[i], order[j]] = [order[j], order[i]]; }
+  if(order.length > 1 && order.every((o, i) => o.i === i)){ [order[0], order[1]] = [order[1], order[0]]; } // nie bereits gelöst starten
   boxEl.innerHTML = `
     <div class="ex-help">🧩 Bilde den Satz und bringe die Wörter in die richtige Reihenfolge:<br><b>${chosen.w.de || ''}</b></div>
     <div class="ex-answer empty"></div>
