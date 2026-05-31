@@ -407,6 +407,11 @@
   .ex-chip-de{
     font-family:"Shippori Mincho",serif;font-size:.6rem;color:#6b5d4a;margin-top:.08rem;
   }
+  .ex-chip-form{
+    display:block;margin-top:.1rem;
+    font-family:"JetBrains Mono",monospace;font-size:.48rem;letter-spacing:.04em;
+    color:#1f4a7a;font-style:italic;
+  }
   .ex-feedback{
     font-size:.85rem;font-weight:600;margin:.2rem 0 .5rem;font-family:"Shippori Mincho",serif;
   }
@@ -5449,20 +5454,35 @@ function conjFromDict(jp){
           sb+ta, sb+(NAI_MAP[last]||'らない'), sb+(NAKATTA_MAP[last]||'らなかった')];
 }
 
+// Form-Etiketten (für die Anzeige am Chip).
+const POLITE_TAGS = ['höflich', 'höfl. Vergangenheit', 'höflich verneint', 'höfl. Vergangenheit verneint'];
+const PLAIN_TAGS  = ['Grundform', 'Vergangenheit', 'verneint', 'Vergangenheit verneint'];
+const ADJ_TAGS    = PLAIN_TAGS.concat(POLITE_TAGS); // 4 Plain + 4 höflich
+function tagForms(forms, tags){ return forms.map((f, i) => ({ jp: f, tag: tags[i] || '' })); }
+
 function verbForms(jp){
-  const out = [];
+  let out = [];
   if(/ます$/.test(jp)){
     const p = jp.replace(/ます$/, '');
-    out.push(p+'ます', p+'ました', p+'ません', p+'ませんでした'); // höflich (immer sicher)
+    out = tagForms([p+'ます', p+'ました', p+'ません', p+'ませんでした'], POLITE_TAGS); // immer sicher
     const plain = verbPlain(jp);
-    if(plain) out.push(...plain);
+    if(plain) out = out.concat(tagForms(plain, PLAIN_TAGS));
   } else {
-    out.push(jp); // bereits Grundform (z. B. Plain-Form-Vokabeln aus L20)
+    out.push({ jp, tag: 'Grundform' }); // bereits Grundform (z. B. Plain-Form-Vokabeln aus L20)
     const eng = verbDictIndex()[jpBare(jp)];
-    if(eng) out.push(eng.masu, eng.mashita, eng.masen, eng.masenDeshita, eng.jisho, eng.ta, eng.nai, eng.nakatta);
-    else { const f = conjFromDict(jp); if(f) out.push(...f); }
+    if(eng){
+      out = out.concat(tagForms([eng.masu, eng.mashita, eng.masen, eng.masenDeshita], POLITE_TAGS));
+      out = out.concat(tagForms([eng.ta, eng.nai, eng.nakatta], PLAIN_TAGS.slice(1)));
+    } else {
+      const f = conjFromDict(jp);
+      if(f){
+        out = out.concat(tagForms([f[0], f[1], f[2], f[3]], POLITE_TAGS));
+        out = out.concat(tagForms([f[4], f[5], f[6]], PLAIN_TAGS.slice(1)));
+      }
+    }
   }
-  return [...new Set(out)];
+  const seen = new Set();
+  return out.filter(o => !seen.has(o.jp) && seen.add(o.jp));
 }
 
 // i-Adjektive: Stamm = ohne finales „い". Suffixregel ist universell sicher.
@@ -5471,35 +5491,35 @@ function verbForms(jp){
 // wie 可愛い.
 const IADJ_II_IRREG = ['かっこいい', '格好いい', '気持ちいい', 'ちょうどいい', '都合がいい', '心地いい'];
 function iAdjForms(jp){
-  if(!/い$/.test(jp)) return [jp];
+  if(!/い$/.test(jp)) return [{ jp, tag: 'Grundform' }];
   const bare = jpBare(jp);
   if(bare === 'いい' || IADJ_II_IRREG.some(w => bare.endsWith(w))){
     const p = jp.slice(0, jp.length - 2); // finales „いい" entfernen
-    return [
-      p + 'いい', p + 'よかった', p + 'よくない', p + 'よくなかった',
-      p + 'いいです', p + 'よかったです', p + 'よくないです', p + 'よくなかったです',
-    ];
+    return tagForms([
+      p+'いい', p+'よかった', p+'よくない', p+'よくなかった',
+      p+'いいです', p+'よかったです', p+'よくないです', p+'よくなかったです',
+    ], ADJ_TAGS);
   }
   const s = jp.replace(/い$/, '');
-  return [
-    s + 'い', s + 'かった', s + 'くない', s + 'くなかった',
-    s + 'いです', s + 'かったです', s + 'くないです', s + 'くなかったです',
-  ];
+  return tagForms([
+    s+'い', s+'かった', s+'くない', s+'くなかった',
+    s+'いです', s+'かったです', s+'くないです', s+'くなかったです',
+  ], ADJ_TAGS);
 }
 
 // na-Adjektive sind Basen (元気, 静か …); Kopula anhängen ist immer sicher.
 function naAdjForms(jp){
-  return [
-    jp + 'だ', jp + 'だった', jp + 'じゃ ない', jp + 'じゃ なかった',
-    jp + 'です', jp + 'でした', jp + 'じゃ ないです', jp + 'じゃ なかったです',
-  ];
+  return tagForms([
+    jp+'だ', jp+'だった', jp+'じゃ ない', jp+'じゃ なかった',
+    jp+'です', jp+'でした', jp+'じゃ ないです', jp+'じゃ なかったです',
+  ], ADJ_TAGS);
 }
 
 function wordForms(w){
   if(w.t === 'v')  return verbForms(w.jp);
   if(w.t === 'i')  return iAdjForms(w.jp);
   if(w.t === 'na') return naAdjForms(w.jp);
-  return [w.jp];
+  return [{ jp: w.jp, tag: '' }];
 }
 
 // Prüfung für kuratierte Bau-Übungen. Streng genug, dass NUR korrekte Sätze
@@ -5663,7 +5683,9 @@ function renderExerciseBox(boxEl, lessonNum, idx){
   // Vor dem Rendern anwenden, damit Chips und Modell-Reihenfolge übereinstimmen.
   words = words.map(w => {
     const forms = wordForms(w);
-    return forms.length > 1 ? { ...w, jp: forms[Math.floor(Math.random() * forms.length)] } : w;
+    if(forms.length <= 1) return w;
+    const pick = forms[Math.floor(Math.random() * forms.length)];
+    return { ...w, jp: pick.jp, form: pick.tag };
   });
   const chip = w => {
     const role = structuralRole(w);
@@ -5673,6 +5695,7 @@ function renderExerciseBox(boxEl, lessonNum, idx){
       ${role ? `<span class="ex-chip-role">${role}</span>` : ''}
       <span class="ex-chip-jp">${w.jp}${part ? `<span class="ex-chip-part">${part}</span>` : ''}</span>
       <span class="ex-chip-de">${w.de}</span>
+      ${w.form ? `<span class="ex-chip-form">${w.form}</span>` : ''}
     </span>`;
   };
 
