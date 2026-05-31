@@ -4803,12 +4803,13 @@ const EXERCISE_SETS = {
   ],
 
   'L45-2': [ // はずでした / はずだったのに
-    {jp:'<ruby>届<rt>とど</rt></ruby>く はずでした', de:'hätte ankommen sollen', role:'Erwartung (enttäuscht)'},
-    {jp:'<ruby>来<rt>く</rt></ruby>る はずでした', de:'hätte kommen sollen', role:'Erwartung (enttäuscht)'},
-    {jp:'<ruby>合格<rt>ごうかく</rt></ruby>する はずだったのに', de:'hätte bestehen sollen, aber…', role:'Erwartung + のに'},
-    {jp:'<ruby>間<rt>ま</rt></ruby>に <ruby>合<rt>あ</rt></ruby>う はずだったのに', de:'hätte reichen sollen, aber…', role:'Erwartung + のに'},
-    {jp:'<ruby>届<rt>とど</rt></ruby>きませんでした', de:'ist nicht angekommen', role:'Realität'},
-    {jp:'<ruby>落<rt>お</rt></ruby>ちました', de:'durchgefallen', role:'Realität'},
+    {jp:'<ruby>届<rt>とど</rt></ruby>く はずだったのに', de:'hätte ankommen sollen, aber…', role:'Erwartung'},
+    {jp:'<ruby>来<rt>く</rt></ruby>る はずだったのに', de:'hätte kommen sollen, aber…', role:'Erwartung'},
+    {jp:'<ruby>合格<rt>ごうかく</rt></ruby>する はずだったのに', de:'hätte bestehen sollen, aber…', role:'Erwartung'},
+    {jp:'<ruby>間<rt>ま</rt></ruby>に <ruby>合<rt>あ</rt></ruby>う はずだったのに', de:'hätte reichen sollen, aber…', role:'Erwartung'},
+    {jp:'<ruby>届<rt>とど</rt></ruby>きませんでした', de:'…es kam nicht an', role:'Realität'},
+    {jp:'<ruby>来<rt>き</rt></ruby>ませんでした', de:'…er kam nicht', role:'Realität'},
+    {jp:'だめでした', de:'…es klappte nicht', role:'Realität'},
   ],
 
   // === L46: ところ / ばかり / はず ===
@@ -4819,6 +4820,7 @@ const EXERCISE_SETS = {
     {jp:'<ruby>出<rt>で</rt></ruby>かける', de:'gleich losgehen', role:'Vor (jisho+ところ)'},
     {jp:'<ruby>帰<rt>かえ</rt></ruby>って <ruby>来<rt>き</rt></ruby>た', de:'gerade heimgekommen', role:'Nach (た+ところ)'},
     {jp:'<ruby>会議<rt>かいぎ</rt></ruby>が <ruby>始<rt>はじ</rt></ruby>まった', de:'Meeting gerade angefangen', role:'Nach (た+ところ)'},
+    {jp:'ところです', de:'…gerade (jetzt)', role:'Stand'},
   ],
   'L46-2': [ // はずです
     {jp:'もう <ruby>届<rt>とど</rt></ruby>いている', de:'müsste schon angekommen sein', role:'Erwartung'},
@@ -4826,6 +4828,7 @@ const EXERCISE_SETS = {
     {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>は <ruby>来<rt>く</rt></ruby>る', de:'der Zug müsste kommen', role:'Erwartung'},
     {jp:'<ruby>予約<rt>よやく</rt></ruby>して ある', de:'müsste reserviert sein', role:'Erwartung'},
     {jp:'3<ruby>時<rt>じ</rt></ruby>に <ruby>着<rt>つ</rt></ruby>く', de:'sollte um 3 ankommen', role:'Erwartung'},
+    {jp:'はずです', de:'…müsste / sollte', role:'Annahme'},
   ],
 
   'L46-1': [ // た ばかりです
@@ -4837,13 +4840,14 @@ const EXERCISE_SETS = {
     {jp:'ばかりです', de:'habe gerade erst …', role:'Abschluss'},
   ],
 
-  'L47-2': [ // 声/音/におい/味 がします
-    {jp:'いい においが します', de:'es riecht gut', role:'Sinneseindruck'},
-    {jp:'<ruby>変<rt>へん</rt></ruby>な <ruby>音<rt>おと</rt></ruby>が します', de:'komisches Geräusch', role:'Sinneseindruck'},
-    {jp:'<ruby>甘<rt>あま</rt></ruby>い <ruby>味<rt>あじ</rt></ruby>が します', de:'schmeckt süß', role:'Sinneseindruck'},
-    {jp:'<ruby>赤<rt>あか</rt></ruby>ちゃんの <ruby>声<rt>こえ</rt></ruby>が します', de:'Babystimme hörbar', role:'Sinneseindruck'},
-    {jp:'ガスの においが します', de:'es riecht nach Gas', role:'Sinneseindruck'},
-    {jp:'コーヒーの <ruby>香<rt>かお</rt></ruby>りが します', de:'Kaffeeduft', role:'Sinneseindruck'},
+  'L47-2': [ // …(Adjektiv) …が します
+    {jp:'いい', de:'gut / angenehm', role:'Adjektiv'},
+    {jp:'<ruby>変<rt>へん</rt></ruby>な', de:'komisch', role:'Adjektiv'},
+    {jp:'ひどい', de:'schlimm / übel', role:'Adjektiv'},
+    {jp:'においが します', de:'…riecht es', role:'Sinneseindruck'},
+    {jp:'<ruby>音<rt>おと</rt></ruby>が します', de:'…Geräusch ist zu hören', role:'Sinneseindruck'},
+    {jp:'<ruby>味<rt>あじ</rt></ruby>が します', de:'…schmeckt es', role:'Sinneseindruck'},
+    {jp:'<ruby>声<rt>こえ</rt></ruby>が します', de:'…Stimme ist zu hören', role:'Sinneseindruck'},
   ],
 
   // === L47: そう Hörensagen / よう ===
@@ -4855,13 +4859,14 @@ const EXERCISE_SETS = {
     {jp:'<ruby>天気予報<rt>てんきよほう</rt></ruby>に よると', de:'laut Wetterbericht', role:'Quelle'},
     {jp:'<ruby>新聞<rt>しんぶん</rt></ruby>に よると', de:'laut Zeitung', role:'Quelle'},
   ],
-  'L47-1': [ // ようです
+  'L47-1': [ // …ようです
     {jp:'<ruby>誰<rt>だれ</rt></ruby>か <ruby>来<rt>き</rt></ruby>た', de:'jemand ist gekommen', role:'Vermutung'},
     {jp:'<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>っている', de:'es regnet', role:'Vermutung'},
     {jp:'<ruby>彼<rt>かれ</rt></ruby>は <ruby>疲<rt>つか</rt></ruby>れている', de:'er ist müde', role:'Vermutung'},
-    {jp:'この ケーキは <ruby>手作<rt>てづく</rt></ruby>りだ', de:'Kuchen ist selbstgemacht', role:'Vermutung'},
-    {jp:'<ruby>音<rt>おと</rt></ruby>がする', de:'man hört ein Geräusch', role:'Beobachtung'},
-    {jp:'いい においがする', de:'es riecht gut', role:'Beobachtung'},
+    {jp:'この <ruby>店<rt>みせ</rt></ruby>は <ruby>人気<rt>にんき</rt></ruby>がある', de:'der Laden ist beliebt', role:'Vermutung'},
+    {jp:'<ruby>音<rt>おと</rt></ruby>が する', de:'man hört ein Geräusch', role:'Beobachtung'},
+    {jp:'<ruby>道<rt>みち</rt></ruby>が <ruby>込<rt>こ</rt></ruby>んでいる', de:'die Straße ist voll', role:'Beobachtung'},
+    {jp:'ようです', de:'…, scheint es', role:'Eindruck'},
   ],
 
   // === L48: Kausativ ===
@@ -4875,7 +4880,10 @@ const EXERCISE_SETS = {
     {jp:'<ruby>残業<rt>ざんぎょう</rt></ruby>させる', de:'Überstunden machen lassen', role:'Kausativ'},
     {jp:'<ruby>練習<rt>れんしゅう</rt></ruby>させる', de:'üben lassen', role:'Kausativ'},
   ],
-  'L48-2': [ // V使役て ください (Erlaubnis erbitten)
+  'L48-2': [ // …(höflich) …(使役)て ください (Erlaubnis erbitten)
+    {jp:'すみませんが', de:'Entschuldigung, aber', role:'Höflichkeit'},
+    {jp:'ちょっと', de:'kurz', role:'Höflichkeit'},
+    {jp:'<ruby>今日<rt>きょう</rt></ruby>は', de:'heute', role:'Höflichkeit'},
     {jp:'<ruby>休<rt>やす</rt></ruby>ませて ください', de:'Lass mich bitte ausruhen', role:'Erlaubnis'},
     {jp:'やらせて ください', de:'Lass mich es versuchen', role:'Erlaubnis'},
     {jp:'<ruby>行<rt>い</rt></ruby>かせて ください', de:'Lass mich bitte gehen', role:'Erlaubnis'},
@@ -4892,19 +4900,22 @@ const EXERCISE_SETS = {
     {jp:'<ruby>学生<rt>がくせい</rt></ruby>に <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>ませた', de:'Student Buch lesen lassen', role:'に (transitiv)'},
   ],
 
-  'L49-1': [ // Passiv als Sonkeigo
-    {jp:'<ruby>社長<rt>しゃちょう</rt></ruby>は もう <ruby>帰<rt>かえ</rt></ruby>られました', de:'Chef ist (respektvoll) gegangen', role:'Passiv-Sonkeigo'},
-    {jp:'<ruby>先生<rt>せんせい</rt></ruby>は <ruby>何<rt>なに</rt></ruby>を <ruby>飲<rt>の</rt></ruby>まれますか', de:'Was trinken Sie (Lehrer)?', role:'Passiv-Sonkeigo'},
-    {jp:'お<ruby>客<rt>きゃく</rt></ruby>さまが <ruby>来<rt>こ</rt></ruby>られました', de:'Kunde ist gekommen (respektv.)', role:'Passiv-Sonkeigo'},
-    {jp:'<ruby>部長<rt>ぶちょう</rt></ruby>は もう <ruby>読<rt>よ</rt></ruby>まれましたか', de:'Hat Abt.leiter schon gelesen?', role:'Passiv-Sonkeigo'},
+  'L49-1': [ // …は …(ら)れます (Passiv als Sonkeigo)
+    {jp:'<ruby>社長<rt>しゃちょう</rt></ruby>は', de:'der Chef', role:'Person'},
+    {jp:'<ruby>先生<rt>せんせい</rt></ruby>は', de:'der Lehrer', role:'Person'},
+    {jp:'お<ruby>客<rt>きゃく</rt></ruby>さまは', de:'der Kunde', role:'Person'},
+    {jp:'<ruby>部長<rt>ぶちょう</rt></ruby>は', de:'der Abteilungsleiter', role:'Person'},
+    {jp:'もう <ruby>帰<rt>かえ</rt></ruby>られました', de:'…ist schon gegangen', role:'Sonkeigo-Verb'},
+    {jp:'<ruby>来<rt>こ</rt></ruby>られました', de:'…ist gekommen', role:'Sonkeigo-Verb'},
+    {jp:'もう <ruby>出<rt>で</rt></ruby>かけられました', de:'…ist schon ausgegangen', role:'Sonkeigo-Verb'},
   ],
-  'L49-2': [ // お + V-stem + ください
-    {jp:'お<ruby>座<rt>すわ</rt></ruby>りください', de:'bitte setzen Sie sich', role:'お〜ください'},
-    {jp:'お<ruby>入<rt>はい</rt></ruby>りください', de:'bitte treten Sie ein', role:'お〜ください'},
-    {jp:'お<ruby>待<rt>ま</rt></ruby>ちください', de:'bitte warten Sie', role:'お〜ください'},
-    {jp:'お<ruby>使<rt>つか</rt></ruby>いください', de:'bitte benutzen Sie', role:'お〜ください'},
-    {jp:'お<ruby>召<rt>め</rt></ruby>し<ruby>上<rt>あ</rt></ruby>がりください', de:'bitte essen/trinken Sie', role:'お〜ください'},
-    {jp:'ご<ruby>覧<rt>らん</rt></ruby>ください', de:'bitte sehen Sie', role:'ご〜ください'},
+  'L49-2': [ // …(Einladung) お/ご …ください
+    {jp:'どうぞ', de:'bitte (sehr)', role:'Einladung'},
+    {jp:'お<ruby>座<rt>すわ</rt></ruby>りください', de:'…setzen Sie sich', role:'Aufforderung'},
+    {jp:'お<ruby>入<rt>はい</rt></ruby>りください', de:'…treten Sie ein', role:'Aufforderung'},
+    {jp:'お<ruby>待<rt>ま</rt></ruby>ちください', de:'…warten Sie', role:'Aufforderung'},
+    {jp:'お<ruby>使<rt>つか</rt></ruby>いください', de:'…benutzen Sie', role:'Aufforderung'},
+    {jp:'ご<ruby>覧<rt>らん</rt></ruby>ください', de:'…sehen Sie', role:'Aufforderung'},
   ],
 
   'L50-2': [ // Höflichkeitsstufen Übersicht
@@ -5343,6 +5354,14 @@ const CURATED_SEQ = {
   'L44-2': { 'Handlung': 4, 'Abschluss': 6 },                              // …を …く/に します
   'L44-3': { 'Wahl': 4, 'Entscheidung': 6 },                               // …に します (wählen)
   'L44-4': { 'Adverb': 2, 'Handlung': 6 },                                 // …(Adverb) …て ください
+  'L45-2': { 'Erwartung': 1, 'Realität': 6 },                              // …はずだったのに、…
+  'L46-0': { 'Vor (jisho+ところ)': 4, 'Während (ている+ところ)': 4, 'Nach (た+ところ)': 4, 'Stand': 6 }, // …ところです
+  'L46-2': { 'Erwartung': 4, 'Annahme': 6 },                               // …はずです
+  'L47-1': { 'Vermutung': 4, 'Beobachtung': 4, 'Eindruck': 6 },            // …ようです
+  'L47-2': { 'Adjektiv': 2, 'Sinneseindruck': 6 },                         // …(Adj) …が します
+  'L48-2': { 'Höflichkeit': 1, 'Erlaubnis': 6 },                           // …(使役)て ください
+  'L49-1': { 'Person': 1, 'Sonkeigo-Verb': 6 },                            // …は …(ら)れました
+  'L49-2': { 'Einladung': 1, 'Aufforderung': 6 },                          // …お/ご …ください
   'L34-2': { 'Ohne': 3, 'Handlung': 6 },                                   // …ないで …する
   'L42-1': { 'Werkzeug': 4, 'Zweck': 6 },                                  // …で …する
   'L42-3': { 'Zweck (V-stem に)': 4, 'Bewegung': 6 },                      // …に 行く/来る/帰る
