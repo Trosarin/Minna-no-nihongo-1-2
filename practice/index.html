@@ -407,6 +407,9 @@
   .ex-chip-de{
     font-family:"Shippori Mincho",serif;font-size:.6rem;color:#6b5d4a;margin-top:.08rem;
   }
+  /* Optionaler Auftakt-Baustein (じゃ、/ あのう、…): gestrichelt = „darf, muss nicht“. */
+  .ex-chip-filler{border-style:dashed!important;opacity:.85}
+  .ex-chip-filler .ex-chip-role{color:#1f4a7a}
   .ex-chip-form{
     display:block;margin-top:.1rem;
     font-family:"JetBrains Mono",monospace;font-size:.48rem;letter-spacing:.04em;
@@ -4019,6 +4022,8 @@ const EXERCISE_SETS = {
     {jp:'んですか', de:'…? (nach dem Grund fragen)', role:'Nachfrage', fixed:true},
   ],
   'L26-2': [ // て いただけませんか
+    {jp:'あのう、', de:'Entschuldigung… (Anrede)', role:'Auftakt', filler:true},
+    {jp:'すみませんが、', de:'Verzeihung, aber…', role:'Auftakt', filler:true},
     {jp:'<ruby>説明<rt>せつめい</rt></ruby>して', de:'erklären', role:'Bitte'},
     {jp:'<ruby>手伝<rt>てつだ</rt></ruby>って', de:'helfen', role:'Bitte'},
     {jp:'<ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>って', de:'Foto machen', role:'Bitte'},
@@ -4028,6 +4033,8 @@ const EXERCISE_SETS = {
     {jp:'いただけませんか', de:'…würden Sie bitte …? (höfliche Bitte)', role:'Höflichkeitsbitte', fixed:true},
   ],
   'L26-3': [ // 疑問詞 + V たら いいですか
+    {jp:'あのう、', de:'Entschuldigung… (Anrede)', role:'Auftakt', filler:true},
+    {jp:'すみませんが、', de:'Verzeihung, aber…', role:'Auftakt', filler:true},
     {jp:'<ruby>何<rt>なに</rt></ruby>を したら', de:'was tun', role:'W-Frage'},
     {jp:'どこへ <ruby>行<rt>い</rt></ruby>ったら', de:'wohin gehen', role:'W-Frage'},
     {jp:'<ruby>誰<rt>だれ</rt></ruby>に <ruby>聞<rt>き</rt></ruby>いたら', de:'wen fragen', role:'W-Frage'},
@@ -4074,9 +4081,9 @@ const EXERCISE_SETS = {
   'L28-2': [ // …は …し、…し
     {jp:'あの レストランは', de:'jenes Restaurant', role:'Subjekt'},
     {jp:'この <ruby>町<rt>まち</rt></ruby>は', de:'diese Stadt', role:'Subjekt'},
-    {jp:'<ruby>安<rt>やす</rt></ruby>いし', de:'ist billig, und', role:'Grund 1'},
-    {jp:'おいしいし', de:'ist lecker, und', role:'Grund 1'},
-    {jp:'<ruby>便利<rt>べんり</rt></ruby>だし', de:'ist praktisch, und', role:'Grund 1'},
+    {jp:'<ruby>安<rt>やす</rt></ruby>いし、', de:'ist billig, und', role:'Grund 1'},
+    {jp:'おいしいし、', de:'ist lecker, und', role:'Grund 1'},
+    {jp:'<ruby>便利<rt>べんり</rt></ruby>だし、', de:'ist praktisch, und', role:'Grund 1'},
     {jp:'きれいだし', de:'ist schön, und', role:'Grund 2'},
     {jp:'<ruby>近<rt>ちか</rt></ruby>いし', de:'ist nah, und', role:'Grund 2'},
     {jp:'<ruby>静<rt>しず</rt></ruby>かだし', de:'ist ruhig, und', role:'Grund 2'},
@@ -4111,6 +4118,7 @@ const EXERCISE_SETS = {
     {jp:'<ruby>準備<rt>じゅんび</rt></ruby>して ある', de:'ist vorbereitet', role:'Zustand'},
   ],
   'L30-1': [ // …前に …て おきます
+    {jp:'それから、', de:'und dann (außerdem)', role:'Auftakt', filler:true},
     {jp:'<ruby>旅行<rt>りょこう</rt></ruby>の <ruby>前<rt>まえ</rt></ruby>に', de:'vor der Reise', role:'Anlass'},
     {jp:'<ruby>会議<rt>かいぎ</rt></ruby>の <ruby>前<rt>まえ</rt></ruby>に', de:'vor dem Meeting', role:'Anlass'},
     {jp:'<ruby>出<rt>で</rt></ruby>かける <ruby>前<rt>まえ</rt></ruby>に', de:'vor dem Weggehen', role:'Anlass'},
@@ -4139,9 +4147,9 @@ const EXERCISE_SETS = {
     {jp:'<ruby>写真<rt>しゃしん</rt></ruby>は <ruby>撮<rt>と</rt></ruby>れない', de:'Fotos kann man nicht machen', role:'Ergebnis'},
   ],
   'L27-4': [ // …は …ますが、…は …ません (Kontrast)
-    {jp:'<ruby>肉<rt>にく</rt></ruby>は <ruby>食<rt>た</rt></ruby>べますが', de:'Fleisch esse ich, aber', role:'Bejaht'},
-    {jp:'ビールは <ruby>飲<rt>の</rt></ruby>みますが', de:'Bier trinke ich, aber', role:'Bejaht'},
-    {jp:'<ruby>漢字<rt>かんじ</rt></ruby>は <ruby>読<rt>よ</rt></ruby>めますが', de:'Kanji lesen kann ich, aber', role:'Bejaht'},
+    {jp:'<ruby>肉<rt>にく</rt></ruby>は <ruby>食<rt>た</rt></ruby>べますが、', de:'Fleisch esse ich, aber', role:'Bejaht'},
+    {jp:'ビールは <ruby>飲<rt>の</rt></ruby>みますが、', de:'Bier trinke ich, aber', role:'Bejaht'},
+    {jp:'<ruby>漢字<rt>かんじ</rt></ruby>は <ruby>読<rt>よ</rt></ruby>めますが、', de:'Kanji lesen kann ich, aber', role:'Bejaht'},
     {jp:'<ruby>魚<rt>さかな</rt></ruby>は <ruby>食<rt>た</rt></ruby>べません', de:'Fisch esse ich nicht', role:'Verneint'},
     {jp:'ワインは <ruby>飲<rt>の</rt></ruby>みません', de:'Wein trinke ich nicht', role:'Verneint'},
     {jp:'<ruby>字<rt>じ</rt></ruby>は <ruby>書<rt>か</rt></ruby>けません', de:'Schriftzeichen schreiben kann ich nicht', role:'Verneint'},
@@ -4158,9 +4166,9 @@ const EXERCISE_SETS = {
     {jp:'<ruby>日本語<rt>にほんご</rt></ruby>を <ruby>勉強<rt>べんきょう</rt></ruby>して います', de:'Japanisch lernen', role:'Tätigkeit'},
   ],
   'L28-3': [ // …。それで …
-    {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>が <ruby>止<rt>と</rt></ruby>まりました', de:'Zug blieb stehen', role:'Ursache'},
-    {jp:'<ruby>財布<rt>さいふ</rt></ruby>を <ruby>忘<rt>わす</rt></ruby>れました', de:'Geldbörse vergessen', role:'Ursache'},
-    {jp:'<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>りました', de:'es hat geregnet', role:'Ursache'},
+    {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>が <ruby>止<rt>と</rt></ruby>まりました。', de:'Zug blieb stehen', role:'Ursache'},
+    {jp:'<ruby>財布<rt>さいふ</rt></ruby>を <ruby>忘<rt>わす</rt></ruby>れました。', de:'Geldbörse vergessen', role:'Ursache'},
+    {jp:'<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>りました。', de:'es hat geregnet', role:'Ursache'},
     {jp:'それで', de:'deshalb', role:'Folgewort', fixed:true},
     {jp:'タクシーで <ruby>行<rt>い</rt></ruby>きました', de:'mit Taxi gefahren', role:'Folge'},
     {jp:'<ruby>友達<rt>ともだち</rt></ruby>に <ruby>借<rt>か</rt></ruby>りました', de:'vom Freund geliehen', role:'Folge'},
@@ -4257,6 +4265,8 @@ const EXERCISE_SETS = {
     {jp:'<ruby>部長<rt>ぶちょう</rt></ruby>に', de:'an den Abteilungsleiter', role:'Empfänger'},
   ],
   'L31-0': [ // …(Vorschlag) …よう
+    {jp:'じゃ、', de:'also dann', role:'Auftakt', filler:true},
+    {jp:'さあ、', de:'na los', role:'Auftakt', filler:true},
     {jp:'<ruby>一緒<rt>いっしょ</rt></ruby>に', de:'zusammen', role:'Vorschlag'},
     {jp:'そろそろ', de:'so langsam', role:'Vorschlag'},
     {jp:'みんなで', de:'alle zusammen', role:'Vorschlag'},
@@ -4767,6 +4777,8 @@ const EXERCISE_SETS = {
     {jp:'します', de:'…machen', role:'Abschluss'},
   ],
   'L44-3': [ // …に します (wählen)
+    {jp:'じゃ、', de:'also dann', role:'Auftakt', filler:true},
+    {jp:'では、', de:'nun denn', role:'Auftakt', filler:true},
     {jp:'コーヒー', de:'Kaffee', role:'Wahl'},
     {jp:'ビール', de:'Bier', role:'Wahl'},
     {jp:'カレー', de:'Curry', role:'Wahl'},
@@ -4803,10 +4815,10 @@ const EXERCISE_SETS = {
   ],
 
   'L45-2': [ // はずでした / はずだったのに
-    {jp:'<ruby>届<rt>とど</rt></ruby>く はずだったのに', de:'hätte ankommen sollen, aber…', role:'Erwartung'},
-    {jp:'<ruby>来<rt>く</rt></ruby>る はずだったのに', de:'hätte kommen sollen, aber…', role:'Erwartung'},
-    {jp:'<ruby>合格<rt>ごうかく</rt></ruby>する はずだったのに', de:'hätte bestehen sollen, aber…', role:'Erwartung'},
-    {jp:'<ruby>間<rt>ま</rt></ruby>に <ruby>合<rt>あ</rt></ruby>う はずだったのに', de:'hätte reichen sollen, aber…', role:'Erwartung'},
+    {jp:'<ruby>届<rt>とど</rt></ruby>く はずだったのに、', de:'hätte ankommen sollen, aber…', role:'Erwartung'},
+    {jp:'<ruby>来<rt>く</rt></ruby>る はずだったのに、', de:'hätte kommen sollen, aber…', role:'Erwartung'},
+    {jp:'<ruby>合格<rt>ごうかく</rt></ruby>する はずだったのに、', de:'hätte bestehen sollen, aber…', role:'Erwartung'},
+    {jp:'<ruby>間<rt>ま</rt></ruby>に <ruby>合<rt>あ</rt></ruby>う はずだったのに、', de:'hätte reichen sollen, aber…', role:'Erwartung'},
     {jp:'<ruby>届<rt>とど</rt></ruby>きませんでした', de:'…es kam nicht an', role:'Realität', fixed:true},
     {jp:'<ruby>来<rt>き</rt></ruby>ませんでした', de:'…er kam nicht', role:'Realität', fixed:true},
     {jp:'だめでした', de:'…es klappte nicht', role:'Realität', fixed:true},
@@ -4905,9 +4917,9 @@ const EXERCISE_SETS = {
     {jp:'<ruby>先生<rt>せんせい</rt></ruby>は', de:'der Lehrer', role:'Person'},
     {jp:'お<ruby>客<rt>きゃく</rt></ruby>さまは', de:'der Kunde', role:'Person'},
     {jp:'<ruby>部長<rt>ぶちょう</rt></ruby>は', de:'der Abteilungsleiter', role:'Person'},
-    {jp:'もう <ruby>帰<rt>かえ</rt></ruby>られました', de:'…ist schon gegangen', role:'Sonkeigo-Verb'},
-    {jp:'<ruby>来<rt>こ</rt></ruby>られました', de:'…ist gekommen', role:'Sonkeigo-Verb'},
-    {jp:'もう <ruby>出<rt>で</rt></ruby>かけられました', de:'…ist schon ausgegangen', role:'Sonkeigo-Verb'},
+    {jp:'もう <ruby>帰<rt>かえ</rt></ruby>られました', de:'…ist schon gegangen', role:'Sonkeigo-Verb', politeOnly:true},
+    {jp:'<ruby>来<rt>こ</rt></ruby>られました', de:'…ist gekommen', role:'Sonkeigo-Verb', politeOnly:true},
+    {jp:'もう <ruby>出<rt>で</rt></ruby>かけられました', de:'…ist schon ausgegangen', role:'Sonkeigo-Verb', politeOnly:true},
   ],
   'L49-2': [ // …(Einladung) お/ご …ください
     {jp:'どうぞ', de:'bitte (sehr)', role:'Einladung'},
@@ -5320,8 +5332,8 @@ function curatedOrder(role){
 const CURATED_SEQ = {
   'L26-0': { 'Grund': 4, 'Erklärung': 6 },                                 // …んです
   'L26-1': { 'Frage-Wort': 1, 'Situation': 4, 'Nachfrage': 6 },            // どうして …んですか
-  'L26-2': { 'Bitte': 4, 'Höflichkeitsbitte': 6 },                         // …て いただけませんか
-  'L26-3': { 'W-Frage': 4, 'Rat-Frage': 6 },                               // 疑問詞 …たら いいですか
+  'L26-2': { 'Auftakt': 0, 'Bitte': 4, 'Höflichkeitsbitte': 6 },                         // …て いただけませんか
+  'L26-3': { 'Auftakt': 0, 'W-Frage': 4, 'Rat-Frage': 6 },                               // 疑問詞 …たら いいですか
   'L27-1': { 'Ort': 1, 'Wahrnehmung': 6 },                                 // …から …が 見えます/聞こえます
   'L27-2': { 'Thema': 1, 'Einschränkung': 6 },                             // …は …しか …ません
   'L27-4': { 'Bejaht': 1, 'Verneint': 6 },                                 // …は …ますが、…は …ません
@@ -5330,8 +5342,8 @@ const CURATED_SEQ = {
   'L28-2': { 'Subjekt': 1, 'Grund 1': 4, 'Grund 2': 5 },                   // …は …し、…し
   'L28-3': { 'Ursache': 1, 'Folgewort': 3, 'Folge': 5 },                   // …。それで …
   'L29-2': { 'Subjekt': 1, 'Geschehen': 6 },                               // …は …て しまいました
-  'L30-1': { 'Anlass': 1, 'Vorbereitung': 6 },                             // …前に …て おきます
-  'L31-0': { 'Vorschlag': 1, 'Volitiv': 6 },                               // …(Vorschlag) …よう
+  'L30-1': { 'Auftakt': 0, 'Anlass': 1, 'Vorbereitung': 6 },                             // …前に …て おきます
+  'L31-0': { 'Auftakt': 0, 'Vorschlag': 1, 'Volitiv': 6 },                               // …(Vorschlag) …よう
   'L31-1': { 'Plan': 4, 'Vorhaben': 6 },                                   // …よう と思って います
   'L31-3': { 'Absicht': 4, 'Negativ': 4, 'Vorhaben': 6 },                  // …つもりです
   'L31-4': { 'Plan': 4, 'Vorhaben': 6 },                                   // …予定です
@@ -5352,7 +5364,7 @@ const CURATED_SEQ = {
   'L43-1': { 'Aktion': 4, 'Richtung': 6 },                                 // …て 来ます / 行きます
   'L44-1': { 'Verb-Stamm': 4, 'Eigenschaft': 6 },                          // …やすいです / …にくいです
   'L44-2': { 'Handlung': 4, 'Abschluss': 6 },                              // …を …く/に します
-  'L44-3': { 'Wahl': 4, 'Entscheidung': 6 },                               // …に します (wählen)
+  'L44-3': { 'Auftakt': 0, 'Wahl': 4, 'Entscheidung': 6 },                               // …に します (wählen)
   'L44-4': { 'Adverb': 2, 'Handlung': 6 },                                 // …(Adverb) …て ください
   'L45-2': { 'Erwartung': 1, 'Realität': 6 },                              // …はずだったのに、…
   'L46-0': { 'Vor (jisho+ところ)': 4, 'Während (ている+ところ)': 4, 'Nach (た+ところ)': 4, 'Stand': 6 }, // …ところです
@@ -5411,7 +5423,9 @@ function buildCuratedModelOrder(words, ord = curatedOrder){
 }
 
 function curatedChip(w, ord = curatedOrder){
-  return `<span class="ex-chip" onclick="exPickChip(this)" data-order="${ord(w.role)}" data-role="${w.role || ''}">
+  // data-filler: optionaler Auftakt (じゃ、/ あのう、…) — für die Vollständigkeits-
+  // prüfung NICHT verlangt, darf aber (wenn gelegt) nur ganz vorne stehen.
+  return `<span class="ex-chip${w.filler ? ' ex-chip-filler' : ''}" onclick="exPickChip(this)" data-order="${ord(w.role)}" data-role="${w.role || ''}"${w.filler ? ' data-filler="1"' : ''}>
     ${w.role ? `<span class="ex-chip-role">${w.role}</span>` : ''}
     <span class="ex-chip-jp">${w.jp}</span>
     <span class="ex-chip-de">${w.de}</span>
@@ -5429,7 +5443,7 @@ const TENSE_RULES = [
   [/でした$/,       ['です', 'でした']],
   [/です$/,         ['です', 'でした']],
 ];
-function tenseVariants(jp){
+function tenseVariants(jp, politeOnly){
   const out = [];
   for(const [re, forms] of TENSE_RULES){
     if(re.test(jp)){ const stem = jp.replace(re, ''); out.push(...forms.map(f => stem + f)); break; }
@@ -5437,7 +5451,9 @@ function tenseVariants(jp){
   if(!out.length) out.push(jp);
   // Grundform (Plain) ergänzen, wenn das Prädikat ein positives höfliches Verb
   // ist (…ます/…ました) und sicher konjugierbar. Negative/です-Formen bleiben höflich.
-  if(/ます$/.test(jp) || /ました$/.test(jp)){
+  // politeOnly: bei Respektsprache (Keigo) KEINE Plainform anbieten — dort wäre
+  // die schlichte Grundform (z. B. 帰られた statt 帰られました) pragmatisch unpassend.
+  if(!politeOnly && (/ます$/.test(jp) || /ました$/.test(jp))){
     const plain = verbPlain(jp.replace(/ました$/, 'ます'));
     if(plain){ out.push(plain[0], plain[1]); } // Grundform + Plain-Vergangenheit
   }
@@ -5464,7 +5480,7 @@ function pickCuratedBuildWords(key, set, ord = curatedOrder){
   }
   const out = picked.map(w => {
     if(ord(w.role) === 6 && !w.fixed){ // feste Grammatik-Endungen (w.fixed) nicht konjugieren
-      const vs = tenseVariants(w.jp);
+      const vs = tenseVariants(w.jp, w.politeOnly);
       if(vs.length > 1) return { ...w, jp: vs[Math.floor(Math.random() * vs.length)] };
     }
     return w;
@@ -5673,7 +5689,8 @@ function curatedCheckOrder(btn){
     return;
   }
   // (2) Vollständigkeit: alle vorhandenen Positionsstufen müssen vertreten sein.
-  const required = new Set([...box.querySelectorAll('.ex-chip')].map(c => c.dataset.order));
+  // Optionale Auftakt-Bausteine (data-filler) zählen NICHT zur Pflicht.
+  const required = new Set([...box.querySelectorAll('.ex-chip')].filter(c => c.dataset.filler !== '1').map(c => c.dataset.order));
   const have = new Set(placed.map(c => c.dataset.order));
   for(const r of required){
     if(!have.has(r)){
@@ -5718,7 +5735,7 @@ function renderExerciseBox(boxEl, lessonNum, idx){
     if(curatedBuildable(customSet, ord, !!CURATED_SEQ[key])){
       const buildWords = pickCuratedBuildWords(key, customSet, ord);
       boxEl.innerHTML = `
-        <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an, um einen Satz nach dem Muster oben zu bilden. Tipp: Wähle je Rolle einen Baustein — das Prädikat steht am Ende. Die Zeitform (Gegenwart/Vergangenheit) wechselt.</div>
+        <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an, um einen Satz nach dem Muster oben zu bilden. Tipp: Wähle je Rolle einen Baustein — das Prädikat steht am Ende. Die Zeitform (Gegenwart/Vergangenheit) wechselt.${buildWords.some(w => w.filler) ? ' <b>Gestrichelte</b> Bausteine (z. B. じゃ、) sind optionale Auftakt-Wörter — du kannst sie voranstellen oder weglassen.' : ''}</div>
         <div class="ex-answer empty"></div>
         <div class="ex-source-label">Bausteine</div>
         <div class="ex-word-pool ex-source">
