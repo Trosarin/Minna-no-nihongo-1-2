@@ -5644,8 +5644,11 @@ function renderExerciseBox(boxEl, lessonNum, idx){
       `;
       return;
     }
+    // 2) Kuratierte Phrasen ohne ordnbare Rollen: konkreter Wort-Reihenfolge-
+    //    Satzbau (Satz in seine Wörter zerlegen und ordnen lassen).
+    if(renderPhraseBuilder(boxEl, c, lessonNum, idx, customSet, solutionHtml)) return;
   }
-  // 2) Universeller Satzbau aus den Muster-Slots: die Slots sind bereits in
+  // 3) Universeller Satzbau aus den Muster-Slots: die Slots sind bereits in
   // korrekter Reihenfolge definiert → exakte Prüfung, nie falsch-positiv,
   // funktioniert für JEDES Muster (ersetzt Pool & generischen Builder).
   renderSlotExercise(boxEl, c, lessonNum, idx, solutionHtml);
@@ -5691,6 +5694,47 @@ function renderSlotExercise(boxEl, c, lessonNum, idx, solutionHtml){
     </div>
     ${solutionHtml}
   `;
+}
+
+// Konkreter Wort-Reihenfolge-Satzbau aus kuratierten Phrasen: ein Beispielsatz
+// wird an den Leerzeichen in Wörter zerlegt; der Lernende ordnet sie. Exakte
+// Prüfung (Original-Reihenfolge) → nie falsch-positiv. Liefert false, wenn das
+// Set keine mehrwortigen Phrasen hat (dann greift der Slot-Satzbau).
+const phraseRot = {};
+function renderPhraseBuilder(boxEl, c, lessonNum, idx, set, solutionHtml){
+  const key = `L${lessonNum}-${idx}`;
+  if(set.some(w => /→|⇆/.test(w.jp || ''))) return false; // Konjugationstabellen ausschließen
+  const cand = set.map(w => ({ w, toks: (w.jp || '').trim().split(/\s+/).filter(Boolean) }))
+                  .filter(o => o.toks.length >= 2);
+  if(!cand.length) return false;
+  const st = phraseRot[key] || 0;
+  phraseRot[key] = st + 1;
+  const chosen = cand[st % cand.length];
+  const toks = chosen.toks;
+  const order = toks.map((t, i) => ({ t, i }));
+  for(let i = order.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [order[i], order[j]] = [order[j], order[i]]; }
+  boxEl.innerHTML = `
+    <div class="ex-help">🧩 Bilde den Satz und bringe die Wörter in die richtige Reihenfolge:<br><b>${chosen.w.de || ''}</b></div>
+    <div class="ex-answer empty"></div>
+    <div class="ex-source-label">Wörter${chosen.w.role ? ` · ${chosen.w.role}` : ''}</div>
+    <div class="ex-word-pool ex-source">
+      ${order.map(o => slotChip(o.t, o.i, '')).join('')}
+    </div>
+    <div class="ex-feedback"></div>
+    <div class="ex-actions">
+      <button onclick="slotCheckOrder(this)">✓ Prüfen</button>
+      <button onclick="exResetBuild(this)">↺ Zurücksetzen</button>
+      <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Anderer Satz</button>
+      <button onclick="exRevealModel(this)">💡 Lösung</button>
+      ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
+    </div>
+    <div class="ex-model hidden">
+      <div class="ex-model-label">Richtige Reihenfolge</div>
+      <div class="ex-model-jp">${toks.join(' ')}</div>
+    </div>
+    ${solutionHtml}
+  `;
+  return true;
 }
 
 // Exakte Prüfung: alle Bausteine gelegt UND in Original-Slot-Reihenfolge.
