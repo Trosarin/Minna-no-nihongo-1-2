@@ -5606,44 +5606,6 @@ function renderExerciseBox(boxEl, lessonNum, idx){
   const key = `L${lessonNum}-${idx}`;
   const customSet = EXERCISE_SETS[key];
 
-  let words;
-  if(customSet && customSet.length > 0){
-    // Aus kuratiertem Set 4-6 Wörter ziehen (mit Rollen-Mix)
-    const shuffled = customSet.slice();
-    for(let i = shuffled.length - 1; i > 0; i--){
-      const j = Math.floor(Math.random()*(i+1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    // Zielgröße zuerst festlegen, damit auch die Rollen-Abdeckung sie respektiert.
-    const target = Math.min(5 + Math.floor(Math.random()*2), customSet.length);
-    // Verschiedene Rollen möglichst abdecken (aber nie mehr als target Wörter).
-    const roles = [...new Set(customSet.map(w => w.role))];
-    const picked = [];
-    for(const r of roles){
-      if(picked.length >= target) break;
-      const ofRole = shuffled.filter(w => w.role === r && !picked.includes(w));
-      if(ofRole.length) picked.push(ofRole[0]);
-    }
-    // Auffüllen bis 5-6
-    for(const w of shuffled){
-      if(picked.length >= target) break;
-      if(!picked.includes(w)) picked.push(w);
-    }
-    // Mischen
-    for(let i = picked.length - 1; i > 0; i--){
-      const j = Math.floor(Math.random()*(i+1));
-      [picked[i], picked[j]] = [picked[j], picked[i]];
-    }
-    words = picked;
-  } else {
-    words = pickExerciseWords(lessonNum, c.slots);
-  }
-
-  if(!words || !words.length){
-    boxEl.innerHTML = '<div class="ex-help">Für diesen Unterpunkt sind noch keine Übungswörter hinterlegt.</div>';
-    return;
-  }
-
   const solutionHtml = c.ex ? `
     <div class="ex-solution hidden">
       <div class="ex-sol-label">Beispiel aus dem Lehrbuch</div>
@@ -5682,71 +5644,89 @@ function renderExerciseBox(boxEl, lessonNum, idx){
       `;
       return;
     }
-    // Sonst (Einzelrolle, Konjugations-/Beispiellisten): bewährte Pool-Ansicht.
+  }
+  // 2) Universeller Satzbau aus den Muster-Slots: die Slots sind bereits in
+  // korrekter Reihenfolge definiert → exakte Prüfung, nie falsch-positiv,
+  // funktioniert für JEDES Muster (ersetzt Pool & generischen Builder).
+  renderSlotExercise(boxEl, c, lessonNum, idx, solutionHtml);
+}
+
+function slotChip(text, idx, label){
+  return `<span class="ex-chip" onclick="exPickChip(this)" data-order="${idx}" data-role="${label || ''}">
+    ${label ? `<span class="ex-chip-role">${label}</span>` : ''}
+    <span class="ex-chip-jp">${text}</span>
+  </span>`;
+}
+
+function renderSlotExercise(boxEl, c, lessonNum, idx, solutionHtml){
+  const slots = (c.slots || []).filter(s => s && s.text && jpBare(s.text).trim());
+  if(slots.length < 2){
     boxEl.innerHTML = `
-      <div class="ex-help">🧠 Bilde mit diesen Bausteinen einen Satz nach dem Muster oben. Die Rolle zeigt dir, wohin jedes Wort gehört.</div>
-      <div class="ex-word-pool">
-        ${words.map(w => `
-          <span class="ex-word">
-            ${w.role ? `<span class="ex-word-role">${w.role}</span>` : ''}
-            <span>${w.jp}</span>
-            <span class="ex-word-de">${w.de}</span>
-          </span>
-        `).join('')}
-      </div>
-      <div class="ex-actions">
-        <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Andere Wörter</button>
-        ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
-      </div>
+      <div class="ex-help">ℹ️ Dieses Muster ist eine einzelne Form — hier gibt es keine Reihenfolge zum Bauen. Schau dir das Muster oben und das Beispiel an.</div>
+      <div class="ex-actions">${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}</div>
       ${solutionHtml}
     `;
     return;
   }
-
-  // Generischer Pfad: Rollen + Partikel-Hinweise + interaktiver Satzbau.
-  // Verben & Adjektive in wechselnden Formen anbieten (höflich + Grundform,
-  // Gegenwart/Vergangenheit, bejaht/verneint — nur sicher konjugiert).
-  // Vor dem Rendern anwenden, damit Chips und Modell-Reihenfolge übereinstimmen.
-  words = words.map(w => {
-    const forms = wordForms(w);
-    if(forms.length <= 1) return w;
-    const pick = forms[Math.floor(Math.random() * forms.length)];
-    return { ...w, jp: pick.jp, form: pick.tag };
-  });
-  const chip = w => {
-    const role = structuralRole(w);
-    const part = particleForRole(role, words);
-    return `<span class="ex-chip" onclick="exPickChip(this)"
-        data-order="${ROLE_ORDER[role] != null ? ROLE_ORDER[role] : ''}" data-role="${role}">
-      ${role ? `<span class="ex-chip-role">${role}</span>` : ''}
-      <span class="ex-chip-jp">${w.jp}${part ? `<span class="ex-chip-part">${part}</span>` : ''}</span>
-      <span class="ex-chip-de">${w.de}</span>
-      ${w.form ? `<span class="ex-chip-form">${w.form}</span>` : ''}
-    </span>`;
-  };
-
+  const order = slots.map((s, i) => ({ s, i }));
+  for(let i = order.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
   boxEl.innerHTML = `
-    <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an (japanisch: Zeit → Subjekt → Ort → Objekt → Verb). Die kleine rote Partikel ist ein Hinweis. Verben & Adjektive erscheinen in wechselnden Formen — höflich und Grundform, Gegenwart/Vergangenheit, bejaht/verneint.</div>
+    <div class="ex-help">🧩 Bringe die Bausteine des Musters in die richtige Reihenfolge und lass deinen Satz prüfen.</div>
     <div class="ex-answer empty"></div>
     <div class="ex-source-label">Bausteine</div>
     <div class="ex-word-pool ex-source">
-      ${words.map(chip).join('')}
+      ${order.map(o => slotChip(o.s.text, o.i, o.s.label)).join('')}
     </div>
     <div class="ex-feedback"></div>
     <div class="ex-actions">
-      <button onclick="exCheckOrder(this)">✓ Prüfen</button>
+      <button onclick="slotCheckOrder(this)">✓ Prüfen</button>
       <button onclick="exResetBuild(this)">↺ Zurücksetzen</button>
-      <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Andere Wörter</button>
-      <button onclick="exRevealModel(this)">💡 Modell-Reihenfolge</button>
+      <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Neu mischen</button>
+      <button onclick="exRevealModel(this)">💡 Lösung</button>
       ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
     </div>
     <div class="ex-model hidden">
-      <div class="ex-model-label">Modell-Reihenfolge</div>
-      <div class="ex-model-jp">${buildModelOrder(words)}</div>
-      <div class="ex-model-note">Reihenfolge & Partikeln als Orientierung — das Verb ggf. passend konjugieren.</div>
+      <div class="ex-model-label">Richtige Reihenfolge</div>
+      <div class="ex-model-jp">${slots.map(s => s.text).join(' ')}</div>
     </div>
     ${solutionHtml}
   `;
+}
+
+// Exakte Prüfung: alle Bausteine gelegt UND in Original-Slot-Reihenfolge.
+// Da jeder Slot eine eindeutige Position hat, gibt es nie falsch-positive Treffer.
+function slotCheckOrder(btn){
+  const box = btn.closest('.exercise-box');
+  const answer = box.querySelector('.ex-answer');
+  const source = box.querySelector('.ex-source');
+  const fb = box.querySelector('.ex-feedback');
+  const placed = [...answer.querySelectorAll('.ex-chip')];
+  placed.forEach(ch => ch.classList.remove('misplaced'));
+  if(source.querySelector('.ex-chip')){
+    fb.textContent = 'Lege zuerst alle Bausteine in die Bauzone.';
+    fb.className = 'ex-feedback bad';
+    return;
+  }
+  let firstBad = null;
+  for(let i = 0; i < placed.length; i++){
+    if(Number(placed[i].dataset.order) !== i){ firstBad = placed[i]; break; }
+  }
+  if(firstBad){
+    firstBad.classList.add('misplaced');
+    fb.innerHTML = '✗ Noch nicht richtig — der markierte Baustein steht an der falschen Stelle.';
+    fb.className = 'ex-feedback bad';
+    return;
+  }
+  fb.innerHTML = '✓ Richtiger Satzbau!';
+  fb.className = 'ex-feedback ok';
+  const m = /^ex-(\d+)-(\d+)$/.exec(box.id || '');
+  if(m){
+    markExerciseDone(+m[1], +m[2]);
+    const num = box.closest('.unterpunkt') && box.closest('.unterpunkt').querySelector('.unterpunkt-num');
+    if(num && !num.querySelector('.done-tick')) num.innerHTML += '<span class="done-tick">✓ gemeistert</span>';
+  }
+  bumpStreak();
+  updateStatusBar();
 }
 
 // Baustein zwischen Quelle und Bauzone hin- und herbewegen.
@@ -6445,6 +6425,7 @@ window.revealExerciseSolution = revealExerciseSolution;
 window.exPickChip = exPickChip;
 window.exCheckOrder = exCheckOrder;
 window.curatedCheckOrder = curatedCheckOrder;
+window.slotCheckOrder = slotCheckOrder;
 window.exResetBuild = exResetBuild;
 window.exRevealModel = exRevealModel;
 window.speak = speak;
