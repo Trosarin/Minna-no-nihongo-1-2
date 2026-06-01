@@ -5935,7 +5935,7 @@ const EROW = new Set('えけせてねへめれげぜでべぺ'.split(''));
 const I2U = {き:'く', ぎ:'ぐ', し:'す', ち:'つ', に:'ぬ', び:'ぶ', み:'む', り:'る', い:'う', じ:'ず'};
 function isJpKanji(ch){ return !!ch && !/[぀-ヿｦ-ﾟ]/.test(ch); }
 // ichidan-Verben mit い-Reihe-Kana-Stamm (nicht über え-Reihe/Kanji erkennbar):
-const ICHIDAN_TAILS = ['借ります', '浴びます', '信じます', '感じます', 'すぎます'];
+const ICHIDAN_TAILS = ['借ります', '浴びます', '信じます', '感じます', 'すぎます', 'できます'];
 // godan-„す"-Verben (sonst würde „…します" fälschlich als する gelesen):
 const GODAN_SU = ['消します','渡します','出します','返します','直します','無くします','壊します','汚します','冷やします','繰り返します','増やします','減らします','試します','思い出します','引っ越します','申します','いたします'];
 // unregelmäßige Keigo-Verben (…あいます → …ある): jpBare-Endung → Plain-Stamm.
