@@ -351,6 +351,22 @@
   .ex-actions button:hover{background:#8a1f17}
   .ex-actions button.gold{background:#b8893a;color:#1a1612;border-color:#b8893a}
   .ex-actions button.gold:hover{background:#cfa055}
+  /* dezente Sekundär-Buttons (↺ 🎲) */
+  .ex-actions button.ghost{background:#efe7d6;color:#6b5d4a;border-color:#d8cdb8;font-weight:600;min-width:2.6rem}
+  .ex-actions button.ghost:hover{background:#e3d8c0;color:#1a1612}
+  /* Modus-Umschalter (Reiter) */
+  .ex-tabs{display:flex;gap:.2rem;margin:.1rem 0 .55rem;background:#efe7d6;border-radius:.55rem;padding:.2rem}
+  .ex-tab{flex:1;background:transparent;border:none;border-radius:.42rem;padding:.45rem .5rem;
+    font-size:.82rem;font-family:"Shippori Mincho",serif;color:#6b5d4a;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;transition:background .15s}
+  .ex-tab.active{background:#8a1f17;color:#fff;font-weight:700}
+  .ex-tab:not(.active):hover{background:#e3d8c0}
+  /* dezente Helfer-Links (📖 Wörter · 💡 Lösung · ▶ Beispiel) */
+  .ex-tools{display:flex;flex-wrap:wrap;gap:1rem;margin:.1rem 0 .35rem;padding-left:.1rem}
+  .ex-link{background:none;border:none;color:#1f4a7a;font-size:.74rem;font-family:"Shippori Mincho",serif;
+    cursor:pointer;padding:.2rem 0;text-decoration:underline;-webkit-tap-highlight-color:transparent}
+  .ex-link:hover{color:#8a1f17}
+  .ex-link.active{font-weight:700;text-decoration:none}
   .ex-solution{
     margin-top:.6rem;
     padding:.65rem .8rem;
@@ -5826,16 +5842,21 @@ function renderCuratedMC(boxEl, key, set, ord, lessonNum, idx, solutionHtml, c){
   curatedMcState[boxEl.id] = { target, pos: 0 };
   const goalDe = target.map(t => t.correct.de).join(' — ');
   boxEl.innerHTML = `
-    <div class="ex-help">🔘 <b>Multiple Choice:</b> Bau den Satz Schritt für Schritt — wähle für jede Lücke das passende japanische Wort. Ideal, solange du die Wörter noch nicht auswendig kannst.</div>
+    <div class="ex-tabs">
+      <button class="ex-tab" onclick="curatedSetMode('${key}','order', this, ${lessonNum}, ${idx})">🧩 Ordnen</button>
+      <button class="ex-tab active">🔘 Wählen</button>
+    </div>
+    <div class="ex-help">Wähle für jede Lücke das richtige japanische Wort — ideal, solange du die Wörter noch nicht auswendig kannst.</div>
     <div class="mc-goal"><span class="mc-goal-flag">🇩🇪</span> ${goalDe}</div>
     <div class="ex-answer mc-answer empty"></div>
     <div class="ex-feedback"></div>
     <div class="ex-word-pool mc-options"></div>
     <div class="ex-actions">
-      <button onclick="exToggleVocab(this)">📖 Wörter</button>
       <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Anderer Satz</button>
-      <button onclick="curatedSetMode('${key}','order', this, ${lessonNum}, ${idx})">🧩 Ordnen-Modus</button>
-      ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
+    </div>
+    <div class="ex-tools">
+      <button class="ex-link" onclick="exToggleVocab(this)">📖 Wörter</button>
+      ${c.ex ? `<button class="ex-link" onclick="revealExerciseSolution(this)">▶ Beispiel</button>` : ''}
     </div>
     ${curatedVocabPanelHtml(set)}
     ${solutionHtml}
@@ -6134,7 +6155,11 @@ function renderExerciseBox(boxEl, lessonNum, idx){
       if(curatedMode[key] === 'mc'){ renderCuratedMC(boxEl, key, customSet, ord, lessonNum, idx, solutionHtml, c); return; }
       const buildWords = pickCuratedBuildWords(key, customSet, ord);
       boxEl.innerHTML = `
-        <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an, um einen Satz nach dem Muster oben zu bilden. Tipp: Wähle je Rolle einen Baustein — das Prädikat steht am Ende. Die Zeitform (Gegenwart/Vergangenheit) wechselt.${buildWords.some(w => w.filler) ? ' <b>Gestrichelte</b> Bausteine (z. B. じゃ、) sind optionale Auftakt-Wörter — du kannst sie voranstellen oder weglassen.' : ''}</div>
+        <div class="ex-tabs">
+          <button class="ex-tab active">🧩 Ordnen</button>
+          <button class="ex-tab" onclick="curatedSetMode('${key}','mc', this, ${lessonNum}, ${idx})">🔘 Wählen</button>
+        </div>
+        <div class="ex-help">Tippe die Bausteine in die richtige Reihenfolge — das Prädikat steht am Ende.${buildWords.some(w => w.filler) ? ' Gestrichelte (じゃ、) sind optional.' : ''}</div>
         <div class="ex-answer empty"></div>
         <div class="ex-source-label">Bausteine</div>
         <div class="ex-word-pool ex-source">
@@ -6143,12 +6168,13 @@ function renderExerciseBox(boxEl, lessonNum, idx){
         <div class="ex-feedback"></div>
         <div class="ex-actions">
           <button onclick="curatedCheckOrder(this)">✓ Prüfen</button>
-          <button onclick="exResetBuild(this)">↺ Zurücksetzen</button>
-          <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Andere Wörter</button>
-          <button onclick="exRevealModel(this)">💡 Modell-Reihenfolge</button>
-          <button onclick="curatedSetMode('${key}','mc', this, ${lessonNum}, ${idx})">🔘 Multiple Choice</button>
-          <button onclick="exToggleVocab(this)">📖 Wörter</button>
-          ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
+          <button class="ghost" onclick="exResetBuild(this)" title="Zurücksetzen">↺</button>
+          <button class="ghost" onclick="newExerciseWords(this, ${lessonNum}, ${idx})" title="Andere Wörter">🎲</button>
+        </div>
+        <div class="ex-tools">
+          <button class="ex-link" onclick="exToggleVocab(this)">📖 Wörter</button>
+          <button class="ex-link" onclick="exRevealModel(this)">💡 Lösung</button>
+          ${c.ex ? `<button class="ex-link" onclick="revealExerciseSolution(this)">▶ Beispiel</button>` : ''}
         </div>
         ${curatedVocabPanelHtml(customSet)}
         <div class="ex-model hidden">
