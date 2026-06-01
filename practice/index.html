@@ -419,6 +419,15 @@
   .mc-goal-flag{margin-right:.25rem}
   .mc-opt{cursor:pointer;font-size:1.15rem}
   .mc-opt:hover{background:#fff7e6}
+  /* Wörter-Vorlern-Panel */
+  .ex-vocab{margin:.4rem 0 .2rem;border:1px solid #d8cdb8;border-radius:.45rem;background:#fbf8f1;padding:.5rem .55rem}
+  .ex-vocab-label{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:#8a7a5c;margin-bottom:.4rem}
+  .ex-vocab-grid{display:flex;flex-wrap:wrap;gap:.35rem}
+  .vcard{display:flex;flex-direction:column;align-items:center;gap:.1rem;cursor:pointer;border:1px solid #e0d6c2;border-radius:.4rem;padding:.3rem .5rem;background:#fff;min-width:3.2rem}
+  .vcard:hover{background:#fff7e6;border-color:#caa86a}
+  .vcard-jp{font-family:"Shippori Mincho",serif;font-size:1.05rem;color:#2a2118}
+  .vcard-de{font-size:.6rem;color:#6b5d4a;text-align:center}
+  .vcard-spk{font-size:.55rem;color:#1f4a7a}
   .ex-chip-form{
     display:block;margin-top:.1rem;
     font-family:"JetBrains Mono",monospace;font-size:.48rem;letter-spacing:.04em;
@@ -5769,6 +5778,25 @@ function curatedSetMode(key, mode, btn, lessonNum, idx){
   const box = btn.closest('.exercise-box');
   if(box) renderExerciseBox(box, lessonNum, idx);
 }
+// „Wörter vorlernen": kompakte Karten (Japanisch + Furigana + Deutsch + 🔊)
+// aller Bausteine eines Sets — zum kurzen Anschauen/Anhören vor der Übung.
+function curatedVocabPanelHtml(set){
+  const seen = new Set(), rows = [];
+  set.forEach(w => {
+    const b = jpBare(w.jp); if(!b || seen.has(b)) return; seen.add(b);
+    rows.push(`<div class="vcard" onclick="speak('${b.replace(/[\\'\\\\]/g, '')}')" title="anhören">
+      <span class="vcard-jp">${w.jp}</span>
+      <span class="vcard-de">${w.de || ''}</span>
+      <span class="vcard-spk">🔊</span></div>`);
+  });
+  return `<div class="ex-vocab hidden">
+    <div class="ex-vocab-label">📖 Wörter in dieser Übung — antippen zum Anhören</div>
+    <div class="ex-vocab-grid">${rows.join('')}</div></div>`;
+}
+function exToggleVocab(btn){
+  const box = btn.closest('.exercise-box'); const p = box && box.querySelector('.ex-vocab');
+  if(p){ p.classList.toggle('hidden'); btn.classList.toggle('active'); }
+}
 function allCuratedBlocks(){
   const out = [];
   for(const k in EXERCISE_SETS) EXERCISE_SETS[k].forEach(w => { if(!w.filler) out.push(w); });
@@ -5804,10 +5832,12 @@ function renderCuratedMC(boxEl, key, set, ord, lessonNum, idx, solutionHtml, c){
     <div class="ex-feedback"></div>
     <div class="ex-word-pool mc-options"></div>
     <div class="ex-actions">
+      <button onclick="exToggleVocab(this)">📖 Wörter</button>
       <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Anderer Satz</button>
       <button onclick="curatedSetMode('${key}','order', this, ${lessonNum}, ${idx})">🧩 Ordnen-Modus</button>
       ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
     </div>
+    ${curatedVocabPanelHtml(set)}
     ${solutionHtml}
   `;
   mcRenderStep(boxEl);
@@ -6117,8 +6147,10 @@ function renderExerciseBox(boxEl, lessonNum, idx){
           <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Andere Wörter</button>
           <button onclick="exRevealModel(this)">💡 Modell-Reihenfolge</button>
           <button onclick="curatedSetMode('${key}','mc', this, ${lessonNum}, ${idx})">🔘 Multiple Choice</button>
+          <button onclick="exToggleVocab(this)">📖 Wörter</button>
           ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
         </div>
+        ${curatedVocabPanelHtml(customSet)}
         <div class="ex-model hidden">
           <div class="ex-model-label">Modell-Reihenfolge</div>
           <div class="ex-model-jp">${buildCuratedModelOrder(buildWords, ord)}</div>
