@@ -1351,7 +1351,51 @@ function detectSlotNeeds(slots){
    generischen pickExerciseWords-Fallbacks.
    =================================================================== */
 
-const EXERCISE_SETS = {};
+const EXERCISE_SETS = {
+  // === Chuukyuu L1 ===
+  'L1-0': [ // …といえば、…です
+    {jp:'<ruby>日本<rt>にほん</rt></ruby>', de:'Japan', role:'Stichwort'},
+    {jp:'<ruby>京都<rt>きょうと</rt></ruby>', de:'Kyoto', role:'Stichwort'},
+    {jp:'<ruby>夏<rt>なつ</rt></ruby>', de:'Sommer', role:'Stichwort'},
+    {jp:'<ruby>富士山<rt>ふじさん</rt></ruby>', de:'der Fuji', role:'Stichwort'},
+    {jp:'といえば、', de:'apropos … (typische Assoziation)', role:'といえば', fixed:true},
+    {jp:'お<ruby>寿司<rt>すし</rt></ruby>です', de:'…denkt man an Sushi', role:'Assoziation', fixed:true},
+    {jp:'お<ruby>寺<rt>てら</rt></ruby>です', de:'…denkt man an Tempel', role:'Assoziation', fixed:true},
+    {jp:'<ruby>海<rt>うみ</rt></ruby>です', de:'…denkt man ans Meer', role:'Assoziation', fixed:true},
+    {jp:'<ruby>桜<rt>さくら</rt></ruby>です', de:'…denkt man an Kirschblüten', role:'Assoziation', fixed:true},
+  ],
+  'L1-1': [ // …は …も …ました (überraschende Menge)
+    {jp:'<ruby>田中<rt>たなか</rt></ruby>さんは', de:'Tanaka', role:'Subjekt'},
+    {jp:'<ruby>弟<rt>おとうと</rt></ruby>は', de:'mein Bruder', role:'Subjekt'},
+    {jp:'<ruby>私<rt>わたし</rt></ruby>は', de:'ich', role:'Subjekt'},
+    {jp:'5<ruby>回<rt>かい</rt></ruby>', de:'5 Mal', role:'数量'},
+    {jp:'<ruby>何回<rt>なんかい</rt></ruby>', de:'etliche Male', role:'数量'},
+    {jp:'3<ruby>度<rt>ど</rt></ruby>', de:'3 Mal', role:'数量'},
+    {jp:'も', de:'…sogar (so viel!)', role:'も', fixed:true},
+    {jp:'<ruby>来<rt>き</rt></ruby>ました', de:'…ist gekommen', role:'V'},
+    {jp:'<ruby>電話<rt>でんわ</rt></ruby>しました', de:'…hat angerufen', role:'V'},
+    {jp:'<ruby>失敗<rt>しっぱい</rt></ruby>しました', de:'…ist gescheitert', role:'V'},
+  ],
+  'L1-2': [ // 大切なのは、…こと、…ことだ
+    {jp:'<ruby>大切<rt>たいせつ</rt></ruby>なのは、', de:'Wichtig ist:', role:'Anfang', fixed:true},
+    {jp:'<ruby>食事<rt>しょくじ</rt></ruby>に <ruby>気<rt>き</rt></ruby>を つける', de:'auf die Ernährung achten', role:'Punkt 1'},
+    {jp:'<ruby>早<rt>はや</rt></ruby>く <ruby>寝<rt>ね</rt></ruby>る', de:'früh schlafen', role:'Punkt 1'},
+    {jp:'よく <ruby>運動<rt>うんどう</rt></ruby>する', de:'viel Sport treiben', role:'Punkt 1'},
+    {jp:'こと、', de:'…, und (Punkt 1)', role:'こと', fixed:true},
+    {jp:'<ruby>無理<rt>むり</rt></ruby>しない', de:'sich nicht überanstrengen', role:'Punkt 2'},
+    {jp:'ストレスを ためない', de:'keinen Stress anstauen', role:'Punkt 2'},
+    {jp:'よく <ruby>休<rt>やす</rt></ruby>む', de:'sich gut ausruhen', role:'Punkt 2'},
+    {jp:'ことだ', de:'…, das ist es', role:'ことだ', fixed:true},
+  ],
+  'L1-3': [ // …を …始めました / 終わりました
+    {jp:'レポートを <ruby>書<rt>か</rt></ruby>き', de:'den Bericht schreiben', role:'Aktion'},
+    {jp:'<ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>み', de:'das Buch lesen', role:'Aktion'},
+    {jp:'ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べ', de:'essen', role:'Aktion'},
+    {jp:'<ruby>仕事<rt>しごと</rt></ruby>を し', de:'arbeiten', role:'Aktion'},
+    {jp:'<ruby>始<rt>はじ</rt></ruby>めました', de:'…habe ich angefangen', role:'Aspekt'},
+    {jp:'<ruby>終<rt>お</rt></ruby>わりました', de:'…bin ich fertig geworden', role:'Aspekt'},
+  ],
+};
 
 // Semantische Tags für Vokabeln — by German label.
 // Damit Verb+Objekt-Paare in der Übung Sinn ergeben.
@@ -1702,6 +1746,10 @@ function curatedOrder(role){
 // (z. B. „Zweck" ist mal früh, mal Prädikat). Für solche 2-teiligen Muster wird
 // hier pro Set die korrekte Satzstelle festgelegt (verifiziert). Prädikat = 6.
 const CURATED_SEQ = {
+  'L1-0': { 'Stichwort': 1, 'といえば': 2, 'Assoziation': 6 },              // …といえば、…です
+  'L1-1': { 'Subjekt': 1, '数量': 4, 'も': 5, 'V': 6 },                     // …は …も …ました
+  'L1-2': { 'Anfang': 1, 'Punkt 1': 2, 'こと': 3, 'Punkt 2': 4, 'ことだ': 6 }, // 大切なのは、…こと、…ことだ
+  'L1-3': { 'Aktion': 4, 'Aspekt': 6 },                                    // …を …始めました/終わりました
   'L26-0': { 'Grund': 4, 'Erklärung': 6 },                                 // …んです
   'L26-1': { 'Frage-Wort': 1, 'Situation': 4, 'Nachfrage': 6 },            // どうして …んですか
   'L26-2': { 'Auftakt': 0, 'Bitte': 4, 'Höflichkeitsbitte': 6 },                         // …て いただけませんか
@@ -1792,6 +1840,10 @@ const CURATED_SEQ = {
 // Sets mit eigenem Auftakt (L26-2/3, L30-1, L31-0, L44-3 inline; L32-3 もしかしたら,
 // L48-2, L49-2 どうぞ) sind bewusst ausgespart.
 const FILLERS = {
+  'L1-0': [['そうですね、','also…'],['ええと、','mal sehen…']],
+  'L1-1': [['なんと、','sage und schreibe'],['えっ、','was?!']],
+  'L1-2': [['やっぱり、','letztlich'],['そうですね、','also…']],
+  'L1-3': [['やっと、','endlich'],['もう、','schon']],
   'L26-0': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['あのう、','ähm…']],
   'L26-1': [['あのう、','ähm…'],['すみません、','Entschuldigung']],
   'L27-1': [['ほら、','schau mal'],['あっ、','ah!']],
