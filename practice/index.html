@@ -410,6 +410,15 @@
   /* Optionaler Auftakt-Baustein (じゃ、/ あのう、…): gestrichelt = „darf, muss nicht“. */
   .ex-chip-filler{border-style:dashed!important;opacity:.85}
   .ex-chip-filler .ex-chip-role{color:#1f4a7a}
+  /* Multiple-Choice-Modus */
+  .mc-goal{
+    background:#eef3f8;border:1px solid #c9d6e3;border-radius:.4rem;
+    padding:.45rem .6rem;margin:.3rem 0 .5rem;font-family:"Shippori Mincho",serif;
+    font-size:.92rem;color:#33485e;
+  }
+  .mc-goal-flag{margin-right:.25rem}
+  .mc-opt{cursor:pointer;font-size:1.15rem}
+  .mc-opt:hover{background:#fff7e6}
   .ex-chip-form{
     display:block;margin-top:.1rem;
     font-family:"JetBrains Mono",monospace;font-size:.48rem;letter-spacing:.04em;
@@ -5748,6 +5757,93 @@ function pickCuratedBuildWords(key, set, ord = curatedOrder){
 }
 
 /* ===================================================================
+   MULTIPLE-CHOICE-MODUS für kuratierte Bau-Sets — Wiedererkennen statt
+   Erinnern: pro Satzstelle die deutsche Bedeutung zeigen und das richtige
+   japanische Wort aus 3 Optionen wählen lassen. Ideal, solange man die
+   Wörter noch nicht auswendig kann. Nutzt dieselben kuratierten Sets.
+   =================================================================== */
+const curatedMode = {};      // key -> 'order' | 'mc'
+const curatedMcState = {};   // boxId -> { target:[{correct,opts}], pos }
+function curatedSetMode(key, mode, btn, lessonNum, idx){
+  curatedMode[key] = mode;
+  const box = btn.closest('.exercise-box');
+  if(box) renderExerciseBox(box, lessonNum, idx);
+}
+function allCuratedBlocks(){
+  const out = [];
+  for(const k in EXERCISE_SETS) EXERCISE_SETS[k].forEach(w => { if(!w.filler) out.push(w); });
+  return out;
+}
+// 2 Distraktoren: bevorzugt aus derselben Satzstelle (gleiches Set), sonst global.
+function mcDistractors(correct, sameLevel){
+  const seen = new Set([jpBare(correct.jp)]), picks = [];
+  const take = arr => { for(const w of arr){ if(picks.length >= 2) break; const b = jpBare(w.jp); if(!seen.has(b)){ seen.add(b); picks.push(w); } } };
+  take(sameLevel.slice().sort(() => Math.random() - 0.5));
+  if(picks.length < 2) take(allCuratedBlocks().sort(() => Math.random() - 0.5));
+  return picks;
+}
+// Zielsatz: ein Baustein je Positionsstufe (ohne Filler) + je Stufe 3 Optionen.
+function buildMcTarget(set, ord){
+  const byL = {};
+  set.filter(w => !w.filler).forEach(w => { const o = ord(w.role); (byL[o] = byL[o] || []).push(w); });
+  return Object.keys(byL).map(Number).sort((a, b) => a - b).map(o => {
+    const blocks = byL[o], correct = blocks[Math.floor(Math.random() * blocks.length)];
+    const opts = [correct, ...mcDistractors(correct, blocks)];
+    for(let i = opts.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [opts[i], opts[j]] = [opts[j], opts[i]]; }
+    return { correct, opts };
+  });
+}
+function renderCuratedMC(boxEl, key, set, ord, lessonNum, idx, solutionHtml, c){
+  const target = buildMcTarget(set, ord);
+  curatedMcState[boxEl.id] = { target, pos: 0 };
+  const goalDe = target.map(t => t.correct.de).join(' — ');
+  boxEl.innerHTML = `
+    <div class="ex-help">🔘 <b>Multiple Choice:</b> Bau den Satz Schritt für Schritt — wähle für jede Lücke das passende japanische Wort. Ideal, solange du die Wörter noch nicht auswendig kannst.</div>
+    <div class="mc-goal"><span class="mc-goal-flag">🇩🇪</span> ${goalDe}</div>
+    <div class="ex-answer mc-answer empty"></div>
+    <div class="ex-feedback"></div>
+    <div class="ex-word-pool mc-options"></div>
+    <div class="ex-actions">
+      <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Anderer Satz</button>
+      <button onclick="curatedSetMode('${key}','order', this, ${lessonNum}, ${idx})">🧩 Ordnen-Modus</button>
+      ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
+    </div>
+    ${solutionHtml}
+  `;
+  mcRenderStep(boxEl);
+}
+function mcRenderStep(boxEl){
+  const st = curatedMcState[boxEl.id]; if(!st) return;
+  const ans = boxEl.querySelector('.mc-answer'), fb = boxEl.querySelector('.ex-feedback'), opt = boxEl.querySelector('.mc-options');
+  ans.innerHTML = st.target.slice(0, st.pos).map(t => `<span class="ex-chip"><span class="ex-chip-jp">${t.correct.jp}</span></span>`).join('');
+  ans.classList.toggle('empty', st.pos === 0);
+  if(st.pos >= st.target.length){
+    fb.innerHTML = '✓ Satz vollständig gebaut!'; fb.className = 'ex-feedback ok';
+    const jp = st.target.map(t => jpBare(t.correct.jp)).join('');
+    opt.innerHTML = `<button onclick="speak('${jp}')">🔊 Anhören</button>`;
+    const m = /^ex-(\d+)-(\d+)$/.exec(boxEl.id || '');
+    if(m){ markExerciseDone(+m[1], +m[2]); const num = boxEl.closest('.unterpunkt') && boxEl.closest('.unterpunkt').querySelector('.unterpunkt-num'); if(num && !num.querySelector('.done-tick')) num.innerHTML += '<span class="done-tick">✓ gemeistert</span>'; }
+    bumpStreak(); updateStatusBar();
+    return;
+  }
+  const cur = st.target[st.pos];
+  fb.innerHTML = `Welches Wort bedeutet: <b>${cur.correct.de}</b>?`; fb.className = 'ex-feedback';
+  opt.innerHTML = cur.opts.map((o, i) => `<span class="ex-chip mc-opt" onclick="mcPick(this)" data-i="${i}">
+      <span class="ex-chip-jp">${o.jp}</span></span>`).join('');
+}
+function mcPick(el){
+  const boxEl = el.closest('.exercise-box'); const st = curatedMcState[boxEl.id]; if(!st) return;
+  const cur = st.target[st.pos], chosen = cur.opts[+el.dataset.i];
+  if(jpBare(chosen.jp) === jpBare(cur.correct.jp)){ st.pos++; mcRenderStep(boxEl); }
+  else {
+    el.classList.add('misplaced');
+    const fb = boxEl.querySelector('.ex-feedback');
+    fb.innerHTML = '✗ Nicht ganz — versuch ein anderes Wort.'; fb.className = 'ex-feedback bad';
+    setTimeout(() => el.classList.remove('misplaced'), 700);
+  }
+}
+
+/* ===================================================================
    FORM-VARIANTEN FÜR DEN GENERISCHEN BUILDER (Verben & Adjektive)
    Bietet pro Wort mehrere korrekte Formen an — höflich UND Grundform
    (Plain), Gegenwart/Vergangenheit, bejaht/verneint. Es wird ausschließlich
@@ -6005,6 +6101,7 @@ function renderExerciseBox(boxEl, lessonNum, idx){
     // mit Reihenfolge-Prüfung. Wähle je Rolle einen Baustein und ordne sie.
     const ord = orderFor(key);
     if(curatedBuildable(customSet, ord, !!CURATED_SEQ[key])){
+      if(curatedMode[key] === 'mc'){ renderCuratedMC(boxEl, key, customSet, ord, lessonNum, idx, solutionHtml, c); return; }
       const buildWords = pickCuratedBuildWords(key, customSet, ord);
       boxEl.innerHTML = `
         <div class="ex-help">🧩 Tippe die Bausteine in der richtigen Reihenfolge an, um einen Satz nach dem Muster oben zu bilden. Tipp: Wähle je Rolle einen Baustein — das Prädikat steht am Ende. Die Zeitform (Gegenwart/Vergangenheit) wechselt.${buildWords.some(w => w.filler) ? ' <b>Gestrichelte</b> Bausteine (z. B. じゃ、) sind optionale Auftakt-Wörter — du kannst sie voranstellen oder weglassen.' : ''}</div>
@@ -6019,6 +6116,7 @@ function renderExerciseBox(boxEl, lessonNum, idx){
           <button onclick="exResetBuild(this)">↺ Zurücksetzen</button>
           <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Andere Wörter</button>
           <button onclick="exRevealModel(this)">💡 Modell-Reihenfolge</button>
+          <button onclick="curatedSetMode('${key}','mc', this, ${lessonNum}, ${idx})">🔘 Multiple Choice</button>
           ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
         </div>
         <div class="ex-model hidden">
