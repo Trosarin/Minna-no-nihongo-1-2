@@ -1,0 +1,3250 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>中級 練習帳 — Chuukyuu Übungen</title>
+<meta name="description" content="Lektionsübersicht & Konjugationsdrill für Minna no Nihongo">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="日本語">
+<meta name="theme-color" content="#7a1a14">
+
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Noto+Serif+JP:wght@400;600;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#1a1612;
+    --paper:#f4ede0;
+    --paper-2:#ebe1cd;
+    --red:#c0362c;
+    --red-deep:#8a1f17;
+    --gold:#b8893a;
+    --green:#2f6e3a;
+    --shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#f4ede0;color:#1a1612;font-family:"Shippori Mincho",serif;min-height:100vh}
+  body{
+    padding-top:env(safe-area-inset-top);
+    padding-bottom:env(safe-area-inset-bottom);
+    padding-left:env(safe-area-inset-left);
+    padding-right:env(safe-area-inset-right);
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(192,54,44,.04) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  ruby rt{font-size:.55em;color:#8a1f17}
+
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    background:#1a1612;color:#f4ede0;
+    padding:.7rem 1rem;
+    border-bottom:3px solid #1a1612;
+  }
+  .topbar a.back{
+    color:#f4ede0;text-decoration:none;
+    padding:.4rem .7rem;border:1px solid rgba(244,237,224,.3);
+    font-size:.9rem;font-family:inherit;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .topbar a.back:hover{background:rgba(244,237,224,.1)}
+  .topbar .title{font-family:"Noto Serif JP",serif;font-weight:600;font-size:1rem;letter-spacing:.05em}
+  .topbar .spacer{width:60px}
+
+  header{
+    padding:1.6rem 1.5rem 1rem;
+    text-align:center;
+    border-bottom:3px double #1a1612;
+    position:relative;
+  }
+  header::before{
+    content:"練習帳";
+    position:absolute;top:.4rem;left:50%;transform:translateX(-50%);
+    font-size:.7rem;letter-spacing:.4em;color:#c0362c;
+  }
+  h1{
+    font-family:"Noto Serif JP",serif;font-weight:900;
+    font-size:clamp(1.4rem,5vw,2.2rem);line-height:1.1;
+  }
+  h1 .jp{color:#8a1f17;display:block;font-size:1.2em;margin-bottom:.2rem}
+  h1 .de{font-family:"Shippori Mincho",serif;font-weight:600;font-size:.55em;letter-spacing:.15em;text-transform:uppercase;color:#1a1612}
+  .subtitle{margin-top:.4rem;font-style:italic;color:#6b5d4a;font-size:.9rem}
+
+  /* Mode tabs */
+  .mode-tabs{
+    display:flex;justify-content:center;gap:0;
+    max-width:720px;margin:1.2rem auto 0;padding:0 .5rem;
+  }
+  .mode-tab{
+    flex:1 1 0;min-width:0;
+    padding:.6rem .25rem;
+    background:#ebe1cd;
+    border:2px solid #1a1612;
+    border-bottom:none;
+    font-family:"Shippori Mincho",serif;font-size:.95rem;font-weight:600;
+    color:#1a1612;cursor:pointer;text-align:center;
+    -webkit-tap-highlight-color:transparent;
+    transition:background .15s;
+  }
+  .mode-tab + .mode-tab{border-left:none}
+  .mode-tab:hover{background:#f4ede0}
+  .mode-tab.active{background:#8a1f17;color:#f4ede0;border-color:#8a1f17}
+  .mode-tab .jp{font-family:"Noto Serif JP",serif;font-weight:800;display:block;font-size:1.05em;letter-spacing:.04em}
+  .mode-tab .de{font-size:.6rem;opacity:.85;display:block;margin-top:.15rem;letter-spacing:.03em;text-transform:uppercase;line-height:1.15;overflow-wrap:break-word}
+  @media(max-width:560px){
+    .mode-tab{padding:.5rem .15rem}
+    .mode-tab .jp{font-size:1em}
+    .mode-tab .de{font-size:.52rem;letter-spacing:.01em}
+  }
+  @media(max-width:380px){
+    .mode-tab .de{font-size:.46rem}
+  }
+
+  .panel{
+    max-width:760px;margin:0 auto 1.5rem;
+    background:#f4ede0;
+    border:2px solid #1a1612;
+    border-top:none;
+    padding:1.2rem 1rem;
+    box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+  }
+
+  /* === Lektion-Grid === */
+  .lesson-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));
+    gap:.6rem;
+  }
+  .lesson-tile{
+    background:#ebe1cd;border:2px solid #1a1612;
+    padding:.7rem .5rem;cursor:pointer;text-align:left;
+    font-family:"Shippori Mincho",serif;font-size:.85rem;
+    color:#1a1612;
+    box-shadow:0 2px 0 rgba(26,22,18,.15);
+    transition:transform .12s,background .15s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .lesson-tile:hover{background:#f4ede0;transform:translate(-1px,-2px)}
+  .lesson-tile:active{transform:translate(0,0)}
+  .lesson-tile .num{
+    display:block;font-family:"Noto Serif JP",serif;font-weight:800;
+    color:#8a1f17;font-size:1rem;letter-spacing:.04em;
+  }
+  .lesson-tile .topic{
+    display:block;font-size:.7rem;color:#6b5d4a;margin-top:.15rem;line-height:1.2;
+  }
+  .lesson-tile .count{
+    display:inline-block;font-size:.6rem;color:#b8893a;
+    font-weight:700;margin-top:.25rem;letter-spacing:.05em;
+  }
+
+  /* === Lektion-Detail === */
+  .lesson-back{
+    display:inline-block;
+    background:#1a1612;color:#f4ede0;
+    padding:.4rem .7rem;font-size:.85rem;
+    border:none;cursor:pointer;font-family:inherit;
+    margin-bottom:.8rem;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .lesson-back:hover{background:#8a1f17}
+  .lesson-detail-title{
+    font-family:"Noto Serif JP",serif;font-weight:800;
+    color:#8a1f17;font-size:1.3rem;margin-bottom:.3rem;
+  }
+  .lesson-detail-sub{
+    color:#6b5d4a;font-style:italic;font-size:.85rem;
+    margin-bottom:1rem;border-bottom:1px solid #c9bda3;padding-bottom:.5rem;
+  }
+  .unterpunkt{
+    background:#fffdf6;
+    border:2px solid #1a1612;
+    border-left:6px solid #b8893a;
+    padding:.9rem 1rem;
+    margin-bottom:1rem;
+    box-shadow:0 2px 0 rgba(26,22,18,.15);
+  }
+  .unterpunkt-num{
+    display:inline-block;
+    background:#8a1f17;color:#f4ede0;
+    font-family:"JetBrains Mono",monospace;
+    font-size:.65rem;letter-spacing:.1em;
+    padding:.15rem .4rem;margin-bottom:.3rem;
+  }
+  .unterpunkt-title{
+    font-family:"Noto Serif JP",serif;font-weight:700;
+    color:#1a1612;font-size:1.05rem;margin-bottom:.15rem;
+  }
+  .unterpunkt-de{
+    color:#6b5d4a;font-style:italic;font-size:.82rem;margin-bottom:.7rem;
+  }
+
+  /* Slot/pattern rendering (aus minna übernommen) */
+  .pattern-box{
+    background:#ebe1cd;
+    border:1px solid #c9bda3;
+    padding:.6rem .7rem;
+    margin:.5rem 0;
+  }
+  .pattern-line{
+    display:flex;flex-wrap:wrap;align-items:baseline;
+    gap:.15rem .25rem;
+    font-family:"Noto Serif JP",serif;
+    font-size:.95rem;line-height:1.7;
+  }
+  .slot{
+    display:inline-flex;flex-direction:column;align-items:center;
+    padding:.05rem .3rem;
+    border-radius:2px;
+  }
+  .slot .slot-text{font-weight:600}
+  .slot .slot-label{
+    font-family:"JetBrains Mono",monospace;
+    font-size:.52rem;letter-spacing:.04em;
+    color:rgba(26,22,18,.55);
+    text-transform:uppercase;
+    margin-top:-.1rem;
+    font-weight:500;
+  }
+  .slot.subj{background:rgba(58,118,178,.13);color:#1f4a7a}
+  .slot.subj .slot-label{color:#1f4a7a}
+  .slot.obj{background:rgba(184,137,58,.18);color:#7a5418}
+  .slot.obj .slot-label{color:#7a5418}
+  .slot.actor{background:rgba(192,54,44,.13);color:#8a1f17}
+  .slot.actor .slot-label{color:#8a1f17}
+  .slot.verb{background:rgba(60,130,80,.15);color:#2d5a36}
+  .slot.verb .slot-label{color:#2d5a36}
+  .slot.time{background:rgba(140,90,160,.13);color:#5a3a78}
+  .slot.time .slot-label{color:#5a3a78}
+  .slot.place{background:rgba(80,140,150,.14);color:#2d5a62}
+  .slot.place .slot-label{color:#2d5a62}
+  .slot.cond{background:rgba(180,120,60,.16);color:#6f4318}
+  .slot.cond .slot-label{color:#6f4318}
+  .slot.plain{padding:.05rem .15rem;color:#5a4d3c;font-weight:600}
+  .slot.plain .slot-label{display:none}
+  .pattern-gloss{
+    margin-top:.4rem;
+    font-size:.72rem;color:#6b5d4a;font-style:italic;
+  }
+
+  /* Beispiel reveal */
+  .example-reveal{
+    margin-top:.6rem;
+    padding:.5rem .7rem;
+    background:#f4ede0;
+    border:1px dashed #b8893a;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    font-size:.85rem;color:#6b5d4a;
+    text-align:center;
+    font-style:italic;
+  }
+  .example-reveal:hover{background:#fffdf6}
+  .example-shown{
+    margin-top:.6rem;
+    padding:.6rem .8rem;
+    background:#fffdf6;
+    border:1.5px solid #2f6e3a;
+  }
+  .example-jp{
+    font-family:"Noto Serif JP",serif;
+    font-size:1.05rem;color:#1a1612;
+    line-height:1.7;
+  }
+  .example-de{
+    margin-top:.3rem;
+    font-size:.85rem;color:#6b5d4a;font-style:italic;
+    border-top:1px dotted #c9bda3;padding-top:.3rem;
+  }
+  .example-de.hidden-de{
+    color:transparent;background:#ebe1cd;
+    cursor:pointer;border-radius:3px;
+    user-select:none;
+  }
+
+  /* Übungs-Box pro Unterpunkt */
+  .ex-toggle{
+    display:block;
+    width:100%;
+    margin-top:.7rem;
+    padding:.55rem .8rem;
+    background:#b8893a;color:#1a1612;
+    border:2px solid #1a1612;
+    font-family:"Shippori Mincho",serif;font-size:.9rem;font-weight:600;
+    cursor:pointer;letter-spacing:.04em;
+    -webkit-tap-highlight-color:transparent;
+    box-shadow:0 2px 0 rgba(26,22,18,.15);
+    transition:background .15s;
+  }
+  .ex-toggle:hover{background:#cfa055}
+  .ex-toggle.active{background:#8a1f17;color:#f4ede0}
+  .exercise-box{
+    margin-top:.6rem;
+    padding:.9rem;
+    background:#ebe1cd;
+    border:2px dashed #8a1f17;
+    border-radius:3px;
+  }
+  .ex-help{
+    font-size:.82rem;color:#1a1612;
+    margin-bottom:.6rem;
+    font-style:italic;
+  }
+  .ex-word-pool{
+    display:flex;flex-wrap:wrap;gap:.4rem;
+    margin-bottom:.7rem;
+    padding:.6rem;
+    background:#fffdf6;
+    border:1px solid #c9bda3;
+  }
+  .ex-word{
+    display:inline-flex;flex-direction:column;align-items:center;
+    background:#f4ede0;
+    border:1.5px solid #1a1612;
+    padding:.35rem .55rem;
+    border-radius:3px;
+    font-family:"Noto Serif JP",serif;
+    font-size:.95rem;color:#1a1612;
+    line-height:1.2;
+    box-shadow:0 1px 0 rgba(26,22,18,.1);
+  }
+  .ex-word .ex-word-role{
+    display:block;
+    font-family:"JetBrains Mono",monospace;
+    font-size:.52rem;letter-spacing:.08em;
+    color:#8a1f17;
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:.05rem;
+  }
+  .ex-word .ex-word-de{
+    font-family:"Shippori Mincho",serif;
+    font-size:.62rem;color:#6b5d4a;
+    margin-top:.1rem;
+    letter-spacing:.02em;
+  }
+  .ex-word .ex-word-type{
+    position:absolute;
+  }
+  .ex-actions{
+    display:flex;flex-wrap:wrap;gap:.4rem;
+    margin-bottom:.4rem;
+  }
+  .ex-actions button{
+    padding:.4rem .7rem;
+    font-size:.78rem;font-family:"Shippori Mincho",serif;
+    background:#1a1612;color:#f4ede0;
+    border:2px solid #1a1612;
+    cursor:pointer;font-weight:600;
+    -webkit-tap-highlight-color:transparent;
+    transition:background .15s;
+  }
+  .ex-actions button:hover{background:#8a1f17}
+  .ex-actions button.gold{background:#b8893a;color:#1a1612;border-color:#b8893a}
+  .ex-actions button.gold:hover{background:#cfa055}
+  /* dezente Sekundär-Buttons (↺ 🎲) */
+  .ex-actions button.ghost{background:#efe7d6;color:#6b5d4a;border-color:#d8cdb8;font-weight:600;min-width:2.6rem}
+  .ex-actions button.ghost:hover{background:#e3d8c0;color:#1a1612}
+  /* Modus-Umschalter (Reiter) */
+  .ex-tabs{display:flex;gap:.2rem;margin:.1rem 0 .55rem;background:#efe7d6;border-radius:.55rem;padding:.2rem}
+  .ex-tab{flex:1;background:transparent;border:none;border-radius:.42rem;padding:.45rem .5rem;
+    font-size:.82rem;font-family:"Shippori Mincho",serif;color:#6b5d4a;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;transition:background .15s}
+  .ex-tab.active{background:#8a1f17;color:#fff;font-weight:700}
+  .ex-tab:not(.active):hover{background:#e3d8c0}
+  /* dezente Helfer-Links (📖 Wörter · 💡 Lösung · ▶ Beispiel) */
+  .ex-tools{display:flex;flex-wrap:wrap;gap:1rem;margin:.1rem 0 .35rem;padding-left:.1rem}
+  .ex-link{background:none;border:none;color:#1f4a7a;font-size:.74rem;font-family:"Shippori Mincho",serif;
+    cursor:pointer;padding:.2rem 0;text-decoration:underline;-webkit-tap-highlight-color:transparent}
+  .ex-link:hover{color:#8a1f17}
+  .ex-link.active{font-weight:700;text-decoration:none}
+  .ex-solution{
+    margin-top:.6rem;
+    padding:.65rem .8rem;
+    background:#d6e9c8;
+    border:1.5px solid #2f6e3a;
+  }
+  .ex-sol-label{
+    font-size:.65rem;letter-spacing:.15em;
+    color:#1f4a26;text-transform:uppercase;font-weight:700;
+    margin-bottom:.25rem;
+  }
+  .ex-sol-jp{
+    font-family:"Noto Serif JP",serif;font-size:1.05rem;
+    color:#1a1612;line-height:1.7;
+  }
+  .ex-sol-de{
+    margin-top:.3rem;
+    font-size:.82rem;color:#1f4a26;font-style:italic;
+  }
+
+  /* Interaktiver Satzbau */
+  .ex-answer{
+    display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;
+    min-height:3.1rem;
+    padding:.55rem;margin-bottom:.55rem;
+    background:#fffdf6;
+    border:2px dashed #8a1f17;border-radius:3px;
+  }
+  .ex-answer.empty::before{
+    content:"⬇ Bausteine in der richtigen Reihenfolge antippen";
+    font-size:.78rem;color:#8a7a63;font-style:italic;
+    font-family:"Shippori Mincho",serif;
+  }
+  .ex-source-label{
+    font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+    color:#6b5d4a;font-weight:700;margin:.2rem 0 .3rem;
+  }
+  .ex-chip{
+    display:inline-flex;flex-direction:column;align-items:center;
+    background:#f4ede0;border:1.5px solid #1a1612;
+    padding:.3rem .5rem;border-radius:3px;cursor:pointer;
+    font-family:"Noto Serif JP",serif;font-size:.95rem;color:#1a1612;
+    line-height:1.2;box-shadow:0 1px 0 rgba(26,22,18,.1);
+    -webkit-tap-highlight-color:transparent;transition:transform .1s,background .1s;
+  }
+  .ex-chip:hover{background:#ece2cf}
+  .ex-chip:active{transform:scale(.96)}
+  .ex-chip.placed{background:#e7efd9;border-color:#2f6e3a}
+  .ex-chip-role{
+    font-family:"JetBrains Mono",monospace;font-size:.5rem;letter-spacing:.07em;
+    color:#8a1f17;text-transform:uppercase;font-weight:700;margin-bottom:.04rem;
+  }
+  .ex-chip-jp .ex-chip-part{color:#8a1f17;font-weight:700;margin-left:.1rem}
+  .ex-chip-de{
+    font-family:"Shippori Mincho",serif;font-size:.6rem;color:#6b5d4a;margin-top:.08rem;
+  }
+  /* Optionaler Auftakt-Baustein (じゃ、/ あのう、…): gestrichelt = „darf, muss nicht“. */
+  .ex-chip-filler{border-style:dashed!important;opacity:.85}
+  .ex-chip-filler .ex-chip-role{color:#1f4a7a}
+  /* Multiple-Choice-Modus */
+  .mc-goal{
+    background:#eef3f8;border:1px solid #c9d6e3;border-radius:.4rem;
+    padding:.45rem .6rem;margin:.3rem 0 .5rem;font-family:"Shippori Mincho",serif;
+    font-size:.92rem;color:#33485e;
+  }
+  .mc-goal-flag{margin-right:.25rem}
+  .mc-opt{cursor:pointer;font-size:1.15rem}
+  .mc-opt:hover{background:#fff7e6}
+  /* Wörter-Vorlern-Panel */
+  .ex-vocab{margin:.4rem 0 .2rem;border:1px solid #d8cdb8;border-radius:.45rem;background:#fbf8f1;padding:.5rem .55rem}
+  .ex-vocab-label{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:#8a7a5c;margin-bottom:.4rem}
+  .ex-vocab-grid{display:flex;flex-wrap:wrap;gap:.35rem}
+  .vcard{display:flex;flex-direction:column;align-items:center;gap:.1rem;cursor:pointer;border:1px solid #e0d6c2;border-radius:.4rem;padding:.3rem .5rem;background:#fff;min-width:3.2rem}
+  .vcard:hover{background:#fff7e6;border-color:#caa86a}
+  .vcard-jp{font-family:"Shippori Mincho",serif;font-size:1.05rem;color:#2a2118}
+  .vcard-de{font-size:.6rem;color:#6b5d4a;text-align:center}
+  .vcard-spk{font-size:.55rem;color:#1f4a7a}
+  .ex-chip-form{
+    display:block;margin-top:.1rem;
+    font-family:"JetBrains Mono",monospace;font-size:.48rem;letter-spacing:.04em;
+    color:#1f4a7a;font-style:italic;
+  }
+  .ex-feedback{
+    font-size:.85rem;font-weight:600;margin:.2rem 0 .5rem;font-family:"Shippori Mincho",serif;
+  }
+  .ex-feedback.ok{color:#2f6e3a}
+  .ex-feedback.bad{color:#8a1f17}
+  .ex-chip.misplaced{border-color:#8a1f17;background:#f3d9d4}
+  .ex-model{
+    margin-top:.5rem;padding:.6rem .8rem;
+    background:#e8eef6;border:1.5px solid #3a76b2;
+  }
+  .ex-model-label{
+    font-size:.65rem;letter-spacing:.13em;text-transform:uppercase;
+    color:#1f4a7a;font-weight:700;margin-bottom:.25rem;
+  }
+  .ex-model-jp{font-family:"Noto Serif JP",serif;font-size:1.02rem;color:#1a1612;line-height:1.7}
+  .ex-model-jp .ex-chip-part{color:#8a1f17;font-weight:700}
+  .ex-model-note{margin-top:.3rem;font-size:.74rem;color:#1f4a7a;font-style:italic}
+
+  /* Audio-Button */
+  .spk{
+    background:none;border:none;cursor:pointer;
+    font-size:.95rem;line-height:1;padding:.1rem .25rem;
+    -webkit-tap-highlight-color:transparent;opacity:.65;
+  }
+  .spk:hover{opacity:1}
+
+  /* Streak / Fortschritt */
+  .status-bar{
+    display:flex;gap:.6rem;align-items:center;justify-content:center;flex-wrap:wrap;
+    margin:.5rem 0 .2rem;font-size:.82rem;color:#6b5d4a;
+  }
+  .status-bar b{color:#8a1f17}
+  .lesson-tile .progress{
+    display:block;margin-top:.2rem;font-size:.62rem;color:#2f6e3a;font-weight:700;letter-spacing:.04em;
+  }
+  .unterpunkt-num .done-tick{color:#2f6e3a;margin-left:.3rem}
+
+  /* Vokabel-Quiz */
+  .vq{
+    margin-top:.8rem;padding:.8rem;
+    background:#ebe1cd;border:2px dashed #1f4a7a;border-radius:3px;
+  }
+  .vq-q{
+    font-family:"Noto Serif JP",serif;font-size:1.4rem;color:#1a1612;
+    text-align:center;margin:.3rem 0 .7rem;line-height:1.5;
+  }
+  .vq-q .vq-dir{display:block;font-size:.62rem;color:#1f4a7a;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.25rem;font-family:"JetBrains Mono",monospace}
+  .vq-choices{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-bottom:.5rem}
+  .vq-choice{
+    padding:.5rem;font-size:.95rem;font-family:"Noto Serif JP",serif;
+    background:#fffdf6;border:1.5px solid #1a1612;border-radius:3px;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;color:#1a1612;
+  }
+  .vq-choice:hover{background:#f4ede0}
+  .vq-choice.right{background:#d6e9c8;border-color:#2f6e3a;font-weight:700}
+  .vq-choice.wrong{background:#f3d9d4;border-color:#8a1f17}
+  .vq-choice.disabled{cursor:default;pointer-events:none}
+  .vq-feedback{font-size:.85rem;font-weight:600;min-height:1.2em;margin-bottom:.4rem;font-family:"Shippori Mincho",serif}
+  .vq-feedback.ok{color:#2f6e3a}
+  .vq-feedback.bad{color:#8a1f17}
+  .vq-bar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;font-size:.8rem;color:#6b5d4a}
+  .vq-bar button{padding:.35rem .7rem;font-size:.78rem;font-family:"Shippori Mincho",serif;background:#1a1612;color:#f4ede0;border:2px solid #1a1612;cursor:pointer;font-weight:600}
+  .vq-bar button:hover{background:#8a1f17}
+  .vq-srs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.5rem}
+  .vq-srs button{flex:1;min-width:120px;padding:.55rem;font-size:.85rem;font-family:"Shippori Mincho",serif;font-weight:700;border:2px solid #1a1612;cursor:pointer}
+  .vq-srs .srs-no{background:#f3d9d4;color:#8a1f17;border-color:#8a1f17}
+  .vq-srs .srs-yes{background:#d6e9c8;color:#1f4a26;border-color:#2f6e3a}
+  .vq-listen{text-align:center;margin:.4rem 0 .8rem}
+  .vq-listen button{font-size:2rem;background:none;border:none;cursor:pointer}
+
+  /* Fortschritts-Dashboard */
+  .dash-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.6rem;margin:.4rem 0 1rem}
+  .dash-card{background:#fffdf6;border:1.5px solid #c9bda3;border-radius:3px;padding:.7rem;text-align:center}
+  .dash-card .big{font-size:1.7rem;font-weight:800;color:#8a1f17;font-family:"Noto Serif JP",serif;display:block}
+  .dash-card .lbl{font-size:.7rem;color:#6b5d4a;letter-spacing:.04em;margin-top:.2rem;display:block}
+  .dash-h{font-family:"Noto Serif JP",serif;font-weight:800;color:#8a1f17;font-size:1rem;margin:1rem 0 .5rem}
+  .dash-lesson{display:flex;align-items:center;gap:.5rem;margin-bottom:.3rem;font-size:.8rem}
+  .dash-lesson .ln{width:2.5rem;font-weight:700;color:#1a1612}
+  .dash-bar{flex:1;height:.7rem;background:#e0d6c2;border-radius:3px;overflow:hidden}
+  .dash-bar span{display:block;height:100%;background:#2f6e3a}
+  .dash-lesson .pct{width:3rem;text-align:right;color:#6b5d4a;font-size:.72rem}
+  .dash-weak{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.3rem}
+  .dash-weak .w{background:#f3d9d4;border:1px solid #c98;border-radius:3px;padding:.2rem .45rem;font-size:.78rem}
+  .dash-weak .w .jp{font-family:"Noto Serif JP",serif;margin-right:.25rem}
+
+  /* Vokabel-Liste */
+  .vocab-section{
+    margin-top:1.5rem;
+    border-top:3px double #1a1612;
+    padding-top:1rem;
+  }
+  .vocab-section h3{
+    font-family:"Noto Serif JP",serif;font-weight:800;
+    color:#8a1f17;font-size:1.1rem;margin-bottom:.6rem;letter-spacing:.04em;
+  }
+  .vocab-section .vocab-help{
+    font-size:.75rem;color:#6b5d4a;font-style:italic;
+    margin-bottom:.6rem;
+  }
+  .vocab-table{
+    width:100%;border-collapse:collapse;
+    background:#fffdf6;
+    border:1px solid #1a1612;
+    font-size:.9rem;
+  }
+  .vocab-table tr{border-bottom:1px solid #c9bda3}
+  .vocab-table tr:last-child{border-bottom:none}
+  .vocab-table td{
+    padding:.4rem .6rem;
+    vertical-align:middle;
+  }
+  .vocab-table td.jp{
+    font-family:"Noto Serif JP",serif;font-size:1.05rem;
+    width:45%;
+  }
+  .vocab-table td.de{
+    color:#6b5d4a;font-size:.85rem;
+  }
+  .vocab-table td.type{
+    width:42px;text-align:right;
+    color:#b8893a;font-size:.65rem;
+    font-family:"JetBrains Mono",monospace;
+    letter-spacing:.05em;
+  }
+  .vocab-table td.de.hidden-de{
+    color:transparent;background:#ebe1cd;cursor:pointer;user-select:none;
+  }
+  .vocab-controls{
+    display:flex;gap:.5rem;margin-bottom:.6rem;flex-wrap:wrap;
+  }
+  .vocab-controls button{
+    padding:.35rem .7rem;font-size:.75rem;
+    background:#ebe1cd;border:1.5px solid #1a1612;
+    cursor:pointer;font-family:inherit;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .vocab-controls button:hover{background:#f4ede0}
+  .vocab-controls button.active{background:#8a1f17;color:#f4ede0;border-color:#8a1f17}
+
+  /* === Drill === */
+  .controls-row{
+    display:flex;flex-wrap:wrap;gap:.6rem;align-items:flex-end;
+    margin-bottom:.8rem;
+  }
+  .field{display:flex;flex-direction:column;gap:.25rem;flex:1;min-width:140px}
+  .field label{
+    font-size:.7rem;letter-spacing:.1em;color:#6b5d4a;
+    text-transform:uppercase;font-weight:600;
+  }
+  select{
+    padding:.55rem .7rem;
+    background:#ebe1cd;
+    border:2px solid #1a1612;
+    font-family:"Shippori Mincho",serif;font-size:1rem;color:#1a1612;
+    box-shadow:0 2px 0 rgba(26,22,18,.15);
+    width:100%;
+  }
+  select:focus{outline:none;border-color:#c0362c}
+  button.btn{
+    padding:.6rem 1rem;
+    background:#1a1612;color:#f4ede0;
+    border:2px solid #1a1612;
+    font-family:"Shippori Mincho",serif;font-size:.95rem;font-weight:600;
+    cursor:pointer;
+    box-shadow:0 2px 0 rgba(26,22,18,.15);
+    -webkit-tap-highlight-color:transparent;
+  }
+  button.btn:hover{background:#8a1f17}
+  button.btn.red{background:#8a1f17;border-color:#8a1f17}
+  button.btn.red:hover{background:#c0362c;border-color:#c0362c}
+  button.btn.gold{background:#b8893a;border-color:#b8893a;color:#1a1612}
+
+  .drill-card{
+    background:#fffdf6;
+    border:2px solid #1a1612;
+    padding:1.3rem 1.1rem;
+    text-align:center;
+    box-shadow:0 2px 0 rgba(26,22,18,.15);
+    margin:1rem 0;
+  }
+  .drill-prompt{
+    font-family:"Noto Serif JP",serif;
+    font-size:2rem;color:#8a1f17;font-weight:800;
+    margin-bottom:.3rem;
+  }
+  .drill-de{
+    color:#6b5d4a;font-style:italic;font-size:.9rem;margin-bottom:.7rem;
+  }
+  .drill-instruction{
+    font-size:.95rem;color:#1a1612;margin-bottom:1rem;
+  }
+  .drill-instruction b{color:#8a1f17}
+  .drill-choices{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;
+  }
+  @media(max-width:480px){
+    .drill-choices{grid-template-columns:1fr}
+  }
+  .choice{
+    padding:.85rem .6rem;
+    background:#ebe1cd;
+    border:2px solid #1a1612;
+    font-family:"Noto Serif JP",serif;font-size:1.05rem;
+    cursor:pointer;
+    box-shadow:0 2px 0 rgba(26,22,18,.15);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .choice:hover{background:#f4ede0}
+  .choice.right{background:#d6e9c8;border-color:#2f6e3a;color:#1f4a26}
+  .choice.wrong{background:#f0c8c0;border-color:#8a1f17;color:#5a0e08}
+  .choice.disabled{cursor:default;opacity:.85}
+  .feedback{
+    margin-top:.9rem;font-size:.95rem;font-weight:600;min-height:1.3em;
+  }
+  .feedback.ok{color:#1f4a26}
+  .feedback.bad{color:#8a1f17}
+  .score-row{
+    display:flex;justify-content:space-between;align-items:center;
+    background:#ebe1cd;border:1px solid #1a1612;
+    padding:.5rem .8rem;font-size:.85rem;
+    margin-bottom:.8rem;
+  }
+  .score-row b{color:#8a1f17;font-weight:800}
+  .filter-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+    gap:.4rem;margin-bottom:.8rem;
+  }
+  .chk{
+    display:flex;align-items:center;gap:.3rem;
+    background:#ebe1cd;border:1.5px solid #1a1612;
+    padding:.35rem .55rem;font-size:.8rem;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;user-select:none;
+  }
+  .chk input{margin:0;accent-color:#8a1f17}
+  .chk.checked{background:#f4ede0;border-color:#8a1f17;color:#8a1f17;font-weight:600}
+
+  .hidden{display:none !important}
+
+  footer{
+    text-align:center;color:#999;font-size:.7rem;
+    padding:1rem;margin-top:1rem;
+  }
+  .help{font-size:.85rem;color:#6b5d4a;font-style:italic;margin-bottom:.8rem}
+</style>
+
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back" href="../">← Hub</a>
+  <div class="title">練習 · Übungen</div>
+  <div class="spacer"></div>
+</div>
+
+<header>
+  <h1>
+    <span class="jp">練習帳</span>
+    <span class="de">Üben · Drills · Wiederholung</span>
+  </h1>
+  <p class="subtitle">中級 — Satzbau, Vokabel-Quiz, Spaced Repetition &amp; Fortschritt</p>
+</header>
+
+<div class="mode-tabs">
+  <button class="mode-tab active" data-mode="lessons">
+    <span class="jp">課</span>
+    <span class="de">Lektionen</span>
+  </button>
+  <button class="mode-tab" data-mode="drill">
+    <span class="jp">活用</span>
+    <span class="de">Drills</span>
+  </button>
+  <button class="mode-tab" data-mode="review">
+    <span class="jp">復習</span>
+    <span class="de">Wiederholung</span>
+  </button>
+  <button class="mode-tab" data-mode="progress">
+    <span class="jp">進度</span>
+    <span class="de">Fortschritt</span>
+  </button>
+</div>
+
+<div class="status-bar">
+  <span id="streak-badge"></span>
+  <span id="overall-progress"></span>
+</div>
+
+<section id="mode-lessons" class="panel">
+  <div id="lesson-grid-view">
+    <p class="help">Wähle eine Lektion. Pro Lektion siehst du alle Unterpunkte mit Bausteinen, Beispiel-Reveal und einer Vokabel-Liste am Ende.</p>
+    <div id="lesson-grid" class="lesson-grid"></div>
+  </div>
+  <div id="lesson-detail-view" class="hidden"></div>
+</section>
+
+<section id="mode-drill" class="panel hidden">
+  <p class="help">Drill für Konjugationen (Verben, i-/na-Adjektive) und Partikeln. Wähle die richtige Antwort aus vier Möglichkeiten. Punkte & Streak werden gespeichert.</p>
+
+  <div class="controls-row">
+    <div class="field">
+      <label for="drill-cat">Kategorie</label>
+      <select id="drill-cat">
+        <option value="verb">Verben (Top 100)</option>
+        <option value="iadj">i-Adjektive</option>
+        <option value="naadj">na-Adjektive</option>
+        <option value="particle">Partikeln (を/が/に/へ/で …)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="drill-group">Verbgruppe (nur Verben)</label>
+      <select id="drill-group">
+        <option value="all">alle Gruppen</option>
+        <option value="1">nur Gruppe 1 (u-Verben)</option>
+        <option value="2">nur Gruppe 2 (ru-Verben)</option>
+        <option value="3">nur Gruppe 3 (unregelmäßig)</option>
+      </select>
+    </div>
+  </div>
+
+  <label style="font-size:.7rem;letter-spacing:.1em;color:#6b5d4a;text-transform:uppercase;font-weight:600;display:block;margin-bottom:.3rem">Zielformen</label>
+  <div id="drill-filters" class="filter-grid"></div>
+
+  <div class="score-row">
+    <span>Richtig: <b id="score-ok">0</b> / Total: <b id="score-total">0</b></span>
+    <button class="btn gold" id="reset-score" style="padding:.3rem .6rem;font-size:.8rem">Reset</button>
+  </div>
+
+  <div id="drill-card" class="drill-card">
+    <div class="drill-prompt" id="drill-prompt">—</div>
+    <div class="drill-de" id="drill-de">—</div>
+    <div class="drill-instruction" id="drill-instruction">Bilde die <b>?-Form</b></div>
+    <div class="drill-choices" id="drill-choices"></div>
+    <div class="feedback" id="drill-feedback"></div>
+  </div>
+
+  <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+    <button class="btn red" id="next-drill">Nächste Aufgabe →</button>
+  </div>
+</section>
+
+<section id="mode-review" class="panel hidden">
+  <p class="help">Spaced Repetition über <b>alle</b> Lektionen: fällige Vokabeln zuerst, dann ein paar neue. „Gewusst" verlängert den Abstand, „Nicht gewusst" bringt das Wort bald zurück.</p>
+  <div class="controls-row">
+    <div class="field">
+      <label for="review-mode">Abfrage-Richtung</label>
+      <select id="review-mode">
+        <option value="jp2de">Japanisch → Deutsch</option>
+        <option value="de2jp">Deutsch → Japanisch</option>
+        <option value="listen">🎧 Hören → Deutsch</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="review-new">Neue Wörter pro Runde</label>
+      <select id="review-new">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="20">20</option>
+        <option value="0">keine (nur Wiederholung)</option>
+      </select>
+    </div>
+  </div>
+  <div id="review-stats" class="status-bar"></div>
+  <div id="review-card" class="vq"></div>
+</section>
+
+<section id="mode-progress" class="panel hidden">
+  <div id="progress-view"></div>
+</section>
+
+<footer>練習帳 · Minna no Nihongo · Matze is awesome GmbH</footer>
+
+<script src="lessons.js"></script>
+<script>
+/* ===================================================================
+   VOKABELN PRO LEKTION
+   Kompakte kuratierte Listen (Minna-Standard + häufige Alltagsvokabeln).
+   Pro Eintrag: {jp, de, t} mit t=Type (n=Nomen, v=Verb, i=i-Adj,
+   na=na-Adj, e=Ausdruck/Phrase, num=Zahl, dem=Demonstrativ).
+   =================================================================== */
+
+const VOCAB_BY_LESSON = {"1":[{"jp":"ファストフード","de":"Fast Food"},{"jp":"メニュー","de":"Menü, Speisekarte"},{"jp":"<ruby>代表的<rt>だいひょうてき</rt></ruby>な","de":"typisch, repräsentativ"},{"jp":"ハンバーガー","de":"Hamburger"},{"jp":"フライドポテト","de":"Pommes frites"},{"jp":"<ruby>最近<rt>さいきん</rt></ruby>","de":"in letzter Zeit, neuerdings"},{"jp":"<ruby>牛丼<rt>ぎゅうどん</rt></ruby>","de":"Gyūdon (Rinder-Reisbowl)"},{"jp":"スープ","de":"Suppe"},{"jp":"<ruby>種類<rt>しゅるい</rt></ruby>","de":"Sorte, Art"},{"jp":"ある《+ N》","de":"es gibt (mit Nomen)"},{"jp":"<ruby>発表<rt>はっぴょう</rt></ruby>","de":"Bekanntmachung, Präsentation"},{"jp":"〜<ruby>兆円<rt>ちょうえん</rt></ruby>","de":"~ Billionen Yen"},{"jp":"<ruby>理由<rt>りゆう</rt></ruby>","de":"Grund"},{"jp":"<ruby>値段<rt>ねだん</rt></ruby>","de":"Preis"},{"jp":"<ruby>手軽<rt>てがる</rt></ruby>に","de":"unkompliziert, einfach"},{"jp":"<ruby>利用<rt>りよう</rt></ruby>する","de":"nutzen, in Anspruch nehmen"},{"jp":"しかし","de":"jedoch"},{"jp":"このような","de":"solch ein, derartig"},{"jp":"カロリー","de":"Kalorie"},{"jp":"<ruby>生活習慣病<rt>せいかつしゅうかんびょう</rt></ruby>","de":"Lifestyle-Krankheit, Zivilisationskrankheit"},{"jp":"<ruby>増<rt>ふ</rt></ruby>える","de":"sich vermehren, zunehmen (intransitiv)"},{"jp":"<ruby>健康<rt>けんこう</rt></ruby>","de":"Gesundheit"},{"jp":"<ruby>増<rt>ふ</rt></ruby>やす","de":"erhöhen, vermehren (transitiv)"},{"jp":"<ruby>表示<rt>ひょうじ</rt></ruby>する","de":"anzeigen, darstellen"}],"2":[{"jp":"<ruby>起<rt>お</rt></ruby>きる [<ruby>地震<rt>じしん</rt></ruby>が〜]","de":"auftreten, geschehen [bei Erdbeben]"},{"jp":"ストーブ","de":"Heizofen"},{"jp":"ガスコンロ","de":"Gasherd"},{"jp":"<ruby>揺<rt>ゆ</rt></ruby>れ","de":"Beben, Erschütterung"},{"jp":"おさまる [<ruby>揺<rt>ゆ</rt></ruby>れが〜]","de":"nachlassen, sich legen [bei Beben]"},{"jp":"<ruby>慌<rt>あわ</rt></ruby>てる","de":"in Panik geraten, hastig werden"},{"jp":"<ruby>食料<rt>しょくりょう</rt></ruby>","de":"Lebensmittel, Proviant"},{"jp":"<ruby>背<rt>せ</rt></ruby>が<ruby>高<rt>たか</rt></ruby>い","de":"groß (von Statur), hochgewachsen"},{"jp":"<ruby>家具<rt>かぐ</rt></ruby>","de":"Möbel"},{"jp":"その<ruby>他<rt>ほか</rt></ruby>","de":"sonstiges, andere"},{"jp":"<ruby>万一<rt>まんいち</rt></ruby>","de":"für den Fall, dass; im Notfall"},{"jp":"<ruby>連絡方法<rt>れんらくほうほう</rt></ruby>","de":"Kontaktweg, Kommunikationsmethode"},{"jp":"<ruby>避難場所<rt>ひなんばしょ</rt></ruby>","de":"Evakuierungsort, Zufluchtsort"},{"jp":"<ruby>決<rt>き</rt></ruby>める","de":"entscheiden, festlegen"}],"3":[{"jp":"<ruby>最近<rt>さいきん</rt></ruby>","de":"in letzter Zeit"},{"jp":"<ruby>携帯電話<rt>けいたいでんわ</rt></ruby>","de":"Mobiltelefon"},{"jp":"スマートホン (スマホ)","de":"Smartphone"},{"jp":"<ruby>調査<rt>ちょうさ</rt></ruby>","de":"Untersuchung, Umfrage"},{"jp":"<ruby>小学生<rt>しょうがくせい</rt></ruby>","de":"Grundschüler"},{"jp":"% (パーセント)","de":"Prozent"},{"jp":"<ruby>中学生<rt>ちゅうがくせい</rt></ruby>","de":"Mittelschüler"},{"jp":"<ruby>専用<rt>せんよう</rt></ruby>","de":"für persönlichen Gebrauch, exklusiv"},{"jp":"タブレット","de":"Tablet"},{"jp":"<ruby>大人<rt>おとな</rt></ruby>","de":"Erwachsener"},{"jp":"ブランド","de":"Marke (Brand)"},{"jp":"<ruby>見<rt>み</rt></ruby>かける","de":"erblicken, zufällig sehen"},{"jp":"これら","de":"diese (Plural)"},{"jp":"かかる [お<ruby>金<rt>かね</rt></ruby>が〜]","de":"kosten [Geld]"},{"jp":"<ruby>高価<rt>こうか</rt></ruby>な","de":"teuer, kostbar"},{"jp":"<ruby>親<rt>おや</rt></ruby>","de":"Eltern"},{"jp":"<ruby>数<rt>かず</rt></ruby>","de":"Anzahl"},{"jp":"<ruby>年々<rt>ねんねん</rt></ruby>","de":"jährlich, von Jahr zu Jahr"},{"jp":"<ruby>減<rt>へ</rt></ruby>る","de":"abnehmen, weniger werden"},{"jp":"<ruby>王様<rt>おうさま</rt></ruby>","de":"König"}],"4":[{"jp":"<ruby>訪<rt>おとず</rt></ruby>れる","de":"besuchen"},{"jp":"<ruby>外国人<rt>がいこくじん</rt></ruby>","de":"Ausländer"},{"jp":"<ruby>旅行者<rt>りょこうしゃ</rt></ruby>","de":"Reisender, Tourist"},{"jp":"<ruby>数<rt>かず</rt></ruby>","de":"Anzahl"},{"jp":"<ruby>年々<rt>ねんねん</rt></ruby>","de":"jährlich, von Jahr zu Jahr"},{"jp":"<ruby>実際<rt>じっさい</rt></ruby>に","de":"tatsächlich, in der Realität"},{"jp":"<ruby>来日<rt>らいにち</rt></ruby>する","de":"nach Japan kommen"},{"jp":"<ruby>海外<rt>かいがい</rt></ruby>","de":"Übersee, Ausland"},{"jp":"<ruby>持<rt>も</rt></ruby>つ [イメージを〜]","de":"haben [eine Vorstellung von]"},{"jp":"<ruby>表<rt>ひょう</rt></ruby>","de":"Tabelle"},{"jp":"<ruby>人々<rt>ひとびと</rt></ruby>","de":"die Menschen, Leute"},{"jp":"<ruby>礼儀<rt>れいぎ</rt></ruby>","de":"Etikette, Höflichkeit"},{"jp":"<ruby>正<rt>ただ</rt></ruby>しい","de":"richtig, korrekt"},{"jp":"ポイント","de":"Punkt(e)"},{"jp":"〜に<ruby>加<rt>くわ</rt></ruby>えて","de":"zusätzlich zu, neben ~"},{"jp":"<ruby>第<rt>だい</rt></ruby>〜<ruby>位<rt>い</rt></ruby>","de":"~. Platz, Rang"},{"jp":"サービス","de":"Service"},{"jp":"おもてなしの<ruby>心<rt>こころ</rt></ruby>","de":"Gastfreundschaftsgeist"},{"jp":"<ruby>選<rt>えら</rt></ruby>ぶ","de":"auswählen"},{"jp":"<ruby>都市<rt>とし</rt></ruby>","de":"Stadt"},{"jp":"<ruby>景観<rt>けいかん</rt></ruby>","de":"Landschaft, Stadtbild"},{"jp":"<ruby>美<rt>うつく</rt></ruby>しい","de":"schön"},{"jp":"ユネスコ<ruby>無形文化遺産<rt>むけいぶんかいさん</rt></ruby>","de":"UNESCO-Weltkulturerbe (immateriell)"},{"jp":"<ruby>登録<rt>とうろく</rt></ruby>する","de":"eintragen, registrieren"},{"jp":"<ruby>今後<rt>こんご</rt></ruby>","de":"künftig, ab jetzt"}],"5":[{"jp":"<ruby>睡眠<rt>すいみん</rt></ruby>","de":"Schlaf"},{"jp":"<ruby>夜中<rt>よなか</rt></ruby>","de":"mitten in der Nacht"},{"jp":"<ruby>覚<rt>さ</rt></ruby>める [<ruby>目<rt>め</rt></ruby>が〜]","de":"erwachen, aufwachen [Augen öffnen sich]"},{"jp":"<ruby>遅<rt>おそ</rt></ruby>くまで","de":"bis spät"},{"jp":"<ruby>活動<rt>かつどう</rt></ruby>する","de":"aktiv sein, tätig sein"},{"jp":"<ruby>通勤<rt>つうきん</rt></ruby>","de":"Pendeln zum Arbeitsplatz"},{"jp":"<ruby>減少<rt>げんしょう</rt></ruby>する","de":"abnehmen, sich verringern"},{"jp":"<ruby>不調<rt>ふちょう</rt></ruby>","de":"Beschwerden, schlechter Zustand"},{"jp":"<ruby>訴<rt>うった</rt></ruby>える [<ruby>不調<rt>ふちょう</rt></ruby>を〜]","de":"klagen [über Beschwerden]"},{"jp":"<ruby>自然<rt>しぜん</rt></ruby>に","de":"natürlich, von selbst"},{"jp":"<ruby>昼間<rt>ひるま</rt></ruby>","de":"tagsüber"},{"jp":"<ruby>十分<rt>じゅうぶん</rt></ruby>に","de":"ausreichend, genug"},{"jp":"<ruby>動<rt>うご</rt></ruby>かす","de":"bewegen (transitiv)"},{"jp":"〜に<ruby>関<rt>かん</rt></ruby>して","de":"in Bezug auf ~, was ~ angeht"},{"jp":"<ruby>神経質<rt>しんけいしつ</rt></ruby>な","de":"nervös, übersensibel"}],"6":[{"jp":"<ruby>胃<rt>い</rt></ruby>カメラ","de":"Magenkamera (Gastroskop)"},{"jp":"<ruby>乾電池<rt>かんでんち</rt></ruby>","de":"Trockenbatterie"},{"jp":"サインペン","de":"Filzstift"},{"jp":"せんす","de":"Faltfächer"},{"jp":"インスタントコーヒー","de":"Instantkaffee"},{"jp":"<ruby>当時<rt>とうじ</rt></ruby>","de":"damals, zu jener Zeit"},{"jp":"<ruby>注目<rt>ちゅうもく</rt></ruby>する","de":"Aufmerksamkeit schenken, beachten"},{"jp":"<ruby>特許<rt>とっきょ</rt></ruby>","de":"Patent"},{"jp":"<ruby>取<rt>と</rt></ruby>る [<ruby>特許<rt>とっきょ</rt></ruby>を〜]","de":"nehmen, erlangen [ein Patent]"},{"jp":"<ruby>別<rt>べつ</rt></ruby>の","de":"ein anderer, separat"}],"7":[{"jp":"フリーマーケット","de":"Flohmarkt"},{"jp":"<ruby>温暖化<rt>おんだんか</rt></ruby>","de":"Erwärmung (Klimawandel)"},{"jp":"<ruby>砂漠化<rt>さばくか</rt></ruby>","de":"Verwüstung, Desertifikation"},{"jp":"<ruby>自分<rt>じぶん</rt></ruby>たち","de":"wir selbst (Plural)"},{"jp":"<ruby>守<rt>まも</rt></ruby>る","de":"schützen, beschützen"},{"jp":"〜という N","de":"ein N namens ~, ein sogenanntes N"},{"jp":"<ruby>意識<rt>いしき</rt></ruby>","de":"Bewusstsein, Awareness"},{"jp":"<ruby>生<rt>う</rt></ruby>まれる [<ruby>意識<rt>いしき</rt></ruby>が〜]","de":"entstehen [Bewusstsein]"},{"jp":"<ruby>以前<rt>いぜん</rt></ruby>","de":"früher, vorher"},{"jp":"<ruby>考<rt>かんが</rt></ruby>え","de":"Gedanke, Idee"},{"jp":"このような","de":"solch ein, derartig"},{"jp":"リサイクル<ruby>運動<rt>うんどう</rt></ruby>","de":"Recycling-Bewegung"},{"jp":"〜のだ (= 〜んです <ruby>説明<rt>せつめい</rt></ruby>)","de":"〜のだ (=〜んです, Erklärung)"},{"jp":"<ruby>十分<rt>じゅうぶん</rt></ruby>","de":"genug, ausreichend"},{"jp":"<ruby>市町村<rt>しちょうそん</rt></ruby>","de":"Städte und Gemeinden"},{"jp":"リサイクルする","de":"recyceln"},{"jp":"〜と<ruby>呼<rt>よ</rt></ruby>びかける","de":"aufrufen zu ~, appellieren"}],"8":[{"jp":"あいづち","de":"Aizuchi (zustimmende Geräusche/Nicken beim Zuhören)"},{"jp":"<ruby>相手<rt>あいて</rt></ruby>","de":"Gegenüber, Gesprächspartner"},{"jp":"うなずく","de":"nicken"},{"jp":"<ruby>伝<rt>つた</rt></ruby>える","de":"mitteilen, übermitteln"},{"jp":"<ruby>合図<rt>あいず</rt></ruby>","de":"Signal, Zeichen"},{"jp":"だから (= ですから)","de":"deshalb, daher"},{"jp":"<ruby>賛成<rt>さんせい</rt></ruby>する","de":"zustimmen"},{"jp":"<ruby>不安<rt>ふあん</rt></ruby>な","de":"unsicher, ängstlich"},{"jp":"<ruby>確<rt>たし</rt></ruby>かめる","de":"sich vergewissern, überprüfen"},{"jp":"<ruby>誤解<rt>ごかい</rt></ruby>する","de":"missverstehen"},{"jp":"<ruby>黙<rt>だま</rt></ruby>る","de":"schweigen, still sein"},{"jp":"<ruby>打<rt>う</rt></ruby>つ [あいづちを〜]","de":"machen [Aizuchi machen, »schlagen«]"},{"jp":"さまざまな","de":"verschiedene, vielfältige"}],"9":[{"jp":"<ruby>以前<rt>いぜん</rt></ruby>","de":"früher, vorher"},{"jp":"<ruby>女性<rt>じょせい</rt></ruby>","de":"Frau, weibliche Person"},{"jp":"<ruby>職場<rt>しょくば</rt></ruby>","de":"Arbeitsplatz"},{"jp":"<ruby>男性<rt>だんせい</rt></ruby>","de":"Mann, männliche Person"},{"jp":"<ruby>表<rt>あらわ</rt></ruby>す","de":"ausdrücken, zeigen"},{"jp":"<ruby>看護婦<rt>かんごふ</rt></ruby>","de":"Krankenschwester (alte Bezeichnung)"},{"jp":"<ruby>保母<rt>ほぼ</rt></ruby>","de":"Erzieherin (alte Bezeichnung)"},{"jp":"<ruby>職業<rt>しょくぎょう</rt></ruby>","de":"Beruf"},{"jp":"<ruby>名称<rt>めいしょう</rt></ruby>","de":"Bezeichnung, Name"},{"jp":"<ruby>看護師<rt>かんごし</rt></ruby>","de":"Krankenpfleger/-schwester (geschlechtsneutral)"},{"jp":"<ruby>保育士<rt>ほいくし</rt></ruby>","de":"Erzieher/in (geschlechtsneutral)"},{"jp":"<ruby>建築<rt>けんちく</rt></ruby>","de":"Bau, Architektur"},{"jp":"<ruby>運転手<rt>うんてんしゅ</rt></ruby>","de":"Fahrer"},{"jp":"<ruby>車掌<rt>しゃしょう</rt></ruby>","de":"Schaffner, Zugbegleiter"},{"jp":"<ruby>男女<rt>だんじょ</rt></ruby>","de":"Mann und Frau, beide Geschlechter"},{"jp":"<ruby>区別<rt>くべつ</rt></ruby>","de":"Unterscheidung, Trennung"},{"jp":"<ruby>家庭<rt>かてい</rt></ruby>","de":"Haushalt, Familie"},{"jp":"<ruby>向<rt>む</rt></ruby>ける [<ruby>目<rt>め</rt></ruby>を〜]","de":"richten [den Blick auf]"},{"jp":"<ruby>家事<rt>かじ</rt></ruby>","de":"Hausarbeit"},{"jp":"<ruby>労働<rt>ろうどう</rt></ruby>","de":"Arbeit, Tätigkeit"},{"jp":"〜<ruby>程度<rt>ていど</rt></ruby>","de":"~ Niveau, ~ Maß"},{"jp":"<ruby>調査結果<rt>ちょうさけっか</rt></ruby>","de":"Untersuchungsergebnis"},{"jp":"A ではなく B","de":"nicht A, sondern B"},{"jp":"すすんで","de":"aus eigenem Antrieb, freiwillig"},{"jp":"<ruby>分担<rt>ぶんたん</rt></ruby>する","de":"aufteilen, sich teilen"},{"jp":"<ruby>共働<rt>ともばたら</rt></ruby>き","de":"Doppelverdiener-Ehe"}],"10":[{"jp":"<ruby>調査<rt>ちょうさ</rt></ruby>","de":"Untersuchung, Umfrage"},{"jp":"<ruby>乱<rt>みだ</rt></ruby>れる","de":"durcheinander geraten, sich verschlechtern"},{"jp":"<ruby>感<rt>かん</rt></ruby>じる","de":"fühlen, empfinden"},{"jp":"<ruby>特<rt>とく</rt></ruby>に","de":"besonders, insbesondere"},{"jp":"<ruby>敬語<rt>けいご</rt></ruby>","de":"Höflichkeitssprache, Keigo"},{"jp":"<ruby>場<rt>ば</rt></ruby> [<ruby>食事<rt>しょくじ</rt></ruby>の〜]","de":"Ort, Setting [beim Essen]"},{"jp":"<ruby>訪<rt>たず</rt></ruby>ねる","de":"besuchen"},{"jp":"<ruby>本来<rt>ほんらい</rt></ruby>","de":"eigentlich, ursprünglich"},{"jp":"<ruby>変化<rt>へんか</rt></ruby>する","de":"sich verändern"},{"jp":"<ruby>気<rt>き</rt></ruby>にする","de":"sich Sorgen machen, sich kümmern um"},{"jp":"この<ruby>機会<rt>きかい</rt></ruby>に","de":"bei dieser Gelegenheit"}]};
+
+/* ===================================================================
+   VERBEN für Konjugations-Drill (~75 häufigste)
+   group: 1=u-Verb, 2=ru-Verb, 3=unregelmäßig
+   =================================================================== */
+
+const VERBS = [
+  // === Gruppe 2 (ru-Verben) ===
+  {g:2, de:'essen',          jisho:'<ruby>食<rt>た</rt></ruby>べる',    stem:'<ruby>食<rt>た</rt></ruby>べ'},
+  {g:2, de:'sehen',          jisho:'<ruby>見<rt>み</rt></ruby>る',      stem:'<ruby>見<rt>み</rt></ruby>'},
+  {g:2, de:'aufstehen',      jisho:'<ruby>起<rt>お</rt></ruby>きる',    stem:'<ruby>起<rt>お</rt></ruby>き'},
+  {g:2, de:'schlafen',       jisho:'<ruby>寝<rt>ね</rt></ruby>る',      stem:'<ruby>寝<rt>ね</rt></ruby>'},
+  {g:2, de:'lehren',         jisho:'<ruby>教<rt>おし</rt></ruby>える',  stem:'<ruby>教<rt>おし</rt></ruby>え'},
+  {g:2, de:'aufmachen',      jisho:'<ruby>開<rt>あ</rt></ruby>ける',    stem:'<ruby>開<rt>あ</rt></ruby>け'},
+  {g:2, de:'zumachen',       jisho:'<ruby>閉<rt>し</rt></ruby>める',    stem:'<ruby>閉<rt>し</rt></ruby>め'},
+  {g:2, de:'anhalten',       jisho:'<ruby>止<rt>と</rt></ruby>める',    stem:'<ruby>止<rt>と</rt></ruby>め'},
+  {g:2, de:'aussteigen',     jisho:'<ruby>降<rt>お</rt></ruby>りる',    stem:'<ruby>降<rt>お</rt></ruby>り'},
+  {g:2, de:'sich merken',    jisho:'<ruby>覚<rt>おぼ</rt></ruby>える',  stem:'<ruby>覚<rt>おぼ</rt></ruby>え'},
+  {g:2, de:'vergessen',      jisho:'<ruby>忘<rt>わす</rt></ruby>れる',  stem:'<ruby>忘<rt>わす</rt></ruby>れ'},
+  {g:2, de:'können',         jisho:'できる',                            stem:'でき'},
+  {g:2, de:'sichtbar sein',  jisho:'<ruby>見<rt>み</rt></ruby>える',    stem:'<ruby>見<rt>み</rt></ruby>え'},
+  {g:2, de:'hörbar sein',    jisho:'<ruby>聞<rt>き</rt></ruby>こえる',  stem:'<ruby>聞<rt>き</rt></ruby>こえ'},
+  {g:2, de:'verspäten',      jisho:'おくれる',                          stem:'おくれ'},
+  {g:2, de:'fortsetzen',     jisho:'<ruby>続<rt>つづ</rt></ruby>ける',  stem:'<ruby>続<rt>つづ</rt></ruby>け'},
+  {g:2, de:'aufhören',       jisho:'やめる',                            stem:'やめ'},
+  {g:2, de:'sammeln',        jisho:'<ruby>集<rt>あつ</rt></ruby>める',  stem:'<ruby>集<rt>あつ</rt></ruby>め'},
+  {g:2, de:'beginnen (tr.)', jisho:'<ruby>始<rt>はじ</rt></ruby>める',  stem:'<ruby>始<rt>はじ</rt></ruby>め'},
+  {g:2, de:'untersuchen',    jisho:'<ruby>調<rt>しら</rt></ruby>べる',  stem:'<ruby>調<rt>しら</rt></ruby>べ'},
+  {g:2, de:'loben',          jisho:'<ruby>褒<rt>ほ</rt></ruby>める',    stem:'<ruby>褒<rt>ほ</rt></ruby>め'},
+  {g:2, de:'großziehen',     jisho:'<ruby>育<rt>そだ</rt></ruby>てる',  stem:'<ruby>育<rt>そだ</rt></ruby>て'},
+  {g:2, de:'zunehmen',       jisho:'<ruby>増<rt>ふ</rt></ruby>える',    stem:'<ruby>増<rt>ふ</rt></ruby>え'},
+  {g:2, de:'gewinnen (intr.)', jisho:'<ruby>負<rt>ま</rt></ruby>ける',  stem:'<ruby>負<rt>ま</rt></ruby>け'},
+  {g:2, de:'überprüfen',     jisho:'<ruby>確<rt>たし</rt></ruby>かめる',stem:'<ruby>確<rt>たし</rt></ruby>かめ'},
+  {g:2, de:'anziehen',       jisho:'<ruby>着<rt>き</rt></ruby>る',      stem:'<ruby>着<rt>き</rt></ruby>'},
+  {g:2, de:'fallen',         jisho:'<ruby>落<rt>お</rt></ruby>ちる',    stem:'<ruby>落<rt>お</rt></ruby>ち'},
+
+  // === Gruppe 1 (u-Verben) ===
+  {g:1, de:'trinken',       jisho:'<ruby>飲<rt>の</rt></ruby>む',     stem:'<ruby>飲<rt>の</rt></ruby>み',     last:'む'},
+  {g:1, de:'lesen',         jisho:'<ruby>読<rt>よ</rt></ruby>む',     stem:'<ruby>読<rt>よ</rt></ruby>み',     last:'む'},
+  {g:1, de:'schreiben',     jisho:'<ruby>書<rt>か</rt></ruby>く',     stem:'<ruby>書<rt>か</rt></ruby>き',     last:'く'},
+  {g:1, de:'sprechen',      jisho:'<ruby>話<rt>はな</rt></ruby>す',   stem:'<ruby>話<rt>はな</rt></ruby>し',   last:'す'},
+  {g:1, de:'kaufen',        jisho:'<ruby>買<rt>か</rt></ruby>う',     stem:'<ruby>買<rt>か</rt></ruby>い',     last:'う'},
+  {g:1, de:'gehen',         jisho:'<ruby>行<rt>い</rt></ruby>く',     stem:'<ruby>行<rt>い</rt></ruby>き',     last:'く'},
+  {g:1, de:'zurückkehren',  jisho:'<ruby>帰<rt>かえ</rt></ruby>る',   stem:'<ruby>帰<rt>かえ</rt></ruby>り',   last:'る'},
+  {g:1, de:'warten',        jisho:'<ruby>待<rt>ま</rt></ruby>つ',     stem:'<ruby>待<rt>ま</rt></ruby>ち',     last:'つ'},
+  {g:1, de:'hören',         jisho:'<ruby>聞<rt>き</rt></ruby>く',     stem:'<ruby>聞<rt>き</rt></ruby>き',     last:'く'},
+  {g:1, de:'verstehen',     jisho:'<ruby>分<rt>わ</rt></ruby>かる',   stem:'<ruby>分<rt>わ</rt></ruby>かり',   last:'る'},
+  {g:1, de:'singen',        jisho:'<ruby>歌<rt>うた</rt></ruby>う',   stem:'<ruby>歌<rt>うた</rt></ruby>い',   last:'う'},
+  {g:1, de:'rauchen',       jisho:'<ruby>吸<rt>す</rt></ruby>う',     stem:'<ruby>吸<rt>す</rt></ruby>い',     last:'う'},
+  {g:1, de:'spielen',       jisho:'<ruby>遊<rt>あそ</rt></ruby>ぶ',   stem:'<ruby>遊<rt>あそ</rt></ruby>び',   last:'ぶ'},
+  {g:1, de:'schwimmen',     jisho:'<ruby>泳<rt>およ</rt></ruby>ぐ',   stem:'<ruby>泳<rt>およ</rt></ruby>ぎ',   last:'ぐ'},
+  {g:1, de:'rennen',        jisho:'<ruby>走<rt>はし</rt></ruby>る',   stem:'<ruby>走<rt>はし</rt></ruby>り',   last:'る'},
+  {g:1, de:'machen / herstellen', jisho:'<ruby>作<rt>つく</rt></ruby>る', stem:'<ruby>作<rt>つく</rt></ruby>り', last:'る'},
+  {g:1, de:'fotografieren', jisho:'<ruby>撮<rt>と</rt></ruby>る',     stem:'<ruby>撮<rt>と</rt></ruby>り',     last:'る'},
+  {g:1, de:'treffen',       jisho:'<ruby>会<rt>あ</rt></ruby>う',     stem:'<ruby>会<rt>あ</rt></ruby>い',     last:'う'},
+  {g:1, de:'denken',        jisho:'<ruby>思<rt>おも</rt></ruby>う',   stem:'<ruby>思<rt>おも</rt></ruby>い',   last:'う'},
+  {g:1, de:'sagen',         jisho:'<ruby>言<rt>い</rt></ruby>う',     stem:'<ruby>言<rt>い</rt></ruby>い',     last:'う'},
+  {g:1, de:'sich beeilen',  jisho:'<ruby>急<rt>いそ</rt></ruby>ぐ',   stem:'<ruby>急<rt>いそ</rt></ruby>ぎ',   last:'ぐ'},
+  {g:1, de:'benutzen',      jisho:'<ruby>使<rt>つか</rt></ruby>う',   stem:'<ruby>使<rt>つか</rt></ruby>い',   last:'う'},
+  {g:1, de:'arbeiten',      jisho:'<ruby>働<rt>はたら</rt></ruby>く', stem:'<ruby>働<rt>はたら</rt></ruby>き', last:'く'},
+  {g:1, de:'sich ausruhen', jisho:'<ruby>休<rt>やす</rt></ruby>む',   stem:'<ruby>休<rt>やす</rt></ruby>み',   last:'む'},
+  {g:1, de:'wohnen',        jisho:'<ruby>住<rt>す</rt></ruby>む',     stem:'<ruby>住<rt>す</rt></ruby>み',     last:'む'},
+  {g:1, de:'tragen / haben',jisho:'<ruby>持<rt>も</rt></ruby>つ',     stem:'<ruby>持<rt>も</rt></ruby>ち',     last:'つ'},
+  {g:1, de:'erfahren',      jisho:'<ruby>知<rt>し</rt></ruby>る',     stem:'<ruby>知<rt>し</rt></ruby>り',     last:'る'},
+  {g:1, de:'einsteigen',    jisho:'<ruby>乗<rt>の</rt></ruby>る',     stem:'<ruby>乗<rt>の</rt></ruby>り',     last:'る'},
+  {g:1, de:'hineingehen',   jisho:'<ruby>入<rt>はい</rt></ruby>る',   stem:'<ruby>入<rt>はい</rt></ruby>り',   last:'る'},
+  {g:1, de:'drücken',       jisho:'<ruby>押<rt>お</rt></ruby>す',     stem:'<ruby>押<rt>お</rt></ruby>し',     last:'す'},
+  {g:1, de:'pendeln',       jisho:'<ruby>通<rt>かよ</rt></ruby>う',   stem:'<ruby>通<rt>かよ</rt></ruby>い',   last:'う'},
+  {g:1, de:'übernachten',   jisho:'<ruby>泊<rt>と</rt></ruby>まる',   stem:'<ruby>泊<rt>と</rt></ruby>まり',   last:'る'},
+  {g:1, de:'pendeln/besteigen', jisho:'のぼる',                       stem:'のぼり',                           last:'る'},
+  {g:1, de:'helfen',        jisho:'<ruby>手伝<rt>てつだ</rt></ruby>う',stem:'<ruby>手伝<rt>てつだ</rt></ruby>い',last:'う'},
+  {g:1, de:'zahlen',        jisho:'<ruby>払<rt>はら</rt></ruby>う',   stem:'<ruby>払<rt>はら</rt></ruby>い',   last:'う'},
+  {g:1, de:'lachen',        jisho:'<ruby>笑<rt>わら</rt></ruby>う',   stem:'<ruby>笑<rt>わら</rt></ruby>い',   last:'う'},
+  {g:1, de:'weinen',        jisho:'<ruby>泣<rt>な</rt></ruby>く',     stem:'<ruby>泣<rt>な</rt></ruby>き',     last:'く'},
+  {g:1, de:'leihen',        jisho:'<ruby>貸<rt>か</rt></ruby>す',     stem:'<ruby>貸<rt>か</rt></ruby>し',     last:'す'},
+  {g:1, de:'suchen',        jisho:'<ruby>探<rt>さが</rt></ruby>す',   stem:'<ruby>探<rt>さが</rt></ruby>し',   last:'す'},
+  {g:1, de:'einhalten',     jisho:'<ruby>守<rt>まも</rt></ruby>る',   stem:'<ruby>守<rt>まも</rt></ruby>り',   last:'る'},
+  {g:1, de:'sich verändern',jisho:'<ruby>変<rt>か</rt></ruby>わる',   stem:'<ruby>変<rt>か</rt></ruby>わり',   last:'る'},
+  {g:1, de:'in Not sein',   jisho:'<ruby>困<rt>こま</rt></ruby>る',   stem:'<ruby>困<rt>こま</rt></ruby>り',   last:'る'},
+  {g:1, de:'sich versammeln', jisho:'<ruby>集<rt>あつ</rt></ruby>まる',stem:'<ruby>集<rt>あつ</rt></ruby>まり',last:'る'},
+  {g:1, de:'transportieren',jisho:'<ruby>運<rt>はこ</rt></ruby>ぶ',   stem:'<ruby>運<rt>はこ</rt></ruby>び',   last:'ぶ'},
+  {g:1, de:'enden',         jisho:'<ruby>終<rt>お</rt></ruby>わる',   stem:'<ruby>終<rt>お</rt></ruby>わり',   last:'る'},
+  {g:1, de:'beginnen (intr.)', jisho:'<ruby>始<rt>はじ</rt></ruby>まる',stem:'<ruby>始<rt>はじ</rt></ruby>まり',last:'る'},
+  {g:1, de:'sterben',       jisho:'<ruby>死<rt>し</rt></ruby>ぬ',     stem:'<ruby>死<rt>し</rt></ruby>に',     last:'ぬ'},
+  {g:1, de:'abnehmen',      jisho:'<ruby>減<rt>へ</rt></ruby>る',     stem:'<ruby>減<rt>へ</rt></ruby>り',     last:'る'},
+
+  // === Gruppe 3 (unregelmäßig) ===
+  {g:3, de:'machen / tun', jisho:'する',  stem:'し'},
+  {g:3, de:'kommen',       jisho:'<ruby>来<rt>く</rt></ruby>る', stem:'<ruby>来<rt>き</rt></ruby>'},
+];
+
+/* ===================================================================
+   ADJEKTIVE für Drill (~30 i-Adj, ~20 na-Adj)
+   =================================================================== */
+
+const I_ADJ = [
+  {base:'<ruby>高<rt>たか</rt></ruby>', de:'teuer / hoch'},
+  {base:'<ruby>安<rt>やす</rt></ruby>', de:'billig'},
+  {base:'<ruby>大<rt>おお</rt></ruby>き', de:'groß'},
+  {base:'<ruby>小<rt>ちい</rt></ruby>さ', de:'klein'},
+  {base:'<ruby>新<rt>あたら</rt></ruby>し', de:'neu'},
+  {base:'<ruby>古<rt>ふる</rt></ruby>', de:'alt (Dinge)'},
+  {base:'おいし', de:'lecker'},
+  {base:'<ruby>暑<rt>あつ</rt></ruby>', de:'heiß (Wetter)'},
+  {base:'<ruby>寒<rt>さむ</rt></ruby>', de:'kalt (Wetter)'},
+  {base:'<ruby>面白<rt>おもしろ</rt></ruby>', de:'interessant'},
+  {base:'<ruby>難<rt>むずか</rt></ruby>し', de:'schwierig'},
+  {base:'<ruby>易<rt>やさ</rt></ruby>し', de:'einfach / nett'},
+  {base:'<ruby>忙<rt>いそが</rt></ruby>し', de:'beschäftigt'},
+  {base:'<ruby>若<rt>わか</rt></ruby>', de:'jung'},
+  {base:'<ruby>長<rt>なが</rt></ruby>', de:'lang'},
+  {base:'<ruby>短<rt>みじか</rt></ruby>', de:'kurz'},
+  {base:'<ruby>明<rt>あか</rt></ruby>る', de:'hell'},
+  {base:'<ruby>暗<rt>くら</rt></ruby>', de:'dunkel'},
+  {base:'<ruby>強<rt>つよ</rt></ruby>', de:'stark'},
+  {base:'<ruby>弱<rt>よわ</rt></ruby>', de:'schwach'},
+  {base:'<ruby>近<rt>ちか</rt></ruby>', de:'nah'},
+  {base:'<ruby>遠<rt>とお</rt></ruby>', de:'weit'},
+  {base:'<ruby>暖<rt>あたた</rt></ruby>か', de:'warm'},
+  {base:'<ruby>涼<rt>すず</rt></ruby>し', de:'kühl'},
+  {base:'<ruby>悪<rt>わる</rt></ruby>', de:'schlecht'},
+  {base:'<ruby>眠<rt>ねむ</rt></ruby>', de:'müde'},
+  {base:'<ruby>危<rt>あぶ</rt></ruby>な', de:'gefährlich'},
+  {base:'<ruby>濃<rt>こ</rt></ruby>', de:'stark / intensiv'},
+  {base:'<ruby>薄<rt>うす</rt></ruby>', de:'leicht / dünn'},
+  {base:'すご', de:'großartig'},
+  {base:'いい', de:'gut', irregular:true},
+];
+
+const NA_ADJ = [
+  {base:'<ruby>元気<rt>げんき</rt></ruby>', de:'gesund / munter'},
+  {base:'<ruby>静<rt>しず</rt></ruby>か', de:'leise'},
+  {base:'<ruby>賑<rt>にぎ</rt></ruby>やか', de:'lebhaft'},
+  {base:'きれい', de:'schön / sauber'},
+  {base:'<ruby>有名<rt>ゆうめい</rt></ruby>', de:'berühmt'},
+  {base:'<ruby>親切<rt>しんせつ</rt></ruby>', de:'freundlich'},
+  {base:'<ruby>暇<rt>ひま</rt></ruby>', de:'frei (Zeit)'},
+  {base:'<ruby>便利<rt>べんり</rt></ruby>', de:'praktisch'},
+  {base:'<ruby>好<rt>す</rt></ruby>き', de:'mögen'},
+  {base:'<ruby>嫌<rt>きら</rt></ruby>い', de:'nicht mögen'},
+  {base:'<ruby>上手<rt>じょうず</rt></ruby>', de:'gut können'},
+  {base:'<ruby>下手<rt>へた</rt></ruby>', de:'schlecht können'},
+  {base:'<ruby>大切<rt>たいせつ</rt></ruby>', de:'wichtig'},
+  {base:'<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>', de:'in Ordnung'},
+  {base:'<ruby>同<rt>おな</rt></ruby>じ', de:'gleich'},
+  {base:'<ruby>普通<rt>ふつう</rt></ruby>', de:'normal'},
+  {base:'<ruby>本当<rt>ほんとう</rt></ruby>', de:'wirklich'},
+  {base:'<ruby>必要<rt>ひつよう</rt></ruby>', de:'nötig'},
+  {base:'<ruby>得意<rt>とくい</rt></ruby>', de:'gut können (stolz)'},
+  {base:'<ruby>苦手<rt>にがて</rt></ruby>', de:'schlecht können'},
+  {base:'<ruby>不便<rt>ふべん</rt></ruby>', de:'unpraktisch'},
+  {base:'<ruby>素敵<rt>すてき</rt></ruby>', de:'wundervoll'},
+  {base:'<ruby>簡単<rt>かんたん</rt></ruby>', de:'einfach'},
+  {base:'<ruby>複雑<rt>ふくざつ</rt></ruby>', de:'kompliziert'},
+];
+
+/* ===================================================================
+   KONJUGATIONS-HELFER
+   =================================================================== */
+
+const G1_TE_TA = {
+  'う': {te:'って', ta:'った'}, 'つ': {te:'って', ta:'った'}, 'る': {te:'って', ta:'った'},
+  'む': {te:'んで', ta:'んだ'}, 'ぶ': {te:'んで', ta:'んだ'}, 'ぬ': {te:'んで', ta:'んだ'},
+  'く': {te:'いて', ta:'いた'}, 'ぐ': {te:'いで', ta:'いだ'}, 'す': {te:'して', ta:'した'},
+};
+const NAI_MAP = {'う':'わない','つ':'たない','る':'らない','む':'まない','ぶ':'ばない','ぬ':'なない','く':'かない','ぐ':'がない','す':'さない'};
+const NAKATTA_MAP = {'う':'わなかった','つ':'たなかった','る':'らなかった','む':'まなかった','ぶ':'ばなかった','ぬ':'ななかった','く':'かなかった','ぐ':'がなかった','す':'さなかった'};
+
+function htmlStripLast(htmlStr, lastKana){
+  const idx = htmlStr.lastIndexOf(lastKana);
+  if(idx === -1) return htmlStr;
+  return htmlStr.slice(0, idx) + htmlStr.slice(idx + lastKana.length);
+}
+
+function conjVerb(v){
+  const out = {jisho:v.jisho, de:v.de, group:v.g};
+  if(v.g === 2){
+    out.masu = v.stem + 'ます';
+    out.masen = v.stem + 'ません';
+    out.mashita = v.stem + 'ました';
+    out.masenDeshita = v.stem + 'ませんでした';
+    out.te = v.stem + 'て';
+    out.ta = v.stem + 'た';
+    out.nai = v.stem + 'ない';
+    out.nakatta = v.stem + 'なかった';
+  } else if(v.g === 3){
+    if(v.de === 'machen / tun'){
+      Object.assign(out, {masu:'します', masen:'しません', mashita:'しました', masenDeshita:'しませんでした', te:'して', ta:'した', nai:'しない', nakatta:'しなかった'});
+    } else {
+      const KI = '<ruby>来<rt>き</rt></ruby>'; const KO = '<ruby>来<rt>こ</rt></ruby>';
+      Object.assign(out, {masu:KI+'ます', masen:KI+'ません', mashita:KI+'ました', masenDeshita:KI+'ませんでした', te:KI+'て', ta:KI+'た', nai:KO+'ない', nakatta:KO+'なかった'});
+    }
+  } else {
+    out.masu = v.stem + 'ます';
+    out.masen = v.stem + 'ません';
+    out.mashita = v.stem + 'ました';
+    out.masenDeshita = v.stem + 'ませんでした';
+    const teTa = G1_TE_TA[v.last] || {te:'って', ta:'った'};
+    let teEnd = teTa.te, taEnd = teTa.ta;
+    if(v.de === 'gehen'){ teEnd = 'って'; taEnd = 'った'; }
+    const stripped = htmlStripLast(v.jisho, v.last);
+    out.te = stripped + teEnd;
+    out.ta = stripped + taEnd;
+    out.nai = stripped + (NAI_MAP[v.last] || 'らない');
+    out.nakatta = stripped + (NAKATTA_MAP[v.last] || 'らなかった');
+  }
+  return out;
+}
+const VERB_FORMS = VERBS.map(conjVerb);
+
+function conjIAdj(a){
+  if(a.irregular){
+    return {jisho:'いいです', de:a.de, base:'いい', negation:'よくないです', past:'よかったです', pastNeg:'よくなかったです', te:'よくて', adverb:'よく'};
+  }
+  return {
+    jisho: a.base + 'いです', de: a.de, base: a.base + 'い',
+    negation: a.base + 'くないです', past: a.base + 'かったです',
+    pastNeg: a.base + 'くなかったです', te: a.base + 'くて', adverb: a.base + 'く',
+  };
+}
+const I_ADJ_FORMS = I_ADJ.map(conjIAdj);
+
+function conjNaAdj(a){
+  return {
+    jisho: a.base + 'です', de: a.de, base: a.base,
+    naForm: a.base + 'な', negation: a.base + 'じゃ ありません',
+    past: a.base + 'でした', pastNeg: a.base + 'じゃ ありませんでした',
+    te: a.base + 'で',
+  };
+}
+const NA_ADJ_FORMS = NA_ADJ.map(conjNaAdj);
+
+/* ===================================================================
+   UI HELPERS
+   =================================================================== */
+
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const pickRandom = arr => arr[Math.floor(Math.random()*arr.length)];
+
+/* ===================================================================
+   LEKTIONEN-VIEW
+   =================================================================== */
+
+const LESSON_TOPICS = {
+  1: 'Begrüßung & Vorstellung',
+  2: 'Demonstrativpronomen',
+  3: 'Orte & Räume',
+  4: 'Zeit & Tagesablauf',
+  5: 'Bewegung & Transport',
+  6: 'Verben & Objekte',
+  7: 'Geben & Bekommen',
+  8: 'Adjektive (い/な)',
+  9: 'Mögen & Können',
+  10: 'Existenz (あります/います)',
+  11: 'Zähler',
+  12: 'Vergleiche',
+  13: 'Wünsche (〜たい)',
+  14: 'て-Form & Bitten',
+  15: 'Erlaubnis & Verbot',
+  16: 'Verkettung & Vergleich',
+  17: 'Notwendigkeit (なければ)',
+  18: 'Können (ことができる)',
+  19: 'Erfahrung (〜たことが)',
+  20: 'Plain-Form',
+  21: 'と思います',
+  22: 'Relativsätze',
+  23: 'とき (Zeitpunkt)',
+  24: 'Geben & Bekommen II',
+  25: 'たら-Konditional',
+  26: 'んです (Erklärung)',
+  27: 'Potential-Form',
+  28: 'ながら (gleichzeitig)',
+  29: 'ている (Zustand)',
+  30: 'てあります / ておきます',
+  31: 'Volitiv (Absicht)',
+  32: 'Vermutung & Empfehlung',
+  33: 'Imperativ & Verbot',
+  34: 'とおりに / ないで (Methode)',
+  35: 'ば-Konditional',
+  36: 'ように (Zweck)',
+  37: 'Passiv',
+  38: 'Nominalisierung (の)',
+  39: 'ので (Grund)',
+  40: 'か どうか (indirekte Frage)',
+  41: 'Geben mit höflichem Stil',
+  42: 'ために (Zweck)',
+  43: 'そう (Anschein)',
+  44: 'すぎる / やすい / にくい',
+  45: 'ばあい (Fall)',
+  46: 'ところ / ばかり / はず',
+  47: 'そう (Hörensagen)',
+  48: 'Kausativ',
+  49: 'Sonkeigo (Respekt)',
+  50: 'Kenjougo (Bescheidenheit)',
+};
+
+/* ===================================================================
+   PERSISTENZ (localStorage): Punkte, erledigte Übungen, Vokabel-Stärke, Streak
+   =================================================================== */
+const STORE_KEY = 'minna_practice_v1';
+function loadStore(){
+  try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch(e){ return {}; }
+}
+function saveStore(){
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(STORE)); } catch(e){}
+}
+const STORE = loadStore();
+STORE.drill  = STORE.drill  || {score:0, total:0};
+STORE.done   = STORE.done   || {};     // "L6-0": true (richtig gebaut)
+STORE.vocab  = STORE.vocab  || {};     // de-Label: {seen, ok}
+STORE.streak = STORE.streak || {count:0, last:null};
+
+function todayStr(){ const d=new Date(); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
+function yesterdayStr(){ const d=new Date(Date.now()-864e5); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
+function bumpStreak(){
+  const s = STORE.streak, t = todayStr();
+  if(s.last === t) return;
+  s.count = (s.last === yesterdayStr()) ? (s.count+1) : 1;
+  s.last = t;
+  saveStore();
+  updateStatusBar();
+}
+function totalDone(){ return Object.keys(STORE.done).length; }
+function lessonDoneCount(l){ return Object.keys(STORE.done).filter(k => k.startsWith('L'+l+'-')).length; }
+function markExerciseDone(l, idx){
+  const k = 'L'+l+'-'+idx;
+  if(!STORE.done[k]){ STORE.done[k] = true; saveStore(); }
+}
+function updateStatusBar(){
+  const sb = $('#streak-badge');
+  if(sb) sb.innerHTML = STORE.streak.count > 0 ? `🔥 Streak: <b>${STORE.streak.count}</b> Tag${STORE.streak.count===1?'':'e'}` : '';
+  const op = $('#overall-progress');
+  if(op){ const n = totalDone(); op.innerHTML = n > 0 ? `· ✓ <b>${n}</b> Übungen gemeistert` : ''; }
+}
+
+/* ===================================================================
+   AUDIO / AUSSPRACHE (Web Speech API)
+   =================================================================== */
+// Wandelt Ruby-Markup in eine reine Lese-/Kana-Form für die Sprachausgabe um
+// (nutzt die rt-Lesung, verwirft Klammer-Zusätze).
+function jpReading(html){
+  return (html || '')
+    .replace(/<rp>.*?<\/rp>/g,'')
+    .replace(/<ruby>(.*?)<rt>(.*?)<\/rt><\/ruby>/g, '$2')
+    .replace(/<[^>]+>/g,'')
+    .replace(/[（(][^）)]*[）)]/g,'')
+    .trim();
+}
+function speak(text){
+  if(!text || !('speechSynthesis' in window)) return;
+  try {
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ja-JP'; u.rate = 0.9;
+    const voices = speechSynthesis.getVoices();
+    const jv = voices.find(v => /^ja(-|$)/i.test(v.lang)) || voices.find(v => /japan/i.test(v.name||''));
+    if(jv) u.voice = jv;
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+  } catch(e){}
+}
+// Kleiner 🔊-Button als HTML-Schnipsel (data-speak = reine Lesung).
+function spkBtn(jp){
+  const r = jpReading(jp);
+  return r ? `<button class="spk" title="Vorlesen" onclick="speak(this.dataset.speak)" data-speak="${r}">🔊</button>` : '';
+}
+
+function renderLessonGrid(){
+  const root = $('#lesson-grid');
+  root.innerHTML = '';
+  const counts = {};
+  MINNA_LESSONS.forEach(c => counts[c.l] = (counts[c.l]||0)+1);
+  for(let l = 1; l <= 50; l++){
+    const tile = document.createElement('button');
+    tile.className = 'lesson-tile';
+    const cnt = counts[l] || 0;
+    const done = lessonDoneCount(l);
+    tile.innerHTML = `
+      <span class="num">L${l}</span>
+      <span class="topic">${LESSON_TOPICS[l] || ''}</span>
+      <span class="count">${cnt} Unterpunkt${cnt===1?'':'e'}</span>
+      ${done > 0 ? `<span class="progress">✓ ${done}/${cnt} gemeistert</span>` : ''}
+    `;
+    tile.addEventListener('click', ()=>showLessonDetail(l));
+    root.appendChild(tile);
+  }
+}
+
+function renderSlotDiagram(slots){
+  if(!slots || !slots.length) return '';
+  let html = '<div class="pattern-box"><div class="pattern-line">';
+  slots.forEach(s => {
+    const cls = s.role || 'plain';
+    const label = s.label ? `<span class="slot-label">${s.label}</span>` : '';
+    html += `<span class="slot ${cls}"><span class="slot-text">${s.text}</span>${label}</span>`;
+  });
+  html += '</div></div>';
+  return html;
+}
+
+function showLessonDetail(lessonNum){
+  $('#lesson-grid-view').classList.add('hidden');
+  const root = $('#lesson-detail-view');
+  root.classList.remove('hidden');
+  const entries = MINNA_LESSONS.filter(c => c.l === lessonNum);
+  const vocab = VOCAB_BY_LESSON[lessonNum] || [];
+
+  let html = `
+    <button class="lesson-back" onclick="backToGrid()">← Lektionsübersicht</button>
+    <div class="lesson-detail-title">Lektion ${lessonNum}</div>
+    <div class="lesson-detail-sub">${LESSON_TOPICS[lessonNum] || ''} · ${entries.length} Unterpunkt${entries.length===1?'':'e'}</div>
+  `;
+  entries.forEach((c, idx) => {
+    const entryId = `ex-${lessonNum}-${idx}`;
+    html += `
+      <div class="unterpunkt" data-lesson="${lessonNum}" data-idx="${idx}">
+        <span class="unterpunkt-num">Unterpunkt ${idx+1}${STORE.done['L'+lessonNum+'-'+idx] ? '<span class="done-tick">✓ gemeistert</span>' : ''}</span>
+        <div class="unterpunkt-title">${c.t}</div>
+        <div class="unterpunkt-de">${c.de}</div>
+        ${renderSlotDiagram(c.slots)}
+        ${c.gloss ? `<div class="pattern-gloss">${c.gloss}</div>` : ''}
+        ${c.ex ? `
+          <div class="example-reveal" onclick="revealExample(this)">▶ Beispiel aus dem Lehrbuch zeigen</div>
+        ` : ''}
+        ${c.ex ? `
+          <div class="example-shown hidden">
+            <div class="example-jp">${c.ex.jp} ${spkBtn(c.ex.jp)}</div>
+            <div class="example-de hidden-de" onclick="this.classList.remove('hidden-de')" title="zum Aufdecken tippen">${c.ex.de}</div>
+          </div>
+        ` : ''}
+        <button class="ex-toggle" onclick="toggleExercise(this, ${lessonNum}, ${idx})">🎯 Übung starten</button>
+        <div class="exercise-box hidden" id="${entryId}"></div>
+      </div>
+    `;
+  });
+  if(vocab.length){
+    html += `
+      <div class="vocab-section">
+        <h3>Vokabeln Lektion ${lessonNum}</h3>
+        <div class="vocab-help">Tippe auf die deutsche Spalte, um die Übersetzung zu sehen. Versuche zuerst, sie aus dem Kanji/Kana zu erraten.</div>
+        <div class="vocab-controls">
+          <button onclick="toggleVocabReveal('all')">Alle aufdecken</button>
+          <button onclick="toggleVocabReveal('hide')">Alle verstecken</button>
+          <button onclick="shuffleVocabRows()">Reihenfolge mischen</button>
+          ${vocab.length >= 4 ? `<button class="active" onclick="startVocabQuiz(${lessonNum})">🎯 Vokabel-Quiz</button>` : ''}
+        </div>
+        <div id="vocab-quiz" class="vq hidden"></div>
+        <table class="vocab-table" id="vocab-table">
+          ${vocab.map(v => `
+            <tr>
+              <td class="jp">${v.jp} ${spkBtn(v.jp)}</td>
+              <td class="type">${v.t || ''}</td>
+              <td class="de hidden-de" onclick="this.classList.toggle('hidden-de')">${v.de}</td>
+            </tr>
+          `).join('')}
+        </table>
+      </div>
+    `;
+  } else {
+    html += `<div class="vocab-section"><h3>Vokabeln Lektion ${lessonNum}</h3><div class="vocab-help">Noch keine kuratierten Vokabeln für diese Lektion. Schau bei der Grammatik-App nach.</div></div>`;
+  }
+  root.innerHTML = html;
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+function backToGrid(){
+  $('#lesson-detail-view').classList.add('hidden');
+  $('#lesson-grid-view').classList.remove('hidden');
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+function revealExample(el){
+  el.classList.add('hidden');
+  const shown = el.parentElement.querySelector('.example-shown');
+  if(shown) shown.classList.remove('hidden');
+}
+
+/* ===================================================================
+   ÜBUNGEN PRO UNTERPUNKT
+   Wähle 4-6 Wörter aus dem Lektions-Pool, achte darauf dass die
+   für die Slots benötigten Typen (Verb / i-Adj / na-Adj) dabei sind.
+   =================================================================== */
+
+function detectSlotNeeds(slots){
+  if(!slots || !slots.length) return {nouns:1};
+
+  // Primärsignal sind die Slot-Rollen — zuverlässiger als Text-Heuristik.
+  const roles = slots.map(s => s.role || '');
+
+  // role:"verb" ist überladen: es markiert auch die Kopula (です / じゃ ありません)
+  // und Uhrzeit-/Zahl-Prädikate (z.B. 9時15分). Diese sind KEINE echten Verben.
+  const hasRealVerb = slots.some(s => {
+    if(s.role !== 'verb') return false;
+    const txt = (s.text || '').replace(/<[^>]+>/g, '');
+    if(/^(です|だ)$|じゃ\s*ありません|じゃ\/では|では\s*ありません|でした|でしょう/.test(txt)) return false; // Kopula
+    if(/[0-9０-９].*(時|分|円|歳|月|日)/.test(txt)) return false; // Uhrzeit / Zahlangabe
+    return true;
+  });
+
+  const slotsText = slots.map(s => (s.text||'') + ' ' + (s.label||'')).join(' ').toLowerCase();
+  const stripped = slotsText.replace(/<[^>]+>/g, '');
+
+  return {
+    // Text-Heuristik nur noch mit Wortgrenzen, um Treffer wie "Adverb" zu vermeiden.
+    verb: hasRealVerb || /\bv\b|\bverb|動詞|〜ます|\bv-?stamm|\bv-?stem|jisho|辞書/.test(stripped),
+    iadj: /i-adj|イ形|い-adj|〜い|い-form/.test(stripped),
+    naadj: /na-adj|ナ形|な-adj|な-form/.test(stripped),
+    // Ort/Zeit/Person bevorzugt über die Rolle erkennen (keine Substring-Fehltreffer
+    // mehr in "Wort", "normal", "nicht" …).
+    place: roles.includes('place') || /場所|どこ/.test(stripped),
+    time:  roles.includes('time') || /いつ/.test(stripped),
+    person: roles.includes('actor') || /誰|だれ/.test(stripped),
+  };
+}
+
+/* ===================================================================
+   KURATIERTE ÜBUNGS-SETS PRO UNTERPUNKT (L26+)
+   Key: "L{N}-{idx}". Jedes Wort hat jp, de, role (Satzrolle).
+   Wenn vorhanden → nutzt renderExerciseBox diese statt des
+   generischen pickExerciseWords-Fallbacks.
+   =================================================================== */
+
+const EXERCISE_SETS = {};
+
+// Semantische Tags für Vokabeln — by German label.
+// Damit Verb+Objekt-Paare in der Übung Sinn ergeben.
+const SEMANTIC_TAGS = {
+  // Essen
+  'Brot':['food'], 'Ei':['food'], 'Fleisch':['food'], 'Fisch':['food'],
+  'Gemüse':['food'], 'Obst':['food'], 'Reis (gekocht)':['food'],
+  'Sushi':['food'], 'Ramen':['food'], 'Apfel':['food'],
+  // Trinken
+  'Wasser':['drink'], 'Tee (grün)':['drink'], 'Kaffee':['drink'],
+  'schwarzer Tee':['drink'], 'Milch':['drink'], 'Bier':['drink'],
+  'Saft':['drink'], 'Alkohol / Sake':['drink'], 'Saft':['drink'],
+  // Lesbar (auch teils schreibbar)
+  'Buch':['readable','thing'], 'Zeitung':['readable','thing'],
+  'Wörterbuch':['readable','thing'], 'Brief':['readable','writable'],
+  'Zeitschrift':['readable','thing'], 'Heft':['writable','readable'],
+  'Notizbuch':['writable','readable'], 'Karte':['readable','writable','thing'],
+  'Visitenkarte':['readable','thing'], 'E-Mail':['readable','writable'],
+  'Tagebuch':['writable','readable'], 'Telefon / Anruf':['thing'],
+  // Schreibbar (spezielle)
+  'Name':['writable'],
+  // Sehen
+  'Film':['visual','activity'], 'Foto':['visual','photo_subject'],
+  // Hören
+  'Musik':['audible'], 'Lied':['audible','song'], 'Nachrichten':['audible'],
+  'Rede':['audible'], 'Stimme':['audible'],
+  // Personen
+  'ich':['person'], 'du / Sie':['person'], 'er':['person'], 'sie':['person'],
+  'wir':['person'], 'jene Person':['person'], 'Herr Miller':['person'],
+  'Frau Tanaka':['person'], 'Herr Yamada':['person'], 'Freund':['person'],
+  'Familie':['person'], 'Kind':['person'], 'Lehrer':['person'],
+  'Student':['person'], 'Firmenangestellter':['person'], 'Arzt':['person'],
+  // Aktivitäten (mit します)
+  'Sport':['activity'], 'Tennis':['activity'], 'Fußball':['activity'],
+  'Reise':['activity'], 'Kochen / Gericht':['activity'],
+  'Schwimmen':['activity'], 'Lernen':['activity'], 'Arbeit':['activity'],
+  'Spaziergang':['activity'], 'Skifahren':['activity'], 'Tanz':['activity'],
+  'Autofahren':['activity'], 'Einkaufen':['activity'], 'Mahlzeit':['activity'],
+  'Sport treiben':['activity'], 'Karaoke':['activity','song'],
+  // Photo-Motive
+  'Berg Fuji':['photo_subject','place'], 'Kirschblüte':['photo_subject'],
+  'Blume':['photo_subject'], 'Landschaft':['photo_subject'],
+  // Instrumente
+  'Klavier':['instrument'], 'Gitarre':['instrument'],
+  // Sprachen
+  'Japanisch':['language'], 'Englisch':['language'], 'Deutsch':['language'],
+  'Chinesisch':['language'], 'Französisch':['language'],
+};
+
+// Verb → akzeptierte Objekt-Kategorien
+const VERB_ACCEPTS = {
+  'essen':['food'],
+  'trinken':['drink'],
+  'rauchen':[],
+  'sehen':['visual','photo_subject'],
+  'hören':['audible'],
+  'lesen':['readable'],
+  'schreiben':['writable'],
+  'kaufen':['food','drink','readable','writable','thing','instrument'],
+  'fotografieren':['photo_subject','person'],
+  'machen':['activity'],
+  'machen / tun':['activity'],
+  'machen / herstellen':['food','thing'],
+  'treffen':['person'],
+  'singen':['song'],
+  'spielen':['activity'],
+  'spielen (Instrument)':['instrument'],
+  'üben':['activity','language'],
+  'lernen (von jmd.)':['language','activity'],
+  'lehren / beibringen':['language','activity'],
+  'verstehen':['language'],
+  'sprechen':['language'],
+  'sammeln':['thing'],
+  'benutzen':['thing','instrument','language'],
+  'lehren':['language','activity'],
+  'aufmachen / öffnen':['thing'],
+  'zumachen / schließen':['thing'],
+  'tragen / haben':['thing'],
+  'anziehen (Oberteil)':['thing'],
+  'anziehen (Hose/Schuhe)':['thing'],
+  'aufsetzen (Hut)':['thing'],
+  'aufsetzen (Brille)':['thing'],
+  // — Erweiterung: weitere häufige transitive Verben mit klarer Objekt-Kategorie —
+  'verkaufen':['food','drink','readable','writable','thing','instrument'],
+  'kochen':['food'],
+  'kochen (in Brühe)':['food'],
+  'herstellen / kochen':['food','thing'],
+  'braten / grillen':['food'],
+  'frittieren':['food'],
+  'sehen / anschauen':['visual','photo_subject'],
+  'hören / zuhören':['audible'],
+  'übersetzen':['language','readable'],
+  'lernen / studieren':['language','activity'],
+  'lernen (bei jmd.)':['language','activity'],
+  'malen':['photo_subject'],
+  'zeichnen / malen':['photo_subject'],
+  'einladen':['person'],
+  'rufen':['person'],
+  'loben':['person'],
+  'schimpfen':['person'],
+  'vorstellen':['person'],
+  'großziehen':['person'],
+  'waschen':['thing'],
+  'putzen':['thing'],
+  'aufräumen':['thing'],
+  'reparieren':['thing'],
+  'reparieren / korrigieren':['thing'],
+  'wegwerfen':['thing'],
+  'suchen':['thing'],
+  'finden / entdecken':['thing'],
+  'verlieren':['thing'],
+  'reservieren':['thing'],
+  'mitbringen':['food','drink','thing'],
+};
+
+function getTags(word){
+  if(word.tag) return word.tag.split(/[,\s]+/).filter(Boolean);
+  if(SEMANTIC_TAGS[word.de]) return SEMANTIC_TAGS[word.de];
+  if(word.t === 'n') return ['thing'];
+  return [];
+}
+
+// Normalisiert ein Verb-Label auf seine Grundform, indem reine Höflichkeits-/
+// Konjugationszusätze entfernt werden (z.B. "kaufen (plain)" → "kaufen"). So
+// greifen Tabellen-Einträge auch für Sonkeigo-/Kenjougo-/plain-Varianten.
+function verbKey(de){
+  return (de || '')
+    .toLowerCase()
+    .replace(/\s*\((plain|sonkeigo|sonk\.|kenjougo|kenj\.|bescheiden|zustand)\)\s*$/,'')
+    .trim();
+}
+
+// Einmalig normalisierter Index über VERB_ACCEPTS (Schlüssel case-insensitiv).
+const VERB_ACCEPTS_IDX = {};
+for(const k in VERB_ACCEPTS){ VERB_ACCEPTS_IDX[verbKey(k)] = VERB_ACCEPTS[k]; }
+
+// Intransitive Verben (kein を-Objekt): Bewegung, Existenz, Zustandswechsel.
+// Heuristik unten fängt zusätzlich "… sein", "… werden" und "sich …" ab —
+// dadurch werden auch künftig ergänzte Vokabeln automatisch korrekt behandelt.
+const INTRANSITIVE_SET = new Set([
+  // Bewegung / Ankunft / Aufbruch
+  'gehen','gehen / kommen','gehen / laufen','gehen/kommen','kommen','zurückkehren',
+  'zurückkommen','ankommen','abfahren / aufbrechen','aussteigen','einsteigen','abbiegen',
+  'anhalten / parken','ausgehen','ausgehen / erlöschen','hineingehen','hinausgehen',
+  'hinausgehen / ausgehen','hinfallen','herunterfallen','fallen','ausrutschen','fliehen',
+  'rennen','schwimmen','tauchen','pendeln','aufstehen','aufstehen / stehen','stehen bleiben',
+  'aufwachsen','bergsteigen','campen','eintreten','eintreten / hineingehen',
+  'umfallen / zusammenbrechen','zusammenbrechen','bankrott gehen','nach hause gehen',
+  'schlafen gehen','spazieren gehen','zu fuß gehen','in ruhestand gehen',
+  'ins krankenhaus gehen','an der schule eintreten','evakuieren / flüchten',
+  // Existenz / Zustand / Veränderung (ohne "sein"/"werden"-Endung)
+  'haben / es gibt','wohnen','dauern / kosten','heilen','repariert werden / heilen',
+  'blühen','schmelzen','trocknen','aufklaren','kaputt gehen','zunehmen','abnehmen',
+  'im preis steigen',
+  // Aktivitäten / Ereignisse ohne direktes Objekt
+  'arbeiten','scheitern','gewinnen','den sieg erringen','bestehen','erfolg haben',
+  'teilnehmen','tanzen','weinen','lachen','enden','übernachten',
+].map(verbKey));
+
+function isIntransitive(verb){
+  const de = (verb.de || '').toLowerCase();
+  if(/(^|\s)sich\s/.test(de)) return true;   // reflexiv (sich freuen, sich setzen …)
+  if(/\bsein$/.test(de))      return true;   // Zustand (anwesend sein, offen sein …)
+  if(/\bwerden$/.test(de))    return true;   // Veränderung/Passiv (müde werden, gestohlen werden …)
+  return INTRANSITIVE_SET.has(verbKey(verb.de));
+}
+
+function verbAccepts(verb){
+  // Greift auch für Höflichkeits-/plain-Varianten dank verbKey-Normalisierung.
+  const k = verbKey(verb.de);
+  return (k in VERB_ACCEPTS_IDX) ? VERB_ACCEPTS_IDX[k] : null;
+}
+
+function isCompatible(noun, verb){
+  // Intransitive Verben nehmen kein を-Objekt → nie in Verb+Objekt-Paare.
+  // Verhindert Unsinn wie "Stuhl aufstehen" oder "Buch gehen".
+  if(isIntransitive(verb)) return false;
+  const accepts = verbAccepts(verb);
+  const tags = getTags(noun);
+  if(!accepts){
+    // Unbekanntes (transitives) Verb: nur mit generischen Objekten ('thing') paaren,
+    // NICHT mit spezialisierten Nomen (Essen/Getränk/Person/Ort/Sprache …), die ein
+    // bestimmtes Verb verlangen. Vermeidet Unsinn wie "Brot fahren".
+    return tags.includes('thing');
+  }
+  if(accepts.length === 0) return false; // Verb hat keine passenden Objekte (z.B. rauchen ohne Zigarette)
+  if(!tags.length) return false;       // unbekanntes Nomen → ausschließen (sicher)
+  return tags.some(t => accepts.includes(t));
+}
+
+function pickExerciseWords(lessonNum, slots){
+  const pool = (VOCAB_BY_LESSON[lessonNum] || []).slice();
+  if(!pool.length) return [];
+  const needs = detectSlotNeeds(slots);
+
+  function shuffle(arr){
+    for(let i = arr.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  // === Spezial-Fall: Verb+Objekt-Pattern ===
+  if(needs.verb){
+    const verbs = pool.filter(w => w.t === 'v');
+    const nouns = pool.filter(w => w.t === 'n');
+    if(verbs.length && nouns.length){
+      // Zähle pro Verb wie viele passende Nomen es gibt
+      const scored = verbs.map(v => ({
+        verb: v,
+        compat: nouns.filter(n => isCompatible(n, v))
+      }));
+      // Nur Verben mit ≥2 passenden Nomen behalten
+      const good = scored.filter(s => s.compat.length >= 2);
+      if(good.length){
+        // Zufällig eins der "guten" Verben wählen
+        const chosen = good[Math.floor(Math.random()*good.length)];
+        const verb = chosen.verb;
+        const compatNouns = shuffle(chosen.compat.slice());
+        // 3-4 passende Nomen
+        const want = 3 + Math.floor(Math.random()*2);
+        const picked = [verb, ...compatNouns.slice(0, want)];
+        // Falls i-Adj / na-Adj auch noch gebraucht → noch hinzufügen
+        if(needs.iadj){
+          const iadj = pool.filter(w => w.t === 'i');
+          if(iadj.length) picked.push(iadj[Math.floor(Math.random()*iadj.length)]);
+        }
+        if(needs.naadj){
+          const naadj = pool.filter(w => w.t === 'na');
+          if(naadj.length) picked.push(naadj[Math.floor(Math.random()*naadj.length)]);
+        }
+        return shuffle(picked);
+      }
+    }
+  }
+
+  // === Fallback: alte Logik (i-Adj / na-Adj patterns, oder kein Verb-Match) ===
+  const picked = [];
+  function takeOne(predicate){
+    for(let i = 0; i < pool.length; i++){
+      if(predicate(pool[i])){
+        picked.push(pool[i]);
+        pool.splice(i, 1);
+        return true;
+      }
+    }
+    return false;
+  }
+  shuffle(pool);
+  if(needs.verb)  takeOne(w => w.t === 'v');
+  if(needs.iadj)  takeOne(w => w.t === 'i');
+  if(needs.naadj) takeOne(w => w.t === 'na');
+  if(needs.place) takeOne(w => /Ort|Stadt|Bahnhof|Schule|Haus|Park|Restaurant|Land|Café|Krankenhaus|Bibliothek|Bank|Bahnhof|Flughafen|Tokio|Japan/i.test(w.de));
+  if(needs.time)  takeOne(w => /heute|morgen|gestern|jetzt|abend|nacht|jahr|Stunde|Tag|Woche|Monat|Mal/i.test(w.de));
+  if(needs.person)takeOne(w => /ich|du|er|sie|Herr|Frau|Lehrer|Student|Person|Familie|Freund|Mann|Kind/i.test(w.de));
+  shuffle(pool);
+  const target = 5 + Math.floor(Math.random()*2);
+  while(picked.length < target && pool.length){
+    picked.push(pool.shift());
+  }
+  return shuffle(picked);
+}
+
+/* ===================================================================
+   ROLLEN, PARTIKELN & MODELL-REIHENFOLGE (generischer Pfad L1–25)
+   =================================================================== */
+
+// Reihenfolge-Index der Satzglieder im Japanischen (SOV):
+// Zeit → Subjekt/Person → Ort → Objekt → Adjektiv → Verb.
+const ROLE_ORDER = {
+  'Zeit':1, 'Person':2, 'Subjekt':2, 'Ort':3, 'Anzahl':4, 'Objekt':4,
+  'i-Adj':5, 'na-Adj':5, 'Verb':6,
+};
+
+// Leitet die strukturelle Rolle eines generisch gezogenen Worts aus Typ & Tags ab.
+function structuralRole(w){
+  if(w.role) return w.role;
+  switch(w.t){
+    case 'v':   return 'Verb';
+    case 'i':   return 'i-Adj';
+    case 'na':  return 'na-Adj';
+    case 'num': return 'Anzahl';
+    case 'dem': return 'Demonstr.';
+    case 'e':   return 'Ausdruck';
+    case 'n': {
+      if(/heute|morgen|gestern|jetzt|vormittag|nachmittag|abend|nacht|woche|monat|jahr|uhr|stunde|minute|montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag|wochenende|früh|spät|tag\b/i.test(w.de)) return 'Zeit';
+      const tags = getTags(w);
+      if(tags.includes('place'))  return 'Ort';
+      if(tags.includes('person')) return 'Person';
+      return 'Objekt';
+    }
+    default: return '';
+  }
+}
+
+// Kontext-Partikel für "Ort": Bewegungsverb im Set → へ, sonst で.
+function ortParticle(words){
+  const move = words.some(w => w.t === 'v' && /行|来|帰|戻|登|通|出かけ/.test(w.jp || ''));
+  return move ? 'へ' : 'で';
+}
+
+// Typische Partikel je Rolle (を/に sicher; bei Ort/Subjekt Alternativen).
+function particleForRole(role, words){
+  switch(role){
+    case 'Objekt':  return 'を';
+    case 'Ort':     return ortParticle(words);
+    case 'Zeit':    return 'に';
+    case 'Person':  return 'は';
+    case 'Subjekt': return 'は';
+    default:        return '';   // Verb, Adjektive, Ausdruck, Anzahl, Demonstr.
+  }
+}
+
+// Baut die Modell-Reihenfolge: Bausteine nach ROLE_ORDER sortiert, mit Partikeln,
+// Verb am Ende. Kein voll flektierter Satz — Verb ggf. anpassen.
+function buildModelOrder(words){
+  const withMeta = words.map(w => {
+    const role = structuralRole(w);
+    return { w, role, order: ROLE_ORDER[role] != null ? ROLE_ORDER[role] : 4.5 };
+  });
+  withMeta.sort((a,b) => a.order - b.order);
+  return withMeta.map(m => {
+    const p = particleForRole(m.role, words);
+    return m.w.jp + (p ? `<span class="ex-chip-part">${p}</span>` : '');
+  }).join(' ');
+}
+
+/* ===================================================================
+   KURATIERTE SETS: aus Phrasen-Bausteinen einen Satz bauen + prüfen
+   Die kuratierten Rollen sind semantisch (Grund, Folge, Subjekt, …).
+   curatedOrder bildet sie auf eine grobe SOV-Position ab (Rahmen → Subjekt
+   → Grund/Nebensatz → Objekt → Adjektiv → Prädikat), sodass z. B. „Grund vor
+   Folge" oder „Subjekt vor Verb" geprüft werden kann.
+   =================================================================== */
+function curatedOrder(role){
+  const r = role || '';
+  if(/Auftakt/.test(r)) return 0; // optionales Auftakt-/Füllwort ganz vorne
+  if(/Zeit|Situation|とき|Fall|Während|^Vor\b|^Nach\b|Zuerst|Bedingung|Thema \(なら\)/.test(r)) return 1; // Rahmen / Zeit
+  if(/Subjekt|Person|Sprecher|Ausführend|Verursacher|Urheber|höhere Person|niedrigere Person|Gesprächspartner|Empfänger/.test(r)) return 2; // Subjekt / Agens
+  if(/Grund|Ursache|Material|Quelle|Vorbereitung|Nebenhandlung|Obwohl|Einleitung|Einschränkung|Kontrast|neg\. Grund/.test(r)) return 3; // Nebensatz / Grund
+  if(/Objekt|Inhalt|Nachricht|Frage|Wahl|Produkt|Geld|Strecke|Werkzeug|Zweck|Ziel|Ort|Bewegung|Anweisung|Vorbild/.test(r)) return 4; // Objekt / Ort
+  if(/Adjektiv|Zustand|Sinneseindruck|Bewertung|Visuell|Auditiv/.test(r)) return 5; // Eigenschaft / Zustand
+  return 6; // Prädikat / Folge / Modus (Handlung, Folge, Verb, Vermutung, …)
+}
+
+// Set-spezifische Reihenfolge: Rollennamen sind nicht global eindeutig
+// (z. B. „Zweck" ist mal früh, mal Prädikat). Für solche 2-teiligen Muster wird
+// hier pro Set die korrekte Satzstelle festgelegt (verifiziert). Prädikat = 6.
+const CURATED_SEQ = {
+  'L26-0': { 'Grund': 4, 'Erklärung': 6 },                                 // …んです
+  'L26-1': { 'Frage-Wort': 1, 'Situation': 4, 'Nachfrage': 6 },            // どうして …んですか
+  'L26-2': { 'Auftakt': 0, 'Bitte': 4, 'Höflichkeitsbitte': 6 },                         // …て いただけませんか
+  'L26-3': { 'Auftakt': 0, 'W-Frage': 4, 'ら': 5, 'Rat-Frage': 6 },                       // 疑問詞 …たら いいですか
+  'L27-1': { 'Ort': 1, 'Wahrnehmung': 6 },                                 // …から …が 見えます/聞こえます
+  'L27-2': { 'Thema': 1, 'Einschränkung': 6 },                             // …は …しか …ません
+  'L27-4': { 'Bejaht': 1, 'Verneint': 6 },                                 // …は …ますが、…は …ません
+  'L28-0': { 'Nebenhandlung': 2, 'ながら': 3, 'Haupthandlung': 6 },          // …ながら …
+  'L28-1': { 'Häufigkeit': 1, 'Tätigkeit': 6 },                            // …ています (Gewohnheit)
+  'L28-2': { 'Subjekt': 1, 'Grund 1': 2, 'し①': 3, 'Grund 2': 4, 'し②': 5 }, // …は …し、…し
+  'L28-3': { 'Ursache': 1, 'Folgewort': 3, 'Folge': 5 },                   // …。それで …
+  'L29-2': { 'Subjekt': 1, 'Geschehen': 6 },                               // …は …て しまいました
+  'L30-1': { 'Auftakt': 0, 'Anlass': 1, '前に': 2, 'Vorbereitung': 6 },                    // …前に …て おきます
+  'L31-0': { 'Auftakt': 0, 'Vorschlag': 1, 'Volitiv': 6 },                               // …(Vorschlag) …よう
+  'L31-1': { 'Plan': 4, 'Vorhaben': 6 },                                   // …よう と思って います
+  'L31-3': { 'Absicht': 4, 'Negativ': 4, 'Vorhaben': 6 },                  // …つもりです
+  'L31-4': { 'Plan': 4, 'Vorhaben': 6 },                                   // …予定です
+  'L32-0': { 'Empfehlung': 4, 'Negative Empf.': 4, 'Rat': 6 },             // …た/…ない ほうが いいです
+  'L32-1': { 'Vermutung': 4, 'Schätzung': 6 },                             // …でしょう
+  'L32-2': { 'Möglichkeit': 4, 'Schätzung': 6 },                           // …かもしれません
+  'L33-0': { 'Antrieb': 1, 'Befehl': 6 },                                  // …(Antrieb) …ろ/…れ
+  'L33-1': { 'Kontext': 1, 'Verbot': 6 },                                  // …(Kontext) …な
+  'L33-3': { 'Schild': 1, 'Aufschrift': 6 },                               // …と 書いて あります
+  'L33-4': { 'Ausdruck': 4, 'Bedeutung': 6 },                              // 「…」は「…」と いう 意味です
+  'L36-0': { 'neuer Zustand': 4, 'Veränderung': 6 },                       // …ように なりました
+  'L36-1': { 'Gewohnheit': 4, 'Bemühung': 6 },                             // …ように して います
+  'L36-3': { 'Speise 1': 2, 'Speise 2': 4, 'Hauptsatz': 6 },               // …とか …とか …
+  'L37-3': { 'Subjekt': 1, 'Ort': 2, 'Passiv': 6 },                        // …は …で 作られました
+  'L38-3': { 'vergessene Handlung': 4, 'Hauptverb': 6 },                   // …の を 忘れました
+  'L40-2': { 'Anlauf': 1, 'Versuch': 6 },                                  // …(Anlauf) …て みます
+  'L42-2': { 'Aktivität': 4, 'のに': 5, 'Aufwand': 6 },                     // …のに …かかります
+  'L43-1': { 'Aktion': 4, 'Richtung': 6 },                                 // …て 来ます / 行きます
+  'L44-1': { 'Verb-Stamm': 4, 'Eigenschaft': 6 },                          // …やすいです / …にくいです
+  'L44-2': { 'Handlung': 4, 'Abschluss': 6 },                              // …を …く/に します
+  'L44-3': { 'Auftakt': 0, 'Wahl': 4, 'Entscheidung': 6 },                               // …に します (wählen)
+  'L44-4': { 'Adverb': 2, 'Handlung': 6 },                                 // …(Adverb) …て ください
+  'L45-2': { 'Erwartung': 1, 'Realität': 6 },                              // …はずだったのに、…
+  'L46-0': { 'Vor (jisho+ところ)': 4, 'Während (ている+ところ)': 4, 'Nach (た+ところ)': 4, 'Stand': 6 }, // …ところです
+  'L46-2': { 'Erwartung': 4, 'Annahme': 6 },                               // …はずです
+  'L47-1': { 'Vermutung': 4, 'Beobachtung': 4, 'Eindruck': 6 },            // …ようです
+  'L47-2': { 'Adjektiv': 2, 'Sinneseindruck': 6 },                         // …(Adj) …が します
+  'L48-2': { 'Höflichkeit': 1, 'Erlaubnis': 6 },                           // …(使役)て ください
+  'L49-1': { 'Person': 1, 'Sonkeigo-Verb': 6 },                            // …は …(ら)れました
+  'L49-2': { 'Einladung': 1, 'Aufforderung': 6 },                          // …お/ご …ください
+  'L34-2': { 'Ohne': 3, 'ないで': 4, 'Handlung': 6 },                        // …ないで …ます
+  'L35-0': { 'Bedingung': 1, 'ば': 2, 'Folge': 6 },                          // …ば …ます
+  'L35-3': { 'W-Frage': 4, 'ば': 5, 'Abschluss': 6 },                        // 疑問詞 …ば いいですか
+  'L42-1': { 'Werkzeug': 1, 'Zweck': 4, 'のに': 5, 'Verwendung': 6 },       // …は …のに 使います
+  'L42-3': { 'Zweck (V-stem に)': 4, 'Bewegung': 6 },                      // …に 行く/来る/帰る
+  'L42-4': { 'Minimum': 4, 'Verb': 6 },                                    // …は かかります
+  'L42-5': { 'Überraschung': 4, 'Verb': 6 },                               // …も …ました
+  'L41-2': { 'Handlung (くださる)': 4, 'Abschluss': 6 },                    // …て くださいました
+  'L41-3': { 'Handlung (やる)': 4, 'Abschluss': 6 },                        // …て やりました
+  'L43-2': { 'V-stem + そうにない': 4, 'Abschluss': 6 },                    // …そうにありません
+  'L38-5': { 'Hervorgehoben (の)': 2, 'Antwort': 6 },                       // …のは …です
+  'L38-0': { 'V + の': 2, 'Aussage': 6 },                                   // …のが 好きです
+  'L46-1': { 'ばかり': 4, 'Abschluss': 6 },                                 // …た ばかりです
+  'L43-0': { 'V-Stamm + そう': 5, 'Adj-Stamm + そう': 5, 'na-Adj + そう': 5, 'Anschein': 6 }, // …そうです
+  'L44-0': { 'V-Stamm + すぎ': 5, 'i-Adj + すぎ': 5, 'na-Adj + すぎ': 5, 'すぎ': 6 },           // …すぎます
+  // — Reparierte vorbestehende Sets (Partikel/Struktur ergänzt) —
+  'L33-2': { 'Sprecher': 2, 'Inhalt (ように)': 4, 'ように': 5, 'Ansage': 6 }, // …が …ように 言いました
+  'L34-0': { 'Vorbild': 4, 'とおりに': 5, 'Handlung': 6 },                   // …とおりに …ます
+  'L34-1': { 'Zuerst': 1, 'あとで': 2, 'Danach': 6 },                       // …たあとで …ます
+  'L36-2': { 'Ziel': 4, 'ように': 5, 'Handlung': 6 },                       // …ように …ます
+  'L38-1': { 'Handlung (の)': 2, 'Adjektiv': 6 },                          // …のは …です
+  'L38-2': { 'Handlung (の)': 2, 'Bewertung': 6 },                         // …のが …です
+  'L38-4': { 'Inhalt (の)': 4, 'Frage': 6 },                               // …のを 知っていますか
+  'L40-0': { 'Eingebettete Frage': 4, 'Hauptsatz': 6 },                    // 疑問詞 …か、…
+  'L40-1': { 'Inhalt': 4, 'Hauptverb': 6 },                               // …かどうか、…
+  'L41-1': { 'Ausführender': 2, 'Handlung': 4, 'Bekommen': 6 },            // …に …て いただきます
+  'L39-1': { 'Grund': 4, 'ので': 5, 'Folge': 6 },                            // …ので …ました
+  'L45-1': { 'Obwohl': 4, 'のに': 5, 'Trotzdem': 6 },                        // …のに、…
+  'L33-5': { 'Sprecher': 2, 'Inhalt': 4, 'Zitat': 6 },                     // …は …と 言っていました
+  'L33-6': { 'Empfänger': 2, 'Nachricht': 4, 'Bitte': 6 },                 // …に …と 伝えていただけませんか
+  'L37-4': { 'Subjekt': 1, 'Urheber': 2, 'Passiv': 6 },                    // …は …によって V受身
+  'L40-3': { 'Subjekt': 1, 'Adj-Stamm': 5, 'Anschein': 6 },                // …は …そうです
+  'L42-0': { 'Ziel': 4, 'Zweck': 5, 'Handlung': 6 },                       // …(の) ために …ます
+  'L45-0': { 'Fall (Nomen)': 1, 'Fall (Verb)': 1, '場合は': 5, 'Anweisung': 6 }, // …場合は …てください
+  'L47-0': { 'Quelle': 1, 'Inhalt': 4, 'Hörensagen': 6 },                  // …によると …そうです
+  'L50-0': { 'Gast': 4, 'Kenjougo': 6 },                                   // …を お〜します
+  'L37-2': { 'Leid-Passiv': 4, 'Folge': 6 },                               // …(Leid)て …ました
+  'L37-5': { 'Land': 1, 'Tatsache': 6 },                                   // …で …から …が 作られます
+};
+
+// Optionale Auftakt-/Füllwörter je Übung — werden zur Laufzeit als gestrichelte,
+// NICHT verpflichtende Bausteine (Position 0) eingeblendet. Pro Mustertyp passend
+// gewählt (じゃ für Entscheidungen, たぶん für Vermutungen, あっ für „vergessen" …).
+// Sets mit eigenem Auftakt (L26-2/3, L30-1, L31-0, L44-3 inline; L32-3 もしかしたら,
+// L48-2, L49-2 どうぞ) sind bewusst ausgespart.
+const FILLERS = {
+  'L26-0': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['あのう、','ähm…']],
+  'L26-1': [['あのう、','ähm…'],['すみません、','Entschuldigung']],
+  'L27-1': [['ほら、','schau mal'],['あっ、','ah!']],
+  'L27-2': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L27-4': [['そうですね、','also…']],
+  'L28-0': [['いつも、','immer'],['たいてい、','meistens']],
+  'L28-1': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L28-2': [['そうですね、','also…'],['ええと、','mal sehen…']],
+  'L28-3': [['この<ruby>前<rt>まえ</rt></ruby>、','neulich'],['<ruby>昨日<rt>きのう</rt></ruby>、','gestern']],
+  'L29-2': [['あっ、','ah!'],['しまった、','Mist!']],
+  'L31-1': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['そうですね、','also…']],
+  'L31-3': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L31-4': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L32-0': [['そうですね、','also…'],['やっぱり、','wie gedacht']],
+  'L32-1': [['たぶん、','wahrscheinlich'],['きっと、','bestimmt']],
+  'L32-2': [['もしかしたら、','eventuell'],['ひょっとすると、','womöglich']],
+  'L33-0': [['おい、','hey!'],['さあ、','los!']],
+  'L33-1': [['こら、','he, du!'],['おい、','hey!']],
+  'L33-2': [['ええと、','also…']],
+  'L33-3': [['ほら、','schau'],['あそこに、','dort']],
+  'L33-4': [['つまり、','das heißt'],['ええと、','also…']],
+  'L33-5': [['そういえば、','übrigens'],['あのう、','ähm…']],
+  'L33-6': [['すみませんが、','Verzeihung, aber…'],['あのう、','ähm…']],
+  'L34-0': [['ええと、','also…']],
+  'L34-1': [['ええと、','also…']],
+  'L34-2': [['いつも、','immer']],
+  'L35-0': [['そうですね、','also…'],['ええと、','mal sehen…']],
+  'L35-1': [['さあ、','tja…'],['ええと、','also…']],
+  'L35-2': [['そうですね、','also…']],
+  'L35-3': [['あのう、','ähm…'],['ええと、','also…']],
+  'L35-4': [['そうですね、','also…']],
+  'L36-0': [['やっと、','endlich'],['<ruby>最近<rt>さいきん</rt></ruby>、','in letzter Zeit']],
+  'L36-1': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L36-2': [['ええと、','also…']],
+  'L36-3': [['そうですね、','also…'],['ええと、','mal sehen…']],
+  'L37-1': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L37-2': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L37-3': [['たしか、','wenn ich mich recht erinnere'],['ええと、','also…']],
+  'L37-4': [['たしか、','wenn ich mich recht erinnere']],
+  'L37-5': [['ええと、','also…'],['そうですね、','nun…']],
+  'L38-0': [['そうですね、','also…']],
+  'L38-1': [['そうですね、','also…'],['ええと、','mal sehen…']],
+  'L38-2': [['そうですね、','also…']],
+  'L38-3': [['あっ、','ah!'],['しまった、','Mist!']],
+  'L38-4': [['そういえば、','übrigens'],['ええと、','also…']],
+  'L38-5': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['ええと、','also…']],
+  'L38-6': [['そういえば、','übrigens']],
+  'L39-0': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L39-1': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L39-2': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['ええと、','also…']],
+  'L39-3': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L40-0': [['あのう、','ähm…'],['ええと、','also…']],
+  'L40-1': [['ええと、','also…']],
+  'L40-2': [['じゃ、','also dann']],
+  'L40-3': [['わあ、','wow!'],['あっ、','ah!']],
+  'L41-1': [['すみませんが、','Verzeihung, aber…'],['あのう、','ähm…']],
+  'L41-2': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L41-3': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L42-0': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L42-1': [['ええと、','also…']],
+  'L42-2': [['ええと、','also…'],['そうですね、','nun…']],
+  'L42-3': [['ちょっと、','kurz mal']],
+  'L42-4': [['そうですね、','nun…'],['ええと、','also…']],
+  'L42-5': [['なんと、','sage und schreibe'],['えっ、','was?!']],
+  'L43-0': [['あっ、','ah!'],['わあ、','wow!']],
+  'L43-1': [['ちょっと、','kurz mal']],
+  'L43-2': [['うーん、','hmm…'],['ええと、','also…']],
+  'L44-0': [['ちょっと、','etwas']],
+  'L44-1': [['そうですね、','also…']],
+  'L44-2': [['じゃ、','also dann'],['そうですね、','also…']],
+  'L44-4': [['すみませんが、','Verzeihung, aber…'],['ちょっと、','kurz mal']],
+  'L45-0': [['ええと、','also…']],
+  'L45-1': [['おかしいな、','seltsam…'],['ええと、','also…']],
+  'L45-2': [['あれ、','huch?'],['おかしいな、','seltsam…']],
+  'L46-0': [['ちょうど、','gerade'],['あっ、','ah!']],
+  'L46-1': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt']],
+  'L46-2': [['たぶん、','wahrscheinlich'],['きっと、','bestimmt']],
+  'L47-0': [['そういえば、','übrigens'],['ええと、','also…']],
+  'L47-1': [['どうも、','irgendwie'],['なんだか、','irgendwie']],
+  'L47-2': [['あっ、','ah!'],['なんだか、','irgendwie']],
+  'L48-0': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['ええと、','also…']],
+  'L49-0': [['あのう、','ähm…']],
+  'L49-1': [['ええと、','also…'],['あのう、','ähm…']],
+  'L50-0': [['あのう、','ähm…']],
+};
+function orderFor(key){
+  const ov = CURATED_SEQ[key];
+  return ov ? (role => (role in ov ? ov[role] : curatedOrder(role))) : curatedOrder;
+}
+
+// Set ist "baubar", wenn sich eine eindeutige, korrekte Reihenfolge legen lässt:
+// ≥2 verschiedene Rollen, keine reinen Konjugations-/Beispiellisten und GENAU
+// zwei Positionsstufen (saubere 2-Teiler wie Grund→Folge, Subjekt→Verb).
+// Sets mit 3+ Stufen werden bewusst ausgeschlossen — dort sind die Rollen oft
+// Alternativen für dieselbe Position oder die Labels passen nicht zur Satzstelle,
+// sodass eine Reihenfolge-Prüfung falsche Treffer erzeugen würde.
+function curatedBuildable(set, ord = curatedOrder, hasSeq = false){
+  if(!set || set.length < 2) return false;
+  const roles = new Set(set.map(w => w.role));
+  if(roles.size < 2) return false;
+  if(set.some(w => /→|⇆/.test(w.jp || '') ||
+       /Beispiel|G[123]\b|普通|丁寧語|尊敬語|謙譲語|normal →|自動|他動/.test(w.role || ''))) return false;
+  const levels = new Set([...roles].map(ord)).size;
+  // Ohne explizite Reihenfolge (CURATED_SEQ) bleibt der strenge 2-Stufen-Schutz,
+  // damit die Heuristik nie eine falsche Reihenfolge erzwingt. Mit geprüfter
+  // Sequenz sind auch 3+ Stufen erlaubt (z. B. Frage-Wort → Situation → Endung).
+  return hasSeq ? levels >= 2 : levels === 2;
+}
+
+// Eine mögliche Modell-Reihenfolge: nach Positionsstufe sortiert (stabil),
+// reine JP-Phrasen aneinandergereiht.
+function buildCuratedModelOrder(words, ord = curatedOrder){
+  // Nur EINEN Baustein je Positionsstufe zeigen → ein kohärenter Beispielsatz
+  // statt einer Aneinanderreihung mehrerer Alternativen für dieselbe Satzstelle
+  // (sonst „食べるの 泳ぐの 好き 嫌い" oder „旅行する 結婚しない つもりです").
+  const seen = new Set();
+  return words.slice()
+    .map((w, i) => ({ w, o: ord(w.role), i }))
+    .sort((a, b) => a.o - b.o || a.i - b.i)
+    .filter(m => { if(seen.has(m.o)) return false; seen.add(m.o); return true; })
+    .map(m => m.w.jp)
+    .join(' ');
+}
+
+function curatedChip(w, ord = curatedOrder){
+  // data-filler: optionaler Auftakt (じゃ、/ あのう、…) — für die Vollständigkeits-
+  // prüfung NICHT verlangt, darf aber (wenn gelegt) nur ganz vorne stehen.
+  return `<span class="ex-chip${w.filler ? ' ex-chip-filler' : ''}" onclick="exPickChip(this)" data-order="${ord(w.role)}" data-role="${w.role || ''}"${w.filler ? ' data-filler="1"' : ''}>
+    ${w.role ? `<span class="ex-chip-role">${w.role}</span>` : ''}
+    <span class="ex-chip-jp">${w.jp}</span>
+    <span class="ex-chip-de">${w.de}</span>
+  </span>`;
+}
+
+// Zeitform-Varianten: schaltet höfliche Prädikat-Endungen sicher zwischen
+// Gegenwart und Vergangenheit um (reiner Suffix-Tausch → immer grammatikalisch
+// korrekt). Plain-Formen, Fragen (…か) und Adjektivstämme bleiben unverändert.
+const TENSE_RULES = [
+  [/ませんでした$/, ['ません', 'ませんでした']],
+  [/ました$/,       ['ます', 'ました']],
+  [/ません$/,       ['ません', 'ませんでした']],
+  [/ます$/,         ['ます', 'ました']],
+  [/でした$/,       ['です', 'でした']],
+  [/です$/,         ['です', 'でした']],
+];
+function tenseVariants(jp, politeOnly){
+  const out = [];
+  for(const [re, forms] of TENSE_RULES){
+    if(re.test(jp)){ const stem = jp.replace(re, ''); out.push(...forms.map(f => stem + f)); break; }
+  }
+  if(!out.length) out.push(jp);
+  // Grundform (Plain) ergänzen, wenn das Prädikat ein positives höfliches Verb
+  // ist (…ます/…ました) und sicher konjugierbar. Negative/です-Formen bleiben höflich.
+  // politeOnly: bei Respektsprache (Keigo) KEINE Plainform anbieten — dort wäre
+  // die schlichte Grundform (z. B. 帰られた statt 帰られました) pragmatisch unpassend.
+  if(!politeOnly && (/ます$/.test(jp) || /ました$/.test(jp))){
+    const plain = verbPlain(jp.replace(/ました$/, 'ます'));
+    if(plain){ out.push(plain[0], plain[1]); } // Grundform + Plain-Vergangenheit
+  }
+  return [...new Set(out)];
+}
+
+// Rotationszustand je Übungsschlüssel: aufeinanderfolgende Aufgaben wandern
+// durch ALLE Bausteine je Rolle → selten bis gar keine Wiederholung.
+const curatedRot = {};
+
+// Wählt je Rolle bis zu zwei Bausteine (rotierend) und variiert die Zeitform
+// einer Prädikat-Phrase zufällig — für viele, wechselnde Satzmöglichkeiten.
+function pickCuratedBuildWords(key, set, ord = curatedOrder){
+  const groups = {}, order = [];
+  set.forEach(w => { if(!groups[w.role]){ groups[w.role] = []; order.push(w.role); } groups[w.role].push(w); });
+  const st = curatedRot[key] || (curatedRot[key] = {});
+  const picked = [];
+  // Optionale Auftakt-Füllwörter aus der zentralen Tabelle einblenden (sofern das
+  // Set nicht ohnehin schon einen Auftakt-Baustein mitbringt). Sie sind nicht
+  // pflichtig (filler:true) und stehen an Position 0.
+  if(FILLERS[key] && !set.some(w => w.filler)){
+    FILLERS[key].forEach(([jp, de]) => picked.push({ jp, de, role: 'Auftakt', filler: true }));
+  }
+  for(const role of order){
+    const blocks = groups[role];
+    const start = st[role] || 0;
+    const take = Math.min(2, blocks.length);
+    for(let i = 0; i < take; i++) picked.push(blocks[(start + i) % blocks.length]);
+    st[role] = (start + take) % blocks.length;
+  }
+  const out = picked.map(w => {
+    if(ord(w.role) === 6 && !w.fixed){ // feste Grammatik-Endungen (w.fixed) nicht konjugieren
+      const vs = tenseVariants(w.jp, w.politeOnly);
+      if(vs.length > 1) return { ...w, jp: vs[Math.floor(Math.random() * vs.length)] };
+    }
+    return w;
+  });
+  for(let i = out.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [out[i], out[j]] = [out[j], out[i]]; }
+  return out;
+}
+
+/* ===================================================================
+   MULTIPLE-CHOICE-MODUS für kuratierte Bau-Sets — Wiedererkennen statt
+   Erinnern: pro Satzstelle die deutsche Bedeutung zeigen und das richtige
+   japanische Wort aus 3 Optionen wählen lassen. Ideal, solange man die
+   Wörter noch nicht auswendig kann. Nutzt dieselben kuratierten Sets.
+   =================================================================== */
+const curatedMode = {};      // key -> 'order' | 'mc'
+const curatedMcState = {};   // boxId -> { target:[{correct,opts}], pos }
+function curatedSetMode(key, mode, btn, lessonNum, idx){
+  curatedMode[key] = mode;
+  const box = btn.closest('.exercise-box');
+  if(box) renderExerciseBox(box, lessonNum, idx);
+}
+// „Wörter vorlernen": kompakte Karten (Japanisch + Furigana + Deutsch + 🔊)
+// aller Bausteine eines Sets — zum kurzen Anschauen/Anhören vor der Übung.
+function curatedVocabPanelHtml(set){
+  const seen = new Set(), rows = [];
+  set.forEach(w => {
+    const b = jpBare(w.jp); if(!b || seen.has(b)) return; seen.add(b);
+    rows.push(`<div class="vcard" onclick="speak('${b.replace(/[\\'\\\\]/g, '')}')" title="anhören">
+      <span class="vcard-jp">${w.jp}</span>
+      <span class="vcard-de">${w.de || ''}</span>
+      <span class="vcard-spk">🔊</span></div>`);
+  });
+  return `<div class="ex-vocab hidden">
+    <div class="ex-vocab-label">📖 Wörter in dieser Übung — antippen zum Anhören</div>
+    <div class="ex-vocab-grid">${rows.join('')}</div></div>`;
+}
+function exToggleVocab(btn){
+  const box = btn.closest('.exercise-box'); const p = box && box.querySelector('.ex-vocab');
+  if(p){ p.classList.toggle('hidden'); btn.classList.toggle('active'); }
+}
+function allCuratedBlocks(){
+  const out = [];
+  for(const k in EXERCISE_SETS) EXERCISE_SETS[k].forEach(w => { if(!w.filler) out.push(w); });
+  return out;
+}
+// 2 Distraktoren: bevorzugt aus derselben Satzstelle (gleiches Set), sonst global.
+function mcDistractors(correct, sameLevel){
+  const seen = new Set([jpBare(correct.jp)]), picks = [];
+  const take = arr => { for(const w of arr){ if(picks.length >= 2) break; const b = jpBare(w.jp); if(!seen.has(b)){ seen.add(b); picks.push(w); } } };
+  take(sameLevel.slice().sort(() => Math.random() - 0.5));
+  if(picks.length < 2) take(allCuratedBlocks().sort(() => Math.random() - 0.5));
+  return picks;
+}
+// Zielsatz: ein Baustein je Positionsstufe (ohne Filler) + je Stufe 3 Optionen.
+function buildMcTarget(set, ord){
+  const byL = {};
+  set.filter(w => !w.filler).forEach(w => { const o = ord(w.role); (byL[o] = byL[o] || []).push(w); });
+  return Object.keys(byL).map(Number).sort((a, b) => a - b).map(o => {
+    const blocks = byL[o], correct = blocks[Math.floor(Math.random() * blocks.length)];
+    const opts = [correct, ...mcDistractors(correct, blocks)];
+    for(let i = opts.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [opts[i], opts[j]] = [opts[j], opts[i]]; }
+    return { correct, opts };
+  });
+}
+function renderCuratedMC(boxEl, key, set, ord, lessonNum, idx, solutionHtml, c){
+  const target = buildMcTarget(set, ord);
+  curatedMcState[boxEl.id] = { target, pos: 0 };
+  const goalDe = target.map(t => t.correct.de).join(' — ');
+  boxEl.innerHTML = `
+    <div class="ex-tabs">
+      <button class="ex-tab" onclick="curatedSetMode('${key}','order', this, ${lessonNum}, ${idx})">🧩 Ordnen</button>
+      <button class="ex-tab active">🔘 Wählen</button>
+    </div>
+    <div class="ex-help">Wähle für jede Lücke das richtige japanische Wort — ideal, solange du die Wörter noch nicht auswendig kannst.</div>
+    <div class="mc-goal"><span class="mc-goal-flag">🇩🇪</span> ${goalDe}</div>
+    <div class="ex-answer mc-answer empty"></div>
+    <div class="ex-feedback"></div>
+    <div class="ex-word-pool mc-options"></div>
+    <div class="ex-actions">
+      <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Anderer Satz</button>
+    </div>
+    <div class="ex-tools">
+      <button class="ex-link" onclick="exToggleVocab(this)">📖 Wörter</button>
+      ${c.ex ? `<button class="ex-link" onclick="revealExerciseSolution(this)">▶ Beispiel</button>` : ''}
+    </div>
+    ${curatedVocabPanelHtml(set)}
+    ${solutionHtml}
+  `;
+  mcRenderStep(boxEl);
+}
+function mcRenderStep(boxEl){
+  const st = curatedMcState[boxEl.id]; if(!st) return;
+  const ans = boxEl.querySelector('.mc-answer'), fb = boxEl.querySelector('.ex-feedback'), opt = boxEl.querySelector('.mc-options');
+  ans.innerHTML = st.target.slice(0, st.pos).map(t => `<span class="ex-chip"><span class="ex-chip-jp">${t.correct.jp}</span></span>`).join('');
+  ans.classList.toggle('empty', st.pos === 0);
+  if(st.pos >= st.target.length){
+    fb.innerHTML = '✓ Satz vollständig gebaut!'; fb.className = 'ex-feedback ok';
+    const jp = st.target.map(t => jpBare(t.correct.jp)).join('');
+    opt.innerHTML = `<button onclick="speak('${jp}')">🔊 Anhören</button>`;
+    const m = /^ex-(\d+)-(\d+)$/.exec(boxEl.id || '');
+    if(m){ markExerciseDone(+m[1], +m[2]); const num = boxEl.closest('.unterpunkt') && boxEl.closest('.unterpunkt').querySelector('.unterpunkt-num'); if(num && !num.querySelector('.done-tick')) num.innerHTML += '<span class="done-tick">✓ gemeistert</span>'; }
+    bumpStreak(); updateStatusBar();
+    return;
+  }
+  const cur = st.target[st.pos];
+  fb.innerHTML = `Welches Wort bedeutet: <b>${cur.correct.de}</b>?`; fb.className = 'ex-feedback';
+  opt.innerHTML = cur.opts.map((o, i) => `<span class="ex-chip mc-opt" onclick="mcPick(this)" data-i="${i}">
+      <span class="ex-chip-jp">${o.jp}</span></span>`).join('');
+}
+function mcPick(el){
+  const boxEl = el.closest('.exercise-box'); const st = curatedMcState[boxEl.id]; if(!st) return;
+  const cur = st.target[st.pos], chosen = cur.opts[+el.dataset.i];
+  if(jpBare(chosen.jp) === jpBare(cur.correct.jp)){ st.pos++; mcRenderStep(boxEl); }
+  else {
+    el.classList.add('misplaced');
+    const fb = boxEl.querySelector('.ex-feedback');
+    fb.innerHTML = '✗ Nicht ganz — versuch ein anderes Wort.'; fb.className = 'ex-feedback bad';
+    setTimeout(() => el.classList.remove('misplaced'), 700);
+  }
+}
+
+/* ===================================================================
+   FORM-VARIANTEN FÜR DEN GENERISCHEN BUILDER (Verben & Adjektive)
+   Bietet pro Wort mehrere korrekte Formen an — höflich UND Grundform
+   (Plain), Gegenwart/Vergangenheit, bejaht/verneint. Es wird ausschließlich
+   sicher konjugiert (nie geraten); im Zweifel bleibt die Form unverändert.
+   =================================================================== */
+
+// Ruby-Markup entfernen, sichtbaren Text (mit Kanji) behalten.
+function jpBare(s){ return (s || '').replace(/<rp>.*?<\/rp>/g, '').replace(/<rt>.*?<\/rt>/g, '').replace(/<[^>]+>/g, ''); }
+
+// Lazy-Index: höfliche ます-Form (sichtbarer Text mit Kanji) → vollständige
+// Konjugation aus der geprüften VERB_FORMS-Engine. Abgleich über den Kanji-Text
+// (nicht die Lesung), damit Homophone wie 取る/撮る nicht verwechselt werden.
+let _verbMasuIdx = null;
+function verbMasuIndex(){
+  if(_verbMasuIdx) return _verbMasuIdx;
+  _verbMasuIdx = {};
+  VERB_FORMS.forEach(f => { _verbMasuIdx[jpBare(f.masu)] = f; });
+  return _verbMasuIdx;
+}
+// Index nach Grundform (für Plain-Form-Vokabeln, z. B. aus Lektion 20).
+let _verbDictIdx = null;
+function verbDictIndex(){
+  if(_verbDictIdx) return _verbDictIdx;
+  _verbDictIdx = {};
+  VERB_FORMS.forEach(f => { _verbDictIdx[jpBare(f.jisho)] = f; });
+  return _verbDictIdx;
+}
+
+/* --- Verbgruppen-Bestimmung & Plain-Formen aus der ます-Form -----------------
+   Höfliche Formen sind ein reiner Suffix-Tausch (immer sicher). Plain-Formen
+   sind verbgruppen-abhängig und werden deterministisch abgeleitet:
+   - geprüfte Engine (Kanji-Abgleich) hat Vorrang,
+   - unregelmäßige Keigo-Verben & godan-„す" explizit,
+   - ichidan (Gruppe 2) via え-Reihe / Kanji-Stamm / ている / Ausnahmeliste,
+   - sonst godan (Gruppe 1): い-Reihe → う-Reihe + Engine-Tabellen für て/た/ない.
+   Die Ausnahmelisten decken das gesamte Lektions-Vokabular ab (geprüft). */
+const EROW = new Set('えけせてねへめれげぜでべぺ'.split(''));
+const I2U = {き:'く', ぎ:'ぐ', し:'す', ち:'つ', に:'ぬ', び:'ぶ', み:'む', り:'る', い:'う', じ:'ず'};
+function isJpKanji(ch){ return !!ch && !/[぀-ヿｦ-ﾟ]/.test(ch); }
+// ichidan-Verben mit い-Reihe-Kana-Stamm (nicht über え-Reihe/Kanji erkennbar):
+const ICHIDAN_TAILS = ['借ります', '浴びます', '信じます', '感じます', 'すぎます'];
+// godan-„す"-Verben (sonst würde „…します" fälschlich als する gelesen):
+const GODAN_SU = ['消します','渡します','出します','返します','直します','無くします','壊します','汚します','冷やします','繰り返します','増やします','減らします','試します','思い出します','引っ越します','申します','いたします'];
+// unregelmäßige Keigo-Verben (…あいます → …ある): jpBare-Endung → Plain-Stamm.
+const KEIGO_IRREG = { 'いらっしゃいます':'いらっしゃ', 'くださいます':'くださ', 'なさいます':'なさ', 'おっしゃいます':'おっしゃ' };
+
+// Plain-Formen [Grundform, た, ない, なかった] oder null, wenn nicht sicher ableitbar.
+function verbPlain(jp){
+  const bare = jpBare(jp);
+  const eng = verbMasuIndex()[bare];
+  if(eng) return [eng.jisho, eng.ta, eng.nai, eng.nakatta];
+  if(bare.endsWith('あります')){ const p = jp.replace(/あります$/, ''); return [p+'ある', p+'あった', p+'ない', p+'なかった']; } // ある: Verneinung = ない
+  for(const k in KEIGO_IRREG){
+    if(bare.endsWith(k)){ const r = KEIGO_IRREG[k]; return [r+'る', r+'った', r+'らない', r+'らなかった']; }
+  }
+  if(GODAN_SU.some(t => bare.endsWith(t))){
+    const s = jp.replace(/します$/, '');
+    return [s+'す', s+'した', s+'さない', s+'さなかった'];
+  }
+  if(/します$/.test(bare)){
+    const p = jp.replace(/します$/, '');
+    return [p+'する', p+'した', p+'しない', p+'しなかった'];
+  }
+  if(!/ます$/.test(bare)) return null;
+  const vstem = jp.replace(/ます$/, ''), vb = jpBare(vstem);
+  const lastR = jpReading(jp).replace(/ます$/, '').slice(-1);
+  // て+い (…ている) und て+み (…てみる) sind ichidan-Hilfsverben; das vorangehende
+  // て/で grenzt sie sicher von echten Godan-Stämmen ab (読み, 踏み … haben kein て davor).
+  const ichidan = EROW.has(lastR) || isJpKanji(vb.slice(-1)) || /[てで]\s*[いみ]$/.test(vb)
+                || bare === 'います' || ICHIDAN_TAILS.some(t => bare.endsWith(t));
+  if(ichidan) return [vstem+'る', vstem+'た', vstem+'ない', vstem+'なかった'];
+  if(/行きます$/.test(bare)){ const sb = vstem.slice(0, -1); return [sb+'く', sb+'った', sb+'かない', sb+'かなかった']; }
+  const dk = I2U[vb.slice(-1)];
+  if(!dk) return null;
+  const sb = vstem.slice(0, -1), tt = G1_TE_TA[dk] || {ta:'った'};
+  return [sb+dk, sb+tt.ta, sb+(NAI_MAP[dk]||'らない'), sb+(NAKATTA_MAP[dk]||'らなかった')];
+}
+
+// う-Reihe (Grundform-Endung) → い-Reihe (ます-Stamm) für godan-Verben.
+const U2I = {く:'き', ぐ:'ぎ', す:'し', つ:'ち', ぬ:'に', ぶ:'び', む:'み', る:'り', う:'い'};
+
+// Aus einer Grundform die übrigen Formen ableiten (für Plain-Form-Vokabeln, die
+// nicht in der Engine stehen). [ます,ました,ません,ませんでした,た,ない,なかった] oder null.
+function conjFromDict(jp){
+  const bare = jpBare(jp);
+  if(/です$/.test(bare)) return null;   // Kopula-Ausdruck (z. B. ご存じです), kein Verb
+  if(/する$/.test(bare)){ const p = jp.replace(/する$/, ''); return [p+'します',p+'しました',p+'しません',p+'しませんでした',p+'した',p+'しない',p+'しなかった']; }
+  if(bare === 'ある') return ['あります','ありました','ありません','ありませんでした','あった','ない','なかった'];
+  const last = bare.slice(-1);
+  if(last === 'る'){
+    const before = jpReading(jp).slice(-2, -1);
+    if(EROW.has(before) || /すぎる$/.test(bare)){ const s = jp.replace(/る$/, ''); return [s+'ます',s+'ました',s+'ません',s+'ませんでした',s+'た',s+'ない',s+'なかった']; } // え-Reihe oder すぎる (ichidan)
+    // sonst godan-る
+  }
+  if(!U2I[last]) return null;
+  const sb = jp.slice(0, -1), iStem = sb + U2I[last];
+  const tt = G1_TE_TA[last] || {ta:'った'};
+  const ta = /行く$/.test(bare) ? 'った' : tt.ta;
+  return [iStem+'ます', iStem+'ました', iStem+'ません', iStem+'ませんでした',
+          sb+ta, sb+(NAI_MAP[last]||'らない'), sb+(NAKATTA_MAP[last]||'らなかった')];
+}
+
+// Form-Etiketten (für die Anzeige am Chip).
+const POLITE_TAGS = ['höflich', 'höfl. Vergangenheit', 'höflich verneint', 'höfl. Vergangenheit verneint'];
+const PLAIN_TAGS  = ['Grundform', 'Vergangenheit', 'verneint', 'Vergangenheit verneint'];
+const ADJ_TAGS    = PLAIN_TAGS.concat(POLITE_TAGS); // 4 Plain + 4 höflich
+function tagForms(forms, tags){ return forms.map((f, i) => ({ jp: f, tag: tags[i] || '' })); }
+
+function verbForms(jp){
+  let out = [];
+  if(/ます$/.test(jp)){
+    const p = jp.replace(/ます$/, '');
+    out = tagForms([p+'ます', p+'ました', p+'ません', p+'ませんでした'], POLITE_TAGS); // immer sicher
+    const plain = verbPlain(jp);
+    if(plain) out = out.concat(tagForms(plain, PLAIN_TAGS));
+  } else {
+    out.push({ jp, tag: 'Grundform' }); // bereits Grundform (z. B. Plain-Form-Vokabeln aus L20)
+    const eng = verbDictIndex()[jpBare(jp)];
+    if(eng){
+      out = out.concat(tagForms([eng.masu, eng.mashita, eng.masen, eng.masenDeshita], POLITE_TAGS));
+      out = out.concat(tagForms([eng.ta, eng.nai, eng.nakatta], PLAIN_TAGS.slice(1)));
+    } else {
+      const f = conjFromDict(jp);
+      if(f){
+        out = out.concat(tagForms([f[0], f[1], f[2], f[3]], POLITE_TAGS));
+        out = out.concat(tagForms([f[4], f[5], f[6]], PLAIN_TAGS.slice(1)));
+      }
+    }
+  }
+  const seen = new Set();
+  return out.filter(o => !seen.has(o.jp) && seen.add(o.jp));
+}
+
+// i-Adjektive: Stamm = ohne finales „い". Suffixregel ist universell sicher.
+// 良い/いい (unregelmäßig) konjugieren mit „よ": よかった/よくない … — erkannt nur
+// für das echte いい (=良い) und bekannte Komposita, NICHT für reguläre Adjektive
+// wie 可愛い.
+const IADJ_II_IRREG = ['かっこいい', '格好いい', '気持ちいい', 'ちょうどいい', '都合がいい', '心地いい'];
+function iAdjForms(jp){
+  if(!/い$/.test(jp)) return [{ jp, tag: 'Grundform' }];
+  const bare = jpBare(jp);
+  if(bare === 'いい' || IADJ_II_IRREG.some(w => bare.endsWith(w))){
+    const p = jp.slice(0, jp.length - 2); // finales „いい" entfernen
+    return tagForms([
+      p+'いい', p+'よかった', p+'よくない', p+'よくなかった',
+      p+'いいです', p+'よかったです', p+'よくないです', p+'よくなかったです',
+    ], ADJ_TAGS);
+  }
+  const s = jp.replace(/い$/, '');
+  return tagForms([
+    s+'い', s+'かった', s+'くない', s+'くなかった',
+    s+'いです', s+'かったです', s+'くないです', s+'くなかったです',
+  ], ADJ_TAGS);
+}
+
+// na-Adjektive sind Basen (元気, 静か …); Kopula anhängen ist immer sicher.
+function naAdjForms(jp){
+  return tagForms([
+    jp+'だ', jp+'だった', jp+'じゃ ない', jp+'じゃ なかった',
+    jp+'です', jp+'でした', jp+'じゃ ないです', jp+'じゃ なかったです',
+  ], ADJ_TAGS);
+}
+
+function wordForms(w){
+  if(w.t === 'v')  return verbForms(w.jp);
+  if(w.t === 'i')  return iAdjForms(w.jp);
+  if(w.t === 'na') return naAdjForms(w.jp);
+  return [{ jp: w.jp, tag: '' }];
+}
+
+// Prüfung für kuratierte Bau-Übungen. Streng genug, dass NUR korrekte Sätze
+// bestehen: (1) Reihenfolge nicht fallend nach Positionsstufe und (2) jede
+// vorhandene Positionsstufe muss belegt sein (sonst ist es nur ein Fragment,
+// z. B. zwei Bausteine derselben Rolle ohne Prädikat).
+function curatedCheckOrder(btn){
+  const box = btn.closest('.exercise-box');
+  const answer = box.querySelector('.ex-answer');
+  const fb = box.querySelector('.ex-feedback');
+  const placed = [...answer.querySelectorAll('.ex-chip')];
+  placed.forEach(c => c.classList.remove('misplaced'));
+  if(placed.length < 2){
+    fb.textContent = 'Lege mindestens zwei Bausteine in die Bauzone.';
+    fb.className = 'ex-feedback bad';
+    return;
+  }
+  // (1) Reihenfolge: nicht fallend nach Positionsstufe.
+  let firstBad = null, prev = -Infinity;
+  for(const c of placed){
+    const o = Number(c.dataset.order);
+    if(o < prev){ firstBad = c; break; }
+    prev = o;
+  }
+  if(firstBad){
+    firstBad.classList.add('misplaced');
+    fb.innerHTML = '✗ Reihenfolge nicht ganz richtig — der markierte Baustein steht zu weit hinten. Tipp: Das Prädikat (Handlung/Folge) gehört ans Ende.';
+    fb.className = 'ex-feedback bad';
+    return;
+  }
+  // (1b) Höchstens EIN Baustein je Positionsstufe — Bausteine derselben Stufe
+  // sind Alternativen für dieselbe Satzstelle (sonst Unsinn wie „食べるの 泳ぐの
+  // 好きです" oder „旅行する 結婚しない つもりです").
+  const orderSeen = {};
+  for(const c of placed){
+    const o = c.dataset.order;
+    if(orderSeen[o]){
+      c.classList.add('misplaced');
+      fb.innerHTML = '✗ Du hast zwei Bausteine für dieselbe Satzstelle gelegt. Wähle pro Stufe nur <b>einen</b> Baustein.';
+      fb.className = 'ex-feedback bad';
+      return;
+    }
+    orderSeen[o] = true;
+  }
+  // (2) Vollständigkeit: alle vorhandenen Positionsstufen müssen vertreten sein.
+  // Optionale Auftakt-Bausteine (data-filler) zählen NICHT zur Pflicht.
+  const required = new Set([...box.querySelectorAll('.ex-chip')].filter(c => c.dataset.filler !== '1').map(c => c.dataset.order));
+  const have = new Set(placed.map(c => c.dataset.order));
+  for(const r of required){
+    if(!have.has(r)){
+      fb.innerHTML = '○ Fast! Der Satz ist noch unvollständig — wähle je Rolle einen Baustein (z. B. Bedingung/Grund <b>und</b> Folge).';
+      fb.className = 'ex-feedback bad';
+      return;
+    }
+  }
+  // Korrekt — wie exCheckOrder: als gemeistert speichern, Streak & Status.
+  fb.innerHTML = '✓ Richtiger Satzbau!';
+  fb.className = 'ex-feedback ok';
+  const m = /^ex-(\d+)-(\d+)$/.exec(box.id || '');
+  if(m){
+    markExerciseDone(+m[1], +m[2]);
+    const num = box.closest('.unterpunkt') && box.closest('.unterpunkt').querySelector('.unterpunkt-num');
+    if(num && !num.querySelector('.done-tick')) num.innerHTML += '<span class="done-tick">✓ gemeistert</span>';
+  }
+  bumpStreak();
+  updateStatusBar();
+}
+
+function renderExerciseBox(boxEl, lessonNum, idx){
+  const c = MINNA_LESSONS.filter(x => x.l === lessonNum)[idx];
+  if(!c){ boxEl.innerHTML = '<i>Keine Daten.</i>'; return; }
+
+  // Kuratiertes Set vorhanden?
+  const key = `L${lessonNum}-${idx}`;
+  const customSet = EXERCISE_SETS[key];
+
+  const solutionHtml = c.ex ? `
+    <div class="ex-solution hidden">
+      <div class="ex-sol-label">Beispiel aus dem Lehrbuch</div>
+      <div class="ex-sol-jp">${c.ex.jp}</div>
+      <div class="ex-sol-de">${c.ex.de}</div>
+    </div>
+  ` : '';
+
+  if(customSet){
+    // Ordnbare Phrasen-Sets (Grund→Folge, Subjekt→Verb, …): interaktiver Bau
+    // mit Reihenfolge-Prüfung. Wähle je Rolle einen Baustein und ordne sie.
+    const ord = orderFor(key);
+    if(curatedBuildable(customSet, ord, !!CURATED_SEQ[key])){
+      if(curatedMode[key] === 'mc'){ renderCuratedMC(boxEl, key, customSet, ord, lessonNum, idx, solutionHtml, c); return; }
+      const buildWords = pickCuratedBuildWords(key, customSet, ord);
+      boxEl.innerHTML = `
+        <div class="ex-tabs">
+          <button class="ex-tab active">🧩 Ordnen</button>
+          <button class="ex-tab" onclick="curatedSetMode('${key}','mc', this, ${lessonNum}, ${idx})">🔘 Wählen</button>
+        </div>
+        <div class="ex-help">Tippe die Bausteine in die richtige Reihenfolge — das Prädikat steht am Ende.${buildWords.some(w => w.filler) ? ' Gestrichelte (じゃ、) sind optional.' : ''}</div>
+        <div class="ex-answer empty"></div>
+        <div class="ex-source-label">Bausteine</div>
+        <div class="ex-word-pool ex-source">
+          ${buildWords.map(w => curatedChip(w, ord)).join('')}
+        </div>
+        <div class="ex-feedback"></div>
+        <div class="ex-actions">
+          <button onclick="curatedCheckOrder(this)">✓ Prüfen</button>
+          <button class="ghost" onclick="exResetBuild(this)" title="Zurücksetzen">↺</button>
+          <button class="ghost" onclick="newExerciseWords(this, ${lessonNum}, ${idx})" title="Andere Wörter">🎲</button>
+        </div>
+        <div class="ex-tools">
+          <button class="ex-link" onclick="exToggleVocab(this)">📖 Wörter</button>
+          <button class="ex-link" onclick="exRevealModel(this)">💡 Lösung</button>
+          ${c.ex ? `<button class="ex-link" onclick="revealExerciseSolution(this)">▶ Beispiel</button>` : ''}
+        </div>
+        ${curatedVocabPanelHtml(customSet)}
+        <div class="ex-model hidden">
+          <div class="ex-model-label">Modell-Reihenfolge</div>
+          <div class="ex-model-jp">${buildCuratedModelOrder(buildWords, ord)}</div>
+          <div class="ex-model-note">Eine mögliche Reihenfolge — bei mehreren Bausteinen je Rolle zählt die Position der Rolle.</div>
+        </div>
+        ${solutionHtml}
+      `;
+      return;
+    }
+    // 2) Kuratierte Phrasen ohne ordnbare Rollen: konkreter Wort-Reihenfolge-
+    //    Satzbau (Satz in seine Wörter zerlegen und ordnen lassen).
+    if(renderPhraseBuilder(boxEl, c, lessonNum, idx, customSet, solutionHtml)) return;
+  }
+  // 3) Universeller Satzbau aus den Muster-Slots: die Slots sind bereits in
+  // korrekter Reihenfolge definiert → exakte Prüfung, nie falsch-positiv,
+  // funktioniert für JEDES Muster (ersetzt Pool & generischen Builder).
+  renderSlotExercise(boxEl, c, lessonNum, idx, solutionHtml);
+}
+
+function slotChip(text, idx, label){
+  return `<span class="ex-chip" onclick="exPickChip(this)" data-order="${idx}" data-role="${label || ''}">
+    ${label ? `<span class="ex-chip-role">${label}</span>` : ''}
+    <span class="ex-chip-jp">${text}</span>
+  </span>`;
+}
+
+function renderSlotExercise(boxEl, c, lessonNum, idx, solutionHtml){
+  const slots = (c.slots || []).filter(s => s && s.text && jpBare(s.text).trim());
+  if(slots.length < 2){
+    boxEl.innerHTML = `
+      <div class="ex-help">ℹ️ Dieses Muster ist eine einzelne Form — hier gibt es keine Reihenfolge zum Bauen. Schau dir das Muster oben und das Beispiel an.</div>
+      <div class="ex-actions">${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}</div>
+      ${solutionHtml}
+    `;
+    return;
+  }
+  const order = slots.map((s, i) => ({ s, i }));
+  for(let i = order.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
+  if(order.length > 1 && order.every((o, i) => o.i === i)){ [order[0], order[1]] = [order[1], order[0]]; } // nie bereits gelöst starten
+  boxEl.innerHTML = `
+    <div class="ex-help">🧩 Bringe die Bausteine des Musters in die richtige Reihenfolge und lass deinen Satz prüfen.</div>
+    <div class="ex-answer empty"></div>
+    <div class="ex-source-label">Bausteine</div>
+    <div class="ex-word-pool ex-source">
+      ${order.map(o => slotChip(o.s.text, o.i, o.s.label)).join('')}
+    </div>
+    <div class="ex-feedback"></div>
+    <div class="ex-actions">
+      <button onclick="slotCheckOrder(this)">✓ Prüfen</button>
+      <button onclick="exResetBuild(this)">↺ Zurücksetzen</button>
+      <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Neu mischen</button>
+      <button onclick="exRevealModel(this)">💡 Lösung</button>
+      ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
+    </div>
+    <div class="ex-model hidden">
+      <div class="ex-model-label">Richtige Reihenfolge</div>
+      <div class="ex-model-jp">${slots.map(s => s.text).join(' ')}</div>
+    </div>
+    ${solutionHtml}
+  `;
+}
+
+// Konkreter Wort-Reihenfolge-Satzbau aus kuratierten Phrasen: ein Beispielsatz
+// wird an den Leerzeichen in Wörter zerlegt; der Lernende ordnet sie. Exakte
+// Prüfung (Original-Reihenfolge) → nie falsch-positiv. Liefert false, wenn das
+// Set keine mehrwortigen Phrasen hat (dann greift der Slot-Satzbau).
+const phraseRot = {};
+function renderPhraseBuilder(boxEl, c, lessonNum, idx, set, solutionHtml){
+  const key = `L${lessonNum}-${idx}`;
+  if(set.some(w => /→|⇆/.test(w.jp || ''))) return false; // Konjugationstabellen ausschließen
+  const cand = set.map(w => ({ w, toks: (w.jp || '').trim().split(/\s+/).filter(Boolean) }))
+                  .filter(o => o.toks.length >= 2);
+  if(!cand.length) return false;
+  const st = phraseRot[key] || 0;
+  phraseRot[key] = st + 1;
+  const chosen = cand[st % cand.length];
+  const toks = chosen.toks;
+  const order = toks.map((t, i) => ({ t, i }));
+  for(let i = order.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [order[i], order[j]] = [order[j], order[i]]; }
+  if(order.length > 1 && order.every((o, i) => o.i === i)){ [order[0], order[1]] = [order[1], order[0]]; } // nie bereits gelöst starten
+  boxEl.innerHTML = `
+    <div class="ex-help">🧩 Bilde den Satz und bringe die Wörter in die richtige Reihenfolge:<br><b>${chosen.w.de || ''}</b></div>
+    <div class="ex-answer empty"></div>
+    <div class="ex-source-label">Wörter${chosen.w.role ? ` · ${chosen.w.role}` : ''}</div>
+    <div class="ex-word-pool ex-source">
+      ${order.map(o => slotChip(o.t, o.i, '')).join('')}
+    </div>
+    <div class="ex-feedback"></div>
+    <div class="ex-actions">
+      <button onclick="slotCheckOrder(this)">✓ Prüfen</button>
+      <button onclick="exResetBuild(this)">↺ Zurücksetzen</button>
+      <button class="gold" onclick="newExerciseWords(this, ${lessonNum}, ${idx})">🎲 Anderer Satz</button>
+      <button onclick="exRevealModel(this)">💡 Lösung</button>
+      ${c.ex ? `<button onclick="revealExerciseSolution(this)">▶ Beispielsatz aus Buch</button>` : ''}
+    </div>
+    <div class="ex-model hidden">
+      <div class="ex-model-label">Richtige Reihenfolge</div>
+      <div class="ex-model-jp">${toks.join(' ')}</div>
+    </div>
+    ${solutionHtml}
+  `;
+  return true;
+}
+
+// Exakte Prüfung: alle Bausteine gelegt UND in Original-Slot-Reihenfolge.
+// Da jeder Slot eine eindeutige Position hat, gibt es nie falsch-positive Treffer.
+function slotCheckOrder(btn){
+  const box = btn.closest('.exercise-box');
+  const answer = box.querySelector('.ex-answer');
+  const source = box.querySelector('.ex-source');
+  const fb = box.querySelector('.ex-feedback');
+  const placed = [...answer.querySelectorAll('.ex-chip')];
+  placed.forEach(ch => ch.classList.remove('misplaced'));
+  if(source.querySelector('.ex-chip')){
+    fb.textContent = 'Lege zuerst alle Bausteine in die Bauzone.';
+    fb.className = 'ex-feedback bad';
+    return;
+  }
+  let firstBad = null;
+  for(let i = 0; i < placed.length; i++){
+    if(Number(placed[i].dataset.order) !== i){ firstBad = placed[i]; break; }
+  }
+  if(firstBad){
+    firstBad.classList.add('misplaced');
+    fb.innerHTML = '✗ Noch nicht richtig — der markierte Baustein steht an der falschen Stelle.';
+    fb.className = 'ex-feedback bad';
+    return;
+  }
+  fb.innerHTML = '✓ Richtiger Satzbau!';
+  fb.className = 'ex-feedback ok';
+  const m = /^ex-(\d+)-(\d+)$/.exec(box.id || '');
+  if(m){
+    markExerciseDone(+m[1], +m[2]);
+    const num = box.closest('.unterpunkt') && box.closest('.unterpunkt').querySelector('.unterpunkt-num');
+    if(num && !num.querySelector('.done-tick')) num.innerHTML += '<span class="done-tick">✓ gemeistert</span>';
+  }
+  bumpStreak();
+  updateStatusBar();
+}
+
+// Baustein zwischen Quelle und Bauzone hin- und herbewegen.
+function exPickChip(chip){
+  const box = chip.closest('.exercise-box');
+  if(!box) return;
+  const answer = box.querySelector('.ex-answer');
+  const source = box.querySelector('.ex-source');
+  chip.classList.remove('misplaced');
+  if(chip.parentElement === source){
+    chip.classList.add('placed');
+    answer.appendChild(chip);
+  } else {
+    chip.classList.remove('placed');
+    source.appendChild(chip);
+  }
+  answer.classList.toggle('empty', !answer.querySelector('.ex-chip'));
+  const fb = box.querySelector('.ex-feedback');
+  if(fb){ fb.textContent = ''; fb.className = 'ex-feedback'; }
+}
+
+// Prüft die gelegte Reihenfolge: Bausteine mit definierter Rolle müssen in
+// nicht-fallender SOV-Reihenfolge stehen (funktioniert für jede Teilauswahl).
+function exCheckOrder(btn){
+  const box = btn.closest('.exercise-box');
+  const answer = box.querySelector('.ex-answer');
+  const fb = box.querySelector('.ex-feedback');
+  const placed = [...answer.querySelectorAll('.ex-chip')];
+  placed.forEach(c => c.classList.remove('misplaced'));
+  if(placed.length < 2){
+    fb.textContent = 'Lege mindestens zwei Bausteine in die Bauzone.';
+    fb.className = 'ex-feedback bad';
+    return;
+  }
+  const ordered = placed
+    .map(c => ({ el:c, order: c.dataset.order === '' ? null : Number(c.dataset.order) }))
+    .filter(x => x.order != null);
+  let firstBad = null, prev = -Infinity;
+  for(const x of ordered){
+    if(x.order < prev){ firstBad = x.el; break; }
+    prev = x.order;
+  }
+  if(firstBad){
+    firstBad.classList.add('misplaced');
+    fb.innerHTML = '✗ Reihenfolge nicht ganz richtig — der markierte Baustein steht zu weit hinten. Tipp: Verb ans Ende.';
+    fb.className = 'ex-feedback bad';
+  } else {
+    fb.innerHTML = '✓ Richtige Reihenfolge!';
+    fb.className = 'ex-feedback ok';
+    // Übung als gemeistert speichern + Streak/Status aktualisieren.
+    const m = /^ex-(\d+)-(\d+)$/.exec(box.id || '');
+    if(m){
+      markExerciseDone(+m[1], +m[2]);
+      const num = box.closest('.unterpunkt') && box.closest('.unterpunkt').querySelector('.unterpunkt-num');
+      if(num && !num.querySelector('.done-tick')) num.innerHTML += '<span class="done-tick">✓ gemeistert</span>';
+    }
+    bumpStreak();
+    updateStatusBar();
+  }
+}
+
+function exResetBuild(btn){
+  const box = btn.closest('.exercise-box');
+  const answer = box.querySelector('.ex-answer');
+  const source = box.querySelector('.ex-source');
+  [...answer.querySelectorAll('.ex-chip')].forEach(c => {
+    c.classList.remove('placed','misplaced');
+    source.appendChild(c);
+  });
+  answer.classList.add('empty');
+  const fb = box.querySelector('.ex-feedback');
+  if(fb){ fb.textContent = ''; fb.className = 'ex-feedback'; }
+}
+
+function exRevealModel(btn){
+  const box = btn.closest('.exercise-box');
+  const model = box.querySelector('.ex-model');
+  if(model){ model.classList.remove('hidden'); btn.disabled = true; btn.style.opacity = '.5'; }
+}
+
+/* ===================================================================
+   VOKABEL-QUIZ (aktiver Abruf, JP↔DE) — mit Wiederholung schwacher Wörter
+   =================================================================== */
+const vocabQuiz = { lesson:null, dir:'jp2de', current:null, correct:0, total:0 };
+
+function startVocabQuiz(lessonNum){
+  vocabQuiz.lesson = lessonNum;
+  vocabQuiz.correct = 0; vocabQuiz.total = 0;
+  const panel = $('#vocab-quiz');
+  panel.classList.remove('hidden');
+  vocabQuizQuestion();
+  panel.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+// Stärke eines Worts: 0 (unbekannt/schwach) … 1 (sicher).
+function vocabStrength(de){
+  const r = STORE.vocab[de];
+  if(!r || !r.seen) return 0;
+  return r.ok / r.seen;
+}
+
+function vocabQuizQuestion(){
+  const pool = (VOCAB_BY_LESSON[vocabQuiz.lesson] || []).filter(v => v.de && v.jp);
+  if(pool.length < 4){ $('#vocab-quiz').innerHTML = '<i>Zu wenige Vokabeln für ein Quiz.</i>'; return; }
+  // Zielwort gewichtet ziehen: schwache/ungesehene Wörter häufiger.
+  const weighted = [];
+  pool.forEach(v => { const w = 1 + Math.round((1 - vocabStrength(v.de)) * 3); for(let i=0;i<w;i++) weighted.push(v); });
+  const target = weighted[Math.floor(Math.random()*weighted.length)];
+  // 3 Distraktoren aus derselben Lektion.
+  const others = pool.filter(v => v.de !== target.de);
+  for(let i = others.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [others[i],others[j]]=[others[j],others[i]]; }
+  const distract = others.slice(0,3);
+  const choices = [target, ...distract];
+  for(let i = choices.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [choices[i],choices[j]]=[choices[j],choices[i]]; }
+
+  const dir = vocabQuiz.dir;
+  vocabQuiz.current = { target };
+  const promptJP = dir === 'jp2de';
+  const qHtml = promptJP
+    ? `${target.jp} ${spkBtn(target.jp)}`
+    : target.de;
+  $('#vocab-quiz').innerHTML = `
+    <div class="vq-q"><span class="vq-dir">${promptJP ? 'Japanisch → Deutsch' : 'Deutsch → Japanisch'}</span>${qHtml}</div>
+    <div class="vq-choices">
+      ${choices.map(c => {
+        const label = promptJP ? c.de : c.jp;
+        return `<button class="vq-choice" data-de="${c.de}" onclick="vocabQuizAnswer(this)">${label}</button>`;
+      }).join('')}
+    </div>
+    <div class="vq-feedback"></div>
+    <div class="vq-bar">
+      <span>Richtig: <b id="vq-ok">${vocabQuiz.correct}</b> / <b id="vq-total">${vocabQuiz.total}</b></span>
+      <button onclick="vocabQuizNext()">Nächste →</button>
+      <button onclick="toggleVocabDir()">↔ Richtung: ${promptJP ? 'JP→DE' : 'DE→JP'}</button>
+      <button onclick="closeVocabQuiz()">✕ Schließen</button>
+    </div>
+  `;
+}
+
+function vocabQuizAnswer(btn){
+  const correctDe = vocabQuiz.current.target.de;
+  const chosen = btn.dataset.de;
+  const all = $$('#vocab-quiz .vq-choice');
+  all.forEach(b => { b.classList.add('disabled'); if(b.dataset.de === correctDe) b.classList.add('right'); });
+  if(chosen !== correctDe) btn.classList.add('wrong');
+  const fb = $('#vocab-quiz .vq-feedback');
+  vocabQuiz.total++;
+  const ok = chosen === correctDe;
+  if(ok){
+    vocabQuiz.correct++;
+    fb.textContent = '✓ Richtig!'; fb.className = 'vq-feedback ok';
+  } else {
+    fb.innerHTML = `✗ Richtig: <b>${correctDe}</b>`; fb.className = 'vq-feedback bad';
+  }
+  // Erfassen + Wiederholung planen (gemeinsame SRS-Logik).
+  srsSchedule(correctDe, ok);
+  $('#vq-ok').textContent = vocabQuiz.correct;
+  $('#vq-total').textContent = vocabQuiz.total;
+  bumpStreak();
+  // Sprich das japanische Wort bei JP→DE automatisch nach.
+  if(vocabQuiz.dir === 'jp2de') speak(jpReading(vocabQuiz.current.target.jp));
+}
+
+function vocabQuizNext(){ vocabQuizQuestion(); }
+function toggleVocabDir(){ vocabQuiz.dir = vocabQuiz.dir === 'jp2de' ? 'de2jp' : 'jp2de'; vocabQuizQuestion(); }
+function closeVocabQuiz(){ $('#vocab-quiz').classList.add('hidden'); }
+
+/* ===================================================================
+   SPACED REPETITION (SRS) — globale Wiederholung + Hörverstehen + Dashboard
+   =================================================================== */
+function epochDay(){ return Math.floor((Date.now() - new Date().getTimezoneOffset()*60000) / 864e5); }
+
+let VOCAB_FLAT = null;
+function vocabFlat(){
+  if(VOCAB_FLAT) return VOCAB_FLAT;
+  const out = [], seen = new Set();
+  for(const arr of Object.values(VOCAB_BY_LESSON)) for(const v of arr){
+    if(v.de && v.jp && !seen.has(v.de)){ seen.add(v.de); out.push(v); }
+  }
+  VOCAB_FLAT = out;
+  return out;
+}
+
+// SM-2-light: aktualisiert Trefferzähler UND plant die nächste Fälligkeit.
+function srsSchedule(de, correct){
+  const r = STORE.vocab[de] || {seen:0, ok:0};
+  r.seen = (r.seen||0) + 1;
+  if(correct) r.ok = (r.ok||0) + 1;
+  r.ease = r.ease || 2.3;
+  if(correct){
+    r.reps = (r.reps||0) + 1;
+    r.interval = r.reps === 1 ? 1 : r.reps === 2 ? 3 : Math.round((r.interval||3) * r.ease);
+    r.ease = Math.min(2.8, r.ease + 0.1);
+  } else {
+    r.reps = 0; r.interval = 0;
+    r.ease = Math.max(1.5, r.ease - 0.2);
+  }
+  r.due = epochDay() + r.interval;
+  STORE.vocab[de] = r;
+  saveStore();
+}
+
+const review = { queue:[], idx:0, current:null, answered:false, ok:0, total:0 };
+
+function buildReviewQueue(maxNew){
+  const flat = vocabFlat(), today = epochDay();
+  const due = [], fresh = [];
+  for(const v of flat){
+    const r = STORE.vocab[v.de];
+    if(!r || !r.seen) fresh.push(v);
+    else if((r.due||0) <= today) due.push(v);
+  }
+  due.sort((a,b) => ((STORE.vocab[a.de].due)||0) - ((STORE.vocab[b.de].due)||0));
+  for(let i = fresh.length-1; i>0; i--){ const j = Math.floor(Math.random()*(i+1)); [fresh[i],fresh[j]]=[fresh[j],fresh[i]]; }
+  return due.concat(fresh.slice(0, maxNew));
+}
+
+function startReview(){
+  const maxNew = parseInt(($('#review-new')||{}).value, 10) || 0;
+  review.queue = buildReviewQueue(maxNew);
+  review.idx = 0; review.ok = 0; review.total = 0;
+  renderReviewCard();
+}
+
+function updateReviewStats(){
+  const flat = vocabFlat(), today = epochDay();
+  let due = 0, seen = 0;
+  for(const v of flat){ const r = STORE.vocab[v.de]; if(r && r.seen){ seen++; if((r.due||0) <= today) due++; } }
+  const el = $('#review-stats');
+  if(el) el.innerHTML = `📚 Fällig: <b>${due}</b> · Gesehen: <b>${seen}</b>/${flat.length} · Runde: <b>${review.ok}/${review.total}</b>`;
+}
+
+function renderReviewCard(){
+  const card = $('#review-card');
+  updateReviewStats();
+  if(review.idx >= review.queue.length){
+    card.innerHTML = review.queue.length
+      ? `<div class="vq-q">🎉 Runde geschafft! <b>${review.ok}/${review.total}</b> richtig.</div>
+         <div class="vq-bar"><button onclick="startReview()">Neue Runde →</button></div>`
+      : `<div class="vq-q">✅ Nichts fällig — alles wiederholt!</div>
+         <div class="vq-bar"><span>Stelle „neue Wörter" höher, um Neues zu lernen.</span><button onclick="startReview()">Nochmal prüfen</button></div>`;
+    return;
+  }
+  const v = review.current = review.queue[review.idx];
+  review.answered = false;
+  const mode = $('#review-mode').value;
+  const flat = vocabFlat();
+  let pool = flat.filter(x => x.de !== v.de && x.t === v.t);
+  if(pool.length < 3) pool = flat.filter(x => x.de !== v.de);
+  for(let i = pool.length-1; i>0; i--){ const j = Math.floor(Math.random()*(i+1)); [pool[i],pool[j]]=[pool[j],pool[i]]; }
+  const choices = [v, ...pool.slice(0,3)];
+  for(let i = choices.length-1; i>0; i--){ const j = Math.floor(Math.random()*(i+1)); [choices[i],choices[j]]=[choices[j],choices[i]]; }
+  const answerWithJP = (mode === 'de2jp');
+  const dir = mode === 'de2jp' ? 'Deutsch → Japanisch' : mode === 'listen' ? '🎧 Hören → Deutsch' : 'Japanisch → Deutsch';
+  const prompt = mode === 'de2jp'
+      ? v.de
+      : mode === 'listen'
+        ? `<div class="vq-listen"><button title="nochmal hören" data-speak="${jpReading(v.jp)}" onclick="speak(this.dataset.speak)">🔊</button><div style="font-size:.78rem;color:#6b5d4a">tippen zum nochmal Hören</div></div>`
+        : `${v.jp} ${spkBtn(v.jp)}`;
+  card.innerHTML = `
+    <div class="vq-q"><span class="vq-dir">${dir}</span>${prompt}</div>
+    <div class="vq-choices">
+      ${choices.map(c => `<button class="vq-choice" data-de="${c.de}" onclick="reviewAnswer(this)">${answerWithJP ? c.jp : c.de}</button>`).join('')}
+    </div>
+    <div class="vq-feedback"></div>
+    <div class="vq-bar">
+      <span>Karte <b>${review.idx+1}</b>/${review.queue.length}</span>
+      <button onclick="reviewNext()">Weiter →</button>
+    </div>`;
+  if(mode === 'listen') speak(jpReading(v.jp));
+}
+
+function reviewAnswer(btn){
+  if(review.answered) return;
+  review.answered = true;
+  const v = review.current, correctDe = v.de, chosen = btn.dataset.de;
+  const ok = chosen === correctDe;
+  $$('#review-card .vq-choice').forEach(b => { b.classList.add('disabled'); if(b.dataset.de === correctDe) b.classList.add('right'); });
+  if(!ok) btn.classList.add('wrong');
+  const fb = $('#review-card .vq-feedback');
+  fb.innerHTML = (ok ? '✓ ' : '✗ ') + `<b>${v.jp}</b> = ${v.de}`;
+  fb.className = 'vq-feedback ' + (ok ? 'ok' : 'bad');
+  srsSchedule(correctDe, ok);
+  review.total++; if(ok) review.ok++;
+  bumpStreak(); updateStatusBar(); updateReviewStats();
+  if($('#review-mode').value !== 'de2jp') speak(jpReading(v.jp));
+}
+function reviewNext(){ review.idx++; renderReviewCard(); }
+
+/* ===================================================================
+   FORTSCHRITTS-DASHBOARD
+   =================================================================== */
+function renderProgress(){
+  const root = $('#progress-view');
+  const flat = vocabFlat(), today = epochDay();
+  let seen = 0, mastered = 0, due = 0;
+  const weak = [];
+  for(const v of flat){
+    const r = STORE.vocab[v.de];
+    if(r && r.seen){
+      seen++;
+      const str = r.ok / r.seen;
+      if(str >= 0.8 && (r.reps||0) >= 2) mastered++;
+      if((r.due||0) <= today) due++;
+      if(str < 0.6) weak.push({v, str});
+    }
+  }
+  const exCounts = {};
+  MINNA_LESSONS.forEach(c => exCounts[c.l] = (exCounts[c.l]||0) + 1);
+  const totalEx = MINNA_LESSONS.length, doneEx = totalDone();
+  weak.sort((a,b) => a.str - b.str);
+
+  let lessonRows = '';
+  for(let l = 1; l <= 50; l++){
+    const cnt = exCounts[l] || 0; if(!cnt) continue;
+    const d = lessonDoneCount(l), pct = Math.round(d/cnt*100);
+    if(d === 0) continue;
+    lessonRows += `<div class="dash-lesson"><span class="ln">L${l}</span><div class="dash-bar"><span style="width:${pct}%"></span></div><span class="pct">${d}/${cnt}</span></div>`;
+  }
+
+  root.innerHTML = `
+    <div class="dash-cards">
+      <div class="dash-card"><span class="big">🔥 ${STORE.streak.count||0}</span><span class="lbl">Tage Streak</span></div>
+      <div class="dash-card"><span class="big">${doneEx}/${totalEx}</span><span class="lbl">Übungen gemeistert</span></div>
+      <div class="dash-card"><span class="big">${seen}</span><span class="lbl">Vokabeln gesehen</span></div>
+      <div class="dash-card"><span class="big">${mastered}</span><span class="lbl">Vokabeln sitzen</span></div>
+      <div class="dash-card"><span class="big">${due}</span><span class="lbl">heute fällig</span></div>
+      <div class="dash-card"><span class="big">${STORE.drill.score||0}/${STORE.drill.total||0}</span><span class="lbl">Drill-Punkte</span></div>
+    </div>
+    ${due > 0 ? `<div style="text-align:center;margin-bottom:1rem"><button class="btn red" onclick="switchMode('review')">📚 ${due} fällige Vokabeln wiederholen →</button></div>` : ''}
+    <div class="dash-h">Fortschritt pro Lektion</div>
+    ${lessonRows || '<p class="help">Noch keine gemeisterten Übungen — leg in einer Lektion los!</p>'}
+    <div class="dash-h">Schwächste Vokabeln${weak.length ? ` (${Math.min(weak.length,20)})` : ''}</div>
+    ${weak.length
+      ? `<div class="dash-weak">${weak.slice(0,20).map(x => `<span class="w"><span class="jp">${x.v.jp}</span>${x.v.de} ${spkBtn(x.v.jp)}</span>`).join('')}</div>`
+      : '<p class="help">Noch keine Schwachstellen erfasst — übe ein paar Vokabeln im Wiederholungs-Modus.</p>'}
+    <div style="margin-top:1.5rem;text-align:center">
+      <button onclick="resetAllProgress()" style="padding:.4rem .8rem;font-size:.78rem;background:none;border:1.5px solid #8a1f17;color:#8a1f17;cursor:pointer">Allen Fortschritt zurücksetzen</button>
+    </div>`;
+}
+
+function resetAllProgress(){
+  if(!confirm('Allen Fortschritt löschen (Drill-Punkte, gemeisterte Übungen, Vokabel-Wiederholung, Streak)?')) return;
+  STORE.drill = {score:0, total:0};
+  STORE.done = {};
+  STORE.vocab = {};
+  STORE.streak = {count:0, last:null};
+  saveStore();
+  drillState.score = 0; drillState.total = 0;
+  $('#score-ok').textContent = 0; $('#score-total').textContent = 0;
+  updateStatusBar();
+  renderLessonGrid();
+  renderProgress();
+}
+
+function toggleExercise(btn, lessonNum, idx){
+  const box = btn.nextElementSibling;
+  if(!box) return;
+  const isHidden = box.classList.contains('hidden');
+  if(isHidden){
+    renderExerciseBox(box, lessonNum, idx);
+    box.classList.remove('hidden');
+    btn.classList.add('active');
+    btn.textContent = '🎯 Übung schließen';
+  } else {
+    box.classList.add('hidden');
+    btn.classList.remove('active');
+    btn.textContent = '🎯 Übung starten';
+  }
+}
+
+function newExerciseWords(btn, lessonNum, idx){
+  const box = btn.closest('.exercise-box');
+  if(box) renderExerciseBox(box, lessonNum, idx);
+}
+
+function revealExerciseSolution(btn){
+  const box = btn.closest('.exercise-box');
+  const sol = box ? box.querySelector('.ex-solution') : null;
+  if(sol){ sol.classList.remove('hidden'); btn.disabled = true; btn.style.opacity = '.5'; }
+}
+
+function toggleVocabReveal(mode){
+  const cells = $$('.vocab-table td.de');
+  cells.forEach(c => {
+    if(mode === 'all') c.classList.remove('hidden-de');
+    else if(mode === 'hide') c.classList.add('hidden-de');
+  });
+}
+
+function shuffleVocabRows(){
+  const table = $('#vocab-table');
+  if(!table) return;
+  const rows = Array.from(table.querySelectorAll('tr'));
+  for(let i = rows.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    table.appendChild(rows[j]);
+    rows[i] = rows[j];
+  }
+}
+
+/* ===================================================================
+   KONJUGATIONS-DRILL
+   =================================================================== */
+
+const DRILL_TARGETS = {
+  verb: [
+    {key:'masu',         label:'ます-Form',         de:'höflich, Gegenwart'},
+    {key:'masen',        label:'ません-Form',       de:'höflich, Verneinung'},
+    {key:'mashita',      label:'ました-Form',       de:'höflich, Vergangenheit'},
+    {key:'masenDeshita', label:'ませんでした',       de:'höflich, Verg. Verneinung'},
+    {key:'te',           label:'て-Form',           de:'Verbindungsform'},
+    {key:'ta',           label:'た-Form',           de:'einfach, Vergangenheit'},
+    {key:'nai',          label:'ない-Form',         de:'einfach, Verneinung'},
+    {key:'nakatta',      label:'なかった-Form',      de:'einfach, Verg. Verneinung'},
+  ],
+  iadj: [
+    {key:'negation', label:'〜くないです',     de:'Verneinung'},
+    {key:'past',     label:'〜かったです',     de:'Vergangenheit'},
+    {key:'pastNeg',  label:'〜くなかったです', de:'Verg. Verneinung'},
+    {key:'te',       label:'〜くて',           de:'Verbindungsform'},
+    {key:'adverb',   label:'〜く (Adverb)',    de:'als Adverb'},
+  ],
+  naadj: [
+    {key:'naForm',   label:'〜な + Nomen',     de:'vor Nomen'},
+    {key:'negation', label:'〜じゃ ありません',de:'Verneinung'},
+    {key:'past',     label:'〜でした',         de:'Vergangenheit'},
+    {key:'pastNeg',  label:'〜じゃ ありませんでした', de:'Verg. Verneinung'},
+    {key:'te',       label:'〜で',             de:'Verbindungsform'},
+  ],
+};
+
+/* ===================================================================
+   PARTIKEL-DRILL — kuratierte Sätze mit eindeutiger Lücke.
+   p = richtige Partikel; avoid = Partikeln, die als Distraktor unfair wären
+   (z.B. に neben へ bei Richtungsangaben, da beide möglich).
+   =================================================================== */
+const PARTICLE_POOL = ['は','が','を','に','へ','で','と','も','から','まで','の'];
+const PARTICLE_ITEMS = [
+  {jp:'わたし＿ ミラーです。', p:'は', de:'Ich bin Miller.'},
+  {jp:'これ＿ <ruby>本<rt>ほん</rt></ruby>です。', p:'は', de:'Das ist ein Buch.'},
+  {jp:'<ruby>毎日<rt>まいにち</rt></ruby> コーヒー＿ <ruby>飲<rt>の</rt></ruby>みます。', p:'を', de:'Ich trinke jeden Tag Kaffee.'},
+  {jp:'ごはん＿ <ruby>食<rt>た</rt></ruby>べます。', p:'を', de:'Ich esse Reis/Essen.'},
+  {jp:'<ruby>手紙<rt>てがみ</rt></ruby>＿ <ruby>書<rt>か</rt></ruby>きます。', p:'を', de:'Ich schreibe einen Brief.'},
+  {jp:'<ruby>日本語<rt>にほんご</rt></ruby>＿ わかります。', p:'が', de:'Ich verstehe Japanisch. (分かる → が)'},
+  {jp:'わたしは <ruby>犬<rt>いぬ</rt></ruby>＿ <ruby>好<rt>す</rt></ruby>きです。', p:'が', de:'Ich mag Hunde. (好き → が)'},
+  {jp:'<ruby>机<rt>つくえ</rt></ruby>の <ruby>上<rt>うえ</rt></ruby>に <ruby>猫<rt>ねこ</rt></ruby>＿ います。', p:'が', de:'Auf dem Tisch ist eine Katze. (いる → が)'},
+  {jp:'<ruby>7時<rt>しちじ</rt></ruby>＿ <ruby>起<rt>お</rt></ruby>きます。', p:'に', de:'Ich stehe um 7 Uhr auf. (Zeit → に)'},
+  {jp:'<ruby>友<rt>とも</rt></ruby>だち＿ <ruby>会<rt>あ</rt></ruby>います。', p:'に', de:'Ich treffe einen Freund. (会う → に)'},
+  {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>＿ <ruby>乗<rt>の</rt></ruby>ります。', p:'に', de:'Ich steige in den Zug. (乗る → に)'},
+  {jp:'<ruby>家<rt>うち</rt></ruby>＿ います。', p:'に', de:'Ich bin zu Hause. (Existenzort → に)'},
+  {jp:'レストラン＿ <ruby>食<rt>た</rt></ruby>べます。', p:'で', de:'Ich esse im Restaurant. (Handlungsort → で)'},
+  {jp:'<ruby>図書館<rt>としょかん</rt></ruby>＿ <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます。', p:'で', de:'Ich lese in der Bibliothek. (Ort → で)'},
+  {jp:'バス＿ <ruby>行<rt>い</rt></ruby>きます。', p:'で', de:'Ich fahre mit dem Bus. (Mittel → で)'},
+  {jp:'<ruby>日本語<rt>にほんご</rt></ruby>＿ <ruby>話<rt>はな</rt></ruby>します。', p:'で', de:'Ich spreche auf Japanisch. (Mittel → で)'},
+  {jp:'<ruby>学校<rt>がっこう</rt></ruby>＿ <ruby>行<rt>い</rt></ruby>きます。', p:'へ', de:'Ich gehe zur Schule. (Richtung → へ)', avoid:['に']},
+  {jp:'<ruby>来年<rt>らいねん</rt></ruby> <ruby>日本<rt>にほん</rt></ruby>＿ <ruby>帰<rt>かえ</rt></ruby>ります。', p:'へ', de:'Nächstes Jahr kehre ich nach Japan zurück. (Richtung → へ)', avoid:['に']},
+  {jp:'<ruby>友<rt>とも</rt></ruby>だち＿ <ruby>行<rt>い</rt></ruby>きます。', p:'と', de:'Ich gehe mit einem Freund. (zusammen → と)'},
+  {jp:'パン＿ <ruby>卵<rt>たまご</rt></ruby>を <ruby>買<rt>か</rt></ruby>います。', p:'と', de:'Ich kaufe Brot und Ei. (und → と)'},
+  {jp:'コーヒーを <ruby>飲<rt>の</rt></ruby>みます。<ruby>紅茶<rt>こうちゃ</rt></ruby>＿ <ruby>飲<rt>の</rt></ruby>みます。', p:'も', de:'Ich trinke Kaffee. Auch Tee. (auch → も)'},
+  {jp:'<ruby>映画<rt>えいが</rt></ruby>は <ruby>9時<rt>くじ</rt></ruby>＿ <ruby>始<rt>はじ</rt></ruby>まります。', p:'から', de:'Der Film beginnt ab 9 Uhr. (ab → から)'},
+  {jp:'アメリカ＿ <ruby>来<rt>き</rt></ruby>ました。', p:'から', de:'Ich bin aus Amerika gekommen. (aus → から)'},
+  {jp:'<ruby>5時<rt>ごじ</rt></ruby>＿ <ruby>働<rt>はたら</rt></ruby>きます。', p:'まで', de:'Ich arbeite bis 5 Uhr. (bis → まで)'},
+  {jp:'これは わたし＿ <ruby>本<rt>ほん</rt></ruby>です。', p:'の', de:'Das ist mein Buch. (Genitiv → の)'},
+  {jp:'<ruby>日本語<rt>にほんご</rt></ruby>＿ <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます。', p:'の', de:'Ich lese ein Japanisch-Buch. (Verbindung → の)'},
+  {jp:'<ruby>音楽<rt>おんがく</rt></ruby>＿ <ruby>聞<rt>き</rt></ruby>きます。', p:'を', de:'Ich höre Musik.'},
+  {jp:'<ruby>誕生日<rt>たんじょうび</rt></ruby>は <ruby>3月<rt>さんがつ</rt></ruby>＿ です。', p:'に', de:'Mein Geburtstag ist im März. (Datum → に)'},
+  {jp:'<ruby>公園<rt>こうえん</rt></ruby>＿ <ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>ります。', p:'で', de:'Ich mache im Park Fotos. (Ort → で)'},
+  {jp:'<ruby>母<rt>はは</rt></ruby>＿ プレゼントを あげます。', p:'に', de:'Ich gebe der Mutter ein Geschenk. (Empfänger → に)'},
+];
+
+const drillState = {
+  category: 'verb',
+  groupFilter: 'all',
+  enabledTargets: new Set(),
+  current: null,
+  answered: false,
+  score: 0,
+  total: 0,
+};
+
+function getDataForCat(cat){
+  if(cat === 'verb'){
+    if(drillState.groupFilter === 'all') return VERB_FORMS;
+    return VERB_FORMS.filter(v => String(v.group) === drillState.groupFilter);
+  }
+  if(cat === 'iadj') return I_ADJ_FORMS;
+  if(cat === 'naadj') return NA_ADJ_FORMS;
+  if(cat === 'particle') return PARTICLE_ITEMS;
+  return [];
+}
+
+function renderDrillFilters(){
+  const root = $('#drill-filters');
+  root.innerHTML = '';
+  // Partikel-Drill braucht keine Zielform-/Gruppen-Filter.
+  if(drillState.category === 'particle'){
+    $('#drill-group').parentElement.style.display = 'none';
+    return;
+  }
+  const targets = DRILL_TARGETS[drillState.category];
+  drillState.enabledTargets = new Set(targets.map(t => t.key));
+  targets.forEach(t => {
+    const lbl = document.createElement('label');
+    lbl.className = 'chk checked';
+    lbl.innerHTML = `<input type="checkbox" checked data-key="${t.key}"><span>${t.label}</span>`;
+    lbl.querySelector('input').addEventListener('change', e => {
+      if(e.target.checked){
+        drillState.enabledTargets.add(t.key);
+        lbl.classList.add('checked');
+      } else {
+        drillState.enabledTargets.delete(t.key);
+        lbl.classList.remove('checked');
+      }
+    });
+    root.appendChild(lbl);
+  });
+  // Show/hide group filter
+  const grpField = $('#drill-group').parentElement;
+  grpField.style.display = drillState.category === 'verb' ? '' : 'none';
+}
+
+function nextDrill(){
+  drillState.answered = false;
+
+  // Partikel-Drill: eigener Pfad (Satz mit Lücke → richtige Partikel wählen).
+  if(drillState.category === 'particle'){
+    const item = pickRandom(PARTICLE_ITEMS);
+    const avoid = new Set([item.p, ...(item.avoid || [])]);
+    const distractPool = PARTICLE_POOL.filter(p => !avoid.has(p));
+    for(let i = distractPool.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [distractPool[i],distractPool[j]]=[distractPool[j],distractPool[i]]; }
+    const choices = [item.p, ...distractPool.slice(0,3)];
+    for(let i = choices.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [choices[i],choices[j]]=[choices[j],choices[i]]; }
+    drillState.current = { correct: item.p };
+    $('#drill-prompt').innerHTML = item.jp.replace('＿', '<span style="color:#8a1f17;font-weight:800">（　）</span>');
+    $('#drill-de').textContent = item.de;
+    $('#drill-instruction').innerHTML = 'Wähle die richtige <b>Partikel</b>';
+    const choicesRoot = $('#drill-choices');
+    choicesRoot.innerHTML = '';
+    choices.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'choice'; btn.textContent = c; btn.dataset.choice = c;
+      btn.addEventListener('click', () => handleChoice(btn, c));
+      choicesRoot.appendChild(btn);
+    });
+    $('#drill-feedback').textContent = '';
+    $('#drill-feedback').className = 'feedback';
+    return;
+  }
+
+  const data = getDataForCat(drillState.category);
+  const targets = DRILL_TARGETS[drillState.category].filter(t => drillState.enabledTargets.has(t.key));
+  if(data.length === 0 || targets.length === 0){
+    $('#drill-prompt').textContent = '—';
+    $('#drill-de').textContent = '—';
+    $('#drill-instruction').innerHTML = '<i>Bitte mindestens eine Zielform aktivieren.</i>';
+    $('#drill-choices').innerHTML = '';
+    $('#drill-feedback').textContent = '';
+    return;
+  }
+  const item = pickRandom(data);
+  const target = pickRandom(targets);
+  const correct = item[target.key];
+  const pool = new Set([correct]);
+  const otherForms = Object.keys(item).filter(k => typeof item[k] === 'string' && k !== 'de' && k !== target.key);
+  let tries = 0;
+  while(pool.size < 4 && tries < 50){
+    tries++;
+    if(Math.random() < 0.5 && otherForms.length){
+      const k = pickRandom(otherForms);
+      if(item[k]) pool.add(item[k]);
+    } else {
+      const other = pickRandom(data);
+      if(other !== item && other[target.key]) pool.add(other[target.key]);
+    }
+  }
+  const choices = Array.from(pool);
+  for(let i = choices.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [choices[i], choices[j]] = [choices[j], choices[i]];
+  }
+  drillState.current = {item, target, correct};
+  $('#drill-prompt').innerHTML = item.jisho;
+  $('#drill-de').textContent = item.de;
+  $('#drill-instruction').innerHTML = `Bilde die <b>${target.label}</b> <span style="color:#6b5d4a;font-size:.8em">(${target.de})</span>`;
+  const choicesRoot = $('#drill-choices');
+  choicesRoot.innerHTML = '';
+  choices.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'choice';
+    btn.innerHTML = c;
+    btn.dataset.choice = c;
+    btn.addEventListener('click', () => handleChoice(btn, c));
+    choicesRoot.appendChild(btn);
+  });
+  $('#drill-feedback').textContent = '';
+  $('#drill-feedback').className = 'feedback';
+}
+
+function handleChoice(btn, choiceVal){
+  if(drillState.answered) return;
+  drillState.answered = true;
+  const correct = drillState.current.correct;
+  drillState.total++;
+  $$('.choice').forEach(b => {
+    b.classList.add('disabled');
+    if(b.dataset.choice === correct) b.classList.add('right');
+  });
+  if(choiceVal === correct){
+    btn.classList.add('right');
+    drillState.score++;
+    $('#drill-feedback').textContent = '✓ Richtig!';
+    $('#drill-feedback').className = 'feedback ok';
+  } else {
+    btn.classList.add('wrong');
+    $('#drill-feedback').innerHTML = `✗ Richtig wäre: <b>${correct}</b>`;
+    $('#drill-feedback').className = 'feedback bad';
+  }
+  $('#score-ok').textContent = drillState.score;
+  $('#score-total').textContent = drillState.total;
+  // Punktestand speichern + Tages-Streak hochzählen.
+  STORE.drill = {score: drillState.score, total: drillState.total};
+  saveStore();
+  bumpStreak();
+}
+
+function resetScore(){
+  drillState.score = 0;
+  drillState.total = 0;
+  $('#score-ok').textContent = 0;
+  $('#score-total').textContent = 0;
+  STORE.drill = {score:0, total:0};
+  saveStore();
+}
+
+/* ===================================================================
+   MODE-SWITCH + INIT
+   =================================================================== */
+
+function switchMode(mode){
+  $$('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
+  $('#mode-lessons').classList.toggle('hidden', mode !== 'lessons');
+  $('#mode-drill').classList.toggle('hidden', mode !== 'drill');
+  $('#mode-review').classList.toggle('hidden', mode !== 'review');
+  $('#mode-progress').classList.toggle('hidden', mode !== 'progress');
+  if(mode === 'review') startReview();
+  if(mode === 'progress') renderProgress();
+}
+
+function init(){
+  if(!window.MINNA_LESSONS){
+    document.body.innerHTML = '<div style="padding:2rem;text-align:center"><h2>Daten konnten nicht geladen werden</h2><p>lessons.js fehlt oder ist defekt.</p></div>';
+    return;
+  }
+  // Gespeicherten Drill-Punktestand & Status laden.
+  drillState.score = STORE.drill.score || 0;
+  drillState.total = STORE.drill.total || 0;
+  updateStatusBar();
+
+  renderLessonGrid();
+  $$('.mode-tab').forEach(t => t.addEventListener('click', () => switchMode(t.dataset.mode)));
+  renderDrillFilters();
+  nextDrill();
+  $('#score-ok').textContent = drillState.score;
+  $('#score-total').textContent = drillState.total;
+  $('#drill-cat').addEventListener('change', e => {
+    drillState.category = e.target.value;
+    renderDrillFilters();
+    nextDrill();
+  });
+  $('#drill-group').addEventListener('change', e => {
+    drillState.groupFilter = e.target.value;
+    nextDrill();
+  });
+  $('#next-drill').addEventListener('click', nextDrill);
+  $('#reset-score').addEventListener('click', resetScore);
+  $('#review-mode').addEventListener('change', renderReviewCard);
+  $('#review-new').addEventListener('change', startReview);
+
+  // Deep-Link via ?lesson=N → direkt diese Lektion öffnen
+  const params = new URLSearchParams(window.location.search);
+  const wantLesson = parseInt(params.get('lesson'), 10);
+  if (wantLesson >= 1 && wantLesson <= 50) {
+    switchMode('lessons');
+    showLessonDetail(wantLesson);
+  }
+}
+
+window.backToGrid = backToGrid;
+window.revealExample = revealExample;
+window.toggleVocabReveal = toggleVocabReveal;
+window.shuffleVocabRows = shuffleVocabRows;
+window.toggleExercise = toggleExercise;
+window.newExerciseWords = newExerciseWords;
+window.revealExerciseSolution = revealExerciseSolution;
+window.exPickChip = exPickChip;
+window.exCheckOrder = exCheckOrder;
+window.curatedCheckOrder = curatedCheckOrder;
+window.slotCheckOrder = slotCheckOrder;
+window.exResetBuild = exResetBuild;
+window.exRevealModel = exRevealModel;
+window.speak = speak;
+window.startVocabQuiz = startVocabQuiz;
+window.vocabQuizAnswer = vocabQuizAnswer;
+window.vocabQuizNext = vocabQuizNext;
+window.toggleVocabDir = toggleVocabDir;
+window.closeVocabQuiz = closeVocabQuiz;
+window.switchMode = switchMode;
+window.startReview = startReview;
+window.reviewAnswer = reviewAnswer;
+window.reviewNext = reviewNext;
+window.renderProgress = renderProgress;
+window.resetAllProgress = resetAllProgress;
+
+document.addEventListener('DOMContentLoaded', init);
+
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('../service-worker.js').catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>
