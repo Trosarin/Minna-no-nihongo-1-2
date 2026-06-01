@@ -1424,6 +1424,55 @@ const EXERCISE_SETS = {
     {jp:'<ruby>田中<rt>たなか</rt></ruby>さんです', de:'…Tanaka', role:'Hervorgehoben'},
     {jp:'<ruby>私<rt>わたし</rt></ruby>です', de:'…ich', role:'Hervorgehoben'},
   ],
+  // === Chuukyuu L3 ===
+  'L3-0': [ // …のような …です
+    {jp:'<ruby>夢<rt>ゆめ</rt></ruby>の', de:'Traum-', role:'Vergleich'},
+    {jp:'あなたの', de:'wie du', role:'Vergleich'},
+    {jp:'<ruby>絵<rt>え</rt></ruby>の', de:'Bild-', role:'Vergleich'},
+    {jp:'<ruby>天使<rt>てんし</rt></ruby>の', de:'Engel-', role:'Vergleich'},
+    {jp:'ような', de:'…wie ein(e)', role:'ような', fixed:true},
+    {jp:'<ruby>話<rt>はなし</rt></ruby>です', de:'…Geschichte', role:'N'},
+    {jp:'<ruby>人<rt>ひと</rt></ruby>です', de:'…Mensch', role:'N'},
+    {jp:'<ruby>世界<rt>せかい</rt></ruby>です', de:'…Welt', role:'N'},
+  ],
+  'L3-2': [ // …は …て ばかり います
+    {jp:'<ruby>息子<rt>むすこ</rt></ruby>は', de:'mein Sohn', role:'Subjekt'},
+    {jp:'あの <ruby>子<rt>こ</rt></ruby>は', de:'das Kind', role:'Subjekt'},
+    {jp:'<ruby>弟<rt>おとうと</rt></ruby>は', de:'mein Bruder', role:'Subjekt'},
+    {jp:'ゲームを して', de:'Spiele spielen', role:'Tätigkeit'},
+    {jp:'<ruby>泣<rt>な</rt></ruby>いて', de:'weinen', role:'Tätigkeit'},
+    {jp:'<ruby>寝<rt>ね</rt></ruby>て', de:'schlafen', role:'Tätigkeit'},
+    {jp:'テレビを <ruby>見<rt>み</rt></ruby>て', de:'fernsehen', role:'Tätigkeit'},
+    {jp:'ばかり', de:'…immer nur', role:'ばかり', fixed:true},
+    {jp:'います', de:'…tut ständig', role:'いる'},
+  ],
+  'L3-3': [ // …は …たがって います
+    {jp:'<ruby>子供<rt>こども</rt></ruby>は', de:'das Kind', role:'Person'},
+    {jp:'<ruby>田中<rt>たなか</rt></ruby>さんは', de:'Tanaka', role:'Person'},
+    {jp:'<ruby>弟<rt>おとうと</rt></ruby>は', de:'mein Bruder', role:'Person'},
+    {jp:'<ruby>休<rt>やす</rt></ruby>みたがって います', de:'…will Pause machen', role:'Wunsch'},
+    {jp:'<ruby>出<rt>で</rt></ruby>かけたがって います', de:'…will ausgehen', role:'Wunsch'},
+    {jp:'<ruby>帰<rt>かえ</rt></ruby>りたがって います', de:'…will nach Hause', role:'Wunsch'},
+    {jp:'<ruby>遊<rt>あそ</rt></ruby>びたがって います', de:'…will spielen', role:'Wunsch'},
+  ],
+  'L3-4': [ // つい …て しまいました
+    {jp:'つい', de:'unabsichtlich / aus Versehen', role:'Auslöser', fixed:true},
+    {jp:'<ruby>食<rt>た</rt></ruby>べて', de:'essen', role:'Handlung'},
+    {jp:'<ruby>余計<rt>よけい</rt></ruby>な ことを <ruby>言<rt>い</rt></ruby>って', de:'Unnötiges sagen', role:'Handlung'},
+    {jp:'お<ruby>菓子<rt>かし</rt></ruby>を <ruby>買<rt>か</rt></ruby>って', de:'Süßigkeiten kaufen', role:'Handlung'},
+    {jp:'<ruby>笑<rt>わら</rt></ruby>って', de:'lachen', role:'Handlung'},
+    {jp:'しまいました', de:'…habe es leider doch getan', role:'Abschluss'},
+  ],
+  'L3-5': [ // …のは、…からです
+    {jp:'<ruby>日本語<rt>にほんご</rt></ruby>が <ruby>上手<rt>じょうず</rt></ruby>な', de:'dass sein Japanisch gut ist', role:'Sachverhalt'},
+    {jp:'<ruby>遅<rt>おく</rt></ruby>れた', de:'dass ich zu spät war', role:'Sachverhalt'},
+    {jp:'<ruby>疲<rt>つか</rt></ruby>れている', de:'dass ich müde bin', role:'Sachverhalt'},
+    {jp:'のは、', de:'…, das liegt daran:', role:'のは', fixed:true},
+    {jp:'<ruby>毎日<rt>まいにち</rt></ruby> <ruby>練習<rt>れんしゅう</rt></ruby>している', de:'täglich üben', role:'Grund'},
+    {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>が <ruby>止<rt>と</rt></ruby>まった', de:'der Zug blieb stehen', role:'Grund'},
+    {jp:'<ruby>昨日<rt>きのう</rt></ruby> <ruby>寝<rt>ね</rt></ruby>られなかった', de:'gestern nicht schlafen konnte', role:'Grund'},
+    {jp:'からです', de:'…weil', role:'からだ', fixed:true},
+  ],
 };
 
 // Semantische Tags für Vokabeln — by German label.
@@ -1782,6 +1831,11 @@ const CURATED_SEQ = {
   'L2-0': { 'Inhalt': 4, 'Vermutungsfrage': 6 },                           // …のでしょうか
   'L2-2': { 'Versuch': 4, 'としても': 5, 'Ergebnis': 6 },                   // …(よ)うとしても、…ない
   'L2-3': { 'Sachverhalt': 1, 'のは': 2, 'Hervorgehoben': 6 },              // …のは …です
+  'L3-0': { 'Vergleich': 4, 'ような': 5, 'N': 6 },                          // …のような …です
+  'L3-2': { 'Subjekt': 1, 'Tätigkeit': 4, 'ばかり': 5, 'いる': 6 },          // …は …てばかりいます
+  'L3-3': { 'Person': 1, 'Wunsch': 6 },                                    // …は …たがっています
+  'L3-4': { 'Auslöser': 1, 'Handlung': 4, 'Abschluss': 6 },                // つい …てしまいました
+  'L3-5': { 'Sachverhalt': 1, 'のは': 2, 'Grund': 4, 'からだ': 6 },  // …のは、…からです
   'L26-0': { 'Grund': 4, 'Erklärung': 6 },                                 // …んです
   'L26-1': { 'Frage-Wort': 1, 'Situation': 4, 'Nachfrage': 6 },            // どうして …んですか
   'L26-2': { 'Auftakt': 0, 'Bitte': 4, 'Höflichkeitsbitte': 6 },                         // …て いただけませんか
@@ -1879,6 +1933,11 @@ const FILLERS = {
   'L2-0': [['あのう、','ähm…'],['ええと、','also…']],
   'L2-2': [['どうも、','irgendwie'],['いくら、','wie sehr auch']],
   'L2-3': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['そうですね、','also…']],
+  'L3-0': [['まるで、','geradezu'],['そうですね、','also…']],
+  'L3-2': [['もう、','echt jetzt'],['いつも、','immer']],
+  'L3-3': [['どうも、','irgendwie'],['なんだか、','irgendwie']],
+  'L3-4': [['あっ、','ah!'],['しまった、','Mist!']],
+  'L3-5': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['そうですね、','also…']],
   'L26-0': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['あのう、','ähm…']],
   'L26-1': [['あのう、','ähm…'],['すみません、','Entschuldigung']],
   'L27-1': [['ほら、','schau mal'],['あっ、','ah!']],
