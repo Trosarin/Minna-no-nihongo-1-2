@@ -1395,6 +1395,35 @@ const EXERCISE_SETS = {
     {jp:'<ruby>始<rt>はじ</rt></ruby>めました', de:'…habe ich angefangen', role:'Aspekt'},
     {jp:'<ruby>終<rt>お</rt></ruby>わりました', de:'…bin ich fertig geworden', role:'Aspekt'},
   ],
+  // === Chuukyuu L2 ===
+  'L2-0': [ // …のでしょうか
+    {jp:'<ruby>彼<rt>かれ</rt></ruby>は どこへ <ruby>行<rt>い</rt></ruby>った', de:'wohin er gegangen ist', role:'Inhalt'},
+    {jp:'これで <ruby>本当<rt>ほんとう</rt></ruby>に いい', de:'ob das wirklich in Ordnung ist', role:'Inhalt'},
+    {jp:'<ruby>何時<rt>なんじ</rt></ruby>に <ruby>来<rt>く</rt></ruby>れば いい', de:'um wie viel Uhr ich kommen soll', role:'Inhalt'},
+    {jp:'<ruby>間<rt>ま</rt></ruby>に <ruby>合<rt>あ</rt></ruby>う', de:'ob es rechtzeitig ist', role:'Inhalt'},
+    {jp:'のでしょうか', de:'…wohl? (höfliche Vermutungsfrage)', role:'Vermutungsfrage', fixed:true},
+  ],
+  'L2-2': [ // …(よ)う としても、…ない
+    {jp:'<ruby>忘<rt>わす</rt></ruby>れよう', de:'vergessen wollen', role:'Versuch'},
+    {jp:'<ruby>頑張<rt>がんば</rt></ruby>ろう', de:'sich anstrengen wollen', role:'Versuch'},
+    {jp:'<ruby>早<rt>はや</rt></ruby>く <ruby>起<rt>お</rt></ruby>きよう', de:'früh aufstehen wollen', role:'Versuch'},
+    {jp:'やめよう', de:'aufhören wollen', role:'Versuch'},
+    {jp:'としても、', de:'…auch wenn ich versuche', role:'としても', fixed:true},
+    {jp:'だめです', de:'…es geht nicht', role:'Ergebnis'},
+    {jp:'<ruby>無理<rt>むり</rt></ruby>です', de:'…es ist unmöglich', role:'Ergebnis'},
+    {jp:'うまく いきません', de:'…es klappt nicht', role:'Ergebnis'},
+  ],
+  'L2-3': [ // …のは …です (Hervorhebung)
+    {jp:'この <ruby>絵<rt>え</rt></ruby>を <ruby>描<rt>か</rt></ruby>いた', de:'dieses Bild gemalt zu haben', role:'Sachverhalt'},
+    {jp:'<ruby>彼女<rt>かのじょ</rt></ruby>に <ruby>会<rt>あ</rt></ruby>った', de:'sie getroffen zu haben', role:'Sachverhalt'},
+    {jp:'ケーキを <ruby>作<rt>つく</rt></ruby>った', de:'den Kuchen gemacht zu haben', role:'Sachverhalt'},
+    {jp:'<ruby>電話<rt>でんわ</rt></ruby>した', de:'angerufen zu haben', role:'Sachverhalt'},
+    {jp:'のは', de:'…, das war', role:'のは', fixed:true},
+    {jp:'<ruby>子供<rt>こども</rt></ruby>です', de:'…ein Kind', role:'Hervorgehoben'},
+    {jp:'<ruby>去年<rt>きょねん</rt></ruby>です', de:'…letztes Jahr', role:'Hervorgehoben'},
+    {jp:'<ruby>田中<rt>たなか</rt></ruby>さんです', de:'…Tanaka', role:'Hervorgehoben'},
+    {jp:'<ruby>私<rt>わたし</rt></ruby>です', de:'…ich', role:'Hervorgehoben'},
+  ],
 };
 
 // Semantische Tags für Vokabeln — by German label.
@@ -1750,6 +1779,9 @@ const CURATED_SEQ = {
   'L1-1': { 'Subjekt': 1, '数量': 4, 'も': 5, 'V': 6 },                     // …は …も …ました
   'L1-2': { 'Anfang': 1, 'Punkt 1': 2, 'こと': 3, 'Punkt 2': 4, 'ことだ': 6 }, // 大切なのは、…こと、…ことだ
   'L1-3': { 'Aktion': 4, 'Aspekt': 6 },                                    // …を …始めました/終わりました
+  'L2-0': { 'Inhalt': 4, 'Vermutungsfrage': 6 },                           // …のでしょうか
+  'L2-2': { 'Versuch': 4, 'としても': 5, 'Ergebnis': 6 },                   // …(よ)うとしても、…ない
+  'L2-3': { 'Sachverhalt': 1, 'のは': 2, 'Hervorgehoben': 6 },              // …のは …です
   'L26-0': { 'Grund': 4, 'Erklärung': 6 },                                 // …んです
   'L26-1': { 'Frage-Wort': 1, 'Situation': 4, 'Nachfrage': 6 },            // どうして …んですか
   'L26-2': { 'Auftakt': 0, 'Bitte': 4, 'Höflichkeitsbitte': 6 },                         // …て いただけませんか
@@ -1844,6 +1876,9 @@ const FILLERS = {
   'L1-1': [['なんと、','sage und schreibe'],['えっ、','was?!']],
   'L1-2': [['やっぱり、','letztlich'],['そうですね、','also…']],
   'L1-3': [['やっと、','endlich'],['もう、','schon']],
+  'L2-0': [['あのう、','ähm…'],['ええと、','also…']],
+  'L2-2': [['どうも、','irgendwie'],['いくら、','wie sehr auch']],
+  'L2-3': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['そうですね、','also…']],
   'L26-0': [['<ruby>実<rt>じつ</rt></ruby>は、','ehrlich gesagt'],['あのう、','ähm…']],
   'L26-1': [['あのう、','ähm…'],['すみません、','Entschuldigung']],
   'L27-1': [['ほら、','schau mal'],['あっ、','ah!']],
