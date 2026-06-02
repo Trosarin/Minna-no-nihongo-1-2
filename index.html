@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -8,9 +8,9 @@
 <meta name="description" content="Japanisch Grammatik — Minna no Nihongo + Chuukyuu e Ikou">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="日本語">
-<meta name="theme-color" content="#7a1a14">
+<meta name="theme-color" content="#15120f" id="theme-color-meta">
 
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -21,11 +21,29 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
 
+<script>(function(){try{var s=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',s||'dark');}catch(e){}})();</script>
+
 <style>
+  :root{
+    --paper:#f4ede0; --ink:#1a1612; --surface:#ffffff;
+    --red-strong:#7a1a14; --red:#a02620;
+    --muted:#6b5e4a; --faint:#888888;
+    --border:rgba(122,26,20,.1);
+    --shadow:0 2px 8px rgba(26,22,18,.08);
+    color-scheme:light;
+  }
+  html[data-theme="dark"]{
+    --paper:#15120f; --ink:#f1ebe2; --surface:#211d18;
+    --red-strong:#d24a3d; --red:#e05a4c;
+    --muted:#a99a83; --faint:#9a9183;
+    --border:rgba(255,255,255,.08);
+    --shadow:0 6px 20px -8px rgba(0,0,0,.55);
+    color-scheme:dark;
+  }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{
-    background:#f4ede0;
-    color:#1a1612;
+    background:var(--paper);
+    color:var(--ink);
     font-family:"Shippori Mincho",serif;
     min-height:100vh;
   }
@@ -48,22 +66,22 @@
   }
   h1{
     font-size:1.4rem;
-    color:#7a1a14;
+    color:var(--red-strong-text);
     margin-bottom:.4rem;
     letter-spacing:.05em;
   }
   .subtitle{
-    color:#6b5e4a;
+    color:var(--muted);
     font-size:.9rem;
     margin-bottom:2rem;
   }
   .book-section{
-    background:white;
+    background:var(--surface);
     border-radius:12px;
     padding:1.4rem 1rem;
     margin-bottom:1.2rem;
-    box-shadow:0 2px 8px rgba(26,22,18,.08);
-    border:1px solid rgba(122,26,20,.1);
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
   }
   .book-icon{
     font-size:2rem;
@@ -71,13 +89,13 @@
   }
   .book-title{
     font-size:1.1rem;
-    color:#1a1612;
+    color:var(--ink);
     margin-bottom:.2rem;
     font-weight:600;
   }
   .book-subtitle{
     font-size:.75rem;
-    color:#888;
+    color:var(--faint);
     margin-bottom:1rem;
   }
   .lang-buttons{
@@ -89,8 +107,8 @@
     flex:1;
     padding:.7rem .5rem;
     text-decoration:none;
-    background:#7a1a14;
-    color:white;
+    background:var(--red-strong);
+    color:#fff;
     border-radius:8px;
     font-size:.95rem;
     font-weight:600;
@@ -99,7 +117,7 @@
     -webkit-tap-highlight-color:transparent;
   }
   .lang-btn:hover, .lang-btn:active{
-    background:#a02620;
+    background:var(--red);
     transform:translateY(-1px);
   }
   .lang-btn .flag{
@@ -110,11 +128,34 @@
   }
   .footer{
     margin-top:1rem;
-    color:#999;
+    color:var(--faint);
     font-size:.7rem;
   }
+  /* Theme-Umschalter (schwebend, unten links) */
+  .theme-fab{
+    position:fixed;
+    left:calc(1rem + env(safe-area-inset-left));
+    bottom:calc(1rem + env(safe-area-inset-bottom));
+    z-index:300;
+    width:44px;height:44px;border-radius:50%;
+    border:1px solid var(--border);
+    background:var(--surface);color:var(--ink);
+    font-size:1.2rem;line-height:1;cursor:pointer;
+    box-shadow:0 6px 18px -6px rgba(0,0,0,.45);
+    display:grid;place-items:center;
+    -webkit-tap-highlight-color:transparent;
+    transition:transform .15s ease;
+  }
+  .theme-fab:hover{transform:translateY(-2px)}
+  .theme-fab .sun{display:none}.theme-fab .moon{display:block}
+  html[data-theme="dark"] .theme-fab .sun{display:block}
+  html[data-theme="dark"] .theme-fab .moon{display:none}
 </style>
 
+<style id="text-tone">
+:root{--red-text:#c0362c;--red-deep-text:#8a1f17;--red-strong-text:#7a1a14;--gold-text:#b8893a}
+html[data-theme="dark"]{--red-text:#e6dccb;--red-deep-text:#efe7da;--red-strong-text:#efe7da;--gold-text:#cabda3}
+</style>
 </head>
 <body>
 
@@ -155,7 +196,18 @@
   <p class="footer">Matze is awesome GmbH · do not send further · Offline-fähig</p>
 </div>
 
+<button class="theme-fab" id="themeFab" type="button" aria-label="Hell-/Dunkelmodus umschalten" title="Hell / Dunkel"><span class="moon">🌙</span><span class="sun">☀️</span></button>
+
 <script>
+  (function(){
+    var root=document.documentElement, meta=document.getElementById('theme-color-meta');
+    var colors={light:'#f4ede0',dark:'#15120f'};
+    function apply(t){root.setAttribute('data-theme',t);if(meta)meta.setAttribute('content',colors[t]||colors.light);}
+    apply(root.getAttribute('data-theme')||'dark');
+    var b=document.getElementById('themeFab');
+    if(b)b.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';apply(n);try{localStorage.setItem('theme',n);}catch(e){}});
+  })();
+
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./service-worker.js')
