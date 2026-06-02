@@ -692,6 +692,58 @@
     padding:1rem;margin-top:1rem;
   }
   .help{font-size:.85rem;color:#6b5d4a;font-style:italic;margin-bottom:.8rem}
+
+  /* Situation-Trainer (場面) */
+  .sit-plan{
+    background:#f0e6d2;border:1px solid #e0d0b0;border-radius:10px;
+    padding:.6rem .8rem;margin-bottom:.8rem;font-size:.82rem;color:#6b5d4a;line-height:1.5;
+  }
+  .sit-plan b{color:#8a1f17}
+  .sit-card{
+    background:#fffaf2;border:1px solid #e6dcc8;border-radius:14px;
+    padding:1.2rem 1.1rem;box-shadow:0 2px 10px rgba(122,26,20,.06);
+  }
+  .sit-tag{
+    font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#b8893a;
+    font-weight:700;margin-bottom:.7rem;
+  }
+  .sit-tag .new{
+    background:#8a1f17;color:#f4ede0;border-radius:6px;padding:.1rem .4rem;
+    margin-left:.4rem;letter-spacing:.05em;
+  }
+  .sit-prompt{
+    font-size:1.18rem;line-height:1.55;color:#1a1612;font-weight:600;margin-bottom:.5rem;
+  }
+  .sit-instruction{font-size:.82rem;color:#6b5d4a;font-style:italic;margin-bottom:1rem}
+  .sit-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+  .sit-hint{
+    margin-top:.9rem;padding:.6rem .8rem;background:#f4ede0;border-left:3px solid #b8893a;
+    border-radius:6px;font-size:.95rem;color:#1a1612;
+  }
+  .sit-hint .lbl{display:block;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#b8893a;font-weight:700;margin-bottom:.25rem}
+  .sit-model{
+    margin-top:1rem;padding:.9rem 1rem;background:#f4ede0;border-radius:10px;border:1px solid #e6dcc8;
+  }
+  .sit-model .lbl{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a1f17;font-weight:700;display:block;margin-bottom:.3rem}
+  .sit-model-pattern{font-size:1.02rem;color:#8a1f17;font-weight:700;margin-bottom:.7rem;line-height:1.5}
+  .sit-model-jp{font-family:"Noto Serif JP","Shippori Mincho",serif;font-size:1.18rem;color:#1a1612;line-height:1.8;margin-bottom:.4rem}
+  .sit-model-de{font-size:.92rem;color:#3a3228;margin-bottom:.6rem}
+  .sit-model-gloss{font-size:.82rem;color:#6b5d4a;line-height:1.6;border-top:1px dashed #d8cdb6;padding-top:.55rem}
+  .sit-rate{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;margin-top:1rem}
+  .sit-rate button{
+    font-family:inherit;cursor:pointer;border-radius:9px;padding:.6rem .3rem;
+    font-size:.86rem;font-weight:700;border:1.5px solid;line-height:1.25;
+  }
+  .sit-rate .r-ok{background:#d6e9c8;border-color:#2f6e3a;color:#1f4a26}
+  .sit-rate .r-ok:hover{background:#c4e0b0}
+  .sit-rate .r-near{background:#f6eccf;border-color:#b8893a;color:#6b4f1a}
+  .sit-rate .r-near:hover{background:#efe1b6}
+  .sit-rate .r-miss{background:#f3d9d4;border-color:#8a1f17;color:#7a1a14}
+  .sit-rate .r-miss:hover{background:#eccabf}
+  @media(max-width:420px){
+    .sit-prompt{font-size:1.05rem}
+    .sit-rate{grid-template-columns:1fr;gap:.4rem}
+  }
 </style>
 
 </head>
@@ -715,6 +767,10 @@
   <button class="mode-tab active" data-mode="lessons">
     <span class="jp">課</span>
     <span class="de">Lektionen</span>
+  </button>
+  <button class="mode-tab" data-mode="situation">
+    <span class="jp">場面</span>
+    <span class="de">Situation</span>
   </button>
   <button class="mode-tab" data-mode="drill">
     <span class="jp">活用</span>
@@ -741,6 +797,28 @@
     <div id="lesson-grid" class="lesson-grid"></div>
   </div>
   <div id="lesson-detail-view" class="hidden"></div>
+</section>
+
+<section id="mode-situation" class="panel hidden">
+  <p class="help">Grammatik <b>aktiv aus dem Kopf</b>: Du bekommst eine Alltags-Situation auf Deutsch und musst selbst das passende Muster finden und den japanischen Satz bilden — am besten laut. Erst danach deckst du Muster &amp; Musterlösung auf und bewertest dich ehrlich selbst.</p>
+
+  <div class="controls-row">
+    <div class="field">
+      <label for="sit-scope">Umfang</label>
+      <select id="sit-scope">
+        <option value="plan">📅 Tagesplan (baut sich täglich auf)</option>
+        <option value="all">alle Lektionen (L1–50)</option>
+        <option value="1-10">L1–10</option>
+        <option value="11-20">L11–20</option>
+        <option value="21-30">L21–30</option>
+        <option value="31-40">L31–40</option>
+        <option value="41-50">L41–50</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="sit-stats" class="status-bar"></div>
+  <div id="sit-card" class="sit-card"></div>
 </section>
 
 <section id="mode-drill" class="panel hidden">
@@ -3822,6 +3900,8 @@ STORE.drill  = STORE.drill  || {score:0, total:0};
 STORE.done   = STORE.done   || {};     // "L6-0": true (richtig gebaut)
 STORE.vocab  = STORE.vocab  || {};     // de-Label: {seen, ok}
 STORE.streak = STORE.streak || {count:0, last:null};
+STORE.sit    = STORE.sit    || {};     // Situation-Trainer: sit-Text → {seen, ok, miss, last}
+STORE.sitplan= STORE.sitplan|| {level:0, date:null};  // Tagesplan: wie viele Lektionen freigeschaltet
 
 function todayStr(){ const d=new Date(); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
 function yesterdayStr(){ const d=new Date(Date.now()-864e5); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
@@ -6954,12 +7034,388 @@ function resetScore(){
    MODE-SWITCH + INIT
    =================================================================== */
 
+/* ===================================================================
+   場面 SITUATION-TRAINER  (aktives Abrufen statt Wiedererkennen)
+   Pro Grammatikpunkt eine deutsche Alltags-Situation. Reihenfolge =
+   identisch zu MINNA_LESSONS (Join über den Index, mit l-Sanity-Check).
+   Musterlösung/Erklärung kommen aus dem jeweiligen Lektionseintrag.
+   =================================================================== */
+const SITUATIONS = [
+  {l:1, sit:"Du lernst jemanden kennen und sagst, wie du heißt bzw. wer du bist."},
+  {l:1, sit:"Jemand hält dich für einen Lehrer — stell höflich klar, dass du keiner bist."},
+  {l:1, sit:"Du willst wissen, ob dein Gegenüber Student ist — frag höflich nach."},
+  {l:1, sit:"Jemand sagt, er sei Student. Sag, dass du das auch bist."},
+  {l:1, sit:"Sag, dass du Angestellter der Firma IMC bist (Zugehörigkeit)."},
+  {l:2, sit:"Du zeigst auf etwas direkt vor dir und sagst, was es ist (ein Buch)."},
+  {l:2, sit:"Du deutest auf ein bestimmtes Buch und sagst, dass es dir gehört."},
+  {l:2, sit:"Jemand fragt, ob das ein Wörterbuch ist — bestätige knapp mit 'Ja, genau'."},
+  {l:2, sit:"Du bist unsicher: Ist das ein Kuli oder ein Druckbleistift? Frag mit Auswahl."},
+  {l:2, sit:"Sag, dass diese Tasche deine ist — ohne das Wort 'Tasche' zu wiederholen."},
+  {l:3, sit:"Du führst jemanden herum und sagst, dass dies hier das Klassenzimmer ist."},
+  {l:3, sit:"Jemand sucht die Mensa — sag, dass sie im 2. Stock ist."},
+  {l:3, sit:"Du suchst die Toilette und fragst jemanden, wo sie ist."},
+  {l:3, sit:"Du zeigst ein Auto und sagst, dass es aus Deutschland kommt."},
+  {l:3, sit:"Im Geschäft: Frag, wie viel dieses Buch kostet."},
+  {l:4, sit:"Jemand fragt nach der Uhrzeit — sag, dass es jetzt 9:15 Uhr ist."},
+  {l:4, sit:"Sag höflich, dass du jeden Tag arbeitest."},
+  {l:4, sit:"Sag, dass du um 7 Uhr aufstehst (mit Zeitangabe)."},
+  {l:4, sit:"Sag, von wann bis wann du arbeitest (von 9 bis 17 Uhr)."},
+  {l:4, sit:"Sag, dass du Brot und Milch gekauft hast (zwei Dinge aufzählen)."},
+  {l:5, sit:"Sag, dass du nach Kyoto fährst."},
+  {l:5, sit:"Jemand fragt, wo du am Sonntag warst — sag, dass du nirgendwohin gegangen bist."},
+  {l:5, sit:"Sag, dass du mit dem Zug zur Firma fährst (Verkehrsmittel)."},
+  {l:5, sit:"Sag, dass du zusammen mit deiner Familie nach Japan gekommen bist."},
+  {l:5, sit:"Frag jemanden, wann er nach Japan gekommen ist."},
+  {l:6, sit:"Sag, dass du Brot isst (direktes Objekt)."},
+  {l:6, sit:"Frag jemanden, was er morgen macht."},
+  {l:6, sit:"Sag, dass du im Restaurant zu Abend isst (Ort der Handlung)."},
+  {l:6, sit:"Lade jemanden ein, zusammen nach Kyoto zu fahren ('Wollen wir nicht…?')."},
+  {l:6, sit:"Schlag vor, jetzt zusammen zu essen ('Lass uns…')."},
+  {l:7, sit:"Sag, dass du mit Stäbchen isst (Werkzeug)."},
+  {l:7, sit:"Du willst wissen, wie 'Thank you' auf Japanisch heißt — frag danach."},
+  {l:7, sit:"Sag, dass du deinem Vater eine Krawatte schenkst (geben)."},
+  {l:7, sit:"Frag jemanden, ob er schon zu Mittag gegessen hat."},
+  {l:8, sit:"Beschreibe den Fuji als einen hohen Berg (Adjektiv + Nomen)."},
+  {l:8, sit:"Sag, dass dieses Buch interessant ist — und verneine es danach auch."},
+  {l:8, sit:"Sag, dass diese Stadt ruhig ist — und verneine es danach auch."},
+  {l:8, sit:"Frag jemanden, was für eine Stadt Nara ist."},
+  {l:9, sit:"Sag, dass du Musik magst."},
+  {l:9, sit:"Erklär, warum du nicht gekommen bist (weil du krank warst)."},
+  {l:9, sit:"Sag, dass du dich gut mit Sport auskennst (Häufigkeits-Adverb)."},
+  {l:10, sit:"Sag, dass auf dem Tisch ein Buch liegt (es gibt…)."},
+  {l:10, sit:"Sag, dass es vor dem Bahnhof eine Bank gibt (neuer Ort)."},
+  {l:10, sit:"Frag, wo sich der Tokyo-Bahnhof befindet."},
+  {l:10, sit:"Sag, dass das Buch auf dem Schreibtisch liegt (Positionswort)."},
+  {l:11, sit:"Sag, dass du drei Äpfel gekauft hast (mit Zähleinheit)."},
+  {l:11, sit:"Sag, dass du zweimal pro Woche Tennis spielst."},
+  {l:11, sit:"Sag, dass du jeden Tag 8 Stunden arbeitest (Zeitdauer)."},
+  {l:11, sit:"Sag, dass du nur ein bisschen verstehst (Einschränkung)."},
+  {l:12, sit:"Sag, dass es gestern geregnet hat / Regen war (Vergangenheit)."},
+  {l:12, sit:"Vergleiche: Sag, dass das Flugzeug schneller als das Schiff ist."},
+  {l:12, sit:"Frag jemanden, was er lieber mag — Tee oder Kaffee."},
+  {l:12, sit:"Frag, welcher Sport von allen am meisten gefällt (Superlativ)."},
+  {l:13, sit:"Sag, dass du ein neues Auto haben möchtest (ein Ding wünschen)."},
+  {l:13, sit:"Sag, dass du nach Japan reisen möchtest (Handlungswunsch)."},
+  {l:13, sit:"Sag, dass du ins Kaufhaus gehst, um einzukaufen (Zweck)."},
+  {l:14, sit:"Bitte jemanden höflich, seinen Namen zu schreiben."},
+  {l:14, sit:"Bitte jemanden, langsam zu sprechen."},
+  {l:14, sit:"Sag, dass du gerade Zeitung liest (Verlaufsform)."},
+  {l:14, sit:"Biete jemandem an, ihm zu helfen ('Soll ich…?')."},
+  {l:15, sit:"Du willst hier rauchen — frag höflich um Erlaubnis ('Darf ich…?')."},
+  {l:15, sit:"Sag jemandem, dass man hier nicht rauchen darf (Verbot)."},
+  {l:15, sit:"Frag jemanden, ob er Herrn Millers Adresse kennt."},
+  {l:15, sit:"Sag, dass du bei einer Bank arbeitest (Beruf/Zustand)."},
+  {l:16, sit:"Beschreibe deinen Morgen in einem Satz: aufstehen, duschen, zur Firma gehen."},
+  {l:16, sit:"Beschreibe Herrn Miller in einem Satz als jung und gutaussehend."},
+  {l:16, sit:"Sag, dass du erst zu Abend isst und dann lernst (strikte Reihenfolge)."},
+  {l:16, sit:"Beschreibe den Elefanten: Sag, dass er einen langen Rüssel hat."},
+  {l:17, sit:"Sag in der einfachen Form (plain), dass du kein Fleisch isst."},
+  {l:17, sit:"Bitte jemanden, hier nicht zu fotografieren ('Bitte nicht…')."},
+  {l:17, sit:"Sag, dass du die Medizin einnehmen musst."},
+  {l:18, sit:"Sag in der Wörterbuchform (plain), dass du jeden Tag Zeitung liest."},
+  {l:18, sit:"Sag, dass Herr Miller Kanji lesen kann (Fähigkeit mit こと)."},
+  {l:18, sit:"Sag, dass du vor dem Schlafen ein Buch liest."},
+  {l:19, sit:"Sag in der た-Form (plain), dass du einen Film gesehen hast."},
+  {l:19, sit:"Sag, dass du schon einmal in Hokkaido warst (Erfahrung)."},
+  {l:19, sit:"Beschreibe, was du sonntags so machst (lesen, Filme schauen u.a.)."},
+  {l:19, sit:"Sag, dass es kalt geworden ist (Veränderung)."},
+  {l:20, sit:"Frag einen Freund ganz locker (plain), ob er morgen kommt."},
+  {l:20, sit:"Frag einen Freund locker (plain), ob er Hunger hat."},
+  {l:20, sit:"Frag einen Freund, ob er morgen Zeit hat — und antworte locker zustimmend."},
+  {l:20, sit:"Frag einen Freund locker, was er macht — er schaut gerade fern (い-Drop)."},
+  {l:20, sit:"Sag locker: Du würdest gern gehen, aber du hast keine Zeit (けど)."},
+  {l:21, sit:"Sag, dass du denkst, dass es morgen regnet."},
+  {l:21, sit:"Gib wieder, dass Herr Miller gesagt hat, er habe morgen frei."},
+  {l:21, sit:"Vergewissere dich bei jemandem: Morgen hast du frei, oder?"},
+  {l:21, sit:"Sag, dass in Tokyo ein Konzert stattfindet (Veranstaltung)."},
+  {l:21, sit:"Sag, dass bei der Besprechung viel geredet wurde (Anlass)."},
+  {l:21, sit:"Schlag locker vor, einen Tee (oder so) zu trinken (でも)."},
+  {l:21, sit:"Sag locker, dass du jetzt los musst ('Ich muss…', abbrechend)."},
+  {l:22, sit:"Zeig einen Kuchen und sag, dass Herr Miller ihn gemacht hat (Relativsatz)."},
+  {l:22, sit:"Sag, dass du eine rote Tasche möchtest (Adjektiv-Attribut)."},
+  {l:22, sit:"Sag, dass du keine Zeit zum Frühstücken hast."},
+  {l:22, sit:"Sag: Das ist der Brief, den ich geschrieben habe (が im Relativsatz)."},
+  {l:23, sit:"Erklär: Wenn man in der Bibliothek Bücher leiht, braucht man eine Karte."},
+  {l:23, sit:"Erklär: Wenn man nach Hause kommt, sagt man 'tadaima'."},
+  {l:23, sit:"Erklär, dass automatisch Wechselgeld herauskommt, wenn man diesen Knopf drückt."},
+  {l:23, sit:"Erklär den Weg: Geh diese Straße geradeaus entlang (Bewegung durch Ort)."},
+  {l:24, sit:"Sag, dass Frau Yamada dir ein Buch gegeben hat (jemand gibt MIR)."},
+  {l:24, sit:"Sag, dass ein Freund dich durch Kyoto geführt hat (du hast es dir geben lassen)."},
+  {l:24, sit:"Frag, wer dir das Buch gegeben hat — und antworte: Frau Yamada (が)."},
+  {l:24, sit:"Frag, wer dir Japanisch beigebracht hat (Fragewort als Subjekt)."},
+  {l:25, sit:"Sag: Wenn du Geld hättest, würdest du reisen (たら-Konditional)."},
+  {l:25, sit:"Sag, dass du gehst, auch wenn es regnet (ても)."},
+  {l:25, sit:"Frag hypothetisch: Was würdest du kaufen, wenn du 100 Mio Yen hättest?"},
+  {l:25, sit:"Frag, wer gekommen ist — und antworte: Herr Miller (が, neue Info)."},
+  {l:26, sit:"Erklär als Grund, warum du zu spät kamst: die Straße war verstopft (んです)."},
+  {l:26, sit:"Frag interessiert nach, warum jemand Japanisch lernt (どうして…んですか)."},
+  {l:26, sit:"Bitte jemanden sehr höflich, noch etwas zu warten ('Könnten Sie…?')."},
+  {l:26, sit:"Du hast Fieber und fragst um Rat, was du am besten tun sollst."},
+  {l:27, sit:"Sag, dass du Kanji lesen kannst (Potentialform, Objekt mit が)."},
+  {l:27, sit:"Sag, dass man von hier aus das Meer sehen kann (見えます)."},
+  {l:27, sit:"Sag bedauernd, dass du nur 1000 Yen hast (しか…ない)."},
+  {l:27, sit:"Sag, dass man speziell in diesem Zimmer nicht rauchen darf (では)."},
+  {l:27, sit:"Sag: Hiragana kannst du lesen, aber Kanji nicht (Kontrast は…が、は…)."},
+  {l:28, sit:"Sag, dass du lernst, während du Musik hörst (gleichzeitig, ながら)."},
+  {l:28, sit:"Sag, dass du jeden Morgen joggst (Gewohnheit)."},
+  {l:28, sit:"Begründe mit mehreren Gründen, warum du oft in dieses Lokal kommst (billig, lecker — し)."},
+  {l:28, sit:"Sag: Du hattest Kopfschmerzen — deshalb bist du nicht zur Arbeit (それで)."},
+  {l:29, sit:"Sag, dass das Fenster (jetzt) offen steht (Zustand nach Handlung)."},
+  {l:29, sit:"Sag beides: Die Tür öffnet sich — und: Ich öffne die Tür (intransitiv/transitiv)."},
+  {l:29, sit:"Sag, dass du das Buch komplett ausgelesen hast (てしまいました)."},
+  {l:30, sit:"Sag, dass auf dem Tisch (absichtlich) Blumen aufgestellt sind (てあります)."},
+  {l:30, sit:"Sag, dass du vor der Reise schon mal das Ticket kaufst (im Voraus, ておきます)."},
+  {l:30, sit:"Sag, dass es noch immer regnet (まだ…ています)."},
+  {l:31, sit:"Schlag einem Freund locker vor: Lass uns zusammen essen (Volitional, plain)."},
+  {l:31, sit:"Sag, dass du vorhast, nächstes Jahr nach Japan zu gehen (Plan, ようと思っています)."},
+  {l:31, sit:"Frag, ob jemand schon zu Mittag gegessen hat — und bejahe ('Ja, schon')."},
+  {l:31, sit:"Sag, dass du fest vorhast, nächstes Jahr zu heiraten (つもり)."},
+  {l:31, sit:"Sag, dass für nächsten Montag eine Besprechung geplant ist (予定)."},
+  {l:32, sit:"Jemand hat Fieber — rate ihm, lieber zum Arzt zu gehen (ほうがいい)."},
+  {l:32, sit:"Vermute mit ~70%: Morgen wird es wohl regnen (でしょう)."},
+  {l:32, sit:"Sag unsicher, dass es morgen vielleicht regnet (かもしれません)."},
+  {l:32, sit:"Sag vage ahnend: Womöglich schneit es morgen sogar (もしかしたら…かも)."},
+  {l:33, sit:"Feuer jemanden beim Sport an: Komm schnell! (knapper Befehl)"},
+  {l:33, sit:"Formuliere ein knappes Verbot fürs Schild: Nicht anfassen!"},
+  {l:33, sit:"Gib wieder, dass der Lehrer den Schülern sagte, die Hausaufgaben zu machen (ように言う)."},
+  {l:33, sit:"Erklär, dass dieses Kanji 'michi' gelesen wird."},
+  {l:33, sit:"Erklär, dass dieses Zeichen 'Betreten verboten' bedeutet (という意味)."},
+  {l:33, sit:"Richte aus: Frau Tanaka hat gesagt, dass sie morgen freinimmt (と言っていました)."},
+  {l:33, sit:"Bitte jemanden höflich, Frau Tanaka auszurichten, dass die Besprechung um 3 anfängt."},
+  {l:34, sit:"Bitte jemanden, genau so zu schreiben, wie der Lehrer es gesagt hat (とおりに)."},
+  {l:34, sit:"Sag, dass du nach dem Essen ein Bad nimmst (たあとで)."},
+  {l:34, sit:"Sag, dass du ohne zu frühstücken zur Arbeit gegangen bist (ないで)."},
+  {l:35, sit:"Erklär: Wenn der Frühling kommt, blühen die Kirschen (ば-Form)."},
+  {l:35, sit:"Sag, dass du nicht weißt, wann Frau Tanaka kommt (eingebettete Frage)."},
+  {l:35, sit:"Berate jemanden: Wenn er nach Kyoto fährt, ist der Shinkansen praktisch (なら)."},
+  {l:35, sit:"Frag etwas formeller um Rat: Wie soll ich vorgehen? (ばいいですか)"},
+  {l:35, sit:"Sag: Je mehr man lernt, desto interessanter wird es (ば…ほど)."},
+  {l:36, sit:"Sag, dass du jetzt Japanisch sprechen kannst (vorher nicht — ようになりました)."},
+  {l:36, sit:"Sag, dass du darauf achtest, jeden Tag Sport zu machen (ようにしています)."},
+  {l:36, sit:"Sag, dass du laut sprichst, damit auch die Leute hinten hören können (ように, Ziel)."},
+  {l:36, sit:"Zähl beispielhaft auf, was du am Wochenende machst (Filme schauen, lesen — とか)."},
+  {l:37, sit:"Sag, dass dieses Buch weltweit gelesen wird (Passiv)."},
+  {l:37, sit:"Sag, dass du vom Lehrer gelobt wurdest (direktes Passiv, Täter mit に)."},
+  {l:37, sit:"Sag betroffen, dass dir ein Dieb die Tasche gestohlen hat (Leid-Passiv)."},
+  {l:37, sit:"Sag, dass in Tokyo die Olympischen Spiele veranstaltet wurden (Sachen-Passiv)."},
+  {l:37, sit:"Sag, dass das Telefon von Bell erfunden wurde (によって)."},
+  {l:37, sit:"Sag, dass Sake aus Reis hergestellt wird (Material)."},
+  {l:38, sit:"Sag, dass du es magst, Bilder zu malen (Verb nominalisiert mit の)."},
+  {l:38, sit:"Sag: Bilder zu malen macht Spaß (のは…です)."},
+  {l:38, sit:"Sag, dass du gerne singst (のが好き)."},
+  {l:38, sit:"Sag, dass du vergessen hast, die Hausaufgaben zu machen (のを忘れました)."},
+  {l:38, sit:"Frag, ob jemand weiß, dass Herr Miller in sein Heimatland zurückgekehrt ist."},
+  {l:38, sit:"Heb hervor: Es war ein Kind, das das Bild gemalt hat (のは…です)."},
+  {l:38, sit:"Sag: Das ist ein Foto aus meiner Kindheit (ときの)."},
+  {l:39, sit:"Sag, dass du überrascht warst, als du diese Nachricht hörtest (て als Grund)."},
+  {l:39, sit:"Bitte höflich, früher gehen zu dürfen, weil du Kopfschmerzen hast (ので)."},
+  {l:39, sit:"Sag, dass du Hunger hast, weil du nichts gegessen hast (なくて, Grund)."},
+  {l:39, sit:"Beklag dich: Viel Arbeit, keine freien Tage — es ist mühsam (て-Reihung)."},
+  {l:40, sit:"Bitte jemanden zu recherchieren, wann die Besprechung beginnt (eingebettetes Fragewort)."},
+  {l:40, sit:"Sag, dass du noch nicht weißt, ob er kommt oder nicht (かどうか)."},
+  {l:40, sit:"Sag, dass du Natto mal ausprobiert hast (てみます)."},
+  {l:40, sit:"Sag, dass dieser Kuchen lecker aussieht (そう, Eindruck)."},
+  {l:41, sit:"Sag sehr höflich, dass du vom Lehrer ein Buch bekommen hast (いただく)."},
+  {l:41, sit:"Sag höflich, dass dir der Lehrer Japanisch beigebracht hat (ていただきました)."},
+  {l:41, sit:"Sag höflich, dass der Lehrer dir das Buch geliehen hat (てくださいました)."},
+  {l:41, sit:"Sag, dass du deinem Kind ein Buch vorgelesen hast (てやります)."},
+  {l:42, sit:"Sag, dass du sparst, um ein Haus zu kaufen (ために, aktives Ziel)."},
+  {l:42, sit:"Erklär ein Werkzeug: Das benutzt man, um Flaschen zu öffnen (のに使います)."},
+  {l:42, sit:"Sag, dass diese Arbeit zwei Stunden braucht (のにかかります)."},
+  {l:42, sit:"Sag, dass du zum Supermarkt einkaufen gehst (に行く, Zweck)."},
+  {l:42, sit:"Sag, dass man für eine Japanreise mindestens 100.000 Yen braucht (は)."},
+  {l:42, sit:"Sag erstaunt, dass du gestern sogar 10 Flaschen Bier getrunken hast (も)."},
+  {l:43, sit:"Sag, dass es gleich zu regnen scheint (Verb-Anschein, そう)."},
+  {l:43, sit:"Sag, dass du kurz zum Konbini gehst und eine Bento mitbringst (て来ます)."},
+  {l:43, sit:"Sag, dass es nicht so aussieht, als würdest du heute fertig (そうにない)."},
+  {l:44, sit:"Sag, dass du gestern zu viel Bier getrunken hast (すぎます)."},
+  {l:44, sit:"Sag, dass sich dieser Stift leicht schreibt (やすい)."},
+  {l:44, sit:"Bitte jemanden, den Ton lauter zu machen (くします)."},
+  {l:44, sit:"Im Café: Sag, dass du einen Kaffee nimmst (にします, wählen)."},
+  {l:44, sit:"Bitte jemanden, etwas größer zu schreiben (adverbial, く+V)."},
+  {l:45, sit:"Formell: Sag, dass man sich melden soll, falls man sich verspätet (場合は)."},
+  {l:45, sit:"Sag enttäuscht: Obwohl du jeden Tag lernst, wirst du nicht besser (のに)."},
+  {l:45, sit:"Sag: Eigentlich sollte die Besprechung um 2 anfangen, wurde aber verschoben (はずでした)."},
+  {l:46, sit:"Sag, dass du gerade gleich essen wirst (kurz davor, ところです)."},
+  {l:46, sit:"Sag, dass du gerade erst nach Japan gekommen bist (たばかり)."},
+  {l:46, sit:"Schlussfolgere: Frau Tanaka müsste zur Besprechung kommen (はずです)."},
+  {l:47, sit:"Gib weiter: Laut Wetterbericht soll es morgen regnen (Hörensagen, そう)."},
+  {l:47, sit:"Schlussfolgere aus Indizien: Es scheint draußen zu regnen (ようです)."},
+  {l:47, sit:"Beschreibe deine Wahrnehmung: Draußen hört man Kinderstimmen (がします)."},
+  {l:48, sit:"Sag, dass die Mutter das Kind Gemüse essen ließ (Kausativ)."},
+  {l:48, sit:"Sag, dass der Vater das Kind spielen ließ (intransitiv, を)."},
+  {l:48, sit:"Dir geht's nicht gut — bitte deinen Chef, dich früher gehen zu lassen (させてください)."},
+  {l:49, sit:"Sprich respektvoll über den Chef: Er fährt heute nach Osaka (尊敬語)."},
+  {l:49, sit:"Sprich respektvoll via Passivform: Der Chef liest jeden Morgen Zeitung."},
+  {l:49, sit:"Bitte einen Kunden sehr höflich, einen Moment zu warten (お+Stamm+ください)."},
+  {l:50, sit:"Biete demütig an, die Tasche für jemanden zu tragen (お+Stamm+します)."},
+  {l:50, sit:"Stell dich sehr höflich/demütig vor: Du heißt Miller (謙譲語)."},
+  {l:50, sit:"Sprich respektvoll: Der Lehrer fährt nächste Woche in die USA."},
+  {l:50, sit:"Sprich respektvoll: Der Chef ist im Besprechungsraum (尊敬語)."}
+];
+
+// Join Situationen ↔ Grammatikdaten über den Index (l-Sanity-Check schützt vor Drift).
+const SIT_CARDS = (window.MINNA_LESSONS || []).map((c, i) => {
+  const s = SITUATIONS[i];
+  if(!s || s.l !== c.l) return null;
+  return { l:c.l, t:c.t, sit:s.sit, jp:(c.ex&&c.ex.jp)||'', de:(c.ex&&c.ex.de)||'', gloss:c.gloss||'' };
+}).filter(Boolean);
+
+const SIT_MAX_LEVEL = SIT_CARDS.length ? Math.max(...SIT_CARDS.map(c => c.l)) : 50;
+const sitState = { card:null, last:null, session:0 };
+
+// Tagesplan: an jedem neuen Nutzungstag wird die nächste Lektion freigeschaltet.
+function sitPlanLevel(){
+  const p = STORE.sitplan;
+  const today = todayStr();
+  if(p.date !== today){
+    p.level = Math.min((p.level || 0) + 1, SIT_MAX_LEVEL);
+    p.date = today;
+    saveStore();
+  }
+  if(p.level < 1){ p.level = 1; saveStore(); }
+  return p.level;
+}
+
+function sitScope(){ return ($('#sit-scope') && $('#sit-scope').value) || 'plan'; }
+
+function sitPool(){
+  const scope = sitScope();
+  if(scope === 'plan'){
+    const lvl = sitPlanLevel();
+    return SIT_CARDS.filter(c => c.l <= lvl);
+  }
+  if(scope === 'all') return SIT_CARDS.slice();
+  const m = scope.match(/^(\d+)-(\d+)$/);
+  if(m){ const a=+m[1], b=+m[2]; return SIT_CARDS.filter(c => c.l>=a && c.l<=b); }
+  return SIT_CARDS.slice();
+}
+
+function sitWeight(c){
+  const s = STORE.sit[c.sit];
+  if(!s || !s.seen) return 6;          // noch nie geübt → höchste Priorität
+  if(s.last === 'miss') return 5;       // zuletzt nicht gewusst
+  if(s.last === 'near') return 3;       // knapp daneben
+  return 1;                              // sitzt
+}
+
+function pickSituation(){
+  const pool = sitPool();
+  if(!pool.length) return null;
+  let cands = pool.filter(c => c.sit !== sitState.last);
+  if(!cands.length) cands = pool;
+  const w = cands.map(sitWeight);
+  let total = w.reduce((a,b)=>a+b,0), r = Math.random()*total;
+  for(let i=0;i<cands.length;i++){ r -= w[i]; if(r<=0) return cands[i]; }
+  return cands[cands.length-1];
+}
+
+function renderSitStats(){
+  const el = $('#sit-stats'); if(!el) return;
+  const scope = sitScope();
+  const pool = sitPool();
+  let solid = 0, touched = 0;
+  pool.forEach(c => { const s = STORE.sit[c.sit]; if(s && s.seen){ touched++; if(s.last==='ok') solid++; } });
+  let planLine = '';
+  if(scope === 'plan'){
+    const lvl = sitPlanLevel();
+    const next = lvl < SIT_MAX_LEVEL ? `Morgen kommt <b>Lektion ${lvl+1}</b> dazu.` : 'Alle Lektionen freigeschaltet 🎉';
+    planLine = `<div class="sit-plan">📅 <b>Tag ${lvl}</b> — freigeschaltet: <b>Lektion 1–${lvl}</b> (${pool.length} Muster). ${next}</div>`;
+  }
+  el.innerHTML = planLine +
+    `<span>Diese Runde: <b>${sitState.session}</b></span>` +
+    `<span>· Sicher: <b>${solid}</b>/${pool.length}</span>` +
+    `<span>· schon geübt: <b>${touched}</b>/${pool.length}</span>`;
+}
+
+function renderSitCard(){
+  const c = sitState.card, el = $('#sit-card');
+  if(!el) return;
+  if(!c){
+    el.innerHTML = `<div class="sit-instruction">Für diesen Umfang gibt es noch keine Situationen.</div>`;
+    return;
+  }
+  const isNew = (() => { const s = STORE.sit[c.sit]; return !s || !s.seen; })();
+  el.innerHTML = `
+    <div class="sit-tag">場面 · Situation · Lektion ${c.l}${isNew ? '<span class="new">neu</span>' : ''}</div>
+    <div class="sit-prompt">🗣️ ${c.sit}</div>
+    <div class="sit-instruction">Bilde den japanischen Satz selbst — laut oder im Kopf. Dann auflösen.</div>
+    <div class="sit-actions">
+      <button class="btn gold" onclick="sitHint()">💡 Tipp: Muster zeigen</button>
+      <button class="btn red" onclick="sitReveal()">Auflösen ↓</button>
+    </div>
+    <div id="sit-hint" class="sit-hint hidden"></div>
+    <div id="sit-reveal"></div>`;
+  renderSitStats();
+}
+
+function sitHint(){
+  const h = $('#sit-hint'), c = sitState.card;
+  if(!h || !c) return;
+  h.innerHTML = `<span class="lbl">Welches Muster?</span>${c.t}`;
+  h.classList.remove('hidden');
+}
+
+function sitReveal(){
+  const box = $('#sit-reveal'), c = sitState.card;
+  if(!box || !c) return;
+  box.innerHTML = `
+    <div class="sit-model">
+      <span class="lbl">Muster &amp; Musterlösung</span>
+      <div class="sit-model-pattern">${c.t}</div>
+      <div class="sit-model-jp">${c.jp} ${spkBtn(c.jp)}</div>
+      <div class="sit-model-de">${c.de}</div>
+      ${c.gloss ? `<div class="sit-model-gloss">${c.gloss}</div>` : ''}
+    </div>
+    <div class="sit-rate">
+      <button class="r-ok"   onclick="sitRate('ok')">✓ Getroffen</button>
+      <button class="r-near" onclick="sitRate('near')">～ Knapp daneben</button>
+      <button class="r-miss" onclick="sitRate('miss')">✗ Nicht gewusst</button>
+    </div>`;
+  // Tipp-Button & Auflösen-Button sperren, damit der Ablauf klar ist
+  const acts = $('#sit-card .sit-actions');
+  if(acts) acts.querySelectorAll('button').forEach(b => { b.disabled = true; b.style.opacity = '.5'; });
+}
+
+function sitRate(r){
+  const c = sitState.card; if(!c) return;
+  const s = STORE.sit[c.sit] || {seen:0, ok:0, miss:0, near:0};
+  s.seen = (s.seen||0)+1;
+  if(r==='ok')   s.ok   = (s.ok||0)+1;
+  if(r==='near') s.near = (s.near||0)+1;
+  if(r==='miss') s.miss = (s.miss||0)+1;
+  s.last = r;
+  STORE.sit[c.sit] = s;
+  saveStore();
+  if(r === 'ok') bumpStreak();
+  sitState.session++;
+  sitState.last = c.sit;
+  nextSituation();
+}
+
+function nextSituation(){
+  sitState.card = pickSituation();
+  renderSitCard();
+}
+
+function startSituation(){
+  if(!SIT_CARDS.length){
+    $('#sit-card').innerHTML = `<div class="sit-instruction">Situations-Daten konnten nicht geladen werden.</div>`;
+    return;
+  }
+  if(sitScope() === 'plan') sitPlanLevel();  // ggf. heute neue Lektion freischalten
+  renderSitStats();
+  nextSituation();
+}
+
 function switchMode(mode){
   $$('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
   $('#mode-lessons').classList.toggle('hidden', mode !== 'lessons');
+  $('#mode-situation').classList.toggle('hidden', mode !== 'situation');
   $('#mode-drill').classList.toggle('hidden', mode !== 'drill');
   $('#mode-review').classList.toggle('hidden', mode !== 'review');
   $('#mode-progress').classList.toggle('hidden', mode !== 'progress');
+  if(mode === 'situation') startSituation();
   if(mode === 'review') startReview();
   if(mode === 'progress') renderProgress();
 }
@@ -6993,6 +7449,7 @@ function init(){
   $('#reset-score').addEventListener('click', resetScore);
   $('#review-mode').addEventListener('change', renderReviewCard);
   $('#review-new').addEventListener('change', startReview);
+  $('#sit-scope').addEventListener('change', startSituation);
 
   // Deep-Link via ?lesson=N → direkt diese Lektion öffnen
   const params = new URLSearchParams(window.location.search);
@@ -7023,6 +7480,10 @@ window.vocabQuizNext = vocabQuizNext;
 window.toggleVocabDir = toggleVocabDir;
 window.closeVocabQuiz = closeVocabQuiz;
 window.switchMode = switchMode;
+window.startSituation = startSituation;
+window.sitHint = sitHint;
+window.sitReveal = sitReveal;
+window.sitRate = sitRate;
 window.startReview = startReview;
 window.reviewAnswer = reviewAnswer;
 window.reviewNext = reviewNext;
