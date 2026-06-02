@@ -3891,6 +3891,10 @@ function init(){
 
   // Deep-Link via ?lesson=N → direkt diese Lektion öffnen
   const params = new URLSearchParams(window.location.search);
+  const wantMode = params.get('mode');
+  if (wantMode && document.querySelector('.mode-tab[data-mode="'+wantMode+'"]')) {
+    switchMode(wantMode);
+  }
   const wantLesson = parseInt(params.get('lesson'), 10);
   if (wantLesson >= 1 && wantLesson <= 50) {
     switchMode('lessons');
