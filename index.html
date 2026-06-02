@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -8,9 +8,9 @@
 <meta name="description" content="Japanisch Grammatik — Minna no Nihongo + Chuukyuu e Ikou">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="日本語">
-<meta name="theme-color" content="#7a1a14">
+<meta name="theme-color" content="#15120f" id="theme-color-meta">
 
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -19,143 +19,322 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Shippori+Mincho:wght@600;800&display=swap" rel="stylesheet">
+
+<!-- Theme vor dem Rendern setzen (kein Flackern) -->
+<script>
+  (function(){
+    try{
+      // Dunkel ist Standard; gespeicherte Wahl hat Vorrang
+      var saved = localStorage.getItem('theme');
+      document.documentElement.setAttribute('data-theme', saved || 'dark');
+    }catch(e){}
+  })();
+</script>
 
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{
-    background:#f4ede0;
-    color:#1a1612;
-    font-family:"Shippori Mincho",serif;
-    min-height:100vh;
+  :root{
+    --bg:#faf8f5;
+    --bg-grad-1:rgba(192,54,44,.05);
+    --bg-grad-2:rgba(184,137,58,.06);
+    --surface:#ffffff;
+    --surface-2:#f4f1ec;
+    --text:#1a1612;
+    --text-muted:#6b6257;
+    --text-faint:#9a9183;
+    --border:rgba(26,22,18,.08);
+    --border-strong:rgba(26,22,18,.14);
+    --accent:#c0362c;
+    --accent-deep:#8a1f17;
+    --ring:rgba(192,54,44,.35);
+    --shadow-sm:0 1px 2px rgba(26,22,18,.06), 0 1px 3px rgba(26,22,18,.05);
+    --shadow-md:0 4px 12px -4px rgba(26,22,18,.12), 0 12px 32px -12px rgba(26,22,18,.16);
+    --shadow-lg:0 8px 24px -8px rgba(26,22,18,.18), 0 24px 48px -16px rgba(26,22,18,.20);
   }
+  [data-theme="dark"]{
+    --bg:#15120f;
+    --bg-grad-1:rgba(224,86,75,.10);
+    --bg-grad-2:rgba(212,168,81,.08);
+    --surface:#211d19;
+    --surface-2:#2b2620;
+    --text:#f1ebe2;
+    --text-muted:#b3a896;
+    --text-faint:#7e7568;
+    --border:rgba(255,255,255,.08);
+    --border-strong:rgba(255,255,255,.14);
+    --accent:#e0564b;
+    --accent-deep:#c0362c;
+    --ring:rgba(224,86,75,.40);
+    --shadow-sm:0 1px 2px rgba(0,0,0,.4);
+    --shadow-md:0 6px 18px -6px rgba(0,0,0,.55);
+    --shadow-lg:0 12px 32px -10px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html,body{min-height:100%}
   body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+    min-height:100dvh;
     padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     background-image:
-      radial-gradient(circle at 10% 20%, rgba(192,54,44,.04) 0%, transparent 40%),
-      radial-gradient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    min-height:100vh;
-    padding:2rem 1rem;
+      radial-gradient(circle at 12% 18%, var(--bg-grad-1) 0%, transparent 42%),
+      radial-gradient(circle at 88% 84%, var(--bg-grad-2) 0%, transparent 42%);
+    background-attachment:fixed;
+    transition:background-color .3s ease, color .3s ease;
   }
-  .hub{
-    max-width:480px;
-    width:100%;
-    text-align:center;
+
+  /* ---------- Topbar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:1rem;
+    padding:.85rem 1.1rem;
+    padding-top:calc(.85rem + env(safe-area-inset-top));
+    background:color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter:saturate(180%) blur(14px);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid var(--border);
   }
-  h1{
-    font-size:1.4rem;
-    color:#7a1a14;
-    margin-bottom:.4rem;
-    letter-spacing:.05em;
+  .brand{
+    display:flex;align-items:center;gap:.6rem;
+    font-weight:700;letter-spacing:.01em;
   }
-  .subtitle{
-    color:#6b5e4a;
-    font-size:.9rem;
-    margin-bottom:2rem;
+  .brand .mark{
+    display:grid;place-items:center;
+    width:34px;height:34px;border-radius:10px;
+    background:linear-gradient(145deg, var(--accent), var(--accent-deep));
+    color:#fff;font-family:"Shippori Mincho",serif;font-weight:800;
+    font-size:1.05rem;line-height:1;
+    box-shadow:var(--shadow-sm);
   }
-  .book-section{
-    background:white;
-    border-radius:12px;
-    padding:1.4rem 1rem;
-    margin-bottom:1.2rem;
-    box-shadow:0 2px 8px rgba(26,22,18,.08);
-    border:1px solid rgba(122,26,20,.1);
-  }
-  .book-icon{
-    font-size:2rem;
-    margin-bottom:.4rem;
-  }
-  .book-title{
-    font-size:1.1rem;
-    color:#1a1612;
-    margin-bottom:.2rem;
-    font-weight:600;
-  }
-  .book-subtitle{
-    font-size:.75rem;
-    color:#888;
-    margin-bottom:1rem;
-  }
-  .lang-buttons{
-    display:flex;
-    gap:.5rem;
-    justify-content:center;
-  }
-  .lang-btn{
-    flex:1;
-    padding:.7rem .5rem;
-    text-decoration:none;
-    background:#7a1a14;
-    color:white;
-    border-radius:8px;
-    font-size:.95rem;
-    font-weight:600;
-    letter-spacing:.05em;
-    transition:all .15s;
+  .brand .name{font-size:.98rem}
+  .brand .name small{display:block;font-size:.66rem;font-weight:500;color:var(--text-muted);letter-spacing:.02em}
+
+  .theme-toggle{
+    display:grid;place-items:center;
+    width:40px;height:40px;border-radius:11px;
+    border:1px solid var(--border-strong);
+    background:var(--surface);color:var(--text);
+    cursor:pointer;font-size:1.15rem;line-height:1;
+    box-shadow:var(--shadow-sm);
+    transition:transform .15s ease, background .2s ease, border-color .2s ease;
     -webkit-tap-highlight-color:transparent;
   }
-  .lang-btn:hover, .lang-btn:active{
-    background:#a02620;
+  .theme-toggle:hover{transform:translateY(-1px);border-color:var(--ring)}
+  .theme-toggle:active{transform:translateY(0)}
+  .theme-toggle .sun{display:none}
+  .theme-toggle .moon{display:block}
+  [data-theme="dark"] .theme-toggle .sun{display:block}
+  [data-theme="dark"] .theme-toggle .moon{display:none}
+
+  /* ---------- Layout ---------- */
+  .wrap{
+    max-width:560px;width:100%;margin:0 auto;
+    padding:2.2rem 1.1rem 3rem;
+  }
+
+  .hero{text-align:center;margin-bottom:2rem}
+  .hero h1{
+    font-family:"Shippori Mincho",serif;
+    font-weight:800;
+    font-size:clamp(2rem,8vw,2.9rem);
+    letter-spacing:.04em;line-height:1.15;
+    color:var(--text);
+  }
+  .hero h1 .accent{
+    background:linear-gradient(135deg, var(--accent), var(--accent-deep));
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:var(--accent);
+  }
+  .hero p{
+    margin-top:.55rem;color:var(--text-muted);
+    font-size:.92rem;font-weight:500;letter-spacing:.01em;
+  }
+
+  /* ---------- Karten ---------- */
+  .cards{display:flex;flex-direction:column;gap:1rem}
+
+  .card{
+    --c-accent:var(--accent);
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:1.25rem 1.25rem 1.15rem;
+    box-shadow:var(--shadow-md);
+    overflow:hidden;
+    transition:transform .2s ease, box-shadow .25s ease, border-color .2s ease;
+    animation:rise .5s ease both;
+  }
+  .card::before{
+    content:"";position:absolute;inset:0 auto 0 0;width:4px;
+    background:var(--c-accent);
+    opacity:.85;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--border-strong)}
+
+  .card-head{display:flex;align-items:center;gap:.9rem;margin-bottom:1rem}
+  .card-icon{
+    flex-shrink:0;
+    display:grid;place-items:center;
+    width:50px;height:50px;border-radius:14px;
+    font-size:1.6rem;line-height:1;
+    background:color-mix(in srgb, var(--c-accent) 14%, var(--surface));
+    border:1px solid color-mix(in srgb, var(--c-accent) 30%, transparent);
+  }
+  .card-titles{min-width:0}
+  .card-title{
+    font-family:"Shippori Mincho",serif;font-weight:800;
+    font-size:1.18rem;letter-spacing:.02em;color:var(--text);
+  }
+  .card-sub{
+    font-size:.76rem;font-weight:500;color:var(--text-faint);
+    margin-top:.15rem;letter-spacing:.02em;
+  }
+
+  .lang-row{display:flex;gap:.6rem}
+  .lang-btn{
+    flex:1;
+    display:flex;align-items:center;justify-content:center;gap:.5rem;
+    padding:.72rem .6rem;
+    text-decoration:none;border-radius:13px;
+    background:var(--surface-2);
+    color:var(--text);
+    border:1px solid var(--border);
+    font-weight:600;font-size:.92rem;
+    transition:transform .15s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .lang-btn .flag{font-size:1rem;line-height:1}
+  .lang-btn .label{letter-spacing:.01em}
+  .lang-btn:hover{
     transform:translateY(-1px);
+    background:var(--c-accent);
+    border-color:var(--c-accent);
+    color:#fff;
   }
-  .lang-btn .flag{
-    display:block;
-    font-size:.7rem;
-    opacity:.8;
-    margin-top:.15rem;
-  }
+  .lang-btn:active{transform:translateY(0)}
+  .lang-btn.solo{flex:1}
+
   .footer{
-    margin-top:1rem;
-    color:#999;
-    font-size:.7rem;
+    margin-top:2.2rem;text-align:center;
+    color:var(--text-faint);font-size:.72rem;letter-spacing:.02em;
+  }
+  .footer .dot{margin:0 .35rem;opacity:.5}
+  .footer .offline{
+    display:inline-flex;align-items:center;gap:.3rem;
+    color:var(--text-muted);
+  }
+
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .card:nth-child(1){animation-delay:.04s}
+  .card:nth-child(2){animation-delay:.10s}
+  .card:nth-child(3){animation-delay:.16s}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important}
   }
 </style>
 
 </head>
 <body>
 
-<div class="hub">
-  <h1>日本語の文法</h1>
-  <p class="subtitle">Japanese Grammar Explanation</p>
+<header class="topbar">
+  <div class="brand">
+    <span class="mark">日</span>
+    <span class="name">日本語の文法<small>Japanese Grammar</small></span>
+  </div>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Hell-/Dunkelmodus umschalten" title="Hell / Dunkel">
+    <span class="moon">🌙</span>
+    <span class="sun">☀️</span>
+  </button>
+</header>
 
-  <div class="book-section">
-    <div class="book-icon">📕</div>
-    <div class="book-title">みんなの日本語</div>
-    <div class="book-subtitle">Minna no Nihongo · L1 – L50</div>
-    <div class="lang-buttons">
-      <a class="lang-btn" href="./minna/">Deutsch<span class="flag">🇩🇪 DE</span></a>
-      <a class="lang-btn" href="./minna-en/">English<span class="flag">🇬🇧 EN</span></a>
-    </div>
+<main class="wrap">
+  <div class="hero">
+    <h1><span class="accent">文法</span>ハブ</h1>
+    <p>Grammatik-Spickzettel &amp; Übungen — alles offline-fähig</p>
   </div>
 
-  <div class="book-section">
-    <div class="book-icon">📘</div>
-    <div class="book-title">中級へ行こう</div>
-    <div class="book-subtitle">Chuukyuu e Ikou · L1 – L10</div>
-    <div class="lang-buttons">
-      <a class="lang-btn" href="./chuukyuu/">Deutsch<span class="flag">🇩🇪 DE</span></a>
-      <a class="lang-btn" href="./chuukyuu-en/">English<span class="flag">🇬🇧 EN</span></a>
-    </div>
+  <div class="cards">
+
+    <section class="card" style="--c-accent:#c0362c">
+      <div class="card-head">
+        <div class="card-icon">📕</div>
+        <div class="card-titles">
+          <div class="card-title">みんなの日本語</div>
+          <div class="card-sub">Minna no Nihongo · L1 – L50</div>
+        </div>
+      </div>
+      <div class="lang-row">
+        <a class="lang-btn" href="./minna/"><span class="flag">🇩🇪</span><span class="label">Deutsch</span></a>
+        <a class="lang-btn" href="./minna-en/"><span class="flag">🇬🇧</span><span class="label">English</span></a>
+      </div>
+    </section>
+
+    <section class="card" style="--c-accent:#2f6fb0">
+      <div class="card-head">
+        <div class="card-icon">📘</div>
+        <div class="card-titles">
+          <div class="card-title">中級へ行こう</div>
+          <div class="card-sub">Chuukyuu e Ikou · L1 – L10</div>
+        </div>
+      </div>
+      <div class="lang-row">
+        <a class="lang-btn" href="./chuukyuu/"><span class="flag">🇩🇪</span><span class="label">Deutsch</span></a>
+        <a class="lang-btn" href="./chuukyuu-en/"><span class="flag">🇬🇧</span><span class="label">English</span></a>
+      </div>
+    </section>
+
+    <section class="card" style="--c-accent:#b8893a">
+      <div class="card-head">
+        <div class="card-icon">✏️</div>
+        <div class="card-titles">
+          <div class="card-title">練習帳</div>
+          <div class="card-sub">Satzlabor &amp; Konjugationsdrill</div>
+        </div>
+      </div>
+      <div class="lang-row">
+        <a class="lang-btn" href="./practice/"><span class="flag">🇩🇪</span><span class="label">Shokyuu L1–50</span></a>
+        <a class="lang-btn" href="./chuukyuu-practice/"><span class="flag">🇩🇪</span><span class="label">Chuukyuu L1–10</span></a>
+      </div>
+    </section>
+
   </div>
 
-  <div class="book-section">
-    <div class="book-icon">✏️</div>
-    <div class="book-title">練習帳</div>
-    <div class="book-subtitle">Satzlabor &amp; Konjugationsdrill</div>
-    <div class="lang-buttons">
-      <a class="lang-btn" href="./practice/">Shokyuu L1–50<span class="flag">🇩🇪 DE</span></a>
-      <a class="lang-btn" href="./chuukyuu-practice/">Chuukyuu L1–10<span class="flag">🇩🇪 DE</span></a>
-    </div>
-  </div>
-
-  <p class="footer">Matze is awesome GmbH · do not send further · Offline-fähig</p>
-</div>
+  <p class="footer">
+    Matze is awesome GmbH <span class="dot">·</span> do not send further
+    <span class="dot">·</span> <span class="offline">⬇︎ Offline-fähig</span>
+  </p>
+</main>
 
 <script>
+  // Theme-Umschalter
+  (function(){
+    var root = document.documentElement;
+    var btn = document.getElementById('themeToggle');
+    var meta = document.getElementById('theme-color-meta');
+    var colors = { light:'#faf8f5', dark:'#15120f' };
+
+    function apply(theme){
+      root.setAttribute('data-theme', theme);
+      if(meta) meta.setAttribute('content', colors[theme] || colors.light);
+    }
+    apply(root.getAttribute('data-theme') || 'dark');
+
+    btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      apply(next);
+      try{ localStorage.setItem('theme', next); }catch(e){}
+    });
+  })();
+
+  // Service Worker / PWA
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./service-worker.js')
