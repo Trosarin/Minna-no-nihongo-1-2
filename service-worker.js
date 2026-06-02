@@ -29,6 +29,7 @@ const FILES_TO_CACHE = [
   './chuukyuu-practice/',
   './chuukyuu-practice/index.html',
   './chuukyuu-practice/lessons.js',
+  './chuukyuu-practice/situations.js',
 ];
 
 // Installation: Cache initial befüllen

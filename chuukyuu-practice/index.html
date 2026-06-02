@@ -692,6 +692,36 @@
     padding:1rem;margin-top:1rem;
   }
   .help{font-size:.85rem;color:#6b5d4a;font-style:italic;margin-bottom:.8rem}
+
+  /* Situation-Trainer (場面) */
+  .sit-plan{background:#f0e6d2;border:1px solid #e0d0b0;border-radius:10px;padding:.6rem .8rem;margin-bottom:.8rem;font-size:.82rem;color:#6b5d4a;line-height:1.5}
+  .sit-plan b{color:#8a1f17}
+  .sit-card{background:#fffaf2;border:1px solid #e6dcc8;border-radius:14px;padding:1.2rem 1.1rem;box-shadow:0 2px 10px rgba(122,26,20,.06)}
+  .sit-tag{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#b8893a;font-weight:700;margin-bottom:.7rem}
+  .sit-tag .new{background:#8a1f17;color:#f4ede0;border-radius:6px;padding:.1rem .4rem;margin-left:.4rem;letter-spacing:.05em}
+  .sit-prompt{font-size:1.18rem;line-height:1.55;color:#1a1612;font-weight:600;margin-bottom:.5rem}
+  .sit-instruction{font-size:.82rem;color:#6b5d4a;font-style:italic;margin-bottom:1rem}
+  .sit-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+  .sit-hint{margin-top:.9rem;padding:.6rem .8rem;background:#f4ede0;border-left:3px solid #b8893a;border-radius:6px;font-size:.95rem;color:#1a1612}
+  .sit-hint .lbl{display:block;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#b8893a;font-weight:700;margin-bottom:.25rem}
+  .sit-model{margin-top:1rem;padding:.9rem 1rem;background:#f4ede0;border-radius:10px;border:1px solid #e6dcc8}
+  .sit-model .lbl{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8a1f17;font-weight:700;display:block;margin-bottom:.3rem}
+  .sit-model-pattern{font-size:1.02rem;color:#8a1f17;font-weight:700;margin-bottom:.7rem;line-height:1.5}
+  .sit-model-jp{font-family:"Noto Serif JP","Shippori Mincho",serif;font-size:1.18rem;color:#1a1612;line-height:1.8;margin-bottom:.4rem}
+  .sit-model-de{font-size:.92rem;color:#3a3228;margin-bottom:.6rem}
+  .sit-model-gloss{font-size:.82rem;color:#6b5d4a;line-height:1.6;border-top:1px dashed #d8cdb6;padding-top:.55rem}
+  .sit-rate{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;margin-top:1rem}
+  .sit-rate button{font-family:inherit;cursor:pointer;border-radius:9px;padding:.6rem .3rem;font-size:.86rem;font-weight:700;border:1.5px solid;line-height:1.25}
+  .sit-rate .r-ok{background:#d6e9c8;border-color:#2f6e3a;color:#1f4a26}
+  .sit-rate .r-ok:hover{background:#c4e0b0}
+  .sit-rate .r-near{background:#f6eccf;border-color:#b8893a;color:#6b4f1a}
+  .sit-rate .r-near:hover{background:#efe1b6}
+  .sit-rate .r-miss{background:#f3d9d4;border-color:#8a1f17;color:#7a1a14}
+  .sit-rate .r-miss:hover{background:#eccabf}
+  @media(max-width:420px){
+    .sit-prompt{font-size:1.05rem}
+    .sit-rate{grid-template-columns:1fr;gap:.4rem}
+  }
 </style>
 
 </head>
@@ -715,6 +745,10 @@
   <button class="mode-tab active" data-mode="lessons">
     <span class="jp">課</span>
     <span class="de">Lektionen</span>
+  </button>
+  <button class="mode-tab" data-mode="situation">
+    <span class="jp">場面</span>
+    <span class="de">Situation</span>
   </button>
   <button class="mode-tab" data-mode="drill">
     <span class="jp">活用</span>
@@ -741,6 +775,25 @@
     <div id="lesson-grid" class="lesson-grid"></div>
   </div>
   <div id="lesson-detail-view" class="hidden"></div>
+</section>
+
+<section id="mode-situation" class="panel hidden">
+  <p class="help">Mittelstufen-Grammatik <b>aktiv aus dem Kopf</b>: Du bekommst eine Situation auf Deutsch und bildest selbst den japanischen Satz — am besten laut. Erst danach deckst du Muster &amp; Musterlösung auf und bewertest dich ehrlich selbst.</p>
+
+  <div class="controls-row">
+    <div class="field">
+      <label for="sit-scope">Umfang</label>
+      <select id="sit-scope">
+        <option value="plan">📅 Tagesplan (baut sich täglich auf)</option>
+        <option value="all">alle Lektionen (L1–10)</option>
+        <option value="1-5">L1–5</option>
+        <option value="6-10">L6–10</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="sit-stats" class="status-bar"></div>
+  <div id="sit-card" class="sit-card"></div>
 </section>
 
 <section id="mode-drill" class="panel hidden">
@@ -820,6 +873,7 @@
 <footer>練習帳 · Minna no Nihongo · Matze is awesome GmbH</footer>
 
 <script src="lessons.js"></script>
+<script src="situations.js"></script>
 <script>
 /* ===================================================================
    VOKABELN PRO LEKTION
@@ -1141,6 +1195,8 @@ STORE.drill  = STORE.drill  || {score:0, total:0};
 STORE.done   = STORE.done   || {};     // "L6-0": true (richtig gebaut)
 STORE.vocab  = STORE.vocab  || {};     // de-Label: {seen, ok}
 STORE.streak = STORE.streak || {count:0, last:null};
+STORE.csit   = STORE.csit   || {};     // Chuukyuu-Situationen: sit-Text → {seen, ok, miss, last}
+STORE.csitplan = STORE.csitplan || {level:0, date:null};  // Chuukyuu-Tagesplan (eigener Namespace!)
 
 function todayStr(){ const d=new Date(); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
 function yesterdayStr(){ const d=new Date(Date.now()-864e5); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
@@ -3618,12 +3674,164 @@ function resetScore(){
    MODE-SWITCH + INIT
    =================================================================== */
 
+/* ===================================================================
+   場面 SITUATION-TRAINER (Chuukyuu) — aktives Abrufen statt Wiedererkennen.
+   Eigener Storage-Namespace (csit / csitplan), damit der Tagesplan nicht
+   mit dem Minna-Trainer (gleiche Origin) kollidiert.
+   =================================================================== */
+const SITUATIONS = window.MINNA_SITUATIONS || [];
+
+const SIT_CARDS = [];
+(window.MINNA_LESSONS || []).forEach((c, i) => {
+  const s = SITUATIONS[i];
+  if(!s || s.l !== c.l) return;
+  if(s.sit) SIT_CARDS.push({ l:c.l, t:c.t, sit:s.sit, jp:(c.ex&&c.ex.jp)||'', de:(c.ex&&c.ex.de)||'', gloss:c.gloss||'' });
+  (s.more || []).forEach(m => {
+    if(m && m.sit) SIT_CARDS.push({ l:c.l, t:c.t, sit:m.sit, jp:m.jp||'', de:m.de||'', gloss:c.gloss||'' });
+  });
+});
+
+const SIT_MAX_LEVEL = SIT_CARDS.length ? Math.max(...SIT_CARDS.map(c => c.l)) : 10;
+const sitState = { card:null, last:null, session:0 };
+
+function sitPlanLevel(){
+  const p = STORE.csitplan;
+  const today = todayStr();
+  if(p.date !== today){
+    p.level = Math.min((p.level || 0) + 1, SIT_MAX_LEVEL);
+    p.date = today;
+    saveStore();
+  }
+  if(p.level < 1){ p.level = 1; saveStore(); }
+  return p.level;
+}
+
+function sitScope(){ return ($('#sit-scope') && $('#sit-scope').value) || 'plan'; }
+
+function sitPool(){
+  const scope = sitScope();
+  if(scope === 'plan'){ const lvl = sitPlanLevel(); return SIT_CARDS.filter(c => c.l <= lvl); }
+  if(scope === 'all') return SIT_CARDS.slice();
+  const m = scope.match(/^(\d+)-(\d+)$/);
+  if(m){ const a=+m[1], b=+m[2]; return SIT_CARDS.filter(c => c.l>=a && c.l<=b); }
+  return SIT_CARDS.slice();
+}
+
+function sitWeight(c){
+  const s = STORE.csit[c.sit];
+  if(!s || !s.seen) return 6;
+  if(s.last === 'miss') return 5;
+  if(s.last === 'near') return 3;
+  return 1;
+}
+
+function pickSituation(){
+  const pool = sitPool();
+  if(!pool.length) return null;
+  let cands = pool.filter(c => c.sit !== sitState.last);
+  if(!cands.length) cands = pool;
+  const w = cands.map(sitWeight);
+  let total = w.reduce((a,b)=>a+b,0), r = Math.random()*total;
+  for(let i=0;i<cands.length;i++){ r -= w[i]; if(r<=0) return cands[i]; }
+  return cands[cands.length-1];
+}
+
+function renderSitStats(){
+  const el = $('#sit-stats'); if(!el) return;
+  const scope = sitScope();
+  const pool = sitPool();
+  let solid = 0, touched = 0;
+  pool.forEach(c => { const s = STORE.csit[c.sit]; if(s && s.seen){ touched++; if(s.last==='ok') solid++; } });
+  let planLine = '';
+  if(scope === 'plan'){
+    const lvl = sitPlanLevel();
+    const next = lvl < SIT_MAX_LEVEL ? `Morgen kommt <b>Lektion ${lvl+1}</b> dazu.` : 'Alle Lektionen freigeschaltet 🎉';
+    planLine = `<div class="sit-plan">📅 <b>Tag ${lvl}</b> — freigeschaltet: <b>Lektion 1–${lvl}</b> (${pool.length} Muster). ${next}</div>`;
+  }
+  el.innerHTML = planLine +
+    `<span>Diese Runde: <b>${sitState.session}</b></span>` +
+    `<span>· Sicher: <b>${solid}</b>/${pool.length}</span>` +
+    `<span>· schon geübt: <b>${touched}</b>/${pool.length}</span>`;
+}
+
+function renderSitCard(){
+  const c = sitState.card, el = $('#sit-card');
+  if(!el) return;
+  if(!c){ el.innerHTML = `<div class="sit-instruction">Für diesen Umfang gibt es noch keine Situationen.</div>`; return; }
+  const isNew = (() => { const s = STORE.csit[c.sit]; return !s || !s.seen; })();
+  el.innerHTML = `
+    <div class="sit-tag">場面 · Situation · Lektion ${c.l}${isNew ? '<span class="new">neu</span>' : ''}</div>
+    <div class="sit-prompt">🗣️ ${c.sit}</div>
+    <div class="sit-instruction">Bilde den japanischen Satz selbst — laut oder im Kopf. Dann auflösen.</div>
+    <div class="sit-actions">
+      <button class="btn gold" onclick="sitHint()">💡 Tipp: Muster zeigen</button>
+      <button class="btn red" onclick="sitReveal()">Auflösen ↓</button>
+    </div>
+    <div id="sit-hint" class="sit-hint hidden"></div>
+    <div id="sit-reveal"></div>`;
+  renderSitStats();
+}
+
+function sitHint(){
+  const h = $('#sit-hint'), c = sitState.card;
+  if(!h || !c) return;
+  h.innerHTML = `<span class="lbl">Welches Muster?</span>${c.t}`;
+  h.classList.remove('hidden');
+}
+
+function sitReveal(){
+  const box = $('#sit-reveal'), c = sitState.card;
+  if(!box || !c) return;
+  box.innerHTML = `
+    <div class="sit-model">
+      <span class="lbl">Muster &amp; Musterlösung</span>
+      <div class="sit-model-pattern">${c.t}</div>
+      <div class="sit-model-jp">${c.jp} ${spkBtn(c.jp)}</div>
+      <div class="sit-model-de">${c.de}</div>
+      ${c.gloss ? `<div class="sit-model-gloss">${c.gloss}</div>` : ''}
+    </div>
+    <div class="sit-rate">
+      <button class="r-ok"   onclick="sitRate('ok')">✓ Getroffen</button>
+      <button class="r-near" onclick="sitRate('near')">～ Knapp daneben</button>
+      <button class="r-miss" onclick="sitRate('miss')">✗ Nicht gewusst</button>
+    </div>`;
+  const acts = $('#sit-card .sit-actions');
+  if(acts) acts.querySelectorAll('button').forEach(b => { b.disabled = true; b.style.opacity = '.5'; });
+}
+
+function sitRate(r){
+  const c = sitState.card; if(!c) return;
+  const s = STORE.csit[c.sit] || {seen:0, ok:0, miss:0, near:0};
+  s.seen = (s.seen||0)+1;
+  if(r==='ok')   s.ok   = (s.ok||0)+1;
+  if(r==='near') s.near = (s.near||0)+1;
+  if(r==='miss') s.miss = (s.miss||0)+1;
+  s.last = r;
+  STORE.csit[c.sit] = s;
+  saveStore();
+  if(r === 'ok') bumpStreak();
+  sitState.session++;
+  sitState.last = c.sit;
+  nextSituation();
+}
+
+function nextSituation(){ sitState.card = pickSituation(); renderSitCard(); }
+
+function startSituation(){
+  if(!SIT_CARDS.length){ $('#sit-card').innerHTML = `<div class="sit-instruction">Situations-Daten konnten nicht geladen werden.</div>`; return; }
+  if(sitScope() === 'plan') sitPlanLevel();
+  renderSitStats();
+  nextSituation();
+}
+
 function switchMode(mode){
   $$('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
   $('#mode-lessons').classList.toggle('hidden', mode !== 'lessons');
+  $('#mode-situation').classList.toggle('hidden', mode !== 'situation');
   $('#mode-drill').classList.toggle('hidden', mode !== 'drill');
   $('#mode-review').classList.toggle('hidden', mode !== 'review');
   $('#mode-progress').classList.toggle('hidden', mode !== 'progress');
+  if(mode === 'situation') startSituation();
   if(mode === 'review') startReview();
   if(mode === 'progress') renderProgress();
 }
@@ -3657,6 +3865,7 @@ function init(){
   $('#reset-score').addEventListener('click', resetScore);
   $('#review-mode').addEventListener('change', renderReviewCard);
   $('#review-new').addEventListener('change', startReview);
+  $('#sit-scope').addEventListener('change', startSituation);
 
   // Deep-Link via ?lesson=N → direkt diese Lektion öffnen
   const params = new URLSearchParams(window.location.search);
@@ -3687,6 +3896,10 @@ window.vocabQuizNext = vocabQuizNext;
 window.toggleVocabDir = toggleVocabDir;
 window.closeVocabQuiz = closeVocabQuiz;
 window.switchMode = switchMode;
+window.startSituation = startSituation;
+window.sitHint = sitHint;
+window.sitReveal = sitReveal;
+window.sitRate = sitRate;
 window.startReview = startReview;
 window.reviewAnswer = reviewAnswer;
 window.reviewNext = reviewNext;
