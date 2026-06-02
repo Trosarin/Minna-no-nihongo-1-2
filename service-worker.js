@@ -25,6 +25,7 @@ const FILES_TO_CACHE = [
   './practice/',
   './practice/index.html',
   './practice/lessons.js',
+  './practice/situations.js',
   './chuukyuu-practice/',
   './chuukyuu-practice/index.html',
   './chuukyuu-practice/lessons.js',
