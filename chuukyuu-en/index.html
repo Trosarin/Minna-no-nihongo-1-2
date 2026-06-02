@@ -2592,7 +2592,7 @@ function renderOverview() {
  CARDS.forEach(c => { counts[c.l] = (counts[c.l] || 0) + 1; });
  lessons.forEach(l => {
   const tile = document.createElement('button');
-  tile.classname = 'lesson-tile';
+  tile.className = 'lesson-tile';
   tile.innerHTML = `
    <span class="num">L${String(l).padStart(2,'0')}</span>
    <span class="topic">${TOPICS[l] || ''}</span>
@@ -2775,7 +2775,7 @@ function render(){
   count++;
 
   const card = document.createElement('div');
-  card.classname = 'card';
+  card.className = 'card';
   const useSectioned = !!c.pattern;
   const backInner = useSectioned ? buildSectionedBack(c) : `
      <div class="rule">${c.rule}</div>
