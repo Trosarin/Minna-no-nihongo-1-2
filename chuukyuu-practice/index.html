@@ -696,6 +696,10 @@
   /* Situation-Trainer (場面) */
   .sit-plan{background:#f0e6d2;border:1px solid #e0d0b0;border-radius:10px;padding:.6rem .8rem;margin-bottom:.8rem;font-size:.82rem;color:#6b5d4a;line-height:1.5}
   .sit-plan b{color:#8a1f17}
+  .sit-reset{margin-left:.5rem;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #c9b896;color:#8a1f17;border-radius:7px;padding:.2rem .55rem;font-size:.74rem;white-space:nowrap}
+  .sit-reset:hover{background:#f4ede0}
+  .sit-toggle{display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:#3a3228;font-style:normal;cursor:pointer;padding:.35rem 0}
+  .sit-toggle input{width:1.05rem;height:1.05rem;accent-color:#8a1f17;cursor:pointer}
   .sit-card{background:#fffaf2;border:1px solid #e6dcc8;border-radius:14px;padding:1.2rem 1.1rem;box-shadow:0 2px 10px rgba(122,26,20,.06)}
   .sit-tag{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#b8893a;font-weight:700;margin-bottom:.7rem}
   .sit-tag .new{background:#8a1f17;color:#f4ede0;border-radius:6px;padding:.1rem .4rem;margin-left:.4rem;letter-spacing:.05em}
@@ -789,6 +793,10 @@
         <option value="1-5">L1–5</option>
         <option value="6-10">L6–10</option>
       </select>
+    </div>
+    <div class="field">
+      <label>Antwort</label>
+      <label class="sit-toggle"><input type="checkbox" id="sit-auto"> 🔊 automatisch vorlesen</label>
     </div>
   </div>
 
@@ -1197,6 +1205,7 @@ STORE.vocab  = STORE.vocab  || {};     // de-Label: {seen, ok}
 STORE.streak = STORE.streak || {count:0, last:null};
 STORE.csit   = STORE.csit   || {};     // Chuukyuu-Situationen: sit-Text → {seen, ok, miss, last}
 STORE.csitplan = STORE.csitplan || {level:0, date:null};  // Chuukyuu-Tagesplan (eigener Namespace!)
+if(STORE.csitAuto === undefined) STORE.csitAuto = true;  // Antwort beim Auflösen automatisch vorlesen
 
 function todayStr(){ const d=new Date(); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
 function yesterdayStr(){ const d=new Date(Date.now()-864e5); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
@@ -3746,7 +3755,7 @@ function renderSitStats(){
   if(scope === 'plan'){
     const lvl = sitPlanLevel();
     const next = lvl < SIT_MAX_LEVEL ? `Morgen kommt <b>Lektion ${lvl+1}</b> dazu.` : 'Alle Lektionen freigeschaltet 🎉';
-    planLine = `<div class="sit-plan">📅 <b>Tag ${lvl}</b> — freigeschaltet: <b>Lektion 1–${lvl}</b> (${pool.length} Muster). ${next}</div>`;
+    planLine = `<div class="sit-plan">📅 <b>Tag ${lvl}</b> — freigeschaltet: <b>Lektion 1–${lvl}</b> (${pool.length} Muster). ${next}<button class="sit-reset" onclick="resetSitPlan()">↺ Tag 1</button></div>`;
   }
   el.innerHTML = planLine +
     `<span>Diese Runde: <b>${sitState.session}</b></span>` +
@@ -3797,6 +3806,17 @@ function sitReveal(){
     </div>`;
   const acts = $('#sit-card .sit-actions');
   if(acts) acts.querySelectorAll('button').forEach(b => { b.disabled = true; b.style.opacity = '.5'; });
+  // Antwort beim Auflösen automatisch vorlesen (Web Speech, durch Klick-Geste erlaubt)
+  if(STORE.csitAuto) speak(jpReading(c.jp));
+}
+
+// Tagesplan auf Tag 1 zurücksetzen (Lernstatistik bleibt erhalten).
+function resetSitPlan(){
+  if(!confirm('Tagesplan auf Tag 1 zurücksetzen? (Dein Lernfortschritt pro Situation bleibt erhalten.)')) return;
+  STORE.csitplan = {level:0, date:null};
+  saveStore();
+  sitState.last = null;
+  startSituation();
 }
 
 function sitRate(r){
@@ -3866,6 +3886,8 @@ function init(){
   $('#review-mode').addEventListener('change', renderReviewCard);
   $('#review-new').addEventListener('change', startReview);
   $('#sit-scope').addEventListener('change', startSituation);
+  $('#sit-auto').checked = !!STORE.csitAuto;
+  $('#sit-auto').addEventListener('change', e => { STORE.csitAuto = e.target.checked; saveStore(); });
 
   // Deep-Link via ?lesson=N → direkt diese Lektion öffnen
   const params = new URLSearchParams(window.location.search);
@@ -3900,6 +3922,7 @@ window.startSituation = startSituation;
 window.sitHint = sitHint;
 window.sitReveal = sitReveal;
 window.sitRate = sitRate;
+window.resetSitPlan = resetSitPlan;
 window.startReview = startReview;
 window.reviewAnswer = reviewAnswer;
 window.reviewNext = reviewNext;
