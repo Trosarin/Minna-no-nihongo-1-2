@@ -322,6 +322,29 @@
   }
   .ex-chip-conn .ex-chip-role{color:rgba(255,255,255,.85)!important}
   .ex-chip-conn .ex-chip-de{color:rgba(255,255,255,.9)!important}
+  /* Vertiefung (解説) */
+  .dd-card{background:var(--surface,var(--paper-2));border:1px solid var(--border,rgba(0,0,0,.1));border-radius:10px;padding:1rem;margin-bottom:1.2rem;box-shadow:var(--shadow,none)}
+  .dd-jp{font-weight:800;font-size:1.25rem;color:var(--red-deep-text)}
+  .dd-title{font-weight:700;margin:.1rem 0 .5rem;color:var(--ink)}
+  .dd-intro{font-size:.86rem;line-height:1.5;color:var(--ink);margin-bottom:.9rem}
+  .dd-group{border-left:3px solid var(--gold);padding:.2rem 0 .2rem .7rem;margin-bottom:.8rem}
+  .dd-label{font-weight:700;font-size:.92rem;color:var(--ink);margin-bottom:.15rem}
+  .dd-note{font-size:.78rem;color:var(--muted);margin-bottom:.45rem}
+  .dd-ex{display:flex;flex-direction:column;gap:.05rem;padding:.35rem 0;border-top:1px dashed var(--border,rgba(0,0,0,.08))}
+  .dd-ex-jp{font-size:1rem;color:var(--ink)}
+  .dd-ex-de{font-size:.8rem;color:var(--muted)}
+  .dd-quiz{margin-top:.8rem;background:var(--paper-2);border-radius:8px;padding:.7rem}
+  .dd-quiz-head{font-weight:700;font-size:.85rem;margin-bottom:.5rem;color:var(--red-deep-text)}
+  .dd-q{margin-bottom:.8rem}
+  .dd-q:last-child{margin-bottom:0}
+  .dd-q-text{font-size:.84rem;color:var(--ink);margin-bottom:.3rem}
+  .dd-q-sentence{font-size:1.02rem;color:var(--ink);margin-bottom:.4rem;font-weight:600}
+  .dd-q-opts{display:flex;flex-wrap:wrap;gap:.4rem}
+  .dd-opt{padding:.45rem .8rem;border:1px solid var(--red-deep);background:var(--surface,#fff);color:var(--ink);border-radius:6px;font:inherit;font-size:.9rem;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .dd-opt:hover{background:var(--paper)}
+  .dd-opt.ok{background:#1b7f4b;color:#fff;border-color:#1b7f4b}
+  .dd-opt.bad{background:var(--red);color:#fff;border-color:var(--red);opacity:.85}
+  .dd-q-why{margin-top:.45rem;font-size:.82rem;color:var(--ink);background:rgba(184,137,58,.12);border-radius:6px;padding:.4rem .55rem}
   .ex-help{
     font-size:.82rem;color:var(--ink);
     margin-bottom:.6rem;
@@ -899,6 +922,10 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
     <span class="jp">場面</span>
     <span class="de">Situation</span>
   </button>
+  <button class="mode-tab" data-mode="vertiefung">
+    <span class="jp">解説</span>
+    <span class="de">Vertiefung</span>
+  </button>
   <button class="mode-tab" data-mode="drill">
     <span class="jp">活用</span>
     <span class="de">Drills</span>
@@ -951,6 +978,8 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
   <div id="sit-stats" class="status-bar"></div>
   <div id="sit-card" class="sit-card"></div>
 </section>
+
+<section id="mode-vertiefung" class="panel hidden"></section>
 
 <section id="mode-drill" class="panel hidden">
   <p class="help">Drill für Konjugationen (Verben, i-/na-Adjektive) und Partikeln. Wähle die richtige Antwort aus vier Möglichkeiten. Punkte & Streak werden gespeichert.</p>
@@ -7694,13 +7723,139 @@ function startSituation(){
   nextSituation();
 }
 
+/* ===================================================================
+   VERTIEFUNG (解説) — Bedeutungen auseinanderhalten: んです/のだ, のに,
+   のは/の/こと. Erklärung + Kontrast-Beispiele + Mini-Übung.
+   Alle Beispielsätze geprüft.
+   =================================================================== */
+const DEEPDIVE = [
+  {
+    id: "ndesu",
+    jp: "んです / のだ",
+    title: "Erklärung & Hintergrund — nicht nur eine neutrale Aussage",
+    intro: "んです (förmlich のです, schriftlich のだ) macht aus einer Aussage eine <b>Erklärung, einen Grund oder Hintergrund</b> — oder fragt danach. Es ist KEINE neutrale Tatsachen-Aussage. Faustregel: Nutze んです, wenn ein Bezug zur Situation besteht (warum?, weil…, nämlich…). Lass es weg, wenn du einfach nur eine neutrale Information gibst. (An Nomen/な-Adjektiv: …<b>な</b>んです.)",
+    groups: [
+      { label: "✅ んです — Grund / Erklärung / Nachfrage", note: "Es gibt einen Kontext: man erklärt, begründet oder fragt nach dem Grund.",
+        ex: [
+          { jp: "どうして 来なかったんですか。", de: "Warum bist du nicht gekommen? (Nachfrage nach dem Grund)" },
+          { jp: "頭が 痛いんです。", de: "Mir tut nämlich der Kopf weh. (Erklärung)" },
+          { jp: "電車が 止まったんです。", de: "Der Zug ist nämlich stehen geblieben. (Grund)" },
+        ] },
+      { label: "❌ Neutrale Aussage — KEIN んです", note: "Reine, kontextlose Information → normale です/ます-Form.",
+        ex: [
+          { jp: "私は 学生です。", de: "Ich bin Student. (neutrale Tatsache)" },
+          { jp: "毎朝 7時に 起きます。", de: "Ich stehe jeden Morgen um 7 auf. (neutrale Tatsache)" },
+        ] },
+    ],
+    quiz: [
+      { q: "Jemand sieht dich packen und fragt, was los ist. Du erklärst den Grund:", opts: ["明日、旅行に 行くんです。", "明日、旅行に 行きます。"], correct: 0, why: "Du gibst einen Hintergrund/eine Erklärung → んです." },
+      { q: "Du stellst dich ganz neutral vor (kein Grund, keine Erklärung):", opts: ["ミラーなんです。", "ミラーです。"], correct: 1, why: "Reine, neutrale Vorstellung → einfaches です." },
+      { q: "Der Lehrer fragt, warum du zu spät bist. Du nennst den Grund:", opts: ["バスが 遅れたんです。", "バスが 遅れます。"], correct: 0, why: "Begründung → んです (und Vergangenheit: 遅れた)." },
+    ],
+  },
+  {
+    id: "noni",
+    jp: "のに",
+    title: "„obwohl“ vs. „um zu / wofür“",
+    intro: "のに hat zwei ganz verschiedene Bedeutungen. Achte darauf, was DANACH kommt: ein <b>unerwartetes Ergebnis</b> (→ obwohl) oder ein Wort wie <b>使う・いい・便利・かかる</b> (→ um zu / wofür).",
+    groups: [
+      { label: "① のに = „obwohl“ (Gegensatz)", note: "Plain-Form + のに. Danach folgt ein UNERWARTETES, oft enttäuschendes Ergebnis.",
+        ex: [
+          { jp: "たくさん 勉強したのに、試験に 落ちました。", de: "Obwohl ich viel gelernt habe, bin ich durchgefallen." },
+          { jp: "薬を 飲んだのに、まだ 治りません。", de: "Obwohl ich Medizin genommen habe, bin ich noch nicht gesund." },
+          { jp: "いい 天気なのに、出かけません。", de: "Obwohl schönes Wetter ist, gehe ich nicht raus." },
+        ] },
+      { label: "② のに = „um zu / wofür“ (Zweck / Verwendung)", note: "Wörterbuchform + のに. Danach folgt 使う・いい・便利・かかる・時間/お金 — wofür man etwas benutzt oder braucht.",
+        ex: [
+          { jp: "この ナイフは パンを 切るのに 使います。", de: "Dieses Messer benutzt man zum Brotschneiden." },
+          { jp: "日本語を 覚えるのに 3年 かかりました。", de: "Um Japanisch zu lernen, habe ich 3 Jahre gebraucht." },
+          { jp: "この かばんは 旅行に 行くのに 便利です。", de: "Diese Tasche ist praktisch fürs Reisen." },
+        ] },
+    ],
+    quiz: [
+      { q: "Welche Bedeutung hat のに hier?", sentence: "この アプリは 漢字を 覚えるのに 便利です。", opts: ["obwohl", "um zu / wofür"], correct: 1, why: "Danach steht 便利です → Zweck / Verwendung." },
+      { q: "Welche Bedeutung hat のに hier?", sentence: "約束したのに、来ませんでした。", opts: ["obwohl", "um zu / wofür"], correct: 0, why: "Danach kommt ein unerwartetes Ergebnis (kam nicht) → „obwohl“." },
+      { q: "Welche Bedeutung hat のに hier?", sentence: "はさみは 紙を 切るのに 使います。", opts: ["obwohl", "um zu / wofür"], correct: 1, why: "切るのに 使う → wofür man es benutzt." },
+    ],
+  },
+  {
+    id: "nokoto",
+    jp: "のは / の / こと",
+    title: "Nominalisierung & Hervorhebung",
+    intro: "の und こと machen aus einem Verb/Satz ein „Ding“ (Nominalisierung). の bei <b>Wahrnehmung/Konkretem</b>, こと bei <b>Abstraktem/Fähigkeiten</b>. のは…です kann außerdem einen Teil besonders <b>hervorheben</b> — die Antwort steht dann am Satzende.",
+    groups: [
+      { label: "① の / こと = Nominalisierung („das …-en“)", note: "Verb-Plain + の/こと wird zum Subjekt oder Objekt.",
+        ex: [
+          { jp: "日本語を 勉強するのは 楽しいです。", de: "Japanisch zu lernen macht Spaß." },
+          { jp: "私の 趣味は 本を 読むことです。", de: "Mein Hobby ist Bücherlesen." },
+          { jp: "子どもが 泣いているのが 聞こえます。", de: "Ich höre ein Kind weinen. (Wahrnehmung → の)" },
+        ] },
+      { label: "② のは … です = Hervorhebung (Cleft)", note: "Hebt EINEN Teil hervor: „Das, was/wer/wann … ist/war …“. Die Antwort steht am Satzende.",
+        ex: [
+          { jp: "日本語を 始めたのは 去年です。", de: "Angefangen mit Japanisch habe ich letztes Jahr. (Wann?)" },
+          { jp: "それを 言ったのは 田中さんです。", de: "Derjenige, der das gesagt hat, ist Herr Tanaka. (Wer?)" },
+          { jp: "私が 好きなのは すしです。", de: "Was ich mag, ist Sushi. (Was?)" },
+        ] },
+    ],
+    quiz: [
+      { q: "の oder こと? — bei Wahrnehmung (hören/sehen):", sentence: "山田さんが 歌う＿＿が 聞こえます。", opts: ["の", "こと"], correct: 0, why: "Wahrnehmung (聞こえる) → の." },
+      { q: "の oder こと? — „Mein Traum ist es, Arzt zu werden.“", sentence: "私の 夢は 医者に なる＿＿です。", opts: ["の", "こと"], correct: 1, why: "Abstraktes Ziel/Traum → こと." },
+      { q: "Nominalisierung oder Hervorhebung?", sentence: "京都へ 行ったのは 先週です。", opts: ["Nominalisierung", "Hervorhebung (wann?)"], correct: 1, why: "Die Antwort 先週 steht am Ende → Hervorhebung (es war letzte Woche)." },
+    ],
+  },
+];
+
+function renderVertiefung(){
+  const root = $("#mode-vertiefung");
+  if(root.dataset.ready) return;
+  root.dataset.ready = "1";
+  const spk = (typeof spkBtn === "function") ? spkBtn : (() => "");
+  let html = '<p class="help">Manche Formen sehen gleich aus, bedeuten aber Verschiedenes. Hier siehst du die Bedeutungen <b>direkt nebeneinander</b> — mit Beispielen und einer kleinen Übung zum Unterscheiden.</p>';
+  html += DEEPDIVE.map(t => `
+    <div class="dd-card">
+      <div class="dd-jp">${t.jp}</div>
+      <div class="dd-title">${t.title}</div>
+      <div class="dd-intro">${t.intro}</div>
+      ${t.groups.map(g => `
+        <div class="dd-group">
+          <div class="dd-label">${g.label}</div>
+          <div class="dd-note">${g.note}</div>
+          ${g.ex.map(e => `<div class="dd-ex"><span class="dd-ex-jp">${e.jp} ${spk(e.jp)}</span><span class="dd-ex-de">${e.de}</span></div>`).join("")}
+        </div>`).join("")}
+      <div class="dd-quiz">
+        <div class="dd-quiz-head">🎯 Mini-Übung</div>
+        ${t.quiz.map((q, i) => `
+          <div class="dd-q" id="dd-${t.id}-${i}">
+            <div class="dd-q-text">${q.q}</div>
+            ${q.sentence ? `<div class="dd-q-sentence">${q.sentence}</div>` : ""}
+            <div class="dd-q-opts">${q.opts.map((o, oi) => `<button class="dd-opt" onclick="ddPick(this, ${oi}, ${q.correct})">${o}</button>`).join("")}</div>
+            <div class="dd-q-why hidden">💡 ${q.why}</div>
+          </div>`).join("")}
+      </div>
+    </div>`).join("");
+  root.innerHTML = html;
+}
+
+function ddPick(btn, oi, correctIdx){
+  const q = btn.closest(".dd-q");
+  if(q.dataset.done) return;
+  q.dataset.done = "1";
+  const opts = [...q.querySelectorAll(".dd-opt")];
+  opts[correctIdx].classList.add("ok");
+  if(oi !== correctIdx) btn.classList.add("bad");
+  q.querySelector(".dd-q-why").classList.remove("hidden");
+  if(oi === correctIdx && typeof bumpStreak === "function") bumpStreak();
+}
+
 function switchMode(mode){
   $$('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
   $('#mode-lessons').classList.toggle('hidden', mode !== 'lessons');
   $('#mode-situation').classList.toggle('hidden', mode !== 'situation');
+  $('#mode-vertiefung').classList.toggle('hidden', mode !== 'vertiefung');
   $('#mode-drill').classList.toggle('hidden', mode !== 'drill');
   $('#mode-review').classList.toggle('hidden', mode !== 'review');
   $('#mode-progress').classList.toggle('hidden', mode !== 'progress');
+  if(mode === 'vertiefung') renderVertiefung();
   if(mode === 'situation') startSituation();
   if(mode === 'review') startReview();
   if(mode === 'progress') renderProgress();
