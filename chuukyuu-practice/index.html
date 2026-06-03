@@ -3060,6 +3060,93 @@ const COMBO_SETS = {
 };
 
 let comboLesson = null;
+/* Erweiterung „Level up" — weitere handverlesene Kombi-Sätze, Chuukyuu L1–10.
+   Jeder Teilsatz ein geprüfter Block; Verbinder als eigene Bausteine. */
+;(function(){
+  const add = {
+    1: [
+      { de: 'Ich habe angefangen, das Buch zu lesen, und es war sehr interessant.',
+        b: [ {jp:'<ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>み<ruby>始<rt>はじ</rt></ruby>めました。', de:'das Buch zu lesen begonnen.', role:'Satz 1 (始める)'},
+             {jp:'そして、', de:'Und', role:'Verbinder', conn:true},
+             {jp:'とても <ruby>面白<rt>おもしろ</rt></ruby>かったです', de:'es war sehr interessant', role:'Satz 2'} ] },
+      { de: 'Gestern habe ich ganze drei Stunden gelernt, deshalb bin ich sehr müde.',
+        b: [ {jp:'<ruby>昨日<rt>きのう</rt></ruby> 3<ruby>時間<rt>じかん</rt></ruby>も <ruby>勉強<rt>べんきょう</rt></ruby>しました。', de:'ganze 3 Stunden gelernt.', role:'Satz 1 (数量+も)'},
+             {jp:'だから、', de:'Deshalb', role:'Verbinder', conn:true},
+             {jp:'とても <ruby>疲<rt>つか</rt></ruby>れました', de:'bin ich sehr müde', role:'Satz 2'} ] },
+    ],
+    2: [
+      { de: 'Auch wenn ich versuche zu schlafen, kann ich nicht einschlafen.',
+        b: [ {jp:'<ruby>寝<rt>ね</rt></ruby>ようとしても、', de:'auch wenn ich zu schlafen versuche', role:'Teil 1 (ようとしても)'},
+             {jp:'<ruby>眠<rt>ねむ</rt></ruby>れません', de:'kann ich nicht einschlafen', role:'Teil 2'} ] },
+      { de: 'Derjenige, der das gesagt hat, ist Herr Tanaka.',
+        b: [ {jp:'それを <ruby>言<rt>い</rt></ruby>ったのは', de:'derjenige, der das gesagt hat', role:'Teil 1 (のは)'},
+             {jp:'<ruby>田中<rt>たなか</rt></ruby>さんです', de:'ist Herr Tanaka', role:'Teil 2'} ] },
+    ],
+    3: [
+      { de: 'Ich möchte ein traumhaftes Haus, deshalb arbeite ich hart.',
+        b: [ {jp:'<ruby>夢<rt>ゆめ</rt></ruby>のような <ruby>家<rt>いえ</rt></ruby>が <ruby>欲<rt>ほ</rt></ruby>しいです。', de:'ein traumhaftes Haus wollen.', role:'Satz 1 (のような)'},
+             {jp:'だから、', de:'Deshalb', role:'Verbinder', conn:true},
+             {jp:'<ruby>一生懸命<rt>いっしょうけんめい</rt></ruby> <ruby>働<rt>はたら</rt></ruby>いています', de:'arbeite ich hart', role:'Satz 2'} ] },
+      { de: 'Mein kleiner Bruder spielt nur, deshalb ist meine Mutter wütend.',
+        b: [ {jp:'<ruby>弟<rt>おとうと</rt></ruby>は <ruby>遊<rt>あそ</rt></ruby>んでばかりいる', de:'mein Bruder spielt nur', role:'Grund (てばかり)'},
+             {jp:'ので、', de:'…, weil', role:'Verbinder', conn:true},
+             {jp:'<ruby>母<rt>はは</rt></ruby>が <ruby>怒<rt>おこ</rt></ruby>っています', de:'ist meine Mutter wütend', role:'Folge'} ] },
+    ],
+    4: [
+      { de: 'Wenn man die Grafik betrachtet, erkennt man, dass die Bevölkerung abnimmt.',
+        b: [ {jp:'この グラフで <ruby>見<rt>み</rt></ruby>ると、', de:'wenn man die Grafik betrachtet', role:'Teil 1 (で見ると)'},
+             {jp:'<ruby>人口<rt>じんこう</rt></ruby>が <ruby>減<rt>へ</rt></ruby>っていることが わかります', de:'erkennt man, dass die Bevölkerung abnimmt', role:'Teil 2 (ことがわかる)'} ] },
+    ],
+    5: [
+      { de: 'Laut Nachrichten soll morgen ein Taifun kommen, deshalb bleibe ich zu Hause.',
+        b: [ {jp:'ニュースに よると、<ruby>明日<rt>あした</rt></ruby> <ruby>台風<rt>たいふう</rt></ruby>が <ruby>来<rt>く</rt></ruby>るということです。', de:'Laut Nachrichten soll morgen ein Taifun kommen.', role:'Satz 1 (ということだ)'},
+             {jp:'だから、', de:'Deshalb', role:'Verbinder', conn:true},
+             {jp:'<ruby>家<rt>いえ</rt></ruby>に います', de:'bleibe ich zu Hause', role:'Satz 2'} ] },
+    ],
+    6: [
+      { de: 'Ich bin mit angelassenem Licht eingeschlafen.',
+        b: [ {jp:'<ruby>電気<rt>でんき</rt></ruby>を つけたまま、', de:'mit angelassenem Licht', role:'Teil 1 (まま)'},
+             {jp:'<ruby>寝<rt>ね</rt></ruby>てしまいました', de:'bin ich eingeschlafen', role:'Teil 2'} ] },
+      { de: 'Dieser Tempel wurde vor 500 Jahren erbaut, deshalb ist er sehr berühmt.',
+        b: [ {jp:'この お<ruby>寺<rt>てら</rt></ruby>は 500<ruby>年前<rt>ねんまえ</rt></ruby>に <ruby>建<rt>た</rt></ruby>てられました。', de:'wurde vor 500 Jahren erbaut.', role:'Satz 1 (受身)'},
+             {jp:'だから、', de:'Deshalb', role:'Verbinder', conn:true},
+             {jp:'とても <ruby>有名<rt>ゆうめい</rt></ruby>です', de:'ist er sehr berühmt', role:'Satz 2'} ] },
+    ],
+    7: [
+      { de: 'Als Kind habe ich oft in diesem Fluss gespielt.',
+        b: [ {jp:'<ruby>子<rt>こ</rt></ruby>どもの <ruby>時<rt>とき</rt></ruby>、', de:'als Kind', role:'Zeit'},
+             {jp:'よく この <ruby>川<rt>かわ</rt></ruby>で <ruby>遊<rt>あそ</rt></ruby>んだものです', de:'habe ich oft in diesem Fluss gespielt', role:'Erinnerung (ものだ)'} ] },
+      { de: 'Allein schaffe ich es nicht, deshalb möchte ich, dass du mir hilfst.',
+        b: [ {jp:'<ruby>一人<rt>ひとり</rt></ruby>では できない', de:'allein schaffe ich es nicht', role:'Grund'},
+             {jp:'から、', de:'…, weil', role:'Verbinder', conn:true},
+             {jp:'<ruby>手伝<rt>てつだ</rt></ruby>って ほしいです', de:'möchte ich, dass du hilfst', role:'Wunsch (てほしい)'} ] },
+    ],
+    8: [
+      { de: 'Es kommt vor, dass ich zu spät komme, deshalb stehe ich neuerdings früh auf.',
+        b: [ {jp:'<ruby>遅刻<rt>ちこく</rt></ruby>することが ある', de:'es kommt vor, dass ich zu spät komme', role:'Grund (ことがある)'},
+             {jp:'ので、', de:'…, weil', role:'Verbinder', conn:true},
+             {jp:'<ruby>早<rt>はや</rt></ruby>く <ruby>起<rt>お</rt></ruby>きるように しています', de:'stehe ich früh auf', role:'Folge'} ] },
+      { de: 'Bis der Regen aufhört, warte ich hier.',
+        b: [ {jp:'<ruby>雨<rt>あめ</rt></ruby>が やむまで、', de:'bis der Regen aufhört', role:'Teil 1 (まで)'},
+             {jp:'ここで <ruby>待<rt>ま</rt></ruby>ちます', de:'warte ich hier', role:'Teil 2'} ] },
+    ],
+    9: [
+      { de: 'Als Kind wurde ich von meiner Mutter gezwungen, Gemüse zu essen.',
+        b: [ {jp:'<ruby>子<rt>こ</rt></ruby>どもの <ruby>時<rt>とき</rt></ruby>、', de:'als Kind', role:'Zeit'},
+             {jp:'<ruby>母<rt>はは</rt></ruby>に <ruby>野菜<rt>やさい</rt></ruby>を <ruby>食<rt>た</rt></ruby>べさせられました', de:'wurde ich gezwungen, Gemüse zu essen', role:'使役受身'} ] },
+    ],
+    10: [
+      { de: 'Du hast es versprochen, also solltest du es auch einhalten.',
+        b: [ {jp:'<ruby>約束<rt>やくそく</rt></ruby>した', de:'du hast es versprochen', role:'Grund'},
+             {jp:'から、', de:'…, weil / also', role:'Verbinder', conn:true},
+             {jp:'<ruby>守<rt>まも</rt></ruby>るべきです', de:'solltest du es einhalten', role:'Folge (べきだ)'} ] },
+      { de: 'Heute Morgen bin ich ohne Frühstück aus dem Haus gegangen.',
+        b: [ {jp:'<ruby>今朝<rt>けさ</rt></ruby>は <ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べずに、', de:'ohne Frühstück', role:'Teil 1 (ずに)'},
+             {jp:'<ruby>出<rt>で</rt></ruby>かけました', de:'bin aus dem Haus gegangen', role:'Teil 2'} ] },
+    ],
+  };
+  for(const l in add){ (COMBO_SETS[l] = COMBO_SETS[l] || []).push(...add[l]); }
+})();
 function toggleLevelup(chk){ STORE.levelup = !!chk.checked; saveStore(); if(comboLesson != null) showLessonDetail(comboLesson); }
 
 function comboPoolHtml(blocks){
