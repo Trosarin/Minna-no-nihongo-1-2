@@ -322,6 +322,13 @@
   }
   .ex-chip-conn .ex-chip-role{color:rgba(255,255,255,.85)!important}
   .ex-chip-conn .ex-chip-de{color:rgba(255,255,255,.9)!important}
+  /* Andere Zeitformen (Lektions-Beispiel) */
+  .tense-extra{margin-top:.55rem;padding:.5rem .6rem;background:var(--paper-2);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:6px}
+  .tense-head{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:.35rem}
+  .tense-row{display:flex;gap:.55rem;align-items:baseline;padding:.18rem 0;border-top:1px dashed var(--border,rgba(0,0,0,.07))}
+  .tense-row:first-of-type{border-top:none}
+  .tense-lab{flex:0 0 7.5rem;font-size:.72rem;color:var(--muted)}
+  .tense-jp{font-size:.98rem;color:var(--ink)}
   /* Vertiefung (解説) */
   .dd-card{background:var(--surface,var(--paper-2));border:1px solid var(--border,rgba(0,0,0,.1));border-radius:10px;padding:1rem;margin-bottom:1.2rem;box-shadow:var(--shadow,none)}
   .dd-jp{font-weight:800;font-size:1.25rem;color:var(--red-deep-text)}
@@ -4089,6 +4096,34 @@ function updateStatusBar(){
   if(op){ const n = totalDone(); op.innerHTML = n > 0 ? `· ✓ <b>${n}</b> Übungen gemeistert` : ''; }
 }
 
+/* Andere Zeitformen für ein Beispiel: NUR wenn der Satz höflich auf „ます" endet
+   (Gegenwart, bejaht). Dann reiner, immer korrekter Suffix-Tausch → Vergangenheit,
+   Verneinung, Vergangenheit+verneint. Sonst (です, Frage, feste Endung) leer. */
+const EX_TENSES = [['ました','Vergangenheit'],['ません','Verneinung'],['ませんでした','Verg. + verneint']];
+function exampleTenseHtml(jp){
+  if(!jp) return '';
+  const bare = jpBare(jp).trim();
+  if(/[—?？]/.test(bare)) return '';                  // keine Dialoge / Fragen
+  if((bare.match(/。/g) || []).length > 1) return '';  // nur Einzelsatz
+  if(!/ます。?$/.test(bare)) return '';                // höfliche Gegenwart auf „ます"
+  // Formen, bei denen ein reiner Tempus-/Verneinungs-Tausch keinen Sinn ergibt:
+  if(/と\s*(思|言|申)/.test(bare)) return '';          // …と思います / …と言います / …と申します
+  if(/だけ/.test(bare)) return '';                     // „nur" + Verneinung wird widersprüchlich
+  if(/[「」]/.test(bare)) return '';                    // Zitat/Lesung (…と読みます/…と言います)
+  if(/によって/.test(bare)) return '';                 // „je nach" — zeitlose Aussage
+  if(/ことが\s*あります/.test(bare)) return '';        // Erfahrung/gelegentlich (〜たことがある)
+  if(/(ば|たら|なら|ほど|とき|と|ても|でも|し|ように|のに)、/.test(bare)) return ''; // Nebensatz, der mit Tempus-Tausch kollidiert
+  const base = jp.replace(/。\s*$/, '');               // ohne abschließendes „。"
+  const mk = suf => base.replace(/ます(<\/[^>]+>)?$/, suf + '$1') + '。'; // auch in <b>…</b>
+  const rows = EX_TENSES.map(([suf,lab]) =>
+    `<div class="tense-row"><span class="tense-lab">${lab}</span><span class="tense-jp">${mk(suf)}</span></div>`).join('');
+  return `<div class="tense-extra">
+    <div class="tense-head">Andere Zeitformen</div>
+    <div class="tense-row"><span class="tense-lab">Gegenwart</span><span class="tense-jp">${jp}</span></div>
+    ${rows}
+  </div>`;
+}
+
 /* ===================================================================
    AUDIO / AUSSPRACHE (Web Speech API)
    =================================================================== */
@@ -4198,6 +4233,7 @@ function showLessonDetail(lessonNum){
           <div class="example-shown hidden">
             <div class="example-jp">${c.ex.jp} ${spkBtn(c.ex.jp)}</div>
             <div class="example-de hidden-de" onclick="this.classList.remove('hidden-de')" title="zum Aufdecken tippen">${c.ex.de}</div>
+            ${exampleTenseHtml(c.ex.jp)}
           </div>
         ` : ''}
         <button class="ex-toggle" onclick="toggleExercise(this, ${lessonNum}, ${idx})">🎯 Übung starten</button>
