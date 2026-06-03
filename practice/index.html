@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="dark">
 <head>
+<script>(function(){try{var s=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',s||'dark');}catch(e){}})();</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>練習帳 — Übungen</title>
@@ -9,7 +11,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="日本語">
-<meta name="theme-color" content="#7a1a14">
+<meta name="theme-color" content="#15120f" id="theme-color-meta">
 
 <link rel="manifest" href="../manifest.json">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -20,6 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Noto+Serif+JP:wght@400;600;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#1a1612;
@@ -32,7 +35,7 @@
     --shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{background:#f4ede0;color:#1a1612;font-family:"Shippori Mincho",serif;min-height:100vh}
+  html,body{background:var(--paper);color:var(--ink);font-family:"Shippori Mincho",serif;min-height:100vh}
   body{
     padding-top:env(safe-area-inset-top);
     padding-bottom:env(safe-area-inset-bottom);
@@ -43,16 +46,16 @@
       radial-gradient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-  ruby rt{font-size:.55em;color:#8a1f17}
+  ruby rt{font-size:.55em;color:var(--red-deep-text)}
 
   .topbar{
     display:flex;align-items:center;justify-content:space-between;
-    background:#1a1612;color:#f4ede0;
+    background:var(--bar);color:var(--on-dark);
     padding:.7rem 1rem;
-    border-bottom:3px solid #1a1612;
+    border-bottom:3px solid var(--line);
   }
   .topbar a.back{
-    color:#f4ede0;text-decoration:none;
+    color:var(--on-dark);text-decoration:none;
     padding:.4rem .7rem;border:1px solid rgba(244,237,224,.3);
     font-size:.9rem;font-family:inherit;
     -webkit-tap-highlight-color:transparent;
@@ -64,21 +67,21 @@
   header{
     padding:1.6rem 1.5rem 1rem;
     text-align:center;
-    border-bottom:3px double #1a1612;
+    border-bottom:3px double var(--line);
     position:relative;
   }
   header::before{
     content:"練習帳";
     position:absolute;top:.4rem;left:50%;transform:translateX(-50%);
-    font-size:.7rem;letter-spacing:.4em;color:#c0362c;
+    font-size:.7rem;letter-spacing:.4em;color:var(--red-text);
   }
   h1{
     font-family:"Noto Serif JP",serif;font-weight:900;
     font-size:clamp(1.4rem,5vw,2.2rem);line-height:1.1;
   }
-  h1 .jp{color:#8a1f17;display:block;font-size:1.2em;margin-bottom:.2rem}
-  h1 .de{font-family:"Shippori Mincho",serif;font-weight:600;font-size:.55em;letter-spacing:.15em;text-transform:uppercase;color:#1a1612}
-  .subtitle{margin-top:.4rem;font-style:italic;color:#6b5d4a;font-size:.9rem}
+  h1 .jp{color:var(--red-deep-text);display:block;font-size:1.2em;margin-bottom:.2rem}
+  h1 .de{font-family:"Shippori Mincho",serif;font-weight:600;font-size:.55em;letter-spacing:.15em;text-transform:uppercase;color:var(--ink)}
+  .subtitle{margin-top:.4rem;font-style:italic;color:var(--muted);font-size:.9rem}
 
   /* Mode tabs */
   .mode-tabs{
@@ -88,17 +91,17 @@
   .mode-tab{
     flex:1 1 0;min-width:0;
     padding:.6rem .25rem;
-    background:#ebe1cd;
-    border:2px solid #1a1612;
+    background:var(--paper-2);
+    border:2px solid var(--line);
     border-bottom:none;
     font-family:"Shippori Mincho",serif;font-size:.95rem;font-weight:600;
-    color:#1a1612;cursor:pointer;text-align:center;
+    color:var(--ink);cursor:pointer;text-align:center;
     -webkit-tap-highlight-color:transparent;
     transition:background .15s;
   }
   .mode-tab + .mode-tab{border-left:none}
-  .mode-tab:hover{background:#f4ede0}
-  .mode-tab.active{background:#8a1f17;color:#f4ede0;border-color:#8a1f17}
+  .mode-tab:hover{background:var(--paper)}
+  .mode-tab.active{background:var(--red-deep);color:var(--on-dark);border-color:var(--red-deep)}
   .mode-tab .jp{font-family:"Noto Serif JP",serif;font-weight:800;display:block;font-size:1.05em;letter-spacing:.04em}
   .mode-tab .de{font-size:.6rem;opacity:.85;display:block;margin-top:.15rem;letter-spacing:.03em;text-transform:uppercase;line-height:1.15;overflow-wrap:break-word}
   @media(max-width:560px){
@@ -112,8 +115,8 @@
 
   .panel{
     max-width:760px;margin:0 auto 1.5rem;
-    background:#f4ede0;
-    border:2px solid #1a1612;
+    background:var(--paper);
+    border:2px solid var(--line);
     border-top:none;
     padding:1.2rem 1rem;
     box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
@@ -125,73 +128,73 @@
     gap:.6rem;
   }
   .lesson-tile{
-    background:#ebe1cd;border:2px solid #1a1612;
+    background:var(--paper-2);border:2px solid var(--line);
     padding:.7rem .5rem;cursor:pointer;text-align:left;
     font-family:"Shippori Mincho",serif;font-size:.85rem;
-    color:#1a1612;
+    color:var(--ink);
     box-shadow:0 2px 0 rgba(26,22,18,.15);
     transition:transform .12s,background .15s;
     -webkit-tap-highlight-color:transparent;
   }
-  .lesson-tile:hover{background:#f4ede0;transform:translate(-1px,-2px)}
+  .lesson-tile:hover{background:var(--paper);transform:translate(-1px,-2px)}
   .lesson-tile:active{transform:translate(0,0)}
   .lesson-tile .num{
     display:block;font-family:"Noto Serif JP",serif;font-weight:800;
-    color:#8a1f17;font-size:1rem;letter-spacing:.04em;
+    color:var(--red-deep-text);font-size:1rem;letter-spacing:.04em;
   }
   .lesson-tile .topic{
-    display:block;font-size:.7rem;color:#6b5d4a;margin-top:.15rem;line-height:1.2;
+    display:block;font-size:.7rem;color:var(--muted);margin-top:.15rem;line-height:1.2;
   }
   .lesson-tile .count{
-    display:inline-block;font-size:.6rem;color:#b8893a;
+    display:inline-block;font-size:.6rem;color:var(--gold-text);
     font-weight:700;margin-top:.25rem;letter-spacing:.05em;
   }
 
   /* === Lektion-Detail === */
   .lesson-back{
     display:inline-block;
-    background:#1a1612;color:#f4ede0;
+    background:var(--bar);color:var(--on-dark);
     padding:.4rem .7rem;font-size:.85rem;
     border:none;cursor:pointer;font-family:inherit;
     margin-bottom:.8rem;
     -webkit-tap-highlight-color:transparent;
   }
-  .lesson-back:hover{background:#8a1f17}
+  .lesson-back:hover{background:var(--red-deep)}
   .lesson-detail-title{
     font-family:"Noto Serif JP",serif;font-weight:800;
-    color:#8a1f17;font-size:1.3rem;margin-bottom:.3rem;
+    color:var(--red-deep-text);font-size:1.3rem;margin-bottom:.3rem;
   }
   .lesson-detail-sub{
-    color:#6b5d4a;font-style:italic;font-size:.85rem;
-    margin-bottom:1rem;border-bottom:1px solid #c9bda3;padding-bottom:.5rem;
+    color:var(--muted);font-style:italic;font-size:.85rem;
+    margin-bottom:1rem;border-bottom:1px solid var(--line-soft);padding-bottom:.5rem;
   }
   .unterpunkt{
-    background:#fffdf6;
-    border:2px solid #1a1612;
-    border-left:6px solid #b8893a;
+    background:var(--surface);
+    border:2px solid var(--line);
+    border-left:6px solid var(--gold);
     padding:.9rem 1rem;
     margin-bottom:1rem;
     box-shadow:0 2px 0 rgba(26,22,18,.15);
   }
   .unterpunkt-num{
     display:inline-block;
-    background:#8a1f17;color:#f4ede0;
+    background:var(--red-deep);color:var(--on-dark);
     font-family:"JetBrains Mono",monospace;
     font-size:.65rem;letter-spacing:.1em;
     padding:.15rem .4rem;margin-bottom:.3rem;
   }
   .unterpunkt-title{
     font-family:"Noto Serif JP",serif;font-weight:700;
-    color:#1a1612;font-size:1.05rem;margin-bottom:.15rem;
+    color:var(--ink);font-size:1.05rem;margin-bottom:.15rem;
   }
   .unterpunkt-de{
-    color:#6b5d4a;font-style:italic;font-size:.82rem;margin-bottom:.7rem;
+    color:var(--muted);font-style:italic;font-size:.82rem;margin-bottom:.7rem;
   }
 
   /* Slot/pattern rendering (aus minna übernommen) */
   .pattern-box{
-    background:#ebe1cd;
-    border:1px solid #c9bda3;
+    background:var(--paper-2);
+    border:1px solid var(--line-soft);
     padding:.6rem .7rem;
     margin:.5rem 0;
   }
@@ -215,58 +218,58 @@
     margin-top:-.1rem;
     font-weight:500;
   }
-  .slot.subj{background:rgba(58,118,178,.13);color:#1f4a7a}
-  .slot.subj .slot-label{color:#1f4a7a}
-  .slot.obj{background:rgba(184,137,58,.18);color:#7a5418}
-  .slot.obj .slot-label{color:#7a5418}
-  .slot.actor{background:rgba(192,54,44,.13);color:#8a1f17}
-  .slot.actor .slot-label{color:#8a1f17}
-  .slot.verb{background:rgba(60,130,80,.15);color:#2d5a36}
-  .slot.verb .slot-label{color:#2d5a36}
-  .slot.time{background:rgba(140,90,160,.13);color:#5a3a78}
-  .slot.time .slot-label{color:#5a3a78}
-  .slot.place{background:rgba(80,140,150,.14);color:#2d5a62}
-  .slot.place .slot-label{color:#2d5a62}
-  .slot.cond{background:rgba(180,120,60,.16);color:#6f4318}
-  .slot.cond .slot-label{color:#6f4318}
-  .slot.plain{padding:.05rem .15rem;color:#5a4d3c;font-weight:600}
+  .slot.subj{background:rgba(58,118,178,.13);color:var(--blue)}
+  .slot.subj .slot-label{color:var(--blue)}
+  .slot.obj{background:rgba(184,137,58,.18);color:var(--gold-text)}
+  .slot.obj .slot-label{color:var(--gold-text)}
+  .slot.actor{background:rgba(192,54,44,.13);color:var(--red-deep-text)}
+  .slot.actor .slot-label{color:var(--red-deep-text)}
+  .slot.verb{background:rgba(60,130,80,.15);color:var(--green)}
+  .slot.verb .slot-label{color:var(--green)}
+  .slot.time{background:rgba(140,90,160,.13);color:var(--purple)}
+  .slot.time .slot-label{color:var(--purple)}
+  .slot.place{background:rgba(80,140,150,.14);color:var(--teal)}
+  .slot.place .slot-label{color:var(--teal)}
+  .slot.cond{background:rgba(180,120,60,.16);color:var(--gold-text)}
+  .slot.cond .slot-label{color:var(--gold-text)}
+  .slot.plain{padding:.05rem .15rem;color:var(--t-3);font-weight:600}
   .slot.plain .slot-label{display:none}
   .pattern-gloss{
     margin-top:.4rem;
-    font-size:.72rem;color:#6b5d4a;font-style:italic;
+    font-size:.72rem;color:var(--muted);font-style:italic;
   }
 
   /* Beispiel reveal */
   .example-reveal{
     margin-top:.6rem;
     padding:.5rem .7rem;
-    background:#f4ede0;
-    border:1px dashed #b8893a;
+    background:var(--paper);
+    border:1px dashed var(--gold);
     cursor:pointer;
     -webkit-tap-highlight-color:transparent;
-    font-size:.85rem;color:#6b5d4a;
+    font-size:.85rem;color:var(--muted);
     text-align:center;
     font-style:italic;
   }
-  .example-reveal:hover{background:#fffdf6}
+  .example-reveal:hover{background:var(--surface)}
   .example-shown{
     margin-top:.6rem;
     padding:.6rem .8rem;
-    background:#fffdf6;
-    border:1.5px solid #2f6e3a;
+    background:var(--surface);
+    border:1.5px solid var(--green);
   }
   .example-jp{
     font-family:"Noto Serif JP",serif;
-    font-size:1.05rem;color:#1a1612;
+    font-size:1.05rem;color:var(--ink);
     line-height:1.7;
   }
   .example-de{
     margin-top:.3rem;
-    font-size:.85rem;color:#6b5d4a;font-style:italic;
-    border-top:1px dotted #c9bda3;padding-top:.3rem;
+    font-size:.85rem;color:var(--muted);font-style:italic;
+    border-top:1px dotted var(--line-soft);padding-top:.3rem;
   }
   .example-de.hidden-de{
-    color:transparent;background:#ebe1cd;
+    color:transparent;background:var(--paper-2);
     cursor:pointer;border-radius:3px;
     user-select:none;
   }
@@ -277,25 +280,25 @@
     width:100%;
     margin-top:.7rem;
     padding:.55rem .8rem;
-    background:#b8893a;color:#1a1612;
-    border:2px solid #1a1612;
+    background:var(--gold);color:var(--ink);
+    border:2px solid var(--line);
     font-family:"Shippori Mincho",serif;font-size:.9rem;font-weight:600;
     cursor:pointer;letter-spacing:.04em;
     -webkit-tap-highlight-color:transparent;
     box-shadow:0 2px 0 rgba(26,22,18,.15);
     transition:background .15s;
   }
-  .ex-toggle:hover{background:#cfa055}
-  .ex-toggle.active{background:#8a1f17;color:#f4ede0}
+  .ex-toggle:hover{background:var(--gold-2)}
+  .ex-toggle.active{background:var(--red-deep);color:var(--on-dark)}
   .exercise-box{
     margin-top:.6rem;
     padding:.9rem;
-    background:#ebe1cd;
-    border:2px dashed #8a1f17;
+    background:var(--paper-2);
+    border:2px dashed var(--red-deep);
     border-radius:3px;
   }
   .ex-help{
-    font-size:.82rem;color:#1a1612;
+    font-size:.82rem;color:var(--ink);
     margin-bottom:.6rem;
     font-style:italic;
   }
@@ -303,17 +306,17 @@
     display:flex;flex-wrap:wrap;gap:.4rem;
     margin-bottom:.7rem;
     padding:.6rem;
-    background:#fffdf6;
-    border:1px solid #c9bda3;
+    background:var(--surface);
+    border:1px solid var(--line-soft);
   }
   .ex-word{
     display:inline-flex;flex-direction:column;align-items:center;
-    background:#f4ede0;
-    border:1.5px solid #1a1612;
+    background:var(--paper);
+    border:1.5px solid var(--line);
     padding:.35rem .55rem;
     border-radius:3px;
     font-family:"Noto Serif JP",serif;
-    font-size:.95rem;color:#1a1612;
+    font-size:.95rem;color:var(--ink);
     line-height:1.2;
     box-shadow:0 1px 0 rgba(26,22,18,.1);
   }
@@ -321,14 +324,14 @@
     display:block;
     font-family:"JetBrains Mono",monospace;
     font-size:.52rem;letter-spacing:.08em;
-    color:#8a1f17;
+    color:var(--red-deep-text);
     text-transform:uppercase;
     font-weight:700;
     margin-bottom:.05rem;
   }
   .ex-word .ex-word-de{
     font-family:"Shippori Mincho",serif;
-    font-size:.62rem;color:#6b5d4a;
+    font-size:.62rem;color:var(--muted);
     margin-top:.1rem;
     letter-spacing:.02em;
   }
@@ -342,49 +345,49 @@
   .ex-actions button{
     padding:.4rem .7rem;
     font-size:.78rem;font-family:"Shippori Mincho",serif;
-    background:#1a1612;color:#f4ede0;
-    border:2px solid #1a1612;
+    background:var(--bar);color:var(--on-dark);
+    border:2px solid var(--line);
     cursor:pointer;font-weight:600;
     -webkit-tap-highlight-color:transparent;
     transition:background .15s;
   }
-  .ex-actions button:hover{background:#8a1f17}
-  .ex-actions button.gold{background:#b8893a;color:#1a1612;border-color:#b8893a}
-  .ex-actions button.gold:hover{background:#cfa055}
+  .ex-actions button:hover{background:var(--red-deep)}
+  .ex-actions button.gold{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+  .ex-actions button.gold:hover{background:var(--gold-2)}
   /* dezente Sekundär-Buttons (↺ 🎲) */
-  .ex-actions button.ghost{background:#efe7d6;color:#6b5d4a;border-color:#d8cdb8;font-weight:600;min-width:2.6rem}
-  .ex-actions button.ghost:hover{background:#e3d8c0;color:#1a1612}
+  .ex-actions button.ghost{background:var(--surface-warm);color:var(--muted);border-color:var(--line-soft);font-weight:600;min-width:2.6rem}
+  .ex-actions button.ghost:hover{background:var(--line-soft);color:var(--ink)}
   /* Modus-Umschalter (Reiter) */
-  .ex-tabs{display:flex;gap:.2rem;margin:.1rem 0 .55rem;background:#efe7d6;border-radius:.55rem;padding:.2rem}
+  .ex-tabs{display:flex;gap:.2rem;margin:.1rem 0 .55rem;background:var(--surface-warm);border-radius:.55rem;padding:.2rem}
   .ex-tab{flex:1;background:transparent;border:none;border-radius:.42rem;padding:.45rem .5rem;
-    font-size:.82rem;font-family:"Shippori Mincho",serif;color:#6b5d4a;cursor:pointer;
+    font-size:.82rem;font-family:"Shippori Mincho",serif;color:var(--muted);cursor:pointer;
     -webkit-tap-highlight-color:transparent;transition:background .15s}
-  .ex-tab.active{background:#8a1f17;color:#fff;font-weight:700}
-  .ex-tab:not(.active):hover{background:#e3d8c0}
+  .ex-tab.active{background:var(--red-deep);color:#fff;font-weight:700}
+  .ex-tab:not(.active):hover{background:var(--line-soft)}
   /* dezente Helfer-Links (📖 Wörter · 💡 Lösung · ▶ Beispiel) */
   .ex-tools{display:flex;flex-wrap:wrap;gap:1rem;margin:.1rem 0 .35rem;padding-left:.1rem}
-  .ex-link{background:none;border:none;color:#1f4a7a;font-size:.74rem;font-family:"Shippori Mincho",serif;
+  .ex-link{background:none;border:none;color:var(--blue);font-size:.74rem;font-family:"Shippori Mincho",serif;
     cursor:pointer;padding:.2rem 0;text-decoration:underline;-webkit-tap-highlight-color:transparent}
-  .ex-link:hover{color:#8a1f17}
+  .ex-link:hover{color:var(--red-deep-text)}
   .ex-link.active{font-weight:700;text-decoration:none}
   .ex-solution{
     margin-top:.6rem;
     padding:.65rem .8rem;
-    background:#d6e9c8;
-    border:1.5px solid #2f6e3a;
+    background:var(--ok-bg);
+    border:1.5px solid var(--green);
   }
   .ex-sol-label{
     font-size:.65rem;letter-spacing:.15em;
-    color:#1f4a26;text-transform:uppercase;font-weight:700;
+    color:var(--green-text);text-transform:uppercase;font-weight:700;
     margin-bottom:.25rem;
   }
   .ex-sol-jp{
     font-family:"Noto Serif JP",serif;font-size:1.05rem;
-    color:#1a1612;line-height:1.7;
+    color:var(--ink);line-height:1.7;
   }
   .ex-sol-de{
     margin-top:.3rem;
-    font-size:.82rem;color:#1f4a26;font-style:italic;
+    font-size:.82rem;color:var(--green-text);font-style:italic;
   }
 
   /* Interaktiver Satzbau */
@@ -392,80 +395,80 @@
     display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;
     min-height:3.1rem;
     padding:.55rem;margin-bottom:.55rem;
-    background:#fffdf6;
-    border:2px dashed #8a1f17;border-radius:3px;
+    background:var(--surface);
+    border:2px dashed var(--red-deep);border-radius:3px;
   }
   .ex-answer.empty::before{
     content:"⬇ Bausteine in der richtigen Reihenfolge antippen";
-    font-size:.78rem;color:#8a7a63;font-style:italic;
+    font-size:.78rem;color:var(--muted);font-style:italic;
     font-family:"Shippori Mincho",serif;
   }
   .ex-source-label{
     font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
-    color:#6b5d4a;font-weight:700;margin:.2rem 0 .3rem;
+    color:var(--muted);font-weight:700;margin:.2rem 0 .3rem;
   }
   .ex-chip{
     display:inline-flex;flex-direction:column;align-items:center;
-    background:#f4ede0;border:1.5px solid #1a1612;
+    background:var(--paper);border:1.5px solid var(--line);
     padding:.3rem .5rem;border-radius:3px;cursor:pointer;
-    font-family:"Noto Serif JP",serif;font-size:.95rem;color:#1a1612;
+    font-family:"Noto Serif JP",serif;font-size:.95rem;color:var(--ink);
     line-height:1.2;box-shadow:0 1px 0 rgba(26,22,18,.1);
     -webkit-tap-highlight-color:transparent;transition:transform .1s,background .1s;
   }
   .ex-chip:hover{background:#ece2cf}
   .ex-chip:active{transform:scale(.96)}
-  .ex-chip.placed{background:#e7efd9;border-color:#2f6e3a}
+  .ex-chip.placed{background:var(--ok-bg);border-color:var(--green)}
   .ex-chip-role{
     font-family:"JetBrains Mono",monospace;font-size:.5rem;letter-spacing:.07em;
-    color:#8a1f17;text-transform:uppercase;font-weight:700;margin-bottom:.04rem;
+    color:var(--red-deep-text);text-transform:uppercase;font-weight:700;margin-bottom:.04rem;
   }
-  .ex-chip-jp .ex-chip-part{color:#8a1f17;font-weight:700;margin-left:.1rem}
+  .ex-chip-jp .ex-chip-part{color:var(--red-deep-text);font-weight:700;margin-left:.1rem}
   .ex-chip-de{
-    font-family:"Shippori Mincho",serif;font-size:.6rem;color:#6b5d4a;margin-top:.08rem;
+    font-family:"Shippori Mincho",serif;font-size:.6rem;color:var(--muted);margin-top:.08rem;
   }
   /* Optionaler Auftakt-Baustein (じゃ、/ あのう、…): gestrichelt = „darf, muss nicht“. */
   .ex-chip-filler{border-style:dashed!important;opacity:.85}
-  .ex-chip-filler .ex-chip-role{color:#1f4a7a}
+  .ex-chip-filler .ex-chip-role{color:var(--blue)}
   /* Multiple-Choice-Modus */
   .mc-goal{
-    background:#eef3f8;border:1px solid #c9d6e3;border-radius:.4rem;
+    background:var(--blue-bg);border:1px solid var(--line-soft);border-radius:.4rem;
     padding:.45rem .6rem;margin:.3rem 0 .5rem;font-family:"Shippori Mincho",serif;
-    font-size:.92rem;color:#33485e;
+    font-size:.92rem;color:var(--blue);
   }
   .mc-goal-flag{margin-right:.25rem}
   .mc-opt{cursor:pointer;font-size:1.15rem}
-  .mc-opt:hover{background:#fff7e6}
+  .mc-opt:hover{background:var(--warm-hover)}
   /* Wörter-Vorlern-Panel */
-  .ex-vocab{margin:.4rem 0 .2rem;border:1px solid #d8cdb8;border-radius:.45rem;background:#fbf8f1;padding:.5rem .55rem}
-  .ex-vocab-label{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:#8a7a5c;margin-bottom:.4rem}
+  .ex-vocab{margin:.4rem 0 .2rem;border:1px solid var(--line-soft);border-radius:.45rem;background:var(--surface);padding:.5rem .55rem}
+  .ex-vocab-label{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
   .ex-vocab-grid{display:flex;flex-wrap:wrap;gap:.35rem}
-  .vcard{display:flex;flex-direction:column;align-items:center;gap:.1rem;cursor:pointer;border:1px solid #e0d6c2;border-radius:.4rem;padding:.3rem .5rem;background:#fff;min-width:3.2rem}
-  .vcard:hover{background:#fff7e6;border-color:#caa86a}
-  .vcard-jp{font-family:"Shippori Mincho",serif;font-size:1.05rem;color:#2a2118}
-  .vcard-de{font-size:.6rem;color:#6b5d4a;text-align:center}
-  .vcard-spk{font-size:.55rem;color:#1f4a7a}
+  .vcard{display:flex;flex-direction:column;align-items:center;gap:.1rem;cursor:pointer;border:1px solid var(--line-soft);border-radius:.4rem;padding:.3rem .5rem;background:var(--surface);min-width:3.2rem}
+  .vcard:hover{background:var(--warm-hover);border-color:var(--gold-2)}
+  .vcard-jp{font-family:"Shippori Mincho",serif;font-size:1.05rem;color:var(--t-2)}
+  .vcard-de{font-size:.6rem;color:var(--muted);text-align:center}
+  .vcard-spk{font-size:.55rem;color:var(--blue)}
   .ex-chip-form{
     display:block;margin-top:.1rem;
     font-family:"JetBrains Mono",monospace;font-size:.48rem;letter-spacing:.04em;
-    color:#1f4a7a;font-style:italic;
+    color:var(--blue);font-style:italic;
   }
   .ex-feedback{
     font-size:.85rem;font-weight:600;margin:.2rem 0 .5rem;font-family:"Shippori Mincho",serif;
   }
-  .ex-feedback.ok{color:#2f6e3a}
-  .ex-feedback.bad{color:#8a1f17}
-  .ex-chip.misplaced{border-color:#8a1f17;background:#f3d9d4}
+  .ex-feedback.ok{color:var(--green)}
+  .ex-feedback.bad{color:var(--red-deep-text)}
+  .ex-chip.misplaced{border-color:var(--red-deep);background:var(--bad-bg)}
   .ex-model{
     margin-top:.5rem;padding:.6rem .8rem;
-    background:#e8eef6;border:1.5px solid #3a76b2;
+    background:var(--blue-bg);border:1.5px solid var(--blue-2);
   }
   .ex-model-label{
     font-size:.65rem;letter-spacing:.13em;text-transform:uppercase;
-    color:#1f4a7a;font-weight:700;margin-bottom:.25rem;
+    color:var(--blue);font-weight:700;margin-bottom:.25rem;
   }
-  .ex-model-jp{font-family:"Noto Serif JP",serif;font-size:1.02rem;color:#1a1612;line-height:1.7}
-  .ex-model-jp .ex-chip-part{color:#8a1f17;font-weight:700}
-  .ex-model-note{margin-top:.3rem;font-size:.74rem;color:#1f4a7a;font-style:italic}
+  .ex-model-jp{font-family:"Noto Serif JP",serif;font-size:1.02rem;color:var(--ink);line-height:1.7}
+  .ex-model-jp .ex-chip-part{color:var(--red-deep-text);font-weight:700}
+  .ex-model-note{margin-top:.3rem;font-size:.74rem;color:var(--blue);font-style:italic}
 
   /* Audio-Button */
   .spk{
@@ -478,83 +481,83 @@
   /* Streak / Fortschritt */
   .status-bar{
     display:flex;gap:.6rem;align-items:center;justify-content:center;flex-wrap:wrap;
-    margin:.5rem 0 .2rem;font-size:.82rem;color:#6b5d4a;
+    margin:.5rem 0 .2rem;font-size:.82rem;color:var(--muted);
   }
-  .status-bar b{color:#8a1f17}
+  .status-bar b{color:var(--red-deep-text)}
   .lesson-tile .progress{
-    display:block;margin-top:.2rem;font-size:.62rem;color:#2f6e3a;font-weight:700;letter-spacing:.04em;
+    display:block;margin-top:.2rem;font-size:.62rem;color:var(--green);font-weight:700;letter-spacing:.04em;
   }
-  .unterpunkt-num .done-tick{color:#2f6e3a;margin-left:.3rem}
+  .unterpunkt-num .done-tick{color:var(--green);margin-left:.3rem}
 
   /* Vokabel-Quiz */
   .vq{
     margin-top:.8rem;padding:.8rem;
-    background:#ebe1cd;border:2px dashed #1f4a7a;border-radius:3px;
+    background:var(--paper-2);border:2px dashed var(--blue);border-radius:3px;
   }
   .vq-q{
-    font-family:"Noto Serif JP",serif;font-size:1.4rem;color:#1a1612;
+    font-family:"Noto Serif JP",serif;font-size:1.4rem;color:var(--ink);
     text-align:center;margin:.3rem 0 .7rem;line-height:1.5;
   }
-  .vq-q .vq-dir{display:block;font-size:.62rem;color:#1f4a7a;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.25rem;font-family:"JetBrains Mono",monospace}
+  .vq-q .vq-dir{display:block;font-size:.62rem;color:var(--blue);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.25rem;font-family:"JetBrains Mono",monospace}
   .vq-choices{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-bottom:.5rem}
   .vq-choice{
     padding:.5rem;font-size:.95rem;font-family:"Noto Serif JP",serif;
-    background:#fffdf6;border:1.5px solid #1a1612;border-radius:3px;cursor:pointer;
-    -webkit-tap-highlight-color:transparent;color:#1a1612;
+    background:var(--surface);border:1.5px solid var(--line);border-radius:3px;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;color:var(--ink);
   }
-  .vq-choice:hover{background:#f4ede0}
-  .vq-choice.right{background:#d6e9c8;border-color:#2f6e3a;font-weight:700}
-  .vq-choice.wrong{background:#f3d9d4;border-color:#8a1f17}
+  .vq-choice:hover{background:var(--paper)}
+  .vq-choice.right{background:var(--ok-bg);border-color:var(--green);font-weight:700}
+  .vq-choice.wrong{background:var(--bad-bg);border-color:var(--red-deep)}
   .vq-choice.disabled{cursor:default;pointer-events:none}
   .vq-feedback{font-size:.85rem;font-weight:600;min-height:1.2em;margin-bottom:.4rem;font-family:"Shippori Mincho",serif}
-  .vq-feedback.ok{color:#2f6e3a}
-  .vq-feedback.bad{color:#8a1f17}
-  .vq-bar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;font-size:.8rem;color:#6b5d4a}
-  .vq-bar button{padding:.35rem .7rem;font-size:.78rem;font-family:"Shippori Mincho",serif;background:#1a1612;color:#f4ede0;border:2px solid #1a1612;cursor:pointer;font-weight:600}
-  .vq-bar button:hover{background:#8a1f17}
+  .vq-feedback.ok{color:var(--green)}
+  .vq-feedback.bad{color:var(--red-deep-text)}
+  .vq-bar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;font-size:.8rem;color:var(--muted)}
+  .vq-bar button{padding:.35rem .7rem;font-size:.78rem;font-family:"Shippori Mincho",serif;background:var(--bar);color:var(--on-dark);border:2px solid var(--line);cursor:pointer;font-weight:600}
+  .vq-bar button:hover{background:var(--red-deep)}
   .vq-srs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.5rem}
-  .vq-srs button{flex:1;min-width:120px;padding:.55rem;font-size:.85rem;font-family:"Shippori Mincho",serif;font-weight:700;border:2px solid #1a1612;cursor:pointer}
-  .vq-srs .srs-no{background:#f3d9d4;color:#8a1f17;border-color:#8a1f17}
-  .vq-srs .srs-yes{background:#d6e9c8;color:#1f4a26;border-color:#2f6e3a}
+  .vq-srs button{flex:1;min-width:120px;padding:.55rem;font-size:.85rem;font-family:"Shippori Mincho",serif;font-weight:700;border:2px solid var(--line);cursor:pointer}
+  .vq-srs .srs-no{background:var(--bad-bg);color:var(--red-deep-text);border-color:var(--red-deep)}
+  .vq-srs .srs-yes{background:var(--ok-bg);color:var(--green-text);border-color:var(--green)}
   .vq-listen{text-align:center;margin:.4rem 0 .8rem}
   .vq-listen button{font-size:2rem;background:none;border:none;cursor:pointer}
 
   /* Fortschritts-Dashboard */
   .dash-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.6rem;margin:.4rem 0 1rem}
-  .dash-card{background:#fffdf6;border:1.5px solid #c9bda3;border-radius:3px;padding:.7rem;text-align:center}
-  .dash-card .big{font-size:1.7rem;font-weight:800;color:#8a1f17;font-family:"Noto Serif JP",serif;display:block}
-  .dash-card .lbl{font-size:.7rem;color:#6b5d4a;letter-spacing:.04em;margin-top:.2rem;display:block}
-  .dash-h{font-family:"Noto Serif JP",serif;font-weight:800;color:#8a1f17;font-size:1rem;margin:1rem 0 .5rem}
+  .dash-card{background:var(--surface);border:1.5px solid var(--line-soft);border-radius:3px;padding:.7rem;text-align:center}
+  .dash-card .big{font-size:1.7rem;font-weight:800;color:var(--red-deep-text);font-family:"Noto Serif JP",serif;display:block}
+  .dash-card .lbl{font-size:.7rem;color:var(--muted);letter-spacing:.04em;margin-top:.2rem;display:block}
+  .dash-h{font-family:"Noto Serif JP",serif;font-weight:800;color:var(--red-deep-text);font-size:1rem;margin:1rem 0 .5rem}
   .dash-lesson{display:flex;align-items:center;gap:.5rem;margin-bottom:.3rem;font-size:.8rem}
-  .dash-lesson .ln{width:2.5rem;font-weight:700;color:#1a1612}
-  .dash-bar{flex:1;height:.7rem;background:#e0d6c2;border-radius:3px;overflow:hidden}
-  .dash-bar span{display:block;height:100%;background:#2f6e3a}
-  .dash-lesson .pct{width:3rem;text-align:right;color:#6b5d4a;font-size:.72rem}
+  .dash-lesson .ln{width:2.5rem;font-weight:700;color:var(--ink)}
+  .dash-bar{flex:1;height:.7rem;background:var(--line-soft);border-radius:3px;overflow:hidden}
+  .dash-bar span{display:block;height:100%;background:var(--green)}
+  .dash-lesson .pct{width:3rem;text-align:right;color:var(--muted);font-size:.72rem}
   .dash-weak{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.3rem}
-  .dash-weak .w{background:#f3d9d4;border:1px solid #c98;border-radius:3px;padding:.2rem .45rem;font-size:.78rem}
+  .dash-weak .w{background:var(--bad-bg);border:1px solid var(--line-soft);border-radius:3px;padding:.2rem .45rem;font-size:.78rem}
   .dash-weak .w .jp{font-family:"Noto Serif JP",serif;margin-right:.25rem}
 
   /* Vokabel-Liste */
   .vocab-section{
     margin-top:1.5rem;
-    border-top:3px double #1a1612;
+    border-top:3px double var(--line);
     padding-top:1rem;
   }
   .vocab-section h3{
     font-family:"Noto Serif JP",serif;font-weight:800;
-    color:#8a1f17;font-size:1.1rem;margin-bottom:.6rem;letter-spacing:.04em;
+    color:var(--red-deep-text);font-size:1.1rem;margin-bottom:.6rem;letter-spacing:.04em;
   }
   .vocab-section .vocab-help{
-    font-size:.75rem;color:#6b5d4a;font-style:italic;
+    font-size:.75rem;color:var(--muted);font-style:italic;
     margin-bottom:.6rem;
   }
   .vocab-table{
     width:100%;border-collapse:collapse;
-    background:#fffdf6;
-    border:1px solid #1a1612;
+    background:var(--surface);
+    border:1px solid var(--line);
     font-size:.9rem;
   }
-  .vocab-table tr{border-bottom:1px solid #c9bda3}
+  .vocab-table tr{border-bottom:1px solid var(--line-soft)}
   .vocab-table tr:last-child{border-bottom:none}
   .vocab-table td{
     padding:.4rem .6rem;
@@ -565,28 +568,28 @@
     width:45%;
   }
   .vocab-table td.de{
-    color:#6b5d4a;font-size:.85rem;
+    color:var(--muted);font-size:.85rem;
   }
   .vocab-table td.type{
     width:42px;text-align:right;
-    color:#b8893a;font-size:.65rem;
+    color:var(--gold-text);font-size:.65rem;
     font-family:"JetBrains Mono",monospace;
     letter-spacing:.05em;
   }
   .vocab-table td.de.hidden-de{
-    color:transparent;background:#ebe1cd;cursor:pointer;user-select:none;
+    color:transparent;background:var(--paper-2);cursor:pointer;user-select:none;
   }
   .vocab-controls{
     display:flex;gap:.5rem;margin-bottom:.6rem;flex-wrap:wrap;
   }
   .vocab-controls button{
     padding:.35rem .7rem;font-size:.75rem;
-    background:#ebe1cd;border:1.5px solid #1a1612;
+    background:var(--paper-2);border:1.5px solid var(--line);
     cursor:pointer;font-family:inherit;
     -webkit-tap-highlight-color:transparent;
   }
-  .vocab-controls button:hover{background:#f4ede0}
-  .vocab-controls button.active{background:#8a1f17;color:#f4ede0;border-color:#8a1f17}
+  .vocab-controls button:hover{background:var(--paper)}
+  .vocab-controls button.active{background:var(--red-deep);color:var(--on-dark);border-color:var(--red-deep)}
 
   /* === Drill === */
   .controls-row{
@@ -595,35 +598,35 @@
   }
   .field{display:flex;flex-direction:column;gap:.25rem;flex:1;min-width:140px}
   .field label{
-    font-size:.7rem;letter-spacing:.1em;color:#6b5d4a;
+    font-size:.7rem;letter-spacing:.1em;color:var(--muted);
     text-transform:uppercase;font-weight:600;
   }
   select{
     padding:.55rem .7rem;
-    background:#ebe1cd;
-    border:2px solid #1a1612;
-    font-family:"Shippori Mincho",serif;font-size:1rem;color:#1a1612;
+    background:var(--paper-2);
+    border:2px solid var(--line);
+    font-family:"Shippori Mincho",serif;font-size:1rem;color:var(--ink);
     box-shadow:0 2px 0 rgba(26,22,18,.15);
     width:100%;
   }
-  select:focus{outline:none;border-color:#c0362c}
+  select:focus{outline:none;border-color:var(--red)}
   button.btn{
     padding:.6rem 1rem;
-    background:#1a1612;color:#f4ede0;
-    border:2px solid #1a1612;
+    background:var(--bar);color:var(--on-dark);
+    border:2px solid var(--line);
     font-family:"Shippori Mincho",serif;font-size:.95rem;font-weight:600;
     cursor:pointer;
     box-shadow:0 2px 0 rgba(26,22,18,.15);
     -webkit-tap-highlight-color:transparent;
   }
-  button.btn:hover{background:#8a1f17}
-  button.btn.red{background:#8a1f17;border-color:#8a1f17}
-  button.btn.red:hover{background:#c0362c;border-color:#c0362c}
-  button.btn.gold{background:#b8893a;border-color:#b8893a;color:#1a1612}
+  button.btn:hover{background:var(--red-deep)}
+  button.btn.red{background:var(--red-deep);border-color:var(--red-deep)}
+  button.btn.red:hover{background:var(--red);border-color:var(--red)}
+  button.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
 
   .drill-card{
-    background:#fffdf6;
-    border:2px solid #1a1612;
+    background:var(--surface);
+    border:2px solid var(--line);
     padding:1.3rem 1.1rem;
     text-align:center;
     box-shadow:0 2px 0 rgba(26,22,18,.15);
@@ -631,16 +634,16 @@
   }
   .drill-prompt{
     font-family:"Noto Serif JP",serif;
-    font-size:2rem;color:#8a1f17;font-weight:800;
+    font-size:2rem;color:var(--red-deep-text);font-weight:800;
     margin-bottom:.3rem;
   }
   .drill-de{
-    color:#6b5d4a;font-style:italic;font-size:.9rem;margin-bottom:.7rem;
+    color:var(--muted);font-style:italic;font-size:.9rem;margin-bottom:.7rem;
   }
   .drill-instruction{
-    font-size:.95rem;color:#1a1612;margin-bottom:1rem;
+    font-size:.95rem;color:var(--ink);margin-bottom:1rem;
   }
-  .drill-instruction b{color:#8a1f17}
+  .drill-instruction b{color:var(--red-deep-text)}
   .drill-choices{
     display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;
   }
@@ -649,51 +652,202 @@
   }
   .choice{
     padding:.85rem .6rem;
-    background:#ebe1cd;
-    border:2px solid #1a1612;
+    background:var(--paper-2);
+    border:2px solid var(--line);
     font-family:"Noto Serif JP",serif;font-size:1.05rem;
     cursor:pointer;
     box-shadow:0 2px 0 rgba(26,22,18,.15);
     -webkit-tap-highlight-color:transparent;
   }
-  .choice:hover{background:#f4ede0}
-  .choice.right{background:#d6e9c8;border-color:#2f6e3a;color:#1f4a26}
-  .choice.wrong{background:#f0c8c0;border-color:#8a1f17;color:#5a0e08}
+  .choice:hover{background:var(--paper)}
+  .choice.right{background:var(--ok-bg);border-color:var(--green);color:var(--green-text)}
+  .choice.wrong{background:var(--bad-bg);border-color:var(--red-deep);color:var(--red-text)}
   .choice.disabled{cursor:default;opacity:.85}
   .feedback{
     margin-top:.9rem;font-size:.95rem;font-weight:600;min-height:1.3em;
   }
-  .feedback.ok{color:#1f4a26}
-  .feedback.bad{color:#8a1f17}
+  .feedback.ok{color:var(--green-text)}
+  .feedback.bad{color:var(--red-deep-text)}
   .score-row{
     display:flex;justify-content:space-between;align-items:center;
-    background:#ebe1cd;border:1px solid #1a1612;
+    background:var(--paper-2);border:1px solid var(--line);
     padding:.5rem .8rem;font-size:.85rem;
     margin-bottom:.8rem;
   }
-  .score-row b{color:#8a1f17;font-weight:800}
+  .score-row b{color:var(--red-deep-text);font-weight:800}
   .filter-grid{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
     gap:.4rem;margin-bottom:.8rem;
   }
   .chk{
     display:flex;align-items:center;gap:.3rem;
-    background:#ebe1cd;border:1.5px solid #1a1612;
+    background:var(--paper-2);border:1.5px solid var(--line);
     padding:.35rem .55rem;font-size:.8rem;cursor:pointer;
     -webkit-tap-highlight-color:transparent;user-select:none;
   }
-  .chk input{margin:0;accent-color:#8a1f17}
-  .chk.checked{background:#f4ede0;border-color:#8a1f17;color:#8a1f17;font-weight:600}
+  .chk input{margin:0;accent-color:var(--red-deep)}
+  .chk.checked{background:var(--paper);border-color:var(--red-deep);color:var(--red-deep-text);font-weight:600}
 
   .hidden{display:none !important}
 
   footer{
-    text-align:center;color:#999;font-size:.7rem;
+    text-align:center;color:var(--muted);font-size:.7rem;
     padding:1rem;margin-top:1rem;
   }
-  .help{font-size:.85rem;color:#6b5d4a;font-style:italic;margin-bottom:.8rem}
+  .help{font-size:.85rem;color:var(--muted);font-style:italic;margin-bottom:.8rem}
+
+  /* Situation-Trainer (場面) */
+  .sit-plan{
+    background:var(--surface-warm);border:1px solid var(--line-soft);border-radius:10px;
+    padding:.6rem .8rem;margin-bottom:.8rem;font-size:.82rem;color:var(--muted);line-height:1.5;
+  }
+  .sit-plan b{color:var(--red-deep-text)}
+  .sit-reset{margin-left:.5rem;font-family:inherit;cursor:pointer;background:var(--surface);border:1px solid var(--line-soft);color:var(--red-deep-text);border-radius:7px;padding:.2rem .55rem;font-size:.74rem;white-space:nowrap}
+  .sit-reset:hover{background:var(--paper)}
+  .sit-toggle{display:flex;align-items:center;gap:.35rem;font-size:.82rem;color:var(--t-2);font-style:normal;cursor:pointer;padding:.35rem 0}
+  .sit-toggle input{width:1.05rem;height:1.05rem;accent-color:var(--red-deep);cursor:pointer}
+  .sit-card{
+    background:var(--surface);border:1px solid var(--line-soft);border-radius:14px;
+    padding:1.2rem 1.1rem;box-shadow:0 2px 10px rgba(122,26,20,.06);
+  }
+  .sit-tag{
+    font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-text);
+    font-weight:700;margin-bottom:.7rem;
+  }
+  .sit-tag .new{
+    background:var(--red-deep);color:var(--on-dark);border-radius:6px;padding:.1rem .4rem;
+    margin-left:.4rem;letter-spacing:.05em;
+  }
+  .sit-prompt{
+    font-size:1.18rem;line-height:1.55;color:var(--ink);font-weight:600;margin-bottom:.5rem;
+  }
+  .sit-instruction{font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:1rem}
+  .sit-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+  .sit-hint{
+    margin-top:.9rem;padding:.6rem .8rem;background:var(--paper);border-left:3px solid var(--gold);
+    border-radius:6px;font-size:.95rem;color:var(--ink);
+  }
+  .sit-hint .lbl{display:block;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-text);font-weight:700;margin-bottom:.25rem}
+  .sit-model{
+    margin-top:1rem;padding:.9rem 1rem;background:var(--paper);border-radius:10px;border:1px solid var(--line-soft);
+  }
+  .sit-model .lbl{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red-deep-text);font-weight:700;display:block;margin-bottom:.3rem}
+  .sit-model-pattern{font-size:1.02rem;color:var(--red-deep-text);font-weight:700;margin-bottom:.7rem;line-height:1.5}
+  .sit-model-jp{font-family:"Noto Serif JP","Shippori Mincho",serif;font-size:1.18rem;color:var(--ink);line-height:1.8;margin-bottom:.4rem}
+  .sit-model-de{font-size:.92rem;color:var(--t-2);margin-bottom:.6rem}
+  .sit-model-gloss{font-size:.82rem;color:var(--muted);line-height:1.6;border-top:1px dashed var(--line-soft);padding-top:.55rem}
+  .sit-rate{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;margin-top:1rem}
+  .sit-rate button{
+    font-family:inherit;cursor:pointer;border-radius:9px;padding:.6rem .3rem;
+    font-size:.86rem;font-weight:700;border:1.5px solid;line-height:1.25;
+  }
+  .sit-rate .r-ok{background:var(--ok-bg);border-color:var(--green);color:var(--green-text)}
+  .sit-rate .r-ok:hover{background:#c4e0b0}
+  .sit-rate .r-near{background:var(--near-bg);border-color:var(--gold);color:var(--gold-text)}
+  .sit-rate .r-near:hover{background:#efe1b6}
+  .sit-rate .r-miss{background:var(--bad-bg);border-color:var(--red-deep);color:var(--red-strong-text)}
+  .sit-rate .r-miss:hover{background:#eccabf}
+  @media(max-width:420px){
+    .sit-prompt{font-size:1.05rem}
+    .sit-rate{grid-template-columns:1fr;gap:.4rem}
+  }
 </style>
 
+<style id="dark-theme-layer">
+:root{
+  /* Lichtwerte = Originalfarben (heller Modus unveraendert) */
+  --ink:#1a1612; --paper:#f4ede0; --paper-2:#ebe1cd; --on-dark:#f4ede0;
+  --bar:#1a1612; --line:#1a1612; --line-soft:#c9bda3;
+  --surface:#fffdf6; --surface-warm:#f0e6d2;
+  --t-2:#3a2f22; --t-3:#5a4d3c; --muted:#6b5d4a;
+  --red:#c0362c; --red-deep:#8a1f17; --red-strong:#7a1a14;
+  --gold:#b8893a; --gold-2:#cfa055;
+  --green:#2f6e3a; --green-text:#1f4a26;
+  --blue:#1f4a7a; --blue-2:#3a76b2; --teal:#2d5a62; --purple:#5a3a78;
+  --ok-bg:#d6e9c8; --bad-bg:#f3d9d4; --near-bg:#f6eccf; --blue-bg:#e8eef6; --warm-hover:#fff7e6;
+  color-scheme:light;
+}
+html[data-theme="dark"]{
+  --ink:#f1ebe2; --paper:#15120f; --paper-2:#211d18; --on-dark:#f1ebe2;
+  --bar:#322c24; --line:#4a4339; --line-soft:#3c362b;
+  --surface:#26221c; --surface-warm:#2b2419;
+  --t-2:#ccc2b0; --t-3:#b8ab96; --muted:#a99a83;
+  --red:#d24a3d; --red-deep:#d24a3d; --red-strong:#d24a3d;
+  --gold:#d6a652; --gold-2:#e2b86b;
+  --green:#5fae66; --green-text:#93d79d;
+  --blue:#7bafe6; --blue-2:#7bafe6; --teal:#74bac7; --purple:#c2a6df;
+  --ok-bg:#1e3a24; --bad-bg:#46201d; --near-bg:#3a3320; --blue-bg:#1d2937; --warm-hover:#2f2a20;
+  color-scheme:dark;
+}
+/* slot-label Grundfarbe im Dunkelmodus lesbar machen */
+html[data-theme="dark"] .slot .slot-label{color:rgba(241,235,226,.5)}
+/* Gold ist in beiden Modi hell -> Text auf Gold bleibt dunkel */
+html[data-theme="dark"] .ex-toggle:not(.active),
+html[data-theme="dark"] .ex-actions button.gold,
+html[data-theme="dark"] button.btn.gold,
+html[data-theme="dark"] .seal[style*="--gold"]{color:#1a1612 !important}
+/* ---- moderne Akzente nur im Dunkelmodus (heller Modus = Original) ---- */
+html[data-theme="dark"] body{font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .cheat,
+html[data-theme="dark"] .cs-block,
+html[data-theme="dark"] .stats-card,
+html[data-theme="dark"] .compare-card,
+html[data-theme="dark"] .unterpunkt,
+html[data-theme="dark"] .exercise-box,
+html[data-theme="dark"] .drill-card,
+html[data-theme="dark"] .sit-card,
+html[data-theme="dark"] .lesson-tile,
+html[data-theme="dark"] .dash-card,
+html[data-theme="dark"] .vq,
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .search,
+html[data-theme="dark"] .lesson-filter,
+html[data-theme="dark"] select{border-radius:14px}
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .cheat,
+html[data-theme="dark"] .cs-block,
+html[data-theme="dark"] .stats-card,
+html[data-theme="dark"] .compare-card,
+html[data-theme="dark"] .unterpunkt,
+html[data-theme="dark"] .drill-card,
+html[data-theme="dark"] .sit-card,
+html[data-theme="dark"] .panel{box-shadow:0 6px 20px -8px rgba(0,0,0,.55)}
+/* ---- Theme-Umschalter (schwebend, unten links) ---- */
+.theme-fab{
+  position:fixed;left:1rem;bottom:1rem;z-index:300;
+  left:calc(1rem + env(safe-area-inset-left));
+  bottom:calc(1rem + env(safe-area-inset-bottom));
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:var(--paper-2);color:var(--ink);
+  font-size:1.2rem;line-height:1;cursor:pointer;
+  box-shadow:0 6px 18px -6px rgba(0,0,0,.45);
+  display:grid;place-items:center;
+  -webkit-tap-highlight-color:transparent;
+  transition:transform .15s ease;
+}
+.theme-fab:hover{transform:translateY(-2px)}
+.theme-fab .sun{display:none}.theme-fab .moon{display:block}
+html[data-theme="dark"] .theme-fab .sun{display:block}
+html[data-theme="dark"] .theme-fab .moon{display:none}
+</style>
+
+
+<style id="text-tone">
+:root{--red-text:#c0362c;--red-deep-text:#8a1f17;--red-strong-text:#7a1a14;--gold-text:#b8893a}
+html[data-theme="dark"]{--red-text:#e6dccb;--red-deep-text:#efe7da;--red-strong-text:#efe7da;--gold-text:#cabda3}
+</style>
+<style id="dark-fix">
+/* Halbtransparente WEISSE Flaechen wirken im Dark Mode als graue Kaesten -> dezent dunkel */
+html[data-theme="dark"] .ex,
+html[data-theme="dark"] .pattern-box,
+html[data-theme="dark"] .cheat-section,
+html[data-theme="dark"] .compare-card-when,
+html[data-theme="dark"] .conj-table tr:nth-child(even) td,
+html[data-theme="dark"] .cs-table tr:nth-child(even) td{background:rgba(255,255,255,.05)}
+/* weisses Status-Badge abdunkeln */
+html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
+</style>
 </head>
 <body>
 
@@ -715,6 +869,10 @@
   <button class="mode-tab active" data-mode="lessons">
     <span class="jp">課</span>
     <span class="de">Lektionen</span>
+  </button>
+  <button class="mode-tab" data-mode="situation">
+    <span class="jp">場面</span>
+    <span class="de">Situation</span>
   </button>
   <button class="mode-tab" data-mode="drill">
     <span class="jp">活用</span>
@@ -743,6 +901,32 @@
   <div id="lesson-detail-view" class="hidden"></div>
 </section>
 
+<section id="mode-situation" class="panel hidden">
+  <p class="help">Grammatik <b>aktiv aus dem Kopf</b>: Du bekommst eine Alltags-Situation auf Deutsch und musst selbst das passende Muster finden und den japanischen Satz bilden — am besten laut. Erst danach deckst du Muster &amp; Musterlösung auf und bewertest dich ehrlich selbst.</p>
+
+  <div class="controls-row">
+    <div class="field">
+      <label for="sit-scope">Umfang</label>
+      <select id="sit-scope">
+        <option value="plan">📅 Tagesplan (baut sich täglich auf)</option>
+        <option value="all">alle Lektionen (L1–50)</option>
+        <option value="1-10">L1–10</option>
+        <option value="11-20">L11–20</option>
+        <option value="21-30">L21–30</option>
+        <option value="31-40">L31–40</option>
+        <option value="41-50">L41–50</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Antwort</label>
+      <label class="sit-toggle"><input type="checkbox" id="sit-auto"> 🔊 automatisch vorlesen</label>
+    </div>
+  </div>
+
+  <div id="sit-stats" class="status-bar"></div>
+  <div id="sit-card" class="sit-card"></div>
+</section>
+
 <section id="mode-drill" class="panel hidden">
   <p class="help">Drill für Konjugationen (Verben, i-/na-Adjektive) und Partikeln. Wähle die richtige Antwort aus vier Möglichkeiten. Punkte & Streak werden gespeichert.</p>
 
@@ -767,7 +951,7 @@
     </div>
   </div>
 
-  <label style="font-size:.7rem;letter-spacing:.1em;color:#6b5d4a;text-transform:uppercase;font-weight:600;display:block;margin-bottom:.3rem">Zielformen</label>
+  <label style="font-size:.7rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;font-weight:600;display:block;margin-bottom:.3rem">Zielformen</label>
   <div id="drill-filters" class="filter-grid"></div>
 
   <div class="score-row">
@@ -820,6 +1004,7 @@
 <footer>練習帳 · Minna no Nihongo · Matze is awesome GmbH</footer>
 
 <script src="lessons.js"></script>
+<script src="situations.js"></script>
 <script>
 /* ===================================================================
    VOKABELN PRO LEKTION
@@ -3822,6 +4007,9 @@ STORE.drill  = STORE.drill  || {score:0, total:0};
 STORE.done   = STORE.done   || {};     // "L6-0": true (richtig gebaut)
 STORE.vocab  = STORE.vocab  || {};     // de-Label: {seen, ok}
 STORE.streak = STORE.streak || {count:0, last:null};
+STORE.sit    = STORE.sit    || {};     // Situation-Trainer: sit-Text → {seen, ok, miss, last}
+STORE.sitplan= STORE.sitplan|| {level:0, date:null};  // Tagesplan: wie viele Lektionen freigeschaltet
+if(STORE.sitAuto === undefined) STORE.sitAuto = true;  // Antwort beim Auflösen automatisch vorlesen
 
 function todayStr(){ const d=new Date(); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
 function yesterdayStr(){ const d=new Date(Date.now()-864e5); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
@@ -3898,15 +4086,29 @@ function renderLessonGrid(){
   }
 }
 
+// Slots können verschachtelt sein ([[zeile1],[zeile2]]) — z.B. mehrphasige
+// Muster wie ～ところ oder Keigo-Stufen. Diese Helfer glättet sie für Logik,
+// die nur eine flache Liste von Slot-Objekten erwartet.
+function flattenSlots(slots){
+  if(!slots || !slots.length) return [];
+  return Array.isArray(slots[0]) ? slots.flat() : slots;
+}
+
 function renderSlotDiagram(slots){
   if(!slots || !slots.length) return '';
-  let html = '<div class="pattern-box"><div class="pattern-line">';
-  slots.forEach(s => {
-    const cls = s.role || 'plain';
-    const label = s.label ? `<span class="slot-label">${s.label}</span>` : '';
-    html += `<span class="slot ${cls}"><span class="slot-text">${s.text}</span>${label}</span>`;
+  // Mehrzeilige (verschachtelte) Muster als mehrere Zeilen rendern.
+  const lines = Array.isArray(slots[0]) ? slots : [slots];
+  let html = '<div class="pattern-box">';
+  lines.forEach(line => {
+    html += '<div class="pattern-line">';
+    line.forEach(s => {
+      const cls = s.role || 'plain';
+      const label = s.label ? `<span class="slot-label">${s.label}</span>` : '';
+      html += `<span class="slot ${cls}"><span class="slot-text">${s.text}</span>${label}</span>`;
+    });
+    html += '</div>';
   });
-  html += '</div></div>';
+  html += '</div>';
   return html;
 }
 
@@ -3994,6 +4196,7 @@ function revealExample(el){
    =================================================================== */
 
 function detectSlotNeeds(slots){
+  slots = flattenSlots(slots);
   if(!slots || !slots.length) return {nouns:1};
 
   // Primärsignal sind die Slot-Rollen — zuverlässiger als Text-Heuristik.
@@ -6214,7 +6417,7 @@ function slotChip(text, idx, label){
 }
 
 function renderSlotExercise(boxEl, c, lessonNum, idx, solutionHtml){
-  const slots = (c.slots || []).filter(s => s && s.text && jpBare(s.text).trim());
+  const slots = flattenSlots(c.slots).filter(s => s && s.text && jpBare(s.text).trim());
   if(slots.length < 2){
     boxEl.innerHTML = `
       <div class="ex-help">ℹ️ Dieses Muster ist eine einzelne Form — hier gibt es keine Reihenfolge zum Bauen. Schau dir das Muster oben und das Beispiel an.</div>
@@ -6582,7 +6785,7 @@ function renderReviewCard(){
   const prompt = mode === 'de2jp'
       ? v.de
       : mode === 'listen'
-        ? `<div class="vq-listen"><button title="nochmal hören" data-speak="${jpReading(v.jp)}" onclick="speak(this.dataset.speak)">🔊</button><div style="font-size:.78rem;color:#6b5d4a">tippen zum nochmal Hören</div></div>`
+        ? `<div class="vq-listen"><button title="nochmal hören" data-speak="${jpReading(v.jp)}" onclick="speak(this.dataset.speak)">🔊</button><div style="font-size:.78rem;color:var(--muted)">tippen zum nochmal Hören</div></div>`
         : `${v.jp} ${spkBtn(v.jp)}`;
   card.innerHTML = `
     <div class="vq-q"><span class="vq-dir">${dir}</span>${prompt}</div>
@@ -6662,7 +6865,7 @@ function renderProgress(){
       ? `<div class="dash-weak">${weak.slice(0,20).map(x => `<span class="w"><span class="jp">${x.v.jp}</span>${x.v.de} ${spkBtn(x.v.jp)}</span>`).join('')}</div>`
       : '<p class="help">Noch keine Schwachstellen erfasst — übe ein paar Vokabeln im Wiederholungs-Modus.</p>'}
     <div style="margin-top:1.5rem;text-align:center">
-      <button onclick="resetAllProgress()" style="padding:.4rem .8rem;font-size:.78rem;background:none;border:1.5px solid #8a1f17;color:#8a1f17;cursor:pointer">Allen Fortschritt zurücksetzen</button>
+      <button onclick="resetAllProgress()" style="padding:.4rem .8rem;font-size:.78rem;background:none;border:1.5px solid var(--red-deep);color:var(--red-deep-text);cursor:pointer">Allen Fortschritt zurücksetzen</button>
     </div>`;
 }
 
@@ -6859,7 +7062,7 @@ function nextDrill(){
     const choices = [item.p, ...distractPool.slice(0,3)];
     for(let i = choices.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [choices[i],choices[j]]=[choices[j],choices[i]]; }
     drillState.current = { correct: item.p };
-    $('#drill-prompt').innerHTML = item.jp.replace('＿', '<span style="color:#8a1f17;font-weight:800">（　）</span>');
+    $('#drill-prompt').innerHTML = item.jp.replace('＿', '<span style="color:var(--red-deep-text);font-weight:800">（　）</span>');
     $('#drill-de').textContent = item.de;
     $('#drill-instruction').innerHTML = 'Wähle die richtige <b>Partikel</b>';
     const choicesRoot = $('#drill-choices');
@@ -6909,7 +7112,7 @@ function nextDrill(){
   drillState.current = {item, target, correct};
   $('#drill-prompt').innerHTML = item.jisho;
   $('#drill-de').textContent = item.de;
-  $('#drill-instruction').innerHTML = `Bilde die <b>${target.label}</b> <span style="color:#6b5d4a;font-size:.8em">(${target.de})</span>`;
+  $('#drill-instruction').innerHTML = `Bilde die <b>${target.label}</b> <span style="color:var(--muted);font-size:.8em">(${target.de})</span>`;
   const choicesRoot = $('#drill-choices');
   choicesRoot.innerHTML = '';
   choices.forEach(c => {
@@ -6964,12 +7167,194 @@ function resetScore(){
    MODE-SWITCH + INIT
    =================================================================== */
 
+/* ===================================================================
+   場面 SITUATION-TRAINER  (aktives Abrufen statt Wiedererkennen)
+   Pro Grammatikpunkt eine deutsche Alltags-Situation. Reihenfolge =
+   identisch zu MINNA_LESSONS (Join über den Index, mit l-Sanity-Check).
+   Musterlösung/Erklärung kommen aus dem jeweiligen Lektionseintrag.
+   =================================================================== */
+const SITUATIONS = window.MINNA_SITUATIONS || [];
+
+// Join Situationen ↔ Grammatikdaten über den Index (l-Sanity-Check schützt vor Drift).
+// Jede Variante (Lektionsbeispiel + zusätzliche) wird zu einer eigenen Karte.
+const SIT_CARDS = [];
+(window.MINNA_LESSONS || []).forEach((c, i) => {
+  const s = SITUATIONS[i];
+  if(!s || s.l !== c.l) return;
+  // Variante 1: bestehender Lektions-Beispielsatz als Musterlösung
+  if(s.sit) SIT_CARDS.push({ l:c.l, t:c.t, sit:s.sit, jp:(c.ex&&c.ex.jp)||'', de:(c.ex&&c.ex.de)||'', gloss:c.gloss||'' });
+  // weitere Varianten mit eigenem Mustersatz
+  (s.more || []).forEach(m => {
+    if(m && m.sit) SIT_CARDS.push({ l:c.l, t:c.t, sit:m.sit, jp:m.jp||'', de:m.de||'', gloss:c.gloss||'' });
+  });
+});
+
+const SIT_MAX_LEVEL = SIT_CARDS.length ? Math.max(...SIT_CARDS.map(c => c.l)) : 50;
+const sitState = { card:null, last:null, session:0 };
+
+// Tagesplan: an jedem neuen Nutzungstag wird die nächste Lektion freigeschaltet.
+function sitPlanLevel(){
+  const p = STORE.sitplan;
+  const today = todayStr();
+  if(p.date !== today){
+    p.level = Math.min((p.level || 0) + 1, SIT_MAX_LEVEL);
+    p.date = today;
+    saveStore();
+  }
+  if(p.level < 1){ p.level = 1; saveStore(); }
+  return p.level;
+}
+
+function sitScope(){ return ($('#sit-scope') && $('#sit-scope').value) || 'plan'; }
+
+function sitPool(){
+  const scope = sitScope();
+  if(scope === 'plan'){
+    const lvl = sitPlanLevel();
+    return SIT_CARDS.filter(c => c.l <= lvl);
+  }
+  if(scope === 'all') return SIT_CARDS.slice();
+  const m = scope.match(/^(\d+)-(\d+)$/);
+  if(m){ const a=+m[1], b=+m[2]; return SIT_CARDS.filter(c => c.l>=a && c.l<=b); }
+  return SIT_CARDS.slice();
+}
+
+function sitWeight(c){
+  const s = STORE.sit[c.sit];
+  if(!s || !s.seen) return 6;          // noch nie geübt → höchste Priorität
+  if(s.last === 'miss') return 5;       // zuletzt nicht gewusst
+  if(s.last === 'near') return 3;       // knapp daneben
+  return 1;                              // sitzt
+}
+
+function pickSituation(){
+  const pool = sitPool();
+  if(!pool.length) return null;
+  let cands = pool.filter(c => c.sit !== sitState.last);
+  if(!cands.length) cands = pool;
+  const w = cands.map(sitWeight);
+  let total = w.reduce((a,b)=>a+b,0), r = Math.random()*total;
+  for(let i=0;i<cands.length;i++){ r -= w[i]; if(r<=0) return cands[i]; }
+  return cands[cands.length-1];
+}
+
+function renderSitStats(){
+  const el = $('#sit-stats'); if(!el) return;
+  const scope = sitScope();
+  const pool = sitPool();
+  let solid = 0, touched = 0;
+  pool.forEach(c => { const s = STORE.sit[c.sit]; if(s && s.seen){ touched++; if(s.last==='ok') solid++; } });
+  let planLine = '';
+  if(scope === 'plan'){
+    const lvl = sitPlanLevel();
+    const next = lvl < SIT_MAX_LEVEL ? `Morgen kommt <b>Lektion ${lvl+1}</b> dazu.` : 'Alle Lektionen freigeschaltet 🎉';
+    planLine = `<div class="sit-plan">📅 <b>Tag ${lvl}</b> — freigeschaltet: <b>Lektion 1–${lvl}</b> (${pool.length} Muster). ${next}<button class="sit-reset" onclick="resetSitPlan()">↺ Tag 1</button></div>`;
+  }
+  el.innerHTML = planLine +
+    `<span>Diese Runde: <b>${sitState.session}</b></span>` +
+    `<span>· Sicher: <b>${solid}</b>/${pool.length}</span>` +
+    `<span>· schon geübt: <b>${touched}</b>/${pool.length}</span>`;
+}
+
+function renderSitCard(){
+  const c = sitState.card, el = $('#sit-card');
+  if(!el) return;
+  if(!c){
+    el.innerHTML = `<div class="sit-instruction">Für diesen Umfang gibt es noch keine Situationen.</div>`;
+    return;
+  }
+  const isNew = (() => { const s = STORE.sit[c.sit]; return !s || !s.seen; })();
+  el.innerHTML = `
+    <div class="sit-tag">場面 · Situation · Lektion ${c.l}${isNew ? '<span class="new">neu</span>' : ''}</div>
+    <div class="sit-prompt">🗣️ ${c.sit}</div>
+    <div class="sit-instruction">Bilde den japanischen Satz selbst — laut oder im Kopf. Dann auflösen.</div>
+    <div class="sit-actions">
+      <button class="btn gold" onclick="sitHint()">💡 Tipp: Muster zeigen</button>
+      <button class="btn red" onclick="sitReveal()">Auflösen ↓</button>
+    </div>
+    <div id="sit-hint" class="sit-hint hidden"></div>
+    <div id="sit-reveal"></div>`;
+  renderSitStats();
+}
+
+function sitHint(){
+  const h = $('#sit-hint'), c = sitState.card;
+  if(!h || !c) return;
+  h.innerHTML = `<span class="lbl">Welches Muster?</span>${c.t}`;
+  h.classList.remove('hidden');
+}
+
+function sitReveal(){
+  const box = $('#sit-reveal'), c = sitState.card;
+  if(!box || !c) return;
+  box.innerHTML = `
+    <div class="sit-model">
+      <span class="lbl">Muster &amp; Musterlösung</span>
+      <div class="sit-model-pattern">${c.t}</div>
+      <div class="sit-model-jp">${c.jp} ${spkBtn(c.jp)}</div>
+      <div class="sit-model-de">${c.de}</div>
+      ${c.gloss ? `<div class="sit-model-gloss">${c.gloss}</div>` : ''}
+    </div>
+    <div class="sit-rate">
+      <button class="r-ok"   onclick="sitRate('ok')">✓ Getroffen</button>
+      <button class="r-near" onclick="sitRate('near')">～ Knapp daneben</button>
+      <button class="r-miss" onclick="sitRate('miss')">✗ Nicht gewusst</button>
+    </div>`;
+  // Tipp-Button & Auflösen-Button sperren, damit der Ablauf klar ist
+  const acts = $('#sit-card .sit-actions');
+  if(acts) acts.querySelectorAll('button').forEach(b => { b.disabled = true; b.style.opacity = '.5'; });
+  // Antwort beim Auflösen automatisch vorlesen (Web Speech, durch Klick-Geste erlaubt)
+  if(STORE.sitAuto) speak(jpReading(c.jp));
+}
+
+// Tagesplan auf Tag 1 zurücksetzen (Lernstatistik bleibt erhalten).
+function resetSitPlan(){
+  if(!confirm('Tagesplan auf Tag 1 zurücksetzen? (Dein Lernfortschritt pro Situation bleibt erhalten.)')) return;
+  STORE.sitplan = {level:0, date:null};
+  saveStore();
+  sitState.last = null;
+  startSituation();
+}
+
+function sitRate(r){
+  const c = sitState.card; if(!c) return;
+  const s = STORE.sit[c.sit] || {seen:0, ok:0, miss:0, near:0};
+  s.seen = (s.seen||0)+1;
+  if(r==='ok')   s.ok   = (s.ok||0)+1;
+  if(r==='near') s.near = (s.near||0)+1;
+  if(r==='miss') s.miss = (s.miss||0)+1;
+  s.last = r;
+  STORE.sit[c.sit] = s;
+  saveStore();
+  if(r === 'ok') bumpStreak();
+  sitState.session++;
+  sitState.last = c.sit;
+  nextSituation();
+}
+
+function nextSituation(){
+  sitState.card = pickSituation();
+  renderSitCard();
+}
+
+function startSituation(){
+  if(!SIT_CARDS.length){
+    $('#sit-card').innerHTML = `<div class="sit-instruction">Situations-Daten konnten nicht geladen werden.</div>`;
+    return;
+  }
+  if(sitScope() === 'plan') sitPlanLevel();  // ggf. heute neue Lektion freischalten
+  renderSitStats();
+  nextSituation();
+}
+
 function switchMode(mode){
   $$('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
   $('#mode-lessons').classList.toggle('hidden', mode !== 'lessons');
+  $('#mode-situation').classList.toggle('hidden', mode !== 'situation');
   $('#mode-drill').classList.toggle('hidden', mode !== 'drill');
   $('#mode-review').classList.toggle('hidden', mode !== 'review');
   $('#mode-progress').classList.toggle('hidden', mode !== 'progress');
+  if(mode === 'situation') startSituation();
   if(mode === 'review') startReview();
   if(mode === 'progress') renderProgress();
 }
@@ -7003,9 +7388,16 @@ function init(){
   $('#reset-score').addEventListener('click', resetScore);
   $('#review-mode').addEventListener('change', renderReviewCard);
   $('#review-new').addEventListener('change', startReview);
+  $('#sit-scope').addEventListener('change', startSituation);
+  $('#sit-auto').checked = !!STORE.sitAuto;
+  $('#sit-auto').addEventListener('change', e => { STORE.sitAuto = e.target.checked; saveStore(); });
 
   // Deep-Link via ?lesson=N → direkt diese Lektion öffnen
   const params = new URLSearchParams(window.location.search);
+  const wantMode = params.get('mode');
+  if (wantMode && document.querySelector('.mode-tab[data-mode="'+wantMode+'"]')) {
+    switchMode(wantMode);
+  }
   const wantLesson = parseInt(params.get('lesson'), 10);
   if (wantLesson >= 1 && wantLesson <= 50) {
     switchMode('lessons');
@@ -7033,6 +7425,11 @@ window.vocabQuizNext = vocabQuizNext;
 window.toggleVocabDir = toggleVocabDir;
 window.closeVocabQuiz = closeVocabQuiz;
 window.switchMode = switchMode;
+window.startSituation = startSituation;
+window.sitHint = sitHint;
+window.sitReveal = sitReveal;
+window.sitRate = sitRate;
+window.resetSitPlan = resetSitPlan;
 window.startReview = startReview;
 window.reviewAnswer = reviewAnswer;
 window.reviewNext = reviewNext;
@@ -7046,6 +7443,19 @@ if('serviceWorker' in navigator){
     navigator.serviceWorker.register('../service-worker.js').catch(() => {});
   });
 }
+</script>
+
+
+<button class="theme-fab" id="themeFab" type="button" aria-label="Hell-/Dunkelmodus umschalten" title="Hell / Dunkel"><span class="moon">🌙</span><span class="sun">☀️</span></button>
+<script>
+(function(){
+  var root=document.documentElement,meta=document.getElementById('theme-color-meta');
+  var colors={light:'#f4ede0',dark:'#15120f'};
+  function apply(t){root.setAttribute('data-theme',t);if(meta)meta.setAttribute('content',colors[t]||colors.light);}
+  apply(root.getAttribute('data-theme')||'dark');
+  var b=document.getElementById('themeFab');
+  if(b)b.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';apply(n);try{localStorage.setItem('theme',n);}catch(e){}});
+})();
 </script>
 
 </body>
