@@ -4086,15 +4086,29 @@ function renderLessonGrid(){
   }
 }
 
+// Slots können verschachtelt sein ([[zeile1],[zeile2]]) — z.B. mehrphasige
+// Muster wie ～ところ oder Keigo-Stufen. Diese Helfer glättet sie für Logik,
+// die nur eine flache Liste von Slot-Objekten erwartet.
+function flattenSlots(slots){
+  if(!slots || !slots.length) return [];
+  return Array.isArray(slots[0]) ? slots.flat() : slots;
+}
+
 function renderSlotDiagram(slots){
   if(!slots || !slots.length) return '';
-  let html = '<div class="pattern-box"><div class="pattern-line">';
-  slots.forEach(s => {
-    const cls = s.role || 'plain';
-    const label = s.label ? `<span class="slot-label">${s.label}</span>` : '';
-    html += `<span class="slot ${cls}"><span class="slot-text">${s.text}</span>${label}</span>`;
+  // Mehrzeilige (verschachtelte) Muster als mehrere Zeilen rendern.
+  const lines = Array.isArray(slots[0]) ? slots : [slots];
+  let html = '<div class="pattern-box">';
+  lines.forEach(line => {
+    html += '<div class="pattern-line">';
+    line.forEach(s => {
+      const cls = s.role || 'plain';
+      const label = s.label ? `<span class="slot-label">${s.label}</span>` : '';
+      html += `<span class="slot ${cls}"><span class="slot-text">${s.text}</span>${label}</span>`;
+    });
+    html += '</div>';
   });
-  html += '</div></div>';
+  html += '</div>';
   return html;
 }
 
@@ -4182,6 +4196,7 @@ function revealExample(el){
    =================================================================== */
 
 function detectSlotNeeds(slots){
+  slots = flattenSlots(slots);
   if(!slots || !slots.length) return {nouns:1};
 
   // Primärsignal sind die Slot-Rollen — zuverlässiger als Text-Heuristik.
@@ -6392,7 +6407,7 @@ function slotChip(text, idx, label){
 }
 
 function renderSlotExercise(boxEl, c, lessonNum, idx, solutionHtml){
-  const slots = (c.slots || []).filter(s => s && s.text && jpBare(s.text).trim());
+  const slots = flattenSlots(c.slots).filter(s => s && s.text && jpBare(s.text).trim());
   if(slots.length < 2){
     boxEl.innerHTML = `
       <div class="ex-help">ℹ️ Dieses Muster ist eine einzelne Form — hier gibt es keine Reihenfolge zum Bauen. Schau dir das Muster oben und das Beispiel an.</div>
