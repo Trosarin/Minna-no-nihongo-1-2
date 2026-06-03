@@ -4316,8 +4316,7 @@ const EXERCISE_SETS = {
     {jp:'<ruby>日本語<rt>にほんご</rt></ruby>', de:'Japanisch', role:'Objekt'},
     {jp:'<ruby>自転車<rt>じてんしゃ</rt></ruby>', de:'Fahrrad', role:'Objekt'},
   ],
-  'L27-1': [ // …が 見えます / 聞こえます  (Ort + Wahrnehmung — alle Kombinationen korrekt)
-    {jp:'<ruby>飛行機<rt>ひこうき</rt></ruby>から', de:'vom Flugzeug aus', role:'Ort'},
+  'L27-1': [ // …が 見えます / 聞こえます  (Ort + Wahrnehmung — als Diagonal-Paare generiert)
     {jp:'<ruby>部屋<rt>へや</rt></ruby>の <ruby>窓<rt>まど</rt></ruby>から', de:'vom Zimmerfenster aus', role:'Ort'},
     {jp:'ここから', de:'von hier aus', role:'Ort'},
     {jp:'ホテルの <ruby>部屋<rt>へや</rt></ruby>から', de:'vom Hotelzimmer aus', role:'Ort'},
@@ -4349,7 +4348,6 @@ const EXERCISE_SETS = {
   ],
   'L28-2': [ // …は …し、…し
     {jp:'あの レストランは', de:'jenes Restaurant', role:'Subjekt'},
-    {jp:'この <ruby>町<rt>まち</rt></ruby>は', de:'diese Stadt', role:'Subjekt'},
     {jp:'<ruby>安<rt>やす</rt></ruby>い', de:'ist billig', role:'Grund 1'},
     {jp:'おいしい', de:'ist lecker', role:'Grund 1'},
     {jp:'<ruby>便利<rt>べんり</rt></ruby>だ', de:'ist praktisch', role:'Grund 1'},
@@ -4758,8 +4756,8 @@ const EXERCISE_SETS = {
     {jp:'<ruby>忘<rt>わす</rt></ruby>れない', de:'nichts vergessen', role:'Ziel'},
     {jp:'ように', de:'damit / um … zu', role:'ように', fixed:true},
     {jp:'<ruby>毎日<rt>まいにち</rt></ruby> <ruby>練習<rt>れんしゅう</rt></ruby>します', de:'jeden Tag üben', role:'Handlung'},
-    {jp:'メモを <ruby>取<rt>と</rt></ruby>ります', de:'Notizen machen', role:'Handlung'},
     {jp:'<ruby>早<rt>はや</rt></ruby>く <ruby>寝<rt>ね</rt></ruby>ます', de:'früh schlafen gehen', role:'Handlung'},
+    {jp:'メモを <ruby>取<rt>と</rt></ruby>ります', de:'Notizen machen', role:'Handlung'},
   ],
 
   // === L37: Passiv ===
@@ -5045,7 +5043,6 @@ const EXERCISE_SETS = {
     {jp:'<ruby>図書館<rt>としょかん</rt></ruby>へ <ruby>勉強<rt>べんきょう</rt></ruby>に', de:'zur Bibliothek lernen', role:'Zweck (V-stem に)'},
     {jp:'<ruby>行<rt>い</rt></ruby>きます', de:'gehen', role:'Bewegung'},
     {jp:'<ruby>来<rt>き</rt></ruby>ます', de:'kommen', role:'Bewegung'},
-    {jp:'<ruby>帰<rt>かえ</rt></ruby>ります', de:'zurückkehren', role:'Bewegung'},
   ],
   'L42-4': [ // …は …かかります / 必要です (mindestens)
     {jp:'3<ruby>時間<rt>じかん</rt></ruby>は', de:'mindestens 3 Stunden', role:'Minimum'},
@@ -5152,8 +5149,8 @@ const EXERCISE_SETS = {
   // === L45: ばあい / のに ===
   'L45-0': [ // …場合は …てください
     {jp:'<ruby>地震<rt>じしん</rt></ruby>の', de:'Erdbeben (+の)', role:'Fall (Nomen)'},
-    {jp:'<ruby>火事<rt>かじ</rt></ruby>の', de:'Brand (+の)', role:'Fall (Nomen)'},
     {jp:'<ruby>電車<rt>でんしゃ</rt></ruby>が <ruby>止<rt>と</rt></ruby>まった', de:'der Zug bleibt stehen', role:'Fall (Verb)'},
+    {jp:'<ruby>火事<rt>かじ</rt></ruby>の', de:'Brand (+の)', role:'Fall (Nomen)'},
     {jp:'<ruby>熱<rt>ねつ</rt></ruby>が ある', de:'man hat Fieber', role:'Fall (Verb)'},
     {jp:'<ruby>場合<rt>ばあい</rt></ruby>は', de:'im Fall von …', role:'場合は', fixed:true},
     {jp:'すぐ <ruby>逃<rt>に</rt></ruby>げて ください', de:'…fliehen Sie sofort', role:'Anweisung'},
@@ -5173,7 +5170,6 @@ const EXERCISE_SETS = {
     {jp:'<ruby>届<rt>とど</rt></ruby>く はずだったのに、', de:'hätte ankommen sollen, aber…', role:'Erwartung'},
     {jp:'<ruby>来<rt>く</rt></ruby>る はずだったのに、', de:'hätte kommen sollen, aber…', role:'Erwartung'},
     {jp:'<ruby>合格<rt>ごうかく</rt></ruby>する はずだったのに、', de:'hätte bestehen sollen, aber…', role:'Erwartung'},
-    {jp:'<ruby>間<rt>ま</rt></ruby>に <ruby>合<rt>あ</rt></ruby>う はずだったのに、', de:'hätte reichen sollen, aber…', role:'Erwartung'},
     {jp:'<ruby>届<rt>とど</rt></ruby>きませんでした', de:'…es kam nicht an', role:'Realität', fixed:true},
     {jp:'<ruby>来<rt>き</rt></ruby>ませんでした', de:'…er kam nicht', role:'Realität', fixed:true},
     {jp:'だめでした', de:'…es klappte nicht', role:'Realität', fixed:true},
