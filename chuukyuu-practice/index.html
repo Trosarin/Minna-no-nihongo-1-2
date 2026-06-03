@@ -2827,7 +2827,7 @@ function conjFromDict(jp){
   const last = bare.slice(-1);
   if(last === 'る'){
     const before = jpReading(jp).slice(-2, -1);
-    if(EROW.has(before) || /すぎる$/.test(bare)){ const s = jp.replace(/る$/, ''); return [s+'ます',s+'ました',s+'ません',s+'ませんでした',s+'た',s+'ない',s+'なかった']; } // え-Reihe oder すぎる (ichidan)
+    if(EROW.has(before) || /すぎる$/.test(bare) || /[てで]いる$/.test(bare)){ const s = jp.replace(/る$/, ''); return [s+'ます',s+'ました',s+'ません',s+'ませんでした',s+'た',s+'ない',s+'なかった']; } // え-Reihe, すぎる oder ている/でいる (ichidan-Hilfsverb いる)
     // sonst godan-る
   }
   if(!U2I[last]) return null;
