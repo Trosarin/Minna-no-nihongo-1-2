@@ -297,6 +297,31 @@
     border:2px dashed var(--red-deep);
     border-radius:3px;
   }
+  /* „Level up" — Sätze verbinden */
+  .levelup-toggle{
+    display:flex;align-items:center;gap:.45rem;
+    margin:.7rem 0 .2rem;padding:.5rem .7rem;
+    background:var(--paper-2);border:1px solid var(--gold);border-radius:6px;
+    font-size:.9rem;cursor:pointer;-webkit-tap-highlight-color:transparent;
+  }
+  .levelup-toggle input{width:1.05rem;height:1.05rem;accent-color:var(--gold);cursor:pointer}
+  .levelup-hint{color:var(--muted);font-size:.78rem}
+  .combo-section{
+    margin-top:1.2rem;padding:.9rem;
+    background:linear-gradient(180deg, rgba(184,137,58,.08), transparent 60%);
+    border:1px solid var(--gold);border-radius:8px;
+  }
+  .combo-head{font-weight:700;color:var(--gold-text);margin-bottom:.15rem}
+  .combo-sub{font-size:.8rem;color:var(--muted);margin-bottom:.7rem}
+  .combo-card{margin-bottom:1rem}
+  .combo-card:last-child{margin-bottom:0}
+  .combo-de{font-size:.86rem;color:var(--ink);margin-bottom:.1rem;font-style:italic}
+  .ex-chip-conn{
+    background:var(--gold)!important;color:#fff!important;
+    border-color:var(--gold)!important;font-weight:700;
+  }
+  .ex-chip-conn .ex-chip-role{color:rgba(255,255,255,.85)!important}
+  .ex-chip-conn .ex-chip-de{color:rgba(255,255,255,.9)!important}
   .ex-help{
     font-size:.82rem;color:var(--ink);
     margin-bottom:.6rem;
@@ -4005,6 +4030,7 @@ function saveStore(){
 const STORE = loadStore();
 STORE.drill  = STORE.drill  || {score:0, total:0};
 STORE.done   = STORE.done   || {};     // "L6-0": true (richtig gebaut)
+STORE.levelup = STORE.levelup || false; // „Level up" — Sätze verbinden aktiviert?
 STORE.vocab  = STORE.vocab  || {};     // de-Label: {seen, ok}
 STORE.streak = STORE.streak || {count:0, last:null};
 STORE.sit    = STORE.sit    || {};     // Situation-Trainer: sit-Text → {seen, ok, miss, last}
@@ -4113,16 +4139,19 @@ function renderSlotDiagram(slots){
 }
 
 function showLessonDetail(lessonNum){
+  comboLesson = lessonNum;
   $('#lesson-grid-view').classList.add('hidden');
   const root = $('#lesson-detail-view');
   root.classList.remove('hidden');
   const entries = MINNA_LESSONS.filter(c => c.l === lessonNum);
   const vocab = VOCAB_BY_LESSON[lessonNum] || [];
+  const hasCombo = !!(COMBO_SETS[lessonNum] && COMBO_SETS[lessonNum].length);
 
   let html = `
     <button class="lesson-back" onclick="backToGrid()">← Lektionsübersicht</button>
     <div class="lesson-detail-title">Lektion ${lessonNum}</div>
     <div class="lesson-detail-sub">${LESSON_TOPICS[lessonNum] || ''} · ${entries.length} Unterpunkt${entries.length===1?'':'e'}</div>
+    ${hasCombo ? `<label class="levelup-toggle"><input type="checkbox" id="levelup-chk" ${STORE.levelup ? 'checked' : ''} onchange="toggleLevelup(this)"> ⚡ <b>Level up</b>: Sätze verbinden <span class="levelup-hint">(zusätzliche Übungen)</span></label>` : ''}
   `;
   entries.forEach((c, idx) => {
     const entryId = `ex-${lessonNum}-${idx}`;
@@ -4147,6 +4176,7 @@ function showLessonDetail(lessonNum){
       </div>
     `;
   });
+  if(hasCombo && STORE.levelup){ html += renderComboSection(lessonNum); }
   if(vocab.length){
     html += `
       <div class="vocab-section">
@@ -6338,6 +6368,132 @@ function curatedCheckOrder(btn){
   }
   bumpStreak();
   updateStatusBar();
+}
+
+/* ===================================================================
+   „LEVEL UP" — Sätze verbinden.  Zusammengesetzte Sätze aus bereits
+   geprüften Teilsätzen + Verbindungswörtern. KORREKTHEITS-PRINZIP:
+   • Jeder Teilsatz ist EIN fertiger, geprüfter Block (keine Wort-für-
+     Wort-Rekombination → es kann kein unsinniger Satz entstehen).
+   • Verbinder (から/ので/が/し/そして/でも/だから …) sind eigene Blöcke.
+   • Geprüft wird die EXAKTE Reihenfolge (jeder Block genau eine Position).
+   COMBO_SETS[lektion] = [ { de, b:[{jp,de,role,conn?}] }, … ]
+   Reihenfolge im Array = korrekte Satzreihenfolge.
+   =================================================================== */
+const COMBO_SETS = {
+  8: [
+    { de: 'Japanisch ist schwer, aber es ist interessant.',
+      b: [ {jp:'<ruby>日本語<rt>にほんご</rt></ruby>は <ruby>難<rt>むずか</rt></ruby>しいです', de:'Japanisch ist schwer', role:'Aussage 1'},
+           {jp:'が、', de:'…, aber', role:'Verbinder', conn:true},
+           {jp:'おもしろいです', de:'es ist interessant', role:'Aussage 2'} ] },
+    { de: 'Dieses Buch ist teuer. Aber ich kaufe es.',
+      b: [ {jp:'この <ruby>本<rt>ほん</rt></ruby>は <ruby>高<rt>たか</rt></ruby>いです。', de:'Dieses Buch ist teuer.', role:'Satz 1'},
+           {jp:'でも、', de:'Aber', role:'Verbinder', conn:true},
+           {jp:'<ruby>買<rt>か</rt></ruby>います', de:'ich kaufe es', role:'Satz 2'} ] },
+  ],
+  9: [
+    { de: 'Heute habe ich keine Zeit, deshalb fahre ich mit dem Taxi nach Hause.',
+      b: [ {jp:'<ruby>今日<rt>きょう</rt></ruby>は <ruby>時間<rt>じかん</rt></ruby>が ありません', de:'Heute keine Zeit', role:'Grund'},
+           {jp:'から、', de:'…, weil / deshalb', role:'Verbinder', conn:true},
+           {jp:'タクシーで <ruby>帰<rt>かえ</rt></ruby>ります', de:'mit dem Taxi heimfahren', role:'Folge'} ] },
+    { de: 'Morgen ist eine Prüfung. Deshalb lerne ich heute Abend.',
+      b: [ {jp:'<ruby>明日<rt>あした</rt></ruby> <ruby>試験<rt>しけん</rt></ruby>が あります。', de:'Morgen ist eine Prüfung.', role:'Satz 1'},
+           {jp:'だから、', de:'Deshalb', role:'Verbinder', conn:true},
+           {jp:'<ruby>今晩<rt>こんばん</rt></ruby> <ruby>勉強<rt>べんきょう</rt></ruby>します', de:'heute Abend lernen', role:'Satz 2'} ] },
+  ],
+  14: [
+    { de: 'Ich stehe um 7 auf und gehe dann zur Firma.',
+      b: [ {jp:'7<ruby>時<rt>じ</rt></ruby>に <ruby>起<rt>お</rt></ruby>きて、', de:'um 7 aufstehen und', role:'Teil 1 (て-Form)'},
+           {jp:'<ruby>会社<rt>かいしゃ</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます', de:'zur Firma gehen', role:'Teil 2'} ] },
+  ],
+  16: [
+    { de: 'Ich dusche, esse Frühstück und lese Zeitung.',
+      b: [ {jp:'シャワーを <ruby>浴<rt>あ</rt></ruby>びて、', de:'duschen und', role:'Teil 1 (て)'},
+           {jp:'ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べて、', de:'essen und', role:'Teil 2 (て)'},
+           {jp:'<ruby>新聞<rt>しんぶん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます', de:'Zeitung lesen', role:'Teil 3'} ] },
+    { de: 'Ich habe Hausaufgaben gemacht. Danach habe ich ferngesehen.',
+      b: [ {jp:'<ruby>宿題<rt>しゅくだい</rt></ruby>を しました。', de:'Hausaufgaben gemacht.', role:'Satz 1'},
+           {jp:'それから、', de:'Danach', role:'Verbinder', conn:true},
+           {jp:'テレビを <ruby>見<rt>み</rt></ruby>ました', de:'ferngesehen', role:'Satz 2'} ] },
+    { de: 'Ich bin nach Kyoto gefahren. Und ich habe einen Tempel besichtigt.',
+      b: [ {jp:'<ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きました。', de:'Nach Kyoto gefahren.', role:'Satz 1'},
+           {jp:'そして、', de:'Und (dann)', role:'Verbinder', conn:true},
+           {jp:'お<ruby>寺<rt>てら</rt></ruby>を <ruby>見<rt>み</rt></ruby>ました', de:'einen Tempel besichtigt', role:'Satz 2'} ] },
+  ],
+  23: [
+    { de: 'Wenn der Frühling kommt, blühen die Kirschblüten.',
+      b: [ {jp:'<ruby>春<rt>はる</rt></ruby>に なると、', de:'wenn der Frühling kommt', role:'Teil 1 (と)'},
+           {jp:'<ruby>桜<rt>さくら</rt></ruby>が <ruby>咲<rt>さ</rt></ruby>きます', de:'blühen die Kirschblüten', role:'Teil 2'} ] },
+  ],
+  25: [
+    { de: 'Wenn ich am Bahnhof ankomme, rufe ich an.',
+      b: [ {jp:'<ruby>駅<rt>えき</rt></ruby>に <ruby>着<rt>つ</rt></ruby>いたら、', de:'wenn ich ankomme', role:'Teil 1 (たら)'},
+           {jp:'<ruby>電話<rt>でんわ</rt></ruby>します', de:'rufe ich an', role:'Teil 2'} ] },
+  ],
+  28: [
+    { de: 'Dieses Restaurant ist billig und lecker, also komme ich oft.',
+      b: [ {jp:'この <ruby>店<rt>みせ</rt></ruby>は <ruby>安<rt>やす</rt></ruby>い', de:'Dieser Laden ist billig', role:'Grund 1'},
+           {jp:'し、', de:'…, und (Grund)', role:'Verbinder', conn:true},
+           {jp:'おいしい', de:'lecker', role:'Grund 2'},
+           {jp:'し、', de:'…, und (Grund)', role:'Verbinder', conn:true},
+           {jp:'よく <ruby>来<rt>き</rt></ruby>ます', de:'komme ich oft', role:'Folge'} ] },
+  ],
+  39: [
+    { de: 'Weil die Straße voll ist, komme ich zu spät.',
+      b: [ {jp:'<ruby>道<rt>みち</rt></ruby>が <ruby>込<rt>こ</rt></ruby>んでいる', de:'die Straße ist voll', role:'Grund'},
+           {jp:'ので、', de:'…, weil (höflich)', role:'Verbinder', conn:true},
+           {jp:'<ruby>遅<rt>おく</rt></ruby>れます', de:'komme ich zu spät', role:'Folge'} ] },
+  ],
+};
+
+let comboLesson = null;
+function toggleLevelup(chk){ STORE.levelup = !!chk.checked; saveStore(); if(comboLesson != null) showLessonDetail(comboLesson); }
+
+function comboPoolHtml(blocks){
+  const order = blocks.map((_, i) => i);
+  for(let i = order.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [order[i], order[j]] = [order[j], order[i]]; }
+  return order.map(i => {
+    const w = blocks[i];
+    return `<span class="ex-chip${w.conn ? ' ex-chip-conn' : ''}" onclick="exPickChip(this)" data-order="${i}" data-role="${w.role || ''}">
+      ${w.role ? `<span class="ex-chip-role">${w.role}</span>` : ''}
+      <span class="ex-chip-jp">${w.jp}</span>
+      <span class="ex-chip-de">${w.de || ''}</span>
+    </span>`;
+  }).join('');
+}
+
+function renderComboSection(lessonNum){
+  const list = COMBO_SETS[lessonNum];
+  if(!list || !list.length) return '';
+  let h = `<div class="combo-section">
+    <div class="combo-head">⚡ Level up — Sätze verbinden</div>
+    <div class="combo-sub">Baue aus den Teilsätzen und Verbindungswörtern einen längeren, zusammengesetzten Satz. Tippe die Bausteine in die richtige Reihenfolge.</div>`;
+  list.forEach((t, ci) => {
+    const id = `cmb-${lessonNum}-${ci}`;
+    const model = t.b.map(w => w.jp).join(' ');
+    h += `<div class="combo-card">
+      <div class="combo-de">„${t.de}"</div>
+      <div class="exercise-box" id="${id}">
+        <div class="ex-answer empty"></div>
+        <div class="ex-source-label">Bausteine</div>
+        <div class="ex-word-pool ex-source">${comboPoolHtml(t.b)}</div>
+        <div class="ex-feedback"></div>
+        <div class="ex-actions">
+          <button onclick="curatedCheckOrder(this)">✓ Prüfen</button>
+          <button class="ghost" onclick="exResetBuild(this)" title="Zurücksetzen">↺</button>
+        </div>
+        <div class="ex-tools">
+          <button class="ex-link" onclick="exRevealModel(this)">💡 Lösung</button>
+        </div>
+        <div class="ex-model hidden">
+          <div class="ex-model-label">Modell-Reihenfolge</div>
+          <div class="ex-model-jp">${model}</div>
+        </div>
+      </div>
+    </div>`;
+  });
+  h += `</div>`;
+  return h;
 }
 
 function renderExerciseBox(boxEl, lessonNum, idx){
