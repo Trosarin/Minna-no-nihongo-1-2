@@ -1195,6 +1195,28 @@ function htmlStripLast(htmlStr, lastKana){
   return htmlStr.slice(0, idx) + htmlStr.slice(idx + lastKana.length);
 }
 
+// Erweiterte Konjugationen für den Drill: たい / Potential / Passiv / Kausativ / Volitional.
+const ADV_POT = {'う':'える','く':'ける','ぐ':'げる','す':'せる','つ':'てる','ぬ':'ねる','ぶ':'べる','む':'める','る':'れる'};
+const ADV_PAS = {'う':'われる','く':'かれる','ぐ':'がれる','す':'される','つ':'たれる','ぬ':'なれる','ぶ':'ばれる','む':'まれる','る':'られる'};
+const ADV_CAU = {'う':'わせる','く':'かせる','ぐ':'がせる','す':'させる','つ':'たせる','ぬ':'なせる','ぶ':'ばせる','む':'ませる','る':'らせる'};
+const ADV_VOL = {'う':'おう','く':'こう','ぐ':'ごう','す':'そう','つ':'とう','ぬ':'のう','ぶ':'ぼう','む':'もう','る':'ろう'};
+// Stative/Meta-Verben: bestimmte Formen sind unsinnig → weglassen (Drill überspringt sie).
+const ADV_EXCLUDE = { 'できる':['tai','potential','passive','causative','volitional'], '見える':['potential','passive'], '聞こえる':['potential','passive'], '分かる':['potential','passive'] };
+function addAdvancedForms(out, v){
+  const KI = '<ruby>来<rt>き</rt></ruby>', KO = '<ruby>来<rt>こ</rt></ruby>';
+  if(v.g === 2){
+    out.tai = v.stem+'たい'; out.potential = v.stem+'られる'; out.passive = v.stem+'られる'; out.causative = v.stem+'させる'; out.volitional = v.stem+'よう';
+  } else if(v.g === 3){
+    if(v.de === 'machen / tun'){ out.tai='したい'; out.potential='できる'; out.passive='される'; out.causative='させる'; out.volitional='しよう'; }
+    else { out.tai=KI+'たい'; out.potential=KO+'られる'; out.passive=KO+'られる'; out.causative=KO+'させる'; out.volitional=KO+'よう'; }
+  } else {
+    const s = htmlStripLast(v.jisho, v.last);
+    out.tai = v.stem+'たい'; out.potential = s+ADV_POT[v.last]; out.passive = s+ADV_PAS[v.last]; out.causative = s+ADV_CAU[v.last]; out.volitional = s+ADV_VOL[v.last];
+  }
+  const bare = (v.jisho||'').replace(/<rt>.*?<\/rt>/g,'').replace(/<[^>]+>/g,'');
+  const ex = ADV_EXCLUDE[bare];
+  if(ex) ex.forEach(k => { delete out[k]; });
+}
 function conjVerb(v){
   const out = {jisho:v.jisho, de:v.de, group:v.g};
   if(v.g === 2){
@@ -1227,6 +1249,7 @@ function conjVerb(v){
     out.nai = stripped + (NAI_MAP[v.last] || 'らない');
     out.nakatta = stripped + (NAKATTA_MAP[v.last] || 'らなかった');
   }
+  addAdvancedForms(out, v);
   return out;
 }
 const VERB_FORMS = VERBS.map(conjVerb);
@@ -3837,6 +3860,11 @@ const DRILL_TARGETS = {
     {key:'ta',           label:'た-Form',           de:'einfach, Vergangenheit'},
     {key:'nai',          label:'ない-Form',         de:'einfach, Verneinung'},
     {key:'nakatta',      label:'なかった-Form',      de:'einfach, Verg. Verneinung'},
+    {key:'tai',          label:'たい-Form',          de:'will … tun'},
+    {key:'potential',    label:'可能形 (Potential)', de:'… können'},
+    {key:'passive',      label:'受身形 (Passiv)',    de:'wird … getan'},
+    {key:'causative',    label:'使役形 (Kausativ)',  de:'… tun lassen'},
+    {key:'volitional',   label:'意向形 (Volitional)',de:'lass uns …'},
   ],
   iadj: [
     {key:'negation', label:'〜くないです',     de:'Verneinung'},
@@ -3982,8 +4010,13 @@ function nextDrill(){
     $('#drill-feedback').textContent = '';
     return;
   }
-  const item = pickRandom(data);
-  const target = pickRandom(targets);
+  let item, okTargets;
+  for(let attempt = 0; attempt < 25; attempt++){
+    item = pickRandom(data);
+    okTargets = targets.filter(t => item[t.key]);
+    if(okTargets.length) break;
+  }
+  const target = pickRandom(okTargets && okTargets.length ? okTargets : targets);
   const correct = item[target.key];
   const pool = new Set([correct]);
   const otherForms = Object.keys(item).filter(k => typeof item[k] === 'string' && k !== 'de' && k !== target.key);
