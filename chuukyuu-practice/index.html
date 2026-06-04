@@ -3183,7 +3183,13 @@ let comboLesson = null;
   };
   for(const l in add){ (COMBO_SETS[l] = COMBO_SETS[l] || []).push(...add[l]); }
 })();
-function toggleLevelup(chk){ STORE.levelup = !!chk.checked; saveStore(); if(comboLesson != null) showLessonDetail(comboLesson); }
+function toggleLevelup(chk){
+  STORE.levelup = !!chk.checked; saveStore();
+  if(comboLesson != null){
+    showLessonDetail(comboLesson);
+    if(STORE.levelup){ const sec = document.querySelector('.combo-section'); if(sec) sec.scrollIntoView({ behavior:'smooth', block:'start' }); }
+  }
+}
 
 function comboPoolHtml(blocks){
   const order = blocks.map((_, i) => i);
@@ -4071,6 +4077,24 @@ const SIT_CARDS = [];
     if(m && m.sit) SIT_CARDS.push({ l:c.l, t:c.t, sit:m.sit, jp:m.jp||'', de:m.de||'', gloss:c.gloss||'' });
   });
 });
+
+// „Level up" — zusammengesetzte Sätze auch im Situationen-Trainer aktiv bilden.
+if(typeof COMBO_SETS !== 'undefined'){
+  Object.keys(COMBO_SETS).forEach(L => {
+    (COMBO_SETS[L] || []).forEach(t => {
+      const jp = t.b.map(w => w.jp).join(' ');
+      const conns = t.b.filter(w => w.conn).map(w => jpBare(w.jp).replace(/[、。\s]/g, '')).filter(Boolean);
+      SIT_CARDS.push({
+        l: +L,
+        t: '⚡ Sätze verbinden',
+        sit: 'Sag auf Japanisch — verbinde zu EINEM Satz: «' + t.de + '»',
+        jp,
+        de: t.de,
+        gloss: 'Zwei Teile zu einem Satz verbinden' + (conns.length ? ' — Verbindungswort: ' + conns.join(' / ') : '') + '.'
+      });
+    });
+  });
+}
 
 const SIT_MAX_LEVEL = SIT_CARDS.length ? Math.max(...SIT_CARDS.map(c => c.l)) : 10;
 const sitState = { card:null, last:null, session:0 };
