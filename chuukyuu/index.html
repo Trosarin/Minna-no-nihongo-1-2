@@ -1069,7 +1069,7 @@ const CARDS = [
     {form:"Varianten (≈ gleich)",verb:"N₁ + というと / といったら",de:"alle drei austauschbar"},
     {form:"Nominalisiertes V",verb:"<ruby>泳<rt>およ</rt></ruby>ぐといえば、…",de:"auch nach Verb möglich"}
    ],
-   pattern:{slots:[{text:"N₁",role:"obj",label:"Stichwort"},{text:"といえば、",role:"actor",label:"apropos"},{text:"N₂",role:"subj",label:"Assoziation"},{text:"だ/です",role:"plain"}],gloss:"»Wenn man N₁ sagt — dann denkt man an N₂.« — die Assoziation ist allgemein bekannt, nicht persönlich."},
+   pattern:{slots:[{text:"N₁",role:"obj",label:"Stichwort"},{text:"といえば、",role:"actor",label:"apropos"},{text:"N₂",role:"subj",label:"Assoziation"},{text:"だ/です",role:"plain"}],gloss:"»Wenn man N₁ sagt, denkt man an N₂.« — nennt das, was einem zu einem Thema sofort einfällt (allgemein bekannt). Auch: というと / といったら."},
    bauplan:[
     "Wähle das <b>Thema/Stichwort</b> (N₁), das du als Aufhänger nehmen willst — z.B. <code><ruby>京都<rt>きょうと</rt></ruby></code>.",
     "Hänge direkt <code>といえば、</code> dran — kein は, kein を, nichts dazwischen.",
@@ -1091,7 +1091,7 @@ const CARDS = [
     {form:"Beispiel-Mengen",verb:"3<ruby>時間<rt>じかん</rt></ruby>も / 5<ruby>回<rt>かい</rt></ruby>も / 100<ruby>人<rt>にん</rt></ruby>も",de:"ganze 3 Stunden / 5 Mal / 100 Leute"},
     {form:"⚠ Gegensatz",verb:"<ruby>数量<rt>すうりょう</rt></ruby> + しか + V<sub>ない</sub>",de:"nur [Menge] — zu wenig (negativ)"}
    ],
-   pattern:{slots:[{text:"Subjekt は/が",role:"subj"},{text:"<ruby>数量<rt>すうりょう</rt></ruby>",role:"time",label:"Zahl + Zähler"},{text:"も",role:"actor",label:"sogar"},{text:"V",role:"verb"}],gloss:"»[Subjekt] [V] sogar [Menge] — so viel!« — Sprecher findet die Menge bemerkenswert groß."},
+   pattern:{slots:[{text:"Subjekt は/が",role:"subj"},{text:"<ruby>数量<rt>すうりょう</rt></ruby>",role:"time",label:"Zahl + Zähler"},{text:"も",role:"actor",label:"sogar"},{text:"V",role:"verb"}],gloss:"»sogar/ganze … viel.« — der Sprecher findet die Menge erstaunlich groß. Muster: 数量 + も + V (z. B. 5回も). Gegenteil: しか + Vない (zu wenig)."},
    bauplan:[
     "Identifiziere die <b>Mengen-/Zahl-Angabe</b> mit Zähler (3<ruby>時間<rt>じかん</rt></ruby>, 5<ruby>冊<rt>さつ</rt></ruby>, 10<ruby>キロ<rt></rt></ruby> …).",
     "Hänge <code>も</code> direkt an die Mengenangabe — <b>nicht</b> an Subjekt oder Objekt.",
@@ -1113,7 +1113,7 @@ const CARDS = [
     {form:"Anschluss Adj",verb:"い-Adj + こと / な-Adj + な + こと",de:"die Adj-keit"},
     {form:"Aufzählung",verb:"〜こと、〜こと、〜ことだ",de:"erstens …, zweitens …, drittens …"}
    ],
-   pattern:{slots:[{text:"<ruby>大切<rt>たいせつ</rt></ruby>なのは、",role:"subj",label:"Wichtig ist:"},{text:"[Inhalt 1]",role:"cond"},{text:"こと、",role:"actor",label:"Punkt 1"},{text:"[Inhalt 2]",role:"cond"},{text:"ことだ",role:"plain",label:"Punkt 2 (Ende)"}],gloss:"»Wichtig ist: [Punkt 1] und [Punkt 2].« — こと nach jedem Punkt, am Ende mit だ/です."},
+   pattern:{slots:[{text:"<ruby>大切<rt>たいせつ</rt></ruby>なのは、",role:"subj",label:"Wichtig ist:"},{text:"[Inhalt 1]",role:"cond"},{text:"こと、",role:"actor",label:"Punkt 1"},{text:"[Inhalt 2]",role:"cond"},{text:"ことだ",role:"plain",label:"Punkt 2 (Ende)"}],gloss:"»Wichtig ist: erstens …, zweitens …« — zählt Punkte auf, je こと dahinter, am Ende こと + だ/です. Nach Verb (辞書形/ない形) und Adjektiv (い-Adj + こと, な-Adj + な + こと)."},
    bauplan:[
     "Eröffne mit einem <b>Thema-Satz</b>, z.B. <code><ruby>大切<rt>たいせつ</rt></ruby>なのは</code> (»Wichtig ist:«) oder <code>N は</code>.",
     "Setze den ersten Inhaltssatz (Verb in <b>Plain-Form</b>!) → hänge <code>こと、</code> dran. Komma nicht vergessen.",
@@ -1136,7 +1136,7 @@ const CARDS = [
     {form:"unregelmäßig",verb:"<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>き</rt></ruby>始める / する → し<ruby>始<rt>はじ</rt></ruby>める",de:"unregelmäßige Verben"},
     {form:"verwandt",verb:"〜<ruby>続<rt>つづ</rt></ruby>ける / 〜<ruby>出<rt>だ</rt></ruby>す",de:"weitermachen / plötzlich anfangen"}
    ],
-   pattern:{slots:[{text:"Subjekt は/が",role:"subj"},{text:"(Objekt を)",role:"obj"},{text:"V-マス-Stamm",role:"verb",label:"Hauptverb"},{text:"<ruby>始<rt>はじ</rt></ruby>めた / <ruby>終<rt>お</rt></ruby>わった",role:"actor",label:"Aspekt"}],gloss:"»[Subjekt] hat angefangen / aufgehört, [V] zu tun.« — Aspekt-Verb klebt direkt am ます-Stamm."},
+   pattern:{slots:[{text:"Subjekt は/が",role:"subj"},{text:"(Objekt を)",role:"obj"},{text:"V-マス-Stamm",role:"verb",label:"Hauptverb"},{text:"<ruby>始<rt>はじ</rt></ruby>めた / <ruby>終<rt>お</rt></ruby>わった",role:"actor",label:"Aspekt"}],gloss:"»fängt an / hört auf zu V.« — Aspekt-Wort hängt am ます-Stamm: 始める (anfangen), 終わる (fertig werden). Unregelmäßig: 来始める, し始める."},
    bauplan:[
     "Nimm das Hauptverb und bilde den <b>ます-Stamm</b> (ます weglassen): <code><ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べ</code>, <code><ruby>書<rt>か</rt></ruby>きます → <ruby>書<rt>か</rt></ruby>き</code>.",
     "Hänge <code><ruby>始<rt>はじ</rt></ruby>める</code> (anfangen) oder <code><ruby>終<rt>お</rt></ruby>わる</code> (fertig sein) <b>direkt</b> ohne Lücke dran.",
@@ -1161,7 +1161,7 @@ const CARDS = [
     {form:"Vergangenheit",verb:"V<sub>た</sub> + のでしょうか",de:"<ruby>行<rt>い</rt></ruby>った → <ruby>行<rt>い</rt></ruby>ったのでしょうか"},
     {form:"vs. ですか",verb:"ですか = direkte Frage",de:"のでしょうか = tastend, vorsichtig"}
    ],
-   pattern:{slots:[{text:"Inhalt",role:"verb",label:"in Plain-Form"},{text:"(な)",role:"plain",label:"nur bei N/な-Adj"},{text:"のでしょうか",role:"actor",label:"wohl?"}],gloss:"»[Inhalt] — könnte das wohl sein?« — höfliche, indirekte Nachfrage."},
+   pattern:{slots:[{text:"Inhalt",role:"verb",label:"in Plain-Form"},{text:"(な)",role:"plain",label:"nur bei N/な-Adj"},{text:"のでしょうか",role:"actor",label:"wohl?"}],gloss:"»Ist das wohl …?« — höfliche, vorsichtige Nachfrage. Muster: 普通形 + のでしょうか (な-Adj/N + な + のでしょうか). Direkter wäre nur ですか."},
    bauplan:[
     "Forme deinen Frageinhalt zunächst als <b>Plain-Aussagesatz</b> (kein です/ます). Bsp: <code><ruby>彼<rt>かれ</rt></ruby>は <ruby>来<rt>こ</rt></ruby>ない</code> (er kommt nicht).",
     "Bei <b>Verb / い-Adjektiv</b> in Plain-Form: direkt <code>のでしょうか</code> dranhängen. Bei <b>Nomen / な-Adjektiv</b>: erst <code>な</code> einfügen, dann <code>のでしょうか</code>.",
@@ -1185,7 +1185,7 @@ const CARDS = [
     {form:"<ruby>変<rt>か</rt></ruby>わる ⇆ <ruby>変<rt>か</rt></ruby>える",verb:"N が <ruby>変<rt>か</rt></ruby>わる / N を <ruby>変<rt>か</rt></ruby>える",de:"verändert sich / ändern"},
     {form:"<ruby>増<rt>ふ</rt></ruby>える ⇆ <ruby>増<rt>ふ</rt></ruby>やす",verb:"N が <ruby>増<rt>ふ</rt></ruby>える / N を <ruby>増<rt>ふ</rt></ruby>やす",de:"nimmt zu / erhöhen"}
    ],
-   pattern:{slots:[[{text:"N が",role:"subj",label:"Subjekt"},{text:"V<sub>自</sub>",role:"verb",label:"passiert von selbst"}],[{text:"Person が",role:"actor",label:"Handelnder"},{text:"N を",role:"obj",label:"Objekt"},{text:"V<sub>他</sub>",role:"verb",label:"macht es aktiv"}]],gloss:"<b>自動詞</b> (intransitiv): <code>N が V自</code> — N ändert sich, niemand wird genannt. <b>他動詞</b> (transitiv): <code>Person が N を V他</code> — eine Person macht etwas mit N."},
+   pattern:{slots:[[{text:"N が",role:"subj",label:"Subjekt"},{text:"V<sub>自</sub>",role:"verb",label:"passiert von selbst"}],[{text:"Person が",role:"actor",label:"Handelnder"},{text:"N を",role:"obj",label:"Objekt"},{text:"V<sub>他</sub>",role:"verb",label:"macht es aktiv"}]],gloss:"»passiert von selbst« (自動詞: N が V) ↔ »jemand macht es« (他動詞: Person が N を V). Paare wie 集まる/集める, 決まる/決める, 変わる/変える."},
    bauplan:[
     "Frage dich: <b>Wer/was ist im Fokus?</b> Wenn nur das <b>Ding selbst</b> wichtig ist (Auto fährt los, Tür schließt sich) → <b>自動詞</b> mit <code>が</code>.",
     "Wenn eine <b>Person aktiv etwas tut</b> (ich schließe die Tür) → <b>他動詞</b>. Subjekt mit <code>は/が</code>, Objekt mit <code>を</code>.",
@@ -1209,7 +1209,7 @@ const CARDS = [
     {form:"<b>Volitional</b> unregelmäßig",verb:"する → しよう / <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>よう",de:"unregelmäßige Verben"},
     {form:"Hauptmuster",verb:"V<sub>意向</sub> + としても、〜ない / 〜られない",de:"auch wenn man V tun will, klappt es nicht"}
    ],
-   pattern:{slots:[{text:"V-<ruby>意向<rt>いこう</rt></ruby>形",role:"verb",label:"ich will V"},{text:"としても、",role:"actor",label:"auch wenn versucht"},{text:"V-ない / V-れない",role:"verb",label:"klappt nicht"}],gloss:"»Auch wenn man [V] tun will — es gelingt nicht.« — der Wille ist da, das Ergebnis nicht."},
+   pattern:{slots:[{text:"V-<ruby>意向<rt>いこう</rt></ruby>形",role:"verb",label:"ich will V"},{text:"としても、",role:"actor",label:"auch wenn versucht"},{text:"V-ない / V-れない",role:"verb",label:"klappt nicht"}],gloss:"»Auch wenn ich versuche zu V, klappt es nicht.« — der Wille ist da, das Ergebnis nicht. Muster: V意向形 + としても、〜ない (z. B. 食べよう, しよう, 来よう)."},
    bauplan:[
     "Forme das Verb zuerst in die <b>Volitional-Form</b>: Gr.II (る → よう), Gr.I (う → おう), unregelmäßig (する → しよう, <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>よう).",
     "Hänge direkt <code>としても</code> dran. Komma dahinter.",
@@ -1232,7 +1232,7 @@ const CARDS = [
     {form:"<b>Wann?</b>",verb:"V-Plain + のは + [Zeit] + だ",de:"wann V passierte, war [Zeit]"},
     {form:"<b>Wo?</b>",verb:"V-Plain + のは + [Ort] + だ",de:"wo V passierte, war [Ort]"}
    ],
-   pattern:{slots:[{text:"[Sachverhalt in V-Plain]",role:"verb",label:"Aktion"},{text:"のは",role:"actor"},{text:"[Hervorgehobenes]",role:"obj",label:"Person/Zeit/Ort"},{text:"だ/です",role:"plain"}],gloss:"»Was [Aktion] ist — das ist [Hervorgehobenes].« — die wichtige Information rutscht ans Ende."},
+   pattern:{slots:[{text:"[Sachverhalt in V-Plain]",role:"verb",label:"Aktion"},{text:"のは",role:"actor"},{text:"[Hervorgehobenes]",role:"obj",label:"Person/Zeit/Ort"},{text:"だ/です",role:"plain"}],gloss:"»Das, was [Aktion], ist Y.« — schiebt die wichtige Info ans Satzende. Muster: V普通形 + のは + [Person/Sache/Zeit/Ort] + だ."},
    bauplan:[
     "Stelle dir die <b>implizite Frage</b>: Will ich »wer?«, »was?«, »wann?« oder »wo?« betonen?",
     "Schreibe den Sachverhalt in <b>Plain-Form</b> (kein です/ます) und hänge <code>のは</code> direkt ans Verb. Bsp: <code><ruby>絵<rt>え</rt></ruby>を <ruby>描<rt>か</rt></ruby>いた のは</code>.",
@@ -1259,7 +1259,7 @@ const CARDS = [
     [{text:"N が",role:"subj"},{text:"V<sub>自</sub>-て いる",role:"verb",label:"Zustand"}],
     [{text:"N が",role:"subj"},{text:"V<sub>他</sub>-て ある",role:"verb",label:"absichtlich vorbereitet"}],
     [{text:"<ruby>私<rt>わたし</rt></ruby> が",role:"actor"},{text:"N を",role:"obj"},{text:"V-て おく",role:"verb",label:"ich bereite vor"}]
-   ],gloss:"<b>ている</b>: »ist (gerade) im Zustand X«. <b>てある</b>: »wurde von jemandem absichtlich X gemacht — und ist es noch«. <b>ておく</b>: »ich mache X jetzt, damit es später erledigt ist«."},
+   ],gloss:"ている = »ist gerade im Zustand X«. てある = »wurde absichtlich gemacht und ist noch so« (Vテ + ある). ておく = »mache es jetzt, damit es später erledigt ist« (gespr. 〜とく)."},
    bauplan:[
     "<b>Frage 1: Wer ist im Satz das Subjekt?</b> Wenn es das <b>Ding</b> ist (Fenster, Licht, Tür) → ている oder てある. Wenn es ein <b>Handelnder</b> ist (ich, du …) → ておく.",
     "<b>Frage 2: Ist Absicht spürbar?</b> Keine Absicht / Zustand passiert einfach → <b>ている</b> mit 自動詞. Jemand hat es absichtlich so gemacht → <b>てある</b> mit 他動詞.",
@@ -1285,7 +1285,7 @@ const CARDS = [
     {form:"な-Adjektiv",verb:"な-Adj + <b>な</b> + ような + N",de:"<ruby>元気<rt>げんき</rt></ruby><b>なような</b> <ruby>人<rt>ひと</rt></ruby> = eine energisch wirkende Person"},
     {form:"Nomen",verb:"N₁ + <b>の</b> + ような + N₂",de:"<ruby>夢<rt>ゆめ</rt></ruby><b>のような</b> <ruby>話<rt>はなし</rt></ruby> = eine Traum-artige Geschichte"}
    ],
-   pattern:{slots:[{text:"Vergleichs-Inhalt",role:"cond",label:"wie was?"},{text:"(の/な)",role:"plain",label:"je nach Wortart"},{text:"ような",role:"actor",label:"so beschaffen"},{text:"N",role:"obj",label:"Nomen"}],gloss:"»Ein [N], das so beschaffen ist wie [Inhalt].« — Vergleich + Nomen attributiv verknüpft."},
+   pattern:{slots:[{text:"Vergleichs-Inhalt",role:"cond",label:"wie was?"},{text:"(の/な)",role:"plain",label:"je nach Wortart"},{text:"ような",role:"actor",label:"so beschaffen"},{text:"N",role:"obj",label:"Nomen"}],gloss:"»ein N, das so ist wie [Inhalt].« — verknüpft einen Vergleich mit einem Nomen. Muster: V/い-Adj + ような + N (な-Adj + な, N + の + ような)."},
    bauplan:[
     "Überlege, <b>welches Nomen</b> du beschreiben willst (das steht ganz hinten, z.B. <code><ruby>話<rt>はなし</rt></ruby></code>).",
     "Schreibe davor, <b>womit du es vergleichst</b>. Bei Nomen: <code>N + の</code> (<ruby>夢<rt>ゆめ</rt></ruby>の). Bei な-Adj: <code>な-Adj + な</code> (<ruby>元気<rt>げんき</rt></ruby>な). Bei Verb / い-Adj: Plain-Form direkt.",
@@ -1312,7 +1312,7 @@ const CARDS = [
     [{text:"〜は N の",role:"obj"},{text:"ようだ",role:"verb",label:"① Prädikat"}],
     [{text:"N の",role:"obj"},{text:"ような",role:"actor"},{text:"N₂",role:"subj",label:"② Attribut"}],
     [{text:"N の",role:"obj"},{text:"ように",role:"actor"},{text:"V",role:"verb",label:"③ Adverb"}]
-   ],gloss:"ようだ am Satzende, ような vor Nomen, ように vor Verb — alle drei drücken denselben Vergleich aus."},
+   ],gloss:"»wie ein N.« — derselbe Vergleich an drei Stellen: のようだ am Satzende, のような vor Nomen, のように vor Verb. Auch mit Verben (V普通形 + ようだ)."},
    bauplan:[
     "Frage dich: <b>Was steht direkt nach dem Vergleich?</b> Punkt/Satzende → ① <code>ようだ</code>. Ein Nomen → ② <code>ような</code>. Ein Verb → ③ <code>ように</code>.",
     "Hänge <code>の</code> an das Vergleichs-Nomen (<code><ruby>子<rt>こ</rt></ruby>ども<b>の</b></code>) — bei Verben/Adjektiven kein の, direkt Plain-Form.",
@@ -1335,7 +1335,7 @@ const CARDS = [
     {form:"vs. <b>だけ</b>",verb:"N + だけ = neutral »nur«",de:"だけ ohne Wertung"},
     {form:"vs. <b>しか〜ない</b>",verb:"N + しか〜ない = »nur« (zu wenig)",de:"negativ aus Sicht: zu wenig"}
    ],
-   pattern:{slots:[{text:"Subjekt は",role:"subj"},{text:"N / V-て",role:"verb",label:"das eine"},{text:"ばかり",role:"actor",label:"immer nur"},{text:"いる / だ",role:"plain"}],gloss:"»[Subjekt] [N/V] — immer nur das, nichts anderes.« — kritisch-bedauernd."},
+   pattern:{slots:[{text:"Subjekt は",role:"subj"},{text:"N / V-て",role:"verb",label:"das eine"},{text:"ばかり",role:"actor",label:"immer nur"},{text:"いる / だ",role:"plain"}],gloss:"»immer nur N / immer nur V-en.« — kritisch-bedauernd, nichts anderes. Muster: N + ばかり, Vテ + ばかり + いる. (だけ ist neutral, しか〜ない = zu wenig.)"},
    bauplan:[
     "Wähle den <b>Inhalt</b>, der zu einseitig ist (Nomen oder Verb).",
     "Bei <b>Nomen</b>: hänge direkt <code>ばかり</code> dran → <code>マンガ<b>ばかり</b> <ruby>読<rt>よ</rt></ruby>む</code> (liest immer nur Manga).",
@@ -1358,7 +1358,7 @@ const CARDS = [
     {form:"<b>Ich</b> möchte V",verb:"<ruby>私<rt>わたし</rt></ruby>は V<sub>マス</sub>-Stamm + たい",de:"i-Adjektiv"},
     {form:"<b>Andere</b> möchten V",verb:"… さんは V<sub>マス</sub>-Stamm + たがって いる",de:"Verb auf -たがる"}
    ],
-   pattern:{slots:[{text:"Andere Person は/が",role:"actor",label:"er/sie (nicht ich)"},{text:"N を / V-Stamm",role:"obj"},{text:"<ruby>欲<rt>ほ</rt></ruby>しがって いる / たがって いる",role:"verb",label:"möchte (3. Person)"}],gloss:"»[Andere Person] möchte [N / V-en].« — Beobachtung eines fremden Wunsches, daher ています-Form."},
+   pattern:{slots:[{text:"Andere Person は/が",role:"actor",label:"er/sie (nicht ich)"},{text:"N を / V-Stamm",role:"obj"},{text:"<ruby>欲<rt>ほ</rt></ruby>しがって いる / たがって いる",role:"verb",label:"möchte (3. Person)"}],gloss:"»jemand anders möchte …« — fremder Wunsch, daher meist mit ています. N を 欲しがっている (will N), Vマス-Stamm + たがっている (möchte V-en). Ich selbst: 欲しい / たい."},
    bauplan:[
     "Frage dich: <b>Wessen Wunsch ist es?</b> Ich/wir → <code><ruby>欲<rt>ほ</rt></ruby>しい / たい</code>. Eine andere Person, ein Kind, ein Tier → <code><ruby>欲<rt>ほ</rt></ruby>しがる / たがる</code>.",
     "Bei <b>Wunsch nach Ding</b> (欲しい): Partikel wechseln! Ich: <code>N <b>が</b> 欲しい</code>. Andere: <code>N <b>を</b> 欲しがる</code>.",
@@ -1381,7 +1381,7 @@ const CARDS = [
     {form:"Kurzform (gespr.)",verb:"つい 〜 + ちゃった",de:"<ruby>食<rt>た</rt></ruby>べちゃった = hab's leider gegessen"},
     {form:"Gegenteil",verb:"わざと + V",de:"absichtlich V"}
    ],
-   pattern:{slots:[{text:"つい (ついつい)",role:"time",label:"unbeabsichtigt"},{text:"V-て",role:"verb"},{text:"しまった",role:"actor",label:"leider passiert"}],gloss:"»Ich habe ohne es zu wollen [V] — und jetzt ist es zu spät.« — Reue, Schwäche, Unkontrolliertheit."},
+   pattern:{slots:[{text:"つい (ついつい)",role:"time",label:"unbeabsichtigt"},{text:"V-て",role:"verb"},{text:"しまった",role:"actor",label:"leider passiert"}],gloss:"»Habe leider doch X getan.« — aus Versehen, ohne es zu wollen, mit Reue. Muster: つい + Vテ + しまう/しまった (gespr. 〜ちゃった). Gegenteil: わざと (absichtlich)."},
    bauplan:[
     "Setze <code>つい</code> (oder verstärkt <code>ついつい</code>) <b>vor das Verb</b> — meist am Anfang des Satzteils.",
     "Forme das Verb in die <b>て-Form</b>: <code><ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べて</code>, <code><ruby>言<rt>い</rt></ruby>う → <ruby>言<rt>い</rt></ruby>って</code>.",
@@ -1404,7 +1404,7 @@ const CARDS = [
     {form:"Antwort",verb:"〜のは / それは 〜からです",de:"das liegt daran, dass …"},
     {form:"Anschluss vorne",verb:"V/Adj-Plain + のは",de:"bei な-Adj/N: + なのは"}
    ],
-   pattern:{slots:[{text:"[Sachverhalt X]",role:"cond",label:"das, was passiert"},{text:"のは、",role:"actor"},{text:"[Grund Y]",role:"verb"},{text:"からだ / からです",role:"plain",label:"weil"}],gloss:"»Dass [X] — das liegt daran, dass [Y].« — der Grund rückt ans Satzende und wird betont."},
+   pattern:{slots:[{text:"[Sachverhalt X]",role:"cond",label:"das, was passiert"},{text:"のは、",role:"actor"},{text:"[Grund Y]",role:"verb"},{text:"からだ / からです",role:"plain",label:"weil"}],gloss:"»Dass X, liegt daran, dass Y.« — schiebt den Grund ans Satzende und betont ihn. Muster: 〜のは、〜からだ. Frage: なぜ 〜のですか."},
    bauplan:[
     "Beginne mit dem <b>Sachverhalt</b>, den du erklären willst, in Plain-Form. Bei な-Adj/N: + <code>な</code>. Bsp: <code><ruby>遅<rt>おく</rt></ruby>れた</code>, <code><ruby>上手<rt>じょうず</rt></ruby>な</code>.",
     "Hänge <code>のは、</code> mit Komma an — das nominalisiert den Sachverhalt und markiert ihn als Thema.",
@@ -1432,7 +1432,7 @@ const CARDS = [
    pattern:{slots:[
     [{text:"これから・だんだん …",role:"time",label:"Zukunfts-Signal"},{text:"V-て いく",role:"verb",label:"→ Zukunft"}],
     [{text:"これまで・<ruby>最近<rt>さいきん</rt></ruby> …",role:"time",label:"Vergangenheits-Signal"},{text:"V-て きた",role:"verb",label:"→ Jetzt"}]
-   ],gloss:"<b>ていく</b> = Pfeil zeigt in die Zukunft (»von jetzt an wird es so weitergehen«). <b>てきた</b> = Pfeil zeigt in die Gegenwart (»es hat sich bis jetzt so entwickelt«)."},
+   ],gloss:"»entwickelt sich weiter« — ていく zeigt in die Zukunft (»von jetzt an weiter so«), てきた zeigt bis zur Gegenwart (»hat sich bis jetzt so entwickelt«). Oft mit これから / だんだん."},
    bauplan:[
     "Frage dich: <b>In welche Zeitrichtung schaust du?</b> Von jetzt in die Zukunft → <code>ていく</code>. Von der Vergangenheit bis jetzt → <code>てきた</code>.",
     "Forme das Hauptverb in die <b>て-Form</b>: <code><ruby>進<rt>すす</rt></ruby>む → <ruby>進<rt>すす</rt></ruby>んで</code>, <code><ruby>増<rt>ふ</rt></ruby>える → <ruby>増<rt>ふ</rt></ruby>えて</code>.",
@@ -1456,7 +1456,7 @@ const CARDS = [
     {form:"Varianten",verb:"〜こと が <ruby>示<rt>しめ</rt></ruby>されて いる",de:"es zeigt sich, dass …"},
     {form:"Alternative Quelle",verb:"<ruby>調査<rt>ちょうさ</rt></ruby>に よると / <ruby>結果<rt>けっか</rt></ruby>から",de:"laut Untersuchung / aus dem Ergebnis"}
    ],
-   pattern:{slots:[{text:"<ruby>表<rt>ひょう</rt></ruby> / グラフ",role:"obj",label:"Quelle"},{text:"で <ruby>見<rt>み</rt></ruby>ると、",role:"actor",label:"betrachtet man"},{text:"[Inhalt]",role:"verb",label:"in Plain-Form"},{text:"ことが わかる",role:"plain",label:"erkennt man"}],gloss:"»Wenn man [Quelle] betrachtet, erkennt man, dass [Inhalt].« — Standard-Schablone für Datenanalyse."},
+   pattern:{slots:[{text:"<ruby>表<rt>ひょう</rt></ruby> / グラフ",role:"obj",label:"Quelle"},{text:"で <ruby>見<rt>み</rt></ruby>ると、",role:"actor",label:"betrachtet man"},{text:"[Inhalt]",role:"verb",label:"in Plain-Form"},{text:"ことが わかる",role:"plain",label:"erkennt man"}],gloss:"»Wenn man [Quelle] anschaut, sieht man, dass …« — Standardsatz für Datenanalyse. Muster: [Quelle] を/で 見ると、〜ことが わかる. Auch: 調査によると."},
    bauplan:[
     "Nenne zuerst die <b>Quelle</b> (Tabelle, Grafik, Karte, Statistik): <code>このグラフ</code>, <code>この<ruby>表<rt>ひょう</rt></ruby></code>, <code>この<ruby>調査<rt>ちょうさ</rt></ruby></code>.",
     "Hänge <code>を <ruby>見<rt>み</rt></ruby>ると、</code> an (Standard im Chuukyuu-Lehrbuch) oder alternativ <code>で <ruby>見<rt>み</rt></ruby>ると、</code> — beide korrekt, wörtlich »wenn man [Quelle] anschaut«. Komma dahinter.",
@@ -1479,7 +1479,7 @@ const CARDS = [
     {form:"Negation",verb:"N₁ + のような + N₂ + ではない",de:"kein N₂ wie N₁"},
     {form:"Stilebene",verb:"= N₁ など (gespr. ähnlich)",de:"N₁ und so weiter"}
    ],
-   pattern:{slots:[{text:"N₁ の",role:"obj",label:"konkretes Beispiel"},{text:"ような",role:"actor",label:"wie z.B."},{text:"N₂",role:"subj",label:"Kategorie"}],gloss:"»Ein [N₂], wie zum Beispiel [N₁].« — N₁ illustriert, was für eine Art N₂ gemeint ist."},
+   pattern:{slots:[{text:"N₁ の",role:"obj",label:"konkretes Beispiel"},{text:"ような",role:"actor",label:"wie z.B."},{text:"N₂",role:"subj",label:"Kategorie"}],gloss:"»ein N₂ wie zum Beispiel N₁.« — N₁ ist ein Beispiel, das zeigt, welche Art N₂ gemeint ist. Muster: N₁ + の + ような + N₂. Ähnlich gesprochen: N₁ など."},
    bauplan:[
     "Wähle die <b>Kategorie</b> (N₂), über die du sprechen willst — z.B. <code><ruby>日本食<rt>にほんしょく</rt></ruby></code> (japanisches Essen), <code><ruby>大都市<rt>だいとし</rt></ruby></code> (Großstadt).",
     "Wähle <b>ein konkretes Beispiel</b> (N₁) aus dieser Kategorie — z.B. <code>すし</code>, <code><ruby>東京<rt>とうきょう</rt></ruby></code>.",
@@ -1502,7 +1502,7 @@ const CARDS = [
     {form:"な-Adj-Verneinung",verb:"な-Adj + では ない",de:"<ruby>静<rt>しず</rt></ruby>か → <ruby>静<rt>しず</rt></ruby>かでは ない"},
     {form:"vs. より",verb:"X より Y の ほうが Adj",de:"Y ist Adj-er als X (positiv formuliert)"}
    ],
-   pattern:{slots:[{text:"X は",role:"subj",label:"das Kleinere"},{text:"Y",role:"obj",label:"Standard"},{text:"ほど",role:"actor",label:"so wie"},{text:"Adj + ない",role:"verb",label:"nicht so sehr"}],gloss:"»X ist nicht so [Adj] wie Y.« — Y ist der Maßstab, X reicht nicht hin."},
+   pattern:{slots:[{text:"X は",role:"subj",label:"das Kleinere"},{text:"Y",role:"obj",label:"Standard"},{text:"ほど",role:"actor",label:"so wie"},{text:"Adj + ない",role:"verb",label:"nicht so sehr"}],gloss:"»X ist nicht so [Adj] wie Y.« — Y ist der Maßstab, X reicht nicht heran. Muster: X は Y ほど + Adj/Vない (い-Adj → くない, な-Adj → ではない)."},
    bauplan:[
     "Identifiziere die <b>zwei Vergleichspartner</b>: X = das, was <b>weniger</b> ist. Y = das, was <b>mehr</b> ist (der Maßstab).",
     "Setze X an den Anfang mit <code>は</code>, dann Y direkt gefolgt von <code>ほど</code> (kein は/が dazwischen).",
@@ -1529,7 +1529,7 @@ const CARDS = [
    pattern:{slots:[
     [{text:"A より",role:"obj",label:"Basis"},{text:"B の ほうが",role:"subj",label:"besser"},{text:"Adj です",role:"verb"}],
     [{text:"〜の <ruby>中<rt>なか</rt></ruby>で",role:"place",label:"Gruppe"},{text:"X が",role:"subj"},{text:"<ruby>一番<rt>いちばん</rt></ruby> Adj です",role:"verb",label:"am meisten"}]
-   ],gloss:"<b>より</b> und <b>ほど〜ない</b> drücken denselben Unterschied aus, aber spiegelverkehrt. <b>一番</b> = Superlativ. <b>同じくらい</b> = Gleichheit."},
+   ],gloss:"Vergleiche auf einen Blick: A より B の ほうが Adj (B mehr), A は B ほど Adj-ない (A weniger), 〜の中で一番 (am meisten), 同じくらい (gleich), Vば 〜ほど (je … desto)."},
    bauplan:[
     "Frage 1: <b>Vergleichst du zwei Dinge oder mehrere?</b> Zwei → より/ほど. Drei oder mehr → 一番 (Superlativ).",
     "Frage 2: <b>Sind die Dinge ungleich?</b> Ja → より/ほど. Ungefähr gleich → 同じくらい.",
@@ -1555,7 +1555,7 @@ const CARDS = [
     {form:"⚠ Ausnahme",verb:"いい / よい → <b>よさ</b>",de:"いさ ist falsch!"},
     {form:"vs. <b>み</b>",verb:"<ruby>面白<rt>おもしろ</rt></ruby>み / <ruby>深<rt>ふか</rt></ruby>み",de:"み = subjektive Qualität (selten produktiv)"}
    ],
-   pattern:{slots:[{text:"Adj-さ",role:"subj",label:"nominalisiert"},{text:"は",role:"plain"},{text:"[Grad/Maß]",role:"obj",label:"Zahl/Antwort"},{text:"です",role:"plain"}],gloss:"»Die [Eigenschaft] beträgt [Maß].« — さ verwandelt eine Eigenschaft in eine messbare Größe."},
+   pattern:{slots:[{text:"Adj-さ",role:"subj",label:"nominalisiert"},{text:"は",role:"plain"},{text:"[Grad/Maß]",role:"obj",label:"Zahl/Antwort"},{text:"です",role:"plain"}],gloss:"»die X-keit.« — さ macht aus einer Eigenschaft ein messbares Nomen. Muster: い-Adj い → さ (長さ, 高さ), な-Adj + さ. Ausnahme: いい/よい → よさ."},
    bauplan:[
     "Nimm das Adjektiv: <code><ruby>高<rt>たか</rt></ruby>い</code> (hoch), <code><ruby>便利<rt>べんり</rt></ruby></code> (bequem).",
     "Bei <b>い-Adj</b>: streiche das い und ersetze es durch <code>さ</code> → <code><ruby>高<rt>たか</rt></ruby>さ</code>. Bei <b>な-Adj</b>: hänge <code>さ</code> direkt an → <code><ruby>便利<rt>べんり</rt></ruby>さ</code>.",
@@ -1579,7 +1579,7 @@ const CARDS = [
     {form:"い-Adj (geschr.)",verb:"Adj<sub>く</sub>、 + Adj₂",de:"<ruby>広<rt>ひろ</rt></ruby>く、<ruby>明<rt>あか</rt></ruby>るい"},
     {form:"⚠ Ausnahme",verb:"する → し、…",de:"いる → い、… / <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>き</rt></ruby>、…"}
    ],
-   pattern:{slots:[{text:"V₁-Stamm",role:"verb",label:"Verb 1 ohne ます"},{text:"、",role:"plain"},{text:"V₂-Stamm",role:"verb",label:"Verb 2 ohne ます"},{text:"、…",role:"plain"},{text:"V<sub>n</sub>-た/ます",role:"actor",label:"Endverb mit Tempus"}],gloss:"Reihe von ます-Stämmen als Aufzählung. Nur das <b>letzte</b> Verb trägt Tempus und Höflichkeit."},
+   pattern:{slots:[{text:"V₁-Stamm",role:"verb",label:"Verb 1 ohne ます"},{text:"、",role:"plain"},{text:"V₂-Stamm",role:"verb",label:"Verb 2 ohne ます"},{text:"、…",role:"plain"},{text:"V<sub>n</sub>-た/ます",role:"actor",label:"Endverb mit Tempus"}],gloss:"Verbindet Sätze im Schriftstil mit dem ます-Stamm statt der テ-Form; nur das letzte Verb trägt Tempus und Höflichkeit. Geschrieben: Vマス-Stamm、… (い-Adj: 〜く、). Ausnahme: する → し、."},
    bauplan:[
     "Forme jedes Verb in den <b>ます-Stamm</b> (=ます weglassen): <code><ruby>起<rt>お</rt></ruby>きます → <ruby>起<rt>お</rt></ruby>き</code>, <code><ruby>洗<rt>あら</rt></ruby>います → <ruby>洗<rt>あら</rt></ruby>い</code>.",
     "Reihe sie mit Komma <code>、</code> aneinander — <b>kein</b> て dazwischen.",
@@ -1602,7 +1602,7 @@ const CARDS = [
     {form:"Negation der Norm",verb:"V<sub>辞書</sub> + ものではない",de:"das tut man nicht / sollte man nicht tun"},
     {form:"い-Adj/な-Adj",verb:"Adj-Plain + ものだ",de:"<ruby>若<rt>わか</rt></ruby>いときは <ruby>元気<rt>げんき</rt></ruby>な ものだ"}
    ],
-   pattern:{slots:[{text:"(<ruby>一般的<rt>いっぱんてき</rt></ruby>に)",role:"time",label:"allgemein"},{text:"V-辞書 / V-ない",role:"verb"},{text:"ものだ",role:"actor",label:"so ist das halt"}],gloss:"»So ist das nun einmal — das gehört dazu, ist menschlich/typisch.« — keine persönliche Meinung, sondern eine allgemeine Wahrheit."},
+   pattern:{slots:[{text:"(<ruby>一般的<rt>いっぱんてき</rt></ruby>に)",role:"time",label:"allgemein"},{text:"V-辞書 / V-ない",role:"verb"},{text:"ものだ",role:"actor",label:"so ist das halt"}],gloss:"»So ist das halt.« — eine allgemeine Wahrheit/Norm, keine persönliche Meinung. Muster: V辞書形/ない形 + ものだ. Verneinung der Norm: V辞書 + ものではない."},
    bauplan:[
     "Formuliere eine <b>allgemeine Aussage</b> in Plain-Form (kein です/ます): <code><ruby>人<rt>ひと</rt></ruby>は <ruby>年<rt>とし</rt></ruby>を とる</code>, <code><ruby>子<rt>こ</rt></ruby>どもは <ruby>遊<rt>あそ</rt></ruby>ぶ</code>.",
     "Hänge <code>ものだ</code> direkt an (oder <code>ものです</code> für höflicher).",
@@ -1629,7 +1629,7 @@ const CARDS = [
    pattern:{slots:[
     [{text:"V-辞書 + もの",role:"verb",label:"konkret/erlebt"}],
     [{text:"V-辞書 + こと",role:"verb",label:"abstrakt/sachlich"}]
-   ],gloss:"Gleicher Anschluss, andere Nuance. <b>もの</b> ist persönlich-warm, <b>こと</b> ist sachlich-distanziert."},
+   ],gloss:"もの (konkret, persönlich-warm) vs. こと (abstrakt, sachlich) — gleicher Anschluss (V辞書 + もの/こと), andere Nuance. もの bei 感じる/好き, こと bei 知る/必要."},
    bauplan:[
     "Frage dich: <b>Sprichst du über ein greifbares Ding/Erlebnis oder über eine abstrakte Tatsache?</b>",
     "Konkret/greifbar (»was ich esse«, »was er trägt«) → <b>もの</b>. Bsp: <code><ruby>食<rt>た</rt></ruby>べる<b>もの</b></code> = das Essen (Ding).",
@@ -1654,7 +1654,7 @@ const CARDS = [
     {form:"vs. そうだ (Minna L47)",verb:"そうだ = gesprochen",de:"ということだ = schriftlich, formeller, zusammenfassend"},
     {form:"な-Adj/N",verb:"〜<b>だ</b> と いう ことだ",de:"だ vor と いう bleibt"}
    ],
-   pattern:{slots:[{text:"(Quelle に よると)",role:"actor",label:"laut wem"},{text:"<ruby>普通形<rt>ふつうけい</rt></ruby>",role:"verb",label:"in Plain-Form"},{text:"と いう ことだ",role:"plain",label:"es heißt"}],gloss:"»Es heißt, dass [Inhalt].« — Hörensagen aus formellen Quellen oder Zusammenfassung einer Aussage."},
+   pattern:{slots:[{text:"(Quelle に よると)",role:"actor",label:"laut wem"},{text:"<ruby>普通形<rt>ふつうけい</rt></ruby>",role:"verb",label:"in Plain-Form"},{text:"と いう ことだ",role:"plain",label:"es heißt"}],gloss:"»Es heißt, dass …« / »mit anderen Worten: …« — Hörensagen aus formellen Quellen oder Zusammenfassung. Muster: 普通形 + ということだ (な-Adj/N + だ + ということだ). Gesprochen eher そうだ."},
    bauplan:[
     "Wähle den <b>Inhalt</b>, den du wiedergibst, in Plain-Form. Bei な-Adj/N: <code>だ</code> bleibt davor.",
     "Hänge <code>と いう ことだ</code> (plain) oder <code>と いう ことです</code> (höflich) an.",
@@ -1704,7 +1704,7 @@ const CARDS = [
     {form:"unregelmäßig",verb:"する → される / <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>られる",de:"<ruby>発明<rt>はつめい</rt></ruby>する → <ruby>発明<rt>はつめい</rt></ruby>される"},
     {form:"vs. einfaches <b>に</b>",verb:"<ruby>母<rt>はは</rt></ruby>に しかられた",de:"に = alltäglich; によって = formell / historisch"}
    ],
-   pattern:{slots:[{text:"[Werk] は",role:"subj",label:"Ergebnis"},{text:"[Urheber]",role:"actor",label:"Schöpfer"},{text:"によって",role:"plain",label:"durch"},{text:"V-<ruby>受身<rt>うけみ</rt></ruby>",role:"verb",label:"Passiv"}],gloss:"»[Werk] wurde durch [Urheber] V-t.« — betont, wer etwas erschaffen oder entschieden hat. Typisch für Erfindungen, Kunst, Gesetze."},
+   pattern:{slots:[{text:"[Werk] は",role:"subj",label:"Ergebnis"},{text:"[Urheber]",role:"actor",label:"Schöpfer"},{text:"によって",role:"plain",label:"durch"},{text:"V-<ruby>受身<rt>うけみ</rt></ruby>",role:"verb",label:"Passiv"}],gloss:"»wurde durch [Urheber] V-t.« — formelles Passiv, das betont, wer etwas erschaffen/entschieden hat (Erfindungen, Kunst, Gesetze). Muster: [Werk] は [Urheber] + によって + V受身."},
    bauplan:[
     "Stelle den <b>Satz aus Sicht des Werks</b> auf: das Werk/Ergebnis steht als <code>は</code>-Subjekt vorne. Bsp: <code>この <ruby>橋<rt>はし</rt></ruby>は</code>.",
     "Nenne den <b>Urheber</b> (Person, Gruppe, Institution) und hänge <code>によって</code> dran: <code><ruby>有名<rt>ゆうめい</rt></ruby>な <ruby>建築家<rt>けんちくか</rt></ruby><b>によって</b></code>.",
@@ -1728,7 +1728,7 @@ const CARDS = [
     {form:"<b>な-Adj-Grund</b>",verb:"な-Adj + な + ために",de:"<ruby>不便<rt>ふべん</rt></ruby> → <ruby>不便<rt>ふべん</rt></ruby>なために"},
     {form:"vs. <b>Zweck</b> (L42)",verb:"V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + ために",de:"<ruby>留学<rt>りゅうがく</rt></ruby>するために = um zu …"}
    ],
-   pattern:{slots:[{text:"[Grund / Ursache]",role:"cond",label:"was eingetreten ist"},{text:"ために、",role:"actor",label:"wegen"},{text:"[Folge]",role:"verb",label:"was daraus folgt"}],gloss:"»Wegen [Grund] [Folge].« — die Ursache liegt außerhalb der Kontrolle des Sprechers. Oft mit negativen oder neutralen Folgen."},
+   pattern:{slots:[{text:"[Grund / Ursache]",role:"cond",label:"was eingetreten ist"},{text:"ために、",role:"actor",label:"wegen"},{text:"[Folge]",role:"verb",label:"was daraus folgt"}],gloss:"»wegen [Grund] [Folge].« — nennt eine Ursache außerhalb der eigenen Kontrolle, oft neutral/negativ. Muster: V普通形/N + の/な-Adj + な + ために. (Zweck: V辞書 + ために.)"},
    bauplan:[
     "Frage dich: <b>Hat der Sprecher die Ursache gesteuert?</b> Nein → Grund (hier). Ja → Zweck (nächste Karte). Bei Verb-Form aufpassen!",
     "Wenn die <b>Ursache eingetreten ist</b> (Verb steht in der Vergangenheit / als Tatsache): nimm <code>V<sub>た</sub> + ために</code> oder <code>V<sub>普通形</sub> + ために</code>. Bsp: <code><ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>った<b>ために</b></code>.",
@@ -1755,7 +1755,7 @@ const CARDS = [
    pattern:{slots:[
     [{text:"V-<ruby>辞書<rt>じしょ</rt></ruby> + ために",role:"verb",label:"Zweck (aktiv)"},{text:"→ »um zu V« / »damit«",role:"plain"}],
     [{text:"V-た + ために",role:"verb",label:"Grund (passiv)"},{text:"→ »wegen«",role:"plain"}]
-   ],gloss:"<b>Form-Test:</b> <code>食べる</code> + ために = <i>um zu essen</i> (Zweck). <code>食べた</code> + ために = <i>weil ich gegessen habe</i> (Grund)."},
+   ],gloss:"Eine Form, zwei Bedeutungen: 食べる+ために = um zu essen (Zweck), 食べた+ために = weil ich gegessen habe (Grund). Bei Nomen (家族のために) entscheidet der Kontext."},
    bauplan:[
     "Frage dich: <b>Steuert der Sprecher die Aktion</b> (»ich tue X, um Y zu erreichen«) → <b>Zweck</b>. <b>Liegt die Ursache außerhalb</b> (»wegen X passiert Y«) → <b>Grund</b>.",
     "Bei Verb-Anschluss: <b>Verbform-Test</b>. <code>V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + ために</code> = Zweck. <code>V<sub>た</sub> + ために</code> = Grund. Diese Faustregel ist absolut zuverlässig.",
@@ -1780,7 +1780,7 @@ const CARDS = [
     {form:"<b>い-Adj</b>",verb:"い-Adj + まま",de:"<ruby>若<rt>わか</rt></ruby>いまま (jung geblieben)"},
     {form:"<b>な-Adj</b>",verb:"な-Adj + な + まま",de:"<ruby>静<rt>しず</rt></ruby>かなまま (still geblieben)"}
    ],
-   pattern:{slots:[{text:"[Zustand: V-た / V-ない / N の / Adj]",role:"cond",label:"Ausgangszustand"},{text:"まま (で)",role:"actor",label:"bleibt so"},{text:"[Handlung]",role:"verb",label:"V₂"}],gloss:"»Ohne den Zustand [Z] zu ändern, [V₂].« — typisch für Sachen, die man normalerweise <b>ändern würde</b>, aber nicht ändert."},
+   pattern:{slots:[{text:"[Zustand: V-た / V-ない / N の / Adj]",role:"cond",label:"Ausgangszustand"},{text:"まま (で)",role:"actor",label:"bleibt so"},{text:"[Handlung]",role:"verb",label:"V₂"}],gloss:"»Etwas im selben Zustand lassen und dann V₂.« Bildung: Vた/Vない + まま, N+の+まま, い-Adj+まま, な-Adj+な+まま."},
    bauplan:[
     "Bestimme den <b>Ausgangszustand</b>: Was sollte sich normalerweise ändern, bleibt aber gleich? (z.B. Schuhe sollten ausgezogen werden, Tür sollte geschlossen werden.)",
     "Anschluss wählen: <b>V-た</b> (Aktion war/ist geschehen, Zustand hält an), <b>V-ない</b> (Aktion ist nicht passiert), <b>N + の</b>, <b>Adj</b> (direkt).",
@@ -1805,7 +1805,7 @@ const CARDS = [
     {form:"⚠ vs. ものだ (L5)",verb:"V<sub>辞書</sub> + ものだ",de:"Norm/Wahrheit — NICHT Nostalgie"},
     {form:"⚠ vs. たことがある",verb:"V<sub>た</sub> + ことがある",de:"Erfahrung (einmalig möglich) — NICHT Nostalgie"}
    ],
-   pattern:{slots:[{text:"<ruby>昔<rt>むかし</rt></ruby> / 子供のころ",role:"time",label:"früher"},{text:"よく",role:"actor",label:"oft"},{text:"V-た",role:"verb"},{text:"ものだ",role:"plain",label:"Nostalgie"}],gloss:"»Früher pflegte ich oft [V].« — die Gewohnheit existiert nicht mehr, aber die Erinnerung ist warm."},
+   pattern:{slots:[{text:"<ruby>昔<rt>むかし</rt></ruby> / 子供のころ",role:"time",label:"früher"},{text:"よく",role:"actor",label:"oft"},{text:"V-た",role:"verb"},{text:"ものだ",role:"plain",label:"Nostalgie"}],gloss:"»Früher habe ich oft V gemacht.« Wehmütige Erinnerung an eine Gewohnheit von früher. Bildung: Vた + ものだ, oft mit よく."},
    bauplan:[
     "Setze eine <b>Zeitangabe</b> an den Satzanfang: <code><ruby>子供<rt>こども</rt></ruby>のころ</code>, <code><ruby>学生<rt>がくせい</rt></ruby>のとき</code>, <code><ruby>昔<rt>むかし</rt></ruby>は</code>.",
     "Optional: <code>よく</code> (oft) oder <code><ruby>本当<rt>ほんとう</rt></ruby>に よく</code> (wirklich oft) einfügen — verstärkt den nostalgischen Ton. ⚠ Nicht mit <code>よくよく</code> verwechseln, das bedeutet »sehr sorgfältig«.",
@@ -1828,7 +1828,7 @@ const CARDS = [
     {form:"③ <b>Beispiel</b>",verb:"<ruby>一<rt>ひと</rt></ruby>つの <ruby>例<rt>れい</rt></ruby> + として",de:"als ein Beispiel"},
     {form:"vs. <b>に</b>",verb:"<ruby>先生<rt>せんせい</rt></ruby>に <ruby>言<rt>い</rt></ruby>う",de:"に = an/zu (Richtung); として = als Lehrer (Rolle)"}
    ],
-   pattern:{slots:[{text:"Subjekt は",role:"subj"},{text:"N",role:"obj",label:"Rolle"},{text:"として",role:"actor",label:"als"},{text:"V / Adj",role:"verb"}],gloss:"»[Subjekt] (handelt/ist bekannt) als [Rolle].« — として = in der Funktion/Kapazität von N."},
+   pattern:{slots:[{text:"Subjekt は",role:"subj"},{text:"N",role:"obj",label:"Rolle"},{text:"として",role:"actor",label:"als"},{text:"V / Adj",role:"verb"}],gloss:"»Als [Rolle/Funktion].« Bildung: N+として. Z.B. 〜として有名だ = bekannt als."},
    bauplan:[
     "Frage dich: <b>In welcher Kapazität/Funktion</b> handelt die Person oder gilt das Ding? Das ist die Rolle nach として.",
     "Setze das Subjekt mit は, dann Rolle + <code>として</code>. Bsp: <code><ruby>代表<rt>だいひょう</rt></ruby><b>として</b></code>.",
@@ -1850,7 +1850,7 @@ const CARDS = [
     {form:"Anschluss V",verb:"V<sub>Plain</sub> + といっても、",de:"auch wenn ich V (kann/tue) …"},
     {form:"Struktur",verb:"X といっても、実は / でも Y だ",de:"X klingt groß, aber eigentlich nur Y"}
    ],
-   pattern:{slots:[{text:"X (klingt groß)",role:"obj",label:"was gesagt wird"},{text:"といっても、",role:"actor",label:"aber eigentlich"},{text:"Y (Einschränkung)",role:"verb",label:"die Wahrheit"}],gloss:"»Auch wenn es [X] heißt — in Wirklichkeit ist es [Y].« — schränkt eine Aussage nach unten ein."},
+   pattern:{slots:[{text:"X (klingt groß)",role:"obj",label:"was gesagt wird"},{text:"といっても、",role:"actor",label:"aber eigentlich"},{text:"Y (Einschränkung)",role:"verb",label:"die Wahrheit"}],gloss:"»Auch wenn man X sagt, ist es eigentlich nur Y.« Bildung: N/VPlain + といっても."},
    bauplan:[
     "Nenne zunächst das <b>Wort oder die Aussage</b>, die relativiert werden soll (das X). Kann Nomen oder Satz in Plain-Form sein.",
     "Hänge direkt <code>といっても、</code> dran — mit Komma.",
@@ -1873,7 +1873,7 @@ const CARDS = [
     {form:"Präferenz",verb:"〜より 〜のほうが <ruby>好<rt>す</rt></ruby>きだ",de:"ich mag … lieber als …"},
     {form:"Rat",verb:"V + ほうがいい",de:"es ist besser zu V (Minna L32)"}
    ],
-   pattern:{slots:[{text:"V₁ / N₁",role:"obj",label:"Vergleichsbasis"},{text:"より",role:"plain",label:"als"},{text:"V₂ / N₂",role:"subj",label:"das Bessere"},{text:"ほうが Adj (です)",role:"verb"}],gloss:"»[V₂/N₂] ist [Adj-er] als [V₁/N₁].« — より markiert die Basis, ほうが das Bevorzugte."},
+   pattern:{slots:[{text:"V₁ / N₁",role:"obj",label:"Vergleichsbasis"},{text:"より",role:"plain",label:"als"},{text:"V₂ / N₂",role:"subj",label:"das Bessere"},{text:"ほうが Adj (です)",role:"verb"}],gloss:"»V₂/N₂ ist [Adj]-er als V₁/N₁« oder »lieber V₂ als V₁«. より = das Verglichene, ほうが = das Bevorzugte. Bildung: V₁より V₂ほうが."},
    bauplan:[
     "Bestimme: was ist die <b>Basis</b> (das Weniger-Gute) — das kommt nach <code>より</code>.",
     "Was ist das <b>Bevorzugte</b>? Das kommt nach <code>ほうが</code>.",
@@ -1896,7 +1896,7 @@ const CARDS = [
     {form:"Satz-Reaktion",verb:"〜んですか。〜なら、…",de:"ach so! → dann würde ich …"},
     {form:"Empfehlung",verb:"〜なら、〜ほうがいい / 〜たらどうですか",de:"falls X, dann empfehle ich …"}
    ],
-   pattern:{slots:[{text:"[bekanntes Thema X]",role:"cond",label:"aufgegriffen"},{text:"なら、",role:"actor",label:"wenn das so ist"},{text:"[Reaktion/Empfehlung]",role:"verb"}],gloss:"»Falls [X so ist wie du sagst] — dann [Reaktion].« — なら setzt X als gegeben voraus und reagiert darauf."},
+   pattern:{slots:[{text:"[bekanntes Thema X]",role:"cond",label:"aufgegriffen"},{text:"なら、",role:"actor",label:"wenn das so ist"},{text:"[Reaktion/Empfehlung]",role:"verb"}],gloss:"»Wenn das so ist (wie du sagst), dann …« Greift etwas Gesagtes auf und reagiert darauf. Bildung: N/VPlain + なら."},
    bauplan:[
     "なら braucht immer ein <b>Thema, das vorher erwähnt wurde</b> (oder implizit klar ist). Es ist eine Reaktion.",
     "Setze das Thema: Nomen direkt, Verb in Plain-Form, oder ganzer Satz.",
@@ -1924,7 +1924,7 @@ const CARDS = [
     [{text:"たら",role:"cond",label:"Sequenz"},{text:"→ konkreter nächster Schritt",role:"plain"}],
     [{text:"ば",role:"cond",label:"Hypothese"},{text:"→ allgemein / Rat",role:"plain"}],
     [{text:"なら",role:"cond",label:"Reaktion"},{text:"→ Empfehlung auf Thema",role:"plain"}]
-   ],gloss:"と = Automatismus. たら = Sequenz. ば = Hypothese. なら = Reaktion."},
+   ],gloss:"Die 4 wenn-Formen: と = passiert automatisch, たら = danach/wenn, ば = falls (Annahme), なら = wenn es um X geht (Reaktion)."},
    bauplan:[
     "Test 1 — <b>と</b>: Ist die Folge immer und automatisch wahr? Funktioniert in Anleitungen/Gesetzen? → と.",
     "Test 2 — <b>たら</b>: Ist es ein konkreter Einzelfall, zeitlich geordnet (»erst X, dann Y«)? → たら.",
@@ -1948,7 +1948,7 @@ const CARDS = [
     {form:"<b>höflich</b>",verb:"V<sub>テ</sub> + いただきたい",de:"ich würde gerne bitten, dass Sie …"},
     {form:"Vergangenheit",verb:"〜て <ruby>欲<rt>ほ</rt></ruby>しかった",de:"ich hätte mir gewünscht, dass …"}
    ],
-   pattern:{slots:[{text:"(Person) に",role:"actor",label:"von wem"},{text:"V-て / V-ないで",role:"verb",label:"was sie tun/nicht tun"},{text:"<ruby>欲<rt>ほ</rt></ruby>しい",role:"plain",label:"ich wünsche mir"}],gloss:"»Ich möchte, dass [Person] [V / nicht V].« — ich bin Wünschender, die andere Person die Handelnde."},
+   pattern:{slots:[{text:"(Person) に",role:"actor",label:"von wem"},{text:"V-て / V-ないで",role:"verb",label:"was sie tun/nicht tun"},{text:"<ruby>欲<rt>ほ</rt></ruby>しい",role:"plain",label:"ich wünsche mir"}],gloss:"»Ich möchte, dass du V machst (oder nicht machst).« Du wünschst, jemand anderes handelt. Bildung: (Person に) Vテ+欲しい / Vないで+欲しい."},
    bauplan:[
     "Klar machen: <b>Ich</b> bin der Wünschende (は-Subjekt, oft weggelassen). <b>Die andere Person</b> soll etwas tun (mit に markiert, oft weggelassen wenn klar).",
     "Verb in die <b>て-Form</b> für positiven Wunsch: <code><ruby>来<rt>き</rt></ruby>て <ruby>欲<rt>ほ</rt></ruby>しい</code>.",
@@ -1975,7 +1975,7 @@ const CARDS = [
    pattern:{slots:[
     [{text:"V₁-ている",role:"cond",label:"Zeitspanne"},{text:"あいだ、",role:"actor",label:"ganze Zeit"},{text:"V₂ (dauerhaft)",role:"verb"}],
     [{text:"V₁-ている",role:"cond",label:"Zeitspanne"},{text:"あいだに、",role:"actor",label:"einmal darin"},{text:"V₂ (punktuell)",role:"verb"}]
-   ],gloss:"あいだ: V₂ dauert die <b>gesamte</b> Zeitspanne. あいだに: V₂ passiert <b>einmal irgendwann</b> darin."},
+   ],gloss:"あいだ = V₂ läuft die ganze Zeit durch; あいだに = V₂ passiert einmal irgendwann darin. Bildung: Vテいる+あいだ(に) bzw. N+の+あいだ(に)."},
    bauplan:[
     "Formuliere die <b>Zeitspanne</b> (V₁): was läuft im Hintergrund? V₁ in <code>て-Form + いる</code>. Bei Nomen: <code>N + の</code>.",
     "Frage: ist V₂ <b>dauerhaft</b> (läuft durch) oder <b>punktuell</b> (passiert einmal)? Dauerhaft → <code>あいだ</code>. Punktuell → <code>あいだに</code>.",
@@ -1998,7 +1998,7 @@ const CARDS = [
     {form:"い-Adj",verb:"い-Adj + わけではない",de:"<ruby>難<rt>むずか</rt></ruby>しいわけではない"},
     {form:"verstärkt",verb:"〜というわけではない",de:"es heißt damit nicht, dass …"}
    ],
-   pattern:{slots:[{text:"(Vermutung des Anderen)",role:"cond",label:"Missverständnis"},{text:"V / Adj",role:"verb"},{text:"わけではない",role:"actor",label:"nicht so (generell)"}],gloss:"»Es ist nicht so, dass [V/Adj] (immer/generell) gilt.« — sanfte Einschränkung, kein harter Widerspruch."},
+   pattern:{slots:[{text:"(Vermutung des Anderen)",role:"cond",label:"Missverständnis"},{text:"V / Adj",role:"verb"},{text:"わけではない",role:"actor",label:"nicht so (generell)"}],gloss:"»Es heißt nicht, dass immer/grundsätzlich X gilt.« Sanfte Einschränkung. Bildung: VPlain/い-Adj+わけではない, な-Adj/N+な+わけではない."},
    bauplan:[
     "Identifiziere das <b>Missverständnis oder die Verallgemeinerung</b>, die du einschränken willst.",
     "Formuliere den Inhalt in <b>Plain-Form</b> (Verb / い-Adj direkt; な-Adj / N + <code>な</code>).",
@@ -2021,7 +2021,7 @@ const CARDS = [
     {form:"vs. <b>Erfahrung</b>",verb:"V<sub>た</sub> + ことがある",de:"ich habe V schon mal getan (Minna L19)"},
     {form:"häufig mit",verb:"たまに / <ruby>時々<rt>ときどき</rt></ruby> + V + ことがある",de:"gelegentlich / manchmal"}
    ],
-   pattern:{slots:[{text:"Subjekt は/が",role:"subj"},{text:"(たまに)",role:"time",label:"manchmal"},{text:"V-辞書 / V-ない",role:"verb"},{text:"ことがある",role:"actor",label:"kommt vor"}],gloss:"»Es kommt (manchmal) vor, dass [Subjekt] [V].« — gelegentlich, kein festes Muster."},
+   pattern:{slots:[{text:"Subjekt は/が",role:"subj"},{text:"(たまに)",role:"time",label:"manchmal"},{text:"V-辞書 / V-ない",role:"verb"},{text:"ことがある",role:"actor",label:"kommt vor"}],gloss:"»Manchmal kommt es vor, dass V (oder nicht V).« Bildung: V辞書/Vない + ことがある. Oft mit たまに/時々. (Nicht verwechseln mit Vた+ことがある = Erfahrung.)"},
    bauplan:[
     "Wähle die Verbform: <b>辞書形</b> für »es kommt vor, dass V« (positiv). <b>ない-Form</b> für »es kommt vor, dass nicht V«.",
     "Hänge <code>ことがある</code> direkt ans Verb. Höflich: <code>ことがあります</code>.",
@@ -2044,7 +2044,7 @@ const CARDS = [
     {form:"mit Nomen",verb:"N + まで + V₂",de:"<ruby>3時<rt>さんじ</rt></ruby>まで <ruby>待<rt>ま</rt></ruby>つ = bis 3 Uhr warten"},
     {form:"N + まで に",verb:"N + まで に + V₂",de:"<ruby>3時<rt>さんじ</rt></ruby>までに <ruby>来<rt>く</rt></ruby>る = bis 3 Uhr ankommen"}
    ],
-   pattern:{slots:[{text:"V₁-辞書",role:"cond",label:"Zielpunkt"},{text:"まで、",role:"actor",label:"bis"},{text:"V₂ (dauerhaft)",role:"verb",label:"läuft durch"}],gloss:"»[V₂] durchgehend, bis [V₁] eintritt.« — V₂ ist der anhaltende Zustand, V₁ der Stopp."},
+   pattern:{slots:[{text:"V₁-辞書",role:"cond",label:"Zielpunkt"},{text:"まで、",role:"actor",label:"bis"},{text:"V₂ (dauerhaft)",role:"verb",label:"läuft durch"}],gloss:"»V₂ läuft durch, bis V₁ eintritt.« Bildung: V辞書/N + まで + V₂. Achtung: までに = Frist (bis spätestens)."},
    bauplan:[
     "Bestimme den <b>Zielpunkt</b> (V₁): Was ist das Ereignis, das den Zustand beendet? V₁ in <b>辞書形</b>.",
     "Frage: geht es um eine <b>durchgehende Handlung/Warten</b>? → <code>まで</code>. Geht es um eine <b>Deadline</b> (etwas erledigen)? → <code>まで に</code>.",
@@ -2067,7 +2067,7 @@ const CARDS = [
     {form:"vs. <b>L6</b>",verb:"N によって V-受身",de:"Urheber im Passiv"},
     {form:"vs. <b>L10</b>",verb:"N によって V",de:"Mittel/Methode"}
    ],
-   pattern:{slots:[{text:"N",role:"obj",label:"Variable"},{text:"によって",role:"actor",label:"je nach"},{text:"Ergebnis",role:"verb"},{text:"が <ruby>違<rt>ちが</rt></ruby>う",role:"plain",label:"ist verschieden"}],gloss:"»Je nach [N] ist [Ergebnis] verschieden.« — N ist die Variable, das Ergebnis variiert."},
+   pattern:{slots:[{text:"N",role:"obj",label:"Variable"},{text:"によって",role:"actor",label:"je nach"},{text:"Ergebnis",role:"verb"},{text:"が <ruby>違<rt>ちが</rt></ruby>う",role:"plain",label:"ist verschieden"}],gloss:"»Je nach N ist das Ergebnis verschieden.« Bildung: N+によって + 違う/異なる."},
    bauplan:[
     "Bestimme die <b>Variable N</b> — das, wovon es abhängt (Land, Person, Zeit, Jahreszeit …).",
     "Hänge <code>によって</code> an N.",
@@ -2095,7 +2095,7 @@ const CARDS = [
     [{text:"N として",role:"actor",label:"als Rolle"},{text:"→ <ruby>専門家<rt>せんもんか</rt></ruby>として<ruby>話<rt>はな</rt></ruby>す",role:"plain"}],
     [{text:"N について",role:"actor",label:"Thema"},{text:"→ <ruby>環境<rt>かんきょう</rt></ruby>について<ruby>話<rt>はな</rt></ruby>す",role:"plain"}],
     [{text:"N によって",role:"actor",label:"variiert"},{text:"→ <ruby>国<rt>くに</rt></ruby>によって<ruby>違<rt>ちが</rt></ruby>う",role:"plain"}]
-   ],gloss:"として = Rolle/Kapazität. について = Thema wovon. によって = Urheber / Variation / Mittel."},
+   ],gloss:"Drei Postpositionen: として = als/in der Rolle, について = über/zum Thema, によって = durch/je nach/von wem. Alle mit N + Partikel."},
    bauplan:[
     "Frage 1: Geht es um die <b>Funktion/Kapazität</b> (als was handelt jemand)? → <code>として</code>.",
     "Frage 2: Ist N das <b>Thema</b>, worüber gesprochen/geschrieben wird? → <code>について</code>.",
@@ -2119,7 +2119,7 @@ const CARDS = [
     {form:"attributiv",verb:"N₁ + にともなう + N₂",de:"die mit N₁ einhergehende N₂"},
     {form:"Synonyme",verb:"にしたがって / とともに",de:"im Einklang mit / zusammen mit"}
    ],
-   pattern:{slots:[{text:"N の / V-辞書",role:"cond",label:"Entwicklung A"},{text:"にともなって、",role:"actor",label:"im Zuge von"},{text:"Entwicklung B",role:"verb"}],gloss:"»Im Zuge von [A] verändert sich [B] ebenfalls.« — parallele, gleichgerichtete Entwicklung."},
+   pattern:{slots:[{text:"N の / V-辞書",role:"cond",label:"Entwicklung A"},{text:"にともなって、",role:"actor",label:"im Zuge von"},{text:"Entwicklung B",role:"verb"}],gloss:"»Im Zuge von A verändert sich auch B.« — zwei Dinge entwickeln sich parallel. Anschluss: N + にともなって; attributiv: にともなう + N."},
    bauplan:[
     "Identifiziere die <b>zwei parallelen Veränderungen</b>: A ist die treibende Kraft, B folgt ihr.",
     "Anschluss: N + <code>の + にともなって、</code> oder V-辞書 + <code>にともなって、</code>.",
@@ -2145,7 +2145,7 @@ const CARDS = [
    pattern:{slots:[
     [{text:"Aussage A。",role:"cond"},{text:"つまり、",role:"actor",label:"d.h."},{text:"Zusammenfassung B",role:"verb"}],
     [{text:"Aspekt A。",role:"cond"},{text:"一方、",role:"actor",label:"andererseits"},{text:"Aspekt B",role:"verb"}]
-   ],gloss:"つまり = reformuliert/fasst zusammen. 一方 = stellt zwei Perspektiven nebeneinander."},
+   ],gloss:"Satz-Verbinder: つまり = das heißt (fasst zusammen), 一方 = andererseits (stellt zwei Seiten nebeneinander). Stehen am Satzanfang."},
    bauplan:[
     "<b>つまり</b>: Schreibe einen Sachverhalt (A), dann <code>つまり、</code>, dann die einfachere Schlussfolgerung (B).",
     "<b>一方</b>: Beschreibe Aspekt A, dann <code>一方(で)、</code>, dann gleichwertigen Aspekt B.",
@@ -2169,7 +2169,7 @@ const CARDS = [
     {form:"<b>attributiv</b>",verb:"N + である + N₂",de:"das N₂, das X ist"},
     {form:"vs. <b>だ</b>",verb:"だ = gesprochen",de:"である = Schriftsprache/akademisch"}
    ],
-   pattern:{slots:[{text:"N / な-Adj",role:"subj"},{text:"である / ではない",role:"verb",label:"ist / ist nicht (formell)"}],gloss:"»[N/Adj] ist [X].« — funktioniert exakt wie だ/です, aber schriftsprachlich."},
+   pattern:{slots:[{text:"N / な-Adj",role:"subj"},{text:"である / ではない",role:"verb",label:"ist / ist nicht (formell)"}],gloss:"»N/Adj ist X.« Wie だ/です, nur schriftsprachlich. Bildung: N/な-Adj + である. Verneinung: ではない."},
    bauplan:[
     "Überall wo im formellen Schreiben <code>だ</code> stünde: <code>である</code> verwenden.",
     "Bei <b>な-Adj</b>: kein な nötig — direkt <code>な-Adj + である</code>. Bsp: <code><ruby>重要<rt>じゅうよう</rt></ruby><b>である</b></code>.",
@@ -2194,7 +2194,7 @@ const CARDS = [
     {form:"<b>unregelmäßig</b>",verb:"する → <b>させられる</b> / <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby><b>させられる</b>",de:"<ruby>残業<rt>ざんぎょう</rt></ruby>させられる"},
     {form:"Partikel",verb:"Veranlasser: に",de:"<ruby>部長<rt>ぶちょう</rt></ruby>に させられた"}
    ],
-   pattern:{slots:[{text:"<ruby>被害者<rt>ひがいしゃ</rt></ruby> は",role:"subj",label:"gezwungene Person"},{text:"<ruby>加害者<rt>かがいしゃ</rt></ruby> に",role:"actor",label:"zwingende Person"},{text:"(Objekt を)",role:"obj"},{text:"V-させられる",role:"verb",label:"wird gezwungen"}],gloss:"»[Person] wird von [Veranlasser] gezwungen, [V] zu tun.« — immer unfreiwillig, immer negativer Ton."},
+   pattern:{slots:[{text:"<ruby>被害者<rt>ひがいしゃ</rt></ruby> は",role:"subj",label:"gezwungene Person"},{text:"<ruby>加害者<rt>かがいしゃ</rt></ruby> に",role:"actor",label:"zwingende Person"},{text:"(Objekt を)",role:"obj"},{text:"V-させられる",role:"verb",label:"wird gezwungen"}],gloss:"»Jemand wird (vom Veranlasser) gezwungen, V zu tun« – unfreiwillig. Bildung: Gr.II 未然形+させられる, Gr.I a-Reihe+される. する→させられる, 来る→来させられる. Veranlasser mit に."},
    bauplan:[
     "Bilde die <b>Kausativ-Form</b>: Gr.II <code>る → させ</code>. Gr.I <code>う → a-Reihe + せ</code> (書く → 書かせ). する → させ.",
     "Hänge die <b>Passiv-Endung</b> an: <code>させ + られる</code> (Gr.II/する/来る). Gr.I-Kurzform: <code>a-Reihe + される</code> (書か + される = 書かされる).",
@@ -2220,7 +2220,7 @@ const CARDS = [
     [{text:"A は B に",role:"subj"},{text:"V-られる",role:"verb",label:"受身: von B betroffen"}],
     [{text:"A は B を",role:"subj"},{text:"V-させる",role:"verb",label:"使役: B veranlassen"}],
     [{text:"A は B に",role:"subj"},{text:"V-させられる",role:"verb",label:"使役受身: von B gezwungen"}]
-   ],gloss:"受身 = Betroffener. 使役 = Veranlasser. 使役受身 = Zwangs-Opfer."},
+   ],gloss:"受身 = Betroffener (う→aれる / る→られる), 使役 = Veranlasser (う→aせる / る→させる), 使役受身 = zum Tun gezwungen (させられる / Gr.I aされる)."},
    bauplan:[
     "Perspektive bestimmen: Wer leidet / handelt / zwingt?",
     "<b>受身</b>: Subjekt A ist Ergebnis von Bs Handlung. Kann auch positiv sein (<ruby>褒<rt>ほ</rt></ruby>められる).",
@@ -2242,7 +2242,7 @@ const CARDS = [
     {form:"negativ",verb:"V<sub>ないで</sub> + ほしいものだ",de:"ich wünsche mir wirklich, dass nicht V"},
     {form:"vs. てほしい",verb:"てほしい = direkter Alltagswunsch",de:"てほしいものだ = emotional, seufzend"}
    ],
-   pattern:{slots:[{text:"(Adressat に)",role:"actor",label:"optional"},{text:"V-て / V-ないで",role:"verb"},{text:"ほしいものだ",role:"plain",label:"wünsche mir sehr"}],gloss:"»Ich wünsche mir von Herzen, dass [V].« — emotional-eindringlich."},
+   pattern:{slots:[{text:"(Adressat に)",role:"actor",label:"optional"},{text:"V-て / V-ないで",role:"verb"},{text:"ほしいものだ",role:"plain",label:"wünsche mir sehr"}],gloss:"»Ich wünsche mir von Herzen, dass V.« Eindringlicher und emotionaler als てほしい. Bildung: Vテ+ほしいものだ / Vないで+ほしいものだ."},
    bauplan:[
     "V in <b>て-Form</b> (positiv) oder <code>V-ないで</code> (negativ).",
     "Direkt <code>ほしいものだ</code> anhängen — kein だ mehr nötig.",
@@ -2266,7 +2266,7 @@ const CARDS = [
     {form:"vs. <b>で</b>",verb:"<ruby>電車<rt>でんしゃ</rt></ruby>で <ruby>行<rt>い</rt></ruby>く",de:"で = Alltagsmittel; によって = formell"},
     {form:"vs. <b>L6</b>",verb:"N + によって + Passiv",de:"L6 = Urheber; hier = Methode/Mittel"}
    ],
-   pattern:{slots:[{text:"N",role:"obj",label:"Mittel"},{text:"によって",role:"actor",label:"durch / mittels"},{text:"Ergebnis / V",role:"verb"}],gloss:"»Durch [Mittel N] wird [Ergebnis] erreicht.« — formell, schriftsprachlich."},
+   pattern:{slots:[{text:"N",role:"obj",label:"Mittel"},{text:"によって",role:"actor",label:"durch / mittels"},{text:"Ergebnis / V",role:"verb"}],gloss:"»Durch/mittels N (wird das Ergebnis erreicht).« Formell. Bildung: N+によって + V (oft Passiv). Im Alltag sagt man で."},
    bauplan:[
     "Bestimme das <b>Mittel/Werkzeug</b> (N): Internet, Sprache, Technologie, Gesetz …",
     "Hänge <code>によって</code> an N.",
@@ -2289,7 +2289,7 @@ const CARDS = [
     {form:"<b>② Ausgleich</b>",verb:"[A]。その<ruby>代<rt>か</rt></ruby>わり、[B]。",de:"aber dafür / als Kompromiss"},
     {form:"Einspringen",verb:"〜の<ruby>代<rt>か</rt></ruby>わりを する",de:"für jdn. einspringen"}
    ],
-   pattern:{slots:[{text:"A / V₁",role:"obj",label:"was ersetzt wird"},{text:"の<ruby>代<rt>か</rt></ruby>わりに、",role:"actor",label:"anstatt"},{text:"B / V₂",role:"verb",label:"Ersatz"}],gloss:"»Anstatt [A] — [B].« Oder als Ausgleich: A hat Nachteil, dafür Vorteil B."},
+   pattern:{slots:[{text:"A / V₁",role:"obj",label:"was ersetzt wird"},{text:"の<ruby>代<rt>か</rt></ruby>わりに、",role:"actor",label:"anstatt"},{text:"B / V₂",role:"verb",label:"Ersatz"}],gloss:"»Statt A macht man B« oder »dafür als Ausgleich B«. Bildung: N+の/V辞書 + 代わりに. Für Ausgleich: その代わり."},
    bauplan:[
     "Ersatz: <code>[A] の代わりに [B]</code> — B übernimmt die Rolle von A.",
     "Ausgleich: <code>[A nachteilig]。その代わり、[B vorteilig]。</code>",
@@ -2316,7 +2316,7 @@ const CARDS = [
    pattern:{slots:[
     [{text:"V-て くる",role:"verb",label:"→ zum Sprecher / bis jetzt"}],
     [{text:"V-て いく",role:"verb",label:"← vom Sprecher / ab jetzt"}]
-   ],gloss:"Sprecher als Mittelpunkt: くる = Annäherung/Vergangenheit. いく = Entfernung/Zukunft."},
+   ],gloss:"Sprecher ist der Mittelpunkt: てくる = kommt näher / von früher bis jetzt, ていく = entfernt sich / von jetzt in die Zukunft. Bildung: Vテ+くる/いく (in Hiragana)."},
    bauplan:[
     "Physisch oder zeitlich? → bestimmt くる/いく.",
     "Physisch: <code>てくる</code> = auf Sprecher zu; <code>ていく</code> = weg vom Sprecher.",
@@ -2339,7 +2339,7 @@ const CARDS = [
     {form:"⚠ する",verb:"するべき <b>oder</b> すべき",de:"beide korrekt"},
     {form:"attributiv",verb:"V + べき + N",de:"<ruby>守<rt>まも</rt></ruby>るべきルール = Regeln, die einzuhalten sind"}
    ],
-   pattern:{slots:[{text:"Subjekt は",role:"subj"},{text:"V-辞書",role:"verb"},{text:"べきだ / べきではない",role:"actor",label:"moralisches Sollen"}],gloss:"»[Subjekt] sollte [V] — das ist das moralisch Richtige.«"},
+   pattern:{slots:[{text:"Subjekt は",role:"subj"},{text:"V-辞書",role:"verb"},{text:"べきだ / べきではない",role:"actor",label:"moralisches Sollen"}],gloss:"»Man sollte V tun – so gehört es sich.« Moralisch. Bildung: V辞書+べきだ, Verneinung べきではない. Bei する: するべき oder すべき."},
    bauplan:[
     "V in <b>辞書形</b>. Dann <code>べきだ</code> (plain) oder <code>べきです</code> (höflich) anhängen.",
     "Negation: <code>べきではない / べきでない</code>.",
@@ -2362,7 +2362,7 @@ const CARDS = [
     {form:"⚠ <b>する → せずに</b>",verb:"する → <b>せ</b>ずに",de:"NICHT しずに!"},
     {form:"vs. ないで",verb:"ないで = gesprochen",de:"ずに = schriftlich/formell"}
    ],
-   pattern:{slots:[{text:"V-ない-Stamm",role:"verb",label:"ohne V₁"},{text:"ずに、",role:"actor",label:"ohne"},{text:"V₂",role:"verb",label:"macht V₂"}],gloss:"»[V₂] tun, ohne [V₁] getan zu haben.« — schriftsprachliches ないで."},
+   pattern:{slots:[{text:"V-ない-Stamm",role:"verb",label:"ohne V₁"},{text:"ずに、",role:"actor",label:"ohne"},{text:"V₂",role:"verb",label:"macht V₂"}],gloss:"»V₂ tun, ohne V₁ getan zu haben.« Schriftsprachliches ないで. Bildung: Vない-Stamm + ずに. Achtung: する → せずに."},
    bauplan:[
     "ない-Stamm bilden (ない weglassen): <code><ruby>食<rt>た</rt></ruby>べ</code>, <code><ruby>書<rt>か</rt></ruby>か</code>, <code><ruby>言<rt>い</rt></ruby>わ</code>.",
     "<code>ずに</code> direkt anhängen.",
@@ -2390,7 +2390,7 @@ const CARDS = [
     [{text:"尊敬: <ruby>先生<rt>せんせい</rt></ruby>が",role:"actor",label:"andere Person"},{text:"いらっしゃいます",role:"verb",label:"② 尊敬語"}],
     [{text:"謙譲: <ruby>私<rt>わたし</rt></ruby>が",role:"subj",label:"ich"},{text:"参ります",role:"verb",label:"③ 謙譲語"}],
     [{text:"丁寧: 〜さんが",role:"subj"},{text:"行きます",role:"verb",label:"① 丁寧語"}]
-   ],gloss:"① 丁寧語 = neutral. ② 尊敬語 = andere erhöhen. ③ 謙譲語 = sich selbst erniedrigen. Nie mischen!"},
+   ],gloss:"Drei Höflichkeitsebenen: 丁寧語 = neutral höflich (です/ます), 尊敬語 = das Gegenüber erhöhen, 謙譲語 = sich selbst kleiner machen. Niemals mischen."},
    bauplan:[
     "Wessen Handlung? Vorgesetzter/Kunde → ② 尊敬語. Ich gegenüber Vorgesetztem → ③ 謙譲語.",
     "尊敬語 Top-Verben auswendig: <code>いらっしゃる</code> (sein/gehen/kommen), <code>おっしゃる</code> (sagen), <code>なさる</code> (tun).",
