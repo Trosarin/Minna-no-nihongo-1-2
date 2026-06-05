@@ -1067,7 +1067,7 @@ const CARDS = [
    build:[
     {form:"Hauptmuster",verb:"N₁ + といえば、N₂ (だ/です)",de:"apropos N₁ → N₂"},
     {form:"Varianten (≈ gleich)",verb:"N₁ + というと / といったら",de:"alle drei austauschbar"},
-    {form:"Nominalisiertes V",verb:"<ruby>泳<rt>およ</rt></ruby>ぐといえば、…",de:"auch nach Verb möglich"}
+    {form:"Auch nach Verb",verb:"<ruby>泳<rt>およ</rt></ruby>ぐといえば、…",de:"auch nach Verb möglich"}
    ],
    pattern:{slots:[{text:"N₁",role:"obj",label:"Stichwort"},{text:"といえば、",role:"actor",label:"apropos"},{text:"N₂",role:"subj",label:"Assoziation"},{text:"だ/です",role:"plain"}],gloss:"»Wenn man N₁ sagt, denkt man an N₂.« — nennt das, was einem zu einem Thema sofort einfällt (allgemein bekannt). Auch: というと / といったら."},
    bauplan:[
@@ -1477,7 +1477,7 @@ const CARDS = [
     {form:"Hauptmuster",verb:"N₁ + の + ような + N₂",de:"ein N₂ wie z.B. N₁"},
     {form:"Beispiel-Marker",verb:"〜のような <ruby>例<rt>れい</rt></ruby> / もの",de:"so etwas wie / Beispiele wie"},
     {form:"Negation",verb:"N₁ + のような + N₂ + ではない",de:"kein N₂ wie N₁"},
-    {form:"Stilebene",verb:"= N₁ など (gespr. ähnlich)",de:"N₁ und so weiter"}
+    {form:"Stilebene",verb:"≈ N₁ など (verwandt)",de:"N₁ und so weiter"}
    ],
    pattern:{slots:[{text:"N₁ の",role:"obj",label:"konkretes Beispiel"},{text:"ような",role:"actor",label:"wie z.B."},{text:"N₂",role:"subj",label:"Kategorie"}],gloss:"»ein N₂ wie zum Beispiel N₁.« — N₁ ist ein Beispiel, das zeigt, welche Art N₂ gemeint ist. Muster: N₁ + の + ような + N₂. Ähnlich gesprochen: N₁ など."},
    bauplan:[
@@ -1821,7 +1821,7 @@ const CARDS = [
 
   {l:7, t:"N / V + として", de:"als (in der Funktion/Kapazität von)",
    simpel:"<b>として</b> = »als« in der Rolle/Funktion von N — nicht für Richtung (に) oder Urheber (によって).<br><span class=\"jp\"><ruby>教師<rt>きょうし</rt></ruby><b>として</b> <ruby>働<rt>はたら</rt></ruby>く</span> = „als Lehrer arbeiten“",
-   rule:"<code>として</code> markiert die <b>Rolle, Funktion oder Eigenschaft</b>, in der jemand oder etwas auftritt. Auf Deutsch: »als«, aber nur bei Rollen — nicht beim Passiv (da: によって) und nicht bei zeitlichen Vergleichen (da: より).",
+   rule:"<code>として</code> markiert die <b>Rolle, Funktion oder Eigenschaft</b>, in der jemand oder etwas auftritt. Auf Deutsch: »als«, aber nur bei Rollen — nicht beim Passiv (da: によって).",
    build:[
     {form:"① <b>Rolle/Position</b>",verb:"N + として (+ V)",de:"als N tätig/handelnd"},
     {form:"② <b>Bewertung</b>",verb:"N + として + <ruby>有名<rt>ゆうめい</rt></ruby>だ / <ruby>知<rt>し</rt></ruby>られる",de:"als N bekannt/anerkannt"},
@@ -2112,9 +2112,9 @@ const CARDS = [
   // ============ LEKTION 9 — <ruby>男<rt>おとこ</rt></ruby>・<ruby>女<rt>おんな</rt></ruby>の<ruby>仕事<rt>しごと</rt></ruby> ============
   {l:9, t:"〜にともなって / にともなう N", de:"im Zuge von / parallel dazu (Entwicklung)",
    simpel:"<b>にともなって</b> = zwei Entwicklungen verlaufen parallel: »im Zuge von A verändert sich B«.<br><span class=\"jp\"><ruby>人口<rt>じんこう</rt></ruby>が <ruby>増<rt>ふ</rt></ruby>える<b>にともなって</b> …</span> = „Mit wachsender Bevölkerung …“",
-   rule:"Drückt aus, dass <b>zwei Veränderungen parallel verlaufen</b>: wenn A zunimmt/wächst, nimmt/wächst B ebenfalls. Formell-schriftlich, typisch für gesellschaftliche oder wirtschaftliche Trends. Anschluss: N + の + にともなって oder V-辞書 + にともなって.",
+   rule:"Drückt aus, dass <b>zwei Veränderungen parallel verlaufen</b>: wenn A zunimmt/wächst, nimmt/wächst B ebenfalls. Formell-schriftlich, typisch für gesellschaftliche oder wirtschaftliche Trends. Anschluss: N + にともなって oder V-辞書 + にともなって.",
    build:[
-    {form:"N-Anschluss",verb:"N + の + にともなって、",de:"im Zuge von N / mit N zusammen"},
+    {form:"N-Anschluss",verb:"N + にともなって、",de:"im Zuge von N / mit N zusammen"},
     {form:"V-Anschluss",verb:"V<sub><ruby>辞書<rt>じしょ</rt></ruby></sub> + にともなって、",de:"parallel dazu, dass V"},
     {form:"attributiv",verb:"N₁ + にともなう + N₂",de:"die mit N₁ einhergehende N₂"},
     {form:"Synonyme",verb:"にしたがって / とともに",de:"im Einklang mit / zusammen mit"}
