@@ -1905,7 +1905,7 @@ const CARDS = [
   {jp:"<ruby>週末<rt>しゅうまつ</rt></ruby> <ruby>映画<rt>えいが</rt></ruby>でも <ruby>見<rt>み</rt></ruby>に <ruby>行<rt>い</rt></ruby>きませんか。",de:"Shall we watch a movie this weekend (or something)?"},
   {jp:"<ruby>散歩<rt>さんぽ</rt></ruby>でも しませんか。",de:"How would it be with a walk?"}
  ], note:"💡 でも does suggestions softer and less pushy ('coffee or so?'). Signals openness for alternatives."},
- {l:21, t:"V<ruby>ない<rt></rt></ruby>-form + と…", de:"I must … (short form)", rule:"Very common short form of なければならない. ない-form + と… (the rest is omitted, because clear). Especially in plain conversation. Can also my 'otherwise happens something bad'.", build:[
+ {l:21, t:"Vない-form + と…", de:"I must … (short form)", rule:"Very common short form of なければならない. ない-form + と… (the rest is omitted, because clear). Especially in plain conversation. Can also my 'otherwise happens something bad'.", build:[
   {form:"〜ないと (short form)",verb:"<ruby>行<rt>い</rt></ruby>かないと",de:"I must go"},
   {form:"Full form: 〜ないといけない",verb:"<ruby>行<rt>い</rt></ruby>かないと いけない",de:"I must go"},
   {form:"Cf. more formal: 〜なければならない",verb:"<ruby>行<rt>い</rt></ruby>かなければ ならない",de:"I must to go (formal)"}
@@ -1916,7 +1916,7 @@ const CARDS = [
  ], note:"💡 urgency scale: 〜ないと (very casual) < 〜ないといけない < 〜なければならない (formal). In conversations with friends: ないと is enough."},
  {l:22, t:"<ruby>名詞修飾<rt>めいししゅうしょく</rt></ruby> (relative clause)", de:"verb-/Adj-sentences as attribute", rule:"A plain-form clause stands directly BEFORE a noun and describes it. No 'who/which/that'. The subject in the relative clause uses が (not は!).", build:[
   {form:"Connection",verb:"[Plain-sentence] + N",de:"the Plain-sentence describes N"},
-  {form:"subject in the RS",verb:"<ruby>が<rt></rt></ruby> (NOT は!)",de:"inside of the relative clause always が"},
+  {form:"subject in the RS",verb:"が (NOT は!)",de:"inside of the relative clause always が"},
   {form:"verb-RS",verb:"ミラーさん<b>が</b><ruby>作<rt>つく</rt></ruby>った ケーキ",de:"the cake, the M. did"},
   {form:"verb-RS present tense",verb:"<ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>く <ruby>人<rt>ひと</rt></ruby>",de:"the person, the go to Kyotos"},
   {form:"verb-RS Negated",verb:"<ruby>行<rt>い</rt></ruby>かない <ruby>人<rt>ひと</rt></ruby>",de:"the person, twon't goes"},
@@ -1956,7 +1956,7 @@ const CARDS = [
   {jp:"<ruby>昨日<rt>きのう</rt></ruby> <ruby>友達<rt>ともだち</rt></ruby>が <ruby>来<rt>き</rt></ruby>た <ruby>日<rt>ひ</rt></ruby>",de:"the day a friend came yesterday"},
   {jp:"<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>って いる <ruby>町<rt>まち</rt></ruby>",de:"the city in which it rains"}
  ], note:"⚠️ Frequent mistake: は in the relative clause. ALWAYS use が (or の)! は separates the main clause from the embedded clause and destroys the relative clause."},
- {l:23, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby>/V<ruby>ない<rt></rt></ruby>/Adj/N + とき、…", de:"When (before/during the action or a state)", rule:"dictionary form or ない-form before とき: the main clause action happens BEFORE or DURING the とき-clause action. For い-Adj directly + とき, な-Adj + な + とき, N + の + とき.", build:[
+ {l:23, t:"V<ruby>辞書形<rt>じしょけい</rt></ruby>/Vない/Adj/N + とき、…", de:"When (before/during the action or a state)", rule:"dictionary form or ない-form before とき: the main clause action happens BEFORE or DURING the とき-clause action. For い-Adj directly + とき, な-Adj + な + とき, N + の + とき.", build:[
   {form:"辞書形+とき (before/during)",verb:"<ruby>行<rt>い</rt></ruby>くとき",de:"before I go / on the way"},
   {form:"い-Adj+とき",verb:"<ruby>若<rt>わか</rt></ruby>いとき",de:"when I was young"},
   {form:"な-Adj/N + な/の + とき",verb:"<ruby>暇<rt>ひま</rt></ruby>なとき / <ruby>学生<rt>がくせい</rt></ruby>のとき",de:"when I time / when I Student was"},
@@ -2136,7 +2136,7 @@ const CARDS = [
   rule:"Expanded meaning by ています (beyond the ongoing action of L14): repeated actions over a longer time range — habit, hobbies, regular activities, continued activities like learning Japanese.",
   build:[{form:"L14: runs now",verb:"<ruby>今<rt>いま</rt></ruby> ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べて います",de:"eating right now"},{form:"L28: habit",verb:"<ruby>毎朝<rt>まいあさ</rt></ruby> ジョギングして います",de:"jog every morning (regular)"},{form:"L28: profession/situation",verb:"<ruby>銀行<rt>ぎんこう</rt></ruby>で <ruby>働<rt>はたら</rt></ruby>いて います",de:"work in a bank (profession)"},{form:"L28: continued",verb:"<ruby>日本語<rt>にほんご</rt></ruby>を <ruby>勉強<rt>べんきょう</rt></ruby>して います",de:"studying Japanese (continuously)"}],
   pattern:{slots:[{text:"subject は",role:"subj",label:"who"},{text:"frequency",role:"time",label:"when/how often"},{text:"object を",role:"obj"},{text:"V-て います",role:"verb",label:"habit"}],gloss:"'[subject] does regularly/permanently [verb].' — context (e.g., 毎日/いつも) decides whether it's a habit or currently ongoing."},
-  ex:[{jp:"<ruby>毎朝<rt>まいあさ</rt></ruby> ジョギングを <ruby>して<rt></rt></ruby> います。",de:"I jog every morning."},{jp:"ミラーさんは <ruby>銀行<rt>ぎんこう</rt></ruby>で <ruby>働<rt>はたら</rt></ruby>いて います。",de:"Mr. Miller works in a bank."},{jp:"<ruby>毎晩<rt>まいばん</rt></ruby> <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>勉強<rt>べんきょう</rt></ruby>して います。",de:"I study Japanese every evening."},{jp:"<ruby>最近<rt>さいきん</rt></ruby> <ruby>運動<rt>うんどう</rt></ruby>して いません。",de:"I haven't been exercising lately."}],
+  ex:[{jp:"<ruby>毎朝<rt>まいあさ</rt></ruby> ジョギングを して います。",de:"I jog every morning."},{jp:"ミラーさんは <ruby>銀行<rt>ぎんこう</rt></ruby>で <ruby>働<rt>はたら</rt></ruby>いて います。",de:"Mr. Miller works in a bank."},{jp:"<ruby>毎晩<rt>まいばん</rt></ruby> <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>勉強<rt>べんきょう</rt></ruby>して います。",de:"I study Japanese every evening."},{jp:"<ruby>最近<rt>さいきん</rt></ruby> <ruby>運動<rt>うんどう</rt></ruby>して いません。",de:"I haven't been exercising lately."}],
   note:"💡 Marker for habit: 毎日/毎朝/いつも/よく + ています. Marker for 'happening right now': 今 + ています."},
  {l:28, t:"〜し、〜し、… (several reasons)", de:"… and … (enumeration by reasons)",
   rule:"Lists several reasons or attributes that coherently lead to the consequence. Stronger than pure て-chaining — implies that each individual point alone would already be an argument.",
@@ -2318,7 +2318,7 @@ const CARDS = [
   pattern:{slots:[{text:"N (topic)",role:"obj",label:"about"},{text:"なら、",role:"actor",label:"as for X"},{text:"recommendation/statement",role:"verb"}],gloss:"'As for [N] — my recommendation/statement is [consequence].' — typical in advisory contexts."},
   ex:[{jp:"<ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>くなら、<ruby>新幹線<rt>しんかんせん</rt></ruby>が べんりですよ。",de:"If you're going to Kyoto, the Shinkansen is convenient."},{jp:"<ruby>日本料理<rt>にほんりょうり</rt></ruby>なら、すしが おすすめです。",de:"When it comes to Japanese food, I recommend sushi."},{jp:"パソコンなら、この <ruby>店<rt>みせ</rt></ruby>が <ruby>安<rt>やす</rt></ruby>いです。",de:"For PCs, this shop is cheap."},{jp:"<ruby>行<rt>い</rt></ruby>かないなら、<ruby>電話<rt>でんわ</rt></ruby>して ください。",de:"If you're not going, please call."}],
   note:"💡 なら reacts to something just mentioned — picks up the topic and offers a recommendation."},
- {l:35, t:"<ruby>疑問詞<rt>ぎもんし</rt></ruby> V<ruby>ば<rt></rt></ruby> いいですか", de:"What/how should I do? (ば variant)",
+ {l:35, t:"<ruby>疑問詞<rt>ぎもんし</rt></ruby> Vば いいですか", de:"What/how should I do? (ば variant)",
   rule:"Asks for advice with ば-form + いいですか. Common question words: どう, 何, どこ, いつ, だれ. Slightly more formal than 〜たらいいですか (L26).",
   build:[{form:"Connection",verb:"<ruby>疑問詞<rt>ぎもんし</rt></ruby> + V<sub>ば</sub> + いいですか",de:"what/how should I V?"},{form:"vs. たら-variant (L26)",verb:"〜たら いいですか",de:"practically identical, more casual"}],
   pattern:{slots:[{text:"question word",role:"cond",label:"どう/何…"},{text:"V-ば",role:"verb"},{text:"いいですか",role:"plain"}],gloss:"'What would be the right thing to do?' — asking for advice; the ば-form sounds a little more formal/written."},
@@ -2540,7 +2540,7 @@ const CARDS = [
   pattern:{slots:[{text:"subject は",role:"subj"},{text:"quantity",role:"time",label:"much"},{text:"も",role:"actor",label:"even!"},{text:"V",role:"verb"}],gloss:"'[Subject] [V]-ed as much as [quantity].' — the speaker finds the quantity strikingly large."},
   ex:[{jp:"きのうは ビールを <ruby>10本<rt>じゅっぽん</rt></ruby>も <ruby>飲<rt>の</rt></ruby>みました。",de:"Yesterday I drank even 10 bottles of beer!"},{jp:"<ruby>一晩中<rt>ひとばんじゅう</rt></ruby> <ruby>10時間<rt>じゅうじかん</rt></ruby>も <ruby>寝<rt>ね</rt></ruby>ました。",de:"I whole 10 hours slept."},{jp:"パーティーに <ruby>50人<rt>ごじゅうにん</rt></ruby>も <ruby>来<rt>き</rt></ruby>ました。",de:"50 people even came to the party!"}],
   note:"💡 In the negativen sentence: 何も/誰も/どこも + ない = 'nothing/no one/nowhere' (complete negation)."},
- {l:43, t:"V<ruby>マス<rt></rt></ruby>-stem + そうです (Appearance)", de:"looks as if … (verb)",
+ {l:43, t:"Vマス-stem + そうです (Appearance)", de:"looks as if … (verb)",
   rule:"Apparent assumption with VERBS. ます-stem + そうです = looks as if V is about to happen. ⚠️ This is the SECOND そうです usage, alongside L40 (Adj/N).",
   build:[{form:"verb",verb:"V<sub>マス</sub>-stem + そう",de:"<ruby>降<rt>ふ</rt></ruby>り → <ruby>降<rt>ふ</rt></ruby>りそう = looks like rain"},{form:"い-Adj (L40)",verb:"い drops + そう",de:"おいしい → おいしそう"},{form:"な-Adj (L40)",verb:"+ そう",de:"<ruby>元気<rt>げんき</rt></ruby> → <ruby>元気<rt>げんき</rt></ruby>そう"},{form:"⚠ ない/いい",verb:"なさそう / よさそう",de:"specifically"},{form:"negation verb",verb:"V<sub>マス</sub>-stem + そうにない",de:"doesn't look like it will"}],
   pattern:{slots:[{text:"subject は/が",role:"subj"},{text:"V-マス-stem",role:"verb",label:"Action (short)"},{text:"そうです",role:"actor",label:"Appearance"}],gloss:"'It looks like that, as if [V] same happen.' — visual impression, not Information."},
@@ -2552,19 +2552,19 @@ const CARDS = [
   pattern:{slots:[[{text:"subject は",role:"subj"},{text:"V-て",role:"verb",label:"V do"},{text:"<ruby>来<rt>き</rt></ruby>ます",role:"actor",label:"+ come back"}]],gloss:"3 meanings: ① go + V + come back (買って来る = go buy and come back), ② V comes closer (走って来る = runs toward me), ③ beginning of change (寒くなって来た = is gradually getting cold)."},
   ex:[{jp:"コンビニへ <ruby>行<rt>い</rt></ruby>って、お <ruby>弁当<rt>べんとう</rt></ruby>を <ruby>買<rt>か</rt></ruby>って <ruby>来<rt>き</rt></ruby>ます。",de:"I go quickly to the convenience store and bring a bento. [①]"},{jp:"<ruby>子供<rt>こども</rt></ruby>が <ruby>走<rt>はし</rt></ruby>って <ruby>来<rt>き</rt></ruby>ました。",de:"The child came togertont. [②]"},{jp:"だんだん <ruby>寒<rt>さむ</rt></ruby>くなって <ruby>来<rt>き</rt></ruby>ました。",de:"It is gradually kolder. [③]"}],
   note:"💡 counterpart: Vて行く = action and gone / trend in the future. <ruby>暑<rt>あつ</rt></ruby>くなって <ruby>行<rt>い</rt></ruby>く = is getting warmer (in future)."},
- {l:43, t:"V<ruby>マス<rt></rt></ruby>-stem + そうに ない (negation of the appearance)", de:"doesn't look like …",
+ {l:43, t:"Vマス-stem + そうに ない (negation of the appearance)", de:"doesn't look like …",
   rule:"Negated form of Vます-stem + そうです. Expresses that something after visual assessment NOT (more) happen is. Frequent in daily use: 'we won't manage it', 'it won't start', 'it won't stop'. Also そうもない (somewhat emphaticcscher).",
   build:[{form:"positive (Appearance)",verb:"V<sub>マス</sub>-stem + そうです",de:"looks as if V"},{form:"Standard negative",verb:"V<sub>マス</sub>-stem + そうに ない",de:"does not look like V"},{form:"Negative-emphatic",verb:"V<sub>マス</sub>-stem + そうも ない",de:"doesn't look like it at all"},{form:"⚠ NOT V-ない + そう",verb:"<ruby>降<rt>ふ</rt></ruby>らな<b>さそう</b>です (alternative form)",de:"い-Adj path: ない is treated like an い-Adj"}],
   pattern:{slots:[{text:"subject は/が",role:"subj"},{text:"V-stem",role:"verb",label:"Action"},{text:"そうに ない",role:"actor",label:"appearance negated"}],gloss:"'It doesn't look like [V] will happen.' — the speaker sees/senses that V isn't going to happen."},
   ex:[{jp:"<ruby>仕事<rt>しごと</rt></ruby>が <ruby>多<rt>おお</rt></ruby>くて、<ruby>今日<rt>きょう</rt></ruby>中に <ruby>終<rt>お</rt></ruby>わり<b>そうに ありません</b>。",de:"There's so much work, I won't finish today."},{jp:"<ruby>空<rt>そら</rt></ruby>を <ruby>見<rt>み</rt></ruby>てください。<ruby>雨<rt>あめ</rt></ruby>は <ruby>降<rt>ふ</rt></ruby>り<b>そうに ない</b>ですよ。",de:"Look at the sky — it doesn't look like it will rain."},{jp:"この <ruby>映画<rt>えいが</rt></ruby>は おもしろく<b>なさそう</b>ですね。",de:"This movie doesn't look interesting, does it?"}],
   note:"⚠️ For い-Adj-negation special form: い→く+なさそう (高くなさそう = does not look expensive). For な-Adj: じゃなさそう. For N: じゃなさそう. ない is treated like an い-adjective, therefore なさ+そう (with 〜さ-insertion!)."},
- {l:44, t:"V<ruby>マス<rt></rt></ruby>-stem / Adj-stem + すぎます", de:"too (very) … (excess)",
+ {l:44, t:"Vマス-stem / Adj-stem + すぎます", de:"too (very) … (excess)",
   rule:"Expresses 'too much' / 'overdone'. Negative evaluation: goes beyond a healthy measure. For verbs: ます-stem. For Adj: drop い / drop な.",
   build:[{form:"verb",verb:"V<sub>マス</sub>-stem + すぎます",de:"<ruby>食<rt>た</rt></ruby>べすぎる = eat too much"},{form:"い-Adj",verb:"い dropped + すぎます",de:"<ruby>高<rt>たか</rt></ruby>すぎる = too expensive"},{form:"な-Adj",verb:"な dropped + すぎます",de:"<ruby>静<rt>しず</rt></ruby>かすぎる = too quiet"},{form:"⚠ いい",verb:"いい → よすぎる",de:"too good (irregular)"},{form:"⚠ ない",verb:"ない → なさすぎる",de:"too little / too few"}],
   pattern:{slots:[{text:"subject は/が",role:"subj"},{text:"V-stem/Adj-stem",role:"verb",label:"content"},{text:"すぎます",role:"actor",label:"too much"}],gloss:"'[content] is too much.' — exaggeration, often with negative connotation."},
   ex:[{jp:"きのう ビールを <ruby>飲<rt>の</rt></ruby>みすぎました。",de:"Yesterday I drank too much beer."},{jp:"この <ruby>本<rt>ほん</rt></ruby>は <ruby>難<rt>むずか</rt></ruby>しすぎます。",de:"This book is too difficult."},{jp:"この <ruby>部屋<rt>へや</rt></ruby>は <ruby>静<rt>しず</rt></ruby>かすぎます。",de:"This room is too calm."},{jp:"<ruby>働<rt>はたら</rt></ruby>き<b>すぎないで</b> ください。",de:"please work don't too much. [further conjugated: V-すぎる + negation + please]"}],
   note:"💡 〜すぎる is itself a group II verb: 食べすぎる, 食べすぎた, 食べすぎて etc.. Can also be conjugated."},
- {l:44, t:"V<ruby>マス<rt></rt></ruby>-stem + やすい / にくい", de:"light / difficult to …",
+ {l:44, t:"Vマス-stem + やすい / にくい", de:"light / difficult to …",
   rule:"Attribute: easy or difficult to do. やすい = easy to V. にくい = difficult to V. Both are conjugated like い-adjectives.",
   build:[{form:"easy",verb:"V<sub>マス</sub>-stem + やすい",de:"easy to V"},{form:"hard",verb:"V<sub>マス</sub>-stem + にくい",de:"difficult to V"},{form:"Conjugation like い-Adj",verb:"〜やすい / 〜やすかった / 〜やすくない",de:"like a normal い-Adj"},{form:"Examples",verb:"<ruby>使<rt>つか</rt></ruby>いやすい / <ruby>分<rt>わ</rt></ruby>かりにくい",de:"easy to use / difficult to understand"}],
   pattern:{slots:[{text:"N",role:"subj",label:"thing"},{text:"は",role:"plain"},{text:"V-stem + やすい/にくい",role:"verb",label:"attribute"},{text:"です",role:"plain"}],gloss:"'[N] is easy/difficult to [V].' — attribute of objects in reference on to action."},
