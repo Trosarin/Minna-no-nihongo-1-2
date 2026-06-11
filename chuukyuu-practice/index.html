@@ -749,6 +749,26 @@
   .sit-model-jp{font-family:"Noto Serif JP","Shippori Mincho",serif;font-size:1.18rem;color:var(--ink);line-height:1.8;margin-bottom:.4rem}
   .sit-model-de{font-size:.92rem;color:var(--t-2);margin-bottom:.6rem}
   .sit-model-gloss{font-size:.82rem;color:var(--muted);line-height:1.6;border-top:1px dashed var(--line-soft);padding-top:.55rem}
+  /* ---- Aufbau-Trainer ---- */
+  .au-card{background:var(--paper-2);border:2px solid var(--line);border-radius:14px;padding:1.1rem 1.1rem 1.2rem;box-shadow:0 6px 20px -8px rgba(0,0,0,.3)}
+  .au-art{display:inline-block;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--blue);background:transparent;border:1.5px solid var(--blue);border-radius:999px;padding:.16rem .6rem}
+  .au-title{font-weight:800;color:var(--ink);margin:.55rem 0 .15rem;font-size:1.05rem;line-height:1.35}
+  .au-ziel{font-size:.82rem;color:var(--t-3);font-style:italic;margin-bottom:.75rem;line-height:1.5}
+  .au-steps{display:flex;gap:.28rem;margin:.2rem 0 1rem}
+  .au-pip{flex:1;height:7px;border-radius:99px;background:var(--line-soft)}
+  .au-pip.on{background:var(--red)}
+  .au-jp{font-family:"Noto Serif JP","Shippori Mincho",serif;font-size:1.4rem;line-height:2;color:var(--ink);margin:.3rem 0 .6rem;font-weight:600}
+  .au-jp .ap{color:var(--red);font-weight:800;border-bottom:2px solid var(--red);padding-bottom:1px}
+  .au-de{font-size:1rem;color:var(--t-2);margin-bottom:.95rem;line-height:1.5}
+  .au-layer{border-top:1px dashed var(--line-soft);padding-top:.8rem}
+  .au-layer .tag{display:inline-block;font-size:.82rem;font-weight:800;color:var(--ink)}
+  .au-layer .les{display:inline-block;font-size:.64rem;font-weight:800;letter-spacing:.06em;color:var(--on-dark);background:var(--red-deep);border-radius:6px;padding:.1rem .42rem;margin-left:.45rem;vertical-align:.08em}
+  .au-layer .nt{font-size:.86rem;color:var(--muted);line-height:1.6;margin-top:.4rem}
+  .au-nav{display:grid;grid-template-columns:1fr 1.3fr;gap:.55rem;margin-top:1.1rem}
+  .au-nav button{font-family:inherit;cursor:pointer;border-radius:11px;padding:.7rem .4rem;font-weight:800;font-size:.92rem;border:2px solid var(--line);background:var(--paper);color:var(--ink)}
+  .au-nav button:disabled{opacity:.35;cursor:default}
+  .au-nav button.prim{background:var(--red-deep);color:var(--on-dark);border-color:var(--red-deep)}
+  .au-done{text-align:center;font-size:.84rem;color:var(--blue);font-weight:800;margin-top:.8rem}
   .sit-rate{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;margin-top:1rem}
   .sit-rate button{font-family:inherit;cursor:pointer;border-radius:9px;padding:.6rem .3rem;font-size:.86rem;font-weight:700;border:1.5px solid;line-height:1.25}
   .sit-rate .r-ok{background:var(--ok-bg);border-color:var(--green);color:var(--green-text)}
@@ -884,6 +904,10 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
     <span class="jp">場面</span>
     <span class="de">Situation</span>
   </button>
+  <button class="mode-tab" data-mode="aufbau">
+    <span class="jp">組立</span>
+    <span class="de">Aufbau</span>
+  </button>
   <button class="mode-tab" data-mode="drill">
     <span class="jp">活用</span>
     <span class="de">Drills</span>
@@ -932,6 +956,17 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 
   <div id="sit-stats" class="status-bar"></div>
   <div id="sit-card" class="sit-card"></div>
+</section>
+
+<section id="mode-aufbau" class="panel hidden">
+  <p class="help"><b>Vom Kern zum großen Satz.</b> Ein Satz <b>wächst Schritt für Schritt</b> — jede Stufe fügt genau <b>eine</b> Struktur hinzu (mit Lektions-Tag). So lernst du, wie sich lange, verschachtelte Mittelstufen-Sätze zusammensetzen.</p>
+  <div class="controls-row">
+    <div class="field">
+      <label for="aufbau-pick">Satz-Kette</label>
+      <select id="aufbau-pick"></select>
+    </div>
+  </div>
+  <div id="aufbau-box"></div>
 </section>
 
 <section id="mode-drill" class="panel hidden">
@@ -1012,6 +1047,7 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 
 <script src="lessons.js"></script>
 <script src="situations.js"></script>
+<script src="aufbau.js"></script>
 <script>
 /* ===================================================================
    VOKABELN PRO LEKTION
@@ -4300,14 +4336,64 @@ function startSituation(){
   nextSituation();
 }
 
+// ---- Aufbau-Trainer: ein Satz wächst Schicht für Schicht ----
+const auState = { chain: 0, step: 0 };
+function renderAufbauPicker(){
+  const sel = $('#aufbau-pick');
+  if(!sel || !window.AUFBAU_CHAINS) return;
+  if(sel.options.length) return;
+  AUFBAU_CHAINS.forEach((c, i) => {
+    const o = document.createElement('option');
+    o.value = i; o.textContent = (i+1) + '. ' + c.title;
+    sel.appendChild(o);
+  });
+  sel.addEventListener('change', e => { auState.chain = +e.target.value; auState.step = 0; renderAufbau(); });
+}
+function renderAufbau(){
+  const box = $('#aufbau-box');
+  if(!box || !window.AUFBAU_CHAINS) return;
+  const c = AUFBAU_CHAINS[auState.chain];
+  const n = c.stages.length;
+  if(auState.step >= n) auState.step = n - 1;
+  const s = c.stages[auState.step];
+  const pips = c.stages.map((_, i) => `<div class="au-pip${i <= auState.step ? ' on' : ''}"></div>`).join('');
+  const last = auState.step === n - 1;
+  const first = auState.step === 0;
+  box.innerHTML = `
+    <div class="au-card">
+      <span class="au-art">${c.art}</span>
+      <div class="au-title">${c.title}</div>
+      <div class="au-ziel">🎯 Ziel: ${c.ziel}</div>
+      <div class="au-steps">${pips}</div>
+      <div class="au-jp">${s.jp}</div>
+      <div class="au-de">${s.de}</div>
+      <div class="au-layer">
+        <span class="tag">${first ? '◉ Kern' : s.layer}</span><span class="les">${s.lesson}</span>
+        <div class="nt">${s.note}</div>
+      </div>
+      <div class="au-nav">
+        <button id="au-prev" ${first ? 'disabled' : ''}>◀ Zurück</button>
+        <button id="au-next" class="prim">${last ? 'Nächste Kette ▶' : 'Schicht hinzufügen ▶'}</button>
+      </div>
+      ${last ? '<div class="au-done">✓ Satz vollständig — aus '+n+' Schichten aufgebaut.</div>' : ''}
+    </div>`;
+  $('#au-prev').onclick = () => { if(auState.step > 0){ auState.step--; renderAufbau(); } };
+  $('#au-next').onclick = () => {
+    if(!last){ auState.step++; renderAufbau(); }
+    else { auState.chain = (auState.chain + 1) % AUFBAU_CHAINS.length; auState.step = 0; const sel = $('#aufbau-pick'); if(sel) sel.value = auState.chain; renderAufbau(); }
+  };
+}
+
 function switchMode(mode){
   $$('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
   $('#mode-lessons').classList.toggle('hidden', mode !== 'lessons');
   $('#mode-situation').classList.toggle('hidden', mode !== 'situation');
+  $('#mode-aufbau').classList.toggle('hidden', mode !== 'aufbau');
   $('#mode-drill').classList.toggle('hidden', mode !== 'drill');
   $('#mode-review').classList.toggle('hidden', mode !== 'review');
   $('#mode-progress').classList.toggle('hidden', mode !== 'progress');
   if(mode === 'situation') startSituation();
+  if(mode === 'aufbau'){ renderAufbauPicker(); renderAufbau(); }
   if(mode === 'review') startReview();
   if(mode === 'progress') renderProgress();
 }
