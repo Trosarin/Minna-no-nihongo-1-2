@@ -749,6 +749,11 @@
   .sit-model-jp{font-family:"Noto Serif JP","Shippori Mincho",serif;font-size:1.18rem;color:var(--ink);line-height:1.8;margin-bottom:.4rem}
   .sit-model-de{font-size:.92rem;color:var(--t-2);margin-bottom:.6rem}
   .sit-model-gloss{font-size:.82rem;color:var(--muted);line-height:1.6;border-top:1px dashed var(--line-soft);padding-top:.55rem}
+  .sit-explain{margin-top:.75rem;border-top:1px dashed var(--line-soft);padding-top:.7rem}
+  .sit-simpel{font-size:.92rem;color:var(--ink);line-height:1.75;margin-top:.35rem}
+  .sit-simpel .jp{font-family:"Noto Serif JP","Shippori Mincho",serif;color:var(--red-deep-text);font-weight:700}
+  .sit-rule{font-size:.84rem;color:var(--t-2);line-height:1.65;margin-top:.6rem;border-top:1px dotted var(--line-soft);padding-top:.55rem}
+  .sit-rule b{color:var(--red-deep-text)}
   /* ---- Aufbau-Trainer ---- */
   .au-card{background:var(--paper-2);border:2px solid var(--line);border-radius:14px;padding:1.1rem 1.1rem 1.2rem;box-shadow:0 6px 20px -8px rgba(0,0,0,.3)}
   .au-art{display:inline-block;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--blue);background:transparent;border:1.5px solid var(--blue);border-radius:999px;padding:.16rem .6rem}
@@ -4168,9 +4173,9 @@ const SIT_CARDS = [];
 (window.MINNA_LESSONS || []).forEach((c, i) => {
   const s = SITUATIONS[i];
   if(!s || s.l !== c.l) return;
-  if(s.sit) SIT_CARDS.push({ l:c.l, t:c.t, sit:s.sit, jp:(c.ex&&c.ex.jp)||'', de:(c.ex&&c.ex.de)||'', gloss:c.gloss||'' });
+  if(s.sit) SIT_CARDS.push({ l:c.l, t:c.t, sit:s.sit, jp:(c.ex&&c.ex.jp)||'', de:(c.ex&&c.ex.de)||'', gloss:c.gloss||'', simpel:c.simpel||'', rule:c.rule||'' });
   (s.more || []).forEach(m => {
-    if(m && m.sit) SIT_CARDS.push({ l:c.l, t:c.t, sit:m.sit, jp:m.jp||'', de:m.de||'', gloss:c.gloss||'' });
+    if(m && m.sit) SIT_CARDS.push({ l:c.l, t:c.t, sit:m.sit, jp:m.jp||'', de:m.de||'', gloss:c.gloss||'', simpel:c.simpel||'', rule:c.rule||'' });
   });
 });
 
@@ -4289,7 +4294,13 @@ function sitReveal(){
       <div class="sit-model-pattern">${c.t}</div>
       <div class="sit-model-jp">${c.jp} ${spkBtn(c.jp)}</div>
       <div class="sit-model-de">${c.de}</div>
-      ${c.gloss ? `<div class="sit-model-gloss">${c.gloss}</div>` : ''}
+      ${(c.simpel || c.rule) ? `
+        <div class="sit-explain">
+          <span class="lbl">💡 Erklärung</span>
+          ${c.simpel ? `<div class="sit-simpel">${c.simpel}</div>` : ''}
+          ${c.rule ? `<div class="sit-rule"><b>Worauf es ankommt:</b> ${c.rule}</div>` : ''}
+        </div>`
+       : (c.gloss ? `<div class="sit-model-gloss">${c.gloss}</div>` : '')}
     </div>
     <div class="sit-rate">
       <button class="r-ok"   onclick="sitRate('ok')">✓ Getroffen</button>
