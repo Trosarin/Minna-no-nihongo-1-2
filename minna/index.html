@@ -355,6 +355,21 @@ padding:.1rem .35rem;
 background:rgba(192,54,44,.08);
 border-left:2px solid var(--red-deep);
 }
+/* 🗣️ Aktiv-üben-Sektion auf der Kartenrückseite */
+.cp-sec{margin-top:.8rem;border-top:1px dashed var(--line-soft);padding-top:.6rem}
+.cp-head{width:100%;display:flex;align-items:center;gap:.4rem;background:rgba(31,74,122,.08);border:1px solid var(--line-soft);border-radius:8px;padding:.5rem .6rem;cursor:pointer;font-family:inherit;font-weight:800;font-size:.82rem;color:var(--ink)}
+.cp-count{font-weight:600;font-size:.68rem;color:var(--blue);background:rgba(31,74,122,.12);border-radius:99px;padding:.08rem .5rem}
+.cp-arrow{margin-left:auto;color:var(--blue);font-size:.9rem}
+.cp-body{display:none;margin-top:.55rem}
+.cp-sec.open .cp-body{display:block}
+.cp-help{font-size:.74rem;color:var(--muted);font-style:italic;margin:0 0 .5rem;line-height:1.5}
+.cp-item{border:1px solid var(--line-soft);border-radius:8px;padding:.55rem .65rem;margin-bottom:.5rem;background:var(--paper-2)}
+.cp-sit{font-size:.86rem;color:var(--ink);line-height:1.55;margin-bottom:.4rem}
+.cp-reveal{font-family:inherit;cursor:pointer;font-size:.72rem;font-weight:700;color:var(--on-dark);background:var(--red-deep);border:none;border-radius:7px;padding:.32rem .7rem}
+.cp-ans{display:none;margin-top:.5rem;border-top:1px dotted var(--line-soft);padding-top:.45rem}
+.cp-ans.show{display:block}
+.cp-ans .jp{font-family:"Noto Serif JP",serif;font-size:1.05rem;color:var(--ink);font-weight:600;display:block;line-height:1.7}
+.cp-ans .de{font-size:.76rem;color:var(--t-3);font-style:italic;display:block;margin-top:.2rem}
 .pattern-box{
 background:linear-gradient(180deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,.3) 100%);
 border:1px solid rgba(26,22,18,.15);
@@ -1324,6 +1339,7 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
   <p style="margin-top:.3rem;font-size:.7rem">Klick zum Umdrehen · Suche & Filter aktiv</p>
 </footer>
 
+<script src="../practice/situations.js"></script>
 <script>
 const CARDS = [
   {l:1, t:"N₁ は N₂ です", de:"N₁ ist N₂",
@@ -3089,6 +3105,32 @@ function buildSectionedBack(c) {
   return html;
 }
 
+// 🗣️ Aktiv-üben-Sektion: Alltags-Situationen zu dieser Karte (aus practice/situations.js)
+function buildPractice(c, idx){
+  const S = window.MINNA_SITUATIONS;
+  if (!S || !S[idx] || S[idx].l !== c.l) return '';
+  const s = S[idx];
+  const prompts = [];
+  if (s.sit && c.ex && c.ex[0]) prompts.push({ sit:s.sit, jp:c.ex[0].jp, de:c.ex[0].de });
+  (s.more || []).forEach(m => { if (m && m.sit) prompts.push({ sit:m.sit, jp:m.jp||'', de:m.de||'' }); });
+  if (!prompts.length) return '';
+  const items = prompts.map(p => `
+    <div class="cp-item">
+      <div class="cp-sit">🗣️ ${p.sit}</div>
+      <button class="cp-reveal" onclick="event.stopPropagation(); var a=this.nextElementSibling; var open=a.classList.toggle('show'); this.textContent=open?'▲ verbergen':'Auflösen ↓';">Auflösen ↓</button>
+      <div class="cp-ans"><span class="jp">${p.jp}</span><span class="de">${p.de}</span></div>
+    </div>`).join('');
+  return `<div class="sec cp-sec">
+    <button class="cp-head" onclick="event.stopPropagation(); var o=this.parentElement.classList.toggle('open'); this.querySelector('.cp-arrow').textContent=o?'▴':'▾';">
+      🗣️ Aktiv üben <span class="cp-count">${prompts.length} Situation${prompts.length!==1?'en':''}</span> <span class="cp-arrow">▾</span>
+    </button>
+    <div class="cp-body">
+      <p class="cp-help">Bilde den japanischen Satz <b>selbst</b> — laut oder im Kopf. Dann auflösen.</p>
+      ${items}
+    </div>
+  </div>`;
+}
+
 function render(){
   const q = search.value.toLowerCase().trim();
   const lf = lessonFilter.value;
@@ -3160,7 +3202,7 @@ function render(){
   backBtn.classList.add('visible');
   grid.innerHTML = '';
   let count = 0;
-  CARDS.forEach((c) => {
+  CARDS.forEach((c, idx) => {
     const matchLesson = (lf === 'all' || c.l == lf);
     const conjText = (c.conj || []).map(r => r.form + ' ' + r.verb + ' ' + r.de).join(' ');
     const buildText = (c.build || []).map(r => r.form + ' ' + r.verb + ' ' + r.de).join(' ');
@@ -3203,6 +3245,7 @@ function render(){
           <span class="lesson-tag">L ${String(c.l).padStart(2,'0')} · ${c.de}</span>
           <h3>${c.t}</h3>
           ${backInner}
+          ${buildPractice(c, idx)}
         </div>
       </div>
     `;
