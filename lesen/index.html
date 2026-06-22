@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>読解 — Lesen üben</title>
+<meta name="description" content="Japanisch Lesen üben — gestaffelte Texte mit Furigana, Übersetzung, Vokabeln und Fragen">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#15120f" id="theme-color-meta">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
+<script>(function(){try{var s=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',s||'dark');}catch(e){}})();</script>
+<style>
+  :root{
+    --paper:#f4ede0; --paper-2:#ebe1cd; --ink:#1a1612; --on-dark:#f4ede0;
+    --line:#1a1612; --line-soft:#c9bda3; --t-2:#3a2f22; --t-3:#5a4d3c; --muted:#6b5d4a;
+    --red:#c0362c; --red-deep:#8a1f17; --red-deep-text:#8a1f17; --blue:#1f4a7a; --gold:#b8893a;
+    color-scheme:light;
+  }
+  html[data-theme="dark"]{
+    --paper:#15120f; --paper-2:#211d18; --ink:#f1ebe2; --on-dark:#f1ebe2;
+    --line:#4a4339; --line-soft:#3c362b; --t-2:#ccc2b0; --t-3:#b8ab96; --muted:#a99a83;
+    --red:#d24a3d; --red-deep:#d24a3d; --red-deep-text:#efe7da; --blue:#7bafe6; --gold:#cabda3;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);color:var(--ink);font-family:"Shippori Mincho",serif;min-height:100vh}
+  body{padding:1.2rem 1rem calc(3rem + env(safe-area-inset-bottom));max-width:780px;margin:0 auto;
+    background-image:radial-gradient(circle at 10% 15%,rgba(192,54,44,.04),transparent 40%),radial-gradient(circle at 90% 85%,rgba(184,137,58,.05),transparent 40%)}
+  a{color:inherit}
+  .top{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+  .hub-link{font-size:.78rem;color:var(--muted);text-decoration:none;border:1px solid var(--line-soft);border-radius:8px;padding:.35rem .6rem}
+  h1{font-size:1.3rem;letter-spacing:.05em;color:var(--ink)}
+  h1 .de{font-size:.7rem;color:var(--muted);font-weight:400;display:block;letter-spacing:.04em;margin-top:.1rem}
+  .intro{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:1.2rem}
+  /* Kapitel-Liste */
+  .kap-grid{display:flex;flex-direction:column;gap:.8rem}
+  .kap{text-align:left;width:100%;cursor:pointer;font-family:inherit;background:var(--paper-2);border:2px solid var(--line);border-radius:13px;padding:.95rem 1rem;box-shadow:0 4px 14px -8px rgba(0,0,0,.3);transition:transform .12s}
+  .kap:hover{transform:translateY(-1px)}
+  .kap-stufe{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark);background:var(--red-deep);border-radius:99px;padding:.12rem .55rem}
+  .kap-titel{font-weight:800;font-size:1.06rem;color:var(--ink);margin:.5rem 0 .2rem}
+  .kap-besch{font-size:.8rem;color:var(--muted);line-height:1.55}
+  .kap-count{font-size:.7rem;color:var(--blue);font-weight:700;margin-top:.5rem;display:block}
+  /* Reader */
+  .rd-back{font-family:inherit;cursor:pointer;background:none;border:none;color:var(--blue);font-weight:700;font-size:.85rem;padding:0;margin-bottom:.8rem}
+  .rd-head{border-bottom:2px solid var(--line-soft);padding-bottom:.7rem;margin-bottom:.9rem}
+  .rd-titel{font-family:"Noto Serif JP",serif;font-size:1.45rem;font-weight:700;color:var(--ink)}
+  .rd-titel .de{display:block;font-family:"Shippori Mincho",serif;font-size:.78rem;color:var(--muted);font-weight:400;margin-top:.2rem}
+  .rd-textsel{display:flex;flex-wrap:wrap;gap:.4rem;margin:.7rem 0}
+  .rd-textsel button{font-family:inherit;cursor:pointer;font-size:.74rem;font-weight:700;border:1px solid var(--line-soft);background:var(--paper);color:var(--ink);border-radius:99px;padding:.3rem .7rem}
+  .rd-textsel button.on{background:var(--red-deep);color:var(--on-dark);border-color:var(--red-deep)}
+  .rd-tools{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+  .rd-tools button{flex:1;min-width:130px;font-family:inherit;cursor:pointer;font-size:.78rem;font-weight:700;border:1.5px solid var(--line-soft);background:var(--paper-2);color:var(--ink);border-radius:9px;padding:.5rem .5rem}
+  .rd-tools button.act{background:var(--blue);color:var(--on-dark);border-color:var(--blue)}
+  /* Text */
+  #rd-text{margin-bottom:1.2rem}
+  #rd-text.furi-off rt{visibility:hidden}
+  .rd-sent{border-left:3px solid transparent;padding:.45rem .2rem .45rem .7rem;border-radius:0 6px 6px 0;cursor:pointer}
+  .rd-sent:hover{background:rgba(127,127,127,.06)}
+  .rd-sent.show{border-left-color:var(--red-deep);background:rgba(192,54,44,.05)}
+  .rd-jp{font-family:"Noto Serif JP",serif;font-size:1.4rem;line-height:2.05;color:var(--ink)}
+  .rd-spk{font-family:inherit;cursor:pointer;border:none;background:none;color:var(--blue);font-size:.95rem;margin-left:.25rem;vertical-align:.05em;opacity:.55}
+  .rd-de{display:none;font-size:.92rem;color:var(--t-2);line-height:1.55;margin-top:.35rem;padding-left:.1rem;border-top:1px dotted var(--line-soft);padding-top:.35rem}
+  .rd-sent.show .rd-de{display:block}
+  .rd-tap-hint{font-size:.72rem;color:var(--muted);font-style:italic;margin-bottom:.5rem}
+  /* Abschnitte */
+  details.rd-sec{border:1px solid var(--line-soft);border-radius:10px;margin-bottom:.7rem;background:var(--paper-2);overflow:hidden}
+  details.rd-sec>summary{cursor:pointer;list-style:none;padding:.7rem .9rem;font-weight:800;font-size:.86rem;color:var(--ink);display:flex;align-items:center;gap:.5rem}
+  details.rd-sec>summary::-webkit-details-marker{display:none}
+  details.rd-sec>summary .arw{margin-left:auto;color:var(--muted);transition:transform .15s}
+  details.rd-sec[open]>summary .arw{transform:rotate(90deg)}
+  .rd-sec-body{padding:0 .9rem .9rem}
+  .voc{width:100%;border-collapse:collapse;font-size:.86rem}
+  .voc td{padding:.4rem .3rem;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  .voc td.w{font-family:"Noto Serif JP",serif;font-weight:600;color:var(--ink);white-space:nowrap;padding-right:.8rem}
+  .voc td.d{color:var(--t-2)}
+  .frage{border-top:1px dashed var(--line-soft);padding-top:.6rem;margin-top:.6rem}
+  .frage:first-child{border-top:none;padding-top:0;margin-top:0}
+  .frage .q{font-weight:700;color:var(--ink);font-size:.88rem;margin-bottom:.4rem}
+  .frage .ans-btn{font-family:inherit;cursor:pointer;font-size:.72rem;font-weight:700;color:var(--on-dark);background:var(--red-deep);border:none;border-radius:7px;padding:.28rem .65rem}
+  .frage .ans{display:none;font-size:.86rem;color:var(--t-2);line-height:1.5;margin-top:.45rem}
+  .frage .ans.show{display:block}
+  .gram{font-size:.8rem;color:var(--muted);line-height:1.6}
+  .rd-nav{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-top:1.3rem}
+  .rd-nav button{font-family:inherit;cursor:pointer;font-weight:800;font-size:.85rem;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:.65rem .4rem}
+  .rd-nav button:disabled{opacity:.35;cursor:default}
+  .theme-fab{position:fixed;left:calc(1rem + env(safe-area-inset-left));bottom:calc(1rem + env(safe-area-inset-bottom));z-index:300;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-soft);background:var(--paper-2);color:var(--ink);font-size:1.2rem;cursor:pointer;display:grid;place-items:center}
+  .theme-fab .sun{display:none}.theme-fab .moon{display:block}
+  html[data-theme="dark"] .theme-fab .sun{display:block}html[data-theme="dark"] .theme-fab .moon{display:none}
+  .hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a class="hub-link" href="../">← Hub</a>
+</div>
+
+<!-- KAPITEL-ÜBERSICHT -->
+<section id="view-kapitel">
+  <h1>読解 <span class="de">Lesen üben — Texte mit Furigana, Übersetzung & Fragen</span></h1>
+  <p class="intro">Lies den japanischen Text zuerst <b>laut</b>. Tippe einen Satz an, um die Übersetzung zu sehen. Mit dem <b>Furigana-Schalter</b> kannst du dich selbst testen. Unten: Vokabeln, Verständnisfragen und der Grammatik-Bezug.</p>
+  <div id="kap-grid" class="kap-grid"></div>
+</section>
+
+<!-- LESER -->
+<section id="view-reader" class="hidden">
+  <button class="rd-back" id="rd-back">← Zurück zu den Kapiteln</button>
+  <div id="rd-textsel" class="rd-textsel"></div>
+  <div class="rd-head">
+    <div class="rd-titel" id="rd-titel"></div>
+  </div>
+  <div class="rd-tools">
+    <button id="tool-furi">かな Furigana: AN</button>
+    <button id="tool-all">Alle Übersetzungen</button>
+  </div>
+  <p class="rd-tap-hint">💡 Tippe einen Satz an → Übersetzung. 🔊 liest vor.</p>
+  <div id="rd-text"></div>
+  <div id="rd-extra"></div>
+  <div class="rd-nav">
+    <button id="rd-prev">◀ Voriger Text</button>
+    <button id="rd-next">Nächster Text ▶</button>
+  </div>
+</section>
+
+<button class="theme-fab" id="themeFab" type="button" aria-label="Hell/Dunkel"><span class="moon">🌙</span><span class="sun">☀️</span></button>
+
+<script src="texte.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const KAP = window.LESEN_KAPITEL || [];
+let state = { kap:0, text:0, furi:true, allDe:false };
+
+// flache Text-Liste für Prev/Next über Kapitel hinweg
+const FLAT = [];
+KAP.forEach((k,ki) => (k.texte||[]).forEach((t,ti) => FLAT.push({ki,ti})));
+
+function plainJP(html){
+  return html.replace(/<rt>.*?<\/rt>/g,'').replace(/<[^>]+>/g,'');
+}
+function speak(html){
+  try{
+    const u = new SpeechSynthesisUtterance(plainJP(html));
+    u.lang = 'ja-JP'; u.rate = .9;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+function renderKapitel(){
+  const g = $('#kap-grid'); g.innerHTML = '';
+  KAP.forEach((k, ki) => {
+    const n = (k.texte||[]).length;
+    const b = document.createElement('button');
+    b.className = 'kap';
+    b.innerHTML = `
+      <span class="kap-stufe">${k.stufe}</span>
+      <div class="kap-titel">${k.titel}</div>
+      <div class="kap-besch">${k.beschreibung}</div>
+      <span class="kap-count">${n} Text${n!==1?'e':''} →</span>`;
+    b.onclick = () => { state.kap = ki; state.text = 0; openReader(); };
+    g.appendChild(b);
+  });
+}
+
+function openReader(){
+  $('#view-kapitel').classList.add('hidden');
+  $('#view-reader').classList.remove('hidden');
+  renderReader();
+  window.scrollTo({top:0});
+}
+
+function flatIndex(){ return FLAT.findIndex(f => f.ki===state.kap && f.ti===state.text); }
+
+function renderReader(){
+  const k = KAP[state.kap];
+  const t = k.texte[state.text];
+  // Text-Auswahl innerhalb des Kapitels
+  const sel = $('#rd-textsel');
+  if(k.texte.length > 1){
+    sel.innerHTML = k.texte.map((tt,i) =>
+      `<button class="${i===state.text?'on':''}" data-i="${i}">${plainJP(tt.titel)}</button>`).join('');
+    sel.querySelectorAll('button').forEach(btn => btn.onclick = () => { state.text = +btn.dataset.i; renderReader(); window.scrollTo({top:0}); });
+    sel.classList.remove('hidden');
+  } else { sel.innerHTML = ''; }
+
+  $('#rd-titel').innerHTML = `${t.titel}<span class="de">${k.stufe} · ${t.de}</span>`;
+
+  // Sätze
+  const txt = $('#rd-text');
+  txt.className = state.furi ? '' : 'furi-off';
+  txt.innerHTML = t.saetze.map((s,i) => `
+    <div class="rd-sent${state.allDe?' show':''}" data-i="${i}">
+      <div class="rd-jp">${s.jp}<button class="rd-spk" title="vorlesen">🔊</button></div>
+      <div class="rd-de">${s.de}</div>
+    </div>`).join('');
+  txt.querySelectorAll('.rd-sent').forEach((el,i) => {
+    el.onclick = () => el.classList.toggle('show');
+    const spk = el.querySelector('.rd-spk');
+    if(spk) spk.onclick = (e) => { e.stopPropagation(); speak(t.saetze[i].jp); };
+  });
+
+  // Vokabeln + Fragen + Grammatik
+  const voc = (t.vokabeln||[]).map(v => `<tr><td class="w">${v.w}</td><td class="d">${v.de}</td></tr>`).join('');
+  const fr = (t.fragen||[]).map((f,i) => `
+    <div class="frage">
+      <div class="q">${i+1}. ${f.q}</div>
+      <button class="ans-btn" onclick="var a=this.nextElementSibling;var o=a.classList.toggle('show');this.textContent=o?'▲ verbergen':'Antwort zeigen';">Antwort zeigen</button>
+      <div class="ans">${f.a}</div>
+    </div>`).join('');
+  $('#rd-extra').innerHTML = `
+    ${voc ? `<details class="rd-sec"><summary>📚 Vokabeln <span class="arw">▸</span></summary><div class="rd-sec-body"><table class="voc"><tbody>${voc}</tbody></table></div></details>` : ''}
+    ${fr ? `<details class="rd-sec"><summary>❓ Verständnisfragen <span class="arw">▸</span></summary><div class="rd-sec-body">${fr}</div></details>` : ''}
+    ${t.grammatik ? `<details class="rd-sec"><summary>📐 Grammatik in diesem Text <span class="arw">▸</span></summary><div class="rd-sec-body"><div class="gram">${t.grammatik}</div></div></details>` : ''}`;
+
+  // Tools
+  $('#tool-furi').textContent = 'かな Furigana: ' + (state.furi ? 'AN' : 'AUS');
+  $('#tool-furi').classList.toggle('act', !state.furi);
+  $('#tool-all').classList.toggle('act', state.allDe);
+
+  // Prev/Next über alle Texte
+  const fi = flatIndex();
+  $('#rd-prev').disabled = fi <= 0;
+  $('#rd-next').disabled = fi >= FLAT.length-1;
+}
+
+$('#tool-furi').onclick = () => { state.furi = !state.furi; renderReader(); };
+$('#tool-all').onclick  = () => { state.allDe = !state.allDe; renderReader(); };
+$('#rd-back').onclick = () => { $('#view-reader').classList.add('hidden'); $('#view-kapitel').classList.remove('hidden'); window.scrollTo({top:0}); };
+$('#rd-prev').onclick = () => { const fi=flatIndex(); if(fi>0){ const f=FLAT[fi-1]; state.kap=f.ki; state.text=f.ti; renderReader(); window.scrollTo({top:0}); } };
+$('#rd-next').onclick = () => { const fi=flatIndex(); if(fi<FLAT.length-1){ const f=FLAT[fi+1]; state.kap=f.ki; state.text=f.ti; renderReader(); window.scrollTo({top:0}); } };
+
+renderKapitel();
+
+// Theme
+(function(){
+  var root=document.documentElement, meta=document.getElementById('theme-color-meta');
+  var colors={light:'#f4ede0',dark:'#15120f'};
+  function apply(t){root.setAttribute('data-theme',t);if(meta)meta.setAttribute('content',colors[t]||colors.light);}
+  apply(root.getAttribute('data-theme')||'dark');
+  var b=document.getElementById('themeFab');
+  if(b)b.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';apply(n);try{localStorage.setItem('theme',n);}catch(e){}});
+})();
+if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('../service-worker.js').catch(()=>{})); }
+</script>
+</body>
+</html>
