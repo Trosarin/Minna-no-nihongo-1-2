@@ -203,5 +203,54 @@ window.LESEN_KAPITEL = [
         grammatik: "L50 Keigo (おる/いたす) · L41 ていただく · L45 のに · L36 ようになる + CK てくる · L48 Kausativ + いただけませんか"
       }
     ]
+  },
+  {
+    titel: "🔦 Horror-Story: 夜の学校",
+    stufe: "Story · Minna L15–30",
+    beschreibung: "Eine gruselige Kurzgeschichte in Kapiteln. Etwas anspruchsvoller — aber mit Furigana, Übersetzung und Vokabeln gut zu schaffen.",
+    texte: [
+      {
+        titel: "<ruby>第一章<rt>だいいっしょう</rt></ruby>「ピアノの<ruby>音<rt>おと</rt></ruby>」",
+        de: "Kapitel 1: Das Klaviergeräusch",
+        stufe: "L15–30",
+        saetze: [
+          { jp:"それは <ruby>11月<rt>じゅういちがつ</rt></ruby>の <ruby>寒<rt>さむ</rt></ruby>い <ruby>夜<rt>よる</rt></ruby>でした。", de:"Es war eine kalte Nacht im November." },
+          { jp:"<ruby>高校生<rt>こうこうせい</rt></ruby>の ユキは、<ruby>一人<rt>ひとり</rt></ruby>で <ruby>教室<rt>きょうしつ</rt></ruby>に <ruby>残<rt>のこ</rt></ruby>って、<ruby>勉強<rt>べんきょう</rt></ruby>して いました。", de:"Die Oberschülerin Yuki war allein im Klassenzimmer geblieben und lernte." },
+          { jp:"<ruby>気<rt>き</rt></ruby>が つくと、<ruby>外<rt>そと</rt></ruby>は もう <ruby>真<rt>ま</rt></ruby>っ<ruby>暗<rt>くら</rt></ruby>でした。", de:"Als sie aufmerkte, war es draußen schon stockdunkel." },
+          { jp:"<ruby>時計<rt>とけい</rt></ruby>を <ruby>見<rt>み</rt></ruby>ると、<ruby>夜<rt>よる</rt></ruby>の <ruby>12時<rt>じゅうにじ</rt></ruby>でした。", de:"Als sie auf die Uhr schaute, war es Mitternacht." },
+          { jp:"「<ruby>変<rt>へん</rt></ruby>だな。だれも いない。」", de:"„Seltsam. Niemand ist da.“" },
+          { jp:"<ruby>学校<rt>がっこう</rt></ruby>の <ruby>中<rt>なか</rt></ruby>は とても <ruby>静<rt>しず</rt></ruby>かで、<ruby>電気<rt>でんき</rt></ruby>も <ruby>消<rt>き</rt></ruby>えて いました。", de:"Im Schulgebäude war es ganz still, und auch das Licht war aus." },
+          { jp:"ユキは かばんを <ruby>持<rt>も</rt></ruby>って、<ruby>急<rt>いそ</rt></ruby>いで <ruby>廊下<rt>ろうか</rt></ruby>に <ruby>出<rt>で</rt></ruby>ました。", de:"Yuki nahm ihre Tasche und ging eilig auf den Flur." },
+          { jp:"その とき、<ruby>音楽室<rt>おんがくしつ</rt></ruby>の ほうから、ピアノの <ruby>音<rt>おと</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえて きました。", de:"In diesem Moment kam aus Richtung des Musikraums ein Klavierklang." },
+          { jp:"でも、<ruby>今日<rt>きょう</rt></ruby>は <ruby>金曜日<rt>きんようび</rt></ruby>で、<ruby>音楽<rt>おんがく</rt></ruby>の <ruby>授業<rt>じゅぎょう</rt></ruby>は ありませんでした。", de:"Aber heute war Freitag, und es gab keinen Musikunterricht." },
+          { jp:"「だれか いるの…?」", de:"„Ist da … jemand?“" },
+          { jp:"ユキは そっと <ruby>音楽室<rt>おんがくしつ</rt></ruby>の ドアを <ruby>開<rt>あ</rt></ruby>けました。", de:"Yuki öffnete leise die Tür des Musikraums." },
+          { jp:"すると、ピアノの <ruby>前<rt>まえ</rt></ruby>に、<ruby>白<rt>しろ</rt></ruby>い <ruby>服<rt>ふく</rt></ruby>を <ruby>着<rt>き</rt></ruby>た <ruby>女<rt>おんな</rt></ruby>の <ruby>子<rt>こ</rt></ruby>が <ruby>座<rt>すわ</rt></ruby>って いました。", de:"Da saß vor dem Klavier ein Mädchen in weißer Kleidung." },
+          { jp:"ユキは <ruby>小<rt>ちい</rt></ruby>さな <ruby>声<rt>こえ</rt></ruby>で <ruby>聞<rt>き</rt></ruby>きました。「あなた、だれ?」", de:"Mit leiser Stimme fragte Yuki: „Wer bist du?“" },
+          { jp:"<ruby>女<rt>おんな</rt></ruby>の <ruby>子<rt>こ</rt></ruby>は ゆっくりと こちらを <ruby>向<rt>む</rt></ruby>きました。", de:"Das Mädchen drehte sich langsam zu ihr um." },
+          { jp:"でも、その <ruby>子<rt>こ</rt></ruby>には、<ruby>顔<rt>かお</rt></ruby>が ありませんでした。", de:"Doch dieses Mädchen hatte kein Gesicht." },
+          { jp:"ユキは <ruby>声<rt>こえ</rt></ruby>を <ruby>出<rt>だ</rt></ruby>す ことも できませんでした……。", de:"Yuki konnte nicht einmal schreien …" },
+          { jp:"（<ruby>第二章<rt>だいにしょう</rt></ruby>に つづく）", de:"(Fortsetzung in Kapitel 2)" }
+        ],
+        vokabeln: [
+          { w:"残る (のこる)", de:"zurückbleiben, dableiben" },
+          { w:"気がつく (きがつく)", de:"bemerken, aufmerken" },
+          { w:"真っ暗 (まっくら)", de:"stockdunkel" },
+          { w:"変 (へん)", de:"seltsam, komisch" },
+          { w:"廊下 (ろうか)", de:"Flur, Gang" },
+          { w:"音楽室 (おんがくしつ)", de:"Musikraum" },
+          { w:"聞こえる (きこえる)", de:"zu hören sein" },
+          { w:"そっと", de:"leise, behutsam" },
+          { w:"向く (むく)", de:"sich (hin)wenden, sich drehen" },
+          { w:"顔 (かお)", de:"Gesicht" }
+        ],
+        fragen: [
+          { q:"Warum war Yuki nachts noch in der Schule?", a:"Sie war allein im Klassenzimmer geblieben und hat gelernt (一人で教室に残って、勉強していました)." },
+          { q:"Was hörte sie auf dem Flur — und warum war das seltsam?", a:"Klaviermusik aus dem Musikraum; seltsam, weil Freitag war und es keinen Musikunterricht gab." },
+          { q:"Was war an dem Mädchen am Klavier so unheimlich?", a:"Es hatte kein Gesicht (顔がありませんでした)." }
+        ],
+        grammatik: "L15 ています (Zustand) · L23 〜と (als/sobald) · L16 くて/で (verbinden) · L22 Relativsatz (白い服を着た女の子) · L43 聞こえてくる · L18 ことができる"
+      }
+    ]
   }
 ];
