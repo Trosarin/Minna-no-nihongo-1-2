@@ -250,6 +250,48 @@ window.LESEN_KAPITEL = [
           { q:"Was war an dem Mädchen am Klavier so unheimlich?", a:"Es hatte kein Gesicht (顔がありませんでした)." }
         ],
         grammatik: "L15 ています (Zustand) · L23 〜と (als/sobald) · L16 くて/で (verbinden) · L22 Relativsatz (白い服を着た女の子) · L43 聞こえてくる · L18 ことができる"
+      },
+      {
+        titel: "<ruby>第二章<rt>だいにしょう</rt></ruby>「<ruby>逃<rt>に</rt></ruby>げられない」",
+        de: "Kapitel 2: Kein Entkommen",
+        stufe: "gemischt",
+        saetze: [
+          { jp:"ユキは <ruby>急<rt>いそ</rt></ruby>いで <ruby>音楽室<rt>おんがくしつ</rt></ruby>から <ruby>逃<rt>に</rt></ruby>げました。", de:"Yuki floh eilig aus dem Musikraum." },
+          { jp:"<ruby>後<rt>うし</rt></ruby>ろからは、まだ ピアノの <ruby>音<rt>おと</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえて いました。", de:"Von hinten war immer noch das Klavier zu hören." },
+          { jp:"<ruby>心臓<rt>しんぞう</rt></ruby>が <ruby>止<rt>と</rt></ruby>まりそうでした。", de:"Ihr Herz schien stehenzubleiben." },
+          { jp:"<ruby>階段<rt>かいだん</rt></ruby>を <ruby>下<rt>お</rt></ruby>りて、<ruby>玄関<rt>げんかん</rt></ruby>まで <ruby>走<rt>はし</rt></ruby>りました。", de:"Sie rannte die Treppe hinunter bis zum Eingang." },
+          { jp:"でも、ドアは どんなに <ruby>押<rt>お</rt></ruby>しても、<ruby>開<rt>あ</rt></ruby>きませんでした。", de:"Doch egal wie sehr sie drückte, die Tür ging nicht auf." },
+          { jp:"<ruby>鍵<rt>かぎ</rt></ruby>が かかって いたんです。", de:"Sie war nämlich abgeschlossen." },
+          { jp:"「だれか、<ruby>助<rt>たす</rt></ruby>けて!」と <ruby>叫<rt>さけ</rt></ruby>びましたが、だれも <ruby>来<rt>き</rt></ruby>ませんでした。", de:"„Hilfe, jemand!“, schrie sie — aber niemand kam." },
+          { jp:"その とき、<ruby>窓<rt>まど</rt></ruby>ガラスに <ruby>何<rt>なに</rt></ruby>かが <ruby>映<rt>うつ</rt></ruby>りました。", de:"In diesem Moment spiegelte sich etwas in der Fensterscheibe." },
+          { jp:"あの <ruby>白<rt>しろ</rt></ruby>い <ruby>服<rt>ふく</rt></ruby>の <ruby>女<rt>おんな</rt></ruby>の <ruby>子<rt>こ</rt></ruby>が、すぐ <ruby>後<rt>うし</rt></ruby>ろに <ruby>立<rt>た</rt></ruby>って いました。", de:"Das Mädchen in Weiß stand direkt hinter ihr." },
+          { jp:"<ruby>逃<rt>に</rt></ruby>げようと しましたが、<ruby>足<rt>あし</rt></ruby>が <ruby>動<rt>うご</rt></ruby>きませんでした。", de:"Sie wollte fliehen, aber ihre Beine bewegten sich nicht." },
+          { jp:"<ruby>女<rt>おんな</rt></ruby>の <ruby>子<rt>こ</rt></ruby>は <ruby>静<rt>しず</rt></ruby>かに <ruby>言<rt>い</rt></ruby>いました。「やっと <ruby>見<rt>み</rt></ruby>つけた。」", de:"Das Mädchen sagte leise: „Endlich gefunden.“" },
+          { jp:"「<ruby>30年<rt>さんじゅうねん</rt></ruby><ruby>前<rt>まえ</rt></ruby>、<ruby>私<rt>わたし</rt></ruby>も この <ruby>学校<rt>がっこう</rt></ruby>の <ruby>生徒<rt>せいと</rt></ruby>だったの。」", de:"„Vor 30 Jahren war auch ich eine Schülerin dieser Schule.“" },
+          { jp:"「でも、だれも <ruby>私<rt>わたし</rt></ruby>の ことを <ruby>覚<rt>おぼ</rt></ruby>えて いない。」", de:"„Aber niemand erinnert sich an mich.“" },
+          { jp:"<ruby>廊下<rt>ろうか</rt></ruby>の <ruby>壁<rt>かべ</rt></ruby>には、<ruby>古<rt>ふる</rt></ruby>い <ruby>写真<rt>しゃしん</rt></ruby>が かざって ありました。", de:"An der Flurwand war ein altes Foto aufgehängt." },
+          { jp:"その <ruby>写真<rt>しゃしん</rt></ruby>の <ruby>女<rt>おんな</rt></ruby>の <ruby>子<rt>こ</rt></ruby>の <ruby>顔<rt>かお</rt></ruby>だけが、<ruby>消<rt>き</rt></ruby>えて いました。", de:"Nur das Gesicht des Mädchens auf dem Foto war verschwunden." },
+          { jp:"そして <ruby>今<rt>いま</rt></ruby>、その <ruby>隣<rt>となり</rt></ruby>に、ユキの <ruby>顔<rt>かお</rt></ruby>が <ruby>写<rt>うつ</rt></ruby>って いたんです。", de:"Und jetzt war direkt daneben Yukis Gesicht zu sehen …" },
+          { jp:"（<ruby>第三章<rt>だいさんしょう</rt></ruby>に つづく）", de:"(Fortsetzung in Kapitel 3)" }
+        ],
+        vokabeln: [
+          { w:"逃げる (にげる)", de:"fliehen, entkommen" },
+          { w:"心臓 (しんぞう)", de:"Herz" },
+          { w:"階段 (かいだん)", de:"Treppe" },
+          { w:"玄関 (げんかん)", de:"Eingang(sbereich)" },
+          { w:"鍵がかかる (かぎがかかる)", de:"abgeschlossen sein" },
+          { w:"叫ぶ (さけぶ)", de:"schreien, rufen" },
+          { w:"映る (うつる)", de:"sich spiegeln, erscheinen" },
+          { w:"生徒 (せいと)", de:"Schüler/in" },
+          { w:"壁 (かべ)", de:"Wand" },
+          { w:"写る (うつる)", de:"(auf einem Foto) zu sehen sein" }
+        ],
+        fragen: [
+          { q:"Warum konnte Yuki nicht durch die Tür entkommen?", a:"Die Tür war abgeschlossen (鍵がかかっていたんです)." },
+          { q:"Was erzählt das Mädchen über sich?", a:"Vor 30 Jahren war sie Schülerin dieser Schule, aber niemand erinnert sich an sie." },
+          { q:"Was ist am Ende mit dem alten Foto?", a:"Das Gesicht des Mädchens fehlt — und jetzt ist Yukis Gesicht daneben zu sehen." }
+        ],
+        grammatik: "L43 Vます+そう (Anschein: 止まりそう) · L25 どんなに〜ても · L26 んです · Volitional + とする (逃げようとする) · L30 てある (かざってある) · L15 ている (写っている) · Plain-Stil in Dialogen"
       }
     ]
   }
