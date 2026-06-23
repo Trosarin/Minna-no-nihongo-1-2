@@ -133,5 +133,7 @@ window.LESEN_GRAMMAR = [
   { k:"おかげ", t:"g", label:"〜おかげで (dank …)", de:"Nの／Plain + おかげで = »dank … / weil …« mit gutem Ergebnis (dankbar). (N3)" },
   { k:"せいで", t:"g", label:"〜せいで (wegen … [schlecht])", de:"Nの／Plain + せいで = »wegen …« mit schlechtem Ergebnis (Schuld/Vorwurf). (N3)" },
   { k:"違いない", t:"g", label:"〜に違いない (ganz sicher)", de:"Plain-Form/N + に違いない = »das ist ganz sicher so«. Stärker als はず und かもしれない. (N3)" },
-  { k:"ちがいない", t:"g", label:"〜にちがいない (ganz sicher)", de:"»das ist ganz sicher so« (auch in Kana geschrieben). (N3)" }
+  { k:"ちがいない", t:"g", label:"〜にちがいない (ganz sicher)", de:"»das ist ganz sicher so« (auch in Kana geschrieben). (N3)" },
+  { k:"ものか", t:"g", label:"〜ものか (niemals!)", de:"Plain-Form + ものか = trotziger Ausruf, gemeint ist das Gegenteil: 負けるものか »ich verliere ganz sicher NICHT!«. (N3)" },
+  { k:"もんか", t:"g", label:"〜もんか (niemals!, ugs.)", de:"Lockere Form von ものか: »auf gar keinen Fall!«. (N3)" }
 ];

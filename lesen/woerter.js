@@ -431,5 +431,11 @@ window.LESEN_WOERTER = [
   { w:"城 (しろ)", de:"Schloss, Burg" },
   { w:"庭 (にわ)", de:"Garten" },
   { w:"土地 (とち)", de:"Land, Gegend, Grundstück" },
-  { w:"立ち向かう (たちむかう)", de:"sich stellen, entgegentreten" }
+  { w:"立ち向かう (たちむかう)", de:"sich stellen, entgegentreten" },
+  { w:"炎 (ほのお)", de:"Flamme" },
+  { w:"生き物 (いきもの)", de:"Lebewesen" },
+  { w:"ばけもの (化け物)", de:"Ungeheuer, Monster" },
+  { w:"戦い (たたかい)", de:"Kampf, Schlacht" },
+  { w:"戦う (たたかう)", de:"kämpfen" },
+  { w:"育つ (そだつ)", de:"aufwachsen, heranwachsen" }
 ];
