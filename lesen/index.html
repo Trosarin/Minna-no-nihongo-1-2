@@ -180,6 +180,7 @@
 
 <script src="texte.js"></script>
 <script src="grammatik.js"></script>
+<script src="woerter.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const KAP = window.LESEN_KAPITEL || [];
@@ -202,25 +203,39 @@ const GRAM = window.LESEN_GRAMMAR || [];
 const GRAM_G = GRAM.filter(g=>g.t==='g').sort((a,b)=>b.k.length-a.k.length);
 const GRAM_P = GRAM.filter(g=>g.t==='p');
 
-// Vokabel-Index aus allen Kapiteln, z.B. "専門 (せんもん)" → {base,reading,de,baseKanji}
+// Wort-Index: Kapitel-Vokabeln (spezifisch) + Alltags-Wörterbuch (woerter.js).
+// Eintrag: {base, reading, de, baseKanji, stem}. stem = letztes Kana weg (für
+// konjugierte Verben/Adjektive), nur wenn der Rest >=2 Zeichen hat → keine
+// irreführenden Einzel-Zeichen-Treffer.
 const VOCAB = (function(){
   const map = new Map();
-  KAP.forEach(k => (k.texte||[]).forEach(t => (t.vokabeln||[]).forEach(v => {
-    const m = v.w.match(/^(.+?)\s*[（(]\s*([^）)]+?)\s*[）)]\s*$/);
-    const base = (m ? m[1] : v.w).trim();
+  function add(w, de){
+    const m = w.match(/^(.+?)\s*[（(]\s*([^）)]+?)\s*[）)]\s*$/);
+    const base = (m ? m[1] : w).trim();
     const reading = m ? m[2].trim() : '';
     if(!base || map.has(base)) return;
-    map.set(base, { base, reading, de: v.de, baseKanji: base.replace(/[^一-龯]+$/,'') });
-  })));
+    const baseKanji = base.replace(/[^一-龯]+$/,'');
+    let stem = '';
+    if(base.length>=3 && /[ぁ-んー]$/.test(base)){ const s = base.slice(0,-1); if(s.length>=2) stem = s; }
+    // Verbstamm aus einem einzelnen Kanji (見る→見, 言う→言): nur wenn die
+    // Grundform auf eine Verb-/Adjektiv-Endung endet → keine Nomen erfassen.
+    const vstem1 = (baseKanji.length===1 && /[るうくぐすつぬぶむい]$/.test(base)) ? baseKanji : '';
+    map.set(base, { base, reading, de, baseKanji, stem, vstem1 });
+  }
+  // Kapitel-Vokabeln zuerst (gewinnen bei Dubletten), dann das Wörterbuch
+  KAP.forEach(k => (k.texte||[]).forEach(t => (t.vokabeln||[]).forEach(v => add(v.w, v.de))));
+  (window.LESEN_WOERTER||[]).forEach(v => add(v.w, v.de));
   return [...map.values()].sort((a,b)=>b.base.length-a.base.length);
 })();
+// Für den Einzel-Kanji-Verbstamm: kürzeste Grundform zuerst (見て → 見る, nicht 見上げる)
+const VOCAB_VSTEM = VOCAB.filter(v => v.vstem1).sort((a,b)=>a.base.length-b.base.length);
 
 function lookupVocab(plain){
-  for(const v of VOCAB){ if(v.base.length>=2 && plain.includes(v.base)) return v; }
-  for(const v of VOCAB){ if(v.base.length>=1 && plain.includes(v.base)) return v; }
-  // Stamm-Treffer (z.B. konjugiertes Verb) nur bei mehrteiligem Kanji-Stamm,
-  // um irreführende Einzel-Kanji-Zufallstreffer zu vermeiden
-  for(const v of VOCAB){ if(v.baseKanji.length>=2 && v.baseKanji!==v.base && plain.includes(v.baseKanji)) return v; }
+  for(const v of VOCAB){ if(v.base.length>=2 && plain.includes(v.base)) return v; }                                  // ganze Wortform (Komposita bevorzugt)
+  for(const v of VOCAB){ if(v.stem && plain.includes(v.stem)) return v; }                                            // konjugierter Stamm (>=2)
+  for(const v of VOCAB){ if(v.baseKanji.length>=2 && v.baseKanji!==v.base && plain.includes(v.baseKanji)) return v; } // Kanji-Stamm (>=2)
+  for(const v of VOCAB_VSTEM){ if(plain.includes(v.vstem1)) return v; }                                              // einzelnes Kanji eines Verbs (見る, 言う …)
+  for(const v of VOCAB){ if(v.base.length===1 && plain.includes(v.base)) return v; }                                 // einzelnes Zeichen (目, 手 …)
   return null;
 }
 
