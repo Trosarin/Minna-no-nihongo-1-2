@@ -418,5 +418,14 @@ window.LESEN_WOERTER = [
   { w:"忘れる (わすれる)", de:"vergessen" },
   { w:"振る (ふる)", de:"schütteln, winken" },
   { w:"かかる", de:"dauern; (auf-)hängen; (Zeit/Geld) kosten" },
-  { w:"震える (ふるえる)", de:"zittern, beben" }
+  { w:"震える (ふるえる)", de:"zittern, beben" },
+  { w:"海 (うみ)", de:"Meer, See" },
+  { w:"氷 (こおり)", de:"Eis" },
+  { w:"船 (ふね)", de:"Schiff, Boot" },
+  { w:"温かい (あたたかい)", de:"warm" },
+  { w:"温める (あたためる)", de:"wärmen, aufwärmen" },
+  { w:"集める (あつめる)", de:"sammeln" },
+  { w:"スープ", de:"Suppe" },
+  { w:"おばあさん", de:"alte Frau, Großmutter" },
+  { w:"希望 (きぼう)", de:"Hoffnung" }
 ];

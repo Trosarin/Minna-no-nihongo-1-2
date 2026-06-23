@@ -129,5 +129,7 @@ window.LESEN_GRAMMAR = [
   { k:"だらけ", t:"g", label:"〜だらけ (voller …)", de:"Nomen + だらけ = »voller / übersät mit …«, meist negativ: 血だらけ »voller Blut«. (N3)" },
   { k:"わけには", t:"g", label:"〜わけにはいかない (kann/darf nicht)", de:"»das geht (aus Pflicht/Umständen) nicht« — oft わけにはいかない. (N3)" },
   { k:"気がする", t:"g", label:"〜気がする (das Gefühl haben, dass …)", de:"Plain-Form / N＋の + 気がする = »ich hab so ein Gefühl, dass …« — eine vage Ahnung. (N3)" },
-  { k:"気がし", t:"g", label:"〜気がする (das Gefühl haben, dass …)", de:"気がした »ich hatte das Gefühl«, 気がします (höflich). Eine vage Ahnung, ein Eindruck. (N3)" }
+  { k:"気がし", t:"g", label:"〜気がする (das Gefühl haben, dass …)", de:"気がした »ich hatte das Gefühl«, 気がします (höflich). Eine vage Ahnung, ein Eindruck. (N3)" },
+  { k:"おかげ", t:"g", label:"〜おかげで (dank …)", de:"Nの／Plain + おかげで = »dank … / weil …« mit gutem Ergebnis (dankbar). (N3)" },
+  { k:"せいで", t:"g", label:"〜せいで (wegen … [schlecht])", de:"Nの／Plain + せいで = »wegen …« mit schlechtem Ergebnis (Schuld/Vorwurf). (N3)" }
 ];
