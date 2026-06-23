@@ -67,6 +67,8 @@
   .rd-de{display:none;font-size:.92rem;color:var(--t-2);line-height:1.55;margin-top:.35rem;padding-left:.1rem;border-top:1px dotted var(--line-soft);padding-top:.35rem}
   .rd-sent.show .rd-de{display:block}
   .rd-tap-hint{font-size:.72rem;color:var(--muted);font-style:italic;margin-bottom:.5rem}
+  .hint-n3{font-style:normal;box-shadow:inset 0 -0.3em 0 rgba(184,137,58,.42);border-radius:2px}
+  html[data-theme="dark"] .hint-n3{box-shadow:inset 0 -0.3em 0 rgba(202,189,163,.32)}
   /* Abschnitte */
   details.rd-sec{border:1px solid var(--line-soft);border-radius:10px;margin-bottom:.7rem;background:var(--paper-2);overflow:hidden}
   details.rd-sec>summary{cursor:pointer;list-style:none;padding:.7rem .9rem;font-weight:800;font-size:.86rem;color:var(--ink);display:flex;align-items:center;gap:.5rem}
@@ -105,6 +107,10 @@
   .tok{cursor:pointer;border-radius:5px;padding:0 .02em;transition:background .1s;-webkit-tap-highlight-color:transparent}
   .tok:hover{background:rgba(127,127,127,.1)}
   .tok:active{background:rgba(192,54,44,.2)}
+  /* N3-Grammatik im Text markiert (Textmarker-Effekt unter der Zeile) */
+  .tok-n3{box-shadow:inset 0 -0.32em 0 rgba(184,137,58,.42);border-radius:2px}
+  html[data-theme="dark"] .tok-n3{box-shadow:inset 0 -0.32em 0 rgba(202,189,163,.32)}
+  .tok-n3:active{background:rgba(192,54,44,.2)}
   .rd-trans{font-family:inherit;cursor:pointer;border:none;background:none;color:var(--gold);font-size:.92rem;margin-left:.15rem;vertical-align:.05em;opacity:.7;font-weight:700}
   /* Wort-Popup (Bottom-Sheet) */
   #tok-pop{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;justify-content:flex-end}
@@ -149,7 +155,7 @@
     <button id="tool-furi">かな Furigana: AN</button>
     <button id="tool-all">Alle Übersetzungen</button>
   </div>
-  <p class="rd-tap-hint">💡 Tippe ein <b>Wort</b> an → Bedeutung & Grammatik. <b>訳</b> zeigt die Satz-Übersetzung, 🔊 liest vor.</p>
+  <p class="rd-tap-hint">💡 Tippe ein <b>Wort</b> an → Bedeutung & Grammatik. <span class="hint-n3">Gold markiert</span> = N3-Grammatik. <b>訳</b> zeigt die Satz-Übersetzung, 🔊 liest vor.</p>
   <div id="rd-text"></div>
   <div id="rd-extra"></div>
   <div class="rd-nav">
@@ -244,9 +250,17 @@ function grammarHits(plain){
   return hits;
 }
 
+// N3-Grammatikmuster, die im Lesetext markiert werden (gold unterstrichen).
+const N3KEYS = [
+  "ようになる","ようにな","のように","ようとし",
+  "たびに","ばかり","ために","ための","まま","について","はず","さえ",
+  "わけ","きれない","きれて","きれた","きれず","ところ","かのよう","ないと","とたん","うちに","だらけ"
+].sort((a,b) => b.length - a.length);
+function isN3(plain){ return N3KEYS.some(k => plain.includes(k)); }
+
 function tokenize(jp){
   return jp.split(/\s+/).filter(Boolean)
-    .map(ch => `<span class="tok">${ch}</span>`).join(' ');
+    .map(ch => `<span class="tok${isN3(plainJP(ch)) ? ' tok-n3' : ''}">${ch}</span>`).join(' ');
 }
 
 function openTok(html){
