@@ -85,6 +85,15 @@
   .frage .ans{display:none;font-size:.86rem;color:var(--t-2);line-height:1.5;margin-top:.45rem}
   .frage .ans.show{display:block}
   .gram{font-size:.8rem;color:var(--muted);line-height:1.6}
+  /* N3-Spotlight pro Kapitel */
+  .rd-n3{border:2px solid var(--gold);border-radius:12px;padding:.9rem 1rem;margin-bottom:.8rem;
+    background:linear-gradient(135deg,rgba(184,137,58,.1),rgba(192,54,44,.06))}
+  .n3-tag{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+  .n3-punkt{font-family:"Noto Serif JP",serif;font-size:1.18rem;font-weight:700;color:var(--ink);margin-bottom:.45rem;line-height:1.4}
+  .n3-de{font-size:.9rem;color:var(--t-2);line-height:1.65;margin-bottom:.6rem}
+  .n3-bsp{border-top:1px dotted var(--line-soft);padding-top:.55rem}
+  .n3-jp{display:block;font-family:"Noto Serif JP",serif;font-size:1.12rem;color:var(--ink);line-height:1.85}
+  .n3-bspde{display:block;font-size:.82rem;color:var(--muted);margin-top:.25rem;font-style:italic}
   .rd-nav{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-top:1.3rem}
   .rd-nav button{font-family:inherit;cursor:pointer;font-weight:800;font-size:.85rem;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:.65rem .4rem}
   .rd-nav button:disabled{opacity:.35;cursor:default}
@@ -339,7 +348,15 @@ function renderReader(){
       <button class="ans-btn" onclick="var a=this.nextElementSibling;var o=a.classList.toggle('show');this.textContent=o?'▲ verbergen':'Antwort zeigen';">Antwort zeigen</button>
       <div class="ans">${f.a}</div>
     </div>`).join('');
+  const n3 = t.n3 ? `
+    <div class="rd-n3">
+      <div class="n3-tag">⭐ Neue N3-Grammatik</div>
+      <div class="n3-punkt">${t.n3.punkt}</div>
+      <div class="n3-de">${t.n3.de}</div>
+      <div class="n3-bsp"><span class="n3-jp">${t.n3.bsp}</span><span class="n3-bspde">${t.n3.bsp_de}</span></div>
+    </div>` : '';
   $('#rd-extra').innerHTML = `
+    ${n3}
     ${voc ? `<details class="rd-sec"><summary>📚 Vokabeln <span class="arw">▸</span></summary><div class="rd-sec-body"><table class="voc"><tbody>${voc}</tbody></table></div></details>` : ''}
     ${fr ? `<details class="rd-sec"><summary>❓ Verständnisfragen <span class="arw">▸</span></summary><div class="rd-sec-body">${fr}</div></details>` : ''}
     ${t.grammatik ? `<details class="rd-sec"><summary>📐 Grammatik in diesem Text <span class="arw">▸</span></summary><div class="rd-sec-body"><div class="gram">${t.grammatik}</div></div></details>` : ''}`;

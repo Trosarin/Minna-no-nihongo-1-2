@@ -32,7 +32,13 @@ window.LESEN_KAPITEL = [
           { q:"Woher kommt Anna?", a:"Aus Deutschland (ドイツ人です)." },
           { q:"Was ist ihr Fach?", a:"Japanisch (専門は日本語です)." }
         ],
-        grammatik: "L1 NはNです · L1 Nの (Zugehörigkeit) · L6 Nを + Verb · L6 Ortで"
+        grammatik: "L1 NはNです · L1 Nの (Zugehörigkeit) · L6 Nを + Verb · L6 Ortで",
+        n3: {
+          punkt: "〜ようになる ＝ es kommt (allmählich) dazu, dass …",
+          de: "Du hängst es an die Wörterbuchform — sehr oft an die Kann-Form — eines Verbs und beschreibst eine Veränderung über die Zeit: Früher war/ging es nicht so, jetzt schon. 話せるようになる = »dahin kommen, sprechen zu können«. Das Gegenteil ist 〜なくなる (geht nicht mehr).",
+          bsp: "<ruby>毎日<rt>まいにち</rt></ruby> <ruby>練習<rt>れんしゅう</rt></ruby>して、ひらがなが <ruby>読<rt>よ</rt></ruby>めるように なりました。",
+          bsp_de: "Nachdem ich jeden Tag geübt habe, kann ich jetzt (mit der Zeit) Hiragana lesen."
+        }
       }
     ]
   },
@@ -66,7 +72,13 @@ window.LESEN_KAPITEL = [
           { q:"Was macht sie am Samstag?", a:"Mit einer Freundin einen Film schauen (友達と映画を見ます)." },
           { q:"Was schenkt sie ihrer Mutter?", a:"Schöne Blumen (きれいな花をあげます)." }
         ],
-        grammatik: "L8 Adjektive · L9 Nが好き · L7 あげる · L13 Nが欲しい · L13 ますに行く"
+        grammatik: "L8 Adjektive · L9 Nが好き · L7 あげる · L13 Nが欲しい · L13 ますに行く",
+        n3: {
+          punkt: "〜たびに ＝ jedes Mal, wenn …",
+          de: "Nomen＋の oder Verb-Wörterbuchform + たびに. Immer wenn das eine passiert, passiert auch das andere — ganz regelmäßig, ohne Ausnahme. 会うたびに = »jedes Mal, wenn wir uns sehen«.",
+          bsp: "<ruby>週末<rt>しゅうまつ</rt></ruby>の たびに、<ruby>友達<rt>ともだち</rt></ruby>と <ruby>出<rt>で</rt></ruby>かけます。",
+          bsp_de: "Jedes Wochenende (jedes Mal am Wochenende) gehe ich mit Freunden weg."
+        }
       }
     ]
   },
@@ -100,7 +112,13 @@ window.LESEN_KAPITEL = [
           { q:"Womit sind sie nach Kyoto gereist?", a:"Mit dem Shinkansen (新幹線に乗りました)." },
           { q:"Wie waren die Tempel?", a:"Sehr ruhig und schön (とても静かで、きれいでした)." }
         ],
-        grammatik: "L16 て-Verkettung · L16 てから · L16 くて/で · L14/15 ています · L13 〜たい"
+        grammatik: "L16 て-Verkettung · L16 てから · L16 くて/で · L14/15 ています · L13 〜たい",
+        n3: {
+          punkt: "〜た ばかり ＝ gerade eben erst (getan)",
+          de: "Verb in der た-Form + ばかり: Die Handlung ist erst ganz kurz her — gefühlt »gerade eben«. Anders als 〜たところ (objektiv »gerade fertig geworden«) drückt ばかり dein Gefühl aus, dass es noch ganz frisch ist.",
+          bsp: "<ruby>京都<rt>きょうと</rt></ruby>に <ruby>着<rt>つ</rt></ruby>いた ばかりで、まだ <ruby>何<rt>なに</rt></ruby>も <ruby>見<rt>み</rt></ruby>て いません。",
+          bsp_de: "Ich bin gerade erst in Kyoto angekommen und habe noch nichts gesehen."
+        }
       }
     ]
   },
@@ -133,7 +151,13 @@ window.LESEN_KAPITEL = [
           { q:"Was hat sie nächstes Jahr vor?", a:"Nach Japan gehen (日本へ行くつもりです)." },
           { q:"Was muss sie für den Beruf tun?", a:"Viele Kanji lernen (漢字を覚えなければなりません)." }
         ],
-        grammatik: "L31 つもり · L31 〜たいと思っている · L20 が (aber) · L17 なければなりません · L42 ために · L21 と言いました · L31 Volitional + と思う"
+        grammatik: "L31 つもり · L31 〜たいと思っている · L20 が (aber) · L17 なければなりません · L42 ために · L21 と言いました · L31 Volitional + と思う",
+        n3: {
+          punkt: "〜ために ＝ um zu … / für …",
+          de: "Verb-Wörterbuchform oder Nomen＋の + ために gibt das ZIEL/den Zweck an: »um … zu erreichen«. (Steht davor eine Vergangenheit oder etwas Unkontrollierbares, heißt ために dagegen »wegen« — Grund.) Vor einem Nomen: 〜ための.",
+          bsp: "<ruby>日本<rt>にほん</rt></ruby>で <ruby>働<rt>はたら</rt></ruby>く ために、<ruby>毎日<rt>まいにち</rt></ruby> <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>勉強<rt>べんきょう</rt></ruby>して います。",
+          bsp_de: "Um in Japan zu arbeiten, lerne ich jeden Tag Japanisch."
+        }
       }
     ]
   },
@@ -167,7 +191,13 @@ window.LESEN_KAPITEL = [
           { q:"Wo liegt die neue Wohnung?", a:"Nahe am Bahnhof (駅から近い)." },
           { q:"Warum will sie morgen zu Hause bleiben?", a:"Weil es wohl regnen wird (雨が降るでしょう)." }
         ],
-        grammatik: "L22 Relativsatz · L24 てくれる · L16 くて · L44 やすい · L23 Ortを · L32 でしょう · L31 Volitional + と思う"
+        grammatik: "L22 Relativsatz · L24 てくれる · L16 くて · L44 やすい · L23 Ortを · L32 でしょう · L31 Volitional + と思う",
+        n3: {
+          punkt: "〜まま ＝ in dem (unveränderten) Zustand belassen",
+          de: "Verb-た-Form / Nomen＋の / Adjektiv + まま: Ein Zustand bleibt, wie er ist, während etwas anderes passiert — oft, obwohl man ihn eigentlich ändern müsste. つけた まま = »angeschaltet gelassen«, 立った まま = »im Stehen«.",
+          bsp: "<ruby>電気<rt>でんき</rt></ruby>を つけた まま、<ruby>出<rt>で</rt></ruby>かけて しまいました。",
+          bsp_de: "Ich bin weggegangen und habe dabei das Licht angelassen (im angeschalteten Zustand gelassen)."
+        }
       }
     ]
   },
@@ -200,7 +230,13 @@ window.LESEN_KAPITEL = [
           { q:"Wofür bedankt sich die Schreiberin?", a:"Dass der Lehrer sich trotz Arbeit Zeit genommen hat (お忙しいのに時間を作っていただいて)." },
           { q:"Worum bittet sie am Ende höflich?", a:"Wieder Fragen stellen zu dürfen (質問させていただけませんか)." }
         ],
-        grammatik: "L50 Keigo (おる/いたす) · L41 ていただく · L45 のに · L36 ようになる + CK てくる · L48 Kausativ + いただけませんか"
+        grammatik: "L50 Keigo (おる/いたす) · L41 ていただく · L45 のに · L36 ようになる + CK てくる · L48 Kausativ + いただけませんか",
+        n3: {
+          punkt: "〜について ＝ über … / bezüglich …",
+          de: "Nomen + について markiert das THEMA, über das gesprochen, gefragt oder geschrieben wird: »was … betrifft«. Vor einem Nomen wird daraus 〜についての (z. B. <ruby>日本<rt>にほん</rt></ruby>についての <ruby>本<rt>ほん</rt></ruby> = »ein Buch über Japan«). Etwas förmlicher als nur は — ideal in E-Mails.",
+          bsp: "<ruby>新<rt>あたら</rt></ruby>しい <ruby>仕事<rt>しごと</rt></ruby>に ついて、ご<ruby>相談<rt>そうだん</rt></ruby>が あります。",
+          bsp_de: "Bezüglich der neuen Arbeit hätte ich etwas zu besprechen."
+        }
       }
     ]
   },
@@ -249,7 +285,13 @@ window.LESEN_KAPITEL = [
           { q:"Was hörte sie auf dem Flur — und warum war das seltsam?", a:"Klaviermusik aus dem Musikraum; seltsam, weil Freitag war und es keinen Musikunterricht gab." },
           { q:"Was war an dem Mädchen am Klavier so unheimlich?", a:"Es hatte kein Gesicht (顔がありませんでした)." }
         ],
-        grammatik: "L15 ています (Zustand) · L23 〜と (als/sobald) · L16 くて/で (verbinden) · L22 Relativsatz (白い服を着た女の子) · L43 聞こえてくる · L18 ことができる"
+        grammatik: "L15 ています (Zustand) · L23 〜と (als/sobald) · L16 くて/で (verbinden) · L22 Relativsatz (白い服を着た女の子) · L43 聞こえてくる · L18 ことができる",
+        n3: {
+          punkt: "〜はずだ ＝ es müsste (eigentlich) so sein",
+          de: "Du hängst はず an die Verb-/Adjektiv-Form an und sagst: Aus gutem Grund erwarte ich, dass es so ist — »das müsste/dürfte so sein«. Verneint heißt はずがない »das kann unmöglich sein«. Im Horror perfekt: »Hier dürfte doch eigentlich niemand mehr sein …«",
+          bsp: "もう <ruby>夜<rt>よる</rt></ruby> <ruby>遅<rt>おそ</rt></ruby>いから、<ruby>学校<rt>がっこう</rt></ruby>には だれも いない はずだ。",
+          bsp_de: "Es ist schon spät in der Nacht, also dürfte eigentlich niemand mehr in der Schule sein."
+        }
       },
       {
         titel: "<ruby>第二章<rt>だいにしょう</rt></ruby>「<ruby>逃<rt>に</rt></ruby>げられない」",
@@ -291,7 +333,13 @@ window.LESEN_KAPITEL = [
           { q:"Was erzählt das Mädchen über sich?", a:"Vor 30 Jahren war sie Schülerin dieser Schule, aber niemand erinnert sich an sie." },
           { q:"Was ist am Ende mit dem alten Foto?", a:"Das Gesicht des Mädchens fehlt — und jetzt ist Yukis Gesicht daneben zu sehen." }
         ],
-        grammatik: "L43 Vます+そう (Anschein: 止まりそう) · L25 どんなに〜ても · L26 んです · Volitional + とする (逃げようとする) · L30 てある (かざってある) · L15 ている (写っている) · Plain-Stil in Dialogen"
+        grammatik: "L43 Vます+そう (Anschein: 止まりそう) · L25 どんなに〜ても · L26 んです · Volitional + とする (逃げようとする) · L30 てある (かざってある) · L15 ている (写っている) · Plain-Stil in Dialogen",
+        n3: {
+          punkt: "〜さえ／〜さえ…ば ＝ sogar … / wenn nur …",
+          de: "さえ betont ein extremes Beispiel: »sogar / nicht einmal«. In der Kombination 〜さえ …ば heißt es »wenn nur … (dann reicht das schon)«. <ruby>音<rt>おと</rt></ruby>さえ <ruby>立<rt>た</rt></ruby>てなければ = »wenn ich nur kein Geräusch mache«.",
+          bsp: "<ruby>音<rt>おと</rt></ruby>さえ <ruby>立<rt>た</rt></ruby>てなければ、<ruby>見<rt>み</rt></ruby>つからないかもしれない。",
+          bsp_de: "Wenn ich nur kein Geräusch mache, werde ich vielleicht nicht entdeckt."
+        }
       },
       {
         titel: "<ruby>第三章<rt>だいさんしょう</rt></ruby>「<ruby>消<rt>き</rt></ruby>えた<ruby>名前<rt>なまえ</rt></ruby>」",
@@ -362,7 +410,13 @@ window.LESEN_KAPITEL = [
           { q:"Was ist der schreckliche Twist?", a:"Aiko bekommt Yukis Gesicht und entkommt nach draußen — Yuki wird selbst die neue gesichtslose Gestalt im Spiegel." },
           { q:"Woran sieht man, dass der Fluch weitergeht?", a:"Jahre später bleibt wieder ein Schüler bis spät — und hört Klaviermusik (Endlosschleife)." }
         ],
-        grammatik: "Konditional たら/ば · 受身 (塗りつぶされる/つつまれる) · はずがない · てある (かくしてある/書いてある) · てしまう · なくなる · ところ (出て行くところ) · ながら · そっくり · Potential (消えられる/出られる) · てもらえる · のように"
+        grammatik: "Konditional たら/ば · 受身 (塗りつぶされる/つつまれる) · はずがない · てある (かくしてある/書いてある) · てしまう · なくなる · ところ (出て行くところ) · ながら · そっくり · Potential (消えられる/出られる) · てもらえる · のように",
+        n3: {
+          punkt: "〜わけがない ＝ das kann unmöglich sein",
+          de: "わけ heißt »Grund / logischer Schluss«. 〜わけがない = »es gibt keinen Grund dafür« → »das kann unmöglich so sein«. Verwandte Formen: 〜わけだ »das heißt also / logischerweise«; 〜わけではない »das heißt nicht unbedingt«.",
+          bsp: "<ruby>名前<rt>なまえ</rt></ruby>が <ruby>一人<rt>ひとり</rt></ruby>でに <ruby>消<rt>き</rt></ruby>える わけが ない。",
+          bsp_de: "Ein Name kann doch unmöglich von selbst verschwinden."
+        }
       }
     ]
   },
@@ -419,7 +473,13 @@ window.LESEN_KAPITEL = [
           { q:"Was bedroht laut Sora die Welt?", a:"Die Finsternis (闇) frisst das Licht; aus ihr geborene Schatten jagen den Stein-Träger." },
           { q:"Womit endet das Kapitel?", a:"Tief im dunklen Wald öffnen sich viele rote Augen (赤い目がいくつも開きました)." }
         ],
-        grammatik: "のように (氷のように/死んだように) · とき · ています · 受身 (選ばれた/食べられて/気づかれて/飲み込まれて) · relative ことのない/石を持つ者 · なければ + てしまう · ながら · ないで · てくれないか · んだ"
+        grammatik: "のように (氷のように/死んだように) · とき · ています · 受身 (選ばれた/食べられて/気づかれて/飲み込まれて) · relative ことのない/石を持つ者 · なければ + てしまう · ながら · ないで · てくれないか · んだ",
+        n3: {
+          punkt: "〜ように ＝ (so) wie …",
+          de: "（Nomen＋の／Verb）＋ように zieht einen Vergleich: »(genau) wie …«. <ruby>死<rt>し</rt></ruby>んだように <ruby>静<rt>しず</rt></ruby>か = »still wie tot«, <ruby>氷<rt>こおり</rt></ruby>のように = »wie Eis«. Vor einem Nomen wird daraus 〜ような (z. B. <ruby>夢<rt>ゆめ</rt></ruby>の ような = »wie ein Traum«). (Nach einem Verb heißt dasselbe ように auch »damit« — das ist ein anderer Gebrauch.)",
+          bsp: "<ruby>森<rt>もり</rt></ruby>は <ruby>死<rt>し</rt></ruby>んだように <ruby>静<rt>しず</rt></ruby>かでした。",
+          bsp_de: "Der Wald war still wie tot."
+        }
       },
       {
         titel: "<ruby>第二章<rt>だいにしょう</rt></ruby>「<ruby>呼<rt>よ</rt></ruby>ぶ <ruby>声<rt>こえ</rt></ruby>」",
@@ -490,7 +550,13 @@ window.LESEN_KAPITEL = [
           { q:"Warum fliehen Ren und Sora zum Fluss?", a:"In der Nähe von Wasser können die Schatten nicht hin (水の近くなら、影は来られない)." },
           { q:"Wer wartet im Schrein und was will er?", a:"Der König der Schatten (影の王); er will Ren den Stein des Lichts abnehmen." }
         ],
-        grammatik: "〜ても · 〜ほど · Verbot 〜な (出すな/動くな) · ようとする · ことができる · ていく · とは思えない · なくなる · なら + Potential-Verneinung (来られない) · はずだ · より (Vergleich) · 〜と · 使役 (ふるわせる) · てもらう · 始める"
+        grammatik: "〜ても · 〜ほど · Verbot 〜な (出すな/動くな) · ようとする · ことができる · ていく · とは思えない · なくなる · なら + Potential-Verneinung (来られない) · はずだ · より (Vergleich) · 〜と · 使役 (ふるわせる) · てもらう · 始める",
+        n3: {
+          punkt: "〜（よ）うとする ＝ versuchen zu … / im Begriff sein zu …",
+          de: "Du nimmst die Willensform (Volitional) 〜よう／〜おう und hängst とする an: jemand setzt gerade an, etwas zu tun. <ruby>立<rt>た</rt></ruby>ち<ruby>上<rt>あ</rt></ruby>がろうと した = »er setzte an / wollte gerade aufstehen«. Oft genau im Moment, bevor etwas dazwischenkommt — perfekt für Spannung.",
+          bsp: "レンは <ruby>思<rt>おも</rt></ruby>わず <ruby>立<rt>た</rt></ruby>ち<ruby>上<rt>あ</rt></ruby>がろうと しました。",
+          bsp_de: "Unwillkürlich setzte Ren an aufzustehen (wollte Ren aufstehen)."
+        }
       },
       {
         titel: "<ruby>第三章<rt>だいさんしょう</rt></ruby>「<ruby>影<rt>かげ</rt></ruby>の <ruby>王<rt>おう</rt></ruby>の <ruby>言葉<rt>ことば</rt></ruby>」",
@@ -565,7 +631,13 @@ window.LESEN_KAPITEL = [
           { q:"Welche schreckliche Enthüllung macht der König, bevor er verschwindet?", a:"Dass der siebte Splitter in Ren selbst steckt (七つ目のかけらはお前の中にある) — und dass auch Rens eigene Welt bald von der Finsternis verschlungen wird." },
           { q:"Warum ist der Sieg über den König kein echtes Ende?", a:"Die Finsternis ist nicht verschwunden, sondern erzürnt: Der Boden bebt, die zwei Monde färben sich blutrot, und unzählige rote Augen beobachten die beiden aus den Bergen." }
         ],
-        grammatik: "〜ように (Vergleich: 太陽のように・血のように) · 〜ていく/〜てくる · のだ/のです (Erklärung) · 受身 (飲み込まれる・だまされる) · 命令形＆禁止 (消せ・向けろ・だまされるな・おぼえておけ) · 〜ながら · 〜始める · 〜ても · 〜と (見ると) · 〜かどうか · 〜ほど (数えきれないほど) · 〜くてたまらない · 〜ように見える · 〜前に · Potential (立てる)"
+        grammatik: "〜ように (Vergleich: 太陽のように・血のように) · 〜ていく/〜てくる · のだ/のです (Erklärung) · 受身 (飲み込まれる・だまされる) · 命令形＆禁止 (消せ・向けろ・だまされるな・おぼえておけ) · 〜ながら · 〜始める · 〜ても · 〜と (見ると) · 〜かどうか · 〜ほど (数えきれないほど) · 〜くてたまらない · 〜ように見える · 〜前に · Potential (立てる)",
+        n3: {
+          punkt: "〜きれない ＝ nicht zu Ende … können (zu viel/zu groß)",
+          de: "Verb-ますStamm + きる = »ganz / vollständig zu Ende tun«. Verneint 〜きれない = »es nicht schaffen, ganz … zu tun« — meist, weil es zu viel oder zu groß ist. <ruby>数<rt>かぞ</rt></ruby>えきれない = »nicht (alle) zählen können« = unzählig.",
+          bsp: "<ruby>数<rt>かぞ</rt></ruby>えきれない ほどの <ruby>赤<rt>あか</rt></ruby>い <ruby>目<rt>め</rt></ruby>が、こちらを <ruby>見<rt>み</rt></ruby>て いました。",
+          bsp_de: "Unzählige (nicht zu zählende) rote Augen blickten zu ihnen herüber."
+        }
       }
     ]
   }

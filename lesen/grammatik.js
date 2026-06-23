@@ -105,5 +105,19 @@ window.LESEN_GRAMMAR = [
   { k:"にくい", t:"g", label:"〜にくい (schwer zu)", de:"»schwer zu …«. (L44)" },
   { k:"ほど", t:"g", label:"ほど (so sehr/je…desto)", de:"»so sehr, dass …« oder ば〜ほど »je … desto«. (L35)" },
   { k:"ずに", t:"g", label:"〜ずに (ohne zu)", de:"Schriftsprachlich für ないで: »ohne zu …«. する→せずに. (CK)" },
-  { k:"たい", t:"g", label:"〜たい (möchte)", de:"Wunsch »ich möchte … tun«. (L13)" }
+  { k:"たい", t:"g", label:"〜たい (möchte)", de:"Wunsch »ich möchte … tun«. (L13)" },
+  // --- N3-Spotlights (eine neue Regel pro Lese-Kapitel) ---
+  { k:"ようになる", t:"g", label:"〜ようになる (allmähliche Veränderung)", de:"»es kommt dazu, dass …«: Veränderung über die Zeit, oft mit Kann-Form (話せるようになる). Gegenteil: 〜なくなる. (N3)" },
+  { k:"ようにな", t:"g", label:"〜ようになる (allmähliche Veränderung)", de:"»es kommt dazu, dass …«: Veränderung über die Zeit (auch ようになった/なりました). (N3)" },
+  { k:"たびに", t:"g", label:"〜たびに (jedes Mal wenn)", de:"Nの／Vる + たびに = »immer wenn …«, ganz regelmäßig und ausnahmslos. (N3)" },
+  { k:"ために", t:"g", label:"〜ために (um zu / wegen)", de:"Vる／Nの + ために = Zweck »um zu …«; mit Vergangenheit/Unkontrollierbarem »wegen« (Grund). (N3/L42)" },
+  { k:"ための", t:"g", label:"〜ための (für / um zu)", de:"ために vor einem Nomen: »ein … zum/für …«. (N3/L42)" },
+  { k:"まま", t:"g", label:"〜まま (unveränderter Zustand)", de:"た-Form/Nの/Adj + まま = »so wie es ist / belassen«. つけたまま »angelassen«, 立ったまま »im Stehen«. (N3)" },
+  { k:"について", t:"g", label:"〜について (über / bezüglich)", de:"N + について = »was … betrifft, über …«. Vor Nomen: についての. (N3)" },
+  { k:"さえ", t:"g", label:"〜さえ／さえ…ば (sogar / wenn nur)", de:"さえ betont »sogar / nicht einmal«; さえ…ば »wenn nur … (reicht schon)«. (N3)" },
+  { k:"わけがない", t:"g", label:"〜わけがない (kann unmöglich sein)", de:"»es gibt keinen Grund dafür« → »das kann unmöglich so sein«. (N3)" },
+  { k:"わけが", t:"g", label:"〜わけがない (kann unmöglich sein)", de:"わけがない »kann unmöglich sein«. (N3)" },
+  { k:"わけで", t:"g", label:"〜わけだ／わけではない (logischer Schluss)", de:"わけだ »das heißt also/logisch«; わけではない »nicht unbedingt«. (N3)" },
+  { k:"きれない", t:"g", label:"〜きれない (nicht ganz …-können)", de:"Vます+きる »ganz zu Ende tun«; きれない »(zu viel) nicht schaffen«. 数えきれない »unzählig«. (N3)" },
+  { k:"きれ", t:"g", label:"〜きる／きれない (ganz / zu Ende)", de:"Vます+きる = »vollständig zu Ende tun«; 〜きれない »nicht ganz schaffen«. (N3)" }
 ];
