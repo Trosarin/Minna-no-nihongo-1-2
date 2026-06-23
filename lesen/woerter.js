@@ -427,5 +427,9 @@ window.LESEN_WOERTER = [
   { w:"集める (あつめる)", de:"sammeln" },
   { w:"スープ", de:"Suppe" },
   { w:"おばあさん", de:"alte Frau, Großmutter" },
-  { w:"希望 (きぼう)", de:"Hoffnung" }
+  { w:"希望 (きぼう)", de:"Hoffnung" },
+  { w:"城 (しろ)", de:"Schloss, Burg" },
+  { w:"庭 (にわ)", de:"Garten" },
+  { w:"土地 (とち)", de:"Land, Gegend, Grundstück" },
+  { w:"立ち向かう (たちむかう)", de:"sich stellen, entgegentreten" }
 ];

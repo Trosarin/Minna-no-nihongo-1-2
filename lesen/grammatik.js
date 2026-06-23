@@ -131,5 +131,7 @@ window.LESEN_GRAMMAR = [
   { k:"気がする", t:"g", label:"〜気がする (das Gefühl haben, dass …)", de:"Plain-Form / N＋の + 気がする = »ich hab so ein Gefühl, dass …« — eine vage Ahnung. (N3)" },
   { k:"気がし", t:"g", label:"〜気がする (das Gefühl haben, dass …)", de:"気がした »ich hatte das Gefühl«, 気がします (höflich). Eine vage Ahnung, ein Eindruck. (N3)" },
   { k:"おかげ", t:"g", label:"〜おかげで (dank …)", de:"Nの／Plain + おかげで = »dank … / weil …« mit gutem Ergebnis (dankbar). (N3)" },
-  { k:"せいで", t:"g", label:"〜せいで (wegen … [schlecht])", de:"Nの／Plain + せいで = »wegen …« mit schlechtem Ergebnis (Schuld/Vorwurf). (N3)" }
+  { k:"せいで", t:"g", label:"〜せいで (wegen … [schlecht])", de:"Nの／Plain + せいで = »wegen …« mit schlechtem Ergebnis (Schuld/Vorwurf). (N3)" },
+  { k:"違いない", t:"g", label:"〜に違いない (ganz sicher)", de:"Plain-Form/N + に違いない = »das ist ganz sicher so«. Stärker als はず und かもしれない. (N3)" },
+  { k:"ちがいない", t:"g", label:"〜にちがいない (ganz sicher)", de:"»das ist ganz sicher so« (auch in Kana geschrieben). (N3)" }
 ];
