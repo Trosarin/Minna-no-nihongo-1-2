@@ -135,5 +135,6 @@ window.LESEN_GRAMMAR = [
   { k:"違いない", t:"g", label:"〜に違いない (ganz sicher)", de:"Plain-Form/N + に違いない = »das ist ganz sicher so«. Stärker als はず und かもしれない. (N3)" },
   { k:"ちがいない", t:"g", label:"〜にちがいない (ganz sicher)", de:"»das ist ganz sicher so« (auch in Kana geschrieben). (N3)" },
   { k:"ものか", t:"g", label:"〜ものか (niemals!)", de:"Plain-Form + ものか = trotziger Ausruf, gemeint ist das Gegenteil: 負けるものか »ich verliere ganz sicher NICHT!«. (N3)" },
-  { k:"もんか", t:"g", label:"〜もんか (niemals!, ugs.)", de:"Lockere Form von ものか: »auf gar keinen Fall!«. (N3)" }
+  { k:"もんか", t:"g", label:"〜もんか (niemals!, ugs.)", de:"Lockere Form von ものか: »auf gar keinen Fall!«. (N3)" },
+  { k:"こそ", t:"g", label:"〜こそ (gerade / erst recht)", de:"Hebt das Wort davor mit Nachdruck hervor: 今こそ »jetzt erst recht«, きみこそ »gerade du«. (N3)" }
 ];

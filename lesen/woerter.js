@@ -437,5 +437,11 @@ window.LESEN_WOERTER = [
   { w:"ばけもの (化け物)", de:"Ungeheuer, Monster" },
   { w:"戦い (たたかい)", de:"Kampf, Schlacht" },
   { w:"戦う (たたかう)", de:"kämpfen" },
-  { w:"育つ (そだつ)", de:"aufwachsen, heranwachsen" }
+  { w:"育つ (そだつ)", de:"aufwachsen, heranwachsen" },
+  { w:"意識 (いしき)", de:"Bewusstsein" },
+  { w:"にくむ (憎む)", de:"hassen" },
+  { w:"みとめる (認める)", de:"anerkennen, zugeben" },
+  { w:"だきしめる (抱きしめる)", de:"fest umarmen" },
+  { w:"すがた (姿)", de:"Gestalt, Erscheinung" },
+  { w:"ころがる (転がる)", de:"rollen; daliegen" }
 ];
