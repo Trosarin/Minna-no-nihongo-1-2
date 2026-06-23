@@ -122,5 +122,9 @@ window.LESEN_GRAMMAR = [
   { k:"きれ", t:"g", label:"〜きる／きれない (ganz / zu Ende)", de:"Vます+きる = »vollständig zu Ende tun«; 〜きれない »nicht ganz schaffen«. (N3)" },
   { k:"ところだった", t:"g", label:"〜ところだった (beinahe wäre …)", de:"»um ein Haar / fast wäre … passiert (ist aber nicht)«, oft mit もう少しで. (N3)" },
   { k:"かのよう", t:"g", label:"〜かのようだ (als ob)", de:"»(gerade) so, als ob …«, oft mit まるで. Vergleich mit etwas Irrealem. (N3)" },
-  { k:"ないと", t:"g", label:"〜ないと(いけない) (muss / sonst)", de:"»wenn nicht …(, dann schlecht)« → »ich muss …«. Der zweite Teil bleibt oft weg. (N3)" }
+  { k:"ないと", t:"g", label:"〜ないと(いけない) (muss / sonst)", de:"»wenn nicht …(, dann schlecht)« → »ich muss …«. Der zweite Teil bleibt oft weg. (N3)" },
+  { k:"とたん", t:"g", label:"〜たとたん（に）(kaum dass / im selben Moment)", de:"た-Form + とたん: genau im Augenblick, als …, sofort und oft überraschend. (N3)" },
+  { k:"うちに", t:"g", label:"〜うちに (während / solange noch / bevor)", de:"»solange (noch) … / bevor …«: man nutzt einen Zeitraum, bevor er endet. ないうちに »bevor«. (N3)" },
+  { k:"だらけ", t:"g", label:"〜だらけ (voller …)", de:"Nomen + だらけ = »voller / übersät mit …«, meist negativ: ほこりだらけ »voller Staub«, 血だらけ »voller Blut«. (N3)" },
+  { k:"わけには", t:"g", label:"〜わけにはいかない (kann/darf nicht)", de:"»es geht (aus Pflicht/Umständen) nicht, zu …«; oft わけにはいかない. (N3)" }
 ];
