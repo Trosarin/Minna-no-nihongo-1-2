@@ -126,5 +126,7 @@ window.LESEN_GRAMMAR = [
   { k:"とたん", t:"g", label:"〜たとたん（に）(kaum dass / im selben Moment)", de:"た-Form + とたん: genau im Augenblick, als …, sofort und oft überraschend. (N3)" },
   { k:"うちに", t:"g", label:"〜うちに (während / solange noch / bevor)", de:"»solange (noch) … / bevor …«: man nutzt einen Zeitraum, bevor er endet. ないうちに »bevor«. (N3)" },
   { k:"だらけ", t:"g", label:"〜だらけ (voller …)", de:"Nomen + だらけ = »voller / übersät mit …«, meist negativ: ほこりだらけ »voller Staub«, 血だらけ »voller Blut«. (N3)" },
-  { k:"わけには", t:"g", label:"〜わけにはいかない (kann/darf nicht)", de:"»es geht (aus Pflicht/Umständen) nicht, zu …«; oft わけにはいかない. (N3)" }
+  { k:"わけには", t:"g", label:"〜わけにはいかない (kann/darf nicht)", de:"»es geht (aus Pflicht/Umständen) nicht, zu …«; oft わけにはいかない. (N3)" },
+  { k:"気がする", t:"g", label:"〜気がする (das Gefühl haben, dass …)", de:"Plain-Form / N＋の + 気がする = »ich habe so ein Gefühl / mir kommt vor, als ob …« (vage Ahnung). (N3)" },
+  { k:"気がし", t:"g", label:"〜気がする (das Gefühl haben, dass …)", de:"気がした »ich hatte das Gefühl«; 気がします (höflich). Vage Ahnung/Eindruck. (N3)" }
 ];
