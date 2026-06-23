@@ -365,5 +365,62 @@ window.LESEN_KAPITEL = [
         grammatik: "Konditional たら/ば · 受身 (塗りつぶされる/つつまれる) · はずがない · てある (かくしてある/書いてある) · てしまう · なくなる · ところ (出て行くところ) · ながら · そっくり · Potential (消えられる/出られる) · てもらえる · のように"
       }
     ]
+  },
+  {
+    titel: "🐉 Fantasy-Horror: <ruby>星<rt>ほし</rt></ruby>の かけら",
+    stufe: "Story · gemischt · düster",
+    beschreibung: "Dunkle Abenteuergeschichte in Kapiteln: ein Junge, ein kleiner Drache und sieben Sternensplitter — in einer schönen, aber sterbenden Welt, in der etwas das Licht frisst. Wir bauen sie Kapitel für Kapitel aus.",
+    texte: [
+      {
+        titel: "<ruby>第一章<rt>だいいっしょう</rt></ruby>「<ruby>光<rt>ひか</rt></ruby>る <ruby>石<rt>いし</rt></ruby>」",
+        de: "Kapitel 1: Der leuchtende Stein",
+        stufe: "gemischt",
+        saetze: [
+          { jp:"レンは <ruby>静<rt>しず</rt></ruby>かな <ruby>男<rt>おとこ</rt></ruby>の <ruby>子<rt>こ</rt></ruby>でした。", de:"Ren war ein stiller Junge." },
+          { jp:"<ruby>毎日<rt>まいにち</rt></ruby>、<ruby>学校<rt>がっこう</rt></ruby>の <ruby>帰<rt>かえ</rt></ruby>りに、<ruby>森<rt>もり</rt></ruby>の <ruby>道<rt>みち</rt></ruby>を <ruby>通<rt>とお</rt></ruby>って いました。", de:"Jeden Tag ging er auf dem Heimweg durch den Wald." },
+          { jp:"ある <ruby>日<rt>ひ</rt></ruby>の <ruby>夕方<rt>ゆうがた</rt></ruby>、<ruby>木<rt>き</rt></ruby>の <ruby>下<rt>した</rt></ruby>で <ruby>青白<rt>あおじろ</rt></ruby>く <ruby>光<rt>ひか</rt></ruby>る <ruby>石<rt>いし</rt></ruby>を <ruby>見<rt>み</rt></ruby>つけました。", de:"Eines Abends fand er unter einem Baum einen fahl-blau leuchtenden Stein." },
+          { jp:"その <ruby>石<rt>いし</rt></ruby>は、<ruby>手<rt>て</rt></ruby>の <ruby>中<rt>なか</rt></ruby>で <ruby>氷<rt>こおり</rt></ruby>のように <ruby>冷<rt>つめ</rt></ruby>たかったです。", de:"Der Stein war eiskalt in seiner Hand, wie Eis." },
+          { jp:"レンが <ruby>石<rt>いし</rt></ruby>を <ruby>拾<rt>ひろ</rt></ruby>った とき、とつぜん <ruby>強<rt>つよ</rt></ruby>い <ruby>光<rt>ひかり</rt></ruby>が あふれ、<ruby>目<rt>め</rt></ruby>の <ruby>前<rt>まえ</rt></ruby>が <ruby>真<rt>ま</rt></ruby>っ<ruby>白<rt>しろ</rt></ruby>に なりました。", de:"Als Ren den Stein aufhob, flutete plötzlich grelles Licht hervor, und vor seinen Augen wurde alles weiß." },
+          { jp:"<ruby>気<rt>き</rt></ruby>が つくと、レンは <ruby>知<rt>し</rt></ruby>らない <ruby>場所<rt>ばしょ</rt></ruby>に <ruby>立<rt>た</rt></ruby>って いました。", de:"Als er zu sich kam, stand Ren an einem unbekannten Ort." },
+          { jp:"<ruby>空<rt>そら</rt></ruby>には <ruby>月<rt>つき</rt></ruby>が <ruby>二<rt>ふた</rt></ruby>つ あって、<ruby>草<rt>くさ</rt></ruby>は <ruby>銀色<rt>ぎんいろ</rt></ruby>に <ruby>光<rt>ひか</rt></ruby>って いました。", de:"Am Himmel standen zwei Monde, und das Gras leuchtete silbern." },
+          { jp:"でも、<ruby>木<rt>き</rt></ruby>は <ruby>黒<rt>くろ</rt></ruby>く <ruby>枯<rt>か</rt></ruby>れて いて、<ruby>鳥<rt>とり</rt></ruby>の <ruby>声<rt>こえ</rt></ruby>も しませんでした。", de:"Doch die Bäume waren schwarz und verdorrt, und nicht einmal ein Vogelruf war zu hören." },
+          { jp:"<ruby>森<rt>もり</rt></ruby>は <ruby>死<rt>し</rt></ruby>んだように <ruby>静<rt>しず</rt></ruby>かでした。", de:"Der Wald war still wie der Tod." },
+          { jp:"「ここは……どこ?」と レンは <ruby>小<rt>ちい</rt></ruby>さな <ruby>声<rt>こえ</rt></ruby>で <ruby>言<rt>い</rt></ruby>いました。", de:"„Wo … bin ich hier?“, flüsterte Ren." },
+          { jp:"<ruby>遠<rt>とお</rt></ruby>くで、<ruby>聞<rt>き</rt></ruby>いた ことの ない <ruby>叫<rt>さけ</rt></ruby>び<ruby>声<rt>ごえ</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえました。", de:"In der Ferne ertönte ein Schrei, wie er ihn nie zuvor gehört hatte." },
+          { jp:"レンの <ruby>背中<rt>せなか</rt></ruby>が、ぞっと しました。", de:"Ein eiskalter Schauer lief Ren über den Rücken." },
+          { jp:"その とき、<ruby>足<rt>あし</rt></ruby>もとで <ruby>小<rt>ちい</rt></ruby>さな <ruby>声<rt>こえ</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえました。", de:"In dem Moment hörte er zu seinen Füßen eine kleine Stimme." },
+          { jp:"<ruby>見<rt>み</rt></ruby>ると、てのひらぐらいの <ruby>小<rt>ちい</rt></ruby>さな <ruby>竜<rt>りゅう</rt></ruby>が、ふるえながら レンを <ruby>見上<rt>みあ</rt></ruby>げて いました。", de:"Als er hinsah, blickte ein handtellergroßer kleiner Drache zitternd zu ihm auf." },
+          { jp:"「<ruby>声<rt>こえ</rt></ruby>を <ruby>出<rt>だ</rt></ruby>さないで……あいつらに <ruby>気<rt>き</rt></ruby>づかれて しまう。」と <ruby>竜<rt>りゅう</rt></ruby>は ささやきました。", de:"„Mach keinen Laut … sonst werden sie auf uns aufmerksam“, flüsterte der Drache." },
+          { jp:"「<ruby>僕<rt>ぼく</rt></ruby>の <ruby>名前<rt>なまえ</rt></ruby>は ソラ。きみは <ruby>光<rt>ひかり</rt></ruby>の <ruby>石<rt>いし</rt></ruby>に <ruby>選<rt>えら</rt></ruby>ばれたんだ。」", de:"„Ich heiße Sora. Du wurdest vom Stein des Lichts auserwählt.“" },
+          { jp:"「この <ruby>世界<rt>せかい</rt></ruby>の <ruby>光<rt>ひかり</rt></ruby>は、<ruby>闇<rt>やみ</rt></ruby>に <ruby>食<rt>た</rt></ruby>べられて いるんだ。」", de:"„Das Licht dieser Welt wird von der Finsternis gefressen.“" },
+          { jp:"「<ruby>闇<rt>やみ</rt></ruby>から <ruby>生<rt>う</rt></ruby>まれた <ruby>影<rt>かげ</rt></ruby>たちが、<ruby>石<rt>いし</rt></ruby>を <ruby>持<rt>も</rt></ruby>つ <ruby>者<rt>もの</rt></ruby>を <ruby>探<rt>さが</rt></ruby>して いる。」", de:"„Schatten, aus der Finsternis geboren, jagen den, der den Stein trägt.“" },
+          { jp:"「<ruby>七<rt>なな</rt></ruby>つの <ruby>星<rt>ほし</rt></ruby>の かけらを <ruby>集<rt>あつ</rt></ruby>めなければ、この <ruby>世界<rt>せかい</rt></ruby>は <ruby>闇<rt>やみ</rt></ruby>に <ruby>飲<rt>の</rt></ruby>み<ruby>込<rt>こ</rt></ruby>まれて しまう。」", de:"„Wenn wir nicht die sieben Sternensplitter sammeln, wird diese Welt von der Finsternis verschlungen.“" },
+          { jp:"「お<ruby>願<rt>ねが</rt></ruby>い。<ruby>僕<rt>ぼく</rt></ruby>と <ruby>一緒<rt>いっしょ</rt></ruby>に <ruby>来<rt>き</rt></ruby>て くれないか。」", de:"„Bitte. Würdest du mit mir kommen?“" },
+          { jp:"レンは <ruby>怖<rt>こわ</rt></ruby>かったですが、<ruby>石<rt>いし</rt></ruby>を ぎゅっと にぎりしめて、うなずきました。", de:"Ren hatte Angst, doch er umklammerte den Stein fest und nickte." },
+          { jp:"その とき、<ruby>森<rt>もり</rt></ruby>の <ruby>奥<rt>おく</rt></ruby>の <ruby>暗<rt>くら</rt></ruby>やみで、<ruby>赤<rt>あか</rt></ruby>い <ruby>目<rt>め</rt></ruby>が いくつも、ゆっくりと <ruby>開<rt>ひら</rt></ruby>きました。", de:"In diesem Augenblick öffneten sich tief im Dunkel des Waldes langsam viele rote Augen." },
+          { jp:"（<ruby>第二章<rt>だいにしょう</rt></ruby>に つづく）", de:"(Fortsetzung in Kapitel 2)" }
+        ],
+        vokabeln: [
+          { w:"森 (もり)", de:"Wald" },
+          { w:"拾う (ひろう)", de:"aufheben" },
+          { w:"枯れる (かれる)", de:"verdorren, welken" },
+          { w:"死んだように (しんだように)", de:"wie tot, totenstill" },
+          { w:"ぞっとする", de:"erschaudern, ein Schauer läuft über den Rücken" },
+          { w:"竜 (りゅう)", de:"Drache" },
+          { w:"気づかれる (きづかれる)", de:"bemerkt werden" },
+          { w:"選ばれる (えらばれる)", de:"auserwählt werden" },
+          { w:"闇 (やみ)", de:"Finsternis, Dunkelheit" },
+          { w:"影 (かげ)", de:"Schatten" },
+          { w:"飲み込む (のみこむ)", de:"verschlingen, verschlucken" },
+          { w:"にぎりしめる", de:"fest umklammern" }
+        ],
+        fragen: [
+          { q:"Was ist an der neuen Welt unheimlich?", a:"Sie ist schön (zwei Monde, silbernes Gras), aber die Bäume sind schwarz und verdorrt, es ist totenstill, und in der Ferne schreit etwas." },
+          { q:"Was bedroht laut Sora die Welt?", a:"Die Finsternis (闇) frisst das Licht; aus ihr geborene Schatten jagen den Stein-Träger." },
+          { q:"Womit endet das Kapitel?", a:"Tief im dunklen Wald öffnen sich viele rote Augen (赤い目がいくつも開きました)." }
+        ],
+        grammatik: "のように (氷のように/死んだように) · とき · ています · 受身 (選ばれた/食べられて/気づかれて/飲み込まれて) · relative ことのない/石を持つ者 · なければ + てしまう · ながら · ないで · てくれないか · んだ"
+      }
+    ]
   }
 ];
