@@ -119,5 +119,8 @@ window.LESEN_GRAMMAR = [
   { k:"わけが", t:"g", label:"〜わけがない (kann unmöglich sein)", de:"わけがない »kann unmöglich sein«. (N3)" },
   { k:"わけで", t:"g", label:"〜わけだ／わけではない (logischer Schluss)", de:"わけだ »das heißt also/logisch«; わけではない »nicht unbedingt«. (N3)" },
   { k:"きれない", t:"g", label:"〜きれない (nicht ganz …-können)", de:"Vます+きる »ganz zu Ende tun«; きれない »(zu viel) nicht schaffen«. 数えきれない »unzählig«. (N3)" },
-  { k:"きれ", t:"g", label:"〜きる／きれない (ganz / zu Ende)", de:"Vます+きる = »vollständig zu Ende tun«; 〜きれない »nicht ganz schaffen«. (N3)" }
+  { k:"きれ", t:"g", label:"〜きる／きれない (ganz / zu Ende)", de:"Vます+きる = »vollständig zu Ende tun«; 〜きれない »nicht ganz schaffen«. (N3)" },
+  { k:"ところだった", t:"g", label:"〜ところだった (beinahe wäre …)", de:"»um ein Haar / fast wäre … passiert (ist aber nicht)«, oft mit もう少しで. (N3)" },
+  { k:"かのよう", t:"g", label:"〜かのようだ (als ob)", de:"»(gerade) so, als ob …«, oft mit まるで. Vergleich mit etwas Irrealem. (N3)" },
+  { k:"ないと", t:"g", label:"〜ないと(いけない) (muss / sonst)", de:"»wenn nicht …(, dann schlecht)« → »ich muss …«. Der zweite Teil bleibt oft weg. (N3)" }
 ];
