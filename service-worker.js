@@ -2,7 +2,7 @@
 // Network-First Strategy: Updates kommen sofort an, Offline funktioniert weiter
 // Keine manuelle Versions-Bumperei mehr nötig!
 
-const CACHE_NAME = 'grammatik-cache-v23';
+const CACHE_NAME = 'grammatik-cache-v24';
 const FILES_TO_CACHE = [
   './',
   './index.html',
@@ -35,6 +35,7 @@ const FILES_TO_CACHE = [
   './lesen/',
   './lesen/index.html',
   './lesen/texte.js',
+  './lesen/grammatik.js',
 ];
 
 // Installation: Cache initial befüllen

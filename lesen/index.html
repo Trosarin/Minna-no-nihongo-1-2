@@ -92,6 +92,28 @@
   .theme-fab .sun{display:none}.theme-fab .moon{display:block}
   html[data-theme="dark"] .theme-fab .sun{display:block}html[data-theme="dark"] .theme-fab .moon{display:none}
   .hidden{display:none!important}
+  /* Antippbare Wörter */
+  .tok{cursor:pointer;border-radius:5px;padding:0 .02em;transition:background .1s;-webkit-tap-highlight-color:transparent}
+  .tok:hover{background:rgba(127,127,127,.1)}
+  .tok:active{background:rgba(192,54,44,.2)}
+  .rd-trans{font-family:inherit;cursor:pointer;border:none;background:none;color:var(--gold);font-size:.92rem;margin-left:.15rem;vertical-align:.05em;opacity:.7;font-weight:700}
+  /* Wort-Popup (Bottom-Sheet) */
+  #tok-pop{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;justify-content:flex-end}
+  #tok-pop.hidden{display:none}
+  .tp-back{position:absolute;inset:0;background:rgba(0,0,0,.4)}
+  .tp-inner{position:relative;z-index:1;width:100%;max-width:760px;margin:0 auto;background:var(--paper-2);border:2px solid var(--line);border-bottom:none;border-radius:16px 16px 0 0;box-shadow:0 -10px 34px -10px rgba(0,0,0,.55);padding:1.1rem 1.2rem calc(1.4rem + env(safe-area-inset-bottom));animation:tpUp .18s ease;max-height:72vh;overflow-y:auto}
+  @keyframes tpUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+  .tp-close{position:absolute;top:.5rem;right:.65rem;border:none;background:none;font-size:1.6rem;line-height:1;color:var(--muted);cursor:pointer;padding:.1rem .3rem}
+  .tp-word{font-family:"Noto Serif JP",serif;font-size:1.7rem;font-weight:700;color:var(--ink);padding-right:1.6rem;line-height:1.25}
+  .tp-read{font-size:.98rem;color:var(--red-deep-text);margin-top:.15rem;font-weight:600}
+  .tp-gloss{font-size:1rem;color:var(--t-2);margin-top:.75rem;line-height:1.5}
+  .tp-gloss .tp-base{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--ink)}
+  .tp-none{font-size:.84rem;color:var(--muted);font-style:italic;margin-top:.6rem}
+  .tp-gram{margin-top:.9rem;border-top:1px solid var(--line-soft);padding-top:.75rem}
+  .tp-gh{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.55rem}
+  .tp-gi{font-size:.86rem;color:var(--t-2);line-height:1.5;margin-bottom:.6rem}
+  .tp-gi:last-child{margin-bottom:0}
+  .tp-gi b{display:block;color:var(--ink);font-size:.94rem;margin-bottom:.05rem}
 </style>
 </head>
 <body>
@@ -118,7 +140,7 @@
     <button id="tool-furi">かな Furigana: AN</button>
     <button id="tool-all">Alle Übersetzungen</button>
   </div>
-  <p class="rd-tap-hint">💡 Tippe einen Satz an → Übersetzung. 🔊 liest vor.</p>
+  <p class="rd-tap-hint">💡 Tippe ein <b>Wort</b> an → Bedeutung & Grammatik. <b>訳</b> zeigt die Satz-Übersetzung, 🔊 liest vor.</p>
   <div id="rd-text"></div>
   <div id="rd-extra"></div>
   <div class="rd-nav">
@@ -127,9 +149,22 @@
   </div>
 </section>
 
+<!-- WORT-POPUP -->
+<div id="tok-pop" class="hidden">
+  <div class="tp-back"></div>
+  <div class="tp-inner">
+    <button class="tp-close" type="button" aria-label="schließen">×</button>
+    <div class="tp-word" id="tp-word"></div>
+    <div class="tp-read" id="tp-read"></div>
+    <div class="tp-gloss" id="tp-gloss"></div>
+    <div class="tp-gram" id="tp-gram"></div>
+  </div>
+</div>
+
 <button class="theme-fab" id="themeFab" type="button" aria-label="Hell/Dunkel"><span class="moon">🌙</span><span class="sun">☀️</span></button>
 
 <script src="texte.js"></script>
+<script src="grammatik.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const KAP = window.LESEN_KAPITEL || [];
@@ -142,6 +177,95 @@ KAP.forEach((k,ki) => (k.texte||[]).forEach((t,ti) => FLAT.push({ki,ti})));
 function plainJP(html){
   return html.replace(/<rt>.*?<\/rt>/g,'').replace(/<[^>]+>/g,'');
 }
+function readingJP(html){
+  // ersetzt jedes <ruby>漢字<rt>かな</rt></ruby> durch die Lesung, behält restliche Kana
+  return html.replace(/<ruby>.*?<rt>(.*?)<\/rt><\/ruby>/g,'$1').replace(/<[^>]+>/g,'');
+}
+
+/* ---- Wort-Nachschlag: Vokabel-Index + Grammatik-Scanner ---- */
+const GRAM = window.LESEN_GRAMMAR || [];
+const GRAM_G = GRAM.filter(g=>g.t==='g').sort((a,b)=>b.k.length-a.k.length);
+const GRAM_P = GRAM.filter(g=>g.t==='p');
+
+// Vokabel-Index aus allen Kapiteln, z.B. "専門 (せんもん)" → {base,reading,de,baseKanji}
+const VOCAB = (function(){
+  const map = new Map();
+  KAP.forEach(k => (k.texte||[]).forEach(t => (t.vokabeln||[]).forEach(v => {
+    const m = v.w.match(/^(.+?)\s*[（(]\s*([^）)]+?)\s*[）)]\s*$/);
+    const base = (m ? m[1] : v.w).trim();
+    const reading = m ? m[2].trim() : '';
+    if(!base || map.has(base)) return;
+    map.set(base, { base, reading, de: v.de, baseKanji: base.replace(/[^一-龯]+$/,'') });
+  })));
+  return [...map.values()].sort((a,b)=>b.base.length-a.base.length);
+})();
+
+function lookupVocab(plain){
+  for(const v of VOCAB){ if(v.base.length>=2 && plain.includes(v.base)) return v; }
+  for(const v of VOCAB){ if(v.base.length>=1 && plain.includes(v.base)) return v; }
+  // Stamm-Treffer (z.B. konjugiertes Verb) nur bei mehrteiligem Kanji-Stamm,
+  // um irreführende Einzel-Kanji-Zufallstreffer zu vermeiden
+  for(const v of VOCAB){ if(v.baseKanji.length>=2 && v.baseKanji!==v.base && plain.includes(v.baseKanji)) return v; }
+  return null;
+}
+
+function grammarHits(plain){
+  const hits=[], seen=new Set();
+  const masked = new Array(plain.length).fill(false);
+  for(const g of GRAM_G){
+    let idx = plain.indexOf(g.k);
+    while(idx>=0){
+      let free=true;
+      for(let i=idx;i<idx+g.k.length;i++){ if(masked[i]){ free=false; break; } }
+      if(free){
+        for(let i=idx;i<idx+g.k.length;i++) masked[i]=true;
+        if(!seen.has(g.label)){ hits.push(g); seen.add(g.label); }
+        break;
+      }
+      idx = plain.indexOf(g.k, idx+1);
+    }
+  }
+  const hasKanji = /[一-龯]/.test(plain);
+  for(const g of GRAM_P){
+    if(plain.endsWith(g.k)){
+      if(g.nk && !hasKanji) continue;
+      if(!seen.has(g.label)){ hits.push(g); seen.add(g.label); }
+    }
+  }
+  return hits;
+}
+
+function tokenize(jp){
+  return jp.split(/\s+/).filter(Boolean)
+    .map(ch => `<span class="tok">${ch}</span>`).join(' ');
+}
+
+function openTok(html){
+  const plain = plainJP(html);
+  const reading = readingJP(html);
+  const v = lookupVocab(plain);
+  const hits = grammarHits(plain);
+  $('#tp-word').textContent = plain;
+  const showRead = reading && reading !== plain;
+  $('#tp-read').textContent = showRead ? reading : '';
+  $('#tp-read').style.display = showRead ? 'block' : 'none';
+  if(v){
+    $('#tp-gloss').innerHTML = `<span class="tp-base">${v.base}</span>${v.reading?` <span style="opacity:.7">（${v.reading}）</span>`:''} — ${v.de}`;
+    $('#tp-gloss').style.display = 'block';
+  } else {
+    $('#tp-gloss').innerHTML = `<span class="tp-none">Kein Vokabeleintrag – versuch's über die Lesung & Grammatik unten.</span>`;
+    $('#tp-gloss').style.display = 'block';
+  }
+  if(hits.length){
+    $('#tp-gram').innerHTML = '<div class="tp-gh">📐 Grammatik darin</div>' +
+      hits.map(g => `<div class="tp-gi"><b>${g.label}</b>${g.de}</div>`).join('');
+    $('#tp-gram').style.display = 'block';
+  } else {
+    $('#tp-gram').innerHTML = ''; $('#tp-gram').style.display = 'none';
+  }
+  $('#tok-pop').classList.remove('hidden');
+}
+function closeTok(){ $('#tok-pop').classList.add('hidden'); }
 function speak(html){
   try{
     const u = new SpeechSynthesisUtterance(plainJP(html));
@@ -194,13 +318,17 @@ function renderReader(){
   txt.className = state.furi ? '' : 'furi-off';
   txt.innerHTML = t.saetze.map((s,i) => `
     <div class="rd-sent${state.allDe?' show':''}" data-i="${i}">
-      <div class="rd-jp">${s.jp}<button class="rd-spk" title="vorlesen">🔊</button></div>
+      <div class="rd-jp">${tokenize(s.jp)}<button class="rd-spk" title="vorlesen">🔊</button><button class="rd-trans" title="Übersetzung">訳</button></div>
       <div class="rd-de">${s.de}</div>
     </div>`).join('');
   txt.querySelectorAll('.rd-sent').forEach((el,i) => {
-    el.onclick = () => el.classList.toggle('show');
+    const trans = el.querySelector('.rd-trans');
+    if(trans) trans.onclick = (e) => { e.stopPropagation(); el.classList.toggle('show'); };
     const spk = el.querySelector('.rd-spk');
     if(spk) spk.onclick = (e) => { e.stopPropagation(); speak(t.saetze[i].jp); };
+    el.querySelectorAll('.tok').forEach(tok => {
+      tok.onclick = (e) => { e.stopPropagation(); openTok(tok.innerHTML); };
+    });
   });
 
   // Vokabeln + Fragen + Grammatik
@@ -232,6 +360,11 @@ $('#tool-all').onclick  = () => { state.allDe = !state.allDe; renderReader(); };
 $('#rd-back').onclick = () => { $('#view-reader').classList.add('hidden'); $('#view-kapitel').classList.remove('hidden'); window.scrollTo({top:0}); };
 $('#rd-prev').onclick = () => { const fi=flatIndex(); if(fi>0){ const f=FLAT[fi-1]; state.kap=f.ki; state.text=f.ti; renderReader(); window.scrollTo({top:0}); } };
 $('#rd-next').onclick = () => { const fi=flatIndex(); if(fi<FLAT.length-1){ const f=FLAT[fi+1]; state.kap=f.ki; state.text=f.ti; renderReader(); window.scrollTo({top:0}); } };
+
+// Wort-Popup schließen
+document.querySelector('#tok-pop .tp-back').onclick = closeTok;
+document.querySelector('#tok-pop .tp-close').onclick = closeTok;
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeTok(); });
 
 renderKapitel();
 
