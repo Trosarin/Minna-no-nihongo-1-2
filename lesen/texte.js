@@ -1400,5 +1400,96 @@ window.LESEN_KAPITEL = [
         }
       }
     ]
+  },
+  {
+    titel: "🔪 Krimi: <ruby>人形師<rt>にんぎょうし</rt></ruby>",
+    stufe: "Story · gemischt · düster",
+    beschreibung: "Psycho-Krimi in Kapiteln: Der Ermittler Tanaka jagt einen Serientäter, der seine Opfer zu „Puppen“ macht — und das für Güte hält. Düster und verstörend. Wir bauen ihn Kapitel für Kapitel aus.",
+    texte: [
+      {
+        titel: "<ruby>第一章<rt>だいいっしょう</rt></ruby>「<ruby>人形<rt>にんぎょう</rt></ruby>」",
+        de: "Kapitel 1: Die Puppe",
+        stufe: "gemischt · düster",
+        saetze: [
+          { jp:"<ruby>雨<rt>あめ</rt></ruby>が ふる、しずかな <ruby>夜<rt>よる</rt></ruby>でした。", de:"Es war eine stille Nacht, in der es regnete." },
+          { jp:"<ruby>古<rt>ふる</rt></ruby>い アパートの <ruby>三階<rt>さんがい</rt></ruby>で、<ruby>一人<rt>ひとり</rt></ruby>の <ruby>女性<rt>じょせい</rt></ruby>が、<ruby>死<rt>し</rt></ruby>んで いました。", de:"Im dritten Stock eines alten Apartmenthauses lag eine Frau tot." },
+          { jp:"<ruby>刑事<rt>けいじ</rt></ruby>の <ruby>田中<rt>たなか</rt></ruby>は、その <ruby>部屋<rt>へや</rt></ruby>に <ruby>入<rt>はい</rt></ruby>った とき、<ruby>思<rt>おも</rt></ruby>わず、<ruby>息<rt>いき</rt></ruby>を のみました。", de:"Als Kriminalbeamter Tanaka das Zimmer betrat, stockte ihm unwillkürlich der Atem." },
+          { jp:"<ruby>女性<rt>じょせい</rt></ruby>は、いすに すわって、にっこりと、わらって いました。", de:"Die Frau saß auf einem Stuhl und lächelte freundlich." },
+          { jp:"でも、その <ruby>人<rt>ひと</rt></ruby>は、もう、<ruby>生<rt>い</rt></ruby>きて いませんでした。", de:"Doch dieser Mensch lebte nicht mehr." },
+          { jp:"よく <ruby>見<rt>み</rt></ruby>ると、<ruby>口<rt>くち</rt></ruby>は、<ruby>糸<rt>いと</rt></ruby>で、ぬって ありました。", de:"Als er genauer hinsah, war der Mund mit Faden zugenäht." },
+          { jp:"むりやり、わらった <ruby>顔<rt>かお</rt></ruby>に、されて いたのです。", de:"Man hatte ihr Gesicht gewaltsam zu einem Lächeln gemacht." },
+          { jp:"<ruby>目<rt>め</rt></ruby>には、<ruby>本物<rt>ほんもの</rt></ruby>では ない、ガラスの <ruby>目<rt>め</rt></ruby>が、<ruby>入<rt>い</rt></ruby>れて ありました。", de:"In den Augen steckten falsche, gläserne Augen." },
+          { jp:"まるで、<ruby>大<rt>おお</rt></ruby>きな <ruby>人形<rt>にんぎょう</rt></ruby>のようでした。", de:"Es war wie eine große Puppe." },
+          { jp:"<ruby>田中<rt>たなか</rt></ruby>は、<ruby>長<rt>なが</rt></ruby>い あいだ <ruby>刑事<rt>けいじ</rt></ruby>を して きましたが、こんな <ruby>事件<rt>じけん</rt></ruby>は、はじめてでした。", de:"Tanaka war schon lange Kriminalbeamter, doch so einen Fall hatte er noch nie erlebt." },
+          { jp:"「ひどい……いったい、だれが、こんな ことを……。」", de:"„Furchtbar … wer um alles in der Welt tut so etwas …?“" },
+          { jp:"<ruby>部屋<rt>へや</rt></ruby>の <ruby>中<rt>なか</rt></ruby>は、ふしぎなくらい、きれいに、かたづいて いました。", de:"Das Zimmer war unheimlich ordentlich aufgeräumt." },
+          { jp:"<ruby>血<rt>ち</rt></ruby>は、ほとんど、ありませんでした。", de:"Es gab fast kein Blut." },
+          { jp:"<ruby>犯人<rt>はんにん</rt></ruby>は、ゆっくりと、<ruby>時間<rt>じかん</rt></ruby>を かけて、「<ruby>作品<rt>さくひん</rt></ruby>」を、<ruby>作<rt>つく</rt></ruby>ったに <ruby>違<rt>ちが</rt></ruby>いない。", de:"Der Täter musste sich in aller Ruhe Zeit genommen haben, um sein „Werk“ zu erschaffen." },
+          { jp:"テーブルの <ruby>上<rt>うえ</rt></ruby>に、<ruby>一<rt>いち</rt></ruby>まいの カードが、おいて ありました。", de:"Auf dem Tisch lag eine einzelne Karte." },
+          { jp:"そこには、きれいな <ruby>字<rt>じ</rt></ruby>で、こう、<ruby>書<rt>か</rt></ruby>いて ありました。", de:"Darauf stand in schöner Schrift Folgendes geschrieben:" },
+          { jp:"「わたしの <ruby>人形<rt>にんぎょう</rt></ruby>は、<ruby>世界<rt>せかい</rt></ruby>で <ruby>一番<rt>いちばん</rt></ruby>、しあわせです。」", de:"„Meine Puppe ist die glücklichste der Welt.“" },
+          { jp:"「だって、もう、なく ことが、ないのですから。」", de:"„Denn sie muss ja nie wieder weinen.“" },
+          { jp:"<ruby>田中<rt>たなか</rt></ruby>の せなかに、つめたい ものが、はしりました。", de:"Ein kalter Schauer lief Tanaka über den Rücken." },
+          { jp:"この <ruby>犯人<rt>はんにん</rt></ruby>は、<ruby>人<rt>ひと</rt></ruby>を、ころして いるのに、それを、「やさしさ」だと、<ruby>思<rt>おも</rt></ruby>って いる。", de:"Dieser Täter tötete Menschen — und hielt es dabei für „Güte“." },
+          { jp:"「これは……ただの <ruby>殺人<rt>さつじん</rt></ruby>じゃ ない。」と <ruby>田中<rt>たなか</rt></ruby>は つぶやきました。", de:"„Das … ist kein gewöhnlicher Mord“, murmelte Tanaka." },
+          { jp:"その とき、わかい <ruby>刑事<rt>けいじ</rt></ruby>の <ruby>佐藤<rt>さとう</rt></ruby>が、<ruby>部屋<rt>へや</rt></ruby>に <ruby>入<rt>はい</rt></ruby>って きました。", de:"In dem Moment kam der junge Kriminalbeamte Sato ins Zimmer." },
+          { jp:"「<ruby>田中<rt>たなか</rt></ruby>さん、ちょっと、<ruby>来<rt>き</rt></ruby>て ください。となりの <ruby>部屋<rt>へや</rt></ruby>に……。」", de:"„Herr Tanaka, kommen Sie bitte kurz. Im Nebenzimmer …“" },
+          { jp:"<ruby>佐藤<rt>さとう</rt></ruby>の <ruby>顔<rt>かお</rt></ruby>は、まっ<ruby>青<rt>さお</rt></ruby>で、<ruby>声<rt>こえ</rt></ruby>は、ふるえて いました。", de:"Satos Gesicht war kreidebleich, und seine Stimme zitterte." },
+          { jp:"となりの <ruby>部屋<rt>へや</rt></ruby>に <ruby>入<rt>はい</rt></ruby>ると、かべ いちめんに、しゃしんが、はって ありました。", de:"Als sie das Nebenzimmer betraten, hingen an der gesamten Wand Fotos." },
+          { jp:"それは、ぜんぶ、その <ruby>女性<rt>じょせい</rt></ruby>の、しゃしんでした。", de:"Es waren alles Fotos jener Frau." },
+          { jp:"<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>を する すがた。わらう すがた。ねむる すがた。", de:"Beim Einkaufen. Beim Lachen. Beim Schlafen." },
+          { jp:"<ruby>犯人<rt>はんにん</rt></ruby>は、<ruby>何<rt>なん</rt></ruby>か<ruby>月<rt>げつ</rt></ruby>も、この <ruby>人<rt>ひと</rt></ruby>を、<ruby>見<rt>み</rt></ruby>はって いたのです。", de:"Der Täter hatte diese Frau monatelang beobachtet." },
+          { jp:"しゃしんの、<ruby>女性<rt>じょせい</rt></ruby>の <ruby>目<rt>め</rt></ruby>には、ぜんぶ、<ruby>赤<rt>あか</rt></ruby>い ペンで、×が、かいて ありました。", de:"Auf allen Fotos waren die Augen der Frau mit rotem Stift durchgekreuzt." },
+          { jp:"ただ、<ruby>一<rt>いち</rt></ruby>まいだけ、×の ない しゃしんが、ありました。", de:"Nur ein einziges Foto war ohne Kreuz." },
+          { jp:"それは、<ruby>田中<rt>たなか</rt></ruby>たち <ruby>警察<rt>けいさつ</rt></ruby>の、しゃしんでした。", de:"Es war ein Foto von Tanaka und der Polizei." },
+          { jp:"つまり、<ruby>犯人<rt>はんにん</rt></ruby>は、<ruby>今<rt>いま</rt></ruby>、ここを、<ruby>見<rt>み</rt></ruby>て いる かもしれない。", de:"Das hieß: Der Täter beobachtete sie vielleicht gerade jetzt von hier." },
+          { jp:"<ruby>田中<rt>たなか</rt></ruby>は、はっと して、まどの <ruby>外<rt>そと</rt></ruby>を、<ruby>見<rt>み</rt></ruby>ました。", de:"Tanaka fuhr zusammen und blickte aus dem Fenster." },
+          { jp:"<ruby>雨<rt>あめ</rt></ruby>の <ruby>中<rt>なか</rt></ruby>、<ruby>向<rt>む</rt></ruby>かいの ビルの やねに、<ruby>人<rt>ひと</rt></ruby>の かげが、<ruby>立<rt>た</rt></ruby>って いました。", de:"Im Regen stand auf dem Dach des gegenüberliegenden Gebäudes der Schatten einer Person." },
+          { jp:"その かげは、こちらを <ruby>見<rt>み</rt></ruby>て、ゆっくりと、<ruby>手<rt>て</rt></ruby>を、ふりました。", de:"Dieser Schatten sah zu ihnen herüber und winkte langsam." },
+          { jp:"まるで、<ruby>友達<rt>ともだち</rt></ruby>に、あいさつする ように。", de:"Gerade so, als würde er einen Freund grüßen." },
+          { jp:"「あそこだ!<ruby>追<rt>お</rt></ruby>え!」と <ruby>田中<rt>たなか</rt></ruby>は さけびました。", de:"„Da ist er! Hinterher!“, schrie Tanaka." },
+          { jp:"でも、<ruby>刑事<rt>けいじ</rt></ruby>たちが、やねに ついた とき、そこには、もう、だれも、いませんでした。", de:"Doch als die Beamten das Dach erreichten, war dort niemand mehr." },
+          { jp:"のこって いたのは、<ruby>一<rt>ひと</rt></ruby>つの、<ruby>小<rt>ちい</rt></ruby>さな <ruby>人形<rt>にんぎょう</rt></ruby>だけでした。", de:"Zurückgeblieben war nur eine einzige kleine Puppe." },
+          { jp:"その <ruby>人形<rt>にんぎょう</rt></ruby>の <ruby>顔<rt>かお</rt></ruby>は——<ruby>田中<rt>たなか</rt></ruby>の <ruby>顔<rt>かお</rt></ruby>に、そっくりでした。", de:"Das Gesicht dieser Puppe — glich Tanaka aufs Haar." },
+          { jp:"<ruby>人形<rt>にんぎょう</rt></ruby>の <ruby>手<rt>て</rt></ruby>には、また、カードが、にぎられて いました。", de:"In der Hand der Puppe steckte wieder eine Karte." },
+          { jp:"「はじめまして、<ruby>田中<rt>たなか</rt></ruby>さん。つぎは、あなたを、しあわせに して あげます。」", de:"„Sehr erfreut, Herr Tanaka. Als Nächstes werde ich Sie glücklich machen.“" },
+          { jp:"<ruby>田中<rt>たなか</rt></ruby>は、その カードを <ruby>見<rt>み</rt></ruby>て、わらわずには いられませんでした。", de:"Tanaka sah die Karte an und konnte nicht anders, als zu lachen." },
+          { jp:"こわくて、こわくて、わらう しか、なかったのです。", de:"Vor lauter Angst blieb ihm nichts, als zu lachen." },
+          { jp:"「おもしろい。……ぜったいに、つかまえて やる。」", de:"„Interessant. … Ich werde dich ganz sicher schnappen.“" },
+          { jp:"こうして、<ruby>田中<rt>たなか</rt></ruby>と、「<ruby>人形師<rt>にんぎょうし</rt></ruby>」と <ruby>呼<rt>よ</rt></ruby>ばれる <ruby>犯人<rt>はんにん</rt></ruby>の、<ruby>長<rt>なが</rt></ruby>い たたかいが、はじまりました。", de:"So begann der lange Kampf zwischen Tanaka und dem Täter, den man „den Puppenmacher“ nannte." },
+          { jp:"それが、どれほど、おそろしい ものに なるか、この とき、<ruby>田中<rt>たなか</rt></ruby>は、まだ、<ruby>知<rt>し</rt></ruby>りませんでした。", de:"Wie entsetzlich dieser Kampf werden würde, ahnte Tanaka zu diesem Zeitpunkt noch nicht." },
+          { jp:"（<ruby>第二章<rt>だいにしょう</rt></ruby>に つづく）", de:"(Fortsetzung in Kapitel 2)" }
+        ],
+        vokabeln: [
+          { w:"刑事 (けいじ)", de:"Kriminalbeamter, Ermittler" },
+          { w:"事件 (じけん)", de:"Fall, Vorfall, Verbrechen" },
+          { w:"女性 (じょせい)", de:"Frau (formell)" },
+          { w:"息をのむ (いきをのむ)", de:"vor Schreck den Atem anhalten" },
+          { w:"糸 (いと)", de:"Faden, Garn" },
+          { w:"ぬう (縫う)", de:"nähen" },
+          { w:"むりやり", de:"gewaltsam, mit Zwang" },
+          { w:"人形 (にんぎょう)", de:"Puppe" },
+          { w:"犯人 (はんにん)", de:"Täter, Schuldiger" },
+          { w:"作品 (さくひん)", de:"Werk, (Kunst-)Werk" },
+          { w:"殺人 (さつじん)", de:"Mord" },
+          { w:"見はる (みはる)", de:"bewachen, beobachten, beschatten" },
+          { w:"警察 (けいさつ)", de:"Polizei" },
+          { w:"そっくり", de:"zum Verwechseln ähnlich" },
+          { w:"おそろしい (恐ろしい)", de:"entsetzlich, furchtbar" }
+        ],
+        fragen: [
+          { q:"Was ist an dem Anblick der toten Frau so verstörend?", a:"Sie ist wie eine Puppe hergerichtet: auf einen Stuhl gesetzt, der Mund mit Faden zu einem Lächeln zugenäht, gläserne Augen eingesetzt — und das Zimmer ist unheimlich sauber, fast ohne Blut." },
+          { q:"Was verrät die Karte über die Denkweise des Täters?", a:"Er hält das Töten für „Güte“: Seine „Puppe“ sei die glücklichste der Welt, denn sie müsse nie wieder weinen. Er mordet und glaubt, damit Gutes zu tun." },
+          { q:"Womit endet das Kapitel?", a:"Auf dem Dach gegenüber winkt der Täter, verschwindet und lässt eine Puppe mit Tanakas Gesicht zurück, dazu eine Karte: »Als Nächstes mache ich Sie glücklich.« Tanaka kann vor Angst nur lachen — der Kampf gegen den „Puppenmacher“ beginnt." }
+        ],
+        grammatik: "〜ずにはいられない (笑わずにはいられない) · 〜に違いない (作ったに違いない) · 〜てある (ぬってある・書いてある・はってある) · 〜ように (あいさつするように) · 〜のに (殺しているのに) · 〜なくらい (ふしぎなくらい) · 〜かもしれない · 命令形 (追え) · 〜てあげる (しあわせにしてあげる) · 〜しか…ない (わらうしかなかった) · 〜と呼ばれる (人形師と呼ばれる)",
+        n3: {
+          punkt: "〜ずにはいられない ＝ ich kann nicht anders, als zu …",
+          de: "Nimm die ない-Form, ersetze ない durch ずに und häng いられない an: »ich kann es nicht lassen / kann mich nicht zurückhalten, zu …«. Ein Drang, dem man nicht widersteht. する → せずにはいられない. <ruby>笑<rt>わら</rt></ruby>わずにはいられない = »ich muss einfach lachen«.",
+          bsp: "その カードを <ruby>見<rt>み</rt></ruby>て、<ruby>田中<rt>たなか</rt></ruby>は <ruby>笑<rt>わら</rt></ruby>わずには いられませんでした。",
+          bsp_de: "Als Tanaka die Karte sah, konnte er nicht anders, als zu lachen."
+        }
+      }
+    ]
   }
 ];

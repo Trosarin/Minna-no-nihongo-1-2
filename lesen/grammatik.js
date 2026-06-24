@@ -136,5 +136,21 @@ window.LESEN_GRAMMAR = [
   { k:"ちがいない", t:"g", label:"〜にちがいない (ganz sicher)", de:"»das ist ganz sicher so« (auch in Kana geschrieben). (N3)" },
   { k:"ものか", t:"g", label:"〜ものか (niemals!)", de:"Plain-Form + ものか = trotziger Ausruf, gemeint ist das Gegenteil: 負けるものか »ich verliere ganz sicher NICHT!«. (N3)" },
   { k:"もんか", t:"g", label:"〜もんか (niemals!, ugs.)", de:"Lockere Form von ものか: »auf gar keinen Fall!«. (N3)" },
-  { k:"こそ", t:"g", label:"〜こそ (gerade / erst recht)", de:"Hebt das Wort davor mit Nachdruck hervor: 今こそ »jetzt erst recht«, きみこそ »gerade du«. (N3)" }
+  { k:"こそ", t:"g", label:"〜こそ (gerade / erst recht)", de:"Hebt das Wort davor mit Nachdruck hervor: 今こそ »jetzt erst recht«, きみこそ »gerade du«. (N3)" },
+  // --- Häufige Verb-/Kopula-Endungen (damit fast jede Satz-Endung erklärt wird) ---
+  { k:"ませんでした", t:"g", label:"〜ませんでした (höflich, Verg. verneint)", de:"Die höfliche, verneinte Vergangenheit: »… (hat) nicht …«. Aus ます → ません → ませんでした." },
+  { k:"ましょう", t:"g", label:"〜ましょう (lass uns …)", de:"Höflicher Vorschlag/Aufforderung: »lass uns … (tun)«." },
+  { k:"なかった", t:"g", label:"〜なかった (Plain, Verg. verneint)", de:"Verneinte Vergangenheit (Plain): »… (hat) nicht …«. (Bei 少なかった/危なかった gehört es zum Adjektiv: »war wenig/gefährlich«.)" },
+  { k:"ません", t:"g", label:"〜ません (höfliche Verneinung)", de:"Die höfliche Verneinung: »… nicht«. Grundform: ます." },
+  { k:"ました", t:"g", label:"〜ました (höfliche Vergangenheit)", de:"Die höfliche Vergangenheit: »… (hat) ge…«. Grundform: ます." },
+  { k:"でした", t:"g", label:"〜でした (war …)", de:"Höfliche Vergangenheit von です: »war / ist gewesen«." },
+  { k:"だった", t:"g", label:"〜だった (war …, Plain)", de:"Plain-Form von です/だ in der Vergangenheit: »war«." },
+  { k:"かった", t:"g", label:"〜かった (Vergangenheit)", de:"Vergangenheit eines い-Adjektivs (寒かった »war kalt«, よかった »war gut«) — oder Verb-た-Form nach か (分かった »verstand«)." },
+  { k:"ます", t:"g", label:"〜ます (höfliche Form)", de:"Die höfliche Verb-Endung (Gegenwart/Zukunft): »… (tun)«." },
+  { k:"です", t:"g", label:"〜です (ist …)", de:"Die höfliche Kopula: »ist / sind«." },
+  { k:"った", t:"g", label:"〜った (Plain-Vergangenheit)", de:"Plain-Vergangenheit vieler Verben: 拾った »hob auf«, 言った »sagte«, なった »wurde«." },
+  { k:"した", t:"g", label:"〜した (Plain-Vergangenheit)", de:"Plain-Vergangenheit, oft von する-Verben: 勉強した »lernte«, 〜した »tat«." },
+  { k:"ない", t:"g", label:"〜ない (Verneinung)", de:"Verneinung (Plain): »… nicht«. Achtung: bei 少ない/危ない/きたない gehört ない zum Adjektiv selbst." },
+  { k:"ずには", t:"g", label:"〜ずにはいられない (kann nicht anders als)", de:"»ich kann nicht anders, als zu …« — ein Drang, dem man nicht widersteht. する → せずにはいられない. (N3)" },
+  { k:"て", t:"p", nk:true, label:"〜て (て-Form)", de:"Die て-Form: verbindet Sätze »… und dann …« oder hängt Hilfsverben an (〜ている, 〜てください …)." }
 ];

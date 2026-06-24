@@ -443,5 +443,17 @@ window.LESEN_WOERTER = [
   { w:"みとめる (認める)", de:"anerkennen, zugeben" },
   { w:"だきしめる (抱きしめる)", de:"fest umarmen" },
   { w:"すがた (姿)", de:"Gestalt, Erscheinung" },
-  { w:"ころがる (転がる)", de:"rollen; daliegen" }
+  { w:"ころがる (転がる)", de:"rollen; daliegen" },
+  { w:"刑事 (けいじ)", de:"Kriminalbeamter, Ermittler" },
+  { w:"事件 (じけん)", de:"Fall, Vorfall, Verbrechen" },
+  { w:"犯人 (はんにん)", de:"Täter, Schuldiger" },
+  { w:"警察 (けいさつ)", de:"Polizei" },
+  { w:"殺す (ころす)", de:"töten" },
+  { w:"殺人 (さつじん)", de:"Mord" },
+  { w:"人形 (にんぎょう)", de:"Puppe" },
+  { w:"女性 (じょせい)", de:"Frau (formell)" },
+  { w:"事 (こと)", de:"Sache, Angelegenheit; Nominalisierung" },
+  { w:"つかまえる (捕まえる)", de:"fangen, festnehmen, schnappen" },
+  { w:"おそろしい (恐ろしい)", de:"entsetzlich, furchtbar" },
+  { w:"そっくり", de:"zum Verwechseln ähnlich" }
 ];
