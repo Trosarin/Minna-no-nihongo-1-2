@@ -230,7 +230,39 @@ const VOCAB = (function(){
 // Für den Einzel-Kanji-Verbstamm: kürzeste Grundform zuerst (見て → 見る, nicht 見上げる)
 const VOCAB_VSTEM = VOCAB.filter(v => v.vstem1).sort((a,b)=>a.base.length-b.base.length);
 
+// Häufige konjugierte Kana-/Hilfsverben — nur als EXAKTE Sinneinheit (sonst
+// würde いました fälschlich in 言いました/思いました matchen). Wird zuerst geprüft.
+const AUX = {
+  "いる":"(da) sein, sich aufhalten; Hilfsverb 〜ている (gerade/Zustand)",
+  "いて":"(da) sein (て-Form); Hilfsverb","いた":"war (da) (Plain Verg. von いる)",
+  "いない":"ist nicht (da) (Plain verneint)","います":"ist (da) (höflich)",
+  "いました":"war (da) / war gerade dabei (höfl. Verg. von いる)",
+  "いません":"ist nicht (da) (höflich)","いませんでした":"war nicht (da) (höfl. Verg. verneint)",
+  "ある":"(es) gibt, vorhanden sein (Dinge)","あって":"vorhanden sein (て-Form)",
+  "あった":"es gab / war da (Plain Verg.)","あります":"(es) gibt (höflich)",
+  "ありました":"es gab / war da (höfl. Verg.)","ありません":"es gibt nicht (höflich)",
+  "ありませんでした":"es gab nicht (höfl. Verg. verneint)",
+  "なる":"werden","なって":"werden (て-Form)","なった":"wurde (Plain Verg.)",
+  "なり":"werden (Verbindungsform)","なります":"wird (höflich)","なりました":"wurde (höfl. Verg.)",
+  "ならない":"wird nicht; geht nicht","する":"tun, machen","して":"tun (て-Form)",
+  "した":"tat, machte (Plain Verg. von する)","します":"tut, macht (höflich)",
+  "しました":"tat, machte (höfl. Verg.)","しません":"tut nicht (höflich)","しない":"tut nicht (Plain)",
+  "くる":"kommen","きて":"kommen (て-Form); herkommen","きた":"kam (Plain Verg.)",
+  "きます":"kommt (höflich)","きました":"kam (höfl. Verg.)","こない":"kommt nicht",
+  "いく":"gehen","いきます":"geht (höflich)","いきました":"ging (höfl. Verg.)",
+  "できる":"können; fertig werden, entstehen","できた":"konnte; wurde fertig",
+  "できました":"konnte (höflich)","できない":"kann nicht",
+  "くれた":"(jmd.) tat es für mich (くれる, Verg.)","くれて":"(jmd.) tut für mich (て-Form)",
+  "くれました":"(jmd.) tat es für mich (höflich)","くれない":"tut es nicht für mich",
+  "もどる":"zurückkehren","もどって":"zurückkehren (て-Form)","もどった":"kehrte zurück",
+  "もどりました":"kehrte zurück (höflich)",
+  "つづく":"weitergehen; fortgesetzt werden (»Fortsetzung folgt«)",
+  "ない":"nicht (vorhanden); Verneinung »kein/nicht«","しませんでした":"tat nicht (höfl. Verg. verneint)",
+  "しなかった":"tat nicht (Plain Verg.)","きません":"kommt nicht (höflich)"
+};
+
 function lookupVocab(plain){
+  if(Object.prototype.hasOwnProperty.call(AUX, plain)) return { base:plain, reading:'', de:AUX[plain] }; // exakte Hilfsverb-Form
   for(const v of VOCAB){ if(v.base.length>=2 && plain.includes(v.base)) return v; }                                  // ganze Wortform (Komposita bevorzugt)
   for(const v of VOCAB){ if(v.stem && plain.includes(v.stem)) return v; }                                            // konjugierter Stamm (>=2)
   for(const v of VOCAB){ if(v.baseKanji.length>=2 && v.baseKanji!==v.base && plain.includes(v.baseKanji)) return v; } // Kanji-Stamm (>=2)
