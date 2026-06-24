@@ -560,5 +560,19 @@ window.LESEN_WOERTER = [
   { w:"せおう (背負う)", de:"auf den Rücken nehmen, tragen" },
   { w:"はこぶ (運ぶ)", de:"tragen, transportieren" },
   { w:"なくす (失くす)", de:"verlieren, einbüßen" },
-  { w:"つくえ (机)", de:"Tisch, Schreibtisch" }
+  { w:"つくえ (机)", de:"Tisch, Schreibtisch" },
+  { w:"むすめ (娘)", de:"Tochter" },
+  { w:"前妻 (ぜんさい)", de:"Ex-Frau, frühere Ehefrau" },
+  { w:"離婚 (りこん)", de:"Scheidung" },
+  { w:"ブランコ", de:"Schaukel" },
+  { w:"ふうとう (封筒)", de:"Umschlag, Kuvert" },
+  { w:"とどく (届く)", de:"ankommen, zugestellt werden" },
+  { w:"よかん (予感)", de:"Vorahnung, böses Gefühl" },
+  { w:"せめる (責める)", de:"Vorwürfe machen, tadeln" },
+  { w:"いいわけ (言い訳)", de:"Ausrede, Rechtfertigung" },
+  { w:"親子 (おやこ)", de:"Eltern und Kind" },
+  { w:"工場 (こうじょう)", de:"Fabrik" },
+  { w:"地図 (ちず)", de:"Karte, (Land-)Karte" },
+  { w:"ふみこむ (踏み込む)", de:"hineintreten, hineinstürmen" },
+  { w:"とびのる (飛び乗る)", de:"aufspringen, hineinspringen" }
 ];

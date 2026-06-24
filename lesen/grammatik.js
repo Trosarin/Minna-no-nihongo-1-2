@@ -142,6 +142,7 @@ window.LESEN_GRAMMAR = [
   { k:"ふりを", t:"g", label:"〜ふりをする (so tun, als ob)", de:"Plain-Form/Nの + ふりをする = »so tun, als ob … / sich … stellen«. 寝たふりをする »sich schlafend stellen«. (N3)" },
   { k:"あげく", t:"g", label:"〜あげく(に) (nach langem … schließlich)", de:"た-Form/Nの + あげく: nach langem Vorgang schließlich ein (meist schlechtes) Ergebnis. 悩んだあげく »nach langem Grübeln«. (N3)" },
   { k:"まい", t:"p", nk:false, label:"〜まい (gewiss nicht)", de:"Nachdrücklich: »ich werde ganz sicher NICHT …« (Entschluss) oder »… wohl nicht« (Vermutung). 逃がすまい. (N3)" },
+  { k:"ことか", t:"g", label:"〜ことか (wie sehr …!)", de:"Mit Fragewort (どんなに/なんと) + ことか: emotionaler Ausruf »wie sehr …!«, keine echte Frage. (N3)" },
   // --- Häufige Verb-/Kopula-Endungen (damit fast jede Satz-Endung erklärt wird) ---
   { k:"ませんでした", t:"g", label:"〜ませんでした (höflich, Verg. verneint)", de:"Die höfliche, verneinte Vergangenheit: »… (hat) nicht …«. Aus ます → ません → ませんでした." },
   { k:"ましょう", t:"g", label:"〜ましょう (lass uns …)", de:"Höflicher Vorschlag/Aufforderung: »lass uns … (tun)«." },
