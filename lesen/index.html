@@ -277,9 +277,13 @@ function grammarHits(plain){
   for(const g of GRAM_G){
     let idx = plain.indexOf(g.k);
     while(idx>=0){
-      let free=true;
-      for(let i=idx;i<idx+g.k.length;i++){ if(masked[i]){ free=false; break; } }
-      if(free){
+      let ok=true;
+      for(let i=idx;i<idx+g.k.length;i++){ if(masked[i]){ ok=false; break; } }
+      // g.na = darf NICHT direkt nach diesem Zeichen stehen (z. B. ても nicht nach と → とても)
+      if(ok && g.na && idx>0 && plain[idx-1]===g.na) ok=false;
+      // g.nf = darf NICHT direkt von dieser Zeichenkette gefolgt sein (z. B. なら nicht vor ない → ならない)
+      if(ok && g.nf && plain.substr(idx+g.k.length, g.nf.length)===g.nf) ok=false;
+      if(ok){
         for(let i=idx;i<idx+g.k.length;i++) masked[i]=true;
         if(!seen.has(g.label)){ hits.push(g); seen.add(g.label); }
         break;
