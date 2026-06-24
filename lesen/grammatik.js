@@ -139,6 +139,7 @@ window.LESEN_GRAMMAR = [
   { k:"こそ", t:"g", label:"〜こそ (gerade / erst recht)", de:"Hebt das Wort davor mit Nachdruck hervor: 今こそ »jetzt erst recht«, きみこそ »gerade du«. (N3)" },
   { k:"くせに", t:"g", label:"〜くせに (obwohl, vorwurfsvoll)", de:"Wie のに »obwohl«, aber mit Vorwurf/Verachtung: »obwohl er doch …!«. An Plain-Form / Nの. (N3)" },
   { k:"にとって", t:"g", label:"〜にとって (für, aus Sicht von)", de:"»für … / aus Sicht von …«: <ruby>私<rt>わたし</rt></ruby>にとって大切 »für mich wichtig«. (N3)" },
+  { k:"ふりを", t:"g", label:"〜ふりをする (so tun, als ob)", de:"Plain-Form/Nの + ふりをする = »so tun, als ob … / sich … stellen«. 寝たふりをする »sich schlafend stellen«. (N3)" },
   // --- Häufige Verb-/Kopula-Endungen (damit fast jede Satz-Endung erklärt wird) ---
   { k:"ませんでした", t:"g", label:"〜ませんでした (höflich, Verg. verneint)", de:"Die höfliche, verneinte Vergangenheit: »… (hat) nicht …«. Aus ます → ません → ませんでした." },
   { k:"ましょう", t:"g", label:"〜ましょう (lass uns …)", de:"Höflicher Vorschlag/Aufforderung: »lass uns … (tun)«." },
