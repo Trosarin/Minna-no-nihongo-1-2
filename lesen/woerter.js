@@ -535,5 +535,19 @@ window.LESEN_WOERTER = [
   { w:"伸ばす (のばす)", de:"ausstrecken, verlängern" },
   { w:"苦しい (くるしい)", de:"qualvoll, schmerzhaft, beklemmend" },
   { w:"おおう (覆う)", de:"bedecken, verhüllen" },
-  { w:"つばさ (翼)", de:"Flügel" }
+  { w:"つばさ (翼)", de:"Flügel" },
+  { w:"火事 (かじ)", de:"Brand, Feuer(unglück)" },
+  { w:"きろく (記録)", de:"Aufzeichnung, Akte" },
+  { w:"しょくいん (職員)", de:"Angestellter, Personal" },
+  { w:"とじこめる (閉じ込める)", de:"einsperren, einschließen" },
+  { w:"くるしむ (苦しむ)", de:"leiden, sich quälen" },
+  { w:"らくがき (落書き)", de:"Gekritzel, Schmiererei" },
+  { w:"地下 (ちか)", de:"Untergeschoss, Keller" },
+  { w:"ならべる (並べる)", de:"aufreihen, nebeneinanderstellen" },
+  { w:"かわく (乾く)", de:"trocknen, austrocknen" },
+  { w:"はり (針)", de:"Nadel" },
+  { w:"たおれる (倒れる)", de:"umfallen, zusammenbrechen" },
+  { w:"へんじ (返事)", de:"Antwort, Erwiderung" },
+  { w:"ライト", de:"Licht; Taschenlampe" },
+  { w:"におい (匂い)", de:"Geruch, Duft" }
 ];
