@@ -460,7 +460,25 @@ renderKapitel();
   var b=document.getElementById('themeFab');
   if(b)b.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';apply(n);try{localStorage.setItem('theme',n);}catch(e){}});
 })();
-if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('../service-worker.js').catch(()=>{})); }
+// Service-Worker mit Auto-Update: holt neue Version, lädt EINMAL neu, sobald
+// ein Update bereitsteht (nur wenn schon ein Controller da war → kein Reload
+// beim Erstbesuch, keine Endlosschleife).
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('../service-worker.js').then(reg=>{
+      reg.addEventListener('updatefound',()=>{
+        const nw=reg.installing;
+        if(!nw) return;
+        nw.addEventListener('statechange',()=>{
+          if(nw.state==='installed' && navigator.serviceWorker.controller){
+            window.location.reload();
+          }
+        });
+      });
+      try{ reg.update(); }catch(e){}
+    }).catch(()=>{});
+  });
+}
 </script>
 </body>
 </html>
