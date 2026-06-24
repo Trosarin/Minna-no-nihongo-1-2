@@ -137,6 +137,8 @@ window.LESEN_GRAMMAR = [
   { k:"ものか", t:"g", label:"〜ものか (niemals!)", de:"Plain-Form + ものか = trotziger Ausruf, gemeint ist das Gegenteil: 負けるものか »ich verliere ganz sicher NICHT!«. (N3)" },
   { k:"もんか", t:"g", label:"〜もんか (niemals!, ugs.)", de:"Lockere Form von ものか: »auf gar keinen Fall!«. (N3)" },
   { k:"こそ", t:"g", label:"〜こそ (gerade / erst recht)", de:"Hebt das Wort davor mit Nachdruck hervor: 今こそ »jetzt erst recht«, きみこそ »gerade du«. (N3)" },
+  { k:"くせに", t:"g", label:"〜くせに (obwohl, vorwurfsvoll)", de:"Wie のに »obwohl«, aber mit Vorwurf/Verachtung: »obwohl er doch …!«. An Plain-Form / Nの. (N3)" },
+  { k:"にとって", t:"g", label:"〜にとって (für, aus Sicht von)", de:"»für … / aus Sicht von …«: <ruby>私<rt>わたし</rt></ruby>にとって大切 »für mich wichtig«. (N3)" },
   // --- Häufige Verb-/Kopula-Endungen (damit fast jede Satz-Endung erklärt wird) ---
   { k:"ませんでした", t:"g", label:"〜ませんでした (höflich, Verg. verneint)", de:"Die höfliche, verneinte Vergangenheit: »… (hat) nicht …«. Aus ます → ません → ませんでした." },
   { k:"ましょう", t:"g", label:"〜ましょう (lass uns …)", de:"Höflicher Vorschlag/Aufforderung: »lass uns … (tun)«." },
