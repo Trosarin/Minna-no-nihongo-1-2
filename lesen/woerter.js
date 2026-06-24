@@ -549,5 +549,16 @@ window.LESEN_WOERTER = [
   { w:"たおれる (倒れる)", de:"umfallen, zusammenbrechen" },
   { w:"へんじ (返事)", de:"Antwort, Erwiderung" },
   { w:"ライト", de:"Licht; Taschenlampe" },
-  { w:"におい (匂い)", de:"Geruch, Duft" }
+  { w:"におい (匂い)", de:"Geruch, Duft" },
+  { w:"しばる (縛る)", de:"fesseln, festbinden" },
+  { w:"しびれる", de:"taub werden, einschlafen (Glied)" },
+  { w:"かせぐ (稼ぐ)", de:"verdienen; (Zeit) gewinnen" },
+  { w:"ゆるむ (緩む)", de:"sich lockern, locker werden" },
+  { w:"つきとばす (突き飛ばす)", de:"wegstoßen, fortschleudern" },
+  { w:"ほどく", de:"lösen, aufknoten" },
+  { w:"ろうそく", de:"Kerze" },
+  { w:"せおう (背負う)", de:"auf den Rücken nehmen, tragen" },
+  { w:"はこぶ (運ぶ)", de:"tragen, transportieren" },
+  { w:"なくす (失くす)", de:"verlieren, einbüßen" },
+  { w:"つくえ (机)", de:"Tisch, Schreibtisch" }
 ];
