@@ -691,5 +691,19 @@ window.LESEN_WOERTER = [
   { w:"はやく (早く)", de:"schnell; früh" },
   { w:"ロープ", de:"Seil, Strick" },
   { w:"完 (かん)", de:"Ende, abgeschlossen (Schluss eines Werks)" },
-  { w:"うるさい", de:"laut, lästig; »halt den Mund!«" }
+  { w:"うるさい", de:"laut, lästig; »halt den Mund!«" },
+  { w:"みず (水)", de:"Wasser" },
+  { w:"おちる (落ちる)", de:"fallen, herunterfallen" },
+  { w:"みつける (見つける)", de:"finden, entdecken" },
+  { w:"さます (覚ます)", de:"(aus dem Schlaf) aufwecken; 目を覚ます »erwachen«" },
+  { w:"さめる (覚める)", de:"aufwachen, erwachen" },
+  { w:"こする (擦る)", de:"reiben, wischen" },
+  { w:"つぐむ", de:"(den Mund) schließen, verstummen" },
+  { w:"ふるえる (震える)", de:"zittern, beben" },
+  { w:"すがた (姿)", de:"Gestalt, Erscheinung, Anblick" },
+  { w:"あくる (明くる)", de:"folgend, nächst- (あくる朝 »am nächsten Morgen«)" },
+  { w:"おふろ (お風呂)", de:"Bad, Badewanne" },
+  { w:"ふとん (布団)", de:"Futon, Bettzeug" },
+  { w:"せなか (背中)", de:"Rücken" },
+  { w:"みみもと (耳もと)", de:"dicht am Ohr" }
 ];

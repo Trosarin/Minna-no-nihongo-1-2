@@ -2019,5 +2019,99 @@ window.LESEN_KAPITEL = [
         }
       }
     ]
+  },
+  {
+    titel: "👻 Kaidan: <ruby>四号室<rt>よんごうしつ</rt></ruby>",
+    stufe: "Story · gemischt · 怖い",
+    beschreibung: "Klassische japanische Geistergeschichte (Kaidan): Eine arme Studentin zieht in ein verdächtig billiges Zimmer Nr. 4 — doch etwas Nasses, Kaltes wohnt schon darin. Atmosphärischer J-Horror, Kapitel für Kapitel.",
+    texte: [
+      {
+        titel: "<ruby>第一章<rt>だいいっしょう</rt></ruby>「やすい <ruby>部屋<rt>へや</rt></ruby>」",
+        de: "Kapitel 1: Das billige Zimmer",
+        stufe: "gemischt · 怖い",
+        saetze: [
+          { jp:"ユイは、お<ruby>金<rt>かね</rt></ruby>の ない、<ruby>大学生<rt>だいがくせい</rt></ruby>でした。", de:"Yui war eine Studentin ohne Geld." },
+          { jp:"だから、できるだけ、やすい アパートを、さがして いました。", de:"Deshalb suchte sie nach einer möglichst billigen Wohnung." },
+          { jp:"ある <ruby>日<rt>ひ</rt></ruby>、ふどうさんやで、しんじられない、へやを <ruby>見<rt>み</rt></ruby>つけました。", de:"Eines Tages fand sie bei einem Makler ein unglaubliches Zimmer." },
+          { jp:"えきから <ruby>五分<rt>ごふん</rt></ruby>。<ruby>広<rt>ひろ</rt></ruby>くて、きれいで、<ruby>家<rt>や</rt></ruby>ちんは、はんがく。", de:"Fünf Minuten vom Bahnhof. Geräumig, sauber, die Miete halb so hoch." },
+          { jp:"「どうして、こんなに、やすいんですか?」と ユイは、<ruby>聞<rt>き</rt></ruby>きました。", de:"„Warum ist sie so billig?“, fragte Yui." },
+          { jp:"ふどうさんやの <ruby>男<rt>おとこ</rt></ruby>は、<ruby>目<rt>め</rt></ruby>を、そらして、こたえました。", de:"Der Makler wich ihrem Blick aus und antwortete:" },
+          { jp:"「いや……まえの <ruby>人<rt>ひと</rt></ruby>が、きゅうに、<ruby>出<rt>で</rt></ruby>て いっただけ、ですよ。」", de:"„Ach … der Vormieter ist nur plötzlich ausgezogen.“" },
+          { jp:"ユイは、あまり、<ruby>気<rt>き</rt></ruby>に しませんでした。", de:"Yui machte sich nicht viel Gedanken." },
+          { jp:"やすければ、なんでも、よかったのです。", de:"Hauptsache billig, alles andere war ihr egal." },
+          { jp:"その へやは、<ruby>四<rt>よん</rt></ruby>かいの、<ruby>四号室<rt>よんごうしつ</rt></ruby>でした。", de:"Das Zimmer war im vierten Stock, Nr. 4 (4 = Unglückszahl, klingt wie „Tod“)." },
+          { jp:"ひっこした、はじめての <ruby>夜<rt>よる</rt></ruby>。", de:"Die erste Nacht nach dem Einzug." },
+          { jp:"ユイは、なれない へやで、ねむろうと しました。", de:"Yui versuchte, in dem fremden Zimmer einzuschlafen." },
+          { jp:"でも、なぜか、おふろの <ruby>電気<rt>でんき</rt></ruby>が、つけっぱなしに なって いました。", de:"Doch aus irgendeinem Grund war das Licht im Bad angelassen." },
+          { jp:"けしても、けしても、いつのまにか、また、ついて いるのです。", de:"Egal wie oft sie es ausschaltete, irgendwann brannte es wieder." },
+          { jp:"「ふるい アパートだから、かな。」と ユイは、<ruby>思<rt>おも</rt></ruby>いました。", de:"„Wird wohl an dem alten Haus liegen“, dachte Yui." },
+          { jp:"<ruby>夜中<rt>よなか</rt></ruby>の、<ruby>二時<rt>にじ</rt></ruby>ごろ。", de:"Gegen zwei Uhr nachts." },
+          { jp:"ユイは、みずの おとで、<ruby>目<rt>め</rt></ruby>を さましました。", de:"Yui erwachte vom Geräusch von Wasser." },
+          { jp:"おふろから、ぽたん、ぽたんと、みずの おちる おとが、しました。", de:"Aus dem Bad kam ein Tropfen … Tropfen … von fallendem Wasser." },
+          { jp:"じゃぐちを、しめた はずなのに。", de:"Obwohl sie den Hahn doch zugedreht hatte." },
+          { jp:"ユイは、ねむい <ruby>目<rt>め</rt></ruby>を こすって、おふろへ、<ruby>行<rt>い</rt></ruby>きました。", de:"Yui rieb sich die müden Augen und ging ins Bad." },
+          { jp:"ドアを <ruby>開<rt>あ</rt></ruby>けると、じゃぐちは、しっかり、しまって いました。", de:"Als sie die Tür öffnete, war der Hahn fest zugedreht." },
+          { jp:"でも、ゆかは、びしょびしょに、ぬれて いました。", de:"Doch der Boden war klatschnass." },
+          { jp:"そして、その ゆかに、ぬれた、あしあとが、ありました。", de:"Und auf diesem Boden waren nasse Fußabdrücke." },
+          { jp:"<ruby>小<rt>ちい</rt></ruby>さな、<ruby>女<rt>おんな</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>の、あしあとでした。", de:"Es waren die kleinen Fußabdrücke einer Frau." },
+          { jp:"あしあとは、おふろから、<ruby>出<rt>で</rt></ruby>て、へやの ほうへ、つづいて いました。", de:"Die Abdrücke führten aus dem Bad heraus, ins Zimmer hinein." },
+          { jp:"ユイの、せなかが、つめたく なりました。", de:"Yui wurde es eiskalt am Rücken." },
+          { jp:"（わたし いがいに……だれか、いる?）", de:"(Ist außer mir … noch jemand hier?)" },
+          { jp:"あしあとを、<ruby>目<rt>め</rt></ruby>で、おって いくと——", de:"Als sie den Abdrücken mit den Augen folgte —" },
+          { jp:"それは、ユイの、ふとんの <ruby>横<rt>よこ</rt></ruby>で、きえて いました。", de:"— endeten sie neben Yuis Futon." },
+          { jp:"まるで、だれかが、そこに、ねて いる ように。", de:"Gerade so, als läge dort jemand." },
+          { jp:"その <ruby>夜<rt>よる</rt></ruby>、ユイは、<ruby>一<rt>いち</rt></ruby>ばんじゅう、ねむれませんでした。", de:"In jener Nacht konnte Yui die ganze Nacht nicht schlafen." },
+          { jp:"つぎの <ruby>日<rt>ひ</rt></ruby>、ユイは、となりの へやの <ruby>人<rt>ひと</rt></ruby>に、<ruby>聞<rt>き</rt></ruby>いて みました。", de:"Am nächsten Tag fragte Yui den Nachbarn." },
+          { jp:"「あの……<ruby>四号室<rt>よんごうしつ</rt></ruby>に、まえ、すんで いたのは、どんな <ruby>人<rt>ひと</rt></ruby>ですか?」", de:"„Ähm … was für ein Mensch hat vorher in Zimmer 4 gewohnt?“" },
+          { jp:"となりの おばあさんは、きゅうに、<ruby>顔<rt>かお</rt></ruby>を、こわばらせました。", de:"Die alte Nachbarin verzog plötzlich das Gesicht." },
+          { jp:"「……あんた、あの へやに、すんで いるの?」", de:"„… Du wohnst in dem Zimmer?“" },
+          { jp:"「すぐに、<ruby>出<rt>で</rt></ruby>た ほうが、いい。」", de:"„Du solltest schnell ausziehen.“" },
+          { jp:"「あそこでは、もう、なん<ruby>人<rt>にん</rt></ruby>も……。」", de:"„Dort sind schon mehrere Menschen …“" },
+          { jp:"そこまで <ruby>言<rt>い</rt></ruby>って、おばあさんは、<ruby>口<rt>くち</rt></ruby>を、つぐみました。", de:"Bis dahin sprach die Alte, dann verstummte sie." },
+          { jp:"「あの <ruby>子<rt>こ</rt></ruby>に、つかまったら、おわりだよ。」", de:"„Wenn ‚sie‘ dich erwischt, ist es vorbei.“" },
+          { jp:"その <ruby>夜<rt>よる</rt></ruby>、ユイは、こわくて、<ruby>電気<rt>でんき</rt></ruby>を、つけっぱなしに して、ねました。", de:"In jener Nacht ließ Yui aus Angst das Licht an und legte sich schlafen." },
+          { jp:"でも、<ruby>夜中<rt>よなか</rt></ruby>に、ふと、<ruby>目<rt>め</rt></ruby>が、さめました。", de:"Doch mitten in der Nacht wachte sie unwillkürlich auf." },
+          { jp:"へやが、まっくらでした。<ruby>電気<rt>でんき</rt></ruby>が、きえて いたのです。", de:"Das Zimmer war stockdunkel. Das Licht war ausgegangen." },
+          { jp:"そして、すぐ、<ruby>横<rt>よこ</rt></ruby>で——", de:"Und gleich neben ihr —" },
+          { jp:"つめたい、ぬれた <ruby>手<rt>て</rt></ruby>が、ユイの、あし<ruby>首<rt>くび</rt></ruby>を、つかみました。", de:"— packte eine kalte, nasse Hand Yuis Fußgelenk." },
+          { jp:"「……みつけた。」", de:"„… Gefunden.“" },
+          { jp:"<ruby>耳<rt>みみ</rt></ruby>もとで、<ruby>女<rt>おんな</rt></ruby>の、こえが、しました。", de:"Dicht an ihrem Ohr ertönte die Stimme einer Frau." },
+          { jp:"ユイは、こえも <ruby>出<rt>だ</rt></ruby>せずに、ただ、ふるえて いました。", de:"Yui konnte nicht einmal schreien und zitterte nur." },
+          { jp:"あくる<ruby>朝<rt>あさ</rt></ruby>、ユイの すがたは、へやから、きえて いました。", de:"Am nächsten Morgen war Yui aus dem Zimmer verschwunden." },
+          { jp:"のこって いたのは、ゆかに ついた、ぬれた、あしあと、だけ。", de:"Zurück blieben nur nasse Fußabdrücke auf dem Boden." },
+          { jp:"——<ruby>四号室<rt>よんごうしつ</rt></ruby>の <ruby>家<rt>や</rt></ruby>ちんは、また、はんがくに、なりました。", de:"— Die Miete für Zimmer 4 wurde wieder halbiert." },
+          { jp:"（<ruby>第二章<rt>だいにしょう</rt></ruby>に つづく）", de:"(Fortsetzung in Kapitel 2)" }
+        ],
+        vokabeln: [
+          { w:"大学生 (だいがくせい)", de:"Student/in" },
+          { w:"ふどうさんや (不動産屋)", de:"Immobilienmakler" },
+          { w:"家ちん (家賃・やちん)", de:"Miete" },
+          { w:"はんがく (半額)", de:"halber Preis" },
+          { w:"気にする (きにする)", de:"sich Gedanken/Sorgen machen" },
+          { w:"ひっこす (引っ越す)", de:"umziehen" },
+          { w:"なれる (慣れる)", de:"sich gewöhnen, vertraut werden" },
+          { w:"じゃぐち (蛇口)", de:"Wasserhahn" },
+          { w:"びしょびしょ", de:"klatschnass, triefend" },
+          { w:"あしあと (足跡)", de:"Fußabdruck, Fußspur" },
+          { w:"ぬれる (濡れる)", de:"nass werden" },
+          { w:"おう (追う)", de:"verfolgen, (mit Blick) folgen" },
+          { w:"こわばる", de:"sich verkrampfen, erstarren" },
+          { w:"口をつぐむ (くちをつぐむ)", de:"verstummen, den Mund halten" },
+          { w:"あし首 (足首・あしくび)", de:"Fußgelenk, Knöchel" }
+        ],
+        fragen: [
+          { q:"Warum ist das Zimmer so verdächtig billig, und wie reagiert Yui?", a:"Der Makler weicht aus (»der Vormieter ist nur plötzlich ausgezogen«); Yui ist es egal, Hauptsache billig. Das Zimmer ist Nr. 4 im 4. Stock — die 4 (し) klingt wie „Tod“ und gilt als Unglückszahl." },
+          { q:"Welche unheimlichen Zeichen treten in der ersten Nacht auf?", a:"Das Badlicht geht immer wieder von selbst an; nachts tropft Wasser, obwohl der Hahn zu ist; der Boden ist klatschnass, und kleine nasse Frauen-Fußabdrücke führen vom Bad bis neben Yuis Futon." },
+          { q:"Wie endet das Kapitel?", a:"Die Nachbarin warnt, schon mehrere seien dort „erwischt“ worden. In der nächsten Nacht geht das Licht aus, eine kalte nasse Hand packt Yuis Fußgelenk, eine Frauenstimme sagt »Gefunden«. Am Morgen ist Yui verschwunden — nur nasse Fußabdrücke bleiben, und die Miete wird wieder halbiert." }
+        ],
+        grammatik: "〜っぱなし (つけっぱなし) · 〜ても (けしても) · 〜はずなのに (しめたはずなのに) · 〜ように (ねているように) · 〜（よ）うとする (ねむろうとした) · 〜ば (やすければ) · 〜たら (つかまったら) · 〜ほうがいい (出たほうがいい) · 〜ずに (出せずに) · 〜てみる (聞いてみた) · 〜ている/〜ていく · のです",
+        n3: {
+          punkt: "〜っぱなし ＝ … (gelassen) und so belassen / ständig",
+          de: "Verb-ますStamm + っぱなし: man tut etwas und LÄSST es dann so (oft nachlässig). <ruby>電気<rt>でんき</rt></ruby>を つけっぱなし = »das Licht angelassen«; <ruby>窓<rt>まど</rt></ruby>を <ruby>開<rt>あ</rt></ruby>けっぱなし = »das Fenster offen gelassen«. Auch im Sinn von »dauernd, ohne Pause«.",
+          bsp: "おふろの <ruby>電気<rt>でんき</rt></ruby>を、つけっぱなしに して しまった。",
+          bsp_de: "Ich habe das Licht im Bad (versehentlich) angelassen."
+        }
+      }
+    ]
   }
 ];

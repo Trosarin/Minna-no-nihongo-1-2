@@ -144,6 +144,7 @@ window.LESEN_GRAMMAR = [
   { k:"まい", t:"p", nk:false, label:"〜まい (gewiss nicht)", de:"Nachdrücklich: »ich werde ganz sicher NICHT …« (Entschluss) oder »… wohl nicht« (Vermutung). 逃がすまい. (N3)" },
   { k:"ことか", t:"g", label:"〜ことか (wie sehr …!)", de:"Mit Fragewort (どんなに/なんと) + ことか: emotionaler Ausruf »wie sehr …!«, keine echte Frage. (N3)" },
   { k:"てこそ", t:"g", label:"〜てこそ (erst dadurch, dass …)", de:"て-Form + こそ: »erst wenn/dadurch, dass man wirklich … (tut)«. 守ってこそ親だ. (N3)" },
+  { k:"っぱなし", t:"g", label:"〜っぱなし (… gelassen / ständig)", de:"Vます-Stamm + っぱなし: man tut etwas und lässt es dann so (oft nachlässig). つけっぱなし »angelassen«, 開けっぱなし »offen gelassen«, 立ちっぱなし »die ganze Zeit gestanden«. (N3)" },
   { k:"ください", t:"g", label:"ください (bitte)", de:"Höfliche Bitte »bitte (geben/tun) Sie«. Nach て-Form: 〜てください »bitte tu …«. (L14)" },
   { k:"じゃ", t:"g", label:"じゃ (=では, locker)", de:"Lockere Form von では: »dann/also«; in じゃない »ist nicht«. (gesprochen)" },
   { k:"ぞ", t:"p", nk:false, label:"ぞ (Betonung, derb)", de:"Männlich/derb betonende Endpartikel: »…, sag ich dir!«, »…!«." },
