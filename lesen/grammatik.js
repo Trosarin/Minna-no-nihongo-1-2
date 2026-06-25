@@ -144,6 +144,9 @@ window.LESEN_GRAMMAR = [
   { k:"まい", t:"p", nk:false, label:"〜まい (gewiss nicht)", de:"Nachdrücklich: »ich werde ganz sicher NICHT …« (Entschluss) oder »… wohl nicht« (Vermutung). 逃がすまい. (N3)" },
   { k:"ことか", t:"g", label:"〜ことか (wie sehr …!)", de:"Mit Fragewort (どんなに/なんと) + ことか: emotionaler Ausruf »wie sehr …!«, keine echte Frage. (N3)" },
   { k:"てこそ", t:"g", label:"〜てこそ (erst dadurch, dass …)", de:"て-Form + こそ: »erst wenn/dadurch, dass man wirklich … (tut)«. 守ってこそ親だ. (N3)" },
+  { k:"ください", t:"g", label:"ください (bitte)", de:"Höfliche Bitte »bitte (geben/tun) Sie«. Nach て-Form: 〜てください »bitte tu …«. (L14)" },
+  { k:"じゃ", t:"g", label:"じゃ (=では, locker)", de:"Lockere Form von では: »dann/also«; in じゃない »ist nicht«. (gesprochen)" },
+  { k:"ぞ", t:"p", nk:false, label:"ぞ (Betonung, derb)", de:"Männlich/derb betonende Endpartikel: »…, sag ich dir!«, »…!«." },
   // --- Häufige Verb-/Kopula-Endungen (damit fast jede Satz-Endung erklärt wird) ---
   { k:"ませんでした", t:"g", label:"〜ませんでした (höflich, Verg. verneint)", de:"Die höfliche, verneinte Vergangenheit: »… (hat) nicht …«. Aus ます → ません → ませんでした." },
   { k:"ましょう", t:"g", label:"〜ましょう (lass uns …)", de:"Höflicher Vorschlag/Aufforderung: »lass uns … (tun)«." },

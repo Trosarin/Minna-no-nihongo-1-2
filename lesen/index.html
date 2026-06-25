@@ -256,7 +256,15 @@ const AUX = {
   "くれました":"(jmd.) tat es für mich (höflich)","くれない":"tut es nicht für mich",
   "もどる":"zurückkehren","もどって":"zurückkehren (て-Form)","もどった":"kehrte zurück",
   "もどりました":"kehrte zurück (höflich)",
-  "つづく":"weitergehen; fortgesetzt werden (»Fortsetzung folgt«)",
+  "つづく":"weitergehen; fortgesetzt werden (»Fortsetzung folgt«)", "いくと":"wenn man geht (行く+と)","って":"=という/と: »… sagt/heißt«; Thema (locker)","さして":"(Licht) hereinfallen (差す, て-Form)","にて":"ähneln (似る, て-Form)","まって":"warte! (待つ, Bitte)","いって":"geh!/sag! (行く・言う, て-Form)","のこって":"übrig bleiben (残る, て-Form)","なんだ":"=なのだ (Erklärung, locker)", "なってると":"ist geworden (=なっていると)",
+  "ついた":"haftete/kam an; (Licht) ging an (つく, Verg.)","ついて":"anhaften/ankommen (て-Form)",
+  "すいて":"leer/hungrig werden (て-Form)","のって":"einsteigen/aufsteigen (て-Form)",
+  "なってる":"ist geworden (=なっている, locker)","なってた":"war geworden (locker)",
+  "なろう":"werden wir / lass uns werden (Willensform)","やろう":"machen wir / ich tu's (Willensform)",
+  "にげろ":"Lauf! Flieh! (Befehl von 逃げる)","みろ":"Sieh! Schau! (Befehl von 見る)",
+  "こい":"Komm! (Befehl von 来る)","やめろ":"Hör auf! Lass das! (Befehl)",
+  "はしれ":"Lauf! Renn! (Befehl von 走る)","おきろ":"Wach auf! Steh auf! (Befehl)",
+  "つづいて":"weiter/anschließend (つづく, て-Form)","いたぞ":"war da! (いる + Betonung ぞ)",
   "ない":"nicht (vorhanden); Verneinung »kein/nicht«","しませんでした":"tat nicht (höfl. Verg. verneint)",
   "しなかった":"tat nicht (Plain Verg.)","きません":"kommt nicht (höflich)"
 };
@@ -318,8 +326,11 @@ function tokenize(jp){
 function openTok(html){
   const plain = plainJP(html);
   const reading = readingJP(html);
-  const v = lookupVocab(plain);
-  const hits = grammarHits(plain);
+  // Satzzeichen komplett entfernen, sonst scheitern Exakt-/Endungstreffer
+  // (にげろ! → にげろ, いく。」と → いくと)
+  const clean = plain.replace(/[。、！？!?「」『』（）…—\s]/g,'');
+  const v = lookupVocab(clean);
+  const hits = grammarHits(clean);
   $('#tp-word').textContent = plain;
   const showRead = reading && reading !== plain;
   $('#tp-read').textContent = showRead ? reading : '';
