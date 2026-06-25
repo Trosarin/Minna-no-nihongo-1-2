@@ -574,5 +574,17 @@ window.LESEN_WOERTER = [
   { w:"工場 (こうじょう)", de:"Fabrik" },
   { w:"地図 (ちず)", de:"Karte, (Land-)Karte" },
   { w:"ふみこむ (踏み込む)", de:"hineintreten, hineinstürmen" },
-  { w:"とびのる (飛び乗る)", de:"aufspringen, hineinspringen" }
+  { w:"とびのる (飛び乗る)", de:"aufspringen, hineinspringen" },
+  { w:"父親 (ちちおや)", de:"Vater" },
+  { w:"むかえる (迎える)", de:"abholen, empfangen, begrüßen" },
+  { w:"ゆるす (許す)", de:"verzeihen, vergeben; erlauben" },
+  { w:"つなぐ", de:"verbinden; (Hand) halten/reichen" },
+  { w:"うで (腕)", de:"Arm" },
+  { w:"はなす (離す)", de:"loslassen, lösen" },
+  { w:"ぬけ出す (抜け出す)", de:"sich herauswinden, entwischen" },
+  { w:"入口 (いりぐち)", de:"Eingang" },
+  { w:"警官 (けいかん)", de:"Polizist" },
+  { w:"おおぜい (大勢)", de:"viele (Menschen), eine Menge" },
+  { w:"やむ (止む)", de:"aufhören (Regen/Wind)" },
+  { w:"父 (ちち)", de:"(eigener) Vater" }
 ];
