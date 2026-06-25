@@ -705,5 +705,10 @@ window.LESEN_WOERTER = [
   { w:"おふろ (お風呂)", de:"Bad, Badewanne" },
   { w:"ふとん (布団)", de:"Futon, Bettzeug" },
   { w:"せなか (背中)", de:"Rücken" },
-  { w:"みみもと (耳もと)", de:"dicht am Ohr" }
+  { w:"みみもと (耳もと)", de:"dicht am Ohr" },
+  { w:"ユイ", de:"Yui (weiblicher Vorname)" },
+  { w:"メイ", de:"Mei (weiblicher Vorname)" },
+  { w:"でんわ (電話)", de:"Telefon; anrufen" },
+  { w:"みる (見る)", de:"sehen, schauen; (nach て-Form) einmal versuchen" },
+  { w:"寝る (ねる)", de:"schlafen, sich hinlegen" }
 ];
