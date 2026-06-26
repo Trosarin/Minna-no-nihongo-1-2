@@ -746,5 +746,9 @@ window.LESEN_WOERTER = [
   { w:"にげる (逃げる)", de:"fliehen, weglaufen, entkommen" },
   { w:"聞く (きく)", de:"hören; fragen" },
   { w:"おねえちゃん (お姉ちゃん)", de:"große Schwester (vertraut)" },
-  { w:"日 (ひ)", de:"Tag; Sonne" }
+  { w:"日 (ひ)", de:"Tag; Sonne" },
+  { w:"こえ (声)", de:"Stimme" },
+  { w:"くる (来る)", de:"kommen; (nach て-Form) heran-, herbei-" },
+  { w:"読む (よむ)", de:"lesen, vorlesen" },
+  { w:"いける (行ける)", de:"gehen können; in Ordnung sein" }
 ];

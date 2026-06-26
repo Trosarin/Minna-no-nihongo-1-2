@@ -149,6 +149,7 @@ window.LESEN_GRAMMAR = [
   { k:"どころか", t:"g", label:"〜どころか (von wegen … / im Gegenteil)", de:"V/N + どころか: stellt eine Erwartung auf und reißt sie sofort ein — »von wegen X; in Wirklichkeit (das Gegenteil / viel mehr)«. 休むどころか、もっと いそがしい »von wegen ausruhen — noch mehr Stress«. (N3)" },
   { k:"たきり", t:"g", label:"〜たきり (seit … nichts mehr / nur)", de:"Verb-た + きり: nach der Handlung bleibt die erwartete Folge aus. 出て行ったきり、帰って こない »ging hinaus und kam (seither) nie zurück«; 寝たきり »ans Bett gefesselt«. Auch 〜きり = »nur« (二人きり »nur zu zweit«). (N3)" },
   { k:"ことなく", t:"g", label:"〜ことなく (ohne je zu …)", de:"Verb-Wörterbuchform + ことなく: »ohne (auch nur einmal) zu …«. ふり返る ことなく »ohne sich umzudrehen«; だれにも 知られる ことなく »ohne dass es jemand erfährt«. Schriftsprachlicher als 〜ないで. (N3)" },
+  { k:"つつあ", t:"g", label:"〜つつある (allmählich dabei, zu …)", de:"Verb-ますStamm + つつある: ein Vorgang ist im Gange — »entwickelt sich allmählich zu …«. 消えつつある »verschwindet zusehends«; 増えつつある »nimmt stetig zu«. Schriftsprachlich; betont (anders als 〜ている) den Verlauf. (N3)" },
   { k:"ください", t:"g", label:"ください (bitte)", de:"Höfliche Bitte »bitte (geben/tun) Sie«. Nach て-Form: 〜てください »bitte tu …«. (L14)" },
   { k:"じゃ", t:"g", label:"じゃ (=では, locker)", de:"Lockere Form von では: »dann/also«; in じゃない »ist nicht«. (gesprochen)" },
   { k:"ぞ", t:"p", nk:false, label:"ぞ (Betonung, derb)", de:"Männlich/derb betonende Endpartikel: »…, sag ich dir!«, »…!«." },
