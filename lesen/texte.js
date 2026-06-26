@@ -473,7 +473,7 @@ window.LESEN_KAPITEL = [
           { q:"Was bedroht laut Sora die Welt?", a:"Die Finsternis (闇) frisst das Licht; aus ihr geborene Schatten jagen den Stein-Träger." },
           { q:"Womit endet das Kapitel?", a:"Tief im dunklen Wald öffnen sich viele rote Augen (赤い目がいくつも開きました)." }
         ],
-        grammatik: "のように (氷のように/死んだように) · とき · ています · 受身 (選ばれた/食べられて/気づかれて/飲み込まれて) · relative ことのない/石を持つ者 · なければ + てしまう · ながら · ないで · てくれないか · んだ",
+        grammatik: "NEU: 〜ように (氷のように・死んだように) — WIEDERHOLT (frühere N3-Punkte): — erstes Fantasy-Kapitel, ab Ch2 kommt die Wiederholung — BASIS: 〜とき · 〜ている · 受身/Passiv (選ばれた・食べられて・気づかれて・飲み込まれて) · Relativsatz (石を持つ者) · なければ＋てしまう · 〜ながら · 〜ないで · 〜てくれないか · 〜んだ",
         n3: {
           punkt: "〜ように ＝ (so) wie …",
           de: "（Nomen＋の／Verb）＋ように zieht einen Vergleich: »(genau) wie …«. <ruby>死<rt>し</rt></ruby>んだように <ruby>静<rt>しず</rt></ruby>か = »still wie tot«, <ruby>氷<rt>こおり</rt></ruby>のように = »wie Eis«. Vor einem Nomen wird daraus 〜ような (z. B. <ruby>夢<rt>ゆめ</rt></ruby>の ような = »wie ein Traum«). (Nach einem Verb heißt dasselbe ように auch »damit« — das ist ein anderer Gebrauch.)",
@@ -550,7 +550,7 @@ window.LESEN_KAPITEL = [
           { q:"Warum fliehen Ren und Sora zum Fluss?", a:"In der Nähe von Wasser können die Schatten nicht hin (水の近くなら、影は来られない)." },
           { q:"Wer wartet im Schrein und was will er?", a:"Der König der Schatten (影の王); er will Ren den Stein des Lichts abnehmen." }
         ],
-        grammatik: "〜ても · 〜ほど · Verbot 〜な (出すな/動くな) · ようとする · ことができる · ていく · とは思えない · なくなる · なら + Potential-Verneinung (来られない) · はずだ · より (Vergleich) · 〜と · 使役 (ふるわせる) · てもらう · 始める",
+        grammatik: "NEU: 〜（よ）うとする (出ようとする) — WIEDERHOLT (frühere N3-Punkte): 〜はず — BASIS: 〜ても · 〜ほど · 禁止 〜な (出すな・動くな) · 〜ことができる · 〜ていく · 〜とは思えない · 〜なくなる · なら＋来られない · 〜より (Vergleich) · 〜と · 使役 (ふるわせる) · 〜てもらう · 〜始める",
         n3: {
           punkt: "〜（よ）うとする ＝ versuchen zu … / im Begriff sein zu …",
           de: "Du nimmst die Willensform (Volitional) 〜よう／〜おう und hängst とする an: jemand setzt gerade an, etwas zu tun. <ruby>立<rt>た</rt></ruby>ち<ruby>上<rt>あ</rt></ruby>がろうと した = »er setzte an / wollte gerade aufstehen«. Oft genau im Moment, bevor etwas dazwischenkommt — perfekt für Spannung.",
@@ -630,7 +630,7 @@ window.LESEN_KAPITEL = [
           { q:"Welche schreckliche Enthüllung macht der König, bevor er verschwindet?", a:"Dass der siebte Splitter in Ren selbst steckt (七つ目のかけらはお前の中にある) — und dass auch Rens eigene Welt bald von der Finsternis verschlungen wird." },
           { q:"Warum ist der Sieg über den König kein echtes Ende?", a:"Die Finsternis ist nicht verschwunden, sondern erzürnt: Der Boden bebt, die zwei Monde färben sich blutrot, und unzählige rote Augen beobachten die beiden aus den Bergen." }
         ],
-        grammatik: "〜ように (Vergleich: 太陽のように・血のように) · 〜ていく/〜てくる · のだ/のです (Erklärung) · 受身 (飲み込まれる・だまされる) · 命令形＆禁止 (消せ・向けろ・だまされるな・おぼえておけ) · 〜ながら · 〜始める · 〜ても · 〜と (見ると) · 〜かどうか · 〜ほど (数えきれないほど) · 〜くてたまらない · 〜ように見える · 〜前に · Potential (立てる)",
+        grammatik: "NEU: 〜きれない (数えきれないほど) — WIEDERHOLT (frühere N3-Punkte): 〜ように (太陽のように・血のように) — BASIS: 〜ていく/〜てくる · のだ/のです · 受身 (飲み込まれる・だまされる) · 命令＆禁止 (消せ・向けろ・だまされるな・おぼえておけ) · 〜ながら · 〜始める · 〜ても · 〜と (見ると) · 〜かどうか · 〜くてたまらない · 〜ように見える · 〜前に · Potential (立てる)",
         n3: {
           punkt: "〜きれない ＝ nicht zu Ende … können (zu viel/zu groß)",
           de: "Verb-ますStamm + きる = »ganz / vollständig zu Ende tun«. Verneint 〜きれない = »es nicht schaffen, ganz … zu tun« — meist, weil es zu viel oder zu groß ist. <ruby>数<rt>かぞ</rt></ruby>えきれない = »nicht (alle) zählen können« = unzählig.",
@@ -708,7 +708,7 @@ window.LESEN_KAPITEL = [
           { q:"Wie entpuppt sich das „Mädchen“ in Wahrheit?", a:"Es war eine Falle: Plötzlich erlischt ihr Gesichtsausdruck, sie grinst, unzählige schwarze Hände erscheinen an den Wänden, und ihr Körper löst sich in schwarzen Rauch auf — sie war ein Schatten." },
           { q:"Was erfährt Ren über den nächsten Sternensplitter?", a:"Der Großvater des „Mädchens“ besaß einst einen; er sei im Tempel oben auf dem Berg versteckt — dorthin fliehen Ren und Sora nun." }
         ],
-        grammatik: "〜ところだった (もう少しで…落ちるところだった) · まるで〜かのようだ · 〜ないと (見つけないと) · 〜（よ）うとする (のぞこうとした) · そのとおり · 受身 (見られて・だまされた・飲み込まれて) · 命令形 (待て・走れ) · 〜ように (つつむように・目のように) · 〜だろう · 〜ている/〜てくる · のです · 〜たら (子どもだったら)",
+        grammatik: "NEU: 〜ところだった (もう少しで…落ちるところだった) — WIEDERHOLT (frühere N3-Punkte): 〜ように (つつむように・目のように) · 〜（よ）うとする (のぞこうとした) — BASIS: まるで〜かのようだ · 〜ないと (見つけないと) · 受身 (見られて・だまされた) · 命令形 (待て・走れ) · 〜だろう · 〜ている/〜てくる · のです · 〜たら",
         n3: {
           punkt: "〜ところだった ＝ beinahe wäre … passiert",
           de: "Verb-Wörterbuchform + ところだった heißt »um ein Haar / fast wäre … passiert — ist aber gerade noch NICHT«. Oft mit もう<ruby>少<rt>すこ</rt></ruby>しで (»um ein Haar«) davor. Allgemein zeigt ところ die Phase einer Handlung: するところ »gerade dabei«, したところ »gerade eben getan«.",
@@ -787,7 +787,7 @@ window.LESEN_KAPITEL = [
           { q:"Wer ist der augenlose alte Mann, und was opfert er?", a:"Ein Wächter, der den Tempel seit Jahrhunderten bewacht; die Finsternis dringt bereits in sein Herz. Mit seiner letzten Kraft öffnet er einen leuchtenden Pfad, damit Ren und Sora entkommen — während er selbst verschlungen wird." },
           { q:"Welche Entscheidung kündigt der Alte für den siebten Splitter an?", a:"Wenn der siebte Splitter herausgeholt wird, muss Ren wählen: die Welt retten — oder etwas anderes. Den Satz spricht der Alte nicht zu Ende, bevor ihn die Finsternis verschlingt." }
         ],
-        grammatik: "〜たとたん (開けたとたん) · 〜うちに (つかまらないうちに・いられるうちに) · 〜わけにはいかない · 〜だらけ (ほこりだらけ) · 受身 (守られた・包まれた・飲まれ) · 使役＋てやる (逃がしてやろう) · 命令形 (行け・ふり返るな) · 〜ば (行けば) · なければならない · つもり · 〜のように · 〜てくる · のだ/んだ · だろう",
+        grammatik: "NEU: 〜たとたん (開けたとたん) — WIEDERHOLT (frühere N3-Punkte): 〜のように — BASIS: 〜うちに (つかまらないうちに) · 〜わけにはいかない · 〜だらけ (ほこりだらけ) · 受身 (守られた・包まれた) · 使役＋てやる (逃がしてやろう) · 命令形 (行け・ふり返るな) · 〜ば (行けば) · なければならない · 〜つもり · 〜てくる · のだ/んだ · だろう",
         n3: {
           punkt: "〜た とたん（に） ＝ kaum dass … / im selben Moment, als …",
           de: "Verb in der た-Form + とたん(に): Genau in dem Augenblick, als das eine geschah, passierte sofort und oft überraschend das andere. <ruby>開<rt>あ</rt></ruby>けた とたん = »kaum hatte er geöffnet, da …«. Ideal für plötzliche Wendungen — der zweite Teil ist meist etwas Unerwartetes.",
@@ -866,7 +866,7 @@ window.LESEN_KAPITEL = [
           { q:"Wie entkommen Ren und Sora dem schwarzen Nebel — und wie knapp ist es?", a:"Sie senken die Gesichter und rennen zum Uhrturm. Einmal hebt Ren beinahe den Kopf — um ein Haar wäre er zu Stein geworden (もう少しで石になるところでした)." },
           { q:"Was entdeckt Ren beim dritten Splitter über sich selbst?", a:"Seine rechten Fingerspitzen werden grau — die Finsternis breitet sich bereits in seinem Inneren aus. Der Splitter drängt sie kurz zurück, doch Ren weiß nun: Sie ist in ihm und wächst." }
         ],
-        grammatik: "〜まま (おびえたまま) · 〜きれない (なりきれて) · 〜ないと (探さないと) · 〜（よ）うとする (向かおうとした) · 〜ところだった (なるところでした) · 〜そうになる (上げそうになる) · 命令形 (見るな・走れ) · 〜てはいけない · 〜ながら (切らしながら) · 〜のような (きりのような) · 〜てしまう · 〜ている/〜てくる · 〜のに (なっているのに)"
+        grammatik: "NEU: —（kein neuer Punkt; reine Wiederholung）— WIEDERHOLT (frühere N3-Punkte): 〜まま (おびえたまま) · 〜きれない (なりきれて) · 〜（よ）うとする (向かおうとした) · 〜ところだった (なるところでした) · 〜ように (きりのような) — BASIS: 〜ないと (探さないと) · 〜そうになる (上げそうになる) · 命令形 (見るな・走れ) · 〜てはいけない · 〜ながら (切らしながら) · 〜てしまう · 〜ている/〜てくる · 〜のに (なっているのに)"
       },
       {
         titel: "<ruby>第七章<rt>だいななしょう</rt></ruby>「ぼくの <ruby>中<rt>なか</rt></ruby>の <ruby>闇<rt>やみ</rt></ruby>」",
@@ -948,7 +948,7 @@ window.LESEN_KAPITEL = [
           { q:"Was rettet Ren in dem Moment, als er fast nachgibt?", a:"Der Sternensplitter in seiner Tasche leuchtet warm auf und holt ihn zur Besinnung. Er weigert sich wegzulaufen: »Auch wenn ich Angst habe, gehe ich auf eigenen Beinen.«" },
           { q:"Was beschließt Ren über sich und sein Zuhause?", a:"Er erinnert sich an seine Mutter, das Frühstück, den Schulweg und das Lachen seiner Freunde und fasst den festen Entschluss, unbedingt zurückzukehren und alle wiederzusehen — und nicht mehr davonzulaufen." }
         ],
-        grammatik: "〜気がする (心配している気がする・正しい気がした) · 〜まま (赤いまま) · 〜ながら (食べながら) · 〜のに (動いていないのに) · 〜ても (こわくても・やめても) · 〜そうになる (うなずきそうになった) · 〜てくれる (持ってきてくれた・作ってくれる) · 〜ば (まかせれば) · 意志形 (休もう・行こう) · 〜のかな · 〜だろう · 〜始める",
+        grammatik: "NEU: 〜気がする (正しい気がした・心配している気がする) — WIEDERHOLT (frühere N3-Punkte): 〜まま (赤いまま) — BASIS: 〜ながら (食べながら) · 〜のに (動いていないのに) · 〜ても (こわくても) · 〜そうになる (うなずきそうになった) · 〜てくれる (作ってくれる) · 〜ば (まかせれば) · 意志形 (休もう・行こう) · 〜のかな · 〜だろう · 〜始める",
         n3: {
           punkt: "〜気がする ＝ ich habe das Gefühl, dass …",
           de: "An die Plain-Form (Verb/Adjektiv) oder N＋の hängst du <ruby>気<rt>き</rt></ruby>がする = »ich habe so ein Gefühl / mir kommt es vor, als ob …«. Es drückt eine vage Ahnung oder einen Eindruck aus, ohne dass du sicher bist. Vergangenheit: <ruby>気<rt>き</rt></ruby>がした »ich hatte das Gefühl«. Alltagssatz pur.",
@@ -1036,7 +1036,7 @@ window.LESEN_KAPITEL = [
           { q:"Wie holen sie den vierten Splitter, und was kostet es Sora?", a:"Ren greift ihn aus dem Teich; schwarze Hände greifen an, Sora geht dazwischen und entsendet Licht. Je stärker das Licht, desto durchsichtiger wird sein Körper — danach ist er fast verschwunden." },
           { q:"Welches Versprechen geben sich Ren und Sora?", a:"Sora bittet Ren, beim siebten Splitter sich selbst auf keinen Fall aufzugeben; Ren verspricht es und nimmt Sora das Versprechen ab, nicht zu verschwinden — sie wollen zusammen nach Hause zurück." }
         ],
-        grammatik: "〜ば〜ほど (進めば進むほど・強ければ強いほど・考えれば考えるほど) · 〜気がする · 〜たびに (わたすたびに) · 〜ために (守るためなら) · 〜みたい (つかれているみたい) · 〜てほしい (約束してほしい) · 〜ても (ふり返っても) · 〜ことに気づく · 意志形 (帰ろう) · 命令形 (にげろ・信じて) · 〜始める · 〜ていく/〜てくる",
+        grammatik: "NEU: 〜ば〜ほど (進めば進むほど・強ければ強いほど) — WIEDERHOLT (frühere N3-Punkte): 〜気がする · 〜たびに (わたすたびに) · 〜ために (守るためなら) — BASIS: 〜みたい (つかれているみたい) · 〜てほしい (約束してほしい) · 〜ても (ふり返っても) · 〜ことに気づく · 意志形 (帰ろう) · 命令形 (にげろ・信じて) · 〜始める · 〜ていく/〜てくる",
         n3: {
           punkt: "〜ば〜ほど ＝ je …, desto …",
           de: "Du nimmst dasselbe Verb/Adjektiv zweimal: einmal in der ば-Form, dann in der Wörterbuch-/Stammform + ほど. <ruby>進<rt>すす</rt></ruby>めば <ruby>進<rt>すす</rt></ruby>むほど = »je weiter man geht, desto …«; <ruby>強<rt>つよ</rt></ruby>ければ <ruby>強<rt>つよ</rt></ruby>いほど = »je stärker, desto …«. Bei な-Adjektiven: 〜なら〜なほど. Es zeigt, dass sich zwei Dinge gemeinsam steigern.",
@@ -1125,7 +1125,7 @@ window.LESEN_KAPITEL = [
           { q:"Was bewacht den fünften Splitter, und wie entkommen die beiden?", a:"Tief unten im Schiff schläft ein großes schwarzes Untier im Eis. Als Ren den Splitter greift, erwacht es. Sora blendet es mit letzter Kraft (光のおかげで…ひるみました), und sie fliehen nach oben — das Untier kann nicht aus dem Schiff heraus." },
           { q:"Welche zwei gegensätzlichen Zeichen sieht Ren am Ende?", a:"Hoffnung: Einer der Monde wird wieder etwas weiß — die Welt holt sich dank der Splitter Licht zurück. Warnung: Rens rechte Hand wird wieder grau — ihm bleibt nicht mehr viel Zeit." }
         ],
-        grammatik: "〜おかげで／〜せいで (光のおかげで・ぼくのせいで) · 〜ば〜ほど (行けば行くほど) · 〜しかない (行くしかない) · 〜くらい (見えないくらい) · 命令形 (走れ) · 意志形 (行こう) · 〜ないで (光らないで) · 〜のが (守るのが) · 〜だから · 〜ている/〜てくる · 〜ちゃう (消えちゃう) · 〜より (さっきより)",
+        grammatik: "NEU: 〜おかげで／〜せいで (光のおかげで・ぼくのせいで) — WIEDERHOLT (frühere N3-Punkte): 〜ば〜ほど (行けば行くほど) — BASIS: 〜しかない (行くしかない) · 〜くらい (見えないくらい) · 命令形 (走れ) · 意志形 (行こう) · 〜ないで (光らないで) · 〜のが (守るのが) · 〜だから · 〜ている/〜てくる · 〜ちゃう (消えちゃう) · 〜より (さっきより)",
         n3: {
           punkt: "〜おかげで／〜せいで ＝ dank … / wegen … (schlecht)",
           de: "Beide geben einen Grund an, aber mit Gefühl: ソラの おかげで = »dank Sora« (gutes Ergebnis, dankbar). ぼくの せいで = »wegen mir« (schlechtes Ergebnis, Schuld/Vorwurf). An Nomen hängst du の davor, an Verben/Adjektive die Plain-Form.",
@@ -1212,7 +1212,7 @@ window.LESEN_KAPITEL = [
           { q:"Was passiert, als Ren den sechsten Splitter greift?", a:"Alle sechs Splitter leuchten zugleich auf und verwandeln Rens graue Hand wieder zurück. Die Stimme knurrt verärgert und fordert Ren auf, selbst hereinzukommen — den siebten Splitter, also sich selbst, vor sie zu bringen." },
           { q:"Welche Entscheidung trifft Ren am Ende?", a:"Er beschließt, sich seiner Angst zum ersten Mal direkt zu stellen, und betritt mit Sora das Schloss. Das Tor schließt sich — kein Zurück. Tief im Gang schimmert rotes Licht: der Ursprung aller Finsternis." }
         ],
-        grammatik: "〜に違いない (城の中にあるに違いない・わなに違いない) · 〜ほど (近づくほど) · 〜かのようだ (待っていたかのよう) · 〜気がする (ぶつかっている気がした) · 〜ことにする (立ち向かうことにした) · 〜ば (わたせば) · 命令形 (来てみろ・持ってこい) · 〜ても (何が起きても) · 〜ちゃ だめ (聞いちゃだめ) · 〜出す (動き出す) · 〜始める (しまり始める)",
+        grammatik: "NEU: 〜に違いない (わなに違いない・城の中にあるに違いない) — WIEDERHOLT (frühere N3-Punkte): 〜ほど (近づくほど) · 〜気がする (ぶつかっている気がした) — BASIS: 〜かのようだ (待っていたかのよう) · 〜ことにする (立ち向かうことにした) · 〜ば (わたせば) · 命令形 (来てみろ・持ってこい) · 〜ても (何が起きても) · 〜ちゃ だめ (聞いちゃだめ) · 〜出す (動き出す) · 〜始める (しまり始める)",
         n3: {
           punkt: "〜に違いない ＝ es muss ganz sicher … sein",
           de: "Hängst du an die Plain-Form (oder ein Nomen) und drückst große Sicherheit aus: »das ist bestimmt / ganz sicher so«. Eine Stufe stärker als はず (»müsste«) und かもしれない (»vielleicht«).",
@@ -1301,7 +1301,7 @@ window.LESEN_KAPITEL = [
           { q:"Wer oder was erhebt sich aus der schwarzen Flamme?", a:"Eine Gestalt mit Rens eigenem Gesicht und blutroten Augen — die in ihm herangewachsene Finsternis. Sie behauptet, der siebte Splitter sei Ren selbst und Ren sei längst sie." },
           { q:"Wie hält Ren im letzten Moment stand?", a:"Sora, fast erloschen, erinnert ihn, dass die Finsternis nicht sein wahres Ich ist, und gibt mit letzter Kraft sein warmes Licht in Rens Brust. Ren sieht die Gesichter aller, die er liebt, umklammert seine eigene Hand und weigert sich, seinen Körper herzugeben — da wird der Doppelgänger zum Ungeheuer, und der letzte Kampf beginnt." }
         ],
-        grammatik: "〜ものか (まけるものか) · 〜ほど (進むほど) · 〜ように／のよう (生き物のよう・ぬれたように) · 〜（よ）うとする (つかもうとした) · 〜そう (消えそう) · 〜かける (消えかけた・止まりかけた) · 〜ちゃ だめ (聞いちゃだめ) · 命令形 (やめろ) · 〜ていく/〜てくる · 〜ための · 使役 (弱らせる) · 〜なんか",
+        grammatik: "NEU: 〜ものか (まけるものか) — WIEDERHOLT (frühere N3-Punkte): 〜ほど (進むほど) · 〜ように／のよう (生き物のよう・ぬれたように) · 〜（よ）うとする (つかもうとした) — BASIS: 〜そう (消えそう) · 〜かける (消えかけた・止まりかけた) · 〜ちゃ だめ (聞いちゃだめ) · 命令形 (やめろ) · 〜ていく/〜てくる · 〜ための · 使役 (弱らせる) · 〜なんか",
         n3: {
           punkt: "〜ものか／〜もんか ＝ niemals! / auf gar keinen Fall werde ich …",
           de: "Hängst du an die Plain-Form und machst daraus einen trotzigen Ausruf — gemeint ist das GEGENTEIL: <ruby>負<rt>ま</rt></ruby>けるものか = »Ich werde ganz sicher NICHT verlieren!«. Locker auch もんか. Drückt starke Entschlossenheit oder Ablehnung aus.",
@@ -1391,7 +1391,7 @@ window.LESEN_KAPITEL = [
           { q:"Wie besiegt Ren die Finsternis am Ende — und was ist daran besonders?", a:"Er zieht den siebten Splitter aus seiner eigenen Brust, vereint alle sieben und tötet den Doppelgänger NICHT, sondern hüllt ihn in warmes Licht und wird zusammen mit ihm zu Licht. Die Finsternis wird nicht vernichtet, sondern erlöst." },
           { q:"Wie endet die Geschichte?", a:"Ren erwacht auf dem vertrauten Waldweg; der Stein leuchtet nicht mehr. Ein warmer Wind sagt „Danke“. Sora ist fort, aber sein Licht lebt in Ren weiter. Die Mutter ruft zum Essen, und Ren rennt nach Hause — weinend und doch lächelnd." }
         ],
-        grammatik: "〜こそ (今こそ) · 〜てよかった (会えてよかった) · 〜きれず (よけきれず) · 受身 (たたきつけられた・すいとられた) · 命令形 (やめろ・消せ・よこせ) · 意志形 (光になろう・帰ろう) · 〜ては だめ (にくんではだめ) · 〜のように (つなみのように) · 〜気がする · 〜出す (あふれ出す・走り出す) · 〜始める (くずれ始める)",
+        grammatik: "NEU: 〜こそ (今こそ) — WIEDERHOLT (frühere N3-Punkte): 〜きれず (よけきれず) · 〜のように (つなみのように) · 〜気がする — BASIS: 〜てよかった (会えてよかった) · 受身 (たたきつけられた・すいとられた) · 命令形 (やめろ・消せ・よこせ) · 意志形 (光になろう・帰ろう) · 〜ては だめ (にくんではだめ) · 〜出す (あふれ出す・走り出す) · 〜始める (くずれ始める)",
         n3: {
           punkt: "〜こそ ＝ gerade / genau dies / jetzt erst recht",
           de: "こそ hängst du an ein Wort und hebst es mit Nachdruck hervor: »genau das / gerade jetzt«. <ruby>今<rt>いま</rt></ruby>こそ = »jetzt erst recht / genau jetzt«; きみこそ = »du erst recht / gerade du«.",
