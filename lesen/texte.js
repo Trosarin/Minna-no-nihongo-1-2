@@ -285,7 +285,7 @@ window.LESEN_KAPITEL = [
           { q:"Was hörte sie auf dem Flur — und warum war das seltsam?", a:"Klaviermusik aus dem Musikraum; seltsam, weil Freitag war und es keinen Musikunterricht gab." },
           { q:"Was war an dem Mädchen am Klavier so unheimlich?", a:"Es hatte kein Gesicht (顔がありませんでした)." }
         ],
-        grammatik: "L15 ています (Zustand) · L23 〜と (als/sobald) · L16 くて/で (verbinden) · L22 Relativsatz (白い服を着た女の子) · L43 聞こえてくる · L18 ことができる",
+        grammatik: "NEU: 〜はずだ — WIEDERHOLT (frühere N3-Punkte): — erstes Story-Kapitel, ab hier wird wiederholt — BASIS: 〜ている (Zustand) · 〜と (als/sobald) · 〜くて/〜で (verbinden) · Relativsatz (白い服を着た女の子) · 〜てくる (聞こえてくる) · 〜ことができる",
         n3: {
           punkt: "〜はずだ ＝ es müsste (eigentlich) so sein",
           de: "Du hängst はず an die Verb-/Adjektiv-Form an und sagst: Aus gutem Grund erwarte ich, dass es so ist — »das müsste/dürfte so sein«. Verneint heißt はずがない »das kann unmöglich sein«. Im Horror perfekt: »Hier dürfte doch eigentlich niemand mehr sein …«",
@@ -333,7 +333,7 @@ window.LESEN_KAPITEL = [
           { q:"Was erzählt das Mädchen über sich?", a:"Vor 30 Jahren war sie Schülerin dieser Schule, aber niemand erinnert sich an sie." },
           { q:"Was ist am Ende mit dem alten Foto?", a:"Das Gesicht des Mädchens fehlt — und jetzt ist Yukis Gesicht daneben zu sehen." }
         ],
-        grammatik: "L43 Vます+そう (Anschein: 止まりそう) · L25 どんなに〜ても · L26 んです · Volitional + とする (逃げようとする) · L30 てある (かざってある) · L15 ている (写っている) · Plain-Stil in Dialogen",
+        grammatik: "NEU: 〜さえ／〜さえ…ば — WIEDERHOLT (frühere N3-Punkte): — (hier noch keine; ab Ch3 kommt die Wiederholung) — BASIS: 〜そう (Anschein: 止まりそう) · どんなに〜ても · 〜んです · 意志形＋とする (逃げようとする) · 〜てある (かざってある) · 〜ている (写っている) · Plain-Stil in Dialogen",
         n3: {
           punkt: "〜さえ／〜さえ…ば ＝ sogar … / wenn nur …",
           de: "さえ betont ein extremes Beispiel: »sogar / nicht einmal«. In der Kombination 〜さえ …ば heißt es »wenn nur … (dann reicht das schon)«. <ruby>音<rt>おと</rt></ruby>さえ <ruby>立<rt>た</rt></ruby>てなければ = »wenn ich nur kein Geräusch mache«.",
@@ -410,7 +410,7 @@ window.LESEN_KAPITEL = [
           { q:"Was ist der schreckliche Twist?", a:"Aiko bekommt Yukis Gesicht und entkommt nach draußen — Yuki wird selbst die neue gesichtslose Gestalt im Spiegel." },
           { q:"Woran sieht man, dass der Fluch weitergeht?", a:"Jahre später bleibt wieder ein Schüler bis spät — und hört Klaviermusik (Endlosschleife)." }
         ],
-        grammatik: "Konditional たら/ば · 受身 (塗りつぶされる/つつまれる) · はずがない · てある (かくしてある/書いてある) · てしまう · なくなる · ところ (出て行くところ) · ながら · そっくり · Potential (消えられる/出られる) · てもらえる · のように",
+        grammatik: "NEU: 〜わけがない — WIEDERHOLT (frühere N3-Punkte): 〜はず (はずがない) — BASIS: 〜たら/〜ば · 受身 (塗りつぶされる・つつまれる) · 〜てある (かくしてある・書いてある) · 〜てしまう · 〜なくなる · 〜ところ (出て行くところ) · 〜ながら · そっくり · Potential (消えられる・出られる) · 〜てもらえる · 〜のように",
         n3: {
           punkt: "〜わけがない ＝ das kann unmöglich sein",
           de: "わけ heißt »Grund / logischer Schluss«. 〜わけがない = »es gibt keinen Grund dafür« → »das kann unmöglich so sein«. Verwandte Formen: 〜わけだ »das heißt also / logischerweise«; 〜わけではない »das heißt nicht unbedingt«.",
@@ -1482,7 +1482,7 @@ window.LESEN_KAPITEL = [
           { q:"Was verrät die Karte über die Denkweise des Täters?", a:"Er hält das Töten für „Güte“: Seine „Puppe“ sei die glücklichste der Welt, denn sie müsse nie wieder weinen. Er mordet und glaubt, damit Gutes zu tun." },
           { q:"Womit endet das Kapitel?", a:"Auf dem Dach gegenüber winkt der Täter, verschwindet und lässt eine Puppe mit Tanakas Gesicht zurück, dazu eine Karte: »Als Nächstes mache ich Sie glücklich.« Tanaka kann vor Angst nur lachen — der Kampf gegen den „Puppenmacher“ beginnt." }
         ],
-        grammatik: "〜ずにはいられない (笑わずにはいられない) · 〜に違いない (作ったに違いない) · 〜てある (ぬってある・書いてある・はってある) · 〜ように (あいさつするように) · 〜のに (殺しているのに) · 〜なくらい (ふしぎなくらい) · 〜かもしれない · 命令形 (追え) · 〜てあげる (しあわせにしてあげる) · 〜しか…ない (わらうしかなかった) · 〜と呼ばれる (人形師と呼ばれる)",
+        grammatik: "NEU: 〜ずにはいられない (笑わずにはいられない) — WIEDERHOLT (frühere N3-Punkte): 〜に違いない (作ったに違いない) · 〜ように (あいさつするように) — BASIS: 〜のに (殺しているのに) · 〜なくらい (ふしぎなくらい) · 〜かもしれない · 命令形 (追え) · 〜てあげる (しあわせにしてあげる) · 〜しか…ない (わらうしかなかった) · 〜と呼ばれる (人形師と呼ばれる)",
         n3: {
           punkt: "〜ずにはいられない ＝ ich kann nicht anders, als zu …",
           de: "Nimm die ない-Form, ersetze ない durch ずに und häng いられない an: »ich kann es nicht lassen / kann mich nicht zurückhalten, zu …«. Ein Drang, dem man nicht widersteht. する → せずにはいられない. <ruby>笑<rt>わら</rt></ruby>わずにはいられない = »ich muss einfach lachen«.",
@@ -1567,7 +1567,7 @@ window.LESEN_KAPITEL = [
           { q:"Was ist die verstörende Logik des Täters?", a:"Er hält sein Tun nicht für Mord, sondern fürs Retten: Er kann nicht zusehen, wie einsame Menschen weinen, und „befreit“ sie, indem er sie für immer lächeln lässt. Gerade weil er es für Güte hält, ist es am furchtbarsten." },
           { q:"Was haben die Opfer gemeinsam, und womit endet das Kapitel?", a:"Beide waren einsame, allein lebende Menschen — der Täter wählt einsame Menschen aus. Am Ende war jemand in Tanakas Wohnung (Licht an, die Puppe mit seinem Gesicht auf dem Tisch, eine Karte) — und hinter Tanaka steht jemand." }
         ],
-        grammatik: "〜くせに (ころしたくせに) · 〜にとって (犯人にとって) · 〜こそ (だからこそ) · 〜ば〜ほど (考えれば考えるほど) · 〜そうだ／みたい (いたそうです・人形だったみたい) · 〜はずなのに (消したはずなのに) · 受身 (ぬわれ・される) · 〜ている/〜ていく · 〜てあげる (つれていってあげます) · 命令形 (ねむれ) · 〜つもり",
+        grammatik: "NEU: 〜くせに (ころしたくせに) — WIEDERHOLT (frühere N3-Punkte): 〜こそ (だからこそ) · 〜ば〜ほど (考えれば考えるほど) · 〜はず (消したはずなのに) — BASIS: 〜にとって (犯人にとって) · 〜そうだ／みたい (いたそうです・人形だったみたい) · 受身 (ぬわれ・される) · 〜ている/〜ていく · 〜てあげる (つれていってあげます) · 命令形 (ねむれ) · 〜つもり",
         n3: {
           punkt: "〜くせに ＝ obwohl (mit Vorwurf/Verachtung)",
           de: "Wie 〜のに »obwohl«, aber mit klarem Vorwurf oder Verachtung: »obwohl er doch …!«. Hängt an die Plain-Form oder Nomen＋の. <ruby>人<rt>ひと</rt></ruby>を ころした くせに = »obwohl er Menschen getötet hat (und sich trotzdem so aufführt)«.",
@@ -1653,7 +1653,7 @@ window.LESEN_KAPITEL = [
           { q:"Womit versucht der Täter, Tanaka auf seine Seite zu ziehen?", a:"Er hat Tanaka beobachtet und kennt seine Einsamkeit (seit drei Jahren von der Frau getrennt, isst allein, kann niemandem seine Gefühle anvertrauen). Er behauptet, sie seien „gleich“, und Tanaka tue nur so, als wäre er ein guter Mensch." },
           { q:"Welche Spur hinterlässt der Täter, als er im Dunkeln verschwindet?", a:"Eine alte, zerschlissene Kinderpuppe mit fehlendem Auge; auf ihrem Rücken steht der Name eines früheren Kinderheims („Hikari-en“) — ein Hinweis auf seine eigene einsame Kindheit. Ein Grund ist das nicht, aber eine Spur." }
         ],
-        grammatik: "〜ふりをする (いい人のふりをして) · 〜まま (かまえたまま) · 〜のように (おじさんのように・けむりのように) · 〜ながら (わらいながら) · 〜てあげる (おくってあげた) · 〜かける (できかけて) · 〜だけ (したいだけ) · 〜なんて／なんか · 〜そう (いそうな) · 使役 (作らせない) · 〜ている/〜ていく",
+        grammatik: "NEU: 〜ふりをする (いい人のふりをして) — WIEDERHOLT (frühere N3-Punkte): 〜まま (かまえたまま) · 〜のように (おじさんのように・けむりのように) — BASIS: 〜ながら (わらいながら) · 〜てあげる (おくってあげた) · 〜かける (できかけて) · 〜だけ (したいだけ) · 〜なんて／なんか · 〜そう (いそうな) · 使役 (作らせない) · 〜ている/〜ていく",
         n3: {
           punkt: "〜ふりをする ＝ so tun, als ob … / vorgeben zu …",
           de: "Plain-Form / Nの + ふりをする = »so tun, als ob … / sich … stellen«. <ruby>寝<rt>ね</rt></ruby>た ふりを する = »sich schlafend stellen«; いい <ruby>人<rt>ひと</rt></ruby>の ふりを する = »den guten Menschen spielen«.",
@@ -1740,7 +1740,7 @@ window.LESEN_KAPITEL = [
           { q:"Was entdecken Tanaka und Sato im Keller der Ruine?", a:"Einen Raum voller hunderter lächelnder Puppen — und darunter echte, ausgetrocknete menschliche Überreste. In der Mitte steht ein neuer Stuhl mit einem Schild, das Tanakas Namen trägt: sein „Platz“." },
           { q:"Womit endet das Kapitel?", a:"Sato verschwindet, das Schlaflied erklingt, und eine Nadel sticht in Tanakas Nacken. Er sinkt betäubt zu Boden, während die sanfte Stimme des Täters sagt: »Lassen auch Sie uns glücklich werden.«" }
         ],
-        grammatik: "〜あげく (くるしめられたあげく) · 〜ように (見ているような・だきしめるように) · 〜ずに (あげずに) · 〜かける (くずれかけて) · 〜そうだ (しんだそうです) · 〜によると (きろくによると) · 受身 (くるしめられた・ならべられ) · 〜ながら (たおれながら) · 〜きり (二人きり) · 〜かもしれない · 〜てしまう · 意志 (なりましょう)",
+        grammatik: "NEU: 〜あげく (くるしめられたあげく) — WIEDERHOLT (frühere N3-Punkte): 〜ように (だきしめるように・見ているような) — BASIS: 〜ずに (あげずに) · 〜かける (くずれかけて) · 〜そうだ (しんだそうです) · 〜によると (きろくによると) · 受身 (くるしめられた・ならべられ) · 〜ながら (たおれながら) · 〜きり (二人きり) · 〜かもしれない · 〜てしまう · 意志 (なりましょう)",
         n3: {
           punkt: "〜あげく(に) ＝ nach langem … schließlich (meist schlimm)",
           de: "Verb-た-Form / Nの + あげく(に): Nach einem langen, oft mühsamen Vorgang kommt am Ende ein (fast immer schlechtes) Ergebnis. <ruby>悩<rt>なや</rt></ruby>んだ あげく = »nach langem Grübeln schließlich«.",
@@ -1832,7 +1832,7 @@ window.LESEN_KAPITEL = [
           { q:"Wie gewinnt Tanaka die Oberhand?", a:"Statt zu kämpfen, spricht er den Täter auf seine Vergangenheit als Satoru an — dass niemand ihm half, dass er nur jemanden brauchte, der ihm sagt »Du darfst leben«. Der Mann bricht weinend zusammen und lässt die Nadel fallen; Tanaka nutzt die Sekunde, lockert das Seil und stößt ihn weg." },
           { q:"Wie endet das Kapitel — und warum ist das Ende so beunruhigend?", a:"Eine umgekippte Kerze setzt die Puppen in Brand; Tanaka rettet Sato hinaus, der Täter bleibt lächelnd im Feuer. Doch danach findet die Feuerwehr keine Leiche — genau wie vor dreißig Jahren. Tanaka ahnt: Es ist noch nicht vorbei." }
         ],
-        grammatik: "〜まい (にがすまい) · 〜ように (見ているような) · 〜だけ (ねむっているだけ) · 〜ないと (かせがないと) · 〜てほしい (言ってほしかった) · 〜（よ）うとする (うごこうとしない) · 命令形 (やめろ・おきろ) · 意志 (はじめましょう) · 受身 (しばられて・かこまれて) · 使役 (はたらかせる) · 〜てしまう · 〜つづける",
+        grammatik: "NEU: 〜まい (にがすまい) — WIEDERHOLT (frühere N3-Punkte): 〜ように (見ているような) · 〜（よ）うとする (うごこうとしない) — BASIS: 〜だけ (ねむっているだけ) · 〜ないと (かせがないと) · 〜てほしい (言ってほしかった) · 命令形 (やめろ・おきろ) · 意志 (はじめましょう) · 受身 (しばられて・かこまれて) · 使役 (はたらかせる) · 〜てしまう · 〜つづける",
         n3: {
           punkt: "〜まい ＝ werde gewiss nicht … / wird wohl nicht …",
           de: "Nachdrücklich/literarisch: »ich werde ganz sicher NICHT …« (fester Entschluss) oder »… wohl nicht« (Vermutung). <ruby>逃<rt>に</rt></ruby>がすまい = »ich lasse ihn gewiss nicht entkommen«. Gruppe I: Wörterbuchform + まい; Gruppe II/する: oft しまい/するまい.",
@@ -1920,7 +1920,7 @@ window.LESEN_KAPITEL = [
           { q:"Was findet Tanaka im Haus der Ex-Frau?", a:"Die betäubte, aber lebende Ex-Frau, Akari verschwunden, eine Akari-ähnliche Puppe und eine Karte, die eine stillgelegte Spielzeugfabrik markiert." },
           { q:"Womit endet das Kapitel?", a:"In der Fabrik, beim Klang des Schlaflieds, sieht Tanaka Akari auf einem Stuhl — und dahinter den lächelnden Täter: »Es ist Zeit für die letzte Familienstunde.«" }
         ],
-        grammatik: "〜ことか (さびしかったことか) · 〜はず (おわるはずでした) · 〜ながら (走りながら) · 〜てあげる (してあげましょう) · 使役 (ころさせない・ねむらされて) · 〜ても (何度かけても) · 〜てから (離婚してから) · 〜だけ (ねむらされているだけ) · 〜ている/〜てくる · のです · そっくり · 〜ておく (ほうっておいた)",
+        grammatik: "NEU: 〜ことか (さびしかったことか) — WIEDERHOLT (frühere N3-Punkte): 〜はず (おわるはずでした) — BASIS: 〜ながら (走りながら) · 〜てあげる (してあげましょう) · 使役 (ころさせない・ねむらされて) · 〜ても (何度かけても) · 〜てから (離婚してから) · 〜だけ (ねむらされているだけ) · 〜ている/〜てくる · のです · そっくり · 〜ておく (ほうっておいた)",
         n3: {
           punkt: "〜ことか ＝ wie sehr …! (Ausruf)",
           de: "Mit einem Fragewort (どんなに, なんと, どれほど) + Plain-Form + ことか drückst du ein starkes Gefühl aus: »wie sehr …!«, »ach, wie …«. Es ist ein emotionaler Ausruf, keine echte Frage.",
@@ -2010,7 +2010,7 @@ window.LESEN_KAPITEL = [
           { q:"Wie wird Akari gerettet, und wer kommt rechtzeitig?", a:"Tanaka stürzt sich auf den Täter (und wird von der Nadel verletzt) und ruft Akari zur Flucht — ihr Seil war nur locker. Sato und viele Polizisten stürmen herein; der Täter kann nirgends mehr hin." },
           { q:"Wie endet die Geschichte?", a:"Der Täter sinkt mit seiner kaputten Kindheitspuppe auf die Knie (»Ich war doch nur einsam«) und lässt sich ruhig festnehmen — kein Puppenmacher mehr, nur ein weinendes Kind. Draußen hat der Regen aufgehört; Tanaka umarmt Akari und verspricht, für immer da zu sein. Für jemanden da zu sein — das ist es, was einen Menschen rettet." }
         ],
-        grammatik: "〜てこそ (いてこそ) · 〜たら (うごいたら) · 〜ばかり (しごとばかり) · 〜ように (子どものように) · 〜（よ）うとする (にげようとした) · 〜まま (もったまま) · 命令形 (出すな・にげろ・走れ) · 〜てやる (つないでやれ) · 受身 (しばられた・むすばれて) · 〜ても (ないても・作っても) · のだ",
+        grammatik: "NEU: 〜てこそ (いてこそ) — WIEDERHOLT (frühere N3-Punkte): 〜ように (子どものように) · 〜（よ）うとする (にげようとした) · 〜まま (もったまま) — BASIS: 〜たら (うごいたら) · 〜ばかり (しごとばかり) · 命令形 (出すな・にげろ・走れ) · 〜てやる (つないでやれ) · 受身 (しばられた・むすばれて) · 〜ても (ないても・作っても) · のだ",
         n3: {
           punkt: "〜てこそ ＝ erst dadurch, dass … (wirklich)",
           de: "Verb-て-Form + こそ: »erst wenn / erst dadurch, dass man wirklich … (tut)«. Betont, dass etwas NUR durch diese Handlung wahr wird. <ruby>守<rt>まも</rt></ruby>ってこそ <ruby>親<rt>おや</rt></ruby>だ = »erst wenn man sie beschützt, ist man wirklich Vater/Mutter«.",
@@ -2104,7 +2104,7 @@ window.LESEN_KAPITEL = [
           { q:"Welche unheimlichen Zeichen treten in der ersten Nacht auf?", a:"Das Badlicht geht immer wieder von selbst an; nachts tropft Wasser, obwohl der Hahn zu ist; der Boden ist klatschnass, und kleine nasse Frauen-Fußabdrücke führen vom Bad bis neben Yuis Futon." },
           { q:"Wie endet das Kapitel?", a:"Die Nachbarin warnt, schon mehrere seien dort „erwischt“ worden. In der nächsten Nacht geht das Licht aus, eine kalte nasse Hand packt Yuis Fußgelenk, eine Frauenstimme sagt »Gefunden«. Am Morgen ist Yui verschwunden — nur nasse Fußabdrücke bleiben, und die Miete wird wieder halbiert." }
         ],
-        grammatik: "〜っぱなし (つけっぱなし) · 〜ても (けしても) · 〜はずなのに (しめたはずなのに) · 〜ように (ねているように) · 〜（よ）うとする (ねむろうとした) · 〜ば (やすければ) · 〜たら (つかまったら) · 〜ほうがいい (出たほうがいい) · 〜ずに (出せずに) · 〜てみる (聞いてみた) · 〜ている/〜ていく · のです",
+        grammatik: "NEU: 〜っぱなし (つけっぱなし) — WIEDERHOLT (frühere N3-Punkte): 〜はず (しめたはずなのに) · 〜ように (ねているように) · 〜（よ）うとする (ねむろうとした) — BASIS: 〜ても (けしても) · 〜ば (やすければ) · 〜たら (つかまったら) · 〜ほうがいい (出たほうがいい) · 〜ずに (出せずに) · 〜てみる (聞いてみた) · 〜ている/〜ていく · のです",
         n3: {
           punkt: "〜っぱなし ＝ … (gelassen) und so belassen / ständig",
           de: "Verb-ますStamm + っぱなし: man tut etwas und LÄSST es dann so (oft nachlässig). <ruby>電気<rt>でんき</rt></ruby>を つけっぱなし = »das Licht angelassen«; <ruby>窓<rt>まど</rt></ruby>を <ruby>開<rt>あ</rt></ruby>けっぱなし = »das Fenster offen gelassen«. Auch im Sinn von »dauernd, ohne Pause«.",
