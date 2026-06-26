@@ -735,5 +735,12 @@ window.LESEN_WOERTER = [
   { w:"あやうく", de:"um ein Haar, beinahe" },
   { w:"かんしゃ (感謝)", de:"Dank, Dankbarkeit; danken" },
   { w:"おきる (起きる)", de:"geschehen, sich ereignen; aufstehen, aufwachen" },
-  { w:"あぶない (危ない)", de:"gefährlich; Vorsicht!" }
+  { w:"あぶない (危ない)", de:"gefährlich; Vorsicht!" },
+  { w:"濡れる (ぬれる)", de:"nass werden" },
+  { w:"そんな", de:"so ein, solch ein, derartig" },
+  { w:"すれば", de:"wenn man (es) tut (ば-Form von する)" },
+  { w:"いく (行く)", de:"gehen; (nach て-Form) allmählich … werden" },
+  { w:"書く (かく)", de:"schreiben" },
+  { w:"思いうかべる (思い浮かべる)", de:"sich vergegenwärtigen, ins Gedächtnis rufen" },
+  { w:"うかぶ (浮かぶ)", de:"auftauchen, in den Sinn kommen; schwimmen" }
 ];
