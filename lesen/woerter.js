@@ -733,5 +733,7 @@ window.LESEN_WOERTER = [
   { w:"なんて", de:"so etwas wie …; … und so (abwertend/erstaunt)" },
   { w:"つらい (辛い)", de:"hart, schmerzlich, quälend" },
   { w:"あやうく", de:"um ein Haar, beinahe" },
-  { w:"かんしゃ (感謝)", de:"Dank, Dankbarkeit; danken" }
+  { w:"かんしゃ (感謝)", de:"Dank, Dankbarkeit; danken" },
+  { w:"おきる (起きる)", de:"geschehen, sich ereignen; aufstehen, aufwachen" },
+  { w:"あぶない (危ない)", de:"gefährlich; Vorsicht!" }
 ];
