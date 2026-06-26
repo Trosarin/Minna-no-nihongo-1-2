@@ -726,5 +726,12 @@ window.LESEN_WOERTER = [
   { w:"のみこむ (飲み込む)", de:"verschlingen, hinunterschlucken" },
   { w:"のまれる (飲まれる)", de:"verschlungen werden" },
   { w:"かるい (軽い)", de:"leicht (Gewicht)" },
-  { w:"なきだす (泣き出す)", de:"in Tränen ausbrechen, losweinen" }
+  { w:"なきだす (泣き出す)", de:"in Tränen ausbrechen, losweinen" },
+  { w:"しらべる (調べる)", de:"untersuchen, ermitteln, nachschlagen" },
+  { w:"ちっとも", de:"kein bisschen, überhaupt nicht (+ Verneinung)" },
+  { w:"ふつう (普通)", de:"normal, gewöhnlich" },
+  { w:"なんて", de:"so etwas wie …; … und so (abwertend/erstaunt)" },
+  { w:"つらい (辛い)", de:"hart, schmerzlich, quälend" },
+  { w:"あやうく", de:"um ein Haar, beinahe" },
+  { w:"かんしゃ (感謝)", de:"Dank, Dankbarkeit; danken" }
 ];
