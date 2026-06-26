@@ -710,5 +710,21 @@ window.LESEN_WOERTER = [
   { w:"メイ", de:"Mei (weiblicher Vorname)" },
   { w:"でんわ (電話)", de:"Telefon; anrufen" },
   { w:"みる (見る)", de:"sehen, schauen; (nach て-Form) einmal versuchen" },
-  { w:"寝る (ねる)", de:"schlafen, sich hinlegen" }
+  { w:"寝る (ねる)", de:"schlafen, sich hinlegen" },
+  { w:"こんな", de:"so ein, solch ein" },
+  { w:"あんなに", de:"so sehr, dermaßen" },
+  { w:"さっき", de:"vorhin, eben" },
+  { w:"さいご (最後)", de:"das Letzte, Ende, Schluss" },
+  { w:"かぎり (限り)", de:"solange …, soweit …" },
+  { w:"きえる (消える)", de:"verschwinden, erlöschen" },
+  { w:"まける (負ける)", de:"verlieren, unterliegen" },
+  { w:"勝つ (かつ)", de:"siegen, gewinnen" },
+  { w:"まよう (迷う)", de:"sich verirren; zögern, zweifeln" },
+  { w:"ひとり (一人)", de:"eine Person; allein" },
+  { w:"こし (腰)", de:"Hüfte, Kreuz" },
+  { w:"ぬかす", de:"auslassen; 腰をぬかす »vor Schreck zusammensacken«" },
+  { w:"のみこむ (飲み込む)", de:"verschlingen, hinunterschlucken" },
+  { w:"のまれる (飲まれる)", de:"verschlungen werden" },
+  { w:"かるい (軽い)", de:"leicht (Gewicht)" },
+  { w:"なきだす (泣き出す)", de:"in Tränen ausbrechen, losweinen" }
 ];

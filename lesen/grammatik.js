@@ -122,6 +122,7 @@ window.LESEN_GRAMMAR = [
   { k:"きれた", t:"g", label:"〜きれない (nicht ganz …-können)", de:"Vます+きる »ganz zu Ende tun«; 〜きれた/きれない. (N3)" },
   { k:"きれず", t:"g", label:"〜きれない (nicht ganz …-können)", de:"Vます+きれず = »nicht ganz schaffen, und …«. (N3)" },
   { k:"ところだった", t:"g", label:"〜ところだった (beinahe wäre …)", de:"»um ein Haar wäre … passiert (ist aber nicht)« — oft mit もう少しで. (N3)" },
+  { k:"ところでした", t:"g", label:"〜ところだった (beinahe wäre …)", de:"Höfliche Form von 〜ところだった: »um ein Haar wäre … passiert (ist aber nicht)« — oft mit もう少しで. (N3)" },
   { k:"かのよう", t:"g", label:"〜かのようだ (als ob)", de:"»(gerade) so, als ob …« — oft mit まるで. Vergleich mit etwas Irrealem. (N3)" },
   { k:"ないと", t:"g", label:"〜ないと(いけない) (muss / sonst)", de:"»wenn nicht …(, dann schlecht)« → kurz für »ich muss …«. Der zweite Teil bleibt oft weg. (N3)" },
   { k:"とたん", t:"g", label:"〜たとたん（に）(kaum dass / im selben Moment)", de:"た-Form + とたん = »kaum dass … / im selben Moment, als …« — meist mit Überraschung. (N3)" },
