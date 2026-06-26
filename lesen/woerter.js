@@ -742,5 +742,9 @@ window.LESEN_WOERTER = [
   { w:"いく (行く)", de:"gehen; (nach て-Form) allmählich … werden" },
   { w:"書く (かく)", de:"schreiben" },
   { w:"思いうかべる (思い浮かべる)", de:"sich vergegenwärtigen, ins Gedächtnis rufen" },
-  { w:"うかぶ (浮かぶ)", de:"auftauchen, in den Sinn kommen; schwimmen" }
+  { w:"うかぶ (浮かぶ)", de:"auftauchen, in den Sinn kommen; schwimmen" },
+  { w:"にげる (逃げる)", de:"fliehen, weglaufen, entkommen" },
+  { w:"聞く (きく)", de:"hören; fragen" },
+  { w:"おねえちゃん (お姉ちゃん)", de:"große Schwester (vertraut)" },
+  { w:"日 (ひ)", de:"Tag; Sonne" }
 ];
