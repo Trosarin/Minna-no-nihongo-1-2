@@ -3086,6 +3086,228 @@ const CARDS = [
    ],
    note:"💡 Oft in Sprichwörtern/Lebensweisheiten.<br>🔄 Verwandt mit <b>こそ</b> (Betonung), hier mit て-Form als Voraussetzung."},
 
+  // ============ LEKTION 17 — N3: Vergleich & Bezug ============
+  {l:17, t:"〜に<ruby>対<rt>たい</rt></ruby>して", de:"gegenüber … / gegen … / im Gegensatz zu …",
+   simpel:"Richtung/Gegenüber einer Handlung — oder ein Kontrast.<br><span class=\"jp\"><ruby>先生<rt>せんせい</rt></ruby><b>に対して</b> <ruby>失礼<rt>しつれい</rt></ruby>だ</span> = „dem Lehrer gegenüber unhöflich“",
+   rule:"N + に対して: (1) »gegenüber / gegen« — Ziel/Adressat einer Haltung oder Handlung; (2) Kontrast »im Gegensatz zu, wohingegen«. Attributiv: に対する + N.",
+   build:[
+    {form:"Gegenüber",verb:"N + に<ruby>対<rt>たい</rt></ruby>して",de:"jdm./etw. gegenüber"},
+    {form:"Kontrast",verb:"A に対して、B",de:"A, wohingegen B"},
+    {form:"attributiv",verb:"N に<ruby>対<rt>たい</rt></ruby>する + N",de:"das … gegenüber dem N"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Adressat"},{text:"に<ruby>対<rt>たい</rt></ruby>して",role:"actor",label:"gegenüber"},{text:"[Haltung/Handlung]",role:"verb"}],gloss:"»gegenüber / gegen N« (Adressat einer Haltung) oder »im Gegensatz zu« (Kontrast). Attributiv: に対する + N."},
+   bauplan:[
+    "Nenne den <b>Adressaten/Gegenstand</b> als Nomen.",
+    "Hänge <code>に<ruby>対<rt>たい</rt></ruby>して</code> an → »gegenüber / gegen«.",
+    "Setze die Haltung/Handlung dahinter (<code><ruby>失礼<rt>しつれい</rt></ruby>だ</code>, <code><ruby>答<rt>こた</rt></ruby>える</code>).",
+    "Für einen Kontrast: <code>A に対して、B</code>; vor Nomen <code>に<ruby>対<rt>たい</rt></ruby>する</code>."
+   ],
+   ex:[
+    {jp:"<ruby>質問<rt>しつもん</rt></ruby><b>に対して</b> <ruby>答<rt>こた</rt></ruby>える。",de:"Auf die Frage antworten."},
+    {jp:"お<ruby>客<rt>きゃく</rt></ruby><b>に対して</b> ていねいに <ruby>話<rt>はな</rt></ruby>す。",de:"Mit Kunden höflich sprechen."},
+    {jp:"<ruby>兄<rt>あに</rt></ruby>が <ruby>静<rt>しず</rt></ruby>かなの<b>に対して</b>、<ruby>弟<rt>おとうと</rt></ruby>は <ruby>元気<rt>げんき</rt></ruby>だ。",de:"Der große Bruder ist ruhig, wohingegen der kleine lebhaft ist."}
+   ],
+   note:"🔄 <b>に対して</b> (Adressat/Kontrast) vs <b>について</b> (Thema »über«).<br>⚠ Vor Nomen: <b>に対する</b> + N."},
+
+  {l:17, t:"〜に<ruby>比<rt>くら</rt></ruby>べて", de:"im Vergleich zu …",
+   simpel:"Vergleichsbasis: »verglichen mit …«.<br><span class=\"jp\"><ruby>去年<rt>きょねん</rt></ruby><b>に比べて</b></span> = „im Vergleich zum letzten Jahr“",
+   rule:"N + に比べて = »verglichen mit N«. Stellt einen Maßstab für einen Vergleich auf. Variante に比べ (formeller).",
+   build:[
+    {form:"Muster",verb:"N + に<ruby>比<rt>くら</rt></ruby>べて",de:"verglichen mit N"},
+    {form:"formeller",verb:"N + に<ruby>比<rt>くら</rt></ruby>べ",de:"schriftlich"},
+    {form:"≈",verb:"〜より",de:"Alltag"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Vergleichsbasis"},{text:"に<ruby>比<rt>くら</rt></ruby>べて",role:"actor",label:"verglichen mit"},{text:"[Unterschied]",role:"verb"}],gloss:"»Verglichen mit N ist …« — stellt die Vergleichsbasis heraus. Etwas formeller als より."},
+   bauplan:[
+    "Nenne die <b>Vergleichsbasis</b> als Nomen (<code><ruby>去年<rt>きょねん</rt></ruby></code>, <code><ruby>都会<rt>とかい</rt></ruby></code>).",
+    "Hänge <code>に<ruby>比<rt>くら</rt></ruby>べて</code> an.",
+    "Setze den <b>Unterschied</b> dahinter (heißer, ruhiger, besser …).",
+    "Im Alltag geht auch schlicht <code>〜より</code>."
+   ],
+   ex:[
+    {jp:"<ruby>去年<rt>きょねん</rt></ruby><b>に比べて</b> <ruby>暑<rt>あつ</rt></ruby>い。",de:"Verglichen mit dem letzten Jahr ist es heiß."},
+    {jp:"<ruby>都会<rt>とかい</rt></ruby><b>に比べて</b> <ruby>田舎<rt>いなか</rt></ruby>は <ruby>静<rt>しず</rt></ruby>かだ。",de:"Im Vergleich zur Stadt ist das Land ruhig."},
+    {jp:"<ruby>前<rt>まえ</rt></ruby><b>に比べて</b> <ruby>上手<rt>じょうず</rt></ruby>に なった。",de:"Verglichen mit früher bin ich besser geworden."}
+   ],
+   note:"🔄 ≈ <b>より</b> (Alltag); <b>に比べて</b> ist formeller und stellt die Basis klar heraus."},
+
+  {l:17, t:"〜に<ruby>加<rt>くわ</rt></ruby>えて", de:"zusätzlich zu … / neben …",
+   simpel:"Etwas kommt hinzu: »zusätzlich zu …«.<br><span class=\"jp\"><ruby>雨<rt>あめ</rt></ruby><b>に加えて</b> <ruby>風<rt>かぜ</rt></ruby>も</span> = „zusätzlich zum Regen auch Wind“",
+   rule:"N + に加えて = »zusätzlich zu N (kommt noch …)«. Fügt eine weitere Sache/Eigenschaft hinzu; schriftlich. Oft mit も im Folgeteil.",
+   build:[
+    {form:"Muster",verb:"N + に<ruby>加<rt>くわ</rt></ruby>えて",de:"zusätzlich zu N"},
+    {form:"oft",verb:"… も (auch noch)",de:"additiv"},
+    {form:"Register",verb:"schriftlich",de:"formeller"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Basis"},{text:"に<ruby>加<rt>くわ</rt></ruby>えて",role:"actor",label:"zusätzlich zu"},{text:"[+ etwas mehr]",role:"verb"}],gloss:"»Zusätzlich zu N kommt noch …« — fügt eine weitere Sache hinzu, schriftlich, oft mit も."},
+   bauplan:[
+    "Nenne die <b>erste Sache</b> N (Grund/Eigenschaft, die schon da ist).",
+    "Hänge <code>に<ruby>加<rt>くわ</rt></ruby>えて</code> an → »zusätzlich zu«.",
+    "Setze die <b>weitere</b> Sache dahinter, oft mit <code>も</code>.",
+    "Alltag/mündlich lieber <code>〜だけでなく</code>."
+   ],
+   ex:[
+    {jp:"<ruby>雨<rt>あめ</rt></ruby><b>に加えて</b>、<ruby>風<rt>かぜ</rt></ruby>も <ruby>強<rt>つよ</rt></ruby>くなった。",de:"Zusätzlich zum Regen wurde auch der Wind stärker."},
+    {jp:"<ruby>学費<rt>がくひ</rt></ruby><b>に加えて</b>、<ruby>生活費<rt>せいかつひ</rt></ruby>も かかる。",de:"Neben den Studiengebühren fallen auch Lebenshaltungskosten an."},
+    {jp:"<ruby>実力<rt>じつりょく</rt></ruby><b>に加えて</b> <ruby>運<rt>うん</rt></ruby>も あった。",de:"Zum Können kam auch noch Glück hinzu."}
+   ],
+   note:"🔄 ≈ <b>〜だけでなく</b>. Schriftsprachlich und additiv (»obendrein«)."},
+
+  {l:17, t:"〜に<ruby>関<rt>かん</rt></ruby>して", de:"bezüglich … / in Bezug auf …",
+   simpel:"Formelles »über/bezüglich«: das Thema einer Aussage.<br><span class=\"jp\">その <ruby>件<rt>けん</rt></ruby><b>に関して</b></span> = „bezüglich dieser Sache“",
+   rule:"N + に関して = »bezüglich N / was N betrifft«, formeller als について. Attributiv: に関する + N.",
+   build:[
+    {form:"Muster",verb:"N + に<ruby>関<rt>かん</rt></ruby>して",de:"bezüglich N"},
+    {form:"attributiv",verb:"N に<ruby>関<rt>かん</rt></ruby>する + N",de:"das N betreffende …"},
+    {form:"≈",verb:"〜について",de:"etwas lockerer"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Thema"},{text:"に<ruby>関<rt>かん</rt></ruby>して",role:"actor",label:"bezüglich"},{text:"[Aussage]",role:"verb"}],gloss:"»Bezüglich N / was N betrifft …« — formeller als について. Attributiv: に関する + N."},
+   bauplan:[
+    "Nenne das <b>Thema</b> als Nomen.",
+    "Hänge <code>に<ruby>関<rt>かん</rt></ruby>して</code> an → »bezüglich«.",
+    "Setze die Aussage/Handlung dahinter (<code><ruby>話<rt>はな</rt></ruby>す</code>, <code><ruby>調<rt>しら</rt></ruby>べる</code>).",
+    "Vor Nomen: <code>に<ruby>関<rt>かん</rt></ruby>する</code> + N (<code><ruby>環境<rt>かんきょう</rt></ruby>に関する <ruby>問題<rt>もんだい</rt></ruby></code>)."
+   ],
+   ex:[
+    {jp:"<ruby>事件<rt>じけん</rt></ruby><b>に関して</b> <ruby>話<rt>はな</rt></ruby>す。",de:"Über den Vorfall sprechen."},
+    {jp:"<ruby>環境<rt>かんきょう</rt></ruby><b>に関する</b> <ruby>問題<rt>もんだい</rt></ruby>。",de:"Umweltbezogene Probleme."},
+    {jp:"その <ruby>件<rt>けん</rt></ruby><b>に関しては</b>、<ruby>後<rt>あと</rt></ruby>で <ruby>説明<rt>せつめい</rt></ruby>します。",de:"Bezüglich dieser Sache erkläre ich es später."}
+   ],
+   note:"🔄 <b>に関して</b> (formell) ≈ <b>について</b> (neutral).<br>⚠ Vor Nomen: <b>に関する</b> + N."},
+
+  {l:17, t:"〜において / 〜における", de:"in / bei / auf (Ort, Zeit, Bereich) — formell",
+   simpel:"Formelles で für Ort/Zeit/Bereich: »in/bei«.<br><span class=\"jp\"><ruby>会議<rt>かいぎ</rt></ruby><b>において</b></span> = „bei der Sitzung“",
+   rule:"N + において = formelles »in/bei/auf« für Ort, Zeitpunkt oder abstrakten Bereich (wie で, aber schriftlich). Attributiv: における + N.",
+   build:[
+    {form:"Muster",verb:"N + において",de:"in/bei/auf N (formell)"},
+    {form:"attributiv",verb:"N + における + N",de:"das … in N"},
+    {form:"≈",verb:"〜で",de:"Alltag"}
+   ],
+   pattern:{slots:[{text:"N",role:"time",label:"Ort/Zeit/Bereich"},{text:"において",role:"actor",label:"in/bei"},{text:"[Ereignis]",role:"verb"}],gloss:"Formelles で: »in/bei/auf« für Ort, Zeit oder abstrakten Bereich. Nur schriftlich/formell. Attributiv: における + N."},
+   bauplan:[
+    "Nenne <b>Ort, Zeit oder Bereich</b> als Nomen.",
+    "Hänge <code>において</code> an → formelles »in/bei«.",
+    "Setze das Ereignis/die Aussage dahinter.",
+    "Vor Nomen: <code>における</code> + N (<code><ruby>現代<rt>げんだい</rt></ruby>における <ruby>家族<rt>かぞく</rt></ruby></code>). Alltag: schlicht <code>で</code>."
+   ],
+   ex:[
+    {jp:"<ruby>会議<rt>かいぎ</rt></ruby><b>において</b> <ruby>決定<rt>けってい</rt></ruby>された。",de:"Bei der Sitzung wurde es beschlossen."},
+    {jp:"<ruby>現代<rt>げんだい</rt></ruby><b>における</b> <ruby>家族<rt>かぞく</rt></ruby>の <ruby>形<rt>かたち</rt></ruby>。",de:"Die Form der Familie in der Gegenwart."},
+    {jp:"<ruby>歴史<rt>れきし</rt></ruby><b>において</b> <ruby>重要<rt>じゅうよう</rt></ruby>な <ruby>出来事<rt>できごと</rt></ruby>。",de:"Ein in der Geschichte bedeutendes Ereignis."}
+   ],
+   note:"🔄 = formelles <b>で</b>. Nur schriftlich/formell (Reden, Aufsätze).<br>⚠ Vor Nomen: <b>における</b> + N."},
+
+  // ============ LEKTION 18 — N3: Eigenschaft & Anschein ============
+  {l:18, t:"Vマス / N + がち", de:"neigt zu … / oft … (meist negativ)",
+   simpel:"Tendenz, oft unerwünscht: »neigt dazu, zu …«.<br><span class=\"jp\"><ruby>忘<rt>わす</rt></ruby>れ<b>がち</b></span> = „vergisst oft / neigt zum Vergessen“",
+   rule:"V<sub>ます</sub>-Stamm / Nomen + がち = »neigt zu …, tut oft …«, meist etwas Negatives/Unerwünschtes. 病気がち »kränklich«, 遅れがち »oft verspätet«.",
+   build:[
+    {form:"Verb",verb:"V<sub>マス</sub> + がち",de:"neigt zu / oft V"},
+    {form:"Nomen",verb:"N + がち",de:"neigt zu N"},
+    {form:"Nuance",verb:"meist negativ",de:"unerwünscht"}
+   ],
+   pattern:{slots:[{text:"V<sub>マス</sub> / N",role:"subj"},{text:"がち",role:"plain",label:"neigt zu (oft)"}],gloss:"»Neigt dazu / passiert oft« — meist etwas Negatives. Vます-Stamm oder Nomen + がち."},
+   bauplan:[
+    "Bilde den <b>ます-Stamm</b> (<code><ruby>忘<rt>わす</rt></ruby>れる→忘れ</code>) oder nimm ein <b>Nomen</b>.",
+    "Hänge <code>がち</code> an → »neigt zu / oft«.",
+    "Meist für <b>Unerwünschtes</b> (Vergessen, Verspätung, Krankheit).",
+    "Vor Nomen: <code>がちの/がちな</code> + N (<code><ruby>曇<rt>くも</rt></ruby>りがちの <ruby>天気<rt>てんき</rt></ruby></code>)."
+   ],
+   ex:[
+    {jp:"<ruby>最近<rt>さいきん</rt></ruby> <ruby>疲<rt>つか</rt></ruby>れ<b>がち</b>だ。",de:"In letzter Zeit bin ich oft müde."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>学校<rt>がっこう</rt></ruby>を <ruby>休<rt>やす</rt></ruby>み<b>がち</b>だ。",de:"Er fehlt häufig in der Schule."},
+    {jp:"<ruby>曇<rt>くも</rt></ruby>り<b>がち</b>の <ruby>天気<rt>てんき</rt></ruby>。",de:"Überwiegend bewölktes Wetter."}
+   ],
+   note:"⚠ Meist <b>Negatives</b>.<br>🔄 vgl. <b>〜っぽい</b> (Anschein/Neigung) und <b>〜やすい</b> (leicht geschehend, neutral)."},
+
+  {l:18, t:"〜っぽい", de:"wirkt wie … / neigt zu … / -haft",
+   simpel:"»wirkt wie / hat viel von …« — macht Adjektive aus Nomen/Verben.<br><span class=\"jp\"><ruby>子<rt>こ</rt></ruby>ども<b>っぽい</b></span> = „kindisch“",
+   rule:"N / V<sub>ます</sub> / Adj-Stamm + っぽい = »hat den Anschein/die Neigung von …«. Wird wie ein い-Adjektiv verwendet. 水っぽい »wässrig«, 忘れっぽい »vergesslich«, 怒りっぽい »reizbar«.",
+   build:[
+    {form:"Nomen",verb:"N + っぽい",de:"-haft / wie …"},
+    {form:"Verb",verb:"V<sub>マス</sub> + っぽい",de:"neigt zu …"},
+    {form:"Flexion",verb:"wie い-Adjektiv",de:"っぽくない/っぽかった"}
+   ],
+   pattern:{slots:[{text:"N / V<sub>マス</sub>",role:"subj"},{text:"っぽい",role:"plain",label:"wirkt wie / neigt zu"}],gloss:"»Hat den Anschein/die Neigung von …« Wird wie ein い-Adjektiv gebeugt. 忘れっぽい »vergesslich«, 水っぽい »wässrig«."},
+   bauplan:[
+    "Nimm ein <b>Nomen</b> (Anschein) oder einen <b>ます-Stamm</b> (Neigung).",
+    "Hänge <code>っぽい</code> an.",
+    "Beuge es wie ein <b>い-Adjektiv</b> (<code>っぽくない</code>, <code>っぽかった</code>).",
+    "Vor Nomen direkt: <code><ruby>白<rt>しろ</rt></ruby>っぽい シャツ</code>."
+   ],
+   ex:[
+    {jp:"この スープは <ruby>水<rt>みず</rt></ruby><b>っぽい</b>。",de:"Diese Suppe ist wässrig."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>忘<rt>わす</rt></ruby>れ<b>っぽい</b>。",de:"Er ist vergesslich."},
+    {jp:"<ruby>白<rt>しろ</rt></ruby><b>っぽい</b> シャツ。",de:"Ein weißliches Hemd."}
+   ],
+   note:"⚠ Wird als <b>い-Adjektiv</b> gebeugt.<br>🔄 <b>子どもっぽい</b> (kindisch, negativ) ≠ <b>子どもらしい</b> (kindgerecht, positiv)."},
+
+  {l:18, t:"N + <ruby>向<rt>む</rt></ruby>き / N + <ruby>向<rt>む</rt></ruby>け", de:"geeignet für … / gerichtet an … (Zielgruppe)",
+   simpel:"<b>向き</b> = passt (von Natur) zu; <b>向け</b> = eigens gemacht für.<br><span class=\"jp\"><ruby>初心者<rt>しょしんしゃ</rt></ruby><b>向け</b></span> = „für Anfänger (gemacht)“",
+   rule:"N + 向き = »passt/eignet sich für« (eine Eigenschaft passt zufällig). N + 向け = »eigens gerichtet an / hergestellt für« (bewusste Zielgruppe).",
+   build:[
+    {form:"geeignet",verb:"N + <ruby>向<rt>む</rt></ruby>き",de:"passt (von selbst) zu"},
+    {form:"gerichtet an",verb:"N + <ruby>向<rt>む</rt></ruby>け",de:"extra hergestellt für"},
+    {form:"attributiv",verb:"〜<ruby>向<rt>む</rt></ruby>きの / 〜<ruby>向<rt>む</rt></ruby>けの + N",de:"vor Nomen"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Zielgruppe"},{text:"<ruby>向<rt>む</rt></ruby>き / <ruby>向<rt>む</rt></ruby>け",role:"plain",label:"passt / extra für"}],gloss:"向き = »passt (von selbst) zu« (zufällige Eignung). 向け = »eigens gemacht für« (bewusste Zielgruppe)."},
+   bauplan:[
+    "Nenne die <b>Zielgruppe/Ausrichtung</b> als Nomen.",
+    "Passt es von Natur aus? → <code><ruby>向<rt>む</rt></ruby>き</code>. Extra dafür gemacht? → <code><ruby>向<rt>む</rt></ruby>け</code>.",
+    "Vor Nomen: <code><ruby>向<rt>む</rt></ruby>きの / <ruby>向<rt>む</rt></ruby>けの</code> + N.",
+    "Merke Himmelsrichtung: <code><ruby>南<rt>みなみ</rt></ruby><ruby>向<rt>む</rt></ruby>き</code> = »nach Süden ausgerichtet«."
+   ],
+   ex:[
+    {jp:"この <ruby>仕事<rt>しごと</rt></ruby>は <ruby>女性<rt>じょせい</rt></ruby><b>向き</b>だ。",de:"Diese Arbeit eignet sich für Frauen."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>ども<b>向け</b>の <ruby>番組<rt>ばんぐみ</rt></ruby>。",de:"Eine Sendung für Kinder."},
+    {jp:"<ruby>南<rt>みなみ</rt></ruby><b>向き</b>の <ruby>部屋<rt>へや</rt></ruby>。",de:"Ein nach Süden ausgerichtetes Zimmer."}
+   ],
+   note:"🔄 <b>向き</b> (passt von selbst) ↔ <b>向け</b> (absichtlich für).<br>💡 <b>南向き</b> = »nach Süden gerichtet«."},
+
+  {l:18, t:"〜らしい", de:"anscheinend … / typisch für … (echt …)",
+   simpel:"Zwei Sinne: »anscheinend« (Hörensagen) und »typisch/echt …«.<br><span class=\"jp\"><ruby>春<rt>はる</rt></ruby><b>らしい</b> <ruby>天気<rt>てんき</rt></ruby></span> = „echtes Frühlingswetter“",
+   rule:"(1) Plain + らしい = »anscheinend / es heißt« (Vermutung aus zuverlässiger Info). (2) N + らしい = »typisch für N, wie es sich für N gehört« (男らしい »männlich«, 学生らしい »wie ein echter Student«).",
+   build:[
+    {form:"Hörensagen",verb:"Plain + らしい",de:"anscheinend / es heißt"},
+    {form:"typisch",verb:"N + らしい",de:"echt/typisch N"},
+    {form:"Flexion",verb:"wie い-Adjektiv",de:"らしくない/らしく"}
+   ],
+   pattern:{slots:[{text:"[Plain] / N",role:"subj"},{text:"らしい",role:"plain",label:"anscheinend / typisch"}],gloss:"(1) Plain + らしい = »anscheinend« (aus Info). (2) N + らしい = »typisch/echt N« (男らしい). Wird wie い-Adj gebeugt."},
+   bauplan:[
+    "Für <b>»anscheinend«</b>: Plain-Form + <code>らしい</code> (aus gehörter/gelesener Info).",
+    "Für <b>»typisch/echt«</b>: Nomen + <code>らしい</code> (<code><ruby>学生<rt>がくせい</rt></ruby>らしい</code>).",
+    "Beuge wie ein <b>い-Adjektiv</b> (<code>らしくない</code>, adverbial <code>らしく</code>).",
+    "Kontext entscheidet, welcher der beiden Sinne gemeint ist."
+   ],
+   ex:[
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>来<rt>こ</rt></ruby>ない<b>らしい</b>。",de:"Anscheinend kommt er nicht."},
+    {jp:"<ruby>今日<rt>きょう</rt></ruby>は <ruby>春<rt>はる</rt></ruby><b>らしい</b> <ruby>天気<rt>てんき</rt></ruby>だ。",de:"Heute ist echtes Frühlingswetter."},
+    {jp:"<ruby>学生<rt>がくせい</rt></ruby><b>らしく</b> まじめに <ruby>勉強<rt>べんきょう</rt></ruby>する。",de:"Lernt fleißig, wie es sich für einen Studenten gehört."}
+   ],
+   note:"🔄 <b>らしい</b> (aus Info) vs <b>ようだ</b> (eigene Beobachtung) vs <b>そうだ</b> (reines Hörensagen).<br>⚠ N + らしい (typisch) ≠ <b>っぽい</b> (bloßer Anschein)."},
+
+  {l:18, t:"〜かのようだ / かのように", de:"(gerade) so, als ob …",
+   simpel:"Irrealer Vergleich, oft mit まるで: »als ob …«.<br><span class=\"jp\">まるで <ruby>夢<rt>ゆめ</rt></ruby>を <ruby>見<rt>み</rt></ruby>ている<b>かのようだ</b></span> = „als ob man träumt“",
+   rule:"Plain + かのようだ = »so, als ob (in Wirklichkeit aber nicht)«. Vergleich mit etwas Irrealem/Unwahrem, oft mit まるで. Adverbial かのように, attributiv かのような.",
+   build:[
+    {form:"Muster",verb:"Plain + かのようだ",de:"als ob (irreal)"},
+    {form:"oft mit",verb:"まるで … かのようだ",de:"gerade so, als ob"},
+    {form:"Formen",verb:"かのように / かのような + N",de:"adverbial / attributiv"}
+   ],
+   pattern:{slots:[{text:"まるで",role:"actor",label:"gerade so"},{text:"[Plain]",role:"cond"},{text:"かのようだ",role:"plain",label:"als ob"}],gloss:"»So, als ob … (in Wahrheit aber nicht).« Irrealer Vergleich, oft mit まるで. Adverbial かのように, attributiv かのような."},
+   bauplan:[
+    "Leite oft mit <code>まるで</code> ein (»gerade so«).",
+    "Formuliere den <b>irrealen</b> Vergleich in Plain-Form.",
+    "Hänge <code>かのようだ</code> an; adverbial <code>かのように</code>, vor Nomen <code>かのような</code>.",
+    "Nutze es, wenn der Vergleich bewusst <b>unwahr/übertrieben</b> ist."
+   ],
+   ex:[
+    {jp:"まるで <ruby>何<rt>なに</rt></ruby>も なかった<b>かのように</b> <ruby>話<rt>はな</rt></ruby>す。",de:"Er redet, als ob nichts gewesen wäre."},
+    {jp:"<ruby>死<rt>し</rt></ruby>んだ<b>かのように</b> <ruby>静<rt>しず</rt></ruby>かだ。",de:"Still, wie tot."},
+    {jp:"<ruby>王様<rt>おうさま</rt></ruby>である<b>かのような</b> <ruby>態度<rt>たいど</rt></ruby>。",de:"Ein Auftreten, als wäre er ein König."}
+   ],
+   note:"🔄 Stärker/literarischer als schlichtes <b>〜ようだ</b> — betont, dass der Vergleich IRREAL ist.<br>⚠ Oft mit <b>まるで</b>."},
+
 ];
 
 const VOCAB = {
@@ -3306,7 +3528,8 @@ const TOPICS = {
   6:"日本人の発明", 7:"リサイクル", 8:"あいづち", 9:"男の仕事・女の仕事", 10:"ことばの使い方",
   11:"N3 · Sicherheit & Vermutung", 12:"N3 · Verb-Aspekt",
   13:"N3 · Zeitpunkt & Verlauf", 14:"N3 · Grund & Gegensatz",
-  15:"N3 · Nachdruck & Emotion", 16:"N3 · Ausruf, Wille & Betonung"
+  15:"N3 · Nachdruck & Emotion", 16:"N3 · Ausruf, Wille & Betonung",
+  17:"N3 · Vergleich & Bezug", 18:"N3 · Eigenschaft & Anschein"
 };
 
 const lessons = [...new Set(CARDS.map(c => c.l))].sort((a,b)=>a-b);
