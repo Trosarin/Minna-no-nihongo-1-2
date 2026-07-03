@@ -2642,6 +2642,228 @@ const CARDS = [
    ],
    note:"🔄 <b>〜<ruby>終<rt>お</rt></ruby>わる</b> (nur »fertig«, neutral, L4) vs <b>〜きる</b> (»komplett, restlos«, mit Nachdruck/Mühe).<br>💡 Auch für Zustände: <ruby>疲<rt>つか</rt></ruby>れきる »völlig erschöpft sein«."},
 
+  // ============ LEKTION 13 — N3: Zeitpunkt & Verlauf ============
+  {l:13, t:"〜うちに / 〜ないうちに", de:"während (noch) … / bevor …",
+   simpel:"Zeitfenster nutzen: »solange (noch) …« bzw. »bevor …«.<br><span class=\"jp\"><ruby>熱<rt>あつ</rt></ruby>い<b>うちに</b> <ruby>食<rt>た</rt></ruby>べて</span> = „iss, solange es noch heiß ist“",
+   rule:"〜うちに = »während ein (meist vorteilhafter) Zustand noch anhält«, oft mit Handlungsaufforderung. 〜ないうちに = »bevor ein (unerwünschter) Zustand eintritt«. Anschluss: V<sub>ている/辞書/ない</sub>, い-Adj, な-Adj + な, N + の.",
+   build:[
+    {form:"während",verb:"V<sub>ている</sub> / い-Adj / N の + うちに",de:"solange noch …"},
+    {form:"bevor",verb:"V<sub>ない</sub> + うちに",de:"bevor …"},
+    {form:"typisch",verb:"<ruby>若<rt>わか</rt></ruby>いうちに",de:"solange man jung ist"}
+   ],
+   pattern:{slots:[{text:"[Zustand]",role:"cond"},{text:"うちに",role:"actor",label:"solange / bevor"},{text:"[Handlung]",role:"verb"}],gloss:"»Solange (noch) A gilt, tu B« bzw. mit ない »bevor A eintritt, tu B«. Zeitfenster ausnutzen."},
+   bauplan:[
+    "Bestimme das <b>Zeitfenster</b>: ein Zustand, der (noch) gilt (<code><ruby>明<rt>あか</rt></ruby>るい</code>) oder noch nicht eingetreten ist.",
+    "Für »solange«: Zustand + <code>うちに</code>. Für »bevor«: <b>ない形</b> + <code>うちに</code>.",
+    "Setze dahinter die <b>Handlung</b>, die du im Fenster erledigen willst.",
+    "Merke: <code><ruby>忘<rt>わす</rt></ruby>れないうちに</code> = »bevor ich es vergesse«."
+   ],
+   ex:[
+    {jp:"<ruby>明<rt>あか</rt></ruby>るい<b>うちに</b> <ruby>帰<rt>かえ</rt></ruby>りましょう。",de:"Lass uns heimgehen, solange es noch hell ist."},
+    {jp:"<ruby>忘<rt>わす</rt></ruby>れない<b>うちに</b> メモします。",de:"Ich notiere es, bevor ich es vergesse."},
+    {jp:"<ruby>日本<rt>にほん</rt></ruby>に いる<b>うちに</b> <ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きたい。",de:"Solange ich in Japan bin, möchte ich nach Kyoto."}
+   ],
+   note:"🔄 <b>うちに</b> (Zeitfenster nutzen, oft vorteilhaft) vs <b>あいだに</b> (L38, neutraler Zeitraum).<br>⚠ <b>ないうちに</b> = »bevor«, nicht »während nicht«."},
+
+  {l:13, t:"〜た とたん(に)", de:"kaum dass … / im selben Moment, als …",
+   simpel:"Zwei Ereignisse direkt hintereinander, das zweite meist überraschend.<br><span class=\"jp\">ドアを <ruby>開<rt>あ</rt></ruby>けた<b>とたん</b></span> = „kaum dass ich die Tür öffnete“",
+   rule:"V<sub>た</sub> + とたん(に): »genau in dem Moment, als A geschah, geschah (plötzlich, unerwartet) B«. B ist meist ungeplant und in der Vergangenheit. Nur mit der た-Form davor.",
+   build:[
+    {form:"Muster",verb:"V<sub>た</sub> + とたん(に)",de:"kaum dass … / im selben Moment"},
+    {form:"Folge B",verb:"unerwartetes Ereignis (Vergangenheit)",de:"ungeplant / plötzlich"},
+    {form:"≈",verb:"〜(か)と <ruby>思<rt>おも</rt></ruby>うと",de:"kaum … , da schon …"}
+   ],
+   pattern:{slots:[{text:"V<sub>た</sub>",role:"verb",label:"Moment A"},{text:"とたん(に)",role:"actor",label:"im selben Moment"},{text:"[plötzlich B]",role:"cond"}],gloss:"»Kaum dass A geschah, geschah (überraschend) B.« Nur た-Form davor; B ist unkontrolliert und vergangen."},
+   bauplan:[
+    "Nimm das erste Ereignis A in der <b>た-Form</b> (<code><ruby>立<rt>た</rt></ruby>ち<ruby>上<rt>あ</rt></ruby>がった</code>).",
+    "Hänge <code>とたん(に)</code> an.",
+    "Setze das <b>überraschende, ungeplante</b> Ereignis B dahinter (Vergangenheit).",
+    "B darf <b>kein</b> Befehl/Wunsch/Wille sein (das wäre 〜たら)."
+   ],
+   ex:[
+    {jp:"<ruby>立<rt>た</rt></ruby>ち<ruby>上<rt>あ</rt></ruby>がった<b>とたん</b>、めまいが した。",de:"Kaum war ich aufgestanden, wurde mir schwindelig."},
+    {jp:"<ruby>家<rt>いえ</rt></ruby>を <ruby>出<rt>で</rt></ruby>た<b>とたん</b>、<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>ってきた。",de:"Kaum hatte ich das Haus verlassen, fing es an zu regnen."},
+    {jp:"<ruby>母<rt>はは</rt></ruby>の <ruby>顔<rt>かお</rt></ruby>を <ruby>見<rt>み</rt></ruby>た<b>とたん</b>、<ruby>泣<rt>な</rt></ruby>き<ruby>出<rt>だ</rt></ruby>した。",de:"Kaum sah sie das Gesicht ihrer Mutter, brach sie in Tränen aus."}
+   ],
+   note:"⚠ Nur <b>た-Form</b> davor; B ist unkontrolliert/überraschend (kein Befehl/Wille).<br>🔄 Ähnlich, aber weicher: 〜たら / 〜と."},
+
+  {l:13, t:"〜<ruby>最中<rt>さいちゅう</rt></ruby>に", de:"gerade mitten in … / mittendrin, als …",
+   simpel:"Etwas passiert mitten in einer laufenden Handlung — meist störend.<br><span class=\"jp\"><ruby>食事<rt>しょくじ</rt></ruby>の<b>最中に</b></span> = „mitten beim Essen“",
+   rule:"〜最中に betont, dass etwas GENAU in der intensivsten Phase einer laufenden Handlung geschieht — häufig eine Störung. Anschluss: V<sub>ている</sub> / N + の.",
+   build:[
+    {form:"Verb",verb:"V<sub>ている</sub> + <ruby>最中<rt>さいちゅう</rt></ruby>に",de:"mitten beim V-en"},
+    {form:"Nomen",verb:"N + の + <ruby>最中<rt>さいちゅう</rt></ruby>に",de:"mitten in/bei N"},
+    {form:"Nuance",verb:"oft: Unterbrechung",de:"ungünstiger Moment"}
+   ],
+   pattern:{slots:[{text:"[laufende Handlung]",role:"cond"},{text:"<ruby>最中<rt>さいちゅう</rt></ruby>に",role:"actor",label:"mittendrin"},{text:"[Störung]",role:"verb"}],gloss:"»Genau mitten in der laufenden Handlung passiert (störend) …« V<sub>ている</sub> / N + の davor."},
+   bauplan:[
+    "Nimm die <b>laufende</b> Handlung: V in <code>ている</code> oder ein Nomen.",
+    "Verbinde mit <code>の</code> (bei Nomen) und hänge <code><ruby>最中<rt>さいちゅう</rt></ruby>に</code> an.",
+    "Setze dahinter das <b>störende</b> Ereignis.",
+    "Für »ausgerechnet jetzt« wirkt es stärker als schlichtes <code>〜ているときに</code>."
+   ],
+   ex:[
+    {jp:"<ruby>会議<rt>かいぎ</rt></ruby>の<b>最中に</b> <ruby>電話<rt>でんわ</rt></ruby>が <ruby>鳴<rt>な</rt></ruby>った。",de:"Mitten in der Sitzung klingelte das Telefon."},
+    {jp:"<ruby>話<rt>はな</rt></ruby>している<b>最中に</b> <ruby>口<rt>くち</rt></ruby>を <ruby>出<rt>だ</rt></ruby>さないで。",de:"Fall mir nicht ins Wort, während ich gerade rede."},
+    {jp:"<ruby>試験<rt>しけん</rt></ruby>の<b>最中に</b> <ruby>地震<rt>じしん</rt></ruby>が <ruby>起<rt>お</rt></ruby>きた。",de:"Mitten in der Prüfung gab es ein Erdbeben."}
+   ],
+   note:"🔄 ≈ <b>〜ているときに</b>, aber <b>最中に</b> betont »mittendrin, ungünstig«.<br>⚠ Nur für aktive, andauernde Handlungen."},
+
+  {l:13, t:"〜<ruby>次第<rt>しだい</rt></ruby> / 〜<ruby>次第<rt>しだい</rt></ruby>で", de:"sobald … / je nach … (hängt ab von)",
+   simpel:"V<sub>マス</sub>+次第 = »sobald …« (formell). N+次第で = »je nach …«.<br><span class=\"jp\"><ruby>着<rt>つ</rt></ruby>き<b>次第</b> <ruby>連絡<rt>れんらく</rt></ruby>します</span> = „sobald ich ankomme, melde ich mich“",
+   rule:"Zwei Verwendungen: (1) V<sub>ます</sub>-Stamm + 次第 = »sobald / unmittelbar nachdem …«, sehr formell (Geschäft, nur Zukunft). (2) N + 次第だ / 次第で = »es hängt von N ab / je nach N«.",
+   build:[
+    {form:"sobald",verb:"V<sub>マス</sub> + <ruby>次第<rt>しだい</rt></ruby>",de:"sobald …"},
+    {form:"hängt ab",verb:"N + <ruby>次第<rt>しだい</rt></ruby>だ",de:"kommt auf N an"},
+    {form:"je nach",verb:"N + <ruby>次第<rt>しだい</rt></ruby>で",de:"je nach N (ändert sich)"}
+   ],
+   pattern:{slots:[{text:"V<sub>マス</sub>",role:"verb"},{text:"<ruby>次第<rt>しだい</rt></ruby>",role:"plain",label:"sobald"}],gloss:"(1) V<sub>ます</sub> + 次第 = »sobald …« (formell, Zukunft). (2) N + 次第だ/で = »hängt von N ab / je nach N«."},
+   bauplan:[
+    "Für »sobald«: <b>ます-Stamm</b> + <code><ruby>次第<rt>しだい</rt></ruby></code> — nur Zukünftiges, kein た, keine Verneinung.",
+    "Dahinter kommt, was du DANN tust (oft <code>〜します</code>, Willens-/Bitte-Satz).",
+    "Für »hängt ab von«: <b>Nomen</b> + <code><ruby>次第<rt>しだい</rt></ruby>だ</code>.",
+    "Für »je nach«: <b>Nomen</b> + <code><ruby>次第<rt>しだい</rt></ruby>で</code> + variables Ergebnis."
+   ],
+   ex:[
+    {jp:"<ruby>会議<rt>かいぎ</rt></ruby>が <ruby>終<rt>お</rt></ruby>わり<b>次第</b>、<ruby>電話<rt>でんわ</rt></ruby>します。",de:"Sobald die Sitzung zu Ende ist, rufe ich an."},
+    {jp:"<ruby>結果<rt>けっか</rt></ruby>は <ruby>努力<rt>どりょく</rt></ruby><b>次第</b>だ。",de:"Das Ergebnis hängt von der Anstrengung ab."},
+    {jp:"<ruby>天気<rt>てんき</rt></ruby><b>次第</b>で <ruby>予定<rt>よてい</rt></ruby>を <ruby>変<rt>か</rt></ruby>えます。",de:"Je nach Wetter ändere ich die Pläne."}
+   ],
+   note:"⚠ <b>次第</b> (sobald) nur mit dem <b>ます-Stamm</b> und für Zukünftiges.<br>🔄 Formeller als <b>〜たらすぐ</b>."},
+
+  {l:13, t:"Vマス + つつある", de:"ist gerade dabei, sich (allmählich) zu … / zusehends",
+   simpel:"Ein Vorgang ist im Verlauf: »entwickelt sich allmählich zu …«.<br><span class=\"jp\"><ruby>景気<rt>けいき</rt></ruby>が <ruby>回復<rt>かいふく</rt></ruby>し<b>つつある</b></span> = „die Konjunktur erholt sich zusehends“",
+   rule:"V<sub>ます</sub>-Stamm + つつある: ein Prozess läuft gerade ab und schreitet voran. Schriftsprachlich; betont (anders als 〜ている) den Verlauf bzw. die Tendenz einer Veränderung.",
+   build:[
+    {form:"Muster",verb:"V<sub>マス</sub> + つつある",de:"ist dabei, sich zu … / zusehends"},
+    {form:"typisch",verb:"<ruby>増<rt>ふ</rt></ruby>え / <ruby>減<rt>へ</rt></ruby>り / <ruby>変<rt>か</rt></ruby>わりつつある",de:"nimmt zu/ab, verändert sich"},
+    {form:"Register",verb:"schriftlich / Bericht",de:"formell"}
+   ],
+   pattern:{slots:[{text:"N が",role:"subj"},{text:"V<sub>マス</sub>",role:"verb"},{text:"つつある",role:"plain",label:"zusehends"}],gloss:"»Ein Prozess läuft ab und schreitet voran.« Schriftsprachlich, betont den Verlauf der Veränderung. Nur mit Veränderungsverben."},
+   bauplan:[
+    "Wähle ein <b>Veränderungsverb</b> (<code><ruby>増<rt>ふ</rt></ruby>える</code>, <code><ruby>減<rt>へ</rt></ruby>る</code>, <code><ruby>変<rt>か</rt></ruby>わる</code>, <code><ruby>消<rt>き</rt></ruby>える</code>).",
+    "Bilde den <b>ます-Stamm</b> und hänge <code>つつある</code> an.",
+    "Höflich <code>つつあります</code>.",
+    "Für einen bloßen Zustand (statt Prozess) nimm <code>〜ている</code>."
+   ],
+   ex:[
+    {jp:"<ruby>森<rt>もり</rt></ruby>が <ruby>消<rt>き</rt></ruby>え<b>つつある</b>。",de:"Die Wälder verschwinden zusehends."},
+    {jp:"<ruby>人口<rt>じんこう</rt></ruby>が <ruby>減<rt>へ</rt></ruby>り<b>つつあります</b>。",de:"Die Bevölkerung nimmt stetig ab."},
+    {jp:"<ruby>状況<rt>じょうきょう</rt></ruby>は <ruby>良<rt>よ</rt></ruby>くなり<b>つつある</b>。",de:"Die Lage bessert sich zusehends."}
+   ],
+   note:"🔄 ≈ <b>〜ている</b>, aber <b>つつある</b> betont die laufende Veränderung und ist formeller.<br>⚠ Nur mit Veränderungsverben, nicht mit Zustandsverben (ある/いる)."},
+
+  // ============ LEKTION 14 — N3: Grund & Gegensatz ============
+  {l:14, t:"〜おかげで / 〜せいで", de:"dank … (positiv) / wegen … (negativ)",
+   simpel:"<b>おかげで</b> = »dank« (gutes Ergebnis). <b>せいで</b> = »wegen« (schlechtes Ergebnis).<br><span class=\"jp\"><ruby>雨<rt>あめ</rt></ruby>の<b>せいで</b> <ruby>遅<rt>おく</rt></ruby>れた</span> = „wegen des Regens zu spät“",
+   rule:"Beide nennen einen Grund, aber mit Wertung: おかげで dankbar/positiv, せいで vorwurfsvoll/negativ. Anschluss wie ans Nomen (Plain, な-Adj + な, N + の).",
+   build:[
+    {form:"dank (positiv)",verb:"… + おかげで",de:"→ gutes Ergebnis"},
+    {form:"wegen (negativ)",verb:"… + せいで",de:"→ schlechtes Ergebnis"},
+    {form:"Nomen",verb:"N + の + おかげ / せい",de:"dank/wegen des N"}
+   ],
+   pattern:{slots:[{text:"[Grund]",role:"cond"},{text:"おかげで / せいで",role:"actor",label:"dank / wegen"},{text:"[Ergebnis]",role:"verb"}],gloss:"おかげで = dankbar (gutes Ergebnis), せいで = vorwurfsvoll (schlechtes Ergebnis). Neutralen Grund → から/ので."},
+   bauplan:[
+    "Ist das Ergebnis <b>gut</b> → <code>おかげで</code>; <b>schlecht</b> → <code>せいで</code>.",
+    "Anschluss wie ans Nomen: Plain-Form, な-Adj + <code>な</code>, Nomen + <code>の</code>.",
+    "Setze das <b>Ergebnis</b> dahinter.",
+    "Neutral (ohne Wertung) → lieber <code>から / ので</code>."
+   ],
+   ex:[
+    {jp:"<ruby>先生<rt>せんせい</rt></ruby>の<b>おかげで</b> <ruby>合格<rt>ごうかく</rt></ruby>できた。",de:"Dank des Lehrers habe ich bestanden."},
+    {jp:"<ruby>寝坊<rt>ねぼう</rt></ruby>した<b>せいで</b> <ruby>電車<rt>でんしゃ</rt></ruby>に <ruby>乗<rt>の</rt></ruby>り<ruby>遅<rt>おく</rt></ruby>れた。",de:"Weil ich verschlafen habe, habe ich den Zug verpasst."},
+    {jp:"<ruby>君<rt>きみ</rt></ruby>の<b>おかげで</b> <ruby>助<rt>たす</rt></ruby>かったよ。",de:"Dank dir bin ich gerettet."}
+   ],
+   note:"⚠ <b>おかげで</b> (Dank) ↔ <b>せいで</b> (Schuld). Neutralen Grund → から/ので.<br>💡 Ironisch: <b>おかげで</b> auch bei schlechtem Ergebnis (»na toll, dank dir …«)."},
+
+  {l:14, t:"〜せいか", de:"vielleicht wegen … / womöglich weil …",
+   simpel:"Vermuteter, unsicherer Grund: »vielleicht weil …«.<br><span class=\"jp\"><ruby>年<rt>とし</rt></ruby>の<b>せいか</b> <ruby>疲<rt>つか</rt></ruby>れやすい</span> = „vielleicht wegen des Alters schnell müde“",
+   rule:"せいか = »ich bin nicht sicher, aber vielleicht ist … der Grund«. Wie せいで, aber mit dem か der Unsicherheit — für einen spürbaren, aber nicht bewiesenen Zusammenhang.",
+   build:[
+    {form:"Muster",verb:"… + せいか",de:"vielleicht wegen …"},
+    {form:"Nomen",verb:"N + の + せいか",de:"womöglich wegen N"},
+    {form:"feste Wendung",verb:"<ruby>気<rt>き</rt></ruby>の せいか",de:"bilde ich mir das ein"}
+   ],
+   pattern:{slots:[{text:"[vermuteter Grund]",role:"cond"},{text:"せいか",role:"actor",label:"vielleicht weil"},{text:"[Ergebnis]",role:"verb"}],gloss:"»Vielleicht (weiß nicht genau) wegen … ist es so.« Unsicherer, spürbarer Grund. N + の + せいか."},
+   bauplan:[
+    "Formuliere den <b>vermuteten</b> Grund (Plain / N + の).",
+    "Hänge <code>せいか</code> an — das <code>か</code> signalisiert Unsicherheit.",
+    "Setze das beobachtete <b>Ergebnis</b> dahinter.",
+    "Sehr häufig: <code><ruby>気<rt>き</rt></ruby>の せいか</code> = »womöglich Einbildung«."
+   ],
+   ex:[
+    {jp:"<ruby>緊張<rt>きんちょう</rt></ruby>の<b>せいか</b>、うまく <ruby>話<rt>はな</rt></ruby>せなかった。",de:"Vielleicht wegen der Nervosität konnte ich nicht gut sprechen."},
+    {jp:"<ruby>寒<rt>さむ</rt></ruby>い<b>せいか</b>、<ruby>人<rt>ひと</rt></ruby>が <ruby>少<rt>すく</rt></ruby>ない。",de:"Womöglich wegen der Kälte sind wenige Leute da."},
+    {jp:"<ruby>気<rt>き</rt></ruby>の<b>せいか</b>、<ruby>音<rt>おと</rt></ruby>が <ruby>聞<rt>き</rt></ruby>こえた。",de:"Vielleicht Einbildung, aber ich hörte ein Geräusch."}
+   ],
+   note:"💡 <b>気のせい</b> = »Einbildung«.<br>🔄 <b>せいで</b> (sicherer, negativ) → <b>せいか</b> (unsicher). Anschluss wie ans Nomen."},
+
+  {l:14, t:"〜ものだから / 〜もので", de:"weil (nun mal) … (Rechtfertigung / Erklärung)",
+   simpel:"Persönliche Rechtfertigung: »ist ja/nun mal so, deshalb …«.<br><span class=\"jp\"><ruby>安<rt>やす</rt></ruby>かった<b>ものだから</b>、<ruby>買<rt>か</rt></ruby>いすぎた</span> = „es war ja so billig, drum kaufte ich zu viel“",
+   rule:"〜ものだから (locker もので/もんで) gibt einen Grund als Entschuldigung/Erklärung an — »weil es eben so war, konnte ich nicht anders«. Subjektiv, rechtfertigend. Anschluss Plain (な-Adj + な, N + な).",
+   build:[
+    {form:"Muster",verb:"Plain + ものだから",de:"weil (nun mal) …"},
+    {form:"lockerer",verb:"〜もので / 〜もんで",de:"gesprochen"},
+    {form:"Ton",verb:"Ausrede / Erklärung",de:"rechtfertigend"}
+   ],
+   pattern:{slots:[{text:"[Grund]",role:"cond"},{text:"ものだから",role:"actor",label:"weil nun mal"},{text:"[Folge/Ausrede]",role:"verb"}],gloss:"»Weil es eben so war, konnte ich nicht anders.« Subjektive Rechtfertigung. Plain-Anschluss (な-Adj + な, N + な). Kein Befehl im Hauptsatz."},
+   bauplan:[
+    "Nimm den <b>Grund</b>, mit dem du dich rechtfertigst, in Plain-Form.",
+    "Bei な-Adj/Nomen ein <code>な</code> einschieben.",
+    "Hänge <code>ものだから</code> (formeller) oder <code>もので/もんで</code> (locker) an.",
+    "Im Hauptsatz steht die <b>Folge/Ausrede</b> — kein Befehl, keine Bitte."
+   ],
+   ex:[
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもが <ruby>熱<rt>ねつ</rt></ruby>を <ruby>出<rt>だ</rt></ruby>した<b>ものだから</b>、<ruby>休<rt>やす</rt></ruby>みました。",de:"Weil mein Kind Fieber bekam, bin ich zu Hause geblieben."},
+    {jp:"<ruby>道<rt>みち</rt></ruby>が <ruby>混<rt>こ</rt></ruby>んでいた<b>もので</b>、<ruby>遅<rt>おく</rt></ruby>れました。",de:"Weil die Straße verstopft war, komme ich zu spät."},
+    {jp:"<ruby>急<rt>きゅう</rt></ruby>な ことだった<b>ものだから</b>、<ruby>準備<rt>じゅんび</rt></ruby>できなかった。",de:"Weil es so plötzlich kam, konnte ich mich nicht vorbereiten."}
+   ],
+   note:"🔄 ≈ から/ので, aber <b>ものだから</b> betont »ich konnte wirklich nicht anders« (Rechtfertigung).<br>⚠ Kein Befehl/Bitte im Hauptsatz."},
+
+  {l:14, t:"〜ものの", de:"zwar …, aber (doch) …",
+   simpel:"Einräumung: »zwar A, aber (entgegen der Erwartung) B«.<br><span class=\"jp\"><ruby>買<rt>か</rt></ruby>った<b>ものの</b>、<ruby>使<rt>つか</rt></ruby>っていない</span> = „gekauft habe ich es zwar, aber ich nutze es nicht“",
+   rule:"〜ものの verbindet zwei Sätze mit Widerspruch: A trifft zu, doch die erwartete Folge tritt nicht ein. Schriftlicher als 〜けど. Anschluss Plain (な-Adj + な/である, N + である).",
+   build:[
+    {form:"Muster",verb:"Plain + ものの",de:"zwar …, aber doch"},
+    {form:"Register",verb:"schriftlich, formeller",de:"als 〜けど"},
+    {form:"feste Wendung",verb:"とは いうものの",de:"wie dem auch sei"}
+   ],
+   pattern:{slots:[{text:"[A: zwar]",role:"cond"},{text:"ものの",role:"actor",label:"aber doch"},{text:"[B: unerwartet]",role:"verb"}],gloss:"»A trifft zwar zu, doch die erwartete Folge B bleibt aus.« Schriftsprachlich. Nicht mit の (Nominalisierung) verwechseln."},
+   bauplan:[
+    "Formuliere die <b>Einräumung</b> A in Plain-Form (な-Adj + <code>な</code>, N + <code>である</code>).",
+    "Hänge <code>ものの</code> an → »zwar …, aber«.",
+    "Setze B, das der Erwartung aus A <b>widerspricht</b>.",
+    "Feste Wendung zum Einleiten: <code>とは いうものの</code> (»wie dem auch sei«)."
+   ],
+   ex:[
+    {jp:"<ruby>免許<rt>めんきょ</rt></ruby>は <ruby>取<rt>と</rt></ruby>った<b>ものの</b>、<ruby>車<rt>くるま</rt></ruby>が ない。",de:"Den Führerschein habe ich zwar, aber kein Auto."},
+    {jp:"<ruby>頭<rt>あたま</rt></ruby>では わかっている<b>ものの</b>、やめられない。",de:"Im Kopf weiß ich es zwar, aber ich kann nicht aufhören."},
+    {jp:"<ruby>便利<rt>べんり</rt></ruby>とは いう<b>ものの</b>、<ruby>値段<rt>ねだん</rt></ruby>が <ruby>高<rt>たか</rt></ruby>い。",de:"Praktisch ist es zwar, aber der Preis ist hoch."}
+   ],
+   note:"🔄 ≈ 〜けど, aber schriftsprachlicher.<br>⚠ Nicht mit dem nominalisierenden <b>の</b> verwechseln. Feste Wendung: <b>とはいうものの</b>."},
+
+  {l:14, t:"〜わりに(は)", de:"im Verhältnis zu … / für … (überraschend)",
+   simpel:"Ergebnis passt nicht zur Erwartung aus A: »für A überraschend …«.<br><span class=\"jp\"><ruby>値段<rt>ねだん</rt></ruby>の<b>わりに</b> おいしい</span> = „für den Preis (erstaunlich) lecker“",
+   rule:"〜わりに(は): »gemessen an A ist B unerwartet (viel/wenig/gut/schlecht)«. Vergleicht Erwartung mit Realität. Anschluss Plain (な-Adj + な, N + の).",
+   build:[
+    {form:"Muster",verb:"Plain / N の + わりに(は)",de:"für … (überraschend)"},
+    {form:"Sinn",verb:"Erwartung ≠ Realität",de:"Kontrast zum Maßstab"},
+    {form:"≈",verb:"〜にしては",de:"für … (jdn/etw.)"}
+   ],
+   pattern:{slots:[{text:"[Maßstab A]",role:"cond"},{text:"わりに(は)",role:"actor",label:"für / gemessen an"},{text:"[unerwartetes B]",role:"verb"}],gloss:"»Gemessen an A ist B unerwartet.« Vergleicht Erwartung mit Realität. Plain / N + の. Verwandt: 〜にしては."},
+   bauplan:[
+    "Nenne den <b>Maßstab</b> A (Alter, Preis, Menge …) in Plain-Form / N + <code>の</code>.",
+    "Hänge <code>わりに(は)</code> an → »für A / gemessen an A«.",
+    "Setze das <b>überraschende</b> B dahinter (mehr/weniger/besser/schlechter als erwartet).",
+    "Fast gleichbedeutend: <code>〜にしては</code>."
+   ],
+   ex:[
+    {jp:"たくさん <ruby>食<rt>た</rt></ruby>べる<b>わりに</b> <ruby>太<rt>ふと</rt></ruby>らない。",de:"Für die Menge, die er isst, nimmt er erstaunlich wenig zu."},
+    {jp:"この <ruby>店<rt>みせ</rt></ruby>は <ruby>安<rt>やす</rt></ruby>い<b>わりに</b> おいしい。",de:"Dieser Laden ist für den günstigen Preis erstaunlich gut."},
+    {jp:"<ruby>年<rt>とし</rt></ruby>の<b>わりに</b> <ruby>若<rt>わか</rt></ruby>く <ruby>見<rt>み</rt></ruby>える。",de:"Für sein Alter sieht er jung aus."}
+   ],
+   note:"🔄 ≈ <b>〜にしては</b> (»für …«).<br>⚠ <b>わりに(は)</b> vergleicht immer mit einem Maßstab/einer Erwartung."},
+
 ];
 
 const VOCAB = {
@@ -2860,7 +3082,8 @@ const backBtn = document.getElementById('backBtn');
 const TOPICS = {
   1:"ファストフード", 2:"地震", 3:"最近の子ども", 4:"日本のイメージ", 5:"睡眠",
   6:"日本人の発明", 7:"リサイクル", 8:"あいづち", 9:"男の仕事・女の仕事", 10:"ことばの使い方",
-  11:"N3 · Sicherheit & Vermutung", 12:"N3 · Verb-Aspekt"
+  11:"N3 · Sicherheit & Vermutung", 12:"N3 · Verb-Aspekt",
+  13:"N3 · Zeitpunkt & Verlauf", 14:"N3 · Grund & Gegensatz"
 };
 
 const lessons = [...new Set(CARDS.map(c => c.l))].sort((a,b)=>a-b);
