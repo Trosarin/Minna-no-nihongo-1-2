@@ -2,7 +2,7 @@
 // Network-First Strategy: Updates kommen sofort an, Offline funktioniert weiter
 // Keine manuelle Versions-Bumperei mehr nötig!
 
-const CACHE_NAME = 'grammatik-cache-v61';
+const CACHE_NAME = 'grammatik-cache-v62';
 const FILES_TO_CACHE = [
   './',
   './index.html',
