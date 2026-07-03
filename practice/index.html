@@ -927,6 +927,9 @@ html[data-theme="dark"] .conj-table tr:nth-child(even) td,
 html[data-theme="dark"] .cs-table tr:nth-child(even) td{background:rgba(255,255,255,.05)}
 /* weisses Status-Badge abdunkeln */
 html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
+  .qnav{display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem;padding:.55rem .8rem;border-bottom:1px solid var(--border,rgba(127,127,127,.25))}
+  .qnav a{text-decoration:none;font-family:"Shippori Mincho",serif;font-size:.78rem;font-weight:600;color:inherit;opacity:.8;border:1px solid rgba(127,127,127,.35);border-radius:99px;padding:.28rem .6rem;-webkit-tap-highlight-color:transparent}
+  .qnav a.active{opacity:1;border-color:currentColor}
 </style>
 </head>
 <body>
@@ -935,6 +938,14 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
   <a class="back" href="../">← Hub</a>
   <div class="title">練習 · Übungen</div>
   <div class="spacer"></div>
+</div>
+<div class="qnav">
+  <a href="/Minna-no-nihongo-1-2/">🏠</a>
+  <a href="/Minna-no-nihongo-1-2/minna/">📕 みんな</a>
+  <a href="/Minna-no-nihongo-1-2/chuukyuu/">📘 中級</a>
+  <a href="/Minna-no-nihongo-1-2/try-n3/">📗 TRY!</a>
+  <a class="active" href="/Minna-no-nihongo-1-2/practice/">✏️ 練習帳</a>
+  <a href="/Minna-no-nihongo-1-2/lesen/">📖 読解</a>
 </div>
 
 <header>

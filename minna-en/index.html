@@ -54,6 +54,7 @@
  /* Book switcher tabs */
  .book-tabs{
   display:flex;
+  flex-wrap:wrap;
   justify-content:center;
   gap:0;
   background:var(--bar);
@@ -61,7 +62,8 @@
   border-bottom:3px solid var(--line);
  }
  .book-tab{
-  flex:1;
+  flex:1 1 30%;
+  min-width:30%;
   max-width:240px;
   padding:.7rem .8rem;
   text-align:center;
@@ -880,9 +882,12 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 <!-- book switcher + language tabs -->
 
 <div class="book-tabs">
- <a class="book-tab active" href="/Minna-no-nihongo-1-2/minna-en/">📕 みんなの日本語</a>
- <a class="book-tab" href="/Minna-no-nihongo-1-2/chuukyuu-en/">📘 中級へ行こう</a>
- <a class="book-tab" href="/Minna-no-nihongo-1-2/practice/">✏️ 練習帳</a>
+  <a class="book-tab" href="/Minna-no-nihongo-1-2/">🏠</a>
+  <a class="book-tab active" href="/Minna-no-nihongo-1-2/minna-en/">📕 みんな</a>
+  <a class="book-tab" href="/Minna-no-nihongo-1-2/chuukyuu-en/">📘 中級</a>
+  <a class="book-tab" href="/Minna-no-nihongo-1-2/try-n3/">📗 TRY!</a>
+  <a class="book-tab" href="/Minna-no-nihongo-1-2/practice/">✏️ 練習帳</a>
+  <a class="book-tab" href="/Minna-no-nihongo-1-2/lesen/">📖 読解</a>
 </div>
 <div class="lang-tabs">
  <a class="lang-tab" href="/Minna-no-nihongo-1-2/minna/">DE</a>
