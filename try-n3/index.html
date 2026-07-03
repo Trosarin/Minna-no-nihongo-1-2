@@ -6,7 +6,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>TRY! N3 — Ergänzung · 文型20</title>
+<title>TRY! N3 — 文法から伸ばす日本語</title>
 <meta name="description" content="Chuukyuu e Ikou Grammatik-Spickzettel L1-10">
 
 <!-- Apple Web App / Home Screen -->
@@ -733,7 +733,7 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 <header>
   <h1>
     <span class="jp">TRY! N3 <ruby>補足<rt>ほそく</rt></ruby></span>
-    <span class="de">Ergänzungs-Muster zu TRY! N3 · 20 Karten · Unit 1–4</span>
+    <span class="de">TRY! N3 · dem Buch folgend · Unit 1–11 (im Aufbau)</span>
   </h1>
   <p class="subtitle">Klick auf eine Karte, um die Erklärung zu sehen</p>
 </header>
@@ -1073,456 +1073,454 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 
 <footer>
   <div class="seal" style="background:var(--gold)">中</div>
-  <p>TRY! N3 補足 · 20 Muster, die Buch &amp; App verbinden — Grammatik-Spickzettel</p>
+  <p>TRY! N3 — 文法から伸ばす日本語 · Karten folgen dem Buch (Unit + Nummer)</p>
   <p style="margin-top:.3rem;font-size:.7rem">55 Karten · 6 Cheat-Sheets · 175 Vokabeln · Suche & Filter aktiv</p>
 </footer>
 
 <script src="../chuukyuu-practice/situations.js"></script>
 <script>
 const CARDS = [
-  // ============ UNIT 1 — Verb-Verlauf II ============
-  {l:1, t:"Vマス + <ruby>続<rt>つづ</rt></ruby>ける", de:"weiter / unaufhörlich V-en",
-   simpel:"ます-Stamm + <b><ruby>続<rt>つづ</rt></ruby>ける</b> = »ohne aufzuhören weiter …«.<br><span class='jp'><ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>り<b>続けて</b> いる</span> = „es regnet ununterbrochen weiter“",
-   rule:"V<sub>ます</sub>-Stamm + 続ける drückt aus, dass eine Handlung oder ein Vorgang andauert und nicht aufhört. Für anhaltende Zustandsänderungen oft 〜続けている.",
+  // ============ UNIT 1 — 初めての富士山 (1)+(2) ============
+  {l:1, t:"1 · <ruby>登<rt>のぼ</rt></ruby>り<ruby>始<rt>はじ</rt></ruby>めた", de:"Vマス + 始める — anfangen zu … (+Plus: 〜終わる)",
+   simpel:"ます-Stamm + <b><ruby>始<rt>はじ</rt></ruby>める</b> = »anfangen zu …« — klebt direkt am Stamm.<br><span class='jp'><ruby>山<rt>やま</rt></ruby>を <ruby>登<rt>のぼ</rt></ruby>り<b>始めた</b></span> = „begann den Berg zu besteigen“",
+   rule:"V<sub>ます</sub>-Stamm + 始める markiert den Beginn einer Handlung. Das Gegenstück 〜終わる markiert den Abschluss. Neutraler Anfang (auch geplant) — plötzliches Losbrechen wäre 〜出す (Punkt 16).",
+   build:[
+    {form:"anfangen",verb:"V<sub>マス</sub> + <ruby>始<rt>はじ</rt></ruby>める",de:"anfangen zu V"},
+    {form:"+Plus: fertig",verb:"V<sub>マス</sub> + <ruby>終<rt>お</rt></ruby>わる",de:"fertig sein mit V"},
+    {form:"Beispiel",verb:"<ruby>読<rt>よ</rt></ruby>み<ruby>始<rt>はじ</rt></ruby>める / 読み<ruby>終<rt>お</rt></ruby>わる",de:"anfangen/fertig lesen"}
+   ],
+   pattern:{slots:[{text:"N を",role:"obj"},{text:"V<sub>マス</sub>",role:"verb"},{text:"<ruby>始<rt>はじ</rt></ruby>めた",role:"plain",label:"begann zu"}],gloss:"»begann zu V-en« — ます-Stamm + 始める; Abschluss: 〜終わる. Plötzlich: 〜出す."},
+   bauplan:[
+    "Bilde den <b>ます-Stamm</b> (<code><ruby>登<rt>のぼ</rt></ruby>る→登り</code>).",
+    "Hänge <code><ruby>始<rt>はじ</rt></ruby>める</code> an → »anfangen zu …«.",
+    "Für »fertig«: <code><ruby>終<rt>お</rt></ruby>わる</code> (<code><ruby>食<rt>た</rt></ruby>べ<ruby>終<rt>お</rt></ruby>わる</code>).",
+    "始める/終わる konjugieren normal weiter (始めた/終わりました)."
+   ],
+   ex:[
+    {jp:"<ruby>朝<rt>あさ</rt></ruby> 5<ruby>時<rt>じ</rt></ruby>に <ruby>山<rt>やま</rt></ruby>を <ruby>登<rt>のぼ</rt></ruby>り<b>始めました</b>。",de:"Um 5 Uhr morgens begannen wir den Aufstieg."},
+    {jp:"レポートを <ruby>書<rt>か</rt></ruby>き<b>始めた</b>ばかりだ。",de:"Ich habe gerade erst angefangen, den Bericht zu schreiben."},
+    {jp:"やっと <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>み<b>終わった</b>。",de:"Endlich habe ich das Buch fertig gelesen."}
+   ],
+   note:"🔄 <b>〜始める</b> (neutral) vs <b>〜出す</b> (plötzlich, Punkt 16).<br>📖 Im Buch: Unit 1, Text 初めての富士山."},
+
+  {l:1, t:"2 · <ruby>持<rt>も</rt></ruby>って いくように <ruby>言<rt>い</rt></ruby>われた", de:"〜ように言う/言われる — jdm. sagen, dass er … soll",
+   simpel:"Aufforderung indirekt wiedergeben; passiv = »mir wurde gesagt, ich solle …«.<br><span class='jp'><ruby>水<rt>みず</rt></ruby>を <ruby>持<rt>も</rt></ruby>って いく<b>ように 言われた</b></span> = „man sagte mir, ich solle Wasser mitnehmen“",
+   rule:"V<sub>辞書/ない</sub> + ように + 言う/頼む/注意する/伝える: gibt Bitten/Anweisungen indirekt wieder. Sehr häufig im Passiv: 〜ように言われた »mir wurde gesagt, dass ich … soll«.",
+   build:[
+    {form:"aktiv",verb:"[<ruby>人<rt>ひと</rt></ruby>]に V<sub>辞書/ない</sub> + ように<ruby>言<rt>い</rt></ruby>う",de:"jdm. sagen, dass er … soll"},
+    {form:"passiv",verb:"〜ように<ruby>言<rt>い</rt></ruby>われる",de:"gesagt bekommen, dass …"},
+    {form:"Varianten",verb:"ように<ruby>頼<rt>たの</rt></ruby>む/<ruby>注意<rt>ちゅうい</rt></ruby>する",de:"bitten / ermahnen"}
+   ],
+   pattern:{slots:[{text:"[<ruby>人<rt>ひと</rt></ruby>] に",role:"obj",label:"von wem"},{text:"V<sub>辞書/ない</sub>",role:"verb",label:"was (nicht) tun"},{text:"ように<ruby>言<rt>い</rt></ruby>われた",role:"plain",label:"wurde gesagt"}],gloss:"Indirekte Aufforderung: »X sagte (mir), ich solle (nicht) …«. 辞書形/ない形 + ように + Sprechverb."},
+   bauplan:[
+    "Die Handlung in <b>辞書形</b> (tun) oder <b>ない形</b> (lassen).",
+    "Hänge <code>ように</code> + Sprechverb an (<code><ruby>言<rt>い</rt></ruby>う・<ruby>頼<rt>たの</rt></ruby>む・<ruby>伝<rt>つた</rt></ruby>える</code>).",
+    "Aus Empfänger-Sicht: <code>〜ように<ruby>言<rt>い</rt></ruby>われた</code>.",
+    "Wer es sagt, steht mit <code>に</code> (<code><ruby>医者<rt>いしゃ</rt></ruby>に</code>)."
+   ],
+   ex:[
+    {jp:"<ruby>山小屋<rt>やまごや</rt></ruby>の <ruby>人<rt>ひと</rt></ruby>に、<ruby>水<rt>みず</rt></ruby>を たくさん <ruby>持<rt>も</rt></ruby>って いく<b>ように 言われました</b>。",de:"Die Leute von der Berghütte sagten mir, ich solle viel Wasser mitnehmen."},
+    {jp:"<ruby>母<rt>はは</rt></ruby>に <ruby>無理<rt>むり</rt></ruby>を しない<b>ように 言われた</b>。",de:"Meine Mutter sagte mir, ich solle mich nicht übernehmen."},
+    {jp:"<ruby>先生<rt>せんせい</rt></ruby>は <ruby>学生<rt>がくせい</rt></ruby>に <ruby>毎日<rt>まいにち</rt></ruby> <ruby>復習<rt>ふくしゅう</rt></ruby>する<b>ように 言いました</b>。",de:"Der Lehrer sagte den Studenten, sie sollten täglich wiederholen."}
+   ],
+   note:"🔄 Direkt: 「〜てください」と<ruby>言<rt>い</rt></ruby>う → indirekt: <b>〜ように言う</b>.<br>📖 Buch-Satz: <ruby>水<rt>みず</rt></ruby>を持っていくように言われた."},
+
+  {l:1, t:"3 · <ruby>病気<rt>びょうき</rt></ruby>に なる <ruby>人<rt>ひと</rt></ruby>も いる ということ", de:"〜ということだ — es heißt, dass … / das bedeutet …",
+   simpel:"<b>ということ</b> macht einen Satz zur Information/Aussage: »(es heißt,) dass …«.<br><span class='jp'><ruby>病気<rt>びょうき</rt></ruby>に なる <ruby>人<rt>ひと</rt></ruby>も いる<b>ということ</b></span> = „(die Tatsache,) dass manche krank werden“",
+   rule:"Satz + ということ nominalisiert eine ganze Aussage (»die Tatsache/Information, dass …«). Am Satzende ということだ = Hörensagen (»es heißt, dass …«) oder Schlussfolgerung (»das bedeutet …«).",
+   build:[
+    {form:"Nominalisierung",verb:"[Satz] + ということ",de:"die Tatsache, dass …"},
+    {form:"Hörensagen",verb:"[Satz] + ということだ",de:"es heißt, dass …"},
+    {form:"Deutung",verb:"つまり 〜ということだ",de:"das bedeutet also …"}
+   ],
+   pattern:{slots:[{text:"[Satz<sub>Plain</sub>]",role:"cond"},{text:"ということ",role:"actor",label:"dass …"},{text:"(だ)",role:"plain"}],gloss:"Macht einen Satz zur »Information, dass …«. Am Ende: Hörensagen (es heißt) oder Schluss (das bedeutet)."},
+   bauplan:[
+    "Formuliere die Information als Satz in <b>Plain-Form</b>.",
+    "Hänge <code>ということ</code> an → jetzt wie ein Nomen verwendbar.",
+    "Als Hörensagen-Ende: <code>ということだ/ということです</code>.",
+    "Für Schlussfolgerungen: <code>つまり 〜ということだ</code>."
+   ],
+   ex:[
+    {jp:"<ruby>高山病<rt>こうざんびょう</rt></ruby>に なる <ruby>人<rt>ひと</rt></ruby>も いる<b>ということ</b>を <ruby>知<rt>し</rt></ruby>った。",de:"Ich erfuhr, dass manche höhenkrank werden."},
+    {jp:"<ruby>来月<rt>らいげつ</rt></ruby> <ruby>新<rt>あたら</rt></ruby>しい <ruby>店<rt>みせ</rt></ruby>が できる<b>ということだ</b>。",de:"Es heißt, nächsten Monat eröffnet ein neuer Laden."},
+    {jp:"<ruby>返事<rt>へんじ</rt></ruby>が ない のは、<ruby>興味<rt>きょうみ</rt></ruby>が ない<b>ということだ</b>。",de:"Keine Antwort bedeutet: kein Interesse."}
+   ],
+   note:"🔄 ≈ <b>〜そうだ</b> (Hörensagen), aber ということだ ist wörtlicher/schriftlicher.<br>📖 vgl. chuukyuu L5 「〜ということだ」."},
+
+  {l:1, t:"4 · <ruby>大丈夫<rt>だいじょうぶ</rt></ruby>だろうと <ruby>思<rt>おも</rt></ruby>った", de:"〜だろうと思う — ich dachte/denke, dass wohl …",
+   simpel:"Vermutung + <b>と思う</b>: »ich dachte, es wird wohl …«.<br><span class='jp'><ruby>大丈夫<rt>だいじょうぶ</rt></ruby><b>だろうと 思った</b></span> = „ich dachte, es geht schon“",
+   rule:"Plain + だろう + と思う: die eigene Vermutung, abgeschwächt und subjektiv — »wird wohl … , denke ich«. な-Adj/Nomen ohne だ direkt + だろう. Vergangenheit: 〜だろうと思った (oft mit Enttäuschung, wenn es anders kam).",
+   build:[
+    {form:"Muster",verb:"Plain + だろうと<ruby>思<rt>おも</rt></ruby>う",de:"wird wohl …, denke ich"},
+    {form:"な-Adj/N",verb:"<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>だろう (ohne だ+だろう doppelt)",de:"だ entfällt"},
+    {form:"Vergangenheit",verb:"〜だろうと<ruby>思<rt>おも</rt></ruby>った",de:"dachte, es würde wohl …"}
+   ],
+   pattern:{slots:[{text:"[Vermutung]",role:"cond"},{text:"だろう",role:"actor",label:"wohl"},{text:"と<ruby>思<rt>おも</rt></ruby>った",role:"plain",label:"dachte ich"}],gloss:"»Ich dachte, es wird wohl …« — Plain + だろう + と思う; な-Adj/N ohne だ."},
+   bauplan:[
+    "Formuliere die Vermutung in Plain-Form (な-Adj/N ohne <code>だ</code>).",
+    "Hänge <code>だろう</code> an → »wohl«.",
+    "Schließe mit <code>と<ruby>思<rt>おも</rt></ruby>う/思った</code>.",
+    "Bei 思った schwingt oft mit: es kam anders (wie beim Fuji 😅)."
+   ],
+   ex:[
+    {jp:"<ruby>夏<rt>なつ</rt></ruby>だから <ruby>大丈夫<rt>だいじょうぶ</rt></ruby><b>だろうと 思った</b>。",de:"Weil Sommer war, dachte ich, es würde schon gehen."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は もう <ruby>着<rt>つ</rt></ruby>いている<b>だろうと 思います</b>。",de:"Ich denke, er ist wohl schon angekommen."},
+    {jp:"<ruby>簡単<rt>かんたん</rt></ruby><b>だろうと 思った</b>が、<ruby>難<rt>むずか</rt></ruby>しかった。",de:"Ich dachte, es wäre wohl einfach — aber es war schwer."}
+   ],
+   note:"🔄 Sicherheit: かもしれない < <b>だろう</b> < に違いない.<br>📖 Fuji-Kontext: »dachte, es wird schon gehen« — wurde es nicht."},
+
+  {l:1, t:"5 · <ruby>大変<rt>たいへん</rt></ruby>じゃなさそうだった", de:"〜そうだ (Anschein) — sieht … aus / sah nicht … aus",
+   simpel:"Anschein: »sieht … aus«. Verneint: <b>じゃなさそう</b> »sieht nicht … aus«.<br><span class='jp'><ruby>大変<rt>たいへん</rt></ruby><b>じゃなさそう</b>だった</span> = „sah nicht anstrengend aus“",
+   rule:"Anschein-そう: い-Adj-Stamm/な-Adj + そうだ (»sieht … aus«). Verneinung: い-Adj くなさそう, な-Adj/N じゃなさそう, Verben そうもない/そうにない. Vergangenheit: そうだった.",
+   build:[
+    {form:"Anschein",verb:"Adj-Stamm + そうだ",de:"sieht … aus"},
+    {form:"verneint",verb:"〜く/じゃ + なさそうだ",de:"sieht nicht … aus"},
+    {form:"Verb verneint",verb:"V<sub>マス</sub> + そうもない",de:"sieht nicht danach aus"}
+   ],
+   pattern:{slots:[{text:"Adj/N",role:"cond"},{text:"じゃなさそう",role:"actor",label:"sieht nicht … aus"},{text:"だった",role:"plain",label:"(Verg.)"}],gloss:"Anschein-そう verneint: 〜くなさそう / 〜じゃなさそう »sieht nicht … aus«. Nicht mit Hörensagen-そう verwechseln!"},
+   bauplan:[
+    "Positiv: Adjektiv-Stamm + <code>そうだ</code> (<code>おいしそう</code>, <code><ruby>大変<rt>たいへん</rt></ruby>そう</code>).",
+    "Verneint い-Adj: <code>〜くなさそう</code> (<code><ruby>高<rt>たか</rt></ruby>くなさそう</code>).",
+    "Verneint な-Adj/N: <code>〜じゃなさそう</code>.",
+    "⚠ Hörensagen-そう (Plain + そうだ) ist eine ANDERE Konstruktion."
+   ],
+   ex:[
+    {jp:"ガイドブックでは、そんなに <ruby>大変<rt>たいへん</rt></ruby><b>じゃなさそう</b>だった。",de:"Laut Reiseführer sah es nicht so anstrengend aus."},
+    {jp:"この <ruby>問題<rt>もんだい</rt></ruby>は <ruby>難<rt>むずか</rt></ruby>し<b>そう</b>だ。",de:"Diese Aufgabe sieht schwierig aus."},
+    {jp:"<ruby>雨<rt>あめ</rt></ruby>は やみ<b>そうもない</b>。",de:"Es sieht nicht danach aus, dass der Regen aufhört."}
+   ],
+   note:"⚠ <b>Anschein-そう</b> (Stamm+そう) ≠ <b>Hörensagen-そう</b> (Plain+そうだ).<br>📖 Buch: die Tour »sah harmlos aus« — Anschein trügt."},
+
+  {l:1, t:"6 · <ruby>登<rt>のぼ</rt></ruby>って みると", de:"〜てみると — als ich es (aus)probierte, (da) …",
+   simpel:"て-Form + <b>みると</b>: »als ich es dann tat/probierte, stellte sich heraus …«.<br><span class='jp'><ruby>登<rt>のぼ</rt></ruby>って<b>みると</b></span> = „als ich dann (wirklich) hinaufstieg …“",
+   rule:"V<sub>テ</sub> + みると: man probiert etwas (てみる) — und mit と folgt die überraschende Entdeckung, die man dabei macht. Der Nachsatz ist eine Feststellung, kein Wille.",
+   build:[
+    {form:"Muster",verb:"V<sub>テ</sub> + みると",de:"als ich es tat, (da) …"},
+    {form:"Basis",verb:"V<sub>テ</sub> + みる",de:"mal versuchen (Minna L40)"},
+    {form:"Nachsatz",verb:"Entdeckung/Feststellung",de:"oft überraschend"}
+   ],
+   pattern:{slots:[{text:"V<sub>テ</sub>",role:"verb"},{text:"みると",role:"actor",label:"als ich probierte"},{text:"[Entdeckung]",role:"cond"}],gloss:"»Als ich es dann (wirklich) tat, stellte sich heraus: …« — てみる + と-Entdeckung."},
+   bauplan:[
+    "Nimm die Handlung in der <b>て-Form</b> + <code>みる</code> (»mal machen«).",
+    "Hänge <code>と</code> an → <code>〜てみると</code>.",
+    "Danach kommt die <b>Entdeckung</b> (Plain/Vergangenheit).",
+    "Kein Befehl/Wille im Nachsatz — nur Feststellung."
+   ],
+   ex:[
+    {jp:"<ruby>実際<rt>じっさい</rt></ruby>に <ruby>登<rt>のぼ</rt></ruby>って<b>みると</b>、<ruby>思<rt>おも</rt></ruby>ったより ずっと <ruby>大変<rt>たいへん</rt></ruby>だった。",de:"Als ich dann wirklich hinaufstieg, war es viel härter als gedacht."},
+    {jp:"<ruby>食<rt>た</rt></ruby>べて<b>みると</b>、<ruby>意外<rt>いがい</rt></ruby>と おいしかった。",de:"Als ich es probierte, war es überraschend lecker."},
+    {jp:"<ruby>調<rt>しら</rt></ruby>べて<b>みると</b>、<ruby>間違<rt>まちが</rt></ruby>いが <ruby>見<rt>み</rt></ruby>つかった。",de:"Als ich nachprüfte, fand ich einen Fehler."}
+   ],
+   note:"🔄 <b>〜てみたら</b> ist fast gleich (gesprochen häufiger).<br>📖 Buch: der Kontrast »sah leicht aus (5) → war hart (6)«."},
+
+  {l:1, t:"7 · <ruby>立<rt>た</rt></ruby>って いるのも つらいほど", de:"〜ほど — so (sehr), dass … (Grad)",
+   simpel:"<b>ほど</b> gibt den Grad an: »so …, dass …«.<br><span class='jp'><ruby>立<rt>た</rt></ruby>って いるのも つらい<b>ほど</b></span> = „so schlimm, dass selbst Stehen qualvoll war“",
+   rule:"[Ausmaß-Satz] + ほど: drückt aus, WIE stark etwas ist, mit einem anschaulichen Vergleich (»so …, dass sogar …«). Auch N + ほど (山ほど »bergeweise«).",
+   build:[
+    {form:"Grad",verb:"[Satz] + ほど",de:"so sehr, dass …"},
+    {form:"Nomen",verb:"N + ほど",de:"so viel wie N"},
+    {form:"oft mit",verb:"〜のも / さえ / まで",de:"»sogar«-Verstärkung"}
+   ],
+   pattern:{slots:[{text:"[sogar X ist Y]",role:"cond",label:"Ausmaß"},{text:"ほど",role:"actor",label:"so sehr, dass"},{text:"[Zustand]",role:"plain"}],gloss:"Grad-Angabe: »so …, dass (sogar) …«. Der ほど-Satz veranschaulicht das Ausmaß."},
+   bauplan:[
+    "Beschreibe das anschauliche <b>Extrem</b> (z. B. »sogar Stehen ist qualvoll«).",
+    "Hänge <code>ほど</code> an.",
+    "Setze den eigentlichen Zustand: <code><ruby>疲<rt>つか</rt></ruby>れていた</code> usw.",
+    "Merke auch: <code><ruby>数<rt>かぞ</rt></ruby>えきれないほど</code> »unzählig«."
+   ],
+   ex:[
+    {jp:"<ruby>立<rt>た</rt></ruby>って いるのも つらい<b>ほど</b> <ruby>疲<rt>つか</rt></ruby>れて いた。",de:"Ich war so erschöpft, dass selbst Stehen qualvoll war."},
+    {jp:"<ruby>山<rt>やま</rt></ruby><b>ほど</b> <ruby>宿題<rt>しゅくだい</rt></ruby>が ある。",de:"Ich habe bergeweise Hausaufgaben."},
+    {jp:"<ruby>涙<rt>なみだ</rt></ruby>が <ruby>出<rt>で</rt></ruby>る<b>ほど</b> うれしかった。",de:"Ich war so glücklich, dass mir Tränen kamen."}
+   ],
+   note:"🔄 vgl. <b>X は Y ほど〜ない</b> (Vergleich, chuukyuu L19) und <b>ば〜ほど</b> (je…desto).<br>📖 Buch: die Erschöpfung am Fuji."},
+
+  {l:1, t:"8 · どんどん <ruby>登<rt>のぼ</rt></ruby>って いく", de:"〜ていく — (von mir weg / weiter) fort-… (+Plus: 〜てくる)",
+   simpel:"<b>ていく</b> = Bewegung/Entwicklung vom Sprecher weg oder in die Zukunft; <b>てくる</b> = her/bis jetzt.<br><span class='jp'>どんどん <ruby>登<rt>のぼ</rt></ruby>って<b>いく</b></span> = „steigt zügig (weiter) hinauf“",
+   rule:"V<sub>テ</sub> + いく: räumlich »V-en und sich entfernen« oder zeitlich »von jetzt an weiter«. V<sub>テ</sub> + くる: »her-« bzw. »bis jetzt (allmählich)«. Perspektive des Sprechers entscheidet.",
+   build:[
+    {form:"weg / künftig",verb:"V<sub>テ</sub> + いく",de:"fort- / weiter"},
+    {form:"+Plus: her / bis jetzt",verb:"V<sub>テ</sub> + くる",de:"her- / allmählich geworden"},
+    {form:"typisch",verb:"<ruby>増<rt>ふ</rt></ruby>えていく / <ruby>変<rt>か</rt></ruby>わってきた",de:"wird weiter mehr / hat sich verändert"}
+   ],
+   pattern:{slots:[{text:"どんどん",role:"time",label:"zügig"},{text:"V<sub>テ</sub>",role:"verb"},{text:"いく",role:"plain",label:"weiter/fort"}],gloss:"ていく = weg vom Sprecher / ab jetzt weiter; てくる = her zum Sprecher / bis jetzt. Raum & Zeit."},
+   bauplan:[
+    "Nimm das Verb in der <b>て-Form</b>.",
+    "Vom Sprecher weg oder ab jetzt weiter → <code>いく</code>.",
+    "Zum Sprecher hin oder bis jetzt → <code>くる</code>.",
+    "Zeitliche Lesart sehr häufig: <code><ruby>寒<rt>さむ</rt></ruby>くなっていく/きた</code>."
+   ],
+   ex:[
+    {jp:"みんな どんどん <ruby>登<rt>のぼ</rt></ruby>って<b>いきます</b>。",de:"Alle steigen zügig weiter hinauf (von mir weg)."},
+    {jp:"<ruby>空<rt>そら</rt></ruby>が <ruby>明<rt>あか</rt></ruby>るく なって<b>きた</b>。",de:"Der Himmel ist (allmählich) hell geworden."},
+    {jp:"これからも <ruby>日本語<rt>にほんご</rt></ruby>を <ruby>勉強<rt>べんきょう</rt></ruby>して<b>いきたい</b>。",de:"Ich möchte auch künftig weiter Japanisch lernen."}
+   ],
+   note:"🔄 Ausführlich: chuukyuu L16/L52 (Perspektive).<br>📖 Buch: die anderen ziehen davon — どんどん登っていく."},
+
+  {l:1, t:"9 · <ruby>登<rt>のぼ</rt></ruby>り<ruby>続<rt>つづ</rt></ruby>けた", de:"Vマス + 続ける — weiter/unaufhörlich …",
+   simpel:"ます-Stamm + <b><ruby>続<rt>つづ</rt></ruby>ける</b> = »ohne aufzuhören weiter …«.<br><span class='jp'><ruby>登<rt>のぼ</rt></ruby>り<b>続けた</b></span> = „stieg unaufhörlich weiter“",
+   rule:"V<sub>ます</sub>-Stamm + 続ける: die Handlung dauert an, ohne Unterbrechung — oft mit Durchhalte-Nuance. Anhaltender Zustand: 〜続けている.",
    build:[
     {form:"Muster",verb:"V<sub>マス</sub> + <ruby>続<rt>つづ</rt></ruby>ける",de:"weiter V-en"},
     {form:"andauernd",verb:"〜<ruby>続<rt>つづ</rt></ruby>けている",de:"hält bis jetzt an"},
-    {form:"typisch",verb:"<ruby>増<rt>ふ</rt></ruby>え<ruby>続<rt>つづ</rt></ruby>ける / <ruby>待<rt>ま</rt></ruby>ち<ruby>続<rt>つづ</rt></ruby>ける",de:"nimmt weiter zu / wartet weiter"}
+    {form:"typisch",verb:"<ruby>歩<rt>ある</rt></ruby>き<ruby>続<rt>つづ</rt></ruby>ける / <ruby>待<rt>ま</rt></ruby>ち<ruby>続<rt>つづ</rt></ruby>ける",de:"weitergehen / weiter warten"}
    ],
-   pattern:{slots:[{text:"N は/が",role:"subj"},{text:"V<sub>マス</sub>",role:"verb"},{text:"<ruby>続<rt>つづ</rt></ruby>ける",role:"plain",label:"weiter"}],gloss:"»V-t weiter, ohne aufzuhören.« ます-Stamm + 続ける; anhaltend: 〜続けている."},
+   pattern:{slots:[{text:"N を",role:"obj"},{text:"V<sub>マス</sub>",role:"verb"},{text:"<ruby>続<rt>つづ</rt></ruby>けた",role:"plain",label:"weiter (durchgehalten)"}],gloss:"»V-te weiter, ohne aufzuhören« — ます-Stamm + 続ける; Durchhalte-Nuance."},
    bauplan:[
-    "Bilde den <b>ます-Stamm</b> (<code><ruby>降<rt>ふ</rt></ruby>る→降り</code>, <code><ruby>待<rt>ま</rt></ruby>つ→待ち</code>).",
-    "Hänge <code><ruby>続<rt>つづ</rt></ruby>ける</code> an → »weiter …«.",
-    "Für einen bis jetzt andauernden Vorgang: <code>〜続けている</code>.",
-    "続ける konjugiert wie ein normales る-Verb (続けた/続けます)."
+    "Bilde den <b>ます-Stamm</b> (<code><ruby>登<rt>のぼ</rt></ruby>る→登り</code>).",
+    "Hänge <code><ruby>続<rt>つづ</rt></ruby>ける</code> an.",
+    "Für »hält bis jetzt an«: <code>〜続けている</code>.",
+    "Kombiniert gern mit Zeitangaben (<code>3<ruby>時間<rt>じかん</rt></ruby>も</code>)."
    ],
    ex:[
-    {jp:"<ruby>雨<rt>あめ</rt></ruby>は <ruby>三日間<rt>みっかかん</rt></ruby> <ruby>降<rt>ふ</rt></ruby>り<b>続けた</b>。",de:"Es regnete drei Tage lang ununterbrochen."},
-    {jp:"<ruby>彼女<rt>かのじょ</rt></ruby>を 2<ruby>時間<rt>じかん</rt></ruby> <ruby>待<rt>ま</rt></ruby>ち<b>続けました</b>。",de:"Ich habe zwei Stunden lang auf sie gewartet (ohne aufzugeben)."},
-    {jp:"<ruby>物価<rt>ぶっか</rt></ruby>は <ruby>上<rt>あ</rt></ruby>がり<b>続けて</b> いる。",de:"Die Preise steigen weiter und weiter."}
+    {jp:"<ruby>休<rt>やす</rt></ruby>まずに 3<ruby>時間<rt>じかん</rt></ruby>も <ruby>登<rt>のぼ</rt></ruby>り<b>続けました</b>。",de:"Ich stieg ganze drei Stunden ohne Pause weiter."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>夢<rt>ゆめ</rt></ruby>を <ruby>追<rt>お</rt></ruby>い<b>続けて</b> いる。",de:"Er verfolgt weiter unbeirrt seinen Traum."},
+    {jp:"<ruby>雨<rt>あめ</rt></ruby>は <ruby>一晩中<rt>ひとばんじゅう</rt></ruby> <ruby>降<rt>ふ</rt></ruby>り<b>続けた</b>。",de:"Es regnete die ganze Nacht durch."}
    ],
-   note:"🔄 <b>〜ている</b> = Zustand; <b>〜続けている</b> betont »ohne Unterbrechung, hartnäckig«.<br>💡 Auch mit Willensverben: <ruby>走<rt>はし</rt></ruby>り続ける »weiterlaufen«."},
+   note:"🔄 <b>〜ている</b> = Zustand; <b>〜続ける</b> betont »hartnäckig ohne Unterbrechung«.<br>📖 Buch: der zähe Aufstieg."},
 
-  {l:1, t:"Vマス + <ruby>出<rt>だ</rt></ruby>す", de:"plötzlich anfangen zu … (losbrechen)",
-   simpel:"ます-Stamm + <b><ruby>出<rt>だ</rt></ruby>す</b> = »plötzlich los-…«.<br><span class='jp'><ruby>泣<rt>な</rt></ruby>き<b>出す</b></span> = „in Tränen ausbrechen“",
-   rule:"V<sub>ます</sub>-Stamm + 出す = etwas beginnt plötzlich und unkontrolliert (losweinen, losrennen, es fängt an zu regnen). Anders als 〜始める (neutraler Anfang) schwingt Überraschung mit.",
+  {l:1, t:"10 · <ruby>上<rt>うえ</rt></ruby>まで <ruby>行<rt>い</rt></ruby>きたいなら", de:"〜なら — wenn (du) … (willst), dann (rate ich) …",
+   simpel:"<b>なら</b> reagiert auf Gesagtes/Gewolltes: »wenn du … willst, dann …«.<br><span class='jp'><ruby>上<rt>うえ</rt></ruby>まで <ruby>行<rt>い</rt></ruby>きたい<b>なら</b></span> = „wenn du bis oben willst, (dann) …“",
+   rule:"[Thema/Wunsch] + なら + Ratschlag/Urteil: greift auf, was der andere gesagt oder vor hat, und gibt dazu eine Empfehlung. Typisch nach 〜たい: 行きたいなら »wenn du gehen willst«.",
    build:[
-    {form:"Muster",verb:"V<sub>マス</sub> + <ruby>出<rt>だ</rt></ruby>す",de:"plötzlich los-V-en"},
-    {form:"typisch",verb:"<ruby>泣<rt>な</rt></ruby>き<ruby>出<rt>だ</rt></ruby>す / <ruby>走<rt>はし</rt></ruby>り<ruby>出<rt>だ</rt></ruby>す / <ruby>降<rt>ふ</rt></ruby>り<ruby>出<rt>だ</rt></ruby>す",de:"losweinen/-rennen, (Regen) einsetzen"},
-    {form:"⚠ Vergleich",verb:"〜<ruby>始<rt>はじ</rt></ruby>める",de:"neutraler Beginn (geplant ok)"}
+    {form:"Muster",verb:"[Plain/たい] + なら",de:"wenn (du) …, dann"},
+    {form:"Nachsatz",verb:"Rat / Urteil / Angebot",de:"Empfehlung"},
+    {form:"Nomen",verb:"N + なら",de:"wenn es um N geht"}
    ],
-   pattern:{slots:[{text:"N が",role:"subj"},{text:"<ruby>急<rt>きゅう</rt></ruby>に",role:"time",label:"plötzlich"},{text:"V<sub>マス</sub>",role:"verb"},{text:"<ruby>出<rt>だ</rt></ruby>す",role:"plain",label:"los-"}],gloss:"»Bricht plötzlich los.« ます-Stamm + 出す — unkontrolliert/überraschend. Neutraler Anfang = 〜始める."},
+   pattern:{slots:[{text:"V<sub>たい</sub>",role:"cond",label:"Wunsch"},{text:"なら",role:"actor",label:"wenn, dann"},{text:"[Rat]",role:"plain"}],gloss:"Reaktions-Konditional: greift den Wunsch/Plan des Gegenübers auf und gibt einen Rat. Typisch 〜たいなら."},
    bauplan:[
-    "Bilde den <b>ます-Stamm</b> (<code><ruby>泣<rt>な</rt></ruby>く→泣き</code>).",
-    "Hänge <code><ruby>出<rt>だ</rt></ruby>す</code> an → »plötzlich los-…«.",
-    "Oft mit <code><ruby>急<rt>きゅう</rt></ruby>に / とつぜん</code> verstärkt.",
-    "Für einen geplanten/neutralen Beginn nimm <code>〜<ruby>始<rt>はじ</rt></ruby>める</code>."
+    "Greife den <b>Wunsch/Plan</b> auf (oft <code>〜たい</code>).",
+    "Hänge <code>なら</code> an → »wenn das dein Ziel ist«.",
+    "Gib den <b>Rat</b>: <code>〜たほうがいい</code>, <code>〜なさい</code>, <code>〜が<ruby>必要<rt>ひつよう</rt></ruby>だ</code>.",
+    "N + なら für Themen: <code><ruby>寿司<rt>すし</rt></ruby>なら あの<ruby>店<rt>みせ</rt></ruby></code>."
    ],
    ex:[
-    {jp:"<ruby>赤<rt>あか</rt></ruby>ちゃんが <ruby>急<rt>きゅう</rt></ruby>に <ruby>泣<rt>な</rt></ruby>き<b>出した</b>。",de:"Das Baby brach plötzlich in Tränen aus."},
-    {jp:"<ruby>空<rt>そら</rt></ruby>が <ruby>暗<rt>くら</rt></ruby>くなって、<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>り<b>出した</b>。",de:"Der Himmel wurde dunkel, und es fing an zu regnen."},
-    {jp:"<ruby>犬<rt>いぬ</rt></ruby>は <ruby>全速力<rt>ぜんそくりょく</rt></ruby>で <ruby>走<rt>はし</rt></ruby>り<b>出した</b>。",de:"Der Hund rannte mit voller Geschwindigkeit los."}
+    {jp:"<ruby>上<rt>うえ</rt></ruby>まで <ruby>行<rt>い</rt></ruby>きたい<b>なら</b>、ちゃんと <ruby>準備<rt>じゅんび</rt></ruby>した ほうが いい。",de:"Wenn du bis zum Gipfel willst, solltest du dich richtig vorbereiten."},
+    {jp:"<ruby>富士山<rt>ふじさん</rt></ruby>に <ruby>登<rt>のぼ</rt></ruby>る<b>なら</b>、<ruby>夏<rt>なつ</rt></ruby>が いい。",de:"Wenn du den Fuji besteigen willst, ist der Sommer gut."},
+    {jp:"<ruby>安<rt>やす</rt></ruby>い カメラ<b>なら</b>、この <ruby>店<rt>みせ</rt></ruby>が <ruby>一番<rt>いちばん</rt></ruby>だ。",de:"Wenn es um günstige Kameras geht, ist dieser Laden top."}
    ],
-   note:"⚠ <b>〜出す</b> = plötzlich/unkontrolliert → nicht für geplante Anfänge (✗ <ruby>宿題<rt>しゅくだい</rt></ruby>をやり出しなさい).<br>🔄 <b>〜始める</b> = neutral (TRY!/Minna-Basis)."},
+   note:"🔄 なら vs たら/ば/と: chuukyuu L35/36 (Übersicht).<br>📖 Buch: der Rat nach dem ersten Fuji-Versuch."},
 
-  {l:1, t:"Vマス + かける / 〜かけの N", de:"halb getan / gerade dabei, angefangen (und liegengelassen)",
-   simpel:"ます-Stamm + <b>かける</b> = angefangen, aber nicht fertig.<br><span class='jp'><ruby>読<rt>よ</rt></ruby>み<b>かけ</b>の <ruby>本<rt>ほん</rt></ruby></span> = „ein angelesenes Buch“",
-   rule:"V<sub>ます</sub>-Stamm + かける: (1) mittendrin abgebrochen/unvollendet (食べかけ »angebissen«), (2) kurz davor (死にかける »fast sterben«), (3) gerade ansetzen (言いかける »ansetzen zu sagen«). Vor Nomen: 〜かけの + N.",
+  // ============ UNIT 2 — ぼくの犬、クロ (1)+(2) ============
+  {l:2, t:"11 · クロって <ruby>名前<rt>なまえ</rt></ruby>", de:"〜って — locker für という/は (»namens … / was … angeht«)",
+   simpel:"<b>って</b> ist das gesprochene という/は: »namens X« oder »X? (was das angeht)«.<br><span class='jp'>クロ<b>って</b> <ruby>名前<rt>なまえ</rt></ruby></span> = „der Name ‚Kuro‘“",
+   rule:"って ersetzt in lockerer Sprache: (1) という (クロって名前 = クロという名前), (2) Themen-は (これって何? = これは何?), (3) Zitat と (行くって言った). Sehr häufig im Gespräch.",
    build:[
-    {form:"unvollendet",verb:"V<sub>マス</sub> + かけ(の N)",de:"halb getan / angefangen"},
-    {form:"kurz davor",verb:"<ruby>死<rt>し</rt></ruby>にかける / <ruby>消<rt>き</rt></ruby>えかける",de:"beinahe … / am Erlöschen"},
-    {form:"ansetzen",verb:"<ruby>言<rt>い</rt></ruby>いかけて、やめた",de:"setzte an und brach ab"}
+    {form:"namens",verb:"N + って + N",de:"= という"},
+    {form:"Thema",verb:"N + って",de:"= は (locker)"},
+    {form:"Zitat",verb:"[Satz] + って",de:"= と (sagen/hören)"}
    ],
-   pattern:{slots:[{text:"V<sub>マス</sub>",role:"verb"},{text:"かけの",role:"actor",label:"halb ge-…"},{text:"N",role:"obj"}],gloss:"»Angefangen, aber nicht zu Ende.« ます-Stamm + かける/かけ; attributiv かけの + N. Auch »kurz davor« (死にかける)."},
+   pattern:{slots:[{text:"クロ",role:"subj",label:"Name"},{text:"って",role:"actor",label:"namens"},{text:"<ruby>名前<rt>なまえ</rt></ruby>",role:"obj"}],gloss:"Gesprochenes という/は/と: »namens«, Themenmarker oder Zitat. Nur informell."},
    bauplan:[
-    "Bilde den <b>ます-Stamm</b> (<code><ruby>読<rt>よ</rt></ruby>む→読み</code>).",
-    "Hänge <code>かける</code> (Verb) oder <code>かけ</code> (Nomen-Form) an.",
-    "Vor einem Nomen: <code>〜かけの + N</code> (<code><ruby>飲<rt>の</rt></ruby>みかけの コーヒー</code>).",
-    "Kontext entscheidet: unvollendet, kurz davor oder gerade ansetzend."
+    "»Namens«: <code>N って N</code> (<code>クロって<ruby>犬<rt>いぬ</rt></ruby></code>).",
+    "Thema: <code>N って</code> + Frage/Aussage (<code><ruby>漢字<rt>かんじ</rt></ruby>って <ruby>難<rt>むずか</rt></ruby>しい</code>).",
+    "Zitat: <code>〜って <ruby>言<rt>い</rt></ruby>ってた</code>.",
+    "Formell schreibt man という / は / と."
    ],
    ex:[
-    {jp:"<ruby>机<rt>つくえ</rt></ruby>の <ruby>上<rt>うえ</rt></ruby>に <ruby>読<rt>よ</rt></ruby>み<b>かけ</b>の <ruby>本<rt>ほん</rt></ruby>が ある。",de:"Auf dem Tisch liegt ein angelesenes Buch."},
-    {jp:"<ruby>何<rt>なに</rt></ruby>か <ruby>言<rt>い</rt></ruby>い<b>かけて</b>、<ruby>彼<rt>かれ</rt></ruby>は <ruby>黙<rt>だま</rt></ruby>った。",de:"Er setzte an, etwas zu sagen, und verstummte."},
-    {jp:"<ruby>子<rt>こ</rt></ruby>どもの ころ、<ruby>川<rt>かわ</rt></ruby>で おぼれて <ruby>死<rt>し</rt></ruby>に<b>かけた</b>。",de:"Als Kind wäre ich im Fluss fast ertrunken."}
+    {jp:"クロ<b>って</b> <ruby>名前<rt>なまえ</rt></ruby>は、ぼくが つけた。",de:"Den Namen „Kuro“ habe ich ihm gegeben."},
+    {jp:"<ruby>敬語<rt>けいご</rt></ruby><b>って</b>、<ruby>本当<rt>ほんとう</rt></ruby>に <ruby>難<rt>むずか</rt></ruby>しい。",de:"Keigo — das ist echt schwierig."},
+    {jp:"<ruby>明日<rt>あした</rt></ruby> <ruby>来<rt>こ</rt></ruby>ない<b>って</b> <ruby>言<rt>い</rt></ruby>ってたよ。",de:"Er hat gesagt, dass er morgen nicht kommt."}
    ],
-   note:"💡 <b>〜かけの N</b> ist im Alltag sehr häufig (食べかけ, やりかけ, 書きかけ).<br>🔄 »beinahe passiert« auch: <b>〜ところだった</b>."},
+   note:"⚠ Nur gesprochen/informell.<br>📖 Buch: Erzählton des Jungen über seinen Hund."},
 
-  {l:1, t:"Vマス + っこない", de:"unmöglich! (salopp: klappt nie)",
-   simpel:"Saloppes »auf keinen Fall möglich«.<br><span class='jp'>でき<b>っこない</b></span> = „das schaff ich nie im Leben“",
-   rule:"V<sub>ます</sub>-Stamm + っこない = starke, umgangssprachliche Verneinung der Möglichkeit: »unmöglich, dass …«. Nur gesprochen, unter Vertrauten. ≈ 絶対に〜ない / 〜わけがない.",
+  {l:2, t:"12 · <ruby>飼<rt>か</rt></ruby>わせて もらった", de:"使役 + てもらう — (die Erlaubnis) bekommen, zu …",
+   simpel:"Kausativ-て + もらう = »man ließ mich … (ich durfte)«.<br><span class='jp'><ruby>飼<rt>か</rt></ruby>わせて<b>もらった</b></span> = „ich durfte ihn halten“",
+   rule:"V<sub>使役て</sub> + もらう/くれる: jemand erlaubt mir wohlwollend, etwas zu tun — »ich durfte (dank ihm)«. Höflich-dankbar: 〜させていただく.",
    build:[
-    {form:"Muster",verb:"V<sub>マス</sub> + っこない",de:"klappt nie / unmöglich"},
-    {form:"typisch",verb:"できっこない / わかりっこない",de:"nie schaffbar / nie zu verstehen"},
-    {form:"Register",verb:"salopp, gesprochen",de:"unter Freunden"}
+    {form:"Muster",verb:"V<sub>させて</sub> + もらう",de:"durfte (dank jdm.)"},
+    {form:"Geber betont",verb:"V<sub>させて</sub> + くれる",de:"er ließ mich netterweise"},
+    {form:"sehr höflich",verb:"V<sub>させて</sub> + いただく",de:"Keigo (Buch: Unit 8)"}
    ],
-   pattern:{slots:[{text:"そんなの、",role:"cond",label:"so etwas"},{text:"V<sub>マス</sub>",role:"verb"},{text:"っこない",role:"plain",label:"nie im Leben"}],gloss:"»Unmöglich, klappt nie!« ます-Stamm + っこない. Sehr salopp; formeller: わけがない / はずがない."},
+   pattern:{slots:[{text:"[<ruby>親<rt>おや</rt></ruby>] に",role:"obj",label:"von wem"},{text:"V<sub>させて</sub>",role:"verb",label:"lassen-Form"},{text:"もらった",role:"plain",label:"durfte"}],gloss:"»Jemand ließ mich (netterweise) …« — Kausativ-て + もらう/くれる. Dankbare Erlaubnis."},
    bauplan:[
-    "Bilde den <b>ます-Stamm</b> (<code>できる→でき</code>, <code>わかる→わかり</code>).",
-    "Hänge <code>っこない</code> an → »nie im Leben«.",
-    "Nur in lockerer <b>gesprochener</b> Sprache verwenden.",
-    "Formell/neutral stattdessen: <code>わけがない</code> oder <code>はずがない</code>."
+    "Bilde den <b>Kausativ</b> (<code><ruby>飼<rt>か</rt></ruby>う→飼わせる</code>).",
+    "て-Form + <code>もらう</code> (aus meiner Sicht) oder <code>くれる</code> (Geber betont).",
+    "Wer erlaubt, steht mit <code>に</code>.",
+    "Ganz höflich: <code>させていただきます</code>."
    ],
    ex:[
-    {jp:"<ruby>一日<rt>いちにち</rt></ruby>で <ruby>覚<rt>おぼ</rt></ruby>えられ<b>っこない</b>よ。",de:"Das kann man unmöglich an einem Tag auswendig lernen."},
-    {jp:"あの <ruby>二人<rt>ふたり</rt></ruby>の <ruby>気持<rt>きも</rt></ruby>ちなんて、わかり<b>っこない</b>。",de:"Was in den beiden vorgeht, versteht man nie im Leben."},
-    {jp:"<ruby>今<rt>いま</rt></ruby>から <ruby>行<rt>い</rt></ruby>っても、<ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>い<b>っこない</b>。",de:"Selbst wenn wir jetzt losgehen, schaffen wir es nie rechtzeitig."}
+    {jp:"<ruby>両親<rt>りょうしん</rt></ruby>に <ruby>犬<rt>いぬ</rt></ruby>を <ruby>飼<rt>か</rt></ruby>わせて<b>もらいました</b>。",de:"Meine Eltern erlaubten mir, einen Hund zu halten."},
+    {jp:"<ruby>先<rt>さき</rt></ruby>に <ruby>帰<rt>かえ</rt></ruby>らせて<b>もらった</b>。",de:"Man ließ mich (dankenswerterweise) früher heimgehen."},
+    {jp:"<ruby>一日<rt>いちにち</rt></ruby> <ruby>考<rt>かんが</rt></ruby>えさせて<b>ください</b>。",de:"Lassen Sie mich bitte einen Tag nachdenken."}
    ],
-   note:"⚠ Nur salopp/gesprochen.<br>🔄 Stärke: 〜ないだろう < 〜そうもない < <b>〜っこない</b> ≈ わけがない."},
+   note:"🔄 <b>させてもらう</b> (durfte) ↔ <b>させられる</b> (musste, Punkt 13).<br>📖 Buch: der Junge durfte Kuro behalten."},
 
-  {l:1, t:"〜てからでないと", de:"erst nachdem … (vorher geht es nicht)",
-   simpel:"Erst muss A passieren, sonst geht B nicht.<br><span class='jp'><ruby>予約<rt>よやく</rt></ruby>して<b>からでないと</b>、<ruby>入<rt>はい</rt></ruby>れません</span> = „ohne Reservierung kommt man nicht rein“",
-   rule:"V<sub>テ</sub> + からでないと (oder からでなければ) + Verneinung: »solange A nicht erledigt ist, ist B unmöglich/nicht erlaubt«. Der Hauptsatz ist immer negativ.",
+  {l:2, t:"13 · <ruby>約束<rt>やくそく</rt></ruby>させられた", de:"使役受身 — gezwungen werden, zu … (musste)",
+   simpel:"Kausativ-Passiv = »ich wurde dazu gebracht / musste (widerwillig)«.<br><span class='jp'><ruby>約束<rt>やくそく</rt></ruby><b>させられた</b></span> = „ich musste (es) versprechen“",
+   rule:"V<sub>使役受身</sub> (させられる/…される): jemand zwingt mich zu etwas, das ich nicht (gern) tue. う-Verben oft Kurzform (行かされる), する→させられる.",
    build:[
-    {form:"Muster",verb:"V<sub>テ</sub> + からでないと、〜ない",de:"erst nach A geht B"},
-    {form:"Variante",verb:"V<sub>テ</sub> + からでなければ",de:"gleich, etwas formeller"},
-    {form:"Hauptsatz",verb:"immer Verneinung/unmöglich",de:"できない・だめ …"}
+    {form:"る-V / する",verb:"<ruby>食<rt>た</rt></ruby>べさせられる / させられる",de:"gezwungen werden"},
+    {form:"う-V (kurz)",verb:"<ruby>行<rt>い</rt></ruby>かされる・<ruby>待<rt>ま</rt></ruby>たされる",de:"häufige Kurzform"},
+    {form:"Zwinger",verb:"[<ruby>人<rt>ひと</rt></ruby>] に",de:"von wem gezwungen"}
    ],
-   pattern:{slots:[{text:"V<sub>テ</sub>",role:"verb",label:"erst A"},{text:"からでないと",role:"actor",label:"vorher nicht"},{text:"〜ない/できない",role:"plain",label:"geht B nicht"}],gloss:"»Solange A nicht getan ist, geht B nicht.« て-Form + からでないと + Verneinung."},
+   pattern:{slots:[{text:"[<ruby>親<rt>おや</rt></ruby>] に",role:"obj",label:"von wem"},{text:"V<sub>使役受身</sub>",role:"verb",label:"musste"},{text:"(いやいや)",role:"time",label:"widerwillig"}],gloss:"»Ich wurde (gegen meinen Willen) dazu gebracht, zu …« — させられる; う-Verben oft 〜される."},
    bauplan:[
-    "Nimm die <b>Voraussetzung</b> A in der <b>て-Form</b> (<code><ruby>予約<rt>よやく</rt></ruby>して</code>).",
-    "Hänge <code>からでないと</code> (oder <code>からでなければ</code>) an.",
-    "Der Hauptsatz B ist <b>immer verneint</b> (<code>できない</code>, <code>だめだ</code>, <code><ruby>入<rt>はい</rt></ruby>れない</code>).",
-    "Sinn: erst A, dann B — vorher unmöglich."
+    "Bilde Kausativ + Passiv: <code>する→させられる</code>, <code><ruby>書<rt>か</rt></ruby>く→書かされる/書かせられる</code>.",
+    "Der Zwingende steht mit <code>に</code>.",
+    "Nuance: widerwillig/erzwungen.",
+    "Erlaubnis (positiv) wäre <code>させてもらう</code> (Punkt 12)."
    ],
    ex:[
-    {jp:"<ruby>会員<rt>かいいん</rt></ruby>に なって<b>からでないと</b>、<ruby>利用<rt>りよう</rt></ruby>できません。",de:"Erst wenn man Mitglied geworden ist, kann man es nutzen."},
-    {jp:"<ruby>親<rt>おや</rt></ruby>に <ruby>聞<rt>き</rt></ruby>いて<b>からでないと</b>、<ruby>返事<rt>へんじ</rt></ruby>できない。",de:"Bevor ich meine Eltern gefragt habe, kann ich nicht zusagen."},
-    {jp:"よく <ruby>調<rt>しら</rt></ruby>べて<b>からでなければ</b>、<ruby>買<rt>か</rt></ruby>わない ほうが いい。",de:"Bevor man es gut geprüft hat, sollte man es nicht kaufen."}
+    {jp:"<ruby>毎日<rt>まいにち</rt></ruby> <ruby>散歩<rt>さんぽ</rt></ruby>に <ruby>行<rt>い</rt></ruby>くと、<ruby>親<rt>おや</rt></ruby>に <ruby>約束<rt>やくそく</rt></ruby><b>させられた</b>。",de:"Meine Eltern nahmen mir das Versprechen ab, täglich Gassi zu gehen."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもの ころ、ピーマンを <ruby>食<rt>た</rt></ruby>べ<b>させられた</b>。",de:"Als Kind wurde ich gezwungen, Paprika zu essen."},
+    {jp:"1<ruby>時間<rt>じかん</rt></ruby>も <ruby>待<rt>ま</rt></ruby>た<b>された</b>。",de:"Ich musste eine ganze Stunde warten."}
    ],
-   note:"⚠ Hauptsatz immer <b>negativ</b>.<br>🔄 ≈ <b>〜ないと…ない</b>, aber betont die Reihenfolge »erst A, dann B«."},
+   note:"🔄 Übersicht 受身・使役・使役受身: chuukyuu L47/48.<br>📖 Buch: die Bedingung der Eltern für den Hund."},
 
-  // ============ UNIT 2 — Quelle & Weg ============
-  {l:2, t:"〜によると / 〜によれば", de:"laut … / gemäß … (Quellenangabe)",
-   simpel:"Nennt die Informationsquelle: »laut …«.<br><span class='jp'><ruby>天気予報<rt>てんきよほう</rt></ruby><b>によると</b>、<ruby>明日<rt>あした</rt></ruby>は <ruby>雨<rt>あめ</rt></ruby>だ<b>そうだ</b></span> = „laut Wettervorhersage regnet es morgen“",
-   rule:"N + によると/によれば markiert die Quelle einer Information. Am Satzende steht meist Hörensagen: 〜そうだ, 〜らしい, 〜ということだ.",
+  {l:2, t:"14 · <ruby>散歩<rt>さんぽ</rt></ruby>に <ruby>行<rt>い</rt></ruby>きたがって", de:"〜たがる — (er/sie) will … (3. Person)",
+   simpel:"Wunsch der 3. Person: ます-Stamm + <b>たがる</b>.<br><span class='jp'><ruby>行<rt>い</rt></ruby>き<b>たがって</b> いる</span> = „(der Hund) will unbedingt los“",
+   rule:"たい ist nur für die eigene Person; bei Dritten nutzt man V<sub>ます</sub> + たがる (»zeigt, dass er … will«). Meist たがっている. Ebenso: ほしい → ほしがる.",
    build:[
-    {form:"Muster",verb:"N + によると、〜そうだ",de:"laut N soll …"},
-    {form:"Variante",verb:"N + によれば",de:"gleichbedeutend"},
-    {form:"Satzende",verb:"そうだ / らしい / ということだ",de:"Hörensagen-Marker"}
+    {form:"Muster",verb:"V<sub>マス</sub> + たがる",de:"(er) will …"},
+    {form:"meist",verb:"〜たがっている",de:"zeigt gerade den Wunsch"},
+    {form:"Ding-Wunsch",verb:"N を ほしがる",de:"(er) will N haben"}
    ],
-   pattern:{slots:[{text:"N",role:"subj",label:"Quelle"},{text:"によると、",role:"actor",label:"laut"},{text:"[Info]",role:"cond"},{text:"そうだ",role:"plain",label:"soll angeblich"}],gloss:"»Laut Quelle N: …« — am Ende meist そうだ/らしい (Hörensagen). によれば ist gleichbedeutend."},
+   pattern:{slots:[{text:"[3. Person] は",role:"subj"},{text:"V<sub>マス</sub>",role:"verb"},{text:"たがっている",role:"plain",label:"will (sichtbar)"}],gloss:"Wunsch Dritter: たい→たがる, ほしい→ほしがる. Der Wunsch zeigt sich im Verhalten."},
    bauplan:[
-    "Nenne die <b>Quelle</b> (Nachrichten, Wetterbericht, eine Person …).",
-    "Hänge <code>によると</code> oder <code>によれば</code> an.",
-    "Gib die Information wieder — in der Plain-Form.",
-    "Schließe mit <b>Hörensagen</b>: <code>〜そうだ</code> / <code>〜らしい</code> / <code>〜ということだ</code>."
+    "Eigener Wunsch: <code>〜たい</code>. Wunsch eines <b>anderen</b>: ます-Stamm + <code>たがる</code>.",
+    "Aktuell sichtbar: <code>たがっている</code>.",
+    "Objekt behält <code>を</code> (nicht が wie bei たい).",
+    "Dinge: <code>ほしがる</code> (<code>おもちゃを ほしがる</code>)."
    ],
    ex:[
-    {jp:"ニュース<b>によると</b>、<ruby>台風<rt>たいふう</rt></ruby>が <ruby>近<rt>ちか</rt></ruby>づいている<b>そうだ</b>。",de:"Laut Nachrichten nähert sich ein Taifun."},
-    {jp:"<ruby>友<rt>とも</rt></ruby>だちの <ruby>話<rt>はなし</rt></ruby><b>によると</b>、あの <ruby>店<rt>みせ</rt></ruby>は おいしい<b>らしい</b>。",de:"Nach dem, was Freunde erzählen, soll der Laden gut sein."},
-    {jp:"<ruby>調査<rt>ちょうさ</rt></ruby><b>によれば</b>、<ruby>若者<rt>わかもの</rt></ruby>の <ruby>読書<rt>どくしょ</rt></ruby><ruby>時間<rt>じかん</rt></ruby>は <ruby>減<rt>へ</rt></ruby>っている<b>ということだ</b>。",de:"Laut Umfrage nimmt die Lesezeit junger Leute ab."}
+    {jp:"クロは <ruby>朝<rt>あさ</rt></ruby>から <ruby>散歩<rt>さんぽ</rt></ruby>に <ruby>行<rt>い</rt></ruby>き<b>たがって</b> いる。",de:"Kuro will schon seit dem Morgen unbedingt Gassi gehen."},
+    {jp:"<ruby>妹<rt>いもうと</rt></ruby>は <ruby>新<rt>あたら</rt></ruby>しい スマホを ほし<b>がって</b> いる。",de:"Meine kleine Schwester will unbedingt ein neues Smartphone."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもは <ruby>薬<rt>くすり</rt></ruby>を <ruby>飲<rt>の</rt></ruby>み<b>たがらない</b>。",de:"Das Kind will die Medizin nicht nehmen."}
    ],
-   note:"⚠ Nicht mit <b>によって</b> (je nach / durch / von) verwechseln!<br>💡 Quelle + によると … <b>そうだ</b> ist das Standard-Duo für Hörensagen."},
+   note:"⚠ たい/ほしい nur 1. Person — Dritte brauchen <b>たがる/ほしがる</b>.<br>📖 vgl. chuukyuu L13."},
 
-  {l:2, t:"〜を<ruby>通<rt>とお</rt></ruby>して / 〜を<ruby>通<rt>つう</rt></ruby>じて", de:"durch / über … (Mittel) — … hindurch (Zeit)",
-   simpel:"»durch/über X« (Vermittlung) oder »X hindurch« (Zeitraum).<br><span class='jp'><ruby>友人<rt>ゆうじん</rt></ruby><b>を通して</b> <ruby>知<rt>し</rt></ruby>り<ruby>合<rt>あ</rt></ruby>った</span> = „wir haben uns über einen Freund kennengelernt“",
-   rule:"N + を通して/を通じて: (1) »über/durch N« als Mittel oder Vermittler; (2) mit Zeitwort »den ganzen Zeitraum hindurch« (一年を通して). を通じて ist etwas schriftlicher.",
+  {l:2, t:"15 · <ruby>玄関<rt>げんかん</rt></ruby>を <ruby>出<rt>で</rt></ruby>たとたん", de:"〜たとたん(に) — kaum dass … / im selben Moment",
+   simpel:"Zwei Ereignisse Schlag auf Schlag, das zweite überraschend.<br><span class='jp'><ruby>玄関<rt>げんかん</rt></ruby>を <ruby>出<rt>で</rt></ruby>た<b>とたん</b></span> = „kaum aus der Haustür …“",
+   rule:"V<sub>た</sub> + とたん(に): »genau in dem Moment, als A geschah, geschah (unerwartet) B«. B ist unkontrolliert und vergangen; kein Wille/Befehl.",
    build:[
-    {form:"Vermittlung",verb:"N + を<ruby>通<rt>とお</rt></ruby>して",de:"über/durch N"},
-    {form:"Zeitraum",verb:"<ruby>一年<rt>いちねん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>して",de:"das ganze Jahr hindurch"},
-    {form:"schriftlicher",verb:"N + を<ruby>通<rt>つう</rt></ruby>じて",de:"gleichbedeutend"}
+    {form:"Muster",verb:"V<sub>た</sub> + とたん(に)",de:"kaum dass …"},
+    {form:"Nachsatz",verb:"plötzliches B (Verg.)",de:"unerwartet"},
+    {form:"⚠",verb:"kein Befehl/Wille danach",de:"nur Feststellung"}
    ],
-   pattern:{slots:[{text:"N",role:"subj",label:"Mittel/Zeit"},{text:"を<ruby>通<rt>とお</rt></ruby>して",role:"actor",label:"durch/über"},{text:"[Handlung]",role:"verb"}],gloss:"»Durch/über N (Vermittler, Mittel)« oder »N hindurch (Zeitraum)«. を通じて = schriftlicher."},
+   pattern:{slots:[{text:"V<sub>た</sub>",role:"verb",label:"Moment A"},{text:"とたん",role:"actor",label:"im selben Moment"},{text:"[plötzlich B]",role:"cond"}],gloss:"»Kaum dass A, (da) B (überraschend).« Nur た-Form davor."},
    bauplan:[
-    "Nenne den <b>Vermittler / das Mittel / den Zeitraum</b> als Nomen.",
-    "Hänge <code>を<ruby>通<rt>とお</rt></ruby>して</code> (oder schriftlicher <code>を<ruby>通<rt>つう</rt></ruby>じて</code>) an.",
-    "Setze die Handlung dahinter.",
-    "Zeit-Lesart: <code><ruby>一年<rt>いちねん</rt></ruby>を通して <ruby>暖<rt>あたた</rt></ruby>かい</code> = »das ganze Jahr über warm«."
+    "Ereignis A in der <b>た-Form</b>.",
+    "Hänge <code>とたん(に)</code> an.",
+    "Setze das <b>überraschende</b> B (Vergangenheit).",
+    "Für Geplantes nimm <code>〜たらすぐ</code>."
    ],
    ex:[
-    {jp:"インターネット<b>を通じて</b> <ruby>世界中<rt>せかいじゅう</rt></ruby>の ニュースが <ruby>読<rt>よ</rt></ruby>める。",de:"Über das Internet kann man Nachrichten aus aller Welt lesen."},
-    {jp:"<ruby>共通<rt>きょうつう</rt></ruby>の <ruby>友人<rt>ゆうじん</rt></ruby><b>を通して</b> <ruby>彼女<rt>かのじょ</rt></ruby>と <ruby>知<rt>し</rt></ruby>り<ruby>合<rt>あ</rt></ruby>いました。",de:"Ich habe sie über einen gemeinsamen Freund kennengelernt."},
-    {jp:"この <ruby>町<rt>まち</rt></ruby>は <ruby>一年<rt>いちねん</rt></ruby><b>を通して</b> <ruby>観光客<rt>かんこうきゃく</rt></ruby>が <ruby>多<rt>おお</rt></ruby>い。",de:"In dieser Stadt sind das ganze Jahr hindurch viele Touristen."}
+    {jp:"<ruby>玄関<rt>げんかん</rt></ruby>を <ruby>出<rt>で</rt></ruby>た<b>とたん</b>、クロが <ruby>走<rt>はし</rt></ruby>り<ruby>出<rt>だ</rt></ruby>した。",de:"Kaum waren wir aus der Haustür, rannte Kuro los."},
+    {jp:"<ruby>窓<rt>まど</rt></ruby>を <ruby>開<rt>あ</rt></ruby>けた<b>とたん</b>、<ruby>風<rt>かぜ</rt></ruby>が <ruby>入<rt>はい</rt></ruby>って きた。",de:"Kaum öffnete ich das Fenster, wehte Wind herein."},
+    {jp:"<ruby>横<rt>よこ</rt></ruby>に なった<b>とたん</b>、<ruby>眠<rt>ねむ</rt></ruby>って しまった。",de:"Kaum lag ich, war ich auch schon eingeschlafen."}
    ],
-   note:"🔄 <b>を通して</b> ≈ <b>を通じて</b> (schriftlicher).<br>⚠ Für bloße Ortsdurchquerung nimmt man <b>を通る</b>."},
+   note:"🔄 weicher: 〜たら / 〜と.<br>📖 Buch: Kuros Energie an der Haustür."},
 
-  {l:2, t:"〜につき", de:"pro … / wegen … (formelle Anzeige)",
-   simpel:"Zwei formelle Sinne: »pro X« und »wegen X (geschlossen etc.)«.<br><span class='jp'><ruby>一人<rt>ひとり</rt></ruby><b>につき</b> 2<ruby>枚<rt>まい</rt></ruby></span> = „pro Person 2 Stück“",
-   rule:"N + につき: (1) »pro N« bei Mengen/Preisen (一人につき, 1回につき); (2) »wegen N« in formellen Aushängen/Bekanntmachungen (工事中につき). Beides schriftlich-formell.",
+  {l:2, t:"16 · <ruby>全速力<rt>ぜんそくりょく</rt></ruby>で <ruby>走<rt>はし</rt></ruby>り<ruby>出<rt>だ</rt></ruby>す", de:"Vマス + 出す — plötzlich los-…",
+   simpel:"ます-Stamm + <b><ruby>出<rt>だ</rt></ruby>す</b> = »plötzlich anfangen« (losrennen, losweinen).<br><span class='jp'><ruby>走<rt>はし</rt></ruby>り<b>出す</b></span> = „losrennen“",
+   rule:"V<sub>ます</sub>-Stamm + 出す: etwas bricht plötzlich, unkontrolliert los. Anders als 〜始める (neutral, Punkt 1) schwingt Überraschung mit.",
    build:[
-    {form:"pro",verb:"N + につき + <ruby>数量<rt>すうりょう</rt></ruby>",de:"pro N …"},
-    {form:"wegen (Aushang)",verb:"N + につき",de:"wegen N (formell)"},
-    {form:"Register",verb:"Schilder, Regeln, Anzeigen",de:"formell"}
+    {form:"Muster",verb:"V<sub>マス</sub> + <ruby>出<rt>だ</rt></ruby>す",de:"plötzlich los-V"},
+    {form:"typisch",verb:"<ruby>走<rt>はし</rt></ruby>り<ruby>出<rt>だ</rt></ruby>す・<ruby>泣<rt>な</rt></ruby>き<ruby>出<rt>だ</rt></ruby>す・<ruby>降<rt>ふ</rt></ruby>り<ruby>出<rt>だ</rt></ruby>す",de:"losrennen/-weinen, einsetzen (Regen)"},
+    {form:"⚠ Vergleich",verb:"〜<ruby>始<rt>はじ</rt></ruby>める (Punkt 1)",de:"neutraler Anfang"}
    ],
-   pattern:{slots:[{text:"N",role:"subj",label:"Einheit/Grund"},{text:"につき",role:"actor",label:"pro / wegen"},{text:"[Angabe]",role:"plain"}],gloss:"(1) »pro N« (一人につき2枚). (2) »wegen N« auf formellen Aushängen (工事中につき通行止め)."},
+   pattern:{slots:[{text:"<ruby>急<rt>きゅう</rt></ruby>に",role:"time",label:"plötzlich"},{text:"V<sub>マス</sub>",role:"verb"},{text:"<ruby>出<rt>だ</rt></ruby>す",role:"plain",label:"los-"}],gloss:"»Bricht plötzlich los« — unkontrolliert/überraschend. Neutral: 〜始める."},
    bauplan:[
-    "Für <b>»pro«</b>: Einheit (Person, Mal, Stück) + <code>につき</code> + Menge/Preis.",
-    "Für <b>»wegen«</b>: Grund + <code>につき</code> + Maßnahme (typisch auf Schildern).",
-    "Beides ist <b>formell/schriftlich</b> — im Gespräch: <code>〜あたり/〜だから</code>.",
-    "Merke Schild-Klassiker: <code><ruby>工事中<rt>こうじちゅう</rt></ruby>につき、<ruby>通行止<rt>つうこうど</rt></ruby>め</code>."
+    "Bilde den <b>ます-Stamm</b>.",
+    "Hänge <code><ruby>出<rt>だ</rt></ruby>す</code> an.",
+    "Verstärke mit <code><ruby>急<rt>きゅう</rt></ruby>に/とつぜん</code>.",
+    "Nicht für geplante Anfänge."
    ],
    ex:[
-    {jp:"チケットは <ruby>一人<rt>ひとり</rt></ruby><b>につき</b> 2<ruby>枚<rt>まい</rt></ruby>まで です。",de:"Tickets gibt es maximal zwei pro Person."},
-    {jp:"1<ruby>回<rt>かい</rt></ruby><b>につき</b> 500<ruby>円<rt>えん</rt></ruby> かかります。",de:"Pro Mal kostet es 500 Yen."},
-    {jp:"<ruby>店内<rt>てんない</rt></ruby><ruby>改装<rt>かいそう</rt></ruby><b>につき</b>、<ruby>休業<rt>きゅうぎょう</rt></ruby>いたします。",de:"Wegen Renovierung bleibt das Geschäft geschlossen."}
+    {jp:"クロは <ruby>全速力<rt>ぜんそくりょく</rt></ruby>で <ruby>走<rt>はし</rt></ruby>り<b>出した</b>。",de:"Kuro rannte mit voller Geschwindigkeit los."},
+    {jp:"<ruby>急<rt>きゅう</rt></ruby>に <ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>り<b>出した</b>。",de:"Plötzlich fing es an zu regnen."},
+    {jp:"<ruby>赤<rt>あか</rt></ruby>ちゃんが <ruby>泣<rt>な</rt></ruby>き<b>出した</b>。",de:"Das Baby brach in Tränen aus."}
    ],
-   note:"💡 Die »wegen«-Lesart begegnet dir ständig auf <b>Schildern</b> in Japan.<br>🔄 »pro« umgangssprachlich: <b>〜あたり</b> (一人あたり)."},
+   note:"🔄 <b>出す</b> = plötzlich ↔ <b>始める</b> = neutral (Punkt 1).<br>📖 Buch: direkt nach 〜たとたん (15) — Schlag auf Schlag."},
 
-  {l:2, t:"〜ように<ruby>言<rt>い</rt></ruby>う", de:"jdm. sagen, dass er … soll (indirekte Aufforderung)",
-   simpel:"Aufforderungen indirekt wiedergeben.<br><span class='jp'><ruby>早<rt>はや</rt></ruby>く <ruby>寝<rt>ね</rt></ruby>る<b>ように 言った</b></span> = „ich sagte ihm, er solle früh schlafen“",
-   rule:"V<sub>辞書/ない</sub> + ように + 言う/頼む/注意する/伝える: gibt Bitten und Befehle indirekt wieder — »sagen/bitten, dass jemand … (nicht) tun soll«. Passiv: 〜ように言われた »mir wurde gesagt, ich solle …«.",
+  {l:2, t:"17 · <ruby>帰<rt>かえ</rt></ruby>ろうとする", de:"〜(よ)うとする — im Begriff sein / versuchen zu …",
+   simpel:"Willensform + <b>とする</b>: »gerade ansetzen / versuchen zu …«.<br><span class='jp'><ruby>帰<rt>かえ</rt></ruby>ろ<b>うとする</b>と</span> = „als ich gerade gehen wollte …“",
+   rule:"V<sub>(よ)う</sub> + とする: (1) »gerade im Begriff sein« (帰ろうとしたとき), (2) »versuchen« (Anlauf nehmen). Verneint 〜(よ)うとしない = »macht keine Anstalten«.",
    build:[
-    {form:"Muster",verb:"V<sub>辞書/ない</sub> + ように<ruby>言<rt>い</rt></ruby>う",de:"sagen, dass … soll"},
-    {form:"Varianten",verb:"ように<ruby>頼<rt>たの</rt></ruby>む/<ruby>伝<rt>つた</rt></ruby>える/<ruby>注意<rt>ちゅうい</rt></ruby>する",de:"bitten / ausrichten / ermahnen"},
-    {form:"Passiv",verb:"〜ように<ruby>言<rt>い</rt></ruby>われた",de:"mir wurde gesagt, dass …"}
+    {form:"Muster",verb:"V<sub>(よ)う</sub> + とする",de:"im Begriff / versuchen"},
+    {form:"Moment",verb:"〜(よ)うとした とき/と",de:"gerade als …"},
+    {form:"Verweigerung",verb:"〜(よ)うとしない",de:"macht keine Anstalten"}
    ],
-   pattern:{slots:[{text:"[Person] に",role:"obj",label:"wem"},{text:"V<sub>辞書/ない</sub>",role:"verb",label:"was (nicht) tun"},{text:"ように<ruby>言<rt>い</rt></ruby>う",role:"plain",label:"auffordern"}],gloss:"Indirekte Aufforderung: »X sagt Y, er solle (nicht) …«. Auch mit 頼む/伝える/注意する; Passiv 〜ように言われた."},
+   pattern:{slots:[{text:"V<sub>(よ)う</sub>",role:"verb",label:"Willensform"},{text:"とすると",role:"actor",label:"als ich gerade wollte"},{text:"[B]",role:"cond"}],gloss:"»Gerade ansetzen zu …« — Willensform + とする; Verweigerung: ようとしない."},
    bauplan:[
-    "Nenne die Person mit <code>に</code>, an die die Aufforderung geht.",
-    "Formuliere die Handlung in <b>辞書形</b> (tun) oder <b>ない形</b> (lassen).",
-    "Hänge <code>ように</code> + Sprechverb an (<code><ruby>言<rt>い</rt></ruby>う・<ruby>頼<rt>たの</rt></ruby>む・<ruby>伝<rt>つた</rt></ruby>える</code>).",
-    "Aus deiner Sicht empfangen: <code>〜ように<ruby>言<rt>い</rt></ruby>われた</code>."
+    "Bilde die <b>Willensform</b> (<code><ruby>帰<rt>かえ</rt></ruby>る→帰ろう</code>).",
+    "Hänge <code>とする</code> an.",
+    "»Gerade als«: <code>〜(よ)うとした とき/と</code>.",
+    "Verneint für Dritte: <code>〜(よ)うとしない</code>."
    ],
    ex:[
-    {jp:"<ruby>医者<rt>いしゃ</rt></ruby>に お<ruby>酒<rt>さけ</rt></ruby>を やめる<b>ように 言われました</b>。",de:"Der Arzt hat mir gesagt, ich solle mit dem Alkohol aufhören."},
-    {jp:"<ruby>子<rt>こ</rt></ruby>どもに <ruby>廊下<rt>ろうか</rt></ruby>を <ruby>走<rt>はし</rt></ruby>らない<b>ように <ruby>注意<rt>ちゅうい</rt></ruby>した</b>。",de:"Ich ermahnte die Kinder, nicht im Flur zu rennen."},
-    {jp:"<ruby>田中<rt>たなか</rt></ruby>さんに <ruby>電話<rt>でんわ</rt></ruby>する<b>ように <ruby>伝<rt>つた</rt></ruby>えて</b> ください。",de:"Bitte richten Sie Tanaka aus, dass er anrufen soll."}
+    {jp:"<ruby>家<rt>いえ</rt></ruby>に <ruby>帰<rt>かえ</rt></ruby>ろ<b>うとする</b>と、クロが <ruby>動<rt>うご</rt></ruby>かなく なる。",de:"Sobald ich heimgehen will, rührt sich Kuro nicht mehr vom Fleck."},
+    {jp:"<ruby>出<rt>で</rt></ruby>かけよ<b>うとした</b> とき、<ruby>電話<rt>でんわ</rt></ruby>が <ruby>鳴<rt>な</rt></ruby>った。",de:"Gerade als ich losgehen wollte, klingelte das Telefon."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>話<rt>はなし</rt></ruby>を <ruby>聞<rt>き</rt></ruby>こ<b>うとしない</b>。",de:"Er macht keine Anstalten zuzuhören."}
    ],
-   note:"🔄 Direktes Zitat wäre 「〜てください」と言う — <b>ようにいう</b> ist die indirekte Form.<br>💡 Sehr häufig im Passiv (言われた)."},
+   note:"🔄 vgl. chuukyuu L7 (〜(よ)うとしても).<br>📖 Buch: Kuro streikt beim Heimweg."},
 
-  {l:2, t:"〜てから というもの", de:"seit … (hat sich alles verändert)",
-   simpel:"Seit einem Wendepunkt ist dauerhaft alles anders.<br><span class='jp'><ruby>子<rt>こ</rt></ruby>どもが <ruby>生<rt>う</rt></ruby>まれて<b>から というもの</b></span> = „seit das Kind geboren ist, …“",
-   rule:"V<sub>テ</sub> + からというもの = »seit dem Zeitpunkt X hat sich (dauerhaft, spürbar) … verändert«. Emotionaler und nachdrücklicher als schlichtes 〜てから; eher schriftlich.",
+  {l:2, t:"18 · コンビニに <ruby>寄<rt>よ</rt></ruby>る こともある", de:"〜こともある — es kommt (auch) vor, dass …",
+   simpel:"Gelegentliches: »manchmal passiert es, dass …«.<br><span class='jp'><ruby>寄<rt>よ</rt></ruby>る<b>こともある</b></span> = „manchmal schauen wir (dort) vorbei“",
+   rule:"V<sub>辞書/ない</sub> + こともある: etwas ist nicht die Regel, kommt aber vor. Stärker »nur manchmal« als schlichtes ときどき; auch 〜ないこともある (»es kommt vor, dass nicht«).",
    build:[
-    {form:"Muster",verb:"V<sub>テ</sub> + からというもの",de:"seit … (alles anders)"},
-    {form:"Folge",verb:"dauerhafte Veränderung",de:"ずっと/すっかり …"},
-    {form:"⚠ Vergleich",verb:"〜てから",de:"neutral »nachdem/seit«"}
+    {form:"Muster",verb:"V<sub>辞書</sub> + こともある",de:"es kommt vor, dass …"},
+    {form:"verneint",verb:"V<sub>ない</sub> + こともある",de:"manchmal auch nicht"},
+    {form:"⚠ Vergleich",verb:"V<sub>た</sub> + ことがある",de:"Erfahrung (schon mal)"}
    ],
-   pattern:{slots:[{text:"V<sub>テ</sub>",role:"verb",label:"Wendepunkt"},{text:"からというもの",role:"actor",label:"seitdem"},{text:"[dauerhafte Änderung]",role:"cond"}],gloss:"»Seit X ist dauerhaft alles anders.« Nachdrücklicher als 〜てから; oft mit ずっと/すっかり/毎日."},
+   pattern:{slots:[{text:"V<sub>辞書</sub>",role:"verb"},{text:"こともある",role:"plain",label:"kommt vor"}],gloss:"»Es kommt (auch) vor, dass …« — gelegentlich, nicht die Regel. ≠ たことがある (Erfahrung)."},
    bauplan:[
-    "Nimm den <b>Wendepunkt</b> in der <b>て-Form</b> (<code><ruby>生<rt>う</rt></ruby>まれて</code>, <code><ruby>始<rt>はじ</rt></ruby>めて</code>).",
-    "Hänge <code>からというもの</code> an.",
-    "Beschreibe die <b>dauerhafte</b> Veränderung (oft mit <code>ずっと/すっかり/<ruby>毎日<rt>まいにち</rt></ruby></code>).",
-    "Für neutrales »nachdem« reicht <code>〜てから</code>."
+    "Nimm die gelegentliche Handlung im <b>辞書形</b> (oder ない形).",
+    "Hänge <code>こともある</code> an.",
+    "Nuance: Ausnahme von der Gewohnheit.",
+    "⚠ <code>V<sub>た</sub>+ことがある</code> = Erfahrung — anderes Muster!"
    ],
    ex:[
-    {jp:"<ruby>日本<rt>にほん</rt></ruby>に <ruby>来<rt>き</rt></ruby>て<b>からというもの</b>、<ruby>毎日<rt>まいにち</rt></ruby>が <ruby>発見<rt>はっけん</rt></ruby>の <ruby>連続<rt>れんぞく</rt></ruby>だ。",de:"Seit ich nach Japan gekommen bin, ist jeder Tag voller Entdeckungen."},
-    {jp:"タバコを やめて<b>からというもの</b>、<ruby>体<rt>からだ</rt></ruby>の <ruby>調子<rt>ちょうし</rt></ruby>が いい。",de:"Seit ich mit dem Rauchen aufgehört habe, geht es mir körperlich gut."},
-    {jp:"<ruby>彼女<rt>かのじょ</rt></ruby>に <ruby>会<rt>あ</rt></ruby>って<b>からというもの</b>、<ruby>彼<rt>かれ</rt></ruby>は すっかり <ruby>変<rt>か</rt></ruby>わった。",de:"Seit er sie getroffen hat, ist er wie ausgewechselt."}
+    {jp:"<ruby>散歩<rt>さんぽ</rt></ruby>の <ruby>帰<rt>かえ</rt></ruby>りに、コンビニに <ruby>寄<rt>よ</rt></ruby>る<b>こともある</b>。",de:"Auf dem Rückweg vom Spaziergang schauen wir manchmal am Konbini vorbei."},
+    {jp:"<ruby>忙<rt>いそが</rt></ruby>しくて、<ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を <ruby>食<rt>た</rt></ruby>べない<b>こともある</b>。",de:"Manchmal komme ich vor Stress nicht zum Mittagessen."},
+    {jp:"<ruby>電車<rt>でんしゃ</rt></ruby>が <ruby>遅<rt>おく</rt></ruby>れる<b>こともあります</b>。",de:"Es kommt vor, dass der Zug Verspätung hat."}
    ],
-   note:"🔄 <b>〜てから</b> = neutral; <b>〜てからというもの</b> = »und seither ist alles anders« (nachdrücklich).<br>⚠ Nicht für banale Abfolgen."},
+   note:"⚠ <b>辞書形+こともある</b> (kommt vor) ≠ <b>た形+ことがある</b> (Erfahrung).<br>📖 vgl. chuukyuu L40."},
 
-  // ============ UNIT 3 — Zusatz & Ausruf ============
-  {l:3, t:"〜は もちろん", de:"… sowieso / natürlich —, und sogar auch …",
-   simpel:"A ist selbstverständlich, und B kommt noch dazu.<br><span class='jp'><ruby>平日<rt>へいじつ</rt></ruby><b>は もちろん</b>、<ruby>週末<rt>しゅうまつ</rt></ruby>も</span> = „werktags sowieso, und sogar am Wochenende“",
-   rule:"N + はもちろん、… も: »N ist selbstverständlich (klar), und auch … «. Nennt erst das Offensichtliche, dann das Bemerkenswerte. Formeller: 〜はもとより.",
+  {l:2, t:"19 · <ruby>待<rt>ま</rt></ruby>たせて おいて", de:"使役 + ておく — jdn. (erstmal) … lassen (und so belassen)",
+   simpel:"Kausativ + <b>ておく</b>: »jemanden (vorerst) warten/machen lassen«.<br><span class='jp'><ruby>待<rt>ま</rt></ruby>たせて<b>おいて</b></span> = „ihn warten lassen (und derweil …)“",
+   rule:"V<sub>使役て</sub> + おく: man lässt jemanden in einem Zustand/einer Tätigkeit und belässt es dabei (Vorbereitungs-/Belassen-おく auf den Kausativ angewandt). 待たせておく »warten lassen«, 遊ばせておく »spielen lassen«.",
    build:[
-    {form:"Muster",verb:"N₁ はもちろん、N₂ も",de:"N₁ sowieso, auch N₂"},
-    {form:"formeller",verb:"〜は もとより",de:"schriftlich"},
-    {form:"Sinn",verb:"selbstverständlich + dazu",de:"Steigerung"}
+    {form:"Muster",verb:"V<sub>させて</sub> + おく",de:"jdn. … lassen (belassen)"},
+    {form:"Basis",verb:"V<sub>テ</sub> + おく",de:"vorbereiten/belassen (Minna L30)"},
+    {form:"typisch",verb:"<ruby>待<rt>ま</rt></ruby>たせておく・<ruby>寝<rt>ね</rt></ruby>かせておく",de:"warten/schlafen lassen"}
    ],
-   pattern:{slots:[{text:"N₁",role:"subj",label:"klar sowieso"},{text:"はもちろん、",role:"actor",label:"natürlich"},{text:"N₂ も",role:"obj",label:"und sogar"},{text:"[Aussage]",role:"verb"}],gloss:"»N₁ ist eh klar — und auch N₂ (noch dazu).« Erst das Offensichtliche, dann die Steigerung mit も."},
+   pattern:{slots:[{text:"[<ruby>人<rt>ひと</rt></ruby>/<ruby>犬<rt>いぬ</rt></ruby>] を",role:"obj"},{text:"V<sub>させて</sub>",role:"verb",label:"lassen"},{text:"おく",role:"plain",label:"(so belassen)"}],gloss:"»Jemanden (vorerst) … lassen und dabei belassen« — Kausativ-て + おく."},
    bauplan:[
-    "Nenne zuerst das <b>Selbstverständliche</b> N₁ + <code>はもちろん、</code>.",
-    "Dann das <b>Bemerkenswerte</b> N₂ + <code>も</code>.",
-    "Schließe mit der gemeinsamen Aussage.",
-    "Schriftlicher: <code>〜はもとより</code>."
+    "Bilde den <b>Kausativ</b> (<code><ruby>待<rt>ま</rt></ruby>つ→待たせる</code>).",
+    "て-Form + <code>おく</code> → »und so belassen«.",
+    "て-Form davon (<code>おいて</code>) verbindet weiter: »ließ ihn warten und …«.",
+    "Gesprochen kurz: <code>〜させとく</code>."
    ],
    ex:[
-    {jp:"この <ruby>店<rt>みせ</rt></ruby>は <ruby>味<rt>あじ</rt></ruby><b>は もちろん</b>、サービスも すばらしい。",de:"In diesem Laden ist der Geschmack sowieso super — aber auch der Service."},
-    {jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>英語<rt>えいご</rt></ruby><b>は もちろん</b>、フランス<ruby>語<rt>ご</rt></ruby>も <ruby>話<rt>はな</rt></ruby>せる。",de:"Er spricht natürlich Englisch — und sogar Französisch."},
-    {jp:"<ruby>漢字<rt>かんじ</rt></ruby><b>は もちろん</b>、カタカナも <ruby>難<rt>むずか</rt></ruby>しい。",de:"Kanji sind sowieso schwer — aber auch Katakana."}
+    {jp:"クロを <ruby>外<rt>そと</rt></ruby>で <ruby>待<rt>ま</rt></ruby>たせて<b>おいて</b>、<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>を した。",de:"Ich ließ Kuro draußen warten und erledigte den Einkauf."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもたちを <ruby>公園<rt>こうえん</rt></ruby>で <ruby>遊<rt>あそ</rt></ruby>ばせて<b>おきました</b>。",de:"Ich ließ die Kinder (derweil) im Park spielen."},
+    {jp:"お<ruby>客<rt>きゃく</rt></ruby>さんを <ruby>待<rt>ま</rt></ruby>たせて<b>おく</b>わけには いかない。",de:"Wir können den Kunden unmöglich warten lassen."}
    ],
-   note:"🔄 ≈ <b>〜だけでなく…も</b>, aber betont »das versteht sich von selbst«.<br>💡 Sehr häufig in Bewertungen und Vorstellungen."},
+   note:"🔄 ておく-Grundlagen: chuukyuu L9.<br>📖 Buch: Kuro wartet vor dem Konbini."},
 
-  {l:3, t:"〜ばかりか / 〜ばかりでなく", de:"nicht nur …, sondern sogar …",
-   simpel:"Steigert von A zu einem stärkeren B.<br><span class='jp'><ruby>雨<rt>あめ</rt></ruby><b>ばかりか</b>、<ruby>風<rt>かぜ</rt></ruby>まで</span> = „nicht nur Regen, sondern sogar Wind“",
-   rule:"Plain/N + ばかりか (ばかりでなく) + …も/まで: »nicht nur A, sondern (überraschend) sogar B«. ばかりか klingt stärker/schriftlicher als だけでなく; B ist oft mit まで/も markiert.",
+  {l:2, t:"20 · <ruby>顔中<rt>かおじゅう</rt></ruby> なめられて しまう", de:"受身 + てしまう — (ungewollt) ganz … werden (+ N中)",
+   simpel:"Passiv + <b>てしまう</b> = »es passiert mir (ungewollt/komplett)«. <b>顔中</b> = »das ganze Gesicht«.<br><span class='jp'><ruby>顔中<rt>かおじゅう</rt></ruby> なめられて<b>しまう</b></span> = „das ganze Gesicht wird abgeschleckt“",
+   rule:"V<sub>受身て</sub> + しまう kombiniert Betroffenheits-Passiv (»mir wird … angetan«) mit しまう (»restlos/leider«). Dazu N + 中(じゅう) = »das ganze N« (顔中, 部屋中, 一日中).",
    build:[
-    {form:"Muster",verb:"… ばかりか、… まで/も",de:"nicht nur A, sogar B"},
-    {form:"Variante",verb:"… ばかりでなく",de:"≈ だけでなく"},
-    {form:"Anschluss",verb:"Plain / N direkt",de:"な-Adj + な"}
+    {form:"Muster",verb:"V<sub>られて</sub> + しまう",de:"mir passiert (ungewollt) …"},
+    {form:"ganz N",verb:"N + <ruby>中<rt>じゅう</rt></ruby>",de:"顔中/<ruby>部屋<rt>へや</rt></ruby>中/<ruby>一日<rt>いちにち</rt></ruby>中"},
+    {form:"gesprochen",verb:"〜られちゃう",de:"Kurzform"}
    ],
-   pattern:{slots:[{text:"[A]",role:"cond"},{text:"ばかりか",role:"actor",label:"nicht nur"},{text:"[B] まで",role:"obj",label:"sogar"},{text:"[Aussage]",role:"verb"}],gloss:"»Nicht nur A — sogar B.« Stärker/schriftlicher als だけでなく; B oft mit まで/も."},
+   pattern:{slots:[{text:"<ruby>顔中<rt>かおじゅう</rt></ruby>",role:"obj",label:"ganz N"},{text:"V<sub>られて</sub>",role:"verb",label:"Passiv"},{text:"しまう",role:"plain",label:"komplett/leider"}],gloss:"Betroffenheits-Passiv + しまう: »mir wird (ungewollt) komplett … angetan«. N中 = das ganze N."},
    bauplan:[
-    "Nenne A (das Erwartbare) — Plain-Form oder Nomen direkt.",
-    "Hänge <code>ばかりか</code> (oder <code>ばかりでなく</code>) an.",
-    "Setze das überraschendere B, markiert mit <code>まで</code> oder <code>も</code>.",
-    "Alltagssprachlicher: <code>〜だけでなく…も</code>."
+    "Bilde das <b>Passiv</b> (<code>なめる→なめられる</code>).",
+    "て-Form + <code>しまう</code> → »komplett/leider«.",
+    "Flächen-/Zeitangabe mit <code>N<ruby>中<rt>じゅう</rt></ruby></code> (<code><ruby>顔中<rt>かおじゅう</rt></ruby></code>).",
+    "Locker: <code>なめられちゃう</code>."
    ],
    ex:[
-    {jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>漢字<rt>かんじ</rt></ruby>が <ruby>読<rt>よ</rt></ruby>める<b>ばかりか</b>、<ruby>書道<rt>しょどう</rt></ruby>まで できる。",de:"Er kann nicht nur Kanji lesen, sondern beherrscht sogar Kalligrafie."},
-    {jp:"<ruby>熱<rt>ねつ</rt></ruby>が ある<b>ばかりでなく</b>、せきも ひどい。",de:"Ich habe nicht nur Fieber, sondern auch schlimmen Husten."},
-    {jp:"この <ruby>薬<rt>くすり</rt></ruby>は <ruby>効<rt>き</rt></ruby>かない<b>ばかりか</b>、<ruby>副作用<rt>ふくさよう</rt></ruby>まで ある。",de:"Dieses Medikament wirkt nicht nur nicht — es hat sogar Nebenwirkungen."}
+    {jp:"クロに <ruby>顔中<rt>かおじゅう</rt></ruby> なめられて<b>しまいました</b>。",de:"Kuro hat mir das ganze Gesicht abgeschleckt."},
+    {jp:"<ruby>大事<rt>だいじ</rt></ruby>な <ruby>書類<rt>しょるい</rt></ruby>を <ruby>捨<rt>す</rt></ruby>てられて<b>しまった</b>。",de:"Meine wichtigen Unterlagen wurden (mir) weggeworfen."},
+    {jp:"<ruby>部屋<rt>へや</rt></ruby><ruby>中<rt>じゅう</rt></ruby> おもちゃ だらけに なって<b>しまった</b>。",de:"Das ganze Zimmer ist (leider) voller Spielzeug geworden."}
    ],
-   note:"🔄 Steigerung: だけでなく < <b>ばかりか</b> (+まで noch stärker).<br>⚠ Nach ばかりか kein Befehl/Wunsch."},
-
-  {l:3, t:"〜なんか / 〜なんて", de:"so etwas wie … (abwertend / bescheiden / erstaunt)",
-   simpel:"Wertet ab, spielt herunter oder staunt.<br><span class='jp'><ruby>私<rt>わたし</rt></ruby><b>なんか</b> まだまだです</span> = „ach, so jemand wie ich …“",
-   rule:"N + なんか / N・Satz + なんて: (1) abwertend »so etwas wie« (テレビなんか見ない); (2) bescheiden über sich selbst (私なんか); (3) なんて + Satz: Erstaunen/Empörung (»dass …!«).",
-   build:[
-    {form:"abwertend",verb:"N + なんか/なんて + Verneinung",de:"so etwas wie N (pff)"},
-    {form:"bescheiden",verb:"<ruby>私<rt>わたし</rt></ruby>なんか …",de:"jemand wie ich …"},
-    {form:"Erstaunen",verb:"[Satz] + なんて",de:"dass …! (unglaublich)"}
-   ],
-   pattern:{slots:[{text:"N / [Satz]",role:"subj"},{text:"なんか / なんて",role:"actor",label:"so etwas wie"},{text:"[Wertung]",role:"plain"}],gloss:"Spielt herunter (abwertend/bescheiden) oder drückt Staunen aus (なんて + Satz: »dass …!«). Gesprochen."},
-   bauplan:[
-    "Abwertend: N + <code>なんか</code> + verneinte/negative Aussage.",
-    "Bescheiden: <code><ruby>私<rt>わたし</rt></ruby>なんか</code> + Untertreibung.",
-    "Erstaunen/Empörung: ganzer Satz + <code>なんて</code> + Bewertung (<code>ひどい・すごい・<ruby>信<rt>しん</rt></ruby>じられない</code>).",
-    "Nur gesprochen/informell; neutral wäre <code>など</code>."
-   ],
-   ex:[
-    {jp:"お<ruby>金<rt>かね</rt></ruby><b>なんか</b> いらない。",de:"So etwas wie Geld brauche ich nicht."},
-    {jp:"<ruby>私<rt>わたし</rt></ruby><b>なんか</b>、まだ <ruby>初心者<rt>しょしんしゃ</rt></ruby>です よ。",de:"Ach, jemand wie ich ist doch noch Anfänger."},
-    {jp:"<ruby>彼<rt>かれ</rt></ruby>が うそを つく<b>なんて</b>、<ruby>信<rt>しん</rt></ruby>じられない。",de:"Dass er lügt — unglaublich!"}
-   ],
-   note:"💡 <b>なんて</b> kann auch nach ganzen Sätzen stehen (Staunen), <b>なんか</b> nur nach Nomen/Partikel-losen Elementen.<br>🔄 Neutral-höflich: <b>など</b>."},
-
-  {l:3, t:"〜といったら", de:"was … angeht — unbeschreiblich! (Ausruf)",
-   simpel:"Hebt eine Eigenschaft staunend hervor.<br><span class='jp'>その <ruby>景色<rt>けしき</rt></ruby>の <ruby>美<rt>うつく</rt></ruby>しさ<b>といったら</b>!</span> = „diese Aussicht — einfach unbeschreiblich!“",
-   rule:"N (oft 〜さ-Nominalisierung) + といったら: ruft eine Eigenschaft aus, die kaum in Worte zu fassen ist — »was X angeht: unglaublich!«. Danach oft 言葉にできない/〜ほど oder gar nichts (offener Ausruf).",
-   build:[
-    {form:"Muster",verb:"N(の〜さ) + といったら",de:"was … angeht: …!"},
-    {form:"Fortsetzung",verb:"<ruby>言葉<rt>ことば</rt></ruby>に できない / 〜ほど",de:"unbeschreiblich"},
-    {form:"Ton",verb:"Ausruf, emotional",de:"Staunen/Entsetzen"}
-   ],
-   pattern:{slots:[{text:"N の 〜さ",role:"subj",label:"Eigenschaft"},{text:"といったら",role:"actor",label:"was das angeht …!"},{text:"(<ruby>言葉<rt>ことば</rt></ruby>にできない)",role:"plain",label:"unbeschreiblich"}],gloss:"Ausruf: »Die …-heit davon — unbeschreiblich!« Oft mit 〜さ-Nominalisierung; Fortsetzung kann wegbleiben."},
-   bauplan:[
-    "Nominalisiere die Eigenschaft, oft mit <b>〜さ</b> (<code><ruby>美<rt>うつく</rt></ruby>しさ</code>, <code><ruby>暑<rt>あつ</rt></ruby>さ</code>).",
-    "Hänge <code>といったら</code> an.",
-    "Ergänze »unbeschreiblich« (<code><ruby>言葉<rt>ことば</rt></ruby>にできない</code>) — oder lass den Ausruf offen.",
-    "Für typische Assoziationen (といえば) NICHT verwechseln — das ist Themeneröffnung."
-   ],
-   ex:[
-    {jp:"<ruby>富士山<rt>ふじさん</rt></ruby>から <ruby>見<rt>み</rt></ruby>た <ruby>朝日<rt>あさひ</rt></ruby>の <ruby>美<rt>うつく</rt></ruby>しさ<b>といったら</b>、<ruby>言葉<rt>ことば</rt></ruby>に できない ほどだった。",de:"Die Schönheit des Sonnenaufgangs vom Fuji — schlicht unbeschreiblich."},
-    {jp:"<ruby>夏<rt>なつ</rt></ruby>の <ruby>東京<rt>とうきょう</rt></ruby>の <ruby>暑<rt>あつ</rt></ruby>さ<b>といったら</b>!",de:"Diese Hitze im Tokioter Sommer — nicht auszuhalten!"},
-    {jp:"その ときの <ruby>驚<rt>おどろ</rt></ruby>き<b>といったら</b>、<ruby>心臓<rt>しんぞう</rt></ruby>が <ruby>止<rt>と</rt></ruby>まる かと <ruby>思<rt>おも</rt></ruby>った。",de:"Mein Schreck in dem Moment — ich dachte, mir bleibt das Herz stehen."}
-   ],
-   note:"⚠ <b>といったら</b> (Ausruf) ≠ <b>といえば</b> (Themeneröffnung, chuukyuu L1).<br>💡 Gern mit 〜さ-Formen (<ruby>便利<rt>べんり</rt></ruby>さ, <ruby>大変<rt>たいへん</rt></ruby>さ)."},
-
-  {l:3, t:"〜ついでに", de:"bei der Gelegenheit / wo ich schon mal dabei bin",
-   simpel:"Nebenhandlung an eine Haupthandlung anhängen.<br><span class='jp'><ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>の<b>ついでに</b> <ruby>郵便局<rt>ゆうびんきょく</rt></ruby>へ</span> = „beim Einkaufen (bei der Gelegenheit) zur Post“",
-   rule:"V<sub>辞書/た</sub> / N + の + ついでに: man nutzt die Gelegenheit einer Haupthandlung, um nebenbei etwas anderes zu erledigen. Haupthandlung zuerst, Nebenhandlung folgt.",
-   build:[
-    {form:"Verb",verb:"V<sub>辞書/た</sub> + ついでに",de:"wenn/da man schon …"},
-    {form:"Nomen",verb:"N + の + ついでに",de:"bei der Gelegenheit von N"},
-    {form:"Sinn",verb:"Haupt- + Nebenhandlung",de:"eins mitnehmen"}
-   ],
-   pattern:{slots:[{text:"[Haupthandlung] / N の",role:"cond"},{text:"ついでに",role:"actor",label:"bei der Gelegenheit"},{text:"[Nebenhandlung]",role:"verb"}],gloss:"»Wo ich schon mal … , (erledige ich) nebenbei …« Haupthandlung + ついでに + Nebenhandlung."},
-   bauplan:[
-    "Nenne die <b>Haupthandlung</b> (V辞書/た oder N + <code>の</code>).",
-    "Hänge <code>ついでに</code> an.",
-    "Setze die <b>Nebenhandlung</b>, die du mit-erledigst.",
-    "Die Nebenhandlung ist leichter/kleiner als die Haupthandlung."
-   ],
-   ex:[
-    {jp:"<ruby>散歩<rt>さんぽ</rt></ruby>の<b>ついでに</b>、パンを <ruby>買<rt>か</rt></ruby>って きた。",de:"Beim Spaziergang habe ich (bei der Gelegenheit) Brot mitgebracht."},
-    {jp:"<ruby>出張<rt>しゅっちょう</rt></ruby>で <ruby>大阪<rt>おおさか</rt></ruby>へ <ruby>行<rt>い</rt></ruby>った<b>ついでに</b>、<ruby>友人<rt>ゆうじん</rt></ruby>に <ruby>会<rt>あ</rt></ruby>った。",de:"Als ich dienstlich in Osaka war, habe ich bei der Gelegenheit einen Freund getroffen."},
-    {jp:"<ruby>掃除<rt>そうじ</rt></ruby>する<b>ついでに</b>、<ruby>机<rt>つくえ</rt></ruby>の <ruby>中<rt>なか</rt></ruby>も <ruby>片<rt>かた</rt></ruby>づけよう。",de:"Wo ich schon putze, räume ich gleich auch die Schublade auf."}
-   ],
-   note:"💡 Reihenfolge fest: erst die <b>Haupt</b>handlung, dann ついでに + Nebenhandlung.<br>🔄 ≈ »wo ich schon mal dabei bin«."},
-
-  // ============ UNIT 4 — Einschränkung & Reaktion ============
-  {l:4, t:"〜からといって", de:"nur weil … (heißt das noch lange nicht)",
-   simpel:"Wehrt einen voreiligen Schluss ab.<br><span class='jp'><ruby>安<rt>やす</rt></ruby>い<b>からといって</b></span> = „nur weil es billig ist, …“",
-   rule:"Plain + からといって + Verneinung/Einschränkung: »nur weil A gilt, folgt daraus nicht B«. Häufig mit 〜とは限らない oder 〜わけではない kombiniert. Gesprochen auch からって.",
-   build:[
-    {form:"Muster",verb:"Plain + からといって",de:"nur weil …"},
-    {form:"Fortsetzung",verb:"〜とは<ruby>限<rt>かぎ</rt></ruby>らない / わけではない",de:"heißt nicht, dass …"},
-    {form:"salopp",verb:"〜からって",de:"gesprochen"}
-   ],
-   pattern:{slots:[{text:"[A: Grund]",role:"cond"},{text:"からといって",role:"actor",label:"nur weil"},{text:"[B nicht zwingend]",role:"plain",label:"heißt nicht …"}],gloss:"»Nur weil A, folgt nicht B.« Fast immer mit Verneinung (とは限らない/わけではない/てはいけない)."},
-   bauplan:[
-    "Nenne den <b>voreiligen Grund</b> A in Plain-Form.",
-    "Hänge <code>からといって</code> an (salopp: <code>からって</code>).",
-    "Weise B zurück: <code>〜とは<ruby>限<rt>かぎ</rt></ruby>らない</code>, <code>〜わけではない</code> oder <code>〜てはいけない</code>.",
-    "Ton: mahnend, relativierend."
-   ],
-   ex:[
-    {jp:"<ruby>日本人<rt>にほんじん</rt></ruby>だ<b>からといって</b>、<ruby>敬語<rt>けいご</rt></ruby>が <ruby>上手<rt>じょうず</rt></ruby>だ<b>とは <ruby>限<rt>かぎ</rt></ruby>らない</b>。",de:"Nur weil jemand Japaner ist, beherrscht er nicht unbedingt Keigo."},
-    {jp:"<ruby>安<rt>やす</rt></ruby>い<b>からといって</b>、<ruby>買<rt>か</rt></ruby>いすぎては いけない。",de:"Nur weil es billig ist, darf man nicht zu viel kaufen."},
-    {jp:"<ruby>疲<rt>つか</rt></ruby>れている<b>からといって</b>、<ruby>授業<rt>じゅぎょう</rt></ruby>を <ruby>休<rt>やす</rt></ruby>む わけには いかない。",de:"Nur weil ich müde bin, kann ich nicht einfach den Unterricht schwänzen."}
-   ],
-   note:"💡 Klassisches Duo: <b>からといって … とは限らない</b>.<br>⚠ Ohne Verneinung im Hauptsatz klingt es unvollständig."},
-
-  {l:4, t:"〜とは<ruby>限<rt>かぎ</rt></ruby>らない", de:"nicht unbedingt … / muss nicht … sein",
-   simpel:"Relativiert eine Allgemein-Annahme: »nicht immer/unbedingt so«.<br><span class='jp'><ruby>高<rt>たか</rt></ruby>い <ruby>物<rt>もの</rt></ruby>が いい<b>とは 限らない</b></span> = „teuer ist nicht unbedingt gut“",
-   rule:"Plain + とは限らない = »es ist nicht garantiert/nicht immer so, dass …«. Lässt Ausnahmen zu. Oft mit 必ずしも (»nicht notwendigerweise«) verstärkt.",
-   build:[
-    {form:"Muster",verb:"Plain + とは<ruby>限<rt>かぎ</rt></ruby>らない",de:"nicht unbedingt …"},
-    {form:"oft mit",verb:"<ruby>必<rt>かなら</rt></ruby>ずしも",de:"nicht notwendigerweise"},
-    {form:"🔄",verb:"わけではない",de:"»nicht dass …« (ähnlich)"}
-   ],
-   pattern:{slots:[{text:"(<ruby>必<rt>かなら</rt></ruby>ずしも)",role:"time",label:"nicht immer"},{text:"[Annahme]",role:"cond"},{text:"とは<ruby>限<rt>かぎ</rt></ruby>らない",role:"plain",label:"nicht garantiert"}],gloss:"»Es gibt Ausnahmen — nicht immer/unbedingt so.« Oft mit 必ずしも; nach からといって sehr häufig."},
-   bauplan:[
-    "Formuliere die <b>Allgemein-Annahme</b> in Plain-Form.",
-    "Optional davor: <code><ruby>必<rt>かなら</rt></ruby>ずしも</code> (»nicht notwendigerweise«).",
-    "Hänge <code>とは<ruby>限<rt>かぎ</rt></ruby>らない</code> an.",
-    "Verwandt: <code>わけではない</code> (schwächer, »nicht dass …«)."
-   ],
-   ex:[
-    {jp:"<ruby>有名<rt>ゆうめい</rt></ruby>な <ruby>店<rt>みせ</rt></ruby>が <ruby>必<rt>かなら</rt></ruby>ずしも おいしい<b>とは 限らない</b>。",de:"Ein berühmtes Lokal ist nicht unbedingt gut."},
-    {jp:"お<ruby>金<rt>かね</rt></ruby>が あれば <ruby>幸<rt>しあわ</rt></ruby>せだ<b>とは 限らない</b>。",de:"Geld allein macht nicht unbedingt glücklich."},
-    {jp:"<ruby>天気予報<rt>てんきよほう</rt></ruby>が <ruby>当<rt>あ</rt></ruby>たる<b>とは 限らない</b>。",de:"Die Wettervorhersage stimmt nicht immer."}
-   ],
-   note:"🔄 <b>とは限らない</b> (Ausnahmen existieren) vs <b>わけではない</b> (nicht komplett so).<br>💡 Nach <b>からといって</b> das Standard-Ende."},
-
-  {l:4, t:"〜(より)ほかない", de:"es bleibt nichts anderes übrig, als zu …",
-   simpel:"Keine Alternative: »bleibt nur …«.<br><span class='jp'>あきらめる<b>ほかない</b></span> = „es bleibt nur aufzugeben“",
-   rule:"V<sub>辞書</sub> + ほか(は)ない / よりほかない = »es gibt keine andere Möglichkeit als V«. Resignativ-nüchtern; formeller als 〜しかない.",
-   build:[
-    {form:"Muster",verb:"V<sub>辞書</sub> + ほか(は)ない",de:"bleibt nur zu V-en"},
-    {form:"Variante",verb:"V<sub>辞書</sub> + よりほかない",de:"gleichbedeutend"},
-    {form:"🔄 Alltag",verb:"〜しかない",de:"gesprochener"}
-   ],
-   pattern:{slots:[{text:"[Lage]",role:"cond"},{text:"V<sub>辞書</sub>",role:"verb"},{text:"ほかない",role:"plain",label:"bleibt nur"}],gloss:"»Keine andere Wahl als V.« 辞書形 + ほか(は)ない / よりほかない. Alltag: 〜しかない."},
-   bauplan:[
-    "Beschreibe die <b>ausweglose Lage</b> (Zug gestoppt, kein Geld …).",
-    "Nimm die einzig verbleibende Handlung im <b>辞書形</b>.",
-    "Hänge <code>ほかない</code> / <code>よりほかない</code> an.",
-    "Im Gespräch reicht <code>〜しかない</code>."
-   ],
-   ex:[
-    {jp:"<ruby>終電<rt>しゅうでん</rt></ruby>が <ruby>出<rt>で</rt></ruby>て しまったので、<ruby>歩<rt>ある</rt></ruby>いて <ruby>帰<rt>かえ</rt></ruby>る<b>ほかなかった</b>。",de:"Der letzte Zug war weg, also blieb nur der Heimweg zu Fuß."},
-    {jp:"だれも <ruby>手伝<rt>てつだ</rt></ruby>って くれないなら、<ruby>一人<rt>ひとり</rt></ruby>で やる<b>よりほかない</b>。",de:"Wenn mir niemand hilft, bleibt nur, es allein zu machen."},
-    {jp:"<ruby>規則<rt>きそく</rt></ruby>ですから、<ruby>従<rt>したが</rt></ruby>う<b>ほかありません</b>。",de:"Es ist Vorschrift — es bleibt nichts übrig, als sich zu fügen."}
-   ],
-   note:"🔄 <b>しかない</b> (Alltag) = <b>ほかない</b> (formeller) = <b>よりほかない</b>.<br>💡 Ton: nüchtern-resignativ."},
-
-  {l:4, t:"〜ことだから", de:"weil es (nun mal) X ist … (typisch X!)",
-   simpel:"Vermutung aus dem bekannten Charakter einer Person.<br><span class='jp'>まじめな <ruby>彼<rt>かれ</rt></ruby>の<b>ことだから</b></span> = „so wie wir ihn kennen, …“",
-   rule:"Person/N + の + ことだから: aus dem allseits bekannten Charakter von X wird eine Vermutung abgeleitet — »X kennt man ja: bestimmt …«. Danach steht eine Vermutung (だろう/はずだ/に違いない).",
-   build:[
-    {form:"Muster",verb:"[Person] の + ことだから",de:"so wie man X kennt"},
-    {form:"Fortsetzung",verb:"〜だろう / はずだ / に<ruby>違<rt>ちが</rt></ruby>いない",de:"Vermutung"},
-    {form:"Basis",verb:"bekannter Charakter",de:"beiden Seiten klar"}
-   ],
-   pattern:{slots:[{text:"[Person]",role:"subj",label:"bekannt wie"},{text:"の ことだから",role:"actor",label:"typisch!"},{text:"[Vermutung] だろう",role:"plain"}],gloss:"»X kennt man ja — bestimmt …« Charakterbasierte Vermutung; endet mit だろう/はずだ/に違いない."},
-   bauplan:[
-    "Nenne die <b>Person</b> (oft mit typischer Eigenschaft davor: <code>まじめな<ruby>彼<rt>かれ</rt></ruby></code>).",
-    "Hänge <code>の ことだから</code> an.",
-    "Ziehe die <b>Vermutung</b>, die zum Charakter passt.",
-    "Schließe mit <code>だろう / はずだ / に<ruby>違<rt>ちが</rt></ruby>いない</code>."
-   ],
-   ex:[
-    {jp:"<ruby>時間<rt>じかん</rt></ruby>に <ruby>厳<rt>きび</rt></ruby>しい <ruby>先生<rt>せんせい</rt></ruby>の<b>ことだから</b>、<ruby>遅<rt>おく</rt></ruby>れたら <ruby>怒<rt>おこ</rt></ruby>られる だろう。",de:"So streng wie der Lehrer mit Pünktlichkeit ist, gibt es sicher Ärger, wenn man zu spät kommt."},
-    {jp:"やさしい <ruby>彼女<rt>かのじょ</rt></ruby>の<b>ことだから</b>、きっと <ruby>許<rt>ゆる</rt></ruby>して くれる はずだ。",de:"So lieb wie sie ist, wird sie bestimmt verzeihen."},
-    {jp:"あの <ruby>二人<rt>ふたり</rt></ruby>の<b>ことだから</b>、また けんかして いるに <ruby>違<rt>ちが</rt></ruby>いない。",de:"Wie man die beiden kennt, streiten sie sich sicher schon wieder."}
-   ],
-   note:"⚠ Nur für <b>Personen mit bekanntem Charakter</b> (beiden Gesprächspartnern klar).<br>🔄 vgl. <b>ものだから</b> (Rechtfertigung) — ganz andere Bedeutung!"},
-
-  {l:4, t:"〜てしょうがない / 〜てたまらない", de:"unerträglich … / ich halte es nicht aus vor …",
-   simpel:"Ein Gefühl ist übermächtig: »zum Aushalten zu viel«.<br><span class='jp'><ruby>眠<rt>ねむ</rt></ruby>くて<b>しょうがない</b></span> = „ich bin todmüde“",
-   rule:"て-Form (Gefühl/Empfindung) + しょうがない / しかたがない / たまらない: das Gefühl ist so stark, dass man nichts dagegen tun kann. Nur mit unwillkürlichen Empfindungen (müde, heiß, sehnsüchtig …).",
-   build:[
-    {form:"Muster",verb:"Adj/V<sub>テ</sub> + しょうがない",de:"unerträglich …"},
-    {form:"Varianten",verb:"〜てしかたがない / 〜てたまらない",de:"formeller / »nicht auszuhalten«"},
-    {form:"nur mit",verb:"Empfindungen (<ruby>眠<rt>ねむ</rt></ruby>い・<ruby>暑<rt>あつ</rt></ruby>い・<ruby>会<rt>あ</rt></ruby>いたい)",de:"unwillkürlich"}
-   ],
-   pattern:{slots:[{text:"[Gefühl]<sub>テ</sub>",role:"cond",label:"…-te Form"},{text:"しょうがない",role:"plain",label:"nicht auszuhalten"}],gloss:"»So …, dass ich nichts dagegen tun kann.« て-Form eines Gefühls + しょうがない/しかたがない/たまらない."},
-   bauplan:[
-    "Nimm das <b>Gefühl/die Empfindung</b> in der <b>て-Form</b> (<code><ruby>眠<rt>ねむ</rt></ruby>くて</code>, <code><ruby>会<rt>あ</rt></ruby>いたくて</code>, <code><ruby>気<rt>き</rt></ruby>になって</code>).",
-    "Hänge <code>しょうがない</code> (gesprochen), <code>しかたがない</code> (formeller) oder <code>たまらない</code> an.",
-    "Nur für <b>unwillkürliche</b> Zustände — nicht für bewusste Handlungen.",
-    "Steigert stärker als とても/すごく."
-   ],
-   ex:[
-    {jp:"<ruby>朝<rt>あさ</rt></ruby>から <ruby>何<rt>なに</rt></ruby>も <ruby>食<rt>た</rt></ruby>べていないので、おなかが すいて<b>しょうがない</b>。",de:"Ich habe seit dem Morgen nichts gegessen — ich sterbe vor Hunger."},
-    {jp:"<ruby>国<rt>くに</rt></ruby>の <ruby>家族<rt>かぞく</rt></ruby>に <ruby>会<rt>あ</rt></ruby>いたくて<b>たまらない</b>。",de:"Ich vermisse meine Familie zu Hause unerträglich."},
-    {jp:"<ruby>試験<rt>しけん</rt></ruby>の <ruby>結果<rt>けっか</rt></ruby>が <ruby>気<rt>き</rt></ruby>になって<b>しかたがない</b>。",de:"Das Prüfungsergebnis lässt mir einfach keine Ruhe."}
-   ],
-   note:"🔄 Reihe: とても < 〜てしょうがない ≈ 〜てしかたがない ≈ <b>〜てたまらない</b>.<br>⚠ Nicht mit しかたがない als eigenem Satz (»da kann man nichts machen«) verwechseln."}
+   note:"💡 <b>N中</b>: Ort → じゅう (顔中, 部屋中); Zeit → 一日中 »den ganzen Tag«.<br>📖 Buch: Kuros stürmische Begrüßung (完)."}
 
 ];
 
@@ -1545,7 +1543,12 @@ const backBtn = document.getElementById('backBtn');
 
 // Kurz-Themen pro Lektion (für Übersichts-Kacheln)
 const TOPICS = {
-  1:"Verb-Verlauf II", 2:"Quelle & Weg", 3:"Zusatz & Ausruf", 4:"Einschränkung & Reaktion"
+  1:"初めての富士山 · Mt. Fuji", 2:"ぼくの犬、クロ · Mein Hund Kuro",
+  3:"市民農園の募集 · Schrebergarten", 4:"水泳大会 · Schwimmwettkampf",
+  5:"手作りハムのレシピ · Schinken-Rezept", 6:"里山について · Satoyama",
+  7:"不動産屋で · Beim Makler", 8:"就職の面接 · Bewerbungsgespräch",
+  9:"お花見 · Kirschblütenschau", 10:"ゆきの選択 · Yukis Entscheidung",
+  11:"友だちのお見舞い · Krankenbesuch"
 };
 
 const lessons = [...new Set(CARDS.map(c => c.l))].sort((a,b)=>a-b);
