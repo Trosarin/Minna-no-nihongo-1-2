@@ -3,7 +3,7 @@
   "short_name": "中級",
   "description": "Chuukyuu e Ikou Grammar Cheat Sheet L1-10",
   "start_url": "./index.html",
-  "scope": "./",
+  "scope": "../",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#f4ede0",
