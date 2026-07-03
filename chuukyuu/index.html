@@ -6,7 +6,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>中級へ行こう — 文型と表現55</title>
+<title>中級へ行こう — 文型と表現 106（+N3）</title>
 <meta name="description" content="Chuukyuu e Ikou Grammatik-Spickzettel L1-10">
 
 <!-- Apple Web App / Home Screen -->
@@ -729,7 +729,7 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 <header>
   <h1>
     <span class="jp">中級へ行こう</span>
-    <span class="de">日本語の文型と表現 55 · Lektion 1 – 10</span>
+    <span class="de">日本語の文型と表現 106 · Lektion 1 – 20 (inkl. N3-Ergänzung)</span>
   </h1>
   <p class="subtitle">Klick auf eine Karte, um die Erklärung zu sehen</p>
 </header>
@@ -1069,7 +1069,7 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 
 <footer>
   <div class="seal" style="background:var(--gold)">中</div>
-  <p>中級へ行こう · 日本語の文型と表現 55 — Grammatik-Spickzettel</p>
+  <p>中級へ行こう · 日本語の文型と表現 106（55 + N3-Ergänzung）— Grammatik-Spickzettel</p>
   <p style="margin-top:.3rem;font-size:.7rem">55 Karten · 6 Cheat-Sheets · 175 Vokabeln · Suche & Filter aktiv</p>
 </footer>
 
@@ -3308,6 +3308,250 @@ const CARDS = [
    ],
    note:"🔄 Stärker/literarischer als schlichtes <b>〜ようだ</b> — betont, dass der Vergleich IRREAL ist.<br>⚠ Oft mit <b>まるで</b>."},
 
+  // ============ LEKTION 19 — N3: Menge, Häufigkeit & Grad ============
+  {l:19, t:"〜たびに", de:"jedes Mal, wenn …",
+   simpel:"»immer wenn A, (dann) B«.<br><span class=\"jp\"><ruby>会<rt>あ</rt></ruby>う<b>たびに</b></span> = „jedes Mal, wenn wir uns treffen“",
+   rule:"V<sub>辞書</sub> / N + の + たびに = »jedes Mal, wenn / bei jedem …«. B tritt regelmäßig zusammen mit A auf.",
+   build:[
+    {form:"Verb",verb:"V<sub>辞書</sub> + たびに",de:"jedes Mal, wenn V"},
+    {form:"Nomen",verb:"N + の + たびに",de:"bei jedem N"},
+    {form:"Sinn",verb:"regelmäßige Kopplung",de:"A ⇒ immer B"}
+   ],
+   pattern:{slots:[{text:"V<sub>辞書</sub> / N の",role:"cond"},{text:"たびに",role:"actor",label:"jedes Mal"},{text:"[B]",role:"verb"}],gloss:"»Jedes Mal, wenn A (geschieht), (geschieht) B.« Regelmäßige Kopplung. Nomen braucht の."},
+   bauplan:[
+    "Nenne das <b>wiederkehrende</b> Ereignis A (V辞書形 oder N + <code>の</code>).",
+    "Hänge <code>たびに</code> an → »jedes Mal, wenn«.",
+    "Setze das <b>begleitende</b> Ereignis B dahinter.",
+    "Merke: Nomen braucht immer <code>の</code> (<code><ruby>旅行<rt>りょこう</rt></ruby>のたびに</code>)."
+   ],
+   ex:[
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>に <ruby>会<rt>あ</rt></ruby>う<b>たびに</b>、<ruby>元気<rt>げんき</rt></ruby>を もらう。",de:"Jedes Mal, wenn ich ihn treffe, gibt er mir Energie."},
+    {jp:"<ruby>試験<rt>しけん</rt></ruby>の<b>たびに</b> <ruby>緊張<rt>きんちょう</rt></ruby>する。",de:"Bei jeder Prüfung bin ich nervös."},
+    {jp:"この <ruby>歌<rt>うた</rt></ruby>を <ruby>聞<rt>き</rt></ruby>く<b>たびに</b> <ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>す。",de:"Jedes Mal, wenn ich dieses Lied höre, erinnere ich mich."}
+   ],
+   note:"🔄 ≈ <b>〜といつも</b>.<br>⚠ Nomen braucht <b>の</b> (<ruby>旅行<rt>りょこう</rt></ruby>のたびに)."},
+
+  {l:19, t:"〜ば〜ほど", de:"je …, desto …",
+   simpel:"Proportional: »je mehr A, desto mehr B«.<br><span class=\"jp\"><ruby>考<rt>かんが</rt></ruby>えれば <ruby>考<rt>かんが</rt></ruby>える<b>ほど</b></span> = „je mehr ich nachdenke“",
+   rule:"V<sub>ば</sub> + V<sub>辞書</sub> + ほど (い-Adj: ければ〜いほど; な-Adj: なら〜なほど): »je …, desto …«. Beide Male dasselbe Wort.",
+   build:[
+    {form:"Verb",verb:"V<sub>ば</sub> 〜 V<sub>辞書</sub> + ほど",de:"je V-er, desto …"},
+    {form:"い-Adj",verb:"〜ければ 〜いほど",de:"je … , desto …"},
+    {form:"な-Adj / N",verb:"〜なら 〜なほど",de:"je … , desto …"}
+   ],
+   pattern:{slots:[{text:"V<sub>ば</sub>",role:"cond",label:"je …"},{text:"V<sub>辞書</sub> + ほど",role:"actor",label:"desto …"},{text:"[Folge]",role:"verb"}],gloss:"»Je mehr A, desto mehr B.« Dasselbe Wort zweimal (ば-Form + 辞書形 + ほど)."},
+   bauplan:[
+    "Nimm das Wort <b>zweimal</b>: einmal in der <b>ば-Form</b>, einmal im <b>辞書形</b> + <code>ほど</code>.",
+    "い-Adj: <code>〜ければ 〜いほど</code>; な-Adj/N: <code>〜なら 〜なほど</code>.",
+    "Setze die proportionale <b>Folge</b> dahinter.",
+    "Kurzform: manchmal nur <code>〜ほど</code> (<code><ruby>多<rt>おお</rt></ruby>いほど いい</code>)."
+   ],
+   ex:[
+    {jp:"<ruby>考<rt>かんが</rt></ruby>えれば <ruby>考<rt>かんが</rt></ruby>える<b>ほど</b> わからない。",de:"Je mehr ich nachdenke, desto weniger verstehe ich."},
+    {jp:"<ruby>高<rt>たか</rt></ruby>ければ <ruby>高<rt>たか</rt></ruby>い<b>ほど</b> いい とは <ruby>限<rt>かぎ</rt></ruby>らない。",de:"Teurer ist nicht unbedingt besser."},
+    {jp:"<ruby>練習<rt>れんしゅう</rt></ruby>すれば する<b>ほど</b> <ruby>上手<rt>じょうず</rt></ruby>に なる。",de:"Je mehr man übt, desto besser wird man."}
+   ],
+   note:"💡 Dasselbe Wort zweimal.<br>🔄 Kurzform auch nur mit <b>ほど</b> möglich (<ruby>多<rt>おお</rt></ruby>いほど)."},
+
+  {l:19, t:"N + だらけ", de:"voller … (meist unangenehm)",
+   simpel:"Übervoll mit etwas Unangenehmem: »voller …«.<br><span class=\"jp\"><ruby>間違<rt>まちが</rt></ruby>い<b>だらけ</b></span> = „voller Fehler“",
+   rule:"N + だらけ = »ganz/übersät voller N«, fast immer negativ (Schmutz, Fehler, Blut …). Betont die unangenehm große Menge/Verteilung.",
+   build:[
+    {form:"Muster",verb:"N + だらけ",de:"voller N"},
+    {form:"Nuance",verb:"negativ, übervoll",de:"unerwünscht"},
+    {form:"typisch",verb:"<ruby>泥<rt>どろ</rt></ruby> / <ruby>血<rt>ち</rt></ruby> / ほこりだらけ",de:"voller Schlamm/Blut/Staub"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj"},{text:"だらけ",role:"plain",label:"voller (negativ)"}],gloss:"»Übersät/ganz voller N« — fast immer negativ (Schmutz, Fehler, Blut). Betont die unangenehme Menge."},
+   bauplan:[
+    "Nenne das (unangenehme) Ding, von dem es <b>zu viel</b> gibt.",
+    "Hänge <code>だらけ</code> direkt an → »voller …«.",
+    "Vor Nomen: <code>だらけの</code> + N (<code><ruby>間違<rt>まちが</rt></ruby>いだらけの レポート</code>).",
+    "Nutze es nur für <b>Negatives</b>."
+   ],
+   ex:[
+    {jp:"<ruby>部屋<rt>へや</rt></ruby>が ほこり<b>だらけ</b>だ。",de:"Das Zimmer ist voller Staub."},
+    {jp:"<ruby>服<rt>ふく</rt></ruby>が <ruby>泥<rt>どろ</rt></ruby><b>だらけ</b>に なった。",de:"Die Kleidung ist ganz voller Schlamm geworden."},
+    {jp:"<ruby>間違<rt>まちが</rt></ruby>い<b>だらけ</b>の レポート。",de:"Ein Bericht voller Fehler."}
+   ],
+   note:"⚠ Fast immer <b>negativ</b>.<br>🔄 vgl. <b>〜まみれ</b> (mit Flüssigkeit/Pulver bedeckt) vs <b>だらけ</b> (verstreut/übersät)."},
+
+  {l:19, t:"〜だけでなく(〜も)", de:"nicht nur …, (sondern auch) …",
+   simpel:"Fügt hinzu: »nicht nur A, sondern auch B«.<br><span class=\"jp\"><ruby>安<rt>やす</rt></ruby>い<b>だけでなく</b></span> = „nicht nur billig …“",
+   rule:"…だけでなく + …も = »nicht nur A, sondern auch B«. Anschluss wie ans Nomen (Plain, な-Adj + な, N direkt). Formeller: 〜のみならず.",
+   build:[
+    {form:"Muster",verb:"… だけでなく、… も",de:"nicht nur …, auch …"},
+    {form:"Nomen",verb:"N + だけでなく",de:"nicht nur N"},
+    {form:"formeller",verb:"〜のみならず",de:"schriftlich"}
+   ],
+   pattern:{slots:[{text:"[A]",role:"cond"},{text:"だけでなく",role:"actor",label:"nicht nur"},{text:"[B] も",role:"verb",label:"sondern auch"}],gloss:"»Nicht nur A, sondern auch B.« Zweiter Teil oft mit も. Formeller: 〜のみならず."},
+   bauplan:[
+    "Nenne A (das Offensichtliche) — Anschluss wie ans Nomen.",
+    "Hänge <code>だけでなく</code> an → »nicht nur«.",
+    "Setze B dahinter, meist mit <code>も</code> (»auch«).",
+    "Formell/schriftlich geht auch <code>〜のみならず</code>."
+   ],
+   ex:[
+    {jp:"この <ruby>店<rt>みせ</rt></ruby>は <ruby>安<rt>やす</rt></ruby>い<b>だけでなく</b>、おいしい。",de:"Dieser Laden ist nicht nur billig, sondern auch lecker."},
+    {jp:"<ruby>日本<rt>にほん</rt></ruby><b>だけでなく</b> <ruby>世界中<rt>せかいじゅう</rt></ruby>で <ruby>人気<rt>にんき</rt></ruby>だ。",de:"Nicht nur in Japan, sondern weltweit beliebt."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>ども<b>だけでなく</b> <ruby>大人<rt>おとな</rt></ruby>も <ruby>楽<rt>たの</rt></ruby>しめる。",de:"Nicht nur Kinder, auch Erwachsene haben Spaß."}
+   ],
+   note:"🔄 ≈ <b>に加えて / ばかりでなく</b>.<br>💡 Der zweite Teil steht oft mit <b>も</b>."},
+
+  {l:19, t:"〜とおり(に) / N + どおり", de:"so wie … / gemäß …",
+   simpel:"Etwas geschieht genau wie A: »so wie …«.<br><span class=\"jp\"><ruby>言<rt>い</rt></ruby>った<b>とおりに</b></span> = „genau so, wie ich gesagt habe“",
+   rule:"V<sub>辞書/た</sub> / N + の + とおり(に) = »genau so wie …«. An ein Nomen direkt angehängt wird とおり klanglich zu どおり: 予定どおり »planmäßig«.",
+   build:[
+    {form:"Verb",verb:"V<sub>辞書/た</sub> + とおり(に)",de:"so wie man … (tut/tat)"},
+    {form:"Nomen",verb:"N + の + とおり / N + どおり",de:"gemäß N"},
+    {form:"typisch",verb:"<ruby>予定<rt>よてい</rt></ruby>どおり",de:"planmäßig"}
+   ],
+   pattern:{slots:[{text:"V<sub>辞書/た</sub> / N の",role:"cond"},{text:"とおり(に)",role:"actor",label:"so wie"},{text:"[Handlung]",role:"verb"}],gloss:"»Genau so wie A.« An Nomen direkt → どおり (時間どおり, 期待どおり). ≈ 〜ように."},
+   bauplan:[
+    "Nenne die <b>Vorgabe</b> A (V辞書/た-Form oder N + <code>の</code>).",
+    "Hänge <code>とおり(に)</code> an → »genau so wie«.",
+    "Bei direktem Nomen wird es zu <code>どおり</code> (<code><ruby>予定<rt>よてい</rt></ruby>どおり</code>).",
+    "Setze die Handlung dahinter, die der Vorgabe folgt."
+   ],
+   ex:[
+    {jp:"<ruby>私<rt>わたし</rt></ruby>が <ruby>言<rt>い</rt></ruby>う<b>とおりに</b> して。",de:"Mach genau so, wie ich sage."},
+    {jp:"<ruby>説明書<rt>せつめいしょ</rt></ruby>の<b>とおりに</b> <ruby>組<rt>く</rt></ruby>み<ruby>立<rt>た</rt></ruby>てる。",de:"Nach der Anleitung zusammenbauen."},
+    {jp:"<ruby>予定<rt>よてい</rt></ruby><b>どおり</b> <ruby>出発<rt>しゅっぱつ</rt></ruby>した。",de:"Planmäßig abgereist."}
+   ],
+   note:"💡 An Nomen direkt: <b>どおり</b> (<ruby>時間<rt>じかん</rt></ruby>どおり, <ruby>期待<rt>きたい</rt></ruby>どおり).<br>🔄 ≈ <b>〜ように</b> (so wie)."},
+
+  // ============ LEKTION 20 — N3: Weitere Ausdrücke ============
+  {l:20, t:"〜にとって", de:"für … / aus Sicht von …",
+   simpel:"Standpunkt einer Bewertung: »für jdn / aus jds. Sicht«.<br><span class=\"jp\"><ruby>私<rt>わたし</rt></ruby><b>にとって</b></span> = „für mich (aus meiner Sicht)“",
+   rule:"N + にとって = »für N / aus der Sicht von N«, leitet eine Bewertung aus jemandes Perspektive ein (wichtig, schwer, wertvoll …). Attributiv: にとっての + N.",
+   build:[
+    {form:"Muster",verb:"N + にとって",de:"für N / aus Sicht von N"},
+    {form:"oft mit",verb:"<ruby>大切<rt>たいせつ</rt></ruby> / <ruby>難<rt>むずか</rt></ruby>しい …",de:"Bewertung folgt"},
+    {form:"attributiv",verb:"N にとっての + N",de:"das … für N"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Perspektive"},{text:"にとって",role:"actor",label:"für / aus Sicht von"},{text:"[Bewertung]",role:"verb"}],gloss:"»Für N / aus der Sicht von N (ist etwas wichtig/schwer …).« Leitet eine Bewertung aus jds. Perspektive ein."},
+   bauplan:[
+    "Nenne die <b>Person/Gruppe</b>, aus deren Sicht du urteilst.",
+    "Hänge <code>にとって</code> an (oft <code>にとっては</code>).",
+    "Setze die <b>Bewertung</b> dahinter (<code><ruby>大切<rt>たいせつ</rt></ruby>だ</code>, <code><ruby>難<rt>むずか</rt></ruby>しい</code>).",
+    "Vor Nomen: <code>にとっての</code> + N."
+   ],
+   ex:[
+    {jp:"<ruby>私<rt>わたし</rt></ruby><b>にとって</b> <ruby>家族<rt>かぞく</rt></ruby>は <ruby>一番<rt>いちばん</rt></ruby> <ruby>大切<rt>たいせつ</rt></ruby>だ。",de:"Für mich ist die Familie das Wichtigste."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>ども<b>にとって</b> <ruby>遊<rt>あそ</rt></ruby>びは <ruby>大事<rt>だいじ</rt></ruby>だ。",de:"Für Kinder ist Spielen wichtig."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby><b>にとっては</b> <ruby>簡単<rt>かんたん</rt></ruby>な <ruby>問題<rt>もんだい</rt></ruby>だ。",de:"Für ihn ist das eine leichte Aufgabe."}
+   ],
+   note:"🔄 <b>にとって</b> (Standpunkt der Bewertung) ≠ <b>に対して</b> (Adressat/Kontrast).<br>💡 Meist gefolgt von einer Wertung."},
+
+  {l:20, t:"〜あげく(に)", de:"nach langem … schließlich (meist schlecht)",
+   simpel:"Nach viel A ein (meist übles) Endergebnis.<br><span class=\"jp\"><ruby>悩<rt>なや</rt></ruby>んだ<b>あげく</b></span> = „nach langem Grübeln schließlich“",
+   rule:"V<sub>た</sub> / N + の + あげく(に) = »nach langem/vielem A kam es schließlich zu B« — B ist meist ein negatives Endergebnis. Betont den mühsamen Prozess davor.",
+   build:[
+    {form:"Verb",verb:"V<sub>た</sub> + あげく(に)",de:"nach langem V schließlich"},
+    {form:"Nomen",verb:"N + の + あげく",de:"nach dem/der N schließlich"},
+    {form:"Ergebnis",verb:"meist negativ",de:"schlechtes Ende"}
+   ],
+   pattern:{slots:[{text:"V<sub>た</sub>",role:"cond",label:"nach langem A"},{text:"あげく(に)",role:"actor",label:"schließlich"},{text:"[schlechtes B]",role:"verb"}],gloss:"»Nach langem/mühsamem A kam es schließlich zu (meist schlechtem) B.« Nur nach た-Form / N + の."},
+   bauplan:[
+    "Beschreibe den <b>langen/mühsamen Prozess</b> A in der <b>た-Form</b> (oder N + <code>の</code>).",
+    "Hänge <code>あげく(に)</code> an → »schließlich, am Ende«.",
+    "Setze das (meist <b>negative</b>) Endergebnis B dahinter.",
+    "Neutraler geht auch <code>〜<ruby>末<rt>すえ</rt></ruby>に</code> (»nach … schließlich«)."
+   ],
+   ex:[
+    {jp:"<ruby>悩<rt>なや</rt></ruby>んだ<b>あげく</b>、<ruby>留学<rt>りゅうがく</rt></ruby>を やめた。",de:"Nach langem Grübeln gab ich den Auslandsaufenthalt auf."},
+    {jp:"<ruby>長時間<rt>ちょうじかん</rt></ruby> <ruby>議論<rt>ぎろん</rt></ruby>した<b>あげく</b>、<ruby>結論<rt>けつろん</rt></ruby>が <ruby>出<rt>で</rt></ruby>なかった。",de:"Nach langer Diskussion kam am Ende doch kein Ergebnis heraus."},
+    {jp:"<ruby>迷<rt>まよ</rt></ruby>った<b>あげくに</b> <ruby>買<rt>か</rt></ruby>わなかった。",de:"Nach langem Hin und Her kaufte ich es schließlich doch nicht."}
+   ],
+   note:"🔄 ≈ <b>〜<ruby>末<rt>すえ</rt></ruby>に</b> (neutraler).<br>⚠ <b>あげく</b> fast immer <b>negatives</b> Ende; nur nach た-Form."},
+
+  {l:20, t:"〜<ruby>気<rt>き</rt></ruby>がする", de:"ich habe das Gefühl, dass …",
+   simpel:"Vage Ahnung/Empfindung: »mir ist, als ob …«.<br><span class=\"jp\"><ruby>忘<rt>わす</rt></ruby>れた <ruby>気<rt>き</rt></ruby>がする</span> = „ich habe das Gefühl, es vergessen zu haben“",
+   rule:"Plain (+ ような) + 気がする = »ich habe das (unsichere) Gefühl, dass …«. Subjektive Ahnung ohne Beweis.",
+   build:[
+    {form:"Muster",verb:"Plain (+ ような) + <ruby>気<rt>き</rt></ruby>がする",de:"ich habe das Gefühl …"},
+    {form:"Sinn",verb:"vage Ahnung",de:"ohne Beweis"},
+    {form:"Vergangenheit",verb:"<ruby>気<rt>き</rt></ruby>がした",de:"hatte das Gefühl"}
+   ],
+   pattern:{slots:[{text:"[Plain]",role:"cond"},{text:"<ruby>気<rt>き</rt></ruby>がする",role:"plain",label:"habe das Gefühl"}],gloss:"»Ich habe das (unsichere) Gefühl, dass …« Subjektive Ahnung ohne Beweis, oft mit ような."},
+   bauplan:[
+    "Formuliere die Ahnung in <b>Plain-Form</b> (optional + <code>ような</code>).",
+    "Hänge <code><ruby>気<rt>き</rt></ruby>がする</code> an → »ich habe das Gefühl«.",
+    "Vergangenheit: <code><ruby>気<rt>き</rt></ruby>がした</code>.",
+    "Nutze es für <b>vage</b> Empfindungen, nicht für begründete Schlüsse."
+   ],
+   ex:[
+    {jp:"どこかで <ruby>会<rt>あ</rt></ruby>ったような <b><ruby>気<rt>き</rt></ruby>がする</b>。",de:"Ich habe das Gefühl, wir sind uns schon mal begegnet."},
+    {jp:"うまくいく <b><ruby>気<rt>き</rt></ruby>がする</b>。",de:"Ich habe das Gefühl, es wird klappen."},
+    {jp:"<ruby>誰<rt>だれ</rt></ruby>かに <ruby>見<rt>み</rt></ruby>られている <b><ruby>気<rt>き</rt></ruby>がした</b>。",de:"Ich hatte das Gefühl, beobachtet zu werden."}
+   ],
+   note:"🔄 Schwächer/vager als <b>〜と思う</b> oder <b>〜そうだ</b>.<br>💡 Reine subjektive Empfindung, ohne Begründung."},
+
+  {l:20, t:"〜ふりをする", de:"so tun, als ob … / vorgeben zu …",
+   simpel:"Vortäuschen: »so tun, als ob …«.<br><span class=\"jp\"><ruby>寝<rt>ね</rt></ruby>た<b>ふりをする</b></span> = „sich schlafend stellen“",
+   rule:"Plain + ふりをする (N + の + ふり) = »vorgeben zu … / so tun, als ob«. Die Wirklichkeit ist anders als das gezeigte Verhalten.",
+   build:[
+    {form:"Verb",verb:"Plain + ふりをする",de:"so tun, als ob man V-t"},
+    {form:"Nomen",verb:"N + の + ふりをする",de:"sich als N ausgeben"},
+    {form:"typisch",verb:"<ruby>知<rt>し</rt></ruby>らないふり",de:"sich ahnungslos stellen"}
+   ],
+   pattern:{slots:[{text:"[Plain] / N の",role:"cond"},{text:"ふりをする",role:"plain",label:"so tun, als ob"}],gloss:"»Vorgeben zu … / so tun, als ob.« Verhalten ≠ Wirklichkeit. N + の + ふり (子どものふり)."},
+   bauplan:[
+    "Formuliere das <b>vorgetäuschte</b> Verhalten in Plain-Form (oder N + <code>の</code>).",
+    "Hänge <code>ふりをする</code> an → »so tun, als ob«.",
+    "Betone: die Realität ist <b>anders</b> als das Gezeigte.",
+    "Feste Wendung: <code><ruby>見<rt>み</rt></ruby>て <ruby>見<rt>み</rt></ruby>ぬふり</code> (»bewusst wegsehen«)."
+   ],
+   ex:[
+    {jp:"<ruby>聞<rt>き</rt></ruby>こえない<b>ふりをした</b>。",de:"Ich tat, als hörte ich es nicht."},
+    {jp:"<ruby>元気<rt>げんき</rt></ruby>な<b>ふりをする</b>。",de:"So tun, als ginge es einem gut."},
+    {jp:"<ruby>知<rt>し</rt></ruby>らない<b>ふりをしないで</b>。",de:"Tu nicht so, als wüsstest du nichts."}
+   ],
+   note:"💡 <b><ruby>見<rt>み</rt></ruby>て<ruby>見<rt>み</rt></ruby>ぬふり</b> = »bewusst wegsehen«.<br>🔄 Nomen: <b>N + の + ふり</b> (<ruby>子<rt>こ</rt></ruby>どものふり)."},
+
+  {l:20, t:"〜<ruby>一方<rt>いっぽう</rt></ruby>だ", de:"wird nur immer … (einseitige Tendenz)",
+   simpel:"Einseitige, fortschreitende Tendenz: »wird nur immer …«.<br><span class=\"jp\"><ruby>悪<rt>わる</rt></ruby>くなる<b>一方だ</b></span> = „wird nur immer schlechter“",
+   rule:"V<sub>辞書</sub> + 一方だ = »die Lage entwickelt sich immer weiter (nur) in eine Richtung«, oft negativ. Betont eine stetige, einseitige Veränderung.",
+   build:[
+    {form:"Muster",verb:"V<sub>辞書</sub> + <ruby>一方<rt>いっぽう</rt></ruby>だ",de:"wird nur immer …"},
+    {form:"Sinn",verb:"nur immer mehr/weniger",de:"einseitig"},
+    {form:"Nuance",verb:"oft negativ",de:"verschlechternd"}
+   ],
+   pattern:{slots:[{text:"N は",role:"subj"},{text:"V<sub>辞書</sub>",role:"verb"},{text:"<ruby>一方<rt>いっぽう</rt></ruby>だ",role:"plain",label:"nur immer …"}],gloss:"»Entwickelt sich immer weiter (nur) in eine Richtung.« Meist negativ. Nur mit Veränderungsverben."},
+   bauplan:[
+    "Wähle ein <b>Veränderungsverb</b> (<code><ruby>増<rt>ふ</rt></ruby>える</code>, <code><ruby>減<rt>へ</rt></ruby>る</code>, <code>よくなる</code>, <code>わるくなる</code>).",
+    "辞書形 + <code><ruby>一方<rt>いっぽう</rt></ruby>だ</code> → »wird nur immer …«.",
+    "Betont: die Tendenz geht <b>stetig</b> in EINE Richtung (oft negativ).",
+    "Nicht mit <code><ruby>一方<rt>いっぽう</rt></ruby>(で)</code> (»andererseits«, L45) verwechseln."
+   ],
+   ex:[
+    {jp:"<ruby>物価<rt>ぶっか</rt></ruby>は <ruby>上<rt>あ</rt></ruby>がる<b>一方だ</b>。",de:"Die Preise steigen nur immer weiter."},
+    {jp:"<ruby>人口<rt>じんこう</rt></ruby>は <ruby>減<rt>へ</rt></ruby>る<b>一方だ</b>。",de:"Die Bevölkerung nimmt immer weiter ab."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>の <ruby>病気<rt>びょうき</rt></ruby>は <ruby>悪<rt>わる</rt></ruby>くなる<b>一方だった</b>。",de:"Seine Krankheit wurde nur immer schlimmer."}
+   ],
+   note:"⚠ Nur mit Veränderungsverben.<br>🔄 Nicht mit <b><ruby>一方<rt>いっぽう</rt></ruby>(で)</b> (»andererseits«, Konnektor L45) verwechseln."},
+
+  {l:20, t:"〜ところだった", de:"beinahe wäre … (passiert)",
+   simpel:"Um ein Haar wäre etwas passiert (ist aber nicht).<br><span class=\"jp\">もう<ruby>少<rt>すこ</rt></ruby>しで <ruby>落<rt>お</rt></ruby>ちる<b>ところだった</b></span> = „beinahe wäre ich gefallen“",
+   rule:"V<sub>辞書</sub> + ところだった = »um ein Haar wäre … passiert (ist aber gerade nicht)«. Oft mit もう少しで / あぶなく. Erleichterung oder Schreck im Nachhinein.",
+   build:[
+    {form:"Muster",verb:"V<sub>辞書</sub> + ところだった",de:"beinahe wäre … passiert"},
+    {form:"oft mit",verb:"もう<ruby>少<rt>すこ</rt></ruby>しで / あぶなく",de:"um ein Haar"},
+    {form:"Sinn",verb:"beinahe, aber nicht",de:"ist NICHT passiert"}
+   ],
+   pattern:{slots:[{text:"もう<ruby>少<rt>すこ</rt></ruby>しで",role:"actor",label:"um ein Haar"},{text:"V<sub>辞書</sub>",role:"verb"},{text:"ところだった",role:"plain",label:"beinahe wäre …"}],gloss:"»Beinahe wäre … passiert (ist aber nicht).« Oft mit もう少しで/あぶなく. Immer 辞書形 + ところだった."},
+   bauplan:[
+    "Leite oft mit <code>もう<ruby>少<rt>すこ</rt></ruby>しで</code> oder <code>あぶなく</code> ein.",
+    "Nimm das Verb im <b>辞書形</b> (was beinahe geschah).",
+    "Hänge <code>ところだった</code> an → »beinahe wäre …«.",
+    "Merke: es ist <b>nicht</b> passiert (Erleichterung/Schreck im Nachhinein)."
+   ],
+   ex:[
+    {jp:"もう<ruby>少<rt>すこ</rt></ruby>しで <ruby>電車<rt>でんしゃ</rt></ruby>に <ruby>乗<rt>の</rt></ruby>り<ruby>遅<rt>おく</rt></ruby>れる<b>ところだった</b>。",de:"Beinahe hätte ich den Zug verpasst."},
+    {jp:"あぶなく <ruby>事故<rt>じこ</rt></ruby>を <ruby>起<rt>お</rt></ruby>こす<b>ところだった</b>。",de:"Um ein Haar hätte ich einen Unfall gebaut."},
+    {jp:"<ruby>宿題<rt>しゅくだい</rt></ruby>を <ruby>忘<rt>わす</rt></ruby>れる<b>ところだった</b>。",de:"Beinahe hätte ich die Hausaufgaben vergessen."}
+   ],
+   note:"🔄 vgl. L12 <b>ところ(だ)</b> (zeitliche Phase »gerade«).<br>⚠ Hier immer <b>辞書形 + ところだった</b> = »beinahe«."},
+
 ];
 
 const VOCAB = {
@@ -3529,7 +3773,8 @@ const TOPICS = {
   11:"N3 · Sicherheit & Vermutung", 12:"N3 · Verb-Aspekt",
   13:"N3 · Zeitpunkt & Verlauf", 14:"N3 · Grund & Gegensatz",
   15:"N3 · Nachdruck & Emotion", 16:"N3 · Ausruf, Wille & Betonung",
-  17:"N3 · Vergleich & Bezug", 18:"N3 · Eigenschaft & Anschein"
+  17:"N3 · Vergleich & Bezug", 18:"N3 · Eigenschaft & Anschein",
+  19:"N3 · Menge, Häufigkeit & Grad", 20:"N3 · Weitere Ausdrücke"
 };
 
 const lessons = [...new Set(CARDS.map(c => c.l))].sort((a,b)=>a-b);
