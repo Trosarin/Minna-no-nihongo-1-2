@@ -2864,6 +2864,228 @@ const CARDS = [
    ],
    note:"🔄 ≈ <b>〜にしては</b> (»für …«).<br>⚠ <b>わりに(は)</b> vergleicht immer mit einem Maßstab/einer Erwartung."},
 
+  // ============ LEKTION 15 — N3: Nachdruck & Emotion ============
+  {l:15, t:"〜くせに", de:"obwohl … (mit Vorwurf / Verachtung)",
+   simpel:"Wie のに, aber mit Kritik/Verachtung: »obwohl … (und das ist frech/unpassend)«.<br><span class=\"jp\"><ruby>知<rt>し</rt></ruby>っている<b>くせに</b></span> = „obwohl er es doch weiß (Frechheit)“",
+   rule:"〜くせに = adversativ »obwohl«, aber immer mit negativer Gefühlswertung (Vorwurf, Verachtung, Spott). Subjekt von Neben- und Hauptsatz meist dieselbe Person. Anschluss Plain (な-Adj + な, N + の).",
+   build:[
+    {form:"Muster",verb:"Plain / な-Adj な / N の + くせに",de:"obwohl (vorwurfsvoll)"},
+    {form:"Ton",verb:"Vorwurf / Verachtung",de:"immer wertend"},
+    {form:"≈",verb:"〜のに",de:"neutraler, ohne Wertung"}
+   ],
+   pattern:{slots:[{text:"[A: obwohl]",role:"cond"},{text:"くせに",role:"actor",label:"obwohl (Vorwurf)"},{text:"[B: Kritik]",role:"verb"}],gloss:"»Obwohl A — und das ist frech/unpassend — B.« Immer wertend/negativ. Meist gleiches Subjekt. Neutral wäre のに."},
+   bauplan:[
+    "Formuliere A (das, was jemand ist/tut) in Plain-Form (な-Adj + <code>な</code>, N + <code>の</code>).",
+    "Hänge <code>くせに</code> an → »obwohl (und das passt nicht!)«.",
+    "Setze deine <b>Kritik</b> B dahinter.",
+    "Für neutrale Einräumung ohne Vorwurf nimm <code>のに</code>."
+   ],
+   ex:[
+    {jp:"<ruby>知<rt>し</rt></ruby>っている<b>くせに</b>、<ruby>教<rt>おし</rt></ruby>えて くれない。",de:"Obwohl er es weiß, sagt er es mir nicht."},
+    {jp:"<ruby>下手<rt>へた</rt></ruby>な<b>くせに</b>、いつも <ruby>文句<rt>もんく</rt></ruby>を <ruby>言<rt>い</rt></ruby>う。",de:"Obwohl er schlecht ist, meckert er ständig."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもの<b>くせに</b>、<ruby>生意気<rt>なまいき</rt></ruby>だ。",de:"Obwohl er ein Kind ist, ist er frech."}
+   ],
+   note:"⚠ <b>くせに</b> ist immer wertend/negativ; neutral → <b>のに</b>.<br>💡 Meist haben Neben- und Hauptsatz dasselbe Subjekt."},
+
+  {l:15, t:"〜こそ", de:"gerade / genau dies / jetzt erst recht",
+   simpel:"Hebt ein Wort nachdrücklich hervor: »genau das, kein anderes«.<br><span class=\"jp\"><ruby>今<rt>いま</rt></ruby><b>こそ</b></span> = „jetzt erst recht / genau jetzt“",
+   rule:"こそ hängst du an ein Nomen/Wort und betonst es stark: »genau dieses«. Häufig 今こそ (jetzt erst recht), こちらこそ (ganz meinerseits), 〜からこそ (gerade weil).",
+   build:[
+    {form:"Nomen",verb:"N + こそ",de:"genau dieses N"},
+    {form:"Grund",verb:"〜からこそ",de:"gerade weil …"},
+    {form:"Antwort",verb:"こちらこそ",de:"ganz meinerseits"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Hervorhebung"},{text:"こそ",role:"actor",label:"genau dies"},{text:"[Aussage]",role:"verb"}],gloss:"»Genau dieses, kein anderes / jetzt erst recht.« Starke Hervorhebung. 〜からこそ = »gerade weil«."},
+   bauplan:[
+    "Wähle das Wort, das du <b>maximal betonen</b> willst (oft Zeit/Person/Grund).",
+    "Hänge direkt <code>こそ</code> an — kein は/が dazwischen.",
+    "Für »gerade weil«: <code>〜から + こそ</code> (<code><ruby>好<rt>す</rt></ruby>きだからこそ</code>).",
+    "Als höfliche Erwiderung: <code>こちらこそ</code>."
+   ],
+   ex:[
+    {jp:"<ruby>今<rt>いま</rt></ruby><b>こそ</b> <ruby>始<rt>はじ</rt></ruby>める ときだ。",de:"Jetzt erst recht ist es Zeit anzufangen."},
+    {jp:"あなた<b>こそ</b>、ありがとう。",de:"Ich habe zu danken (du erst recht)."},
+    {jp:"<ruby>苦<rt>くる</rt></ruby>しいとき だから<b>こそ</b>、<ruby>笑<rt>わら</rt></ruby>おう。",de:"Gerade weil es schwer ist, lass uns lächeln."}
+   ],
+   note:"💡 <b>こちらこそ</b> = höfliche Erwiderung »ganz meinerseits«.<br>🔄 <b>〜からこそ</b> betont den Grund besonders stark."},
+
+  {l:15, t:"〜さえ / 〜さえ〜ば", de:"sogar … / wenn nur … (dann reicht's)",
+   simpel:"<b>さえ</b> = »sogar«; <b>さえ〜ば</b> = »wenn nur …, dann«.<br><span class=\"jp\"><ruby>水<rt>みず</rt></ruby><b>さえ</b> あれば</span> = „wenn es nur Wasser gibt“",
+   rule:"さえ = »sogar/selbst« (extremes Beispiel). Kombiniert さえ〜ば = »die einzige Bedingung ist …; ist die erfüllt, reicht es«. Nomen + さえ; Verb ます-Stamm + さえ すれば.",
+   build:[
+    {form:"sogar",verb:"N + さえ",de:"sogar / selbst N"},
+    {form:"einzige Bedingung",verb:"N + さえ + …ば",de:"wenn nur N, dann …"},
+    {form:"Verb",verb:"V<sub>マス</sub> + さえ すれば",de:"wenn man nur V-t"}
+   ],
+   pattern:{slots:[{text:"N さえ",role:"cond",label:"wenn nur N"},{text:"…ば",role:"actor",label:"dann"},{text:"[reicht es]",role:"verb"}],gloss:"さえ = »sogar/selbst«. さえ〜ば = »die einzige nötige Bedingung; wenn die erfüllt ist, genügt es«. Vマス + さえすれば."},
+   bauplan:[
+    "Für »sogar«: Nomen + <code>さえ</code> (extremes Beispiel).",
+    "Für »wenn nur«: Nomen + <code>さえ</code> + Bedingung in <b>ば-Form</b> (<code>あれば</code>).",
+    "Bei Verben: ます-Stamm + <code>さえ すれば</code> (<code><ruby>飲<rt>の</rt></ruby>みさえ すれば</code>).",
+    "Dahinter das Ergebnis, das dann garantiert eintritt."
+   ],
+   ex:[
+    {jp:"<ruby>子<rt>こ</rt></ruby>ども<b>さえ</b> <ruby>知<rt>し</rt></ruby>っている。",de:"Sogar Kinder wissen das."},
+    {jp:"お<ruby>金<rt>かね</rt></ruby><b>さえ</b> あれば、<ruby>幸<rt>しあわ</rt></ruby>せか。",de:"Ist man glücklich, wenn man nur Geld hat?"},
+    {jp:"<ruby>薬<rt>くすり</rt></ruby>を <ruby>飲<rt>の</rt></ruby>み<b>さえ すれば</b>、<ruby>治<rt>なお</rt></ruby>る。",de:"Wenn man nur die Medizin nimmt, wird man gesund."}
+   ],
+   note:"🔄 ≈ だけ, aber <b>さえ</b> betont »das allein genügt / sogar«.<br>⚠ <b>さえ</b> (sogar/nur) ≠ <b>すら</b> (»sogar«, formeller, meist negativ)."},
+
+  {l:15, t:"〜ずには いられない", de:"ich kann nicht anders, als zu … / muss einfach",
+   simpel:"Ein Gefühl ist unwiderstehlich: »ich kann nicht anders, als zu …«.<br><span class=\"jp\"><ruby>笑<rt>わら</rt></ruby>わ<b>ずには いられない</b></span> = „ich muss einfach lachen“",
+   rule:"V<sub>ない</sub>-Stamm + ずにはいられない (する→せずに): der Sprecher kann einen inneren Drang nicht unterdrücken. Formeller/emotionaler als 〜ないではいられない.",
+   build:[
+    {form:"Muster",verb:"V<sub>ない語幹</sub> + ずには いられない",de:"kann nicht anders als …"},
+    {form:"Ausnahme",verb:"する → せずには いられない",de:"unregelmäßig"},
+    {form:"≈",verb:"〜ないでは いられない",de:"gesprochener"}
+   ],
+   pattern:{slots:[{text:"V<sub>ない語幹</sub>",role:"verb"},{text:"ずには いられない",role:"plain",label:"muss einfach"}],gloss:"»Ich kann den Drang zu V nicht unterdrücken.« V<sub>ない</sub>-Stamm + ずには. する → せずに. Emotional/unwillkürlich."},
+   bauplan:[
+    "Nimm den <b>ない-Stamm</b> (ない weglassen: <code><ruby>笑<rt>わら</rt></ruby>わない → 笑わ</code>).",
+    "Hänge <code>ずには いられない</code> an.",
+    "Merke die Ausnahme: <code>する → せずには いられない</code>.",
+    "Drückt einen <b>unwillkürlichen</b> Drang aus (Lachen, Weinen, Sorge …)."
+   ],
+   ex:[
+    {jp:"あの <ruby>映画<rt>えいが</rt></ruby>を <ruby>見<rt>み</rt></ruby>ると、<ruby>泣<rt>な</rt></ruby>か<b>ずには いられない</b>。",de:"Bei dem Film muss ich einfach weinen."},
+    {jp:"<ruby>心配<rt>しんぱい</rt></ruby>せ<b>ずには いられない</b>。",de:"Ich kann nicht anders, als mir Sorgen zu machen."},
+    {jp:"<ruby>文句<rt>もんく</rt></ruby>を <ruby>言<rt>い</rt></ruby>わ<b>ずには いられなかった</b>。",de:"Ich musste einfach meckern."}
+   ],
+   note:"⚠ Ausnahme: <b>する → せず</b>.<br>🔄 Lockerer: <b>〜ないでは いられない</b>. Immer ein unwillkürlicher Drang."},
+
+  {l:15, t:"〜どころか", de:"von wegen … / ganz im Gegenteil",
+   simpel:"Reißt eine Erwartung ein: »von wegen X — in Wirklichkeit …«.<br><span class=\"jp\"><ruby>休<rt>やす</rt></ruby>む<b>どころか</b></span> = „von wegen ausruhen (im Gegenteil)“",
+   rule:"V/Adj/N + どころか: nennt eine Erwartung X und stellt klar, dass die Realität ganz anders ist — oft das Gegenteil oder viel extremer. Anschluss Plain / Nomen.",
+   build:[
+    {form:"Muster",verb:"Plain / N + どころか",de:"von wegen X, in Wahrheit …"},
+    {form:"Sinn",verb:"Erwartung → Gegenteil",de:"reißt die Erwartung ein"},
+    {form:"oft mit",verb:"〜も + Verneinung",de:"nicht einmal …"}
+   ],
+   pattern:{slots:[{text:"[Erwartung X]",role:"cond"},{text:"どころか",role:"actor",label:"von wegen"},{text:"[Realität ≠ X]",role:"verb"}],gloss:"»Von wegen X — in Wirklichkeit das Gegenteil / viel mehr.« Reißt die Erwartung des Hörers ein. Oft + 〜も…ない."},
+   bauplan:[
+    "Nenne die <b>Erwartung X</b> (das, was man annehmen würde) in Plain-Form / als Nomen.",
+    "Hänge <code>どころか</code> an → »von wegen X«.",
+    "Setze die <b>gegenteilige/extremere Realität</b> dahinter.",
+    "Verstärke oft mit <code>〜も …ない</code> (»nicht einmal …«)."
+   ],
+   ex:[
+    {jp:"<ruby>休<rt>やす</rt></ruby>む<b>どころか</b>、もっと <ruby>忙<rt>いそが</rt></ruby>しくなった。",de:"Von wegen ausruhen — es wurde nur noch stressiger."},
+    {jp:"<ruby>感謝<rt>かんしゃ</rt></ruby>される<b>どころか</b>、<ruby>怒<rt>おこ</rt></ruby>られた。",de:"Statt Dank bekam ich Ärger."},
+    {jp:"100<ruby>円<rt>えん</rt></ruby><b>どころか</b>、1<ruby>円<rt>えん</rt></ruby>も ない。",de:"Von wegen 100 Yen — nicht mal 1 Yen."}
+   ],
+   note:"🔄 Oft verstärkt mit <b>〜も…ない</b> (»nicht einmal …«).<br>💡 Reißt bewusst die Erwartung des Hörers ein — stark kontrastierend."},
+
+  // ============ LEKTION 16 — N3: Ausruf, Wille & Betonung ============
+  {l:16, t:"〜ことか", de:"wie sehr …! (emotionaler Ausruf)",
+   simpel:"Emotionaler Ausruf mit Fragewort: »wie sehr …!«.<br><span class=\"jp\">どんなに <ruby>嬉<rt>うれ</rt></ruby>しかった<b>ことか</b></span> = „wie sehr ich mich gefreut habe!“",
+   rule:"Fragewort (どんなに / なんと / どれほど) + Plain + ことか: ein Ausruf starker Emotion, KEINE echte Frage. Schriftlich/gehoben. Anschluss Plain (な-Adj + な).",
+   build:[
+    {form:"Muster",verb:"どんなに/なんと + Plain + ことか",de:"wie sehr …!"},
+    {form:"Sinn",verb:"Ausruf, keine Frage",de:"starke Emotion"},
+    {form:"Register",verb:"gehoben / schriftlich",de:"literarisch"}
+   ],
+   pattern:{slots:[{text:"どんなに",role:"actor",label:"wie sehr"},{text:"[Plain]",role:"cond"},{text:"ことか",role:"plain",label:"…!"}],gloss:"»Wie sehr … (!)« — Ausruf starker Emotion mit Fragewort, keine echte Frage. Gehoben."},
+   bauplan:[
+    "Beginne mit einem <b>Fragewort</b>: <code>どんなに</code> / <code>なんと</code> / <code>どれほど</code>.",
+    "Setze die Aussage in <b>Plain-Form</b> (な-Adj + <code>な</code>).",
+    "Hänge <code>ことか</code> an → emotionaler Ausruf.",
+    "Nutze es für Gefühle (Freude, Sorge, Reue), nicht für echte Fragen."
+   ],
+   ex:[
+    {jp:"どんなに <ruby>心配<rt>しんぱい</rt></ruby>した<b>ことか</b>。",de:"Wie große Sorgen ich mir gemacht habe!"},
+    {jp:"なんと <ruby>美<rt>うつく</rt></ruby>しい<b>ことか</b>。",de:"Wie schön das ist!"},
+    {jp:"<ruby>何度<rt>なんど</rt></ruby> やめようと <ruby>思<rt>おも</rt></ruby>った<b>ことか</b>。",de:"Wie oft ich ans Aufhören gedacht habe!"}
+   ],
+   note:"💡 Immer mit <b>Fragewort</b>. Keine echte Frage, sondern starkes Gefühl.<br>🔄 Gehoben/schriftlich — im Alltag eher 〜だろう emotional."},
+
+  {l:16, t:"〜ものか / 〜もんか", de:"niemals! / auf gar keinen Fall werde ich …",
+   simpel:"Starke Verweigerung als rhetorische Frage: »niemals!«.<br><span class=\"jp\"><ruby>負<rt>ま</rt></ruby>ける<b>ものか</b></span> = „niemals verliere ich!“",
+   rule:"V/Adj (Plain) + ものか (locker もんか): emphatische Verneinung in Frageform — »als ob ich …! auf keinen Fall«. Gesprochen, emotional/trotzig.",
+   build:[
+    {form:"Muster",verb:"Plain + ものか / もんか",de:"niemals werde ich …"},
+    {form:"Ton",verb:"trotzig, emotional",de:"gesprochen"},
+    {form:"Sinn",verb:"Frageform = starke Verneinung",de:"rhetorisch"}
+   ],
+   pattern:{slots:[{text:"[Plain]",role:"cond"},{text:"ものか / もんか",role:"plain",label:"niemals!"}],gloss:"»Als ob ich …! Auf keinen Fall.« Frageform, aber Bedeutung = starke Verneinung. Trotzig, gesprochen. もんか = lockerer."},
+   bauplan:[
+    "Formuliere die Handlung, die du <b>strikt ablehnst</b>, in Plain-Form.",
+    "Hänge <code>ものか</code> (oder locker <code>もんか</code>) an.",
+    "Die Form ist eine Frage, die Bedeutung ist ein emphatisches <b>Nein</b>.",
+    "Ton: trotzig/emotional — nur im gesprochenen, informellen Kontext."
+   ],
+   ex:[
+    {jp:"<ruby>二度<rt>にど</rt></ruby>と <ruby>行<rt>い</rt></ruby>く<b>ものか</b>。",de:"Da gehe ich nie wieder hin!"},
+    {jp:"あんな <ruby>店<rt>みせ</rt></ruby>、<ruby>二度<rt>にど</rt></ruby>と <ruby>来<rt>く</rt></ruby>る<b>もんか</b>。",de:"In so einen Laden komme ich nie wieder!"},
+    {jp:"こんな ことで <ruby>泣<rt>な</rt></ruby>く<b>ものか</b>。",de:"Wegen so etwas weine ich doch nicht!"}
+   ],
+   note:"⚠ Form = Frage, Bedeutung = starke Verneinung.<br>🔄 <b>もんか</b> ist die lockere Variante. Nur informell/gesprochen."},
+
+  {l:16, t:"〜まい", de:"werde gewiss nicht … / wird wohl nicht …",
+   simpel:"Negative Willens- oder Vermutungsform: »ich werde ganz sicher nicht …«.<br><span class=\"jp\">もう <ruby>二度<rt>にど</rt></ruby>と <ruby>行<rt>い</rt></ruby>く<b>まい</b></span> = „ich gehe gewiss nie wieder hin“",
+   rule:"〜まい: (1) negativer Wille »ich werde bestimmt nicht …« (Entschluss); (2) negative Vermutung »wird wohl nicht …«. Schriftlich/gehoben.",
+   build:[
+    {form:"negativer Wille",verb:"V + まい",de:"werde bestimmt nicht V"},
+    {form:"Vermutung",verb:"V + まい",de:"wird wohl nicht V"},
+    {form:"Anschluss",verb:"う-V: <ruby>行<rt>い</rt></ruby>くまい · る-V: <ruby>食<rt>た</rt></ruby>べまい/食べるまい · する→しまい/するまい",de:"je Verbtyp"}
+   ],
+   pattern:{slots:[{text:"V",role:"verb"},{text:"まい",role:"plain",label:"gewiss nicht"}],gloss:"(1) »ich werde bestimmt nicht …« (Entschluss) oder (2) »wird wohl nicht …« (Vermutung). Gehoben. Anschluss variiert je Verbtyp."},
+   bauplan:[
+    "Entscheide: <b>Entschluss</b> (»ich werde nie wieder«) oder <b>Vermutung</b> (»wohl nicht«).",
+    "う-Verb: 辞書形 + <code>まい</code> (<code><ruby>行<rt>い</rt></ruby>くまい</code>).",
+    "る-Verb: <code>食べまい</code> oder <code>食べるまい</code>; する→<code>しまい/するまい</code>, 来る→<code>来まい/来るまい</code>.",
+    "Oft mit <code>と <ruby>決<rt>き</rt></ruby>める / と <ruby>思<rt>おも</rt></ruby>う</code> beim Entschluss."
+   ],
+   ex:[
+    {jp:"もう <ruby>泣<rt>な</rt></ruby>く<b>まい</b>と <ruby>決<rt>き</rt></ruby>めた。",de:"Ich habe beschlossen, nie wieder zu weinen."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は もう <ruby>来<rt>こ</rt></ruby><b>まい</b>。",de:"Er wird wohl nicht mehr kommen."},
+    {jp:"<ruby>二度<rt>にど</rt></ruby>と <ruby>失敗<rt>しっぱい</rt></ruby>する<b>まい</b>。",de:"Ich werde gewiss nicht noch einmal scheitern."}
+   ],
+   note:"🔄 Gehoben; im Alltag lieber <b>〜ないつもり / 〜ないだろう</b>.<br>⚠ Anschluss variiert je Verbtyp."},
+
+  {l:16, t:"〜ことなく", de:"ohne (je) zu …",
+   simpel:"Schriftliches »ohne zu …«: »ohne (auch nur einmal) zu …«.<br><span class=\"jp\">ふり<ruby>返<rt>かえ</rt></ruby>る<b>ことなく</b></span> = „ohne sich umzudrehen“",
+   rule:"V<sub>辞書形</sub> + ことなく = »ohne (auch nur einmal) zu …«. Schriftsprachlicher/nachdrücklicher als 〜ないで. Betont, dass etwas gar nicht geschah.",
+   build:[
+    {form:"Muster",verb:"V<sub>辞書</sub> + ことなく",de:"ohne je zu …"},
+    {form:"Register",verb:"schriftlich, formell",de:"literarisch"},
+    {form:"≈",verb:"〜ないで / 〜ずに",de:"gesprochener"}
+   ],
+   pattern:{slots:[{text:"V<sub>辞書</sub>",role:"verb"},{text:"ことなく",role:"actor",label:"ohne je zu"},{text:"[Haupthandlung]",role:"cond"}],gloss:"»Ohne (auch nur einmal) zu V …« Schriftsprachlich, nachdrücklicher als 〜ないで. Betont das völlige Ausbleiben."},
+   bauplan:[
+    "Nimm das Verb, das <b>NICHT</b> geschah, in der <b>辞書形</b>.",
+    "Hänge <code>ことなく</code> an → »ohne je zu …«.",
+    "Setze die Haupthandlung dahinter.",
+    "Im Gespräch lieber <code>〜ないで / 〜ずに</code>."
+   ],
+   ex:[
+    {jp:"<ruby>一度<rt>いちど</rt></ruby>も <ruby>休<rt>やす</rt></ruby>む<b>ことなく</b> <ruby>働<rt>はたら</rt></ruby>いた。",de:"Er arbeitete, ohne ein einziges Mal Pause zu machen."},
+    {jp:"だれにも <ruby>知<rt>し</rt></ruby>られる<b>ことなく</b> <ruby>消<rt>き</rt></ruby>えた。",de:"Er verschwand, ohne dass es jemand bemerkte."},
+    {jp:"あきらめる<b>ことなく</b> <ruby>続<rt>つづ</rt></ruby>けた。",de:"Er machte weiter, ohne je aufzugeben."}
+   ],
+   note:"🔄 ≈ <b>〜ないで / 〜ずに</b>, aber formeller und nachdrücklicher.<br>💡 Typisch für Berichte und Erzählungen."},
+
+  {l:16, t:"〜てこそ", de:"erst dadurch, dass … (wirklich)",
+   simpel:"Erst durch A wird B möglich/wahr: »erst wenn man wirklich A tut, …«.<br><span class=\"jp\"><ruby>努力<rt>どりょく</rt></ruby>し<b>てこそ</b></span> = „erst wenn man sich wirklich anstrengt“",
+   rule:"V<sub>テ</sub> + こそ: »erst dadurch, dass man (wirklich) A tut, ergibt sich B (das Eigentliche/Wertvolle)«. Hebt A als unverzichtbare Voraussetzung hervor. Gehoben.",
+   build:[
+    {form:"Muster",verb:"V<sub>テ</sub> + こそ",de:"erst dadurch, dass …"},
+    {form:"Sinn",verb:"A = eigentliche Voraussetzung für B",de:"unverzichtbar"},
+    {form:"Ton",verb:"gehoben, Lebensweisheit",de:"oft Sprichwort"}
+   ],
+   pattern:{slots:[{text:"V<sub>テ</sub>",role:"verb"},{text:"こそ",role:"actor",label:"erst dadurch"},{text:"[B: das Eigentliche]",role:"cond"}],gloss:"»Erst wenn man wirklich A tut, ergibt sich B.« A ist die unverzichtbare Voraussetzung. Gehoben, oft in Weisheiten."},
+   bauplan:[
+    "Nimm die entscheidende Handlung A in der <b>て-Form</b>.",
+    "Hänge <code>こそ</code> an → »erst dadurch, dass wirklich …«.",
+    "Setze B, das eigentliche/wertvolle Ergebnis, dahinter.",
+    "Passt gut für Sprichwörter und grundsätzliche Aussagen."
+   ],
+   ex:[
+    {jp:"<ruby>努力<rt>どりょく</rt></ruby>し<b>てこそ</b>、<ruby>成功<rt>せいこう</rt></ruby>が ある。",de:"Erst durch echte Anstrengung gibt es Erfolg."},
+    {jp:"<ruby>助<rt>たす</rt></ruby>け<ruby>合<rt>あ</rt></ruby>っ<b>てこそ</b> <ruby>家族<rt>かぞく</rt></ruby>だ。",de:"Erst wenn man einander hilft, ist man eine Familie."},
+    {jp:"<ruby>経験<rt>けいけん</rt></ruby>し<b>てこそ</b> わかる。",de:"Erst wenn man es erlebt, versteht man es."}
+   ],
+   note:"💡 Oft in Sprichwörtern/Lebensweisheiten.<br>🔄 Verwandt mit <b>こそ</b> (Betonung), hier mit て-Form als Voraussetzung."},
+
 ];
 
 const VOCAB = {
@@ -3083,7 +3305,8 @@ const TOPICS = {
   1:"ファストフード", 2:"地震", 3:"最近の子ども", 4:"日本のイメージ", 5:"睡眠",
   6:"日本人の発明", 7:"リサイクル", 8:"あいづち", 9:"男の仕事・女の仕事", 10:"ことばの使い方",
   11:"N3 · Sicherheit & Vermutung", 12:"N3 · Verb-Aspekt",
-  13:"N3 · Zeitpunkt & Verlauf", 14:"N3 · Grund & Gegensatz"
+  13:"N3 · Zeitpunkt & Verlauf", 14:"N3 · Grund & Gegensatz",
+  15:"N3 · Nachdruck & Emotion", 16:"N3 · Ausruf, Wille & Betonung"
 };
 
 const lessons = [...new Set(CARDS.map(c => c.l))].sort((a,b)=>a-b);
