@@ -1343,56 +1343,26 @@ const pickRandom = arr => arr[Math.floor(Math.random()*arr.length)];
    =================================================================== */
 
 const LESSON_TOPICS = {
-  1: 'Begrüßung & Vorstellung',
-  2: 'Demonstrativpronomen',
-  3: 'Orte & Räume',
-  4: 'Zeit & Tagesablauf',
-  5: 'Bewegung & Transport',
-  6: 'Verben & Objekte',
-  7: 'Geben & Bekommen',
-  8: 'Adjektive (い/な)',
-  9: 'Mögen & Können',
-  10: 'Existenz (あります/います)',
-  11: 'Zähler',
-  12: 'Vergleiche',
-  13: 'Wünsche (〜たい)',
-  14: 'て-Form & Bitten',
-  15: 'Erlaubnis & Verbot',
-  16: 'Verkettung & Vergleich',
-  17: 'Notwendigkeit (なければ)',
-  18: 'Können (ことができる)',
-  19: 'Erfahrung (〜たことが)',
-  20: 'Plain-Form',
-  21: 'と思います',
-  22: 'Relativsätze',
-  23: 'とき (Zeitpunkt)',
-  24: 'Geben & Bekommen II',
-  25: 'たら-Konditional',
-  26: 'んです (Erklärung)',
-  27: 'Potential-Form',
-  28: 'ながら (gleichzeitig)',
-  29: 'ている (Zustand)',
-  30: 'てあります / ておきます',
-  31: 'Volitiv (Absicht)',
-  32: 'Vermutung & Empfehlung',
-  33: 'Imperativ & Verbot',
-  34: 'とおりに / ないで (Methode)',
-  35: 'ば-Konditional',
-  36: 'ように (Zweck)',
-  37: 'Passiv',
-  38: 'Nominalisierung (の)',
-  39: 'ので (Grund)',
-  40: 'か どうか (indirekte Frage)',
-  41: 'Geben mit höflichem Stil',
-  42: 'ために (Zweck)',
-  43: 'そう (Anschein)',
-  44: 'すぎる / やすい / にくい',
-  45: 'ばあい (Fall)',
-  46: 'ところ / ばかり / はず',
-  47: 'そう (Hörensagen)',
-  48: 'Kausativ',
-  49: 'Sonkeigo (Respekt)',
-  50: 'Kenjougo (Bescheidenheit)',
+  1: 'ファストフード',
+  2: '地震',
+  3: '最近の子ども',
+  4: '日本のイメージ',
+  5: '睡眠',
+  6: '日本人の発明',
+  7: 'リサイクル',
+  8: 'あいづち',
+  9: '男の仕事・女の仕事',
+  10: 'ことばの使い方',
+  11: 'N3 · Sicherheit & Vermutung',
+  12: 'N3 · Verb-Aspekt',
+  13: 'N3 · Zeitpunkt & Verlauf',
+  14: 'N3 · Grund & Gegensatz',
+  15: 'N3 · Nachdruck & Emotion',
+  16: 'N3 · Ausruf, Wille & Betonung',
+  17: 'N3 · Vergleich & Bezug',
+  18: 'N3 · Eigenschaft & Anschein',
+  19: 'N3 · Menge, Häufigkeit & Grad',
+  20: 'N3 · Weitere Ausdrücke',
 };
 
 /* ===================================================================
@@ -1502,7 +1472,8 @@ function renderLessonGrid(){
   root.innerHTML = '';
   const counts = {};
   MINNA_LESSONS.forEach(c => counts[c.l] = (counts[c.l]||0)+1);
-  for(let l = 1; l <= 50; l++){
+  const maxLesson = Math.max(...MINNA_LESSONS.map(c => c.l));
+  for(let l = 1; l <= maxLesson; l++){
     const tile = document.createElement('button');
     tile.className = 'lesson-tile';
     const cnt = counts[l] || 0;
