@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+
+<html lang="de" data-theme="dark">
+<head>
+<script>(function(){try{var s=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',s||'dark');}catch(e){}})();</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>TRY! N3 — Ergänzung · 文型20</title>
+<meta name="description" content="Chuukyuu e Ikou Grammatik-Spickzettel L1-10">
+
+<!-- Apple Web App / Home Screen -->
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="中級">
+<meta name="theme-color" content="#15120f" id="theme-color-meta">
+
+<link rel="manifest" href="manifest.json">
+
+<!-- App Icon (180x180 inline SVG) -->
+
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23f4ede0'/%3E%3Crect x='15' y='15' width='150' height='150' fill='%23b8893a' transform='rotate(-3 90 90)'/%3E%3Ctext x='90' y='115' font-family='serif' font-size='90' font-weight='900' fill='%23f4ede0' text-anchor='middle'%3E中%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Noto+Serif+JP:wght@400;600;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1612;
+    --paper:#f4ede0;
+    --paper-2:#ebe1cd;
+    --red:#c0362c;
+    --red-deep:#8a1f17;
+    --gold:#b8893a;
+    --shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);color:var(--ink);font-family:"Shippori Mincho",serif;min-height:100vh}
+  body{
+    padding-top:env(safe-area-inset-top);
+    padding-bottom:env(safe-area-inset-bottom);
+    padding-left:env(safe-area-inset-left);
+    padding-right:env(safe-area-inset-right);
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(192,54,44,.04) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(184,137,58,.05) 0%, transparent 40%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  /* Buch-Wechsler Tabs */
+  .book-tabs{
+    display:flex;
+    justify-content:center;
+    gap:0;
+    background:var(--bar);
+    padding:0;
+    border-bottom:3px solid var(--line);
+  }
+  .book-tab{
+    flex:1;
+    max-width:240px;
+    padding:.7rem .8rem;
+    text-align:center;
+    text-decoration:none;
+    color:#a99780;
+    font-family:"Shippori Mincho",serif;
+    font-size:.9rem;
+    font-weight:600;
+    letter-spacing:.04em;
+    transition:background .2s, color .2s;
+    -webkit-tap-highlight-color:transparent;
+    border-bottom:3px solid transparent;
+    margin-bottom:-3px;
+  }
+  .book-tab:hover{color:var(--on-dark);background:rgba(244,237,224,.05)}
+  .book-tab.active{
+    background:var(--paper);
+    color:var(--red-deep-text);
+    border-bottom-color:var(--red-deep);
+  }
+
+header{
+padding:2.5rem 1.5rem 1.5rem;
+text-align:center;
+border-bottom:3px double var(--line);
+position:relative;
+}
+header::before{
+content:"第一課 〜 第十課";
+position:absolute;top:.6rem;left:50%;transform:translateX(-50%);
+font-size:.7rem;letter-spacing:.4em;color:var(--red-text);
+}
+h1{
+font-family:"Noto Serif JP",serif;font-weight:900;
+font-size:clamp(1.8rem,5vw,3rem);line-height:1.1;
+letter-spacing:.02em;
+}
+h1 .jp{color:var(--red-deep-text);display:block;font-size:1.2em;margin-bottom:.3rem}
+h1 .de{font-family:"Shippori Mincho",serif;font-weight:600;font-size:.55em;letter-spacing:.15em;text-transform:uppercase;color:var(--ink)}
+.subtitle{margin-top:.8rem;font-style:italic;color:var(--muted);font-size:.95rem}
+
+.controls{
+max-width:1200px;margin:1.5rem auto;padding:0 1rem;
+display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;justify-content:center;
+}
+.search{
+flex:1;min-width:220px;max-width:380px;
+padding:.7rem 1rem;
+background:var(--paper-2);
+border:2px solid var(--line);
+font-family:"Shippori Mincho",serif;font-size:1rem;color:var(--ink);
+box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+}
+.search:focus{outline:none;border-color:var(--red)}
+.lesson-filter{
+padding:.7rem 1rem;background:var(--paper-2);border:2px solid var(--line);
+font-family:inherit;font-size:.95rem;cursor:pointer;box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+}
+.stats{
+font-size:.85rem;color:var(--muted);
+background:var(--paper-2);padding:.5rem .9rem;border:1px solid var(--line);
+}
+.stats b{color:var(--red-deep-text);font-weight:800}
+
+.back-btn{
+padding:.6rem .85rem;background:var(--bar);color:var(--on-dark);
+border:2px solid var(--line);font-size:1.1rem;font-weight:700;
+cursor:pointer;box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);font-family:inherit;
+transition:transform .15s,background .2s;
+display:none;
+}
+.back-btn.visible{display:inline-block}
+.back-btn:hover{background:var(--red-deep);transform:translateX(-2px)}
+.back-btn:active{transform:translateX(0)}
+
+/* Floating Back-to-Top */
+.to-top{
+position:fixed;bottom:1.2rem;right:1.2rem;z-index:200;
+width:46px;height:46px;border-radius:50%;
+background:var(--bar);color:var(--on-dark);
+border:2px solid var(--paper);font-size:1.3rem;font-weight:700;
+cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3);
+display:none;align-items:center;justify-content:center;
+opacity:0;transition:opacity .25s,transform .15s;
+font-family:inherit;
+}
+.to-top.visible{display:flex;opacity:.85}
+.to-top:hover{opacity:1;transform:translateY(-3px)}
+.to-top:active{transform:translateY(0)}
+
+@keyframes cardHighlight{
+0%{box-shadow:0 0 0 4px var(--gold), 0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25)}
+100%{box-shadow:0 0 0 0 transparent, 0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25)}
+}
+.card.highlight{animation:cardHighlight 1.8s ease-out}
+
+.grid{
+max-width:1300px;margin:0 auto;padding:1rem;
+display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem;
+}
+
+/* === LEKTIONS-ÜBERSICHT === */
+.overview{
+max-width:1100px;margin:1rem auto;padding:1rem;
+}
+.overview-intro{
+text-align:center;color:var(--muted);font-style:italic;font-size:.9rem;
+margin-bottom:1.2rem;
+}
+.lesson-grid{
+display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+gap:.6rem;
+}
+.lesson-tile{
+background:var(--paper-2);border:2px solid var(--line);
+padding:.7rem .6rem;cursor:pointer;text-align:left;
+font-family:"Shippori Mincho",serif;font-size:.85rem;
+color:var(--ink);box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+transition:transform .12s,background .15s;
+line-height:1.25;
+}
+.lesson-tile:hover{background:var(--paper);transform:translate(-1px,-2px)}
+.lesson-tile:active{transform:translate(0,0)}
+.lesson-tile .num{
+display:block;font-family:"Noto Serif JP",serif;font-weight:800;
+color:var(--red-deep-text);font-size:1rem;letter-spacing:.04em;
+}
+.lesson-tile .topic{
+display:block;font-size:.72rem;color:var(--muted);margin-top:.15rem;
+}
+.lesson-tile .count{
+display:inline-block;font-size:.65rem;color:var(--gold-text);
+font-weight:700;margin-top:.2rem;
+}
+@media(max-width:600px){
+.lesson-grid{grid-template-columns:repeat(3,1fr);gap:.4rem}
+.lesson-tile{padding:.5rem .4rem;font-size:.75rem}
+.lesson-tile .num{font-size:.85rem}
+.lesson-tile .topic{font-size:.62rem}
+}
+
+.card{
+background:var(--paper-2);
+border:2px solid var(--line);
+box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+cursor:pointer;
+padding:1.2rem 1.1rem;
+position:relative;
+overflow:hidden;
+min-height:260px;
+display:flex;flex-direction:column;
+}
+.card::before{
+content:"";position:absolute;top:6px;left:6px;right:6px;bottom:6px;
+border:1px solid rgba(26,22,18,.25);pointer-events:none;
+z-index:3;
+}
+.card .front,.card .back{
+width:100%;
+transition:transform .45s cubic-bezier(.4,.05,.2,1), opacity .35s ease;
+}
+.card .front{
+flex:1;display:flex;flex-direction:column;
+justify-content:space-between;align-items:center;text-align:center;
+min-height:240px;
+transform:translateX(0);opacity:1;
+}
+.card .back{
+display:none;
+font-size:.85rem;line-height:1.55;
+transform:translateX(40px);opacity:0;
+}
+.card.flipped{min-height:auto}
+.card.flipped .front{
+display:none;
+}
+.card.flipped .back{
+display:block;
+animation:slideInFromRight .45s cubic-bezier(.4,.05,.2,1) forwards;
+}
+@keyframes slideInFromRight{
+0%{transform:translateX(40px);opacity:0}
+60%{opacity:1}
+100%{transform:translateX(0);opacity:1}
+}
+/* Hover-Hint nur auf Desktop, nicht auf Touch */
+@media(hover:hover){
+.card:not(.flipped):hover{
+transform:translateY(-2px);
+box-shadow:0 4px 0 rgba(26,22,18,.15), 0 18px 32px -8px rgba(26,22,18,.3);
+transition:transform .2s ease, box-shadow .2s ease;
+}
+}
+.lesson-tag{
+align-self:flex-start;
+font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.15em;
+background:var(--bar);color:var(--on-dark);
+padding:.2rem .6rem;
+z-index:2;
+}
+.grammar-jp{
+font-family:"Noto Serif JP",serif;font-weight:900;
+font-size:1.7rem;line-height:1.3;color:var(--red-deep-text);
+margin:auto 0;z-index:2;
+}
+.grammar-de{
+font-style:italic;font-size:.95rem;color:var(--muted);
+margin-bottom:.3rem;z-index:2;
+}
+.flip-hint{
+font-family:"JetBrains Mono",monospace;font-size:.65rem;
+letter-spacing:.2em;color:var(--gold-text);text-transform:uppercase;
+z-index:2;
+}
+.flip-hint::before{content:"↻ "}
+
+.back{
+padding:0;
+}
+.back-content{position:relative;z-index:2;font-size:.85rem;line-height:1.55}
+.back .lesson-tag{margin-bottom:.5rem}
+.back h3{
+font-family:"Noto Serif JP",serif;font-weight:800;
+color:var(--red-deep-text);font-size:1rem;
+border-bottom:1px solid var(--line);padding-bottom:.3rem;margin-bottom:.5rem;
+}
+.rule{margin-bottom:.6rem;font-size:.82rem}
+.simpel{background:rgba(184,137,58,.13);border-left:3px solid var(--gold);color:var(--ink);padding:.5rem .7rem;border-radius:0 5px 5px 0;margin-bottom:.6rem;font-size:.78rem;line-height:1.5}
+.simpel .jp{color:var(--red-deep-text);font-weight:600}
+.simpel-label{font-weight:700;margin-right:.4rem;color:var(--red-deep-text)}
+.conj-table{
+width:100%;border-collapse:collapse;margin-bottom:.6rem;font-size:.75rem;
+}
+.conj-table th{
+background:var(--bar);color:var(--on-dark);
+padding:.2rem .4rem;font-weight:600;text-align:left;
+font-family:"JetBrains Mono",monospace;font-size:.65rem;letter-spacing:.05em;
+}
+.conj-table td{
+padding:.2rem .4rem;border-bottom:1px solid rgba(26,22,18,.15);
+font-family:"Noto Serif JP",serif;
+}
+.conj-table tr:nth-child(even) td{background:rgba(255,255,255,.3)}
+.conj-table td:first-child{color:var(--red-deep-text);font-weight:600}
+.examples{margin-top:.4rem}
+.ex{
+background:rgba(255,255,255,.4);
+border-left:3px solid var(--red);
+padding:.4rem .55rem;margin-bottom:.4rem;
+font-size:.78rem;
+}
+.ex .jp{font-family:"Noto Serif JP",serif;color:var(--ink);font-weight:600;display:block}
+.ex .de{color:var(--t-3);font-style:italic;display:block;margin-top:.15rem;font-size:.74rem}
+ruby rt{font-size:.55em;color:var(--red-text);font-weight:400;letter-spacing:0}
+.note{
+margin-top:.5rem;font-size:.72rem;color:var(--muted);font-style:italic;
+border-top:1px dashed var(--line);padding-top:.4rem;
+}
+.note::before{content:"※ ";color:var(--red-text);font-weight:bold}
+
+/* ============ SECTIONS (4-Block-Layout) ============ */
+.sec{margin-bottom:.7rem}
+.sec-label{
+display:inline-block;
+font-family:"JetBrains Mono",monospace;
+font-size:.6rem;letter-spacing:.12em;
+color:var(--red-deep-text);font-weight:700;
+text-transform:uppercase;
+margin-bottom:.25rem;
+padding:.1rem .35rem;
+background:rgba(192,54,44,.08);
+border-left:2px solid var(--red-deep);
+}
+/* 🗣️ Aktiv-üben-Sektion auf der Kartenrückseite */
+.cp-sec{margin-top:.8rem;border-top:1px dashed var(--line-soft);padding-top:.6rem}
+.cp-head{width:100%;display:flex;align-items:center;gap:.4rem;background:rgba(31,74,122,.08);border:1px solid var(--line-soft);border-radius:8px;padding:.5rem .6rem;cursor:pointer;font-family:inherit;font-weight:800;font-size:.82rem;color:var(--ink)}
+.cp-count{font-weight:600;font-size:.68rem;color:var(--blue);background:rgba(31,74,122,.12);border-radius:99px;padding:.08rem .5rem}
+.cp-arrow{margin-left:auto;color:var(--blue);font-size:.9rem}
+.cp-body{display:none;margin-top:.55rem}
+.cp-sec.open .cp-body{display:block}
+.cp-help{font-size:.74rem;color:var(--muted);font-style:italic;margin:0 0 .5rem;line-height:1.5}
+.cp-item{border:1px solid var(--line-soft);border-radius:8px;padding:.55rem .65rem;margin-bottom:.5rem;background:var(--paper-2)}
+.cp-sit{font-size:.86rem;color:var(--ink);line-height:1.55;margin-bottom:.4rem}
+.cp-reveal{font-family:inherit;cursor:pointer;font-size:.72rem;font-weight:700;color:var(--on-dark);background:var(--red-deep);border:none;border-radius:7px;padding:.32rem .7rem}
+.cp-ans{display:none;margin-top:.5rem;border-top:1px dotted var(--line-soft);padding-top:.45rem}
+.cp-ans.show{display:block}
+.cp-ans .jp{font-family:"Noto Serif JP",serif;font-size:1.05rem;color:var(--ink);font-weight:600;display:block;line-height:1.7}
+.cp-ans .de{font-size:.76rem;color:var(--t-3);font-style:italic;display:block;margin-top:.2rem}
+.pattern-box{
+background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.3) 100%);
+border:1px solid rgba(26,22,18,.15);
+border-radius:3px;
+padding:.5rem .55rem;
+margin-bottom:.3rem;
+}
+.pattern-line{
+display:flex;flex-wrap:wrap;align-items:baseline;
+gap:.15rem .25rem;
+font-family:"Noto Serif JP",serif;
+font-size:.92rem;line-height:1.55;
+}
+.slot{display:inline-flex;flex-direction:column;align-items:center;padding:.05rem .25rem;border-radius:2px}
+.slot .slot-text{font-weight:600}
+.slot .slot-label{font-family:"JetBrains Mono",monospace;font-size:.52rem;letter-spacing:.04em;color:rgba(26,22,18,.55);text-transform:uppercase;margin-top:-.1rem;font-weight:500}
+.slot.subj{background:rgba(58,118,178,.13);color:var(--blue)}
+.slot.subj .slot-label{color:var(--blue)}
+.slot.obj{background:rgba(184,137,58,.18);color:var(--gold-text)}
+.slot.obj .slot-label{color:var(--gold-text)}
+.slot.actor{background:rgba(192,54,44,.13);color:var(--red-deep-text)}
+.slot.actor .slot-label{color:var(--red-deep-text)}
+.slot.verb{background:rgba(60,130,80,.15);color:var(--green)}
+.slot.verb .slot-label{color:var(--green)}
+.slot.time{background:rgba(140,90,160,.13);color:var(--purple)}
+.slot.time .slot-label{color:var(--purple)}
+.slot.place{background:rgba(80,140,150,.14);color:var(--teal)}
+.slot.place .slot-label{color:var(--teal)}
+.slot.cond{background:rgba(180,120,60,.16);color:var(--gold-text)}
+.slot.cond .slot-label{color:var(--gold-text)}
+.slot.plain{padding:.05rem .15rem;color:var(--t-3);font-weight:600}
+.slot.plain .slot-label{display:none}
+.pattern-gloss{margin-top:.35rem;font-size:.7rem;color:var(--muted);font-style:italic;line-height:1.3}
+
+/* ============ SATZBAUPLAN (Schritt-für-Schritt) ============ */
+.bauplan{
+background:linear-gradient(180deg,rgba(184,137,58,.10) 0%,rgba(184,137,58,.04) 100%);
+border:1px solid rgba(184,137,58,.4);
+border-left:3px solid var(--gold);
+padding:.55rem .65rem;
+margin-bottom:.4rem;
+border-radius:2px;
+}
+.bauplan-step{
+display:flex;
+gap:.5rem;
+align-items:baseline;
+padding:.3rem 0;
+border-bottom:1px dashed rgba(184,137,58,.25);
+font-size:.78rem;
+line-height:1.45;
+}
+.bauplan-step:last-child{border-bottom:none}
+.bauplan-num{
+flex-shrink:0;
+display:inline-flex;align-items:center;justify-content:center;
+width:1.3rem;height:1.3rem;
+background:var(--red-deep);color:var(--on-dark);
+font-family:"JetBrains Mono",monospace;font-size:.7rem;font-weight:700;
+border-radius:50%;
+}
+.bauplan-text{flex:1;color:var(--t-2)}
+.bauplan-text b{color:var(--red-deep-text);font-weight:700}
+.bauplan-text code{
+background:rgba(26,22,18,.08);
+padding:.05rem .3rem;
+border-radius:2px;
+font-family:"Noto Serif JP",serif;
+font-size:.95em;
+color:var(--ink);
+}
+
+/* ============ CHEAT-SHEETS ============ */
+.cheatsheet-toggle{
+display:inline-block;padding:.5rem 1rem;
+background:var(--red-deep);color:var(--on-dark);
+border:2px solid var(--line);cursor:pointer;
+font-family:"Shippori Mincho",serif;font-size:.9rem;
+box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);transition:transform .1s;
+}
+.cheatsheet-toggle:hover{transform:translateY(-1px)}
+.cheatsheet-toggle:active{transform:translateY(1px)}
+
+.cheatsheets{
+max-width:1200px;margin:2rem auto;padding:0 1rem;
+display:none;
+}
+.cheatsheets.visible{display:block}
+
+.cheatsheets h2{
+font-family:"Noto Serif JP",serif;font-weight:900;
+color:var(--red-deep-text);font-size:1.6rem;
+text-align:center;margin-bottom:1.5rem;
+border-bottom:3px double var(--line);padding-bottom:.8rem;
+}
+
+.cs-block{
+background:var(--paper-2);border:2px solid var(--line);
+padding:1.2rem 1rem;margin-bottom:1.5rem;
+box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+}
+.cs-block h3{
+font-family:"Noto Serif JP",serif;font-weight:700;
+color:var(--red-deep-text);font-size:1.15rem;
+margin-bottom:.3rem;
+padding-bottom:.4rem;border-bottom:1px solid var(--line);
+}
+.cs-block .cs-intro{
+font-size:.78rem;color:var(--muted);font-style:italic;
+margin-bottom:.8rem;
+}
+
+.cs-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cs-table{
+width:100%;border-collapse:collapse;font-size:.78rem;
+background:var(--paper);min-width:100%;
+}
+.cs-table th{
+background:var(--bar);color:var(--on-dark);
+padding:.5rem .4rem;text-align:left;font-weight:700;
+font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;
+white-space:nowrap;
+}
+.cs-table td{
+padding:.45rem .4rem;border-bottom:1px solid rgba(26,22,18,.15);
+vertical-align:top;
+}
+.cs-table tr:last-child td{border-bottom:none}
+.cs-table tr:nth-child(even) td{background:rgba(184,137,58,.05)}
+.cs-table .jp{font-family:"Noto Serif JP",serif;font-weight:600;color:var(--red-deep-text)}
+.cs-table .hl{color:var(--red-text);font-weight:700}
+.cs-table .key{font-weight:700;color:var(--ink);white-space:nowrap}
+
+.cs-footer-note{
+margin-top:.6rem;font-size:.72rem;color:var(--muted);font-style:italic;
+padding-top:.4rem;border-top:1px dashed var(--line);
+}
+.cs-footer-note::before{content:"💡 ";font-style:normal}
+
+.back::-webkit-scrollbar{width:5px}
+.back::-webkit-scrollbar-track{background:transparent}
+.back::-webkit-scrollbar-thumb{background:var(--bar);border-radius:0}
+
+footer{
+text-align:center;padding:2rem 1rem;color:var(--muted);
+font-size:.8rem;border-top:1px solid var(--line);margin-top:2rem;
+}
+footer .seal{
+display:inline-block;width:50px;height:50px;
+background:var(--red);color:var(--on-dark);
+font-family:"Noto Serif JP",serif;font-weight:900;font-size:1.3rem;
+line-height:50px;margin-bottom:.5rem;
+transform:rotate(-3deg);
+}
+
+@media(max-width:600px){
+.card{min-height:220px}
+.card .front{min-height:200px}
+.grammar-jp{font-size:1.4rem}
+}
+
+/* ===== CHEAT-SHEETS ===== */
+.cheat-toggle{
+display:block;max-width:600px;margin:2rem auto 1rem;padding:.9rem 1rem;
+background:var(--red-deep);color:var(--on-dark);
+font-family:"Shippori Mincho",serif;font-size:1rem;font-weight:600;
+text-align:center;border:2px solid var(--line);cursor:pointer;
+box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);letter-spacing:.05em;
+transition:background .2s;
+}
+.cheat-toggle:hover{background:var(--red)}
+.cheat-toggle::before{content:"📖 ";margin-right:.3rem}
+
+.cheats{
+max-width:1100px;margin:1rem auto 2rem;padding:0 1rem;
+}
+.cheats.hidden{display:none}
+
+.cheat-toc{
+background:var(--bar);color:var(--on-dark);
+padding:.7rem .8rem;margin-bottom:1.2rem;
+display:flex;flex-wrap:wrap;gap:.4rem;
+box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+position:sticky;top:0;z-index:90;
+}
+.cheat-toc a{
+flex:1;min-width:fit-content;
+padding:.4rem .6rem;background:var(--paper-2);color:var(--ink);
+text-decoration:none;font-size:.78rem;font-weight:600;
+text-align:center;border:1px solid var(--paper);
+transition:background .15s,transform .12s;
+font-family:inherit;
+}
+.cheat-toc a:hover{background:var(--gold);color:var(--on-dark);transform:translateY(-1px)}
+@media(max-width:600px){
+.cheat-toc{padding:.5rem .4rem;gap:.25rem;top:0}
+.cheat-toc a{font-size:.68rem;padding:.35rem .35rem;min-width:0}
+}
+.cheat{
+background:var(--paper-2);border:2px solid var(--line);
+padding:1.2rem 1rem;margin-bottom:1.5rem;
+box-shadow:0 2px 0 rgba(26,22,18,.15), 0 12px 28px -8px rgba(26,22,18,.25);
+position:relative;
+}
+.cheat h2{
+font-family:"Noto Serif JP",serif;font-weight:800;font-size:1.1rem;
+color:var(--red-deep-text);border-bottom:2px solid var(--line);
+padding-bottom:.4rem;margin-bottom:.9rem;letter-spacing:.03em;
+}
+.cheat h2::before{
+content:"◆";color:var(--gold-text);margin-right:.4rem;font-size:.8em;
+}
+.cheat h3{
+font-family:"Shippori Mincho",serif;font-weight:700;font-size:.9rem;
+color:var(--ink);margin:.8rem 0 .4rem;
+border-left:3px solid var(--red);padding-left:.5rem;
+}
+.cheat p{font-size:.82rem;line-height:1.5;margin-bottom:.5rem;color:var(--t-2)}
+.cheat-table{
+width:100%;border-collapse:collapse;margin:.4rem 0 .8rem;
+font-size:.75rem;background:var(--paper);
+}
+.cheat-table th,.cheat-table td{
+border:1px solid var(--line);padding:.35rem .5rem;
+text-align:left;vertical-align:top;
+}
+.cheat-table th{
+background:var(--bar);color:var(--on-dark);font-weight:700;
+font-family:"Noto Serif JP",serif;letter-spacing:.03em;
+}
+.cheat-table td .jp{font-family:"Noto Serif JP",serif;font-weight:600;color:var(--red-deep-text);display:block}
+.cheat-table td .hint{font-size:.68rem;font-style:italic;color:var(--muted);display:block;margin-top:.15rem}
+.cheat-table tr:nth-child(even) td{background:var(--paper-2)}
+.cheat .legend{
+font-size:.7rem;color:var(--muted);font-style:italic;
+margin-top:.4rem;padding-top:.3rem;border-top:1px dashed var(--line);
+}
+@media(max-width:600px){
+.cheat-table{font-size:.7rem}
+.cheat-table th,.cheat-table td{padding:.25rem .35rem}
+.cheat h2{font-size:1rem}
+}
+
+/* Sprach-Tabs */
+.lang-tabs{
+display:flex;
+justify-content:flex-end;
+gap:0;
+padding:.3rem .8rem;
+background:var(--bar);
+}
+.lang-tab{
+padding:.3rem .7rem;
+text-decoration:none;
+color:#a99780;
+font-family:"Shippori Mincho",serif;
+font-size:.8rem;
+font-weight:600;
+border-bottom:2px solid transparent;
+transition:all .15s;
+-webkit-tap-highlight-color:transparent;
+}
+.lang-tab.active{
+color:var(--on-dark);
+border-bottom-color:var(--on-dark);
+}
+.lang-tab:hover{color:var(--on-dark)}
+
+</style>
+
+<style id="dark-theme-layer">
+:root{
+  /* Lichtwerte = Originalfarben (heller Modus unveraendert) */
+  --ink:#1a1612; --paper:#f4ede0; --paper-2:#ebe1cd; --on-dark:#f4ede0;
+  --bar:#1a1612; --line:#1a1612; --line-soft:#c9bda3;
+  --surface:#fffdf6; --surface-warm:#f0e6d2;
+  --t-2:#3a2f22; --t-3:#5a4d3c; --muted:#6b5d4a;
+  --red:#c0362c; --red-deep:#8a1f17; --red-strong:#7a1a14;
+  --gold:#b8893a; --gold-2:#cfa055;
+  --green:#2f6e3a; --green-text:#1f4a26;
+  --blue:#1f4a7a; --blue-2:#3a76b2; --teal:#2d5a62; --purple:#5a3a78;
+  --ok-bg:#d6e9c8; --bad-bg:#f3d9d4; --near-bg:#f6eccf; --blue-bg:#e8eef6; --warm-hover:#fff7e6;
+  color-scheme:light;
+}
+html[data-theme="dark"]{
+  --ink:#f1ebe2; --paper:#15120f; --paper-2:#211d18; --on-dark:#f1ebe2;
+  --bar:#322c24; --line:#4a4339; --line-soft:#3c362b;
+  --surface:#26221c; --surface-warm:#2b2419;
+  --t-2:#ccc2b0; --t-3:#b8ab96; --muted:#a99a83;
+  --red:#d24a3d; --red-deep:#d24a3d; --red-strong:#d24a3d;
+  --gold:#d6a652; --gold-2:#e2b86b;
+  --green:#5fae66; --green-text:#93d79d;
+  --blue:#7bafe6; --blue-2:#7bafe6; --teal:#74bac7; --purple:#c2a6df;
+  --ok-bg:#1e3a24; --bad-bg:#46201d; --near-bg:#3a3320; --blue-bg:#1d2937; --warm-hover:#2f2a20;
+  color-scheme:dark;
+}
+/* slot-label Grundfarbe im Dunkelmodus lesbar machen */
+html[data-theme="dark"] .slot .slot-label{color:rgba(241,235,226,.5)}
+/* Gold ist in beiden Modi hell -> Text auf Gold bleibt dunkel */
+html[data-theme="dark"] .ex-toggle:not(.active),
+html[data-theme="dark"] .ex-actions button.gold,
+html[data-theme="dark"] button.btn.gold,
+html[data-theme="dark"] .seal[style*="--gold"]{color:#1a1612 !important}
+/* ---- moderne Akzente nur im Dunkelmodus (heller Modus = Original) ---- */
+html[data-theme="dark"] body{font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .cheat,
+html[data-theme="dark"] .cs-block,
+html[data-theme="dark"] .stats-card,
+html[data-theme="dark"] .compare-card,
+html[data-theme="dark"] .unterpunkt,
+html[data-theme="dark"] .exercise-box,
+html[data-theme="dark"] .drill-card,
+html[data-theme="dark"] .sit-card,
+html[data-theme="dark"] .lesson-tile,
+html[data-theme="dark"] .dash-card,
+html[data-theme="dark"] .vq,
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .search,
+html[data-theme="dark"] .lesson-filter,
+html[data-theme="dark"] select{border-radius:14px}
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .cheat,
+html[data-theme="dark"] .cs-block,
+html[data-theme="dark"] .stats-card,
+html[data-theme="dark"] .compare-card,
+html[data-theme="dark"] .unterpunkt,
+html[data-theme="dark"] .drill-card,
+html[data-theme="dark"] .sit-card,
+html[data-theme="dark"] .panel{box-shadow:0 6px 20px -8px rgba(0,0,0,.55)}
+/* ---- Theme-Umschalter (schwebend, unten links) ---- */
+.theme-fab{
+  position:fixed;left:1rem;bottom:1rem;z-index:300;
+  left:calc(1rem + env(safe-area-inset-left));
+  bottom:calc(1rem + env(safe-area-inset-bottom));
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:var(--paper-2);color:var(--ink);
+  font-size:1.2rem;line-height:1;cursor:pointer;
+  box-shadow:0 6px 18px -6px rgba(0,0,0,.45);
+  display:grid;place-items:center;
+  -webkit-tap-highlight-color:transparent;
+  transition:transform .15s ease;
+}
+.theme-fab:hover{transform:translateY(-2px)}
+.theme-fab .sun{display:none}.theme-fab .moon{display:block}
+html[data-theme="dark"] .theme-fab .sun{display:block}
+html[data-theme="dark"] .theme-fab .moon{display:none}
+</style>
+
+<style id="text-tone">
+:root{--red-text:#c0362c;--red-deep-text:#8a1f17;--red-strong-text:#7a1a14;--gold-text:#b8893a}
+html[data-theme="dark"]{--red-text:#e6dccb;--red-deep-text:#efe7da;--red-strong-text:#efe7da;--gold-text:#cabda3}
+</style>
+<style id="dark-fix">
+/* Halbtransparente WEISSE Flaechen wirken im Dark Mode als graue Kaesten -> dezent dunkel */
+html[data-theme="dark"] .ex,
+html[data-theme="dark"] .pattern-box,
+html[data-theme="dark"] .cheat-section,
+html[data-theme="dark"] .compare-card-when,
+html[data-theme="dark"] .conj-table tr:nth-child(even) td,
+html[data-theme="dark"] .cs-table tr:nth-child(even) td{background:rgba(255,255,255,.05)}
+/* weisses Status-Badge abdunkeln */
+html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
+</style>
+</head>
+<body>
+
+<!-- Buch-Wechsler + Sprach-Tabs -->
+
+<div class="book-tabs">
+  <a class="book-tab" href="/Minna-no-nihongo-1-2/minna/">📕 みんなの日本語</a>
+  <a class="book-tab active" href="/Minna-no-nihongo-1-2/chuukyuu/">📘 中級へ行こう</a>
+  <a class="book-tab" href="/Minna-no-nihongo-1-2/practice/">✏️ 練習帳</a>
+</div>
+<div class="lang-tabs">
+  <a class="lang-tab active" href="/Minna-no-nihongo-1-2/try-n3/">DE</a>
+</div>
+
+<header>
+  <h1>
+    <span class="jp">TRY! N3 <ruby>補足<rt>ほそく</rt></ruby></span>
+    <span class="de">Ergänzungs-Muster zu TRY! N3 · 20 Karten · Unit 1–4</span>
+  </h1>
+  <p class="subtitle">Klick auf eine Karte, um die Erklärung zu sehen</p>
+</header>
+
+<div class="controls">
+  <button class="back-btn" id="backBtn" title="Zurück zur Übersicht" aria-label="Zurück zur Übersicht">←</button>
+  <input type="text" class="search" id="search" placeholder="Suchen (z.B. te-Form, Partikel は)…">
+  <select class="lesson-filter" id="lessonFilter">
+    <option value="all">Alle Lektionen</option>
+  </select>
+  <div class="stats" id="stats">— Karten</div>
+</div>
+
+<div class="overview" id="overview">
+  <p class="overview-intro">Wähle eine Lektion, suche nach Inhalten, oder öffne die Cheat-Sheets ↓</p>
+  <div class="lesson-grid" id="lessonGrid"></div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<button class="cheat-toggle" id="cheatToggle">Cheat-Sheets anzeigen</button>
+
+<div class="cheats hidden" id="cheats">
+  <!-- TOC -->
+  <div class="cheat-toc">
+    <a href="#cheat-konj"><ruby>接続詞<rt>せつぞくし</rt></ruby></a>
+    <a href="#cheat-yo">よう / みたい / らしい / そう</a>
+    <a href="#cheat-modal"><ruby>文末<rt>ぶんまつ</rt></ruby> <ruby>表現<rt>ひょうげん</rt></ruby></a>
+    <a href="#cheat-pass"><ruby>受身<rt>うけみ</rt></ruby>・<ruby>使役<rt>しえき</rt></ruby>・<ruby>使役受身<rt>しえきうけみ</rt></ruby></a>
+    <a href="#cheat-part">N + Partikel-Komplexe</a>
+    <a href="#cheat-bun"><ruby>書<rt>か</rt></ruby>きことば</a>
+  </div>
+
+  <div class="cheat" id="cheat-konj">
+    <h2><span class="jp"><ruby>接続詞<rt>せつぞくし</rt></ruby></span> — Konjunktionen für Aufsätze (N3)</h2>
+    <p style="color:var(--red-deep-text);font-style:italic;margin-bottom:1rem">Verbindungen für strukturierte Argumentation</p>
+
+```
+<p class="legend">📝 Diese Konjunktionen stehen am <b>Satzanfang</b> (gefolgt von 、) und verbinden zwei Sätze logisch.</p>
+
+<h3>Hinzufügen / Verstärken</h3>
+<table>
+  <thead><tr><th>Konjunktion</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+  <tbody>
+  <tr><td><span class="jp">それに</span></td><td>außerdem</td><td><span class="jp"><ruby>安<rt>やす</rt></ruby>い。それに、おいしい。</span></td></tr>
+  <tr><td><span class="jp">しかも</span></td><td>überdies (stärker)</td><td><span class="jp"><ruby>便利<rt>べんり</rt></ruby>だ。しかも、<ruby>安<rt>やす</rt></ruby>い。</span></td></tr>
+  <tr><td><span class="jp"><ruby>更<rt>さら</rt></ruby>に</span></td><td>weiterhin (formell)</td><td><span class="jp"><ruby>更<rt>さら</rt></ruby>に、<ruby>問題<rt>もんだい</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>えた。</span></td></tr>
+  </tbody>
+</table>
+
+<h3>Kontrast / Gegensatz</h3>
+<table>
+  <thead><tr><th>Konjunktion</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+  <tbody>
+  <tr><td><span class="jp">しかし</span></td><td>jedoch</td><td><span class="jp"><ruby>便利<rt>べんり</rt></ruby>だ。しかし、<ruby>危険<rt>きけん</rt></ruby>もある。</span></td></tr>
+  <tr><td><span class="jp">ところが</span></td><td>aber überraschend</td><td><span class="jp"><ruby>行<rt>い</rt></ruby>った。ところが、<ruby>休<rt>やす</rt></ruby>みだった。</span></td></tr>
+  <tr><td><span class="jp"><ruby>一方<rt>いっぽう</rt></ruby></span></td><td>andererseits ★ L9</td><td><span class="jp"><ruby>男性<rt>だんせい</rt></ruby>は…、<ruby>一方<rt>いっぽう</rt></ruby>、<ruby>女性<rt>じょせい</rt></ruby>は…</span></td></tr>
+  <tr><td><span class="jp">それに<ruby>対<rt>たい</rt></ruby>して</span></td><td>im Gegensatz dazu</td><td><span class="jp">A は<ruby>高<rt>たか</rt></ruby>い。それに<ruby>対<rt>たい</rt></ruby>して、B は<ruby>安<rt>やす</rt></ruby>い。</span></td></tr>
+  </tbody>
+</table>
+
+<h3>Zusammenfassung / Schluss</h3>
+<table>
+  <thead><tr><th>Konjunktion</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+  <tbody>
+  <tr><td><span class="jp">つまり</span></td><td>kurzum / d.h. ★ L9</td><td><span class="jp">つまり、〜ということだ。</span></td></tr>
+  <tr><td><span class="jp"><ruby>結局<rt>けっきょく</rt></ruby></span></td><td>schließlich (Resultat)</td><td><span class="jp"><ruby>結局<rt>けっきょく</rt></ruby>、<ruby>行<rt>い</rt></ruby>けなかった。</span></td></tr>
+  <tr><td><span class="jp">そのため</span></td><td>aus diesem Grund</td><td><span class="jp"><ruby>雪<rt>ゆき</rt></ruby>だ。そのため、<ruby>休<rt>やす</rt></ruby>みになった。</span></td></tr>
+  <tr><td><span class="jp">したがって</span></td><td>folglich (formell)</td><td><span class="jp">したがって、<ruby>結論<rt>けつろん</rt></ruby>は…</span></td></tr>
+  </tbody>
+</table>
+
+<p class="legend">💡 <b>Tipp:</b> In Aufsätzen reichen 5-6 dieser Konjunktionen. Wechsel macht Texte flüssig.</p>
+```
+
+  </div>
+
+  <div class="cheat" id="cheat-yo">
+    <h2><span class="jp">よう / みたい / らしい / そう</span> — Anschein und Hörensagen (4 Formen)</h2>
+    <p style="color:var(--red-deep-text);font-style:italic;margin-bottom:1rem">Wann nutze ich welches?</p>
+
+```
+<p class="legend">⚠️ Die <b>häufigste Verwechslung im N3</b>. Diese 4 Strukturen drücken alle Unsicherheit aus, aber mit feinen Unterschieden.</p>
+
+<h3>Übersicht</h3>
+<table>
+  <thead><tr><th>Form</th><th>Bedeutung</th><th>Quelle der Info</th><th>Stilebene</th></tr></thead>
+  <tbody>
+  <tr><td><span class="jp">〜ようだ</span></td><td>scheint zu sein</td><td>eigene Beobachtung</td><td>schriftlich/formell</td></tr>
+  <tr><td><span class="jp">〜みたい(だ)</span></td><td>sieht aus wie</td><td>eigene Beobachtung</td><td>gesprochen/leger</td></tr>
+  <tr><td><span class="jp">〜らしい</span></td><td>anscheinend (gehört)</td><td>von außen erfahren</td><td>neutral</td></tr>
+  <tr><td><span class="jp">〜そうだ [<ruby>様態<rt>ようたい</rt></ruby>]</span></td><td>sieht so aus, als ob</td><td>direkter visueller Eindruck</td><td>neutral</td></tr>
+  <tr><td><span class="jp">〜そうだ [<ruby>伝聞<rt>でんぶん</rt></ruby>]</span></td><td>man sagt, dass</td><td>klares Hörensagen</td><td>neutral</td></tr>
+  </tbody>
+</table>
+
+<h3>Anschluss</h3>
+<table>
+  <thead><tr><th>Form</th><th>V</th><th>Aい</th><th>Naな</th><th>N</th></tr></thead>
+  <tbody>
+  <tr><td><span class="jp">ようだ</span></td><td><span class="jp"><ruby>行<rt>い</rt></ruby>く<b>ようだ</b></span></td><td><span class="jp"><ruby>高<rt>たか</rt></ruby>い<b>ようだ</b></span></td><td><span class="jp"><ruby>元気<rt>げんき</rt></ruby><b>な</b>ようだ</span></td><td><span class="jp"><ruby>学生<rt>がくせい</rt></ruby><b>の</b>ようだ</span></td></tr>
+  <tr><td><span class="jp">みたい</span></td><td><span class="jp"><ruby>行<rt>い</rt></ruby>く<b>みたい</b></span></td><td><span class="jp"><ruby>高<rt>たか</rt></ruby>い<b>みたい</b></span></td><td><span class="jp"><ruby>元気<rt>げんき</rt></ruby>みたい</span></td><td><span class="jp"><ruby>学生<rt>がくせい</rt></ruby>みたい</span></td></tr>
+  <tr><td><span class="jp">らしい</span></td><td><span class="jp"><ruby>行<rt>い</rt></ruby>く<b>らしい</b></span></td><td><span class="jp"><ruby>高<rt>たか</rt></ruby>い<b>らしい</b></span></td><td><span class="jp"><ruby>元気<rt>げんき</rt></ruby>らしい</span></td><td><span class="jp"><ruby>学生<rt>がくせい</rt></ruby>らしい</span></td></tr>
+  <tr><td><span class="jp">そう [様態]</span></td><td><span class="jp"><ruby>降<rt>ふ</rt></ruby>り<b>そう</b> (Vマス)</span></td><td><span class="jp"><ruby>高<rt>たか</rt></ruby><b>そう</b> (い→)</span></td><td><span class="jp"><ruby>元気<rt>げんき</rt></ruby><b>そう</b></span></td><td>—</td></tr>
+  <tr><td><span class="jp">そう [伝聞]</span></td><td><span class="jp"><ruby>降<rt>ふ</rt></ruby>る<b>そうだ</b></span></td><td><span class="jp"><ruby>高<rt>たか</rt></ruby>い<b>そうだ</b></span></td><td><span class="jp"><ruby>元気<rt>げんき</rt></ruby><b>だ</b>そうだ</span></td><td><span class="jp"><ruby>学生<rt>がくせい</rt></ruby><b>だ</b>そうだ</span></td></tr>
+  </tbody>
+</table>
+
+<h3>Tipp zum Unterscheiden</h3>
+<p class="legend">🔍 <b>そう [様態]</b> hat die Wort<b>kürzung</b> (高<b>そう</b>, 降り<b>そう</b>) — andere Formen lassen das Wort intakt.</p>
+<p class="legend">🔍 <b>らしい</b> = du hast es <b>gehört</b>, <b>そう [伝聞]</b> = du <b>weißt es konkret</b> (z.B. aus Nachrichten).</p>
+<p class="legend">🔍 <b>ようだ</b> = du <b>siehst</b> Indizien, <b>みたい</b> = wie ようだ aber lockerer.</p>
+```
+
+  </div>
+
+  <div class="cheat" id="cheat-modal">
+    <h2><span class="jp"><ruby>文末<rt>ぶんまつ</rt></ruby> <ruby>表現<rt>ひょうげん</rt></ruby></span> — Modal-Endungen (N3 Klassiker)</h2>
+    <p style="color:var(--red-deep-text);font-style:italic;margin-bottom:1rem">べき / もの / はず / わけ / こと</p>
+
+```
+<p class="legend">📝 Diese Endungen sind <b>typisch N3</b>: nicht ein Verb, sondern ein <b>Modalitäts-Marker</b> am Satzende.</p>
+
+<table>
+  <thead><tr><th>Endung</th><th>Bedeutung</th><th>Beispiel</th><th>Lektion</th></tr></thead>
+  <tbody>
+  <tr><td><span class="jp">〜べきだ</span></td><td>sollte (moralisch)</td><td><span class="jp"><ruby>謝<rt>あやま</rt></ruby>る<b>べきだ</b></span><br>sollte sich entschuldigen</td><td>L10</td></tr>
+  <tr><td><span class="jp">〜ものだ</span></td><td>so ist das nun mal / Erinnerung</td><td><span class="jp"><ruby>人<rt>ひと</rt></ruby>は<ruby>疲<rt>つか</rt></ruby>れる<b>ものだ</b></span><br>Menschen werden müde (so ist das)</td><td>L5, L7</td></tr>
+  <tr><td><span class="jp">〜はずだ</span></td><td>logisch erwartet</td><td><span class="jp"><ruby>来<rt>く</rt></ruby>る<b>はずだ</b></span><br>er sollte kommen (logisch)</td><td>(N3 Klassiker)</td></tr>
+  <tr><td><span class="jp">〜わけだ</span></td><td>das erklärt's / d.h.</td><td><span class="jp">それで<ruby>遅<rt>おく</rt></ruby>れた<b>わけだ</b></span><br>deshalb war sie zu spät</td><td>(N3 Klassiker)</td></tr>
+  <tr><td><span class="jp">〜ことだ</span></td><td>man sollte / Aufzählung</td><td><span class="jp"><ruby>毎日<rt>まいにち</rt></ruby><ruby>練習<rt>れんしゅう</rt></ruby>する<b>ことだ</b></span><br>man muss täglich üben</td><td>L1</td></tr>
+  </tbody>
+</table>
+
+<h3>Verneinungsformen</h3>
+<table>
+  <thead><tr><th>Form</th><th>Bedeutung</th></tr></thead>
+  <tbody>
+  <tr><td><span class="jp">〜べきではない</span></td><td>sollte nicht</td></tr>
+  <tr><td><span class="jp">〜ものではない</span></td><td>man darf nicht (moralisch)</td></tr>
+  <tr><td><span class="jp">〜はずがない</span></td><td>kann nicht sein (unmöglich)</td></tr>
+  <tr><td><span class="jp">〜わけではない</span> ★ L8</td><td>nicht unbedingt</td></tr>
+  <tr><td><span class="jp">〜わけがない</span></td><td>kann gar nicht sein</td></tr>
+  </tbody>
+</table>
+
+<p class="legend">⚠️ <b>Häufige Verwechslung:</b> はずだ (logische Erwartung) vs. べきだ (moralische Pflicht). 「来るはずだ」 = ich denke er kommt; 「来るべきだ」 = er sollte kommen.</p>
+```
+
+  </div>
+
+  <div class="cheat" id="cheat-pass">
+    <h2><span class="jp"><ruby>受身<rt>うけみ</rt></ruby>・<ruby>使役<rt>しえき</rt></ruby>・<ruby>使役受身<rt>しえきうけみ</rt></ruby></span> — Die Big Three: Passiv / Kausativ / Kausativ-Passiv</h2>
+    <p style="color:var(--red-deep-text);font-style:italic;margin-bottom:1rem">Bildung & Bedeutung im Vergleich</p>
+
+```
+<p class="legend">🔥 Eines der <b>schwierigsten Themen für JLPT N3</b>. Bildung üben, dann Bedeutung verstehen.</p>
+
+<h3>Bildung im Vergleich</h3>
+<table>
+  <thead><tr><th>Gruppe</th><th>Aktiv</th><th>受身 (Passiv)</th><th>使役 (Kausativ)</th><th>使役受身</th></tr></thead>
+  <tbody>
+  <tr><td>Gr.I</td><td><span class="jp"><ruby>飲<rt>の</rt></ruby>む</span></td><td><span class="jp"><ruby>飲<rt>の</rt></ruby><b>まれる</b></span></td><td><span class="jp"><ruby>飲<rt>の</rt></ruby><b>ませる</b></span></td><td><span class="jp"><ruby>飲<rt>の</rt></ruby><b>まされる</b></span></td></tr>
+  <tr><td>Gr.I (-す)</td><td><span class="jp"><ruby>話<rt>はな</rt></ruby>す</span></td><td><span class="jp"><ruby>話<rt>はな</rt></ruby><b>される</b></span></td><td><span class="jp"><ruby>話<rt>はな</rt></ruby><b>させる</b></span></td><td><span class="jp"><ruby>話<rt>はな</rt></ruby><b>させられる</b></span></td></tr>
+  <tr><td>Gr.II</td><td><span class="jp"><ruby>食<rt>た</rt></ruby>べる</span></td><td><span class="jp"><ruby>食<rt>た</rt></ruby>べ<b>られる</b></span></td><td><span class="jp"><ruby>食<rt>た</rt></ruby>べ<b>させる</b></span></td><td><span class="jp"><ruby>食<rt>た</rt></ruby>べ<b>させられる</b></span></td></tr>
+  <tr><td>する</td><td><span class="jp">する</span></td><td><span class="jp"><b>される</b></span></td><td><span class="jp"><b>させる</b></span></td><td><span class="jp"><b>させられる</b></span></td></tr>
+  <tr><td>来る</td><td><span class="jp"><ruby>来<rt>く</rt></ruby>る</span></td><td><span class="jp"><ruby>来<rt>こ</rt></ruby><b>られる</b></span></td><td><span class="jp"><ruby>来<rt>こ</rt></ruby><b>させる</b></span></td><td><span class="jp"><ruby>来<rt>こ</rt></ruby><b>させられる</b></span></td></tr>
+  </tbody>
+</table>
+
+<p class="legend">⚠️ <b>Sonderregel Gr.I (-す):</b> 話す → 話させられる (NICHT 話さされる!). Bei allen anderen Gr.I oft Kurzform: 飲まされる statt 飲ませられる möglich.</p>
+
+<h3>Bedeutung mit gleichem Verb</h3>
+<table>
+  <thead><tr><th>Form</th><th>Satz</th><th>Bedeutung</th></tr></thead>
+  <tbody>
+  <tr><td>Aktiv</td><td><span class="jp"><ruby>子<rt>こ</rt></ruby>どもが<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べる</span></td><td>Das Kind isst Gemüse.</td></tr>
+  <tr><td>受身 (Schaden)</td><td><span class="jp"><ruby>妹<rt>いもうと</rt></ruby>に<ruby>ケーキ<rt>ケーキ</rt></ruby>を<ruby>食<rt>た</rt></ruby>べられた</span></td><td>Die Schwester aß MIR den Kuchen weg.</td></tr>
+  <tr><td>使役 (Erzwingen)</td><td><span class="jp"><ruby>母<rt>はは</rt></ruby>が<ruby>子<rt>こ</rt></ruby>どもに<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べさせる</span></td><td>Die Mutter zwingt das Kind, Gemüse zu essen.</td></tr>
+  <tr><td>使役受身 (Gezwungen)</td><td><span class="jp"><ruby>子<rt>こ</rt></ruby>どもは<ruby>母<rt>はは</rt></ruby>に<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べさせられた</span></td><td>Das Kind wurde gezwungen, Gemüse zu essen.</td></tr>
+  </tbody>
+</table>
+
+<h3>Partikel</h3>
+<table>
+  <thead><tr><th>Form</th><th>Subjekt</th><th>Verursacher (Mit)</th><th>Objekt (was)</th></tr></thead>
+  <tbody>
+  <tr><td>受身</td><td>Opfer (は/が)</td><td><b>に</b></td><td>を</td></tr>
+  <tr><td>使役</td><td>Befehlender (は/が)</td><td>—</td><td><b>に + を</b></td></tr>
+  <tr><td>使役受身</td><td>Gezwungener (は/が)</td><td><b>に</b></td><td>を</td></tr>
+  </tbody>
+</table>
+
+<p class="legend">💡 <b>Kernfrage:</b> Wer ist Subjekt? Aktor → Aktiv; Opfer → 受身; Verursacher → 使役; Gezwungener → 使役受身.</p>
+```
+
+  </div>
+
+  <div class="cheat" id="cheat-part">
+    <h2><span class="jp">N + Partikel-Komplexe</span> — によって / として / について / に対して</h2>
+    <p style="color:var(--red-deep-text);font-style:italic;margin-bottom:1rem">Die 4 wichtigsten Mittelstufe-Komplexe</p>
+
+```
+<p class="legend">📝 Diese 4 N+Partikel-Konstruktionen sind <b>Klassiker für JLPT N3</b>. Klar voneinander trennen!</p>
+
+<h3>によって — drei Bedeutungen!</h3>
+<table>
+  <thead><tr><th>Bedeutung</th><th>Lektion</th><th>Beispiel</th></tr></thead>
+  <tbody>
+  <tr><td>① durch / mittels (Mittel)</td><td>L10</td><td><span class="jp"><ruby>調査<rt>ちょうさ</rt></ruby><b>によって</b>、〜がわかった。</span><br>Durch die Untersuchung wurde klar, dass...</td></tr>
+  <tr><td>② vom (Schöpfer + 受身)</td><td>L6</td><td><span class="jp"><ruby>日本人<rt>にほんじん</rt></ruby><b>によって</b><ruby>発明<rt>はつめい</rt></ruby>された</span><br>Wurde von einem Japaner erfunden</td></tr>
+  <tr><td>③ je nach (Variation)</td><td>L8</td><td><span class="jp"><ruby>国<rt>くに</rt></ruby><b>によって</b><ruby>違<rt>ちが</rt></ruby>う</span><br>Je nach Land unterschiedlich</td></tr>
+  </tbody>
+</table>
+
+<h3>として — Funktion/Rolle/Beispiel</h3>
+<table>
+  <thead><tr><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+  <tbody>
+  <tr><td>als (Position)</td><td><span class="jp"><ruby>留学生<rt>りゅうがくせい</rt></ruby><b>として</b><ruby>来<rt>き</rt></ruby>た</span> — kam als Austauschstudent</td></tr>
+  <tr><td>als (Beispiel)</td><td><span class="jp"><ruby>一<rt>ひと</rt></ruby>つ<b>として</b></span> — als ein Beispiel</td></tr>
+  <tr><td>als (Qualifikation)</td><td><span class="jp"><ruby>専門家<rt>せんもんか</rt></ruby><b>として</b></span> — als Experte</td></tr>
+  </tbody>
+</table>
+
+<h3>について — Thema/Inhalt</h3>
+<p class="legend"><b>Antwort auf »worüber?«</b> — was beschrieben/diskutiert wird.</p>
+<table>
+  <tbody>
+  <tr><td><span class="jp"><ruby>日本<rt>にほん</rt></ruby><b>について</b><ruby>話<rt>はな</rt></ruby>す</span></td><td>über Japan sprechen</td></tr>
+  <tr><td><span class="jp"><ruby>環境<rt>かんきょう</rt></ruby><b>について</b>の<ruby>本<rt>ほん</rt></ruby></span></td><td>ein Buch über die Umwelt (mit の vor N)</td></tr>
+  <tr><td><span class="jp"><ruby>文化<rt>ぶんか</rt></ruby><b>について</b><ruby>勉強<rt>べんきょう</rt></ruby>する</span></td><td>über Kultur lernen</td></tr>
+  </tbody>
+</table>
+
+<h3>に対して — gegen / gegenüber</h3>
+<p class="legend"><b>Richtung der Aktion</b> — wem etwas gegenüber gemacht wird (Verhalten gegenüber Menschen, Reaktion auf etwas).</p>
+<table>
+  <tbody>
+  <tr><td><span class="jp"><ruby>学生<rt>がくせい</rt></ruby><b>に対して</b><ruby>優<rt>やさ</rt></ruby>しい</span></td><td>nett zu Studenten</td></tr>
+  <tr><td><span class="jp"><ruby>質問<rt>しつもん</rt></ruby><b>に対して</b><ruby>答<rt>こた</rt></ruby>える</span></td><td>auf eine Frage antworten</td></tr>
+  </tbody>
+</table>
+
+<h3>Kurze Faustregel zur Unterscheidung</h3>
+<p class="legend">🔍 <b>として</b> = »in Funktion als« (Position) <br>
+🔍 <b>について</b> = »zum Thema von« (Inhalt) <br>
+🔍 <b>によって</b> = wechselt nach Kontext (Mittel/Schöpfer/je nach) <br>
+🔍 <b>に対して</b> = »gegenüber« (Reaktion/Verhalten zu jdm.)</p>
+```
+
+  </div>
+
+  <div class="cheat" id="cheat-bun">
+    <h2><span class="jp"><ruby>書<rt>か</rt></ruby>きことば</span> — Schriftsprache (für Aufsätze & Berichte)</h2>
+    <p style="color:var(--red-deep-text);font-style:italic;margin-bottom:1rem">である / ずに / 連用中止 — formelle Stile</p>
+
+```
+<p class="legend">📝 Diese Formen gehören in <b>Aufsätze, Berichte, Wissenschaftstexte</b>. In Gesprächen klingen sie zu steif.</p>
+
+<h3>である — Schriftsprache von だ/です</h3>
+<table>
+  <thead><tr><th>Stilebene</th><th>Form</th><th>Beispiel</th></tr></thead>
+  <tbody>
+  <tr><td>höflich gesprochen</td><td>です</td><td><span class="jp"><ruby>有名<rt>ゆうめい</rt></ruby><b>です</b></span></td></tr>
+  <tr><td>plain gesprochen</td><td>だ</td><td><span class="jp"><ruby>有名<rt>ゆうめい</rt></ruby><b>だ</b></span></td></tr>
+  <tr><td>Schriftsprache</td><td><b>である</b></td><td><span class="jp"><ruby>有名<rt>ゆうめい</rt></ruby><b>である</b></span></td></tr>
+  <tr><td>verneint</td><td>ではない</td><td><span class="jp"><ruby>有名<rt>ゆうめい</rt></ruby><b>ではない</b></span></td></tr>
+  <tr><td>Vergangenheit</td><td>であった</td><td><span class="jp"><ruby>有名<rt>ゆうめい</rt></ruby><b>であった</b></span></td></tr>
+  </tbody>
+</table>
+
+<p class="legend">⚠️ <b>Nur für Na-Adj und Nomen!</b> Verben und い-Adj im Aufsatz nutzen einfach Plain-Form (普通形).</p>
+
+<h3>ずに — Schriftsprache von ないで</h3>
+<table>
+  <thead><tr><th>Form</th><th>Beispiel</th><th>Bedeutung</th></tr></thead>
+  <tbody>
+  <tr><td>Vないで (gesprochen)</td><td><span class="jp"><ruby>食<rt>た</rt></ruby>べないで</span></td><td>ohne zu essen</td></tr>
+  <tr><td><b>Vずに (Schrift)</b></td><td><span class="jp"><ruby>食<rt>た</rt></ruby>べずに</span></td><td>ohne zu essen</td></tr>
+  <tr><td>⚠️ Sonderfall する</td><td><span class="jp">せずに</span></td><td>ohne zu tun (NICHT しずに!)</td></tr>
+  </tbody>
+</table>
+
+<h3>連用中止 — Aufzählung mit ます-Stamm</h3>
+<p class="legend">Schriftliche Aufzählung statt 〜て.</p>
+<table>
+  <thead><tr><th>Wortart</th><th>gesprochen (て)</th><th>schriftlich (中止)</th></tr></thead>
+  <tbody>
+  <tr><td>Verb</td><td><span class="jp"><ruby>起<rt>お</rt></ruby>き<b>て</b>、<ruby>行<rt>い</rt></ruby>く</span></td><td><span class="jp"><ruby>起<rt>お</rt></ruby><b>き</b>、<ruby>行<rt>い</rt></ruby>く</span> (Vマス)</td></tr>
+  <tr><td>い-Adj</td><td><span class="jp"><ruby>多<rt>おお</rt></ruby><b>くて</b>、<ruby>良<rt>よ</rt></ruby>い</span></td><td><span class="jp"><ruby>多<rt>おお</rt></ruby><b>く</b>、<ruby>良<rt>よ</rt></ruby>い</span> (い→く)</td></tr>
+  <tr><td>な-Adj</td><td><span class="jp"><ruby>静<rt>しず</rt></ruby>か<b>で</b>、きれい</span></td><td>(bleibt で)</td></tr>
+  </tbody>
+</table>
+
+<h3>Andere Schriftsprache-Marker</h3>
+<table>
+  <tbody>
+  <tr><td><span class="jp">〜のである</span></td><td>verstärktes »es ist (so), dass« (statt のだ)</td></tr>
+  <tr><td><span class="jp">〜という</span></td><td>angebliche / mit dem Namen</td></tr>
+  <tr><td><span class="jp">〜にとって</span></td><td>für (jdn./etw.)</td></tr>
+  <tr><td><span class="jp">〜において</span></td><td>in/bei (Ort, Zeit, Bereich) — formell</td></tr>
+  </tbody>
+</table>
+
+<p class="legend">💡 <b>Tipp:</b> Bei Aufsätzen ALLE Sätze in einem Stil halten — nicht zwischen です/だ/である wechseln!</p>
+```
+
+  </div>
+
+<button class="cheat-toggle" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="margin-top:1rem">↑ Nach oben</button>
+
+</div>
+
+<div class="cheats hidden" id="vocab">
+  <!-- TOC -->
+  <div class="cheat-toc">
+    <a data-target="vocab-l1">L1 ファストフード</a>
+    <a data-target="vocab-l2">L2 地震</a>
+    <a data-target="vocab-l3">L3 最近の子ども</a>
+    <a data-target="vocab-l4">L4 日本のイメージ</a>
+    <a data-target="vocab-l5">L5 睡眠</a>
+    <a data-target="vocab-l6">L6 日本人の発明</a>
+    <a data-target="vocab-l7">L7 リサイクル</a>
+    <a data-target="vocab-l8">L8 あいづち</a>
+    <a data-target="vocab-l9">L9 男・女の仕事</a>
+    <a data-target="vocab-l10">L10 ことばの使い方</a>
+  </div>
+
+  <div id="vocab-content"></div>
+
+<button class="cheat-toggle" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="margin-top:1rem">↑ Nach oben</button>
+
+</div>
+
+<button class="to-top" id="toTop" title="Nach oben" aria-label="Nach oben">↑</button>
+
+<footer>
+  <div class="seal" style="background:var(--gold)">中</div>
+  <p>TRY! N3 補足 · 20 Muster, die Buch &amp; App verbinden — Grammatik-Spickzettel</p>
+  <p style="margin-top:.3rem;font-size:.7rem">55 Karten · 6 Cheat-Sheets · 175 Vokabeln · Suche & Filter aktiv</p>
+</footer>
+
+<script src="../chuukyuu-practice/situations.js"></script>
+<script>
+const CARDS = [
+  // ============ UNIT 1 — Verb-Verlauf II ============
+  {l:1, t:"Vマス + <ruby>続<rt>つづ</rt></ruby>ける", de:"weiter / unaufhörlich V-en",
+   simpel:"ます-Stamm + <b><ruby>続<rt>つづ</rt></ruby>ける</b> = »ohne aufzuhören weiter …«.<br><span class='jp'><ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>り<b>続けて</b> いる</span> = „es regnet ununterbrochen weiter“",
+   rule:"V<sub>ます</sub>-Stamm + 続ける drückt aus, dass eine Handlung oder ein Vorgang andauert und nicht aufhört. Für anhaltende Zustandsänderungen oft 〜続けている.",
+   build:[
+    {form:"Muster",verb:"V<sub>マス</sub> + <ruby>続<rt>つづ</rt></ruby>ける",de:"weiter V-en"},
+    {form:"andauernd",verb:"〜<ruby>続<rt>つづ</rt></ruby>けている",de:"hält bis jetzt an"},
+    {form:"typisch",verb:"<ruby>増<rt>ふ</rt></ruby>え<ruby>続<rt>つづ</rt></ruby>ける / <ruby>待<rt>ま</rt></ruby>ち<ruby>続<rt>つづ</rt></ruby>ける",de:"nimmt weiter zu / wartet weiter"}
+   ],
+   pattern:{slots:[{text:"N は/が",role:"subj"},{text:"V<sub>マス</sub>",role:"verb"},{text:"<ruby>続<rt>つづ</rt></ruby>ける",role:"plain",label:"weiter"}],gloss:"»V-t weiter, ohne aufzuhören.« ます-Stamm + 続ける; anhaltend: 〜続けている."},
+   bauplan:[
+    "Bilde den <b>ます-Stamm</b> (<code><ruby>降<rt>ふ</rt></ruby>る→降り</code>, <code><ruby>待<rt>ま</rt></ruby>つ→待ち</code>).",
+    "Hänge <code><ruby>続<rt>つづ</rt></ruby>ける</code> an → »weiter …«.",
+    "Für einen bis jetzt andauernden Vorgang: <code>〜続けている</code>.",
+    "続ける konjugiert wie ein normales る-Verb (続けた/続けます)."
+   ],
+   ex:[
+    {jp:"<ruby>雨<rt>あめ</rt></ruby>は <ruby>三日間<rt>みっかかん</rt></ruby> <ruby>降<rt>ふ</rt></ruby>り<b>続けた</b>。",de:"Es regnete drei Tage lang ununterbrochen."},
+    {jp:"<ruby>彼女<rt>かのじょ</rt></ruby>を 2<ruby>時間<rt>じかん</rt></ruby> <ruby>待<rt>ま</rt></ruby>ち<b>続けました</b>。",de:"Ich habe zwei Stunden lang auf sie gewartet (ohne aufzugeben)."},
+    {jp:"<ruby>物価<rt>ぶっか</rt></ruby>は <ruby>上<rt>あ</rt></ruby>がり<b>続けて</b> いる。",de:"Die Preise steigen weiter und weiter."}
+   ],
+   note:"🔄 <b>〜ている</b> = Zustand; <b>〜続けている</b> betont »ohne Unterbrechung, hartnäckig«.<br>💡 Auch mit Willensverben: <ruby>走<rt>はし</rt></ruby>り続ける »weiterlaufen«."},
+
+  {l:1, t:"Vマス + <ruby>出<rt>だ</rt></ruby>す", de:"plötzlich anfangen zu … (losbrechen)",
+   simpel:"ます-Stamm + <b><ruby>出<rt>だ</rt></ruby>す</b> = »plötzlich los-…«.<br><span class='jp'><ruby>泣<rt>な</rt></ruby>き<b>出す</b></span> = „in Tränen ausbrechen“",
+   rule:"V<sub>ます</sub>-Stamm + 出す = etwas beginnt plötzlich und unkontrolliert (losweinen, losrennen, es fängt an zu regnen). Anders als 〜始める (neutraler Anfang) schwingt Überraschung mit.",
+   build:[
+    {form:"Muster",verb:"V<sub>マス</sub> + <ruby>出<rt>だ</rt></ruby>す",de:"plötzlich los-V-en"},
+    {form:"typisch",verb:"<ruby>泣<rt>な</rt></ruby>き<ruby>出<rt>だ</rt></ruby>す / <ruby>走<rt>はし</rt></ruby>り<ruby>出<rt>だ</rt></ruby>す / <ruby>降<rt>ふ</rt></ruby>り<ruby>出<rt>だ</rt></ruby>す",de:"losweinen/-rennen, (Regen) einsetzen"},
+    {form:"⚠ Vergleich",verb:"〜<ruby>始<rt>はじ</rt></ruby>める",de:"neutraler Beginn (geplant ok)"}
+   ],
+   pattern:{slots:[{text:"N が",role:"subj"},{text:"<ruby>急<rt>きゅう</rt></ruby>に",role:"time",label:"plötzlich"},{text:"V<sub>マス</sub>",role:"verb"},{text:"<ruby>出<rt>だ</rt></ruby>す",role:"plain",label:"los-"}],gloss:"»Bricht plötzlich los.« ます-Stamm + 出す — unkontrolliert/überraschend. Neutraler Anfang = 〜始める."},
+   bauplan:[
+    "Bilde den <b>ます-Stamm</b> (<code><ruby>泣<rt>な</rt></ruby>く→泣き</code>).",
+    "Hänge <code><ruby>出<rt>だ</rt></ruby>す</code> an → »plötzlich los-…«.",
+    "Oft mit <code><ruby>急<rt>きゅう</rt></ruby>に / とつぜん</code> verstärkt.",
+    "Für einen geplanten/neutralen Beginn nimm <code>〜<ruby>始<rt>はじ</rt></ruby>める</code>."
+   ],
+   ex:[
+    {jp:"<ruby>赤<rt>あか</rt></ruby>ちゃんが <ruby>急<rt>きゅう</rt></ruby>に <ruby>泣<rt>な</rt></ruby>き<b>出した</b>。",de:"Das Baby brach plötzlich in Tränen aus."},
+    {jp:"<ruby>空<rt>そら</rt></ruby>が <ruby>暗<rt>くら</rt></ruby>くなって、<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>り<b>出した</b>。",de:"Der Himmel wurde dunkel, und es fing an zu regnen."},
+    {jp:"<ruby>犬<rt>いぬ</rt></ruby>は <ruby>全速力<rt>ぜんそくりょく</rt></ruby>で <ruby>走<rt>はし</rt></ruby>り<b>出した</b>。",de:"Der Hund rannte mit voller Geschwindigkeit los."}
+   ],
+   note:"⚠ <b>〜出す</b> = plötzlich/unkontrolliert → nicht für geplante Anfänge (✗ <ruby>宿題<rt>しゅくだい</rt></ruby>をやり出しなさい).<br>🔄 <b>〜始める</b> = neutral (TRY!/Minna-Basis)."},
+
+  {l:1, t:"Vマス + かける / 〜かけの N", de:"halb getan / gerade dabei, angefangen (und liegengelassen)",
+   simpel:"ます-Stamm + <b>かける</b> = angefangen, aber nicht fertig.<br><span class='jp'><ruby>読<rt>よ</rt></ruby>み<b>かけ</b>の <ruby>本<rt>ほん</rt></ruby></span> = „ein angelesenes Buch“",
+   rule:"V<sub>ます</sub>-Stamm + かける: (1) mittendrin abgebrochen/unvollendet (食べかけ »angebissen«), (2) kurz davor (死にかける »fast sterben«), (3) gerade ansetzen (言いかける »ansetzen zu sagen«). Vor Nomen: 〜かけの + N.",
+   build:[
+    {form:"unvollendet",verb:"V<sub>マス</sub> + かけ(の N)",de:"halb getan / angefangen"},
+    {form:"kurz davor",verb:"<ruby>死<rt>し</rt></ruby>にかける / <ruby>消<rt>き</rt></ruby>えかける",de:"beinahe … / am Erlöschen"},
+    {form:"ansetzen",verb:"<ruby>言<rt>い</rt></ruby>いかけて、やめた",de:"setzte an und brach ab"}
+   ],
+   pattern:{slots:[{text:"V<sub>マス</sub>",role:"verb"},{text:"かけの",role:"actor",label:"halb ge-…"},{text:"N",role:"obj"}],gloss:"»Angefangen, aber nicht zu Ende.« ます-Stamm + かける/かけ; attributiv かけの + N. Auch »kurz davor« (死にかける)."},
+   bauplan:[
+    "Bilde den <b>ます-Stamm</b> (<code><ruby>読<rt>よ</rt></ruby>む→読み</code>).",
+    "Hänge <code>かける</code> (Verb) oder <code>かけ</code> (Nomen-Form) an.",
+    "Vor einem Nomen: <code>〜かけの + N</code> (<code><ruby>飲<rt>の</rt></ruby>みかけの コーヒー</code>).",
+    "Kontext entscheidet: unvollendet, kurz davor oder gerade ansetzend."
+   ],
+   ex:[
+    {jp:"<ruby>机<rt>つくえ</rt></ruby>の <ruby>上<rt>うえ</rt></ruby>に <ruby>読<rt>よ</rt></ruby>み<b>かけ</b>の <ruby>本<rt>ほん</rt></ruby>が ある。",de:"Auf dem Tisch liegt ein angelesenes Buch."},
+    {jp:"<ruby>何<rt>なに</rt></ruby>か <ruby>言<rt>い</rt></ruby>い<b>かけて</b>、<ruby>彼<rt>かれ</rt></ruby>は <ruby>黙<rt>だま</rt></ruby>った。",de:"Er setzte an, etwas zu sagen, und verstummte."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもの ころ、<ruby>川<rt>かわ</rt></ruby>で おぼれて <ruby>死<rt>し</rt></ruby>に<b>かけた</b>。",de:"Als Kind wäre ich im Fluss fast ertrunken."}
+   ],
+   note:"💡 <b>〜かけの N</b> ist im Alltag sehr häufig (食べかけ, やりかけ, 書きかけ).<br>🔄 »beinahe passiert« auch: <b>〜ところだった</b>."},
+
+  {l:1, t:"Vマス + っこない", de:"unmöglich! (salopp: klappt nie)",
+   simpel:"Saloppes »auf keinen Fall möglich«.<br><span class='jp'>でき<b>っこない</b></span> = „das schaff ich nie im Leben“",
+   rule:"V<sub>ます</sub>-Stamm + っこない = starke, umgangssprachliche Verneinung der Möglichkeit: »unmöglich, dass …«. Nur gesprochen, unter Vertrauten. ≈ 絶対に〜ない / 〜わけがない.",
+   build:[
+    {form:"Muster",verb:"V<sub>マス</sub> + っこない",de:"klappt nie / unmöglich"},
+    {form:"typisch",verb:"できっこない / わかりっこない",de:"nie schaffbar / nie zu verstehen"},
+    {form:"Register",verb:"salopp, gesprochen",de:"unter Freunden"}
+   ],
+   pattern:{slots:[{text:"そんなの、",role:"cond",label:"so etwas"},{text:"V<sub>マス</sub>",role:"verb"},{text:"っこない",role:"plain",label:"nie im Leben"}],gloss:"»Unmöglich, klappt nie!« ます-Stamm + っこない. Sehr salopp; formeller: わけがない / はずがない."},
+   bauplan:[
+    "Bilde den <b>ます-Stamm</b> (<code>できる→でき</code>, <code>わかる→わかり</code>).",
+    "Hänge <code>っこない</code> an → »nie im Leben«.",
+    "Nur in lockerer <b>gesprochener</b> Sprache verwenden.",
+    "Formell/neutral stattdessen: <code>わけがない</code> oder <code>はずがない</code>."
+   ],
+   ex:[
+    {jp:"<ruby>一日<rt>いちにち</rt></ruby>で <ruby>覚<rt>おぼ</rt></ruby>えられ<b>っこない</b>よ。",de:"Das kann man unmöglich an einem Tag auswendig lernen."},
+    {jp:"あの <ruby>二人<rt>ふたり</rt></ruby>の <ruby>気持<rt>きも</rt></ruby>ちなんて、わかり<b>っこない</b>。",de:"Was in den beiden vorgeht, versteht man nie im Leben."},
+    {jp:"<ruby>今<rt>いま</rt></ruby>から <ruby>行<rt>い</rt></ruby>っても、<ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>い<b>っこない</b>。",de:"Selbst wenn wir jetzt losgehen, schaffen wir es nie rechtzeitig."}
+   ],
+   note:"⚠ Nur salopp/gesprochen.<br>🔄 Stärke: 〜ないだろう < 〜そうもない < <b>〜っこない</b> ≈ わけがない."},
+
+  {l:1, t:"〜てからでないと", de:"erst nachdem … (vorher geht es nicht)",
+   simpel:"Erst muss A passieren, sonst geht B nicht.<br><span class='jp'><ruby>予約<rt>よやく</rt></ruby>して<b>からでないと</b>、<ruby>入<rt>はい</rt></ruby>れません</span> = „ohne Reservierung kommt man nicht rein“",
+   rule:"V<sub>テ</sub> + からでないと (oder からでなければ) + Verneinung: »solange A nicht erledigt ist, ist B unmöglich/nicht erlaubt«. Der Hauptsatz ist immer negativ.",
+   build:[
+    {form:"Muster",verb:"V<sub>テ</sub> + からでないと、〜ない",de:"erst nach A geht B"},
+    {form:"Variante",verb:"V<sub>テ</sub> + からでなければ",de:"gleich, etwas formeller"},
+    {form:"Hauptsatz",verb:"immer Verneinung/unmöglich",de:"できない・だめ …"}
+   ],
+   pattern:{slots:[{text:"V<sub>テ</sub>",role:"verb",label:"erst A"},{text:"からでないと",role:"actor",label:"vorher nicht"},{text:"〜ない/できない",role:"plain",label:"geht B nicht"}],gloss:"»Solange A nicht getan ist, geht B nicht.« て-Form + からでないと + Verneinung."},
+   bauplan:[
+    "Nimm die <b>Voraussetzung</b> A in der <b>て-Form</b> (<code><ruby>予約<rt>よやく</rt></ruby>して</code>).",
+    "Hänge <code>からでないと</code> (oder <code>からでなければ</code>) an.",
+    "Der Hauptsatz B ist <b>immer verneint</b> (<code>できない</code>, <code>だめだ</code>, <code><ruby>入<rt>はい</rt></ruby>れない</code>).",
+    "Sinn: erst A, dann B — vorher unmöglich."
+   ],
+   ex:[
+    {jp:"<ruby>会員<rt>かいいん</rt></ruby>に なって<b>からでないと</b>、<ruby>利用<rt>りよう</rt></ruby>できません。",de:"Erst wenn man Mitglied geworden ist, kann man es nutzen."},
+    {jp:"<ruby>親<rt>おや</rt></ruby>に <ruby>聞<rt>き</rt></ruby>いて<b>からでないと</b>、<ruby>返事<rt>へんじ</rt></ruby>できない。",de:"Bevor ich meine Eltern gefragt habe, kann ich nicht zusagen."},
+    {jp:"よく <ruby>調<rt>しら</rt></ruby>べて<b>からでなければ</b>、<ruby>買<rt>か</rt></ruby>わない ほうが いい。",de:"Bevor man es gut geprüft hat, sollte man es nicht kaufen."}
+   ],
+   note:"⚠ Hauptsatz immer <b>negativ</b>.<br>🔄 ≈ <b>〜ないと…ない</b>, aber betont die Reihenfolge »erst A, dann B«."},
+
+  // ============ UNIT 2 — Quelle & Weg ============
+  {l:2, t:"〜によると / 〜によれば", de:"laut … / gemäß … (Quellenangabe)",
+   simpel:"Nennt die Informationsquelle: »laut …«.<br><span class='jp'><ruby>天気予報<rt>てんきよほう</rt></ruby><b>によると</b>、<ruby>明日<rt>あした</rt></ruby>は <ruby>雨<rt>あめ</rt></ruby>だ<b>そうだ</b></span> = „laut Wettervorhersage regnet es morgen“",
+   rule:"N + によると/によれば markiert die Quelle einer Information. Am Satzende steht meist Hörensagen: 〜そうだ, 〜らしい, 〜ということだ.",
+   build:[
+    {form:"Muster",verb:"N + によると、〜そうだ",de:"laut N soll …"},
+    {form:"Variante",verb:"N + によれば",de:"gleichbedeutend"},
+    {form:"Satzende",verb:"そうだ / らしい / ということだ",de:"Hörensagen-Marker"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Quelle"},{text:"によると、",role:"actor",label:"laut"},{text:"[Info]",role:"cond"},{text:"そうだ",role:"plain",label:"soll angeblich"}],gloss:"»Laut Quelle N: …« — am Ende meist そうだ/らしい (Hörensagen). によれば ist gleichbedeutend."},
+   bauplan:[
+    "Nenne die <b>Quelle</b> (Nachrichten, Wetterbericht, eine Person …).",
+    "Hänge <code>によると</code> oder <code>によれば</code> an.",
+    "Gib die Information wieder — in der Plain-Form.",
+    "Schließe mit <b>Hörensagen</b>: <code>〜そうだ</code> / <code>〜らしい</code> / <code>〜ということだ</code>."
+   ],
+   ex:[
+    {jp:"ニュース<b>によると</b>、<ruby>台風<rt>たいふう</rt></ruby>が <ruby>近<rt>ちか</rt></ruby>づいている<b>そうだ</b>。",de:"Laut Nachrichten nähert sich ein Taifun."},
+    {jp:"<ruby>友<rt>とも</rt></ruby>だちの <ruby>話<rt>はなし</rt></ruby><b>によると</b>、あの <ruby>店<rt>みせ</rt></ruby>は おいしい<b>らしい</b>。",de:"Nach dem, was Freunde erzählen, soll der Laden gut sein."},
+    {jp:"<ruby>調査<rt>ちょうさ</rt></ruby><b>によれば</b>、<ruby>若者<rt>わかもの</rt></ruby>の <ruby>読書<rt>どくしょ</rt></ruby><ruby>時間<rt>じかん</rt></ruby>は <ruby>減<rt>へ</rt></ruby>っている<b>ということだ</b>。",de:"Laut Umfrage nimmt die Lesezeit junger Leute ab."}
+   ],
+   note:"⚠ Nicht mit <b>によって</b> (je nach / durch / von) verwechseln!<br>💡 Quelle + によると … <b>そうだ</b> ist das Standard-Duo für Hörensagen."},
+
+  {l:2, t:"〜を<ruby>通<rt>とお</rt></ruby>して / 〜を<ruby>通<rt>つう</rt></ruby>じて", de:"durch / über … (Mittel) — … hindurch (Zeit)",
+   simpel:"»durch/über X« (Vermittlung) oder »X hindurch« (Zeitraum).<br><span class='jp'><ruby>友人<rt>ゆうじん</rt></ruby><b>を通して</b> <ruby>知<rt>し</rt></ruby>り<ruby>合<rt>あ</rt></ruby>った</span> = „wir haben uns über einen Freund kennengelernt“",
+   rule:"N + を通して/を通じて: (1) »über/durch N« als Mittel oder Vermittler; (2) mit Zeitwort »den ganzen Zeitraum hindurch« (一年を通して). を通じて ist etwas schriftlicher.",
+   build:[
+    {form:"Vermittlung",verb:"N + を<ruby>通<rt>とお</rt></ruby>して",de:"über/durch N"},
+    {form:"Zeitraum",verb:"<ruby>一年<rt>いちねん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>して",de:"das ganze Jahr hindurch"},
+    {form:"schriftlicher",verb:"N + を<ruby>通<rt>つう</rt></ruby>じて",de:"gleichbedeutend"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Mittel/Zeit"},{text:"を<ruby>通<rt>とお</rt></ruby>して",role:"actor",label:"durch/über"},{text:"[Handlung]",role:"verb"}],gloss:"»Durch/über N (Vermittler, Mittel)« oder »N hindurch (Zeitraum)«. を通じて = schriftlicher."},
+   bauplan:[
+    "Nenne den <b>Vermittler / das Mittel / den Zeitraum</b> als Nomen.",
+    "Hänge <code>を<ruby>通<rt>とお</rt></ruby>して</code> (oder schriftlicher <code>を<ruby>通<rt>つう</rt></ruby>じて</code>) an.",
+    "Setze die Handlung dahinter.",
+    "Zeit-Lesart: <code><ruby>一年<rt>いちねん</rt></ruby>を通して <ruby>暖<rt>あたた</rt></ruby>かい</code> = »das ganze Jahr über warm«."
+   ],
+   ex:[
+    {jp:"インターネット<b>を通じて</b> <ruby>世界中<rt>せかいじゅう</rt></ruby>の ニュースが <ruby>読<rt>よ</rt></ruby>める。",de:"Über das Internet kann man Nachrichten aus aller Welt lesen."},
+    {jp:"<ruby>共通<rt>きょうつう</rt></ruby>の <ruby>友人<rt>ゆうじん</rt></ruby><b>を通して</b> <ruby>彼女<rt>かのじょ</rt></ruby>と <ruby>知<rt>し</rt></ruby>り<ruby>合<rt>あ</rt></ruby>いました。",de:"Ich habe sie über einen gemeinsamen Freund kennengelernt."},
+    {jp:"この <ruby>町<rt>まち</rt></ruby>は <ruby>一年<rt>いちねん</rt></ruby><b>を通して</b> <ruby>観光客<rt>かんこうきゃく</rt></ruby>が <ruby>多<rt>おお</rt></ruby>い。",de:"In dieser Stadt sind das ganze Jahr hindurch viele Touristen."}
+   ],
+   note:"🔄 <b>を通して</b> ≈ <b>を通じて</b> (schriftlicher).<br>⚠ Für bloße Ortsdurchquerung nimmt man <b>を通る</b>."},
+
+  {l:2, t:"〜につき", de:"pro … / wegen … (formelle Anzeige)",
+   simpel:"Zwei formelle Sinne: »pro X« und »wegen X (geschlossen etc.)«.<br><span class='jp'><ruby>一人<rt>ひとり</rt></ruby><b>につき</b> 2<ruby>枚<rt>まい</rt></ruby></span> = „pro Person 2 Stück“",
+   rule:"N + につき: (1) »pro N« bei Mengen/Preisen (一人につき, 1回につき); (2) »wegen N« in formellen Aushängen/Bekanntmachungen (工事中につき). Beides schriftlich-formell.",
+   build:[
+    {form:"pro",verb:"N + につき + <ruby>数量<rt>すうりょう</rt></ruby>",de:"pro N …"},
+    {form:"wegen (Aushang)",verb:"N + につき",de:"wegen N (formell)"},
+    {form:"Register",verb:"Schilder, Regeln, Anzeigen",de:"formell"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Einheit/Grund"},{text:"につき",role:"actor",label:"pro / wegen"},{text:"[Angabe]",role:"plain"}],gloss:"(1) »pro N« (一人につき2枚). (2) »wegen N« auf formellen Aushängen (工事中につき通行止め)."},
+   bauplan:[
+    "Für <b>»pro«</b>: Einheit (Person, Mal, Stück) + <code>につき</code> + Menge/Preis.",
+    "Für <b>»wegen«</b>: Grund + <code>につき</code> + Maßnahme (typisch auf Schildern).",
+    "Beides ist <b>formell/schriftlich</b> — im Gespräch: <code>〜に対して/〜だから</code>.",
+    "Merke Schild-Klassiker: <code><ruby>工事中<rt>こうじちゅう</rt></ruby>につき、<ruby>通行止<rt>つうこうど</rt></ruby>め</code>."
+   ],
+   ex:[
+    {jp:"チケットは <ruby>一人<rt>ひとり</rt></ruby><b>につき</b> 2<ruby>枚<rt>まい</rt></ruby>まで です。",de:"Tickets gibt es maximal zwei pro Person."},
+    {jp:"1<ruby>回<rt>かい</rt></ruby><b>につき</b> 500<ruby>円<rt>えん</rt></ruby> かかります。",de:"Pro Mal kostet es 500 Yen."},
+    {jp:"<ruby>店内<rt>てんない</rt></ruby><ruby>改装<rt>かいそう</rt></ruby><b>につき</b>、<ruby>休業<rt>きゅうぎょう</rt></ruby>いたします。",de:"Wegen Renovierung bleibt das Geschäft geschlossen."}
+   ],
+   note:"💡 Die »wegen«-Lesart begegnet dir ständig auf <b>Schildern</b> in Japan.<br>🔄 »pro« umgangssprachlich: <b>〜あたり</b> (一人あたり)."},
+
+  {l:2, t:"〜ように<ruby>言<rt>い</rt></ruby>う", de:"jdm. sagen, dass er … soll (indirekte Aufforderung)",
+   simpel:"Aufforderungen indirekt wiedergeben.<br><span class='jp'><ruby>早<rt>はや</rt></ruby>く <ruby>寝<rt>ね</rt></ruby>る<b>ように 言った</b></span> = „ich sagte ihm, er solle früh schlafen“",
+   rule:"V<sub>辞書/ない</sub> + ように + 言う/頼む/注意する/伝える: gibt Bitten und Befehle indirekt wieder — »sagen/bitten, dass jemand … (nicht) tun soll«. Passiv: 〜ように言われた »mir wurde gesagt, ich solle …«.",
+   build:[
+    {form:"Muster",verb:"V<sub>辞書/ない</sub> + ように<ruby>言<rt>い</rt></ruby>う",de:"sagen, dass … soll"},
+    {form:"Varianten",verb:"ように<ruby>頼<rt>たの</rt></ruby>む/<ruby>伝<rt>つた</rt></ruby>える/<ruby>注意<rt>ちゅうい</rt></ruby>する",de:"bitten / ausrichten / ermahnen"},
+    {form:"Passiv",verb:"〜ように<ruby>言<rt>い</rt></ruby>われた",de:"mir wurde gesagt, dass …"}
+   ],
+   pattern:{slots:[{text:"[Person] に",role:"obj",label:"wem"},{text:"V<sub>辞書/ない</sub>",role:"verb",label:"was (nicht) tun"},{text:"ように<ruby>言<rt>い</rt></ruby>う",role:"plain",label:"auffordern"}],gloss:"Indirekte Aufforderung: »X sagt Y, er solle (nicht) …«. Auch mit 頼む/伝える/注意する; Passiv 〜ように言われた."},
+   bauplan:[
+    "Nenne die Person mit <code>に</code>, an die die Aufforderung geht.",
+    "Formuliere die Handlung in <b>辞書形</b> (tun) oder <b>ない形</b> (lassen).",
+    "Hänge <code>ように</code> + Sprechverb an (<code><ruby>言<rt>い</rt></ruby>う・<ruby>頼<rt>たの</rt></ruby>む・<ruby>伝<rt>つた</rt></ruby>える</code>).",
+    "Aus deiner Sicht empfangen: <code>〜ように<ruby>言<rt>い</rt></ruby>われた</code>."
+   ],
+   ex:[
+    {jp:"<ruby>医者<rt>いしゃ</rt></ruby>に お<ruby>酒<rt>さけ</rt></ruby>を やめる<b>ように 言われました</b>。",de:"Der Arzt hat mir gesagt, ich solle mit dem Alkohol aufhören."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもに <ruby>廊下<rt>ろうか</rt></ruby>を <ruby>走<rt>はし</rt></ruby>らない<b>ように <ruby>注意<rt>ちゅうい</rt></ruby>した</b>。",de:"Ich ermahnte die Kinder, nicht im Flur zu rennen."},
+    {jp:"<ruby>田中<rt>たなか</rt></ruby>さんに <ruby>電話<rt>でんわ</rt></ruby>する<b>ように <ruby>伝<rt>つた</rt></ruby>えて</b> ください。",de:"Bitte richten Sie Tanaka aus, dass er anrufen soll."}
+   ],
+   note:"🔄 Direktes Zitat wäre 「〜てください」と言う — <b>ようにいう</b> ist die indirekte Form.<br>💡 Sehr häufig im Passiv (言われた)."},
+
+  {l:2, t:"〜てから というもの", de:"seit … (hat sich alles verändert)",
+   simpel:"Seit einem Wendepunkt ist dauerhaft alles anders.<br><span class='jp'><ruby>子<rt>こ</rt></ruby>どもが <ruby>生<rt>う</rt></ruby>まれて<b>から というもの</b></span> = „seit das Kind geboren ist, …“",
+   rule:"V<sub>テ</sub> + からというもの = »seit dem Zeitpunkt X hat sich (dauerhaft, spürbar) … verändert«. Emotionaler und nachdrücklicher als schlichtes 〜てから; eher schriftlich.",
+   build:[
+    {form:"Muster",verb:"V<sub>テ</sub> + からというもの",de:"seit … (alles anders)"},
+    {form:"Folge",verb:"dauerhafte Veränderung",de:"ずっと/すっかり …"},
+    {form:"⚠ Vergleich",verb:"〜てから",de:"neutral »nachdem/seit«"}
+   ],
+   pattern:{slots:[{text:"V<sub>テ</sub>",role:"verb",label:"Wendepunkt"},{text:"からというもの",role:"actor",label:"seitdem"},{text:"[dauerhafte Änderung]",role:"cond"}],gloss:"»Seit X ist dauerhaft alles anders.« Nachdrücklicher als 〜てから; oft mit ずっと/すっかり/毎日."},
+   bauplan:[
+    "Nimm den <b>Wendepunkt</b> in der <b>て-Form</b> (<code><ruby>生<rt>う</rt></ruby>まれて</code>, <code><ruby>始<rt>はじ</rt></ruby>めて</code>).",
+    "Hänge <code>からというもの</code> an.",
+    "Beschreibe die <b>dauerhafte</b> Veränderung (oft mit <code>ずっと/すっかり/<ruby>毎日<rt>まいにち</rt></ruby></code>).",
+    "Für neutrales »nachdem« reicht <code>〜てから</code>."
+   ],
+   ex:[
+    {jp:"<ruby>日本<rt>にほん</rt></ruby>に <ruby>来<rt>き</rt></ruby>て<b>からというもの</b>、<ruby>毎日<rt>まいにち</rt></ruby>が <ruby>発見<rt>はっけん</rt></ruby>の <ruby>連続<rt>れんぞく</rt></ruby>だ。",de:"Seit ich nach Japan gekommen bin, ist jeder Tag voller Entdeckungen."},
+    {jp:"タバコを やめて<b>からというもの</b>、<ruby>体<rt>からだ</rt></ruby>の <ruby>調子<rt>ちょうし</rt></ruby>が いい。",de:"Seit ich mit dem Rauchen aufgehört habe, geht es mir körperlich gut."},
+    {jp:"<ruby>彼女<rt>かのじょ</rt></ruby>に <ruby>会<rt>あ</rt></ruby>って<b>からというもの</b>、<ruby>彼<rt>かれ</rt></ruby>は すっかり <ruby>変<rt>か</rt></ruby>わった。",de:"Seit er sie getroffen hat, ist er wie ausgewechselt."}
+   ],
+   note:"🔄 <b>〜てから</b> = neutral; <b>〜てからというもの</b> = »und seither ist alles anders« (nachdrücklich).<br>⚠ Nicht für banale Abfolgen."},
+
+  // ============ UNIT 3 — Zusatz & Ausruf ============
+  {l:3, t:"〜は もちろん", de:"… sowieso / natürlich —, und sogar auch …",
+   simpel:"A ist selbstverständlich, und B kommt noch dazu.<br><span class='jp'><ruby>平日<rt>へいじつ</rt></ruby><b>は もちろん</b>、<ruby>週末<rt>しゅうまつ</rt></ruby>も</span> = „werktags sowieso, und sogar am Wochenende“",
+   rule:"N + はもちろん、… も: »N ist selbstverständlich (klar), und auch … «. Nennt erst das Offensichtliche, dann das Bemerkenswerte. Formeller: 〜はもとより.",
+   build:[
+    {form:"Muster",verb:"N₁ はもちろん、N₂ も",de:"N₁ sowieso, auch N₂"},
+    {form:"formeller",verb:"〜は もとより",de:"schriftlich"},
+    {form:"Sinn",verb:"selbstverständlich + dazu",de:"Steigerung"}
+   ],
+   pattern:{slots:[{text:"N₁",role:"subj",label:"klar sowieso"},{text:"はもちろん、",role:"actor",label:"natürlich"},{text:"N₂ も",role:"obj",label:"und sogar"},{text:"[Aussage]",role:"verb"}],gloss:"»N₁ ist eh klar — und auch N₂ (noch dazu).« Erst das Offensichtliche, dann die Steigerung mit も."},
+   bauplan:[
+    "Nenne zuerst das <b>Selbstverständliche</b> N₁ + <code>はもちろん、</code>.",
+    "Dann das <b>Bemerkenswerte</b> N₂ + <code>も</code>.",
+    "Schließe mit der gemeinsamen Aussage.",
+    "Schriftlicher: <code>〜はもとより</code>."
+   ],
+   ex:[
+    {jp:"この <ruby>店<rt>みせ</rt></ruby>は <ruby>味<rt>あじ</rt></ruby><b>は もちろん</b>、サービスも すばらしい。",de:"In diesem Laden ist der Geschmack sowieso super — aber auch der Service."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>英語<rt>えいご</rt></ruby><b>は もちろん</b>、フランス<ruby>語<rt>ご</rt></ruby>も <ruby>話<rt>はな</rt></ruby>せる。",de:"Er spricht natürlich Englisch — und sogar Französisch."},
+    {jp:"<ruby>漢字<rt>かんじ</rt></ruby><b>は もちろん</b>、カタカナも <ruby>難<rt>むずか</rt></ruby>しい。",de:"Kanji sind sowieso schwer — aber auch Katakana."}
+   ],
+   note:"🔄 ≈ <b>〜だけでなく…も</b>, aber betont »das versteht sich von selbst«.<br>💡 Sehr häufig in Bewertungen und Vorstellungen."},
+
+  {l:3, t:"〜ばかりか / 〜ばかりでなく", de:"nicht nur …, sondern sogar …",
+   simpel:"Steigert von A zu einem stärkeren B.<br><span class='jp'><ruby>雨<rt>あめ</rt></ruby><b>ばかりか</b>、<ruby>風<rt>かぜ</rt></ruby>まで</span> = „nicht nur Regen, sondern sogar Wind“",
+   rule:"Plain/N + ばかりか (ばかりでなく) + …も/まで: »nicht nur A, sondern (überraschend) sogar B«. ばかりか klingt stärker/schriftlicher als だけでなく; B ist oft mit まで/も markiert.",
+   build:[
+    {form:"Muster",verb:"… ばかりか、… まで/も",de:"nicht nur A, sogar B"},
+    {form:"Variante",verb:"… ばかりでなく",de:"≈ だけでなく"},
+    {form:"Anschluss",verb:"Plain / N direkt",de:"な-Adj + な"}
+   ],
+   pattern:{slots:[{text:"[A]",role:"cond"},{text:"ばかりか",role:"actor",label:"nicht nur"},{text:"[B] まで",role:"obj",label:"sogar"},{text:"[Aussage]",role:"verb"}],gloss:"»Nicht nur A — sogar B.« Stärker/schriftlicher als だけでなく; B oft mit まで/も."},
+   bauplan:[
+    "Nenne A (das Erwartbare) — Plain-Form oder Nomen direkt.",
+    "Hänge <code>ばかりか</code> (oder <code>ばかりでなく</code>) an.",
+    "Setze das überraschendere B, markiert mit <code>まで</code> oder <code>も</code>.",
+    "Alltagssprachlicher: <code>〜だけでなく…も</code>."
+   ],
+   ex:[
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>漢字<rt>かんじ</rt></ruby>が <ruby>読<rt>よ</rt></ruby>める<b>ばかりか</b>、<ruby>書道<rt>しょどう</rt></ruby>まで できる。",de:"Er kann nicht nur Kanji lesen, sondern beherrscht sogar Kalligrafie."},
+    {jp:"<ruby>熱<rt>ねつ</rt></ruby>が ある<b>ばかりでなく</b>、せきも ひどい。",de:"Ich habe nicht nur Fieber, sondern auch schlimmen Husten."},
+    {jp:"この <ruby>薬<rt>くすり</rt></ruby>は <ruby>効<rt>き</rt></ruby>かない<b>ばかりか</b>、<ruby>副作用<rt>ふくさよう</rt></ruby>まで ある。",de:"Dieses Medikament wirkt nicht nur nicht — es hat sogar Nebenwirkungen."}
+   ],
+   note:"🔄 Steigerung: だけでなく < <b>ばかりか</b> (+まで noch stärker).<br>⚠ Nach ばかりか kein Befehl/Wunsch."},
+
+  {l:3, t:"〜なんか / 〜なんて", de:"so etwas wie … (abwertend / bescheiden / erstaunt)",
+   simpel:"Wertet ab, spielt herunter oder staunt.<br><span class='jp'><ruby>私<rt>わたし</rt></ruby><b>なんか</b> まだまだです</span> = „ach, so jemand wie ich …“",
+   rule:"N + なんか / N・Satz + なんて: (1) abwertend »so etwas wie« (テレビなんか見ない); (2) bescheiden über sich selbst (私なんか); (3) なんて + Satz: Erstaunen/Empörung (»dass …!«).",
+   build:[
+    {form:"abwertend",verb:"N + なんか/なんて + Verneinung",de:"so etwas wie N (pff)"},
+    {form:"bescheiden",verb:"<ruby>私<rt>わたし</rt></ruby>なんか …",de:"jemand wie ich …"},
+    {form:"Erstaunen",verb:"[Satz] + なんて",de:"dass …! (unglaublich)"}
+   ],
+   pattern:{slots:[{text:"N / [Satz]",role:"subj"},{text:"なんか / なんて",role:"actor",label:"so etwas wie"},{text:"[Wertung]",role:"plain"}],gloss:"Spielt herunter (abwertend/bescheiden) oder drückt Staunen aus (なんて + Satz: »dass …!«). Gesprochen."},
+   bauplan:[
+    "Abwertend: N + <code>なんか</code> + verneinte/negative Aussage.",
+    "Bescheiden: <code><ruby>私<rt>わたし</rt></ruby>なんか</code> + Untertreibung.",
+    "Erstaunen/Empörung: ganzer Satz + <code>なんて</code> + Bewertung (<code>ひどい・すごい・<ruby>信<rt>しん</rt></ruby>じられない</code>).",
+    "Nur gesprochen/informell; neutral wäre <code>など</code>."
+   ],
+   ex:[
+    {jp:"お<ruby>金<rt>かね</rt></ruby><b>なんか</b> いらない。",de:"So etwas wie Geld brauche ich nicht."},
+    {jp:"<ruby>私<rt>わたし</rt></ruby><b>なんか</b>、まだ <ruby>初心者<rt>しょしんしゃ</rt></ruby>です よ。",de:"Ach, jemand wie ich ist doch noch Anfänger."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>が うそを つく<b>なんて</b>、<ruby>信<rt>しん</rt></ruby>じられない。",de:"Dass er lügt — unglaublich!"}
+   ],
+   note:"💡 <b>なんて</b> kann auch nach ganzen Sätzen stehen (Staunen), <b>なんか</b> nur nach Nomen/Partikel-losen Elementen.<br>🔄 Neutral-höflich: <b>など</b>."},
+
+  {l:3, t:"〜といったら", de:"was … angeht — unbeschreiblich! (Ausruf)",
+   simpel:"Hebt eine Eigenschaft staunend hervor.<br><span class='jp'>その <ruby>景色<rt>けしき</rt></ruby>の <ruby>美<rt>うつく</rt></ruby>しさ<b>といったら</b>!</span> = „diese Aussicht — einfach unbeschreiblich!“",
+   rule:"N (oft 〜さ-Nominalisierung) + といったら: ruft eine Eigenschaft aus, die kaum in Worte zu fassen ist — »was X angeht: unglaublich!«. Danach oft 言葉にできない/〜ほど oder gar nichts (offener Ausruf).",
+   build:[
+    {form:"Muster",verb:"N(の〜さ) + といったら",de:"was … angeht: …!"},
+    {form:"Fortsetzung",verb:"<ruby>言葉<rt>ことば</rt></ruby>に できない / 〜ほど",de:"unbeschreiblich"},
+    {form:"Ton",verb:"Ausruf, emotional",de:"Staunen/Entsetzen"}
+   ],
+   pattern:{slots:[{text:"N の 〜さ",role:"subj",label:"Eigenschaft"},{text:"といったら",role:"actor",label:"was das angeht …!"},{text:"(<ruby>言葉<rt>ことば</rt></ruby>にできない)",role:"plain",label:"unbeschreiblich"}],gloss:"Ausruf: »Die …-heit davon — unbeschreiblich!« Oft mit 〜さ-Nominalisierung; Fortsetzung kann wegbleiben."},
+   bauplan:[
+    "Nominalisiere die Eigenschaft, oft mit <b>〜さ</b> (<code><ruby>美<rt>うつく</rt></ruby>しさ</code>, <code><ruby>暑<rt>あつ</rt></ruby>さ</code>).",
+    "Hänge <code>といったら</code> an.",
+    "Ergänze »unbeschreiblich« (<code><ruby>言葉<rt>ことば</rt></ruby>にできない</code>) — oder lass den Ausruf offen.",
+    "Für typische Assoziationen (といえば) NICHT verwechseln — das ist Themeneröffnung."
+   ],
+   ex:[
+    {jp:"<ruby>富士山<rt>ふじさん</rt></ruby>から <ruby>見<rt>み</rt></ruby>た <ruby>朝日<rt>あさひ</rt></ruby>の <ruby>美<rt>うつく</rt></ruby>しさ<b>といったら</b>、<ruby>言葉<rt>ことば</rt></ruby>に できない ほどだった。",de:"Die Schönheit des Sonnenaufgangs vom Fuji — schlicht unbeschreiblich."},
+    {jp:"<ruby>夏<rt>なつ</rt></ruby>の <ruby>東京<rt>とうきょう</rt></ruby>の <ruby>暑<rt>あつ</rt></ruby>さ<b>といったら</b>!",de:"Diese Hitze im Tokioter Sommer — nicht auszuhalten!"},
+    {jp:"その ときの <ruby>驚<rt>おどろ</rt></ruby>き<b>といったら</b>、<ruby>心臓<rt>しんぞう</rt></ruby>が <ruby>止<rt>と</rt></ruby>まる かと <ruby>思<rt>おも</rt></ruby>った。",de:"Mein Schreck in dem Moment — ich dachte, mir bleibt das Herz stehen."}
+   ],
+   note:"⚠ <b>といったら</b> (Ausruf) ≠ <b>といえば</b> (Themeneröffnung, chuukyuu L1).<br>💡 Gern mit 〜さ-Formen (<ruby>便利<rt>べんり</rt></ruby>さ, <ruby>大変<rt>たいへん</rt></ruby>さ)."},
+
+  {l:3, t:"〜ついでに", de:"bei der Gelegenheit / wo ich schon mal dabei bin",
+   simpel:"Nebenhandlung an eine Haupthandlung anhängen.<br><span class='jp'><ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>の<b>ついでに</b> <ruby>郵便局<rt>ゆうびんきょく</rt></ruby>へ</span> = „beim Einkaufen (bei der Gelegenheit) zur Post“",
+   rule:"V<sub>辞書/た</sub> / N + の + ついでに: man nutzt die Gelegenheit einer Haupthandlung, um nebenbei etwas anderes zu erledigen. Haupthandlung zuerst, Nebenhandlung folgt.",
+   build:[
+    {form:"Verb",verb:"V<sub>辞書/た</sub> + ついでに",de:"wenn/da man schon …"},
+    {form:"Nomen",verb:"N + の + ついでに",de:"bei der Gelegenheit von N"},
+    {form:"Sinn",verb:"Haupt- + Nebenhandlung",de:"eins mitnehmen"}
+   ],
+   pattern:{slots:[{text:"[Haupthandlung] / N の",role:"cond"},{text:"ついでに",role:"actor",label:"bei der Gelegenheit"},{text:"[Nebenhandlung]",role:"verb"}],gloss:"»Wo ich schon mal … , (erledige ich) nebenbei …« Haupthandlung + ついでに + Nebenhandlung."},
+   bauplan:[
+    "Nenne die <b>Haupthandlung</b> (V辞書/た oder N + <code>の</code>).",
+    "Hänge <code>ついでに</code> an.",
+    "Setze die <b>Nebenhandlung</b>, die du mit-erledigst.",
+    "Die Nebenhandlung ist leichter/kleiner als die Haupthandlung."
+   ],
+   ex:[
+    {jp:"<ruby>散歩<rt>さんぽ</rt></ruby>の<b>ついでに</b>、パンを <ruby>買<rt>か</rt></ruby>って きた。",de:"Beim Spaziergang habe ich (bei der Gelegenheit) Brot mitgebracht."},
+    {jp:"<ruby>出張<rt>しゅっちょう</rt></ruby>で <ruby>大阪<rt>おおさか</rt></ruby>へ <ruby>行<rt>い</rt></ruby>った<b>ついでに</b>、<ruby>友人<rt>ゆうじん</rt></ruby>に <ruby>会<rt>あ</rt></ruby>った。",de:"Als ich dienstlich in Osaka war, habe ich bei der Gelegenheit einen Freund getroffen."},
+    {jp:"<ruby>掃除<rt>そうじ</rt></ruby>する<b>ついでに</b>、<ruby>机<rt>つくえ</rt></ruby>の <ruby>中<rt>なか</rt></ruby>も <ruby>片<rt>かた</rt></ruby>づけよう。",de:"Wo ich schon putze, räume ich gleich auch die Schublade auf."}
+   ],
+   note:"💡 Reihenfolge fest: erst die <b>Haupt</b>handlung, dann ついでに + Nebenhandlung.<br>🔄 ≈ »wo ich schon mal dabei bin«."},
+
+  // ============ UNIT 4 — Einschränkung & Reaktion ============
+  {l:4, t:"〜からといって", de:"nur weil … (heißt das noch lange nicht)",
+   simpel:"Wehrt einen voreiligen Schluss ab.<br><span class='jp'><ruby>安<rt>やす</rt></ruby>い<b>からといって</b></span> = „nur weil es billig ist, …“",
+   rule:"Plain + からといって + Verneinung/Einschränkung: »nur weil A gilt, folgt daraus nicht B«. Häufig mit 〜とは限らない oder 〜わけではない kombiniert. Gesprochen auch からって.",
+   build:[
+    {form:"Muster",verb:"Plain + からといって",de:"nur weil …"},
+    {form:"Fortsetzung",verb:"〜とは<ruby>限<rt>かぎ</rt></ruby>らない / わけではない",de:"heißt nicht, dass …"},
+    {form:"salopp",verb:"〜からって",de:"gesprochen"}
+   ],
+   pattern:{slots:[{text:"[A: Grund]",role:"cond"},{text:"からといって",role:"actor",label:"nur weil"},{text:"[B nicht zwingend]",role:"plain",label:"heißt nicht …"}],gloss:"»Nur weil A, folgt nicht B.« Fast immer mit Verneinung (とは限らない/わけではない/てはいけない)."},
+   bauplan:[
+    "Nenne den <b>voreiligen Grund</b> A in Plain-Form.",
+    "Hänge <code>からといって</code> an (salopp: <code>からって</code>).",
+    "Weise B zurück: <code>〜とは<ruby>限<rt>かぎ</rt></ruby>らない</code>, <code>〜わけではない</code> oder <code>〜てはいけない</code>.",
+    "Ton: mahnend, relativierend."
+   ],
+   ex:[
+    {jp:"<ruby>日本人<rt>にほんじん</rt></ruby>だ<b>からといって</b>、<ruby>敬語<rt>けいご</rt></ruby>が <ruby>上手<rt>じょうず</rt></ruby>だ<b>とは <ruby>限<rt>かぎ</rt></ruby>らない</b>。",de:"Nur weil jemand Japaner ist, beherrscht er nicht unbedingt Keigo."},
+    {jp:"<ruby>安<rt>やす</rt></ruby>い<b>からといって</b>、<ruby>買<rt>か</rt></ruby>いすぎては いけない。",de:"Nur weil es billig ist, darf man nicht zu viel kaufen."},
+    {jp:"<ruby>疲<rt>つか</rt></ruby>れている<b>からといって</b>、<ruby>授業<rt>じゅぎょう</rt></ruby>を <ruby>休<rt>やす</rt></ruby>む わけには いかない。",de:"Nur weil ich müde bin, kann ich nicht einfach den Unterricht schwänzen."}
+   ],
+   note:"💡 Klassisches Duo: <b>からといって … とは限らない</b>.<br>⚠ Ohne Verneinung im Hauptsatz klingt es unvollständig."},
+
+  {l:4, t:"〜とは<ruby>限<rt>かぎ</rt></ruby>らない", de:"nicht unbedingt … / muss nicht … sein",
+   simpel:"Relativiert eine Allgemein-Annahme: »nicht immer/unbedingt so«.<br><span class='jp'><ruby>高<rt>たか</rt></ruby>い <ruby>物<rt>もの</rt></ruby>が いい<b>とは 限らない</b></span> = „teuer ist nicht unbedingt gut“",
+   rule:"Plain + とは限らない = »es ist nicht garantiert/nicht immer so, dass …«. Lässt Ausnahmen zu. Oft mit 必ずしも (»nicht notwendigerweise«) verstärkt.",
+   build:[
+    {form:"Muster",verb:"Plain + とは<ruby>限<rt>かぎ</rt></ruby>らない",de:"nicht unbedingt …"},
+    {form:"oft mit",verb:"<ruby>必<rt>かなら</rt></ruby>ずしも",de:"nicht notwendigerweise"},
+    {form:"🔄",verb:"わけではない",de:"»nicht dass …« (ähnlich)"}
+   ],
+   pattern:{slots:[{text:"(<ruby>必<rt>かなら</rt></ruby>ずしも)",role:"time",label:"nicht immer"},{text:"[Annahme]",role:"cond"},{text:"とは<ruby>限<rt>かぎ</rt></ruby>らない",role:"plain",label:"nicht garantiert"}],gloss:"»Es gibt Ausnahmen — nicht immer/unbedingt so.« Oft mit 必ずしも; nach からといって sehr häufig."},
+   bauplan:[
+    "Formuliere die <b>Allgemein-Annahme</b> in Plain-Form.",
+    "Optional davor: <code><ruby>必<rt>かなら</rt></ruby>ずしも</code> (»nicht notwendigerweise«).",
+    "Hänge <code>とは<ruby>限<rt>かぎ</rt></ruby>らない</code> an.",
+    "Verwandt: <code>わけではない</code> (schwächer, »nicht dass …«)."
+   ],
+   ex:[
+    {jp:"<ruby>有名<rt>ゆうめい</rt></ruby>な <ruby>店<rt>みせ</rt></ruby>が <ruby>必<rt>かなら</rt></ruby>ずしも おいしい<b>とは 限らない</b>。",de:"Ein berühmtes Lokal ist nicht unbedingt gut."},
+    {jp:"お<ruby>金<rt>かね</rt></ruby>が あれば <ruby>幸<rt>しあわ</rt></ruby>せだ<b>とは 限らない</b>。",de:"Geld allein macht nicht unbedingt glücklich."},
+    {jp:"<ruby>天気予報<rt>てんきよほう</rt></ruby>が <ruby>当<rt>あ</rt></ruby>たる<b>とは 限らない</b>。",de:"Die Wettervorhersage stimmt nicht immer."}
+   ],
+   note:"🔄 <b>とは限らない</b> (Ausnahmen existieren) vs <b>わけではない</b> (nicht komplett so).<br>💡 Nach <b>からといって</b> das Standard-Ende."},
+
+  {l:4, t:"〜(より)ほかない", de:"es bleibt nichts anderes übrig, als zu …",
+   simpel:"Keine Alternative: »bleibt nur …«.<br><span class='jp'>あきらめる<b>ほかない</b></span> = „es bleibt nur aufzugeben“",
+   rule:"V<sub>辞書</sub> + ほか(は)ない / よりほかない = »es gibt keine andere Möglichkeit als V«. Resignativ-nüchtern; formeller als 〜しかない.",
+   build:[
+    {form:"Muster",verb:"V<sub>辞書</sub> + ほか(は)ない",de:"bleibt nur zu V-en"},
+    {form:"Variante",verb:"V<sub>辞書</sub> + よりほかない",de:"gleichbedeutend"},
+    {form:"🔄 Alltag",verb:"〜しかない",de:"gesprochener"}
+   ],
+   pattern:{slots:[{text:"[Lage]",role:"cond"},{text:"V<sub>辞書</sub>",role:"verb"},{text:"ほかない",role:"plain",label:"bleibt nur"}],gloss:"»Keine andere Wahl als V.« 辞書形 + ほか(は)ない / よりほかない. Alltag: 〜しかない."},
+   bauplan:[
+    "Beschreibe die <b>ausweglose Lage</b> (Zug gestoppt, kein Geld …).",
+    "Nimm die einzig verbleibende Handlung im <b>辞書形</b>.",
+    "Hänge <code>ほかない</code> / <code>よりほかない</code> an.",
+    "Im Gespräch reicht <code>〜しかない</code>."
+   ],
+   ex:[
+    {jp:"<ruby>終電<rt>しゅうでん</rt></ruby>が <ruby>出<rt>で</rt></ruby>て しまったので、<ruby>歩<rt>ある</rt></ruby>いて <ruby>帰<rt>かえ</rt></ruby>る<b>ほかなかった</b>。",de:"Der letzte Zug war weg, also blieb nur der Heimweg zu Fuß."},
+    {jp:"だれも <ruby>手伝<rt>てつだ</rt></ruby>って くれないなら、<ruby>一人<rt>ひとり</rt></ruby>で やる<b>よりほかない</b>。",de:"Wenn mir niemand hilft, bleibt nur, es allein zu machen."},
+    {jp:"<ruby>規則<rt>きそく</rt></ruby>ですから、<ruby>従<rt>したが</rt></ruby>う<b>ほかありません</b>。",de:"Es ist Vorschrift — es bleibt nichts übrig, als sich zu fügen."}
+   ],
+   note:"🔄 <b>しかない</b> (Alltag) = <b>ほかない</b> (formeller) = <b>よりほかない</b>.<br>💡 Ton: nüchtern-resignativ."},
+
+  {l:4, t:"〜ことだから", de:"weil es (nun mal) X ist … (typisch X!)",
+   simpel:"Vermutung aus dem bekannten Charakter einer Person.<br><span class='jp'>まじめな <ruby>彼<rt>かれ</rt></ruby>の<b>ことだから</b></span> = „so wie wir ihn kennen, …“",
+   rule:"Person/N + の + ことだから: aus dem allseits bekannten Charakter von X wird eine Vermutung abgeleitet — »X kennt man ja: bestimmt …«. Danach steht eine Vermutung (だろう/はずだ/に違いない).",
+   build:[
+    {form:"Muster",verb:"[Person] の + ことだから",de:"so wie man X kennt"},
+    {form:"Fortsetzung",verb:"〜だろう / はずだ / に<ruby>違<rt>ちが</rt></ruby>いない",de:"Vermutung"},
+    {form:"Basis",verb:"bekannter Charakter",de:"beiden Seiten klar"}
+   ],
+   pattern:{slots:[{text:"[Person]",role:"subj",label:"bekannt wie"},{text:"の ことだから",role:"actor",label:"typisch!"},{text:"[Vermutung] だろう",role:"plain"}],gloss:"»X kennt man ja — bestimmt …« Charakterbasierte Vermutung; endet mit だろう/はずだ/に違いない."},
+   bauplan:[
+    "Nenne die <b>Person</b> (oft mit typischer Eigenschaft davor: <code>まじめな<ruby>彼<rt>かれ</rt></ruby></code>).",
+    "Hänge <code>の ことだから</code> an.",
+    "Ziehe die <b>Vermutung</b>, die zum Charakter passt.",
+    "Schließe mit <code>だろう / はずだ / に<ruby>違<rt>ちが</rt></ruby>いない</code>."
+   ],
+   ex:[
+    {jp:"<ruby>時間<rt>じかん</rt></ruby>に <ruby>厳<rt>きび</rt></ruby>しい <ruby>先生<rt>せんせい</rt></ruby>の<b>ことだから</b>、<ruby>遅<rt>おく</rt></ruby>れたら <ruby>怒<rt>おこ</rt></ruby>られる だろう。",de:"So streng wie der Lehrer mit Pünktlichkeit ist, gibt es sicher Ärger, wenn man zu spät kommt."},
+    {jp:"やさしい <ruby>彼女<rt>かのじょ</rt></ruby>の<b>ことだから</b>、きっと <ruby>許<rt>ゆる</rt></ruby>して くれる はずだ。",de:"So lieb wie sie ist, wird sie bestimmt verzeihen."},
+    {jp:"あの <ruby>二人<rt>ふたり</rt></ruby>の<b>ことだから</b>、また けんかして いるに <ruby>違<rt>ちが</rt></ruby>いない。",de:"Wie man die beiden kennt, streiten sie sich sicher schon wieder."}
+   ],
+   note:"⚠ Nur für <b>Personen mit bekanntem Charakter</b> (beiden Gesprächspartnern klar).<br>🔄 vgl. <b>ものだから</b> (Rechtfertigung) — ganz andere Bedeutung!"},
+
+  {l:4, t:"〜てしょうがない / 〜てたまらない", de:"unerträglich … / ich halte es nicht aus vor …",
+   simpel:"Ein Gefühl ist übermächtig: »zum Aushalten zu viel«.<br><span class='jp'><ruby>眠<rt>ねむ</rt></ruby>くて<b>しょうがない</b></span> = „ich bin todmüde“",
+   rule:"て-Form (Gefühl/Empfindung) + しょうがない / しかたがない / たまらない: das Gefühl ist so stark, dass man nichts dagegen tun kann. Nur mit unwillkürlichen Empfindungen (müde, heiß, sehnsüchtig …).",
+   build:[
+    {form:"Muster",verb:"Adj/V<sub>テ</sub> + しょうがない",de:"unerträglich …"},
+    {form:"Varianten",verb:"〜てしかたがない / 〜てたまらない",de:"formeller / »nicht auszuhalten«"},
+    {form:"nur mit",verb:"Empfindungen (<ruby>眠<rt>ねむ</rt></ruby>い・<ruby>暑<rt>あつ</rt></ruby>い・<ruby>会<rt>あ</rt></ruby>いたい)",de:"unwillkürlich"}
+   ],
+   pattern:{slots:[{text:"[Gefühl]<sub>テ</sub>",role:"cond",label:"…-te Form"},{text:"しょうがない",role:"plain",label:"nicht auszuhalten"}],gloss:"»So …, dass ich nichts dagegen tun kann.« て-Form eines Gefühls + しょうがない/しかたがない/たまらない."},
+   bauplan:[
+    "Nimm das <b>Gefühl/die Empfindung</b> in der <b>て-Form</b> (<code><ruby>眠<rt>ねむ</rt></ruby>くて</code>, <code><ruby>会<rt>あ</rt></ruby>いたくて</code>, <code><ruby>気<rt>き</rt></ruby>になって</code>).",
+    "Hänge <code>しょうがない</code> (gesprochen), <code>しかたがない</code> (formeller) oder <code>たまらない</code> an.",
+    "Nur für <b>unwillkürliche</b> Zustände — nicht für bewusste Handlungen.",
+    "Steigert stärker als とても/すごく."
+   ],
+   ex:[
+    {jp:"<ruby>朝<rt>あさ</rt></ruby>から <ruby>何<rt>なに</rt></ruby>も <ruby>食<rt>た</rt></ruby>べていないので、おなかが すいて<b>しょうがない</b>。",de:"Ich habe seit dem Morgen nichts gegessen — ich sterbe vor Hunger."},
+    {jp:"<ruby>国<rt>くに</rt></ruby>の <ruby>家族<rt>かぞく</rt></ruby>に <ruby>会<rt>あ</rt></ruby>いたくて<b>たまらない</b>。",de:"Ich vermisse meine Familie zu Hause unerträglich."},
+    {jp:"<ruby>試験<rt>しけん</rt></ruby>の <ruby>結果<rt>けっか</rt></ruby>が <ruby>気<rt>き</rt></ruby>になって<b>しかたがない</b>。",de:"Das Prüfungsergebnis lässt mir einfach keine Ruhe."}
+   ],
+   note:"🔄 Reihe: とても < 〜てしょうがない ≈ 〜てしかたがない ≈ <b>〜てたまらない</b>.<br>⚠ Nicht mit しかたがない als eigenem Satz (»da kann man nichts machen«) verwechseln."}
+
+];
+
+const VOCAB = {
+};
+
+
+// ============ RENDER ============
+const grid = document.getElementById('grid');
+const overview = document.getElementById('overview');
+const lessonGrid = document.getElementById('lessonGrid');
+const cheatsBlock = document.getElementById('cheats');
+const cheatToggle = document.getElementById('cheatToggle');
+const vocabBlock = document.getElementById('vocab');
+const vocabContent = document.getElementById('vocab-content');
+const search = document.getElementById('search');
+const lessonFilter = document.getElementById('lessonFilter');
+const stats = document.getElementById('stats');
+const backBtn = document.getElementById('backBtn');
+
+// Kurz-Themen pro Lektion (für Übersichts-Kacheln)
+const TOPICS = {
+  1:"Verb-Verlauf II", 2:"Quelle & Weg", 3:"Zusatz & Ausruf", 4:"Einschränkung & Reaktion"
+};
+
+const lessons = [...new Set(CARDS.map(c => c.l))].sort((a,b)=>a-b);
+
+// Filter-Dropdown füllen — Cheat-Sheets und Vokabeln ZUERST, dann Lektionen
+const cheatOpt = document.createElement('option');
+cheatOpt.value = 'cheats';
+cheatOpt.textContent = '📖 Cheat-Sheets';
+lessonFilter.appendChild(cheatOpt);
+
+const vocabOpt = document.createElement('option');
+vocabOpt.value = 'vocab';
+vocabOpt.textContent = '📚 Vokabeln';
+lessonFilter.appendChild(vocabOpt);
+
+lessons.forEach(l => {
+  const opt = document.createElement('option');
+  opt.value = l;
+  opt.textContent = `Lektion ${l}${TOPICS[l] ? ' · ' + TOPICS[l] : ''}`;
+  lessonFilter.appendChild(opt);
+});
+
+// Übersichts-Kacheln rendern
+function renderOverview() {
+  lessonGrid.innerHTML = '';
+  const counts = {};
+  CARDS.forEach(c => { counts[c.l] = (counts[c.l] || 0) + 1; });
+  lessons.forEach(l => {
+    const tile = document.createElement('button');
+    tile.className = 'lesson-tile';
+    tile.innerHTML = `
+      <span class="num">L${String(l).padStart(2,'0')}</span>
+      <span class="topic">${TOPICS[l] || ''}</span>
+      <span class="count">${counts[l]} Karte${counts[l]!==1?'n':''}</span>
+    `;
+    tile.addEventListener('click', () => {
+      lessonFilter.value = l;
+      render();
+      window.scrollTo({top:document.querySelector('.controls').offsetTop, behavior:'smooth'});
+    });
+    lessonGrid.appendChild(tile);
+  });
+}
+renderOverview();
+
+function buildConjTable(conj) {
+  if (!conj || conj.length === 0) return '';
+  let html = '<table class="conj-table"><thead><tr><th>Form</th><th>Japanisch</th><th>Bedeutung</th></tr></thead><tbody>';
+  conj.forEach(row => {
+    html += `<tr><td>${row.form}</td><td>${row.verb}</td><td>${row.de}</td></tr>`;
+  });
+  html += '</tbody></table>';
+  return html;
+}
+
+function buildPattern(pattern) {
+  if (!pattern || !pattern.slots) return '';
+  let html = '<div class="sec"><span class="sec-label">② Satz-Pattern (visuell)</span>';
+  const lines = Array.isArray(pattern.slots[0]) ? pattern.slots : [pattern.slots];
+  lines.forEach(line => {
+    html += '<div class="pattern-box"><div class="pattern-line">';
+    line.forEach(slot => {
+      const cls = slot.role || 'plain';
+      const label = slot.label ? `<span class="slot-label">${slot.label}</span>` : '';
+      html += `<span class="slot ${cls}"><span class="slot-text">${slot.text}</span>${label}</span>`;
+    });
+    html += '</div></div>';
+  });
+  if (pattern.gloss) html += `<div class="pattern-gloss">${pattern.gloss}</div>`;
+  html += '</div>';
+  return html;
+}
+
+function buildBauplan(bauplan) {
+  if (!bauplan || bauplan.length === 0) return '';
+  let html = '<div class="sec"><span class="sec-label">③ Schritt-für-Schritt-Bauplan</span><div class="bauplan">';
+  bauplan.forEach((step, i) => {
+    html += `<div class="bauplan-step"><span class="bauplan-num">${i+1}</span><span class="bauplan-text">${step}</span></div>`;
+  });
+  html += '</div></div>';
+  return html;
+}
+
+function buildSectionedBack(c) {
+  let html = '';
+  if (c.simpel) {
+    html += `<div class="simpel"><span class="simpel-label">💡 Kurz gesagt</span>${c.simpel}</div>`;
+  }
+  html += `<div class="rule">${c.rule}</div>`;
+  if (c.build && c.build.length > 0) {
+    html += '<div class="sec"><span class="sec-label">① Bildung / Anschluss</span>';
+    html += '<table class="conj-table"><tbody>';
+    c.build.forEach(row => {
+      html += `<tr><td>${row.form}</td><td>${row.verb}</td><td>${row.de}</td></tr>`;
+    });
+    html += '</tbody></table></div>';
+  }
+  html += buildPattern(c.pattern);
+  html += buildBauplan(c.bauplan);
+  if (c.ex && c.ex.length > 0) {
+    html += '<div class="sec"><span class="sec-label">④ Beispiele</span><div class="examples">';
+    c.ex.forEach(e => {
+      html += `<div class="ex"><span class="jp">${e.jp}</span><span class="de">${e.de}</span></div>`;
+    });
+    html += '</div></div>';
+  }
+  if (c.note) {
+    html += `<div class="sec"><span class="sec-label">⑤ Hinweise</span><div class="note" style="border-top:none;padding-top:0;margin-top:0">${c.note}</div></div>`;
+  }
+  return html;
+}
+
+// Vokabel-Inhalt einmal aufbauen
+function renderVocab() {
+  let html = '';
+  Object.keys(VOCAB).sort((a,b)=>+a-+b).forEach(l => {
+    const items = VOCAB[l];
+    html += `<div class="cheat" id="vocab-l${l}">`;
+    html += `<h2>L${l} · ${TOPICS[l] || ''} <span style="font-size:.7em;color:var(--red-deep-text);font-weight:normal">(${items.length} Vokabeln)</span></h2>`;
+    html += '<table style="width:100%;border-collapse:collapse"><tbody>';
+    items.forEach((v, i) => {
+      const bg = i % 2 === 0 ? 'var(--surface)' : '#ffffff';
+      html += `<tr style="background:${bg}"><td style="padding:.5rem .6rem;border-bottom:1px solid var(--surface-warm);font-size:1.05rem">${v.jp}</td><td style="padding:.5rem .6rem;border-bottom:1px solid var(--surface-warm);color:var(--t-3)">${v.de}</td></tr>`;
+    });
+    html += '</tbody></table>';
+    html += '</div>';
+  });
+  vocabContent.innerHTML = html;
+}
+renderVocab();
+
+// 🗣️ Aktiv-üben-Sektion: Alltags-Situationen zu dieser Karte (aus chuukyuu-practice/situations.js)
+function buildPractice(c, idx){
+  const S = window.MINNA_SITUATIONS;
+  if (!S || !S[idx] || S[idx].l !== c.l) return '';
+  const s = S[idx];
+  const prompts = [];
+  if (s.sit && c.ex && c.ex[0]) prompts.push({ sit:s.sit, jp:c.ex[0].jp, de:c.ex[0].de });
+  (s.more || []).forEach(m => { if (m && m.sit) prompts.push({ sit:m.sit, jp:m.jp||'', de:m.de||'' }); });
+  if (!prompts.length) return '';
+  const items = prompts.map(p => `
+    <div class="cp-item">
+      <div class="cp-sit">🗣️ ${p.sit}</div>
+      <button class="cp-reveal" onclick="event.stopPropagation(); var a=this.nextElementSibling; var open=a.classList.toggle('show'); this.textContent=open?'▲ verbergen':'Auflösen ↓';">Auflösen ↓</button>
+      <div class="cp-ans"><span class="jp">${p.jp}</span><span class="de">${p.de}</span></div>
+    </div>`).join('');
+  return `<div class="sec cp-sec">
+    <button class="cp-head" onclick="event.stopPropagation(); var o=this.parentElement.classList.toggle('open'); this.querySelector('.cp-arrow').textContent=o?'▴':'▾';">
+      🗣️ Aktiv üben <span class="cp-count">${prompts.length} Situation${prompts.length!==1?'en':''}</span> <span class="cp-arrow">▾</span>
+    </button>
+    <div class="cp-body">
+      <p class="cp-help">Bilde den japanischen Satz <b>selbst</b> — laut oder im Kopf. Dann auflösen.</p>
+      ${items}
+    </div>
+  </div>`;
+}
+
+function render(){
+  const q = search.value.toLowerCase().trim();
+  const lf = lessonFilter.value;
+
+  // SPEZIALFALL: Vokabeln ausgewählt UND keine Suche
+  if (lf === 'vocab' && !q) {
+    overview.style.display = 'none';
+    grid.innerHTML = '';
+    grid.style.display = 'none';
+    cheatsBlock.classList.add('hidden');
+    vocabBlock.classList.remove('hidden');
+    cheatToggle.textContent = 'Cheat-Sheets anzeigen';
+    stats.innerHTML = `<b>📚</b> Vokabeln · ${Object.values(VOCAB).reduce((s,a)=>s+a.length,0)} Wörter`;
+    backBtn.classList.add('visible');
+    setTimeout(() => vocabBlock.scrollIntoView({behavior:'smooth', block:'start'}), 50);
+    return;
+  }
+
+  // Wenn Suche aktiv aber Vocab-Filter: switch zurück
+  if (lf === 'vocab' && q) {
+    lessonFilter.value = 'all';
+    vocabBlock.classList.add('hidden');
+    return render();
+  }
+
+  // SPEZIALFALL: Cheat-Sheets ausgewählt UND keine Suche
+  if (lf === 'cheats' && !q) {
+    overview.style.display = 'none';
+    grid.innerHTML = '';
+    grid.style.display = 'none';
+    vocabBlock.classList.add('hidden');
+    cheatsBlock.classList.remove('hidden');
+    cheatToggle.textContent = 'Cheat-Sheets ausblenden';
+    stats.innerHTML = `<b>📖</b> Cheat-Sheets`;
+    backBtn.classList.add('visible');
+    setTimeout(() => cheatsBlock.scrollIntoView({behavior:'smooth', block:'start'}), 50);
+    return;
+  }
+
+  // Wenn Suche aktiv aber Cheats-Filter: switch zurück auf "all"
+  if (lf === 'cheats' && q) {
+    lessonFilter.value = 'all';
+    cheatsBlock.classList.add('hidden');
+    cheatToggle.textContent = 'Cheat-Sheets anzeigen';
+    return render();
+  }
+
+  // Beide Spezialblöcke verstecken bei normalem Filter
+  cheatsBlock.classList.add('hidden');
+  vocabBlock.classList.add('hidden');
+  cheatToggle.textContent = 'Cheat-Sheets anzeigen';
+
+  // SPEZIALFALL: "Alle" + keine Suche → nur Übersicht zeigen
+  if (lf === 'all' && !q) {
+    overview.style.display = 'block';
+    grid.innerHTML = '';
+    grid.style.display = 'none';
+    stats.innerHTML = `<b>${CARDS.length}</b> Karten · ${lessons.length} Lektionen`;
+    backBtn.classList.remove('visible');
+    return;
+  }
+
+  // NORMAL: Karten rendern
+  overview.style.display = 'none';
+  grid.style.display = 'grid';
+  backBtn.classList.add('visible');
+  grid.innerHTML = '';
+  let count = 0;
+  CARDS.forEach((c, idx) => {
+    const matchLesson = (lf === 'all' || c.l == lf);
+    const conjText = (c.conj || []).map(r => r.form + ' ' + r.verb + ' ' + r.de).join(' ');
+    const buildText = (c.build || []).map(r => r.form + ' ' + r.verb + ' ' + r.de).join(' ');
+    let patternText = '';
+    if (c.pattern && c.pattern.slots) {
+      const lines = Array.isArray(c.pattern.slots[0]) ? c.pattern.slots : [c.pattern.slots];
+      patternText = lines.map(l => l.map(s => (s.text||'') + ' ' + (s.label||'')).join(' ')).join(' ');
+      if (c.pattern.gloss) patternText += ' ' + c.pattern.gloss;
+    }
+    const exText = (c.ex || []).map(e => e.jp + ' ' + e.de).join(' ');
+    const simpelText = c.simpel || '';
+    const haystack = (c.t + ' ' + c.de + ' ' + c.rule + ' ' + conjText + ' ' + buildText + ' ' + patternText + ' ' + exText + ' ' + simpelText + ' L' + c.l + ' Lektion' + c.l).toLowerCase();
+    const matchSearch = (!q || haystack.includes(q));
+    if(!matchLesson || !matchSearch) return;
+    count++;
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    const useSectioned = !!c.pattern;
+    const backInner = useSectioned ? buildSectionedBack(c) : `
+          ${c.simpel ? `<div class="simpel"><span class="simpel-label">💡 Kurz gesagt</span>${c.simpel}</div>` : ''}
+          <div class="rule">${c.rule}</div>
+          ${buildConjTable(c.conj)}
+          <div class="examples">
+            ${(c.ex||[]).map(e=>`<div class="ex"><span class="jp">${e.jp}</span><span class="de">${e.de}</span></div>`).join('')}
+          </div>
+          ${c.note ? `<div class="note">${c.note}</div>` : ''}
+        `;
+    card.innerHTML = `
+      <div class="front">
+        <span class="lesson-tag">L ${String(c.l).padStart(2,'0')}</span>
+        <div class="grammar-jp">${c.t}</div>
+        <div class="grammar-de">${c.de}</div>
+        <span class="flip-hint">umdrehen</span>
+      </div>
+      <div class="back">
+        <div class="back-content">
+          <span class="lesson-tag">L ${String(c.l).padStart(2,'0')} · ${c.de}</span>
+          <h3>${c.t}</h3>
+          ${backInner}
+          ${buildPractice(c, idx)}
+        </div>
+      </div>
+    `;
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    grid.appendChild(card);
+  });
+  stats.innerHTML = `<b>${count}</b> Karte${count!==1?'n':''}`;
+}
+
+search.addEventListener('input', render);
+lessonFilter.addEventListener('change', render);
+
+backBtn.addEventListener('click', () => {
+  lessonFilter.value = 'all';
+  search.value = '';
+  cheatsBlock.classList.add('hidden');
+  vocabBlock.classList.add('hidden');
+  cheatToggle.textContent = 'Cheat-Sheets anzeigen';
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+// Cheat-Toggle Button: ändert Filter (saubere State-Verwaltung)
+cheatToggle.addEventListener('click', () => {
+  if (lessonFilter.value === 'cheats') {
+    lessonFilter.value = 'all';
+    search.value = '';
+  } else {
+    lessonFilter.value = 'cheats';
+  }
+  render();
+});
+
+// TOC Smooth-Scroll für Cheat-Sheets und Vokabeln
+document.querySelectorAll('.cheat-toc a').forEach(link => {
+  link.style.cursor = 'pointer';
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Support both href="#id" (cheat-sheets) and data-target="id" (vocab)
+    let targetId = link.getAttribute('data-target');
+    if (!targetId) {
+      const href = link.getAttribute('href');
+      if (href) targetId = href.replace('#', '');
+    }
+    if (!targetId) return;
+    const target = document.getElementById(targetId);
+    if (target) {
+      const y = target.getBoundingClientRect().top + window.scrollY - 10;
+      window.scrollTo({top:y, behavior:'smooth'});
+    }
+  });
+});
+
+// Floating to-top Button: nach 400px Scroll einblenden
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) toTop.classList.add('visible');
+  else toTop.classList.remove('visible');
+}, {passive:true});
+toTop.addEventListener('click', () => {
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+// iOS Fix: Suchfeld nach Fokus zentrieren (Tastatur überdeckt sonst)
+search.addEventListener('focus', () => {
+  setTimeout(() => {
+    search.scrollIntoView({behavior:'smooth', block:'center'});
+  }, 300);
+});
+
+render();
+</script>
+
+
+<button class="theme-fab" id="themeFab" type="button" aria-label="Hell-/Dunkelmodus umschalten" title="Hell / Dunkel"><span class="moon">🌙</span><span class="sun">☀️</span></button>
+<script>
+(function(){
+  var root=document.documentElement,meta=document.getElementById('theme-color-meta');
+  var colors={light:'#f4ede0',dark:'#15120f'};
+  function apply(t){root.setAttribute('data-theme',t);if(meta)meta.setAttribute('content',colors[t]||colors.light);}
+  apply(root.getAttribute('data-theme')||'dark');
+  var b=document.getElementById('themeFab');
+  if(b)b.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';apply(n);try{localStorage.setItem('theme',n);}catch(e){}});
+})();
+</script>
+
+</body>
+</html>

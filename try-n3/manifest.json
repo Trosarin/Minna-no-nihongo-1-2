@@ -1,0 +1,33 @@
+{
+  "name": "TRY! N3 補足 — Ergänzung",
+  "short_name": "TRY! N3",
+  "description": "Grammatik-Spickzettel für TRY! N3 補足",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4ede0",
+  "theme_color": "#7a1a14",
+  "lang": "de",
+  "categories": ["education", "books"],
+  "icons": [
+    {
+      "src": "../icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "../icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "../icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
