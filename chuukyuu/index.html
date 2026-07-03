@@ -2418,7 +2418,229 @@ const CARDS = [
     {jp:"<ruby>私<rt>わたし</rt></ruby>が ご<ruby>説明<rt>せつめい</rt></ruby> <b>いたします</b>。",de:"Ich werde es erklären. [③ 謙譲語]"},
     {jp:"お<ruby>名前<rt>なまえ</rt></ruby>を <ruby>教<rt>おし</rt></ruby>えて <b>いただけますか</b>。",de:"Könnten Sie mir bitte Ihren Namen nennen? [③ 謙譲語]"}
    ],
-   note:"💡 Die 7-8 wichtigsten Spezialverben auswendig wissen ist für N3/N2 und Büroalltag entscheidend.<br>⚠ Häufiger Fehler: <code>先生が<ruby>参<rt>まい</rt></ruby>ります</code> — 参る ist 謙譲語, NICHT für andere! → korrekt: <code>先生が いらっしゃいます</code>.<br>🔄 Vergleich Minna L50."}
+   note:"💡 Die 7-8 wichtigsten Spezialverben auswendig wissen ist für N3/N2 und Büroalltag entscheidend.<br>⚠ Häufiger Fehler: <code>先生が<ruby>参<rt>まい</rt></ruby>ります</code> — 参る ist 謙譲語, NICHT für andere! → korrekt: <code>先生が いらっしゃいます</code>.<br>🔄 Vergleich Minna L50."},
+
+  // ============ LEKTION 11 — N3: Sicherheit & Vermutung ============
+  {l:11, t:"〜はず(だ) / 〜はずがない", de:"müsste (eigentlich) so sein / kann unmöglich sein",
+   simpel:"<b>はず</b> = logische Erwartung: »es müsste so sein«. Verneint <b>はずがない</b> = »das kann nicht sein«.<br><span class=\"jp\">4<ruby>時<rt>じ</rt></ruby>に <ruby>着<rt>つ</rt></ruby>く<b>はず</b>です</span> = „müsste um 4 ankommen“",
+   rule:"はず drückt eine aus Fakten/Logik abgeleitete Erwartung aus — nicht ein bloßes Gefühl, sondern »nach allem, was ich weiß, müsste es so sein«. はずだ = begründete Erwartung; はずがない = »ausgeschlossen, unmöglich«. Anschluss wie ans Nomen.",
+   build:[
+    {form:"Verb",verb:"V<sub>Plain</sub> + はずだ",de:"müsste V-en"},
+    {form:"Adj / Nomen",verb:"い-Adj + はず / な-Adj + な / N + の + はず",de:"müsste … sein"},
+    {form:"Verneinung",verb:"〜はずがない",de:"kann unmöglich …"}
+   ],
+   pattern:{slots:[{text:"N は",role:"subj"},{text:"V<sub>Plain</sub>",role:"verb"},{text:"はずだ",role:"plain",label:"müsste"}],gloss:"»Logisch müsste es so sein.« はずだ = begründete Erwartung, はずがない = ausgeschlossen. Anschluss wie ans Nomen (N + の, な-Adj + な)."},
+   bauplan:[
+    "Nimm die Aussage, die du für logisch zwingend hältst, in <b>Plain-Form</b> (z. B. <code><ruby>来<rt>く</rt></ruby>る</code>).",
+    "Bei な-Adj/Nomen <code>な</code> bzw. <code>の</code> einschieben (<code><ruby>元気<rt>げんき</rt></ruby>な はず</code>, <code><ruby>休<rt>やす</rt></ruby>みの はず</code>).",
+    "Hänge <code>はずだ / はずです</code> an → »müsste …«.",
+    "Für »unmöglich«: stattdessen <code>はずがない</code> (<code>そんな はずがない</code> »das kann nicht sein«)."
+   ],
+   ex:[
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は もう <ruby>着<rt>つ</rt></ruby>いた<b>はず</b>です。",de:"Er müsste schon angekommen sein."},
+    {jp:"この <ruby>店<rt>みせ</rt></ruby>は <ruby>今日<rt>きょう</rt></ruby> <ruby>休<rt>やす</rt></ruby>みの<b>はず</b>だ。",de:"Dieser Laden müsste heute geschlossen haben."},
+    {jp:"まじめな <ruby>彼<rt>かれ</rt></ruby>が うそを つく<b>はずがない</b>。",de:"Der gewissenhafte Er kann unmöglich lügen."}
+   ],
+   note:"⚠ <b>はず</b> = logisch begründete Erwartung (nicht bloßes Gefühl — das wäre <b>〜だろう/〜と<ruby>思<rt>おも</rt></ruby>う</b>).<br>🔄 <b>はずだった</b> = »hätte eigentlich … sollen (kam aber anders)«. ✗ Nicht für die eigene Absicht benutzen."},
+
+  {l:11, t:"〜に <ruby>違<rt>ちが</rt></ruby>いない", de:"es muss ganz sicher … sein (starke Überzeugung)",
+   simpel:"Feste Überzeugung aus Indizien: »es muss … sein«.<br><span class=\"jp\"><ruby>犯人<rt>はんにん</rt></ruby>は <ruby>彼<rt>かれ</rt></ruby>に<b>違いない</b></span> = „Der Täter muss er sein“",
+   rule:"に違いない zeigt eine starke Schlussfolgerung des Sprechers: »ich bin (fast) sicher, dass …«. Stärker als 〜だろう, subjektiver als 〜はず. Anschluss an Plain-Form; bei な-Adj/Nomen ohne だ.",
+   build:[
+    {form:"Verb / い-Adj",verb:"V/い-Adj<sub>Plain</sub> + に違いない",de:"muss sicher …"},
+    {form:"な-Adj / Nomen",verb:"な-Adj / N + に違いない",de:"(ohne だ!)"},
+    {form:"lockerer",verb:"〜に <ruby>決<rt>き</rt></ruby>まっている",de:"»todsicher«, umgangssprachlich"}
+   ],
+   pattern:{slots:[{text:"N は",role:"subj"},{text:"[Vermutung]",role:"cond"},{text:"に違いない",role:"plain",label:"muss sicher sein"}],gloss:"»Aus den Indizien: es muss so sein.« Starke Überzeugung. Anschluss Plain; な-Adj/Nomen OHNE だ. Lockerer: に決まっている."},
+   bauplan:[
+    "Sammle das <b>Indiz</b> und formuliere deine Schlussfolgerung in <b>Plain-Form</b>.",
+    "Bei <b>な-Adj / Nomen</b> das <code>だ</code> weglassen (<code><ruby>嘘<rt>うそ</rt></ruby>に違いない</code>, nicht 嘘だに違いない).",
+    "Hänge <code>に違いない</code> an → »muss ganz sicher …«.",
+    "Ganz umgangssprachlich »todsicher«: <code>〜に<ruby>決<rt>き</rt></ruby>まっている</code>."
+   ],
+   ex:[
+    {jp:"<ruby>電気<rt>でんき</rt></ruby>が ついている。<ruby>家<rt>いえ</rt></ruby>に いる<b>に違いない</b>。",de:"Das Licht brennt. Sie muss zu Hause sein."},
+    {jp:"あんなに <ruby>並<rt>なら</rt></ruby>んでいる。おいしい<b>に違いない</b>。",de:"So eine lange Schlange — das muss lecker sein."},
+    {jp:"あの <ruby>顔<rt>かお</rt></ruby>、<ruby>嘘<rt>うそ</rt></ruby>をついている<b>に決まっている</b>。",de:"Bei dem Gesicht lügt sie todsicher."}
+   ],
+   note:"💡 Sicherheits-Skala: <b>かもしれない</b> (vielleicht) < <b>だろう</b> (wohl) < <b>に違いない</b> (muss sicher) < <b>に決まっている</b> (todsicher, salopp).<br>⚠ Es ist die Überzeugung des <b>Sprechers</b>, kein objektiver Beweis."},
+
+  {l:11, t:"〜わけがない / 〜わけにはいかない", de:"kann unmöglich … / darf/kann (aus Prinzip) nicht …",
+   simpel:"<b>わけがない</b> = »völlig ausgeschlossen«. <b>わけにはいかない</b> = »geht (aus Vernunft/Moral) nicht«.<br><span class=\"jp\"><ruby>今<rt>いま</rt></ruby> <ruby>休<rt>やす</rt></ruby>む<b>わけにはいかない</b></span> = „ich kann jetzt unmöglich Pause machen“",
+   rule:"Zwei verschiedene わけ-Muster: 〜わけがない = logisch unmöglich (»das kann gar nicht sein«). 〜わけにはいかない = es ist zwar möglich, aber aus sozialen/moralischen/vernünftigen Gründen geht es nicht.",
+   build:[
+    {form:"unmöglich (Logik)",verb:"V/Adj<sub>Plain</sub> + わけがない",de:"kann gar nicht …"},
+    {form:"darf nicht (Vernunft)",verb:"V<sub>辞書</sub> + わけにはいかない",de:"kann (moralisch) nicht …"},
+    {form:"muss (Verneinung)",verb:"V<sub>ない</sub> + わけにはいかない",de:"muss … (kann nicht lassen)"}
+   ],
+   pattern:{slots:[{text:"V<sub>辞書</sub>",role:"verb"},{text:"わけにはいかない",role:"plain",label:"geht nicht"}],gloss:"わけがない = logisch ausgeschlossen. わけにはいかない = möglich, aber aus Vernunft/Moral unmöglich. Vない + わけにはいかない = »ich MUSS (kann es nicht lassen)«."},
+   bauplan:[
+    "Für <b>logisch unmöglich</b>: Plain-Form + <code>わけがない</code> (<code>できるわけがない</code> »das kann ich unmöglich«).",
+    "Für <b>»darf/kann aus Prinzip nicht«</b>: 辞書形 + <code>わけにはいかない</code>.",
+    "Für <b>»ich muss«</b>: ない形 + <code>わけにはいかない</code> (<code><ruby>行<rt>い</rt></ruby>かないわけにはいかない</code> »ich muss hingehen«).",
+    "Merke: がない = Logik, にはいかない = Vernunft/Verpflichtung."
+   ],
+   ex:[
+    {jp:"あんな <ruby>簡単<rt>かんたん</rt></ruby>な <ruby>問題<rt>もんだい</rt></ruby>を <ruby>間違<rt>まちが</rt></ruby>える<b>わけがない</b>。",de:"So eine leichte Aufgabe kann ich unmöglich falsch machen."},
+    {jp:"<ruby>大事<rt>だいじ</rt></ruby>な <ruby>会議<rt>かいぎ</rt></ruby>だから、<ruby>休<rt>やす</rt></ruby>む<b>わけにはいかない</b>。",de:"Es ist eine wichtige Sitzung, ich kann unmöglich fehlen."},
+    {jp:"<ruby>約束<rt>やくそく</rt></ruby>したから、<ruby>行<rt>い</rt></ruby>かない<b>わけにはいかない</b>。",de:"Ich habe es versprochen, ich muss also hingehen."}
+   ],
+   note:"⚠ Nicht verwechseln: <b>わけがない</b> (unmöglich) ≠ <b>わけではない</b> (»nicht unbedingt/nicht dass«, L39) ≠ <b>わけにはいかない</b> (geht aus Prinzip nicht)."},
+
+  {l:11, t:"〜<ruby>恐<rt>おそ</rt></ruby>れがある", de:"es besteht die Gefahr, dass … (Negatives)",
+   simpel:"Warnung vor etwas Schlechtem: »es droht/es besteht die Gefahr, dass …«.<br><span class=\"jp\"><ruby>台風<rt>たいふう</rt></ruby>が <ruby>来<rt>く</rt></ruby>る<b>恐れがある</b></span> = „es droht ein Taifun“",
+   rule:"〜恐れがある warnt vor einer möglichen negativen Entwicklung. Schriftsprachlich, typisch für Nachrichten und Warnungen. Nur für Unerwünschtes! Anschluss: V辞書形 / N + の.",
+   build:[
+    {form:"Verb",verb:"V<sub>辞書</sub> + <ruby>恐<rt>おそ</rt></ruby>れがある",de:"es droht, dass …"},
+    {form:"Nomen",verb:"N + の + <ruby>恐<rt>おそ</rt></ruby>れがある",de:"Gefahr eines/einer …"},
+    {form:"Register",verb:"schriftlich / Nachrichten",de:"formell"}
+   ],
+   pattern:{slots:[{text:"[Negatives]",role:"cond"},{text:"<ruby>恐<rt>おそ</rt></ruby>れがある",role:"plain",label:"es droht"}],gloss:"»Es besteht die Gefahr, dass …« — nur für Unerwünschtes, schriftsprachlich. V辞書形 / N + の."},
+   bauplan:[
+    "Prüfe: ist die Folge wirklich <b>negativ</b>? (Nur dann passt 恐れがある.)",
+    "Verb in <b>辞書形</b> oder <b>Nomen + の</b> davor setzen.",
+    "Hänge <code><ruby>恐<rt>おそ</rt></ruby>れがある</code> an (<code>あります</code> höflich).",
+    "Für Erfreuliches NICHT verwenden — dort z. B. <code>〜かもしれない</code>."
+   ],
+   ex:[
+    {jp:"<ruby>大雨<rt>おおあめ</rt></ruby>で <ruby>川<rt>かわ</rt></ruby>が あふれる<b>恐れがあります</b>。",de:"Durch den Starkregen droht der Fluss über die Ufer zu treten."},
+    {jp:"この <ruby>薬<rt>くすり</rt></ruby>は <ruby>副作用<rt>ふくさよう</rt></ruby>の<b>恐れがある</b>。",de:"Bei diesem Medikament besteht die Gefahr von Nebenwirkungen."},
+    {jp:"<ruby>景気<rt>けいき</rt></ruby>が <ruby>悪<rt>わる</rt></ruby>くなる<b>恐れがある</b>。",de:"Es besteht die Gefahr, dass sich die Konjunktur verschlechtert."}
+   ],
+   note:"⚠ Nur für <b>Negatives</b>. Für Erwünschtes nutzt man 〜可能性がある (»Möglichkeit«).<br>🔄 Stärker/behördlicher als 〜かもしれない."},
+
+  {l:11, t:"〜に <ruby>決<rt>き</rt></ruby>まっている", de:"das ist doch todsicher … / natürlich …",
+   simpel:"Sprecher ist völlig überzeugt: »das ist doch klar/todsicher«.<br><span class=\"jp\">こんな <ruby>時間<rt>じかん</rt></ruby>、<ruby>寝<rt>ね</rt></ruby>ている<b>に決まっている</b></span> = „um die Zeit schläft er doch todsicher“",
+   rule:"に決まっている = die (subjektive) Überzeugung des Sprechers, dass etwas selbstverständlich/todsicher so ist. Umgangssprachlich, oft mit leichter Emotion (Ungeduld, »das ist doch offensichtlich«). Anschluss Plain; な-Adj/Nomen ohne だ.",
+   build:[
+    {form:"Verb / い-Adj",verb:"Plain + に決まっている",de:"todsicher …"},
+    {form:"な-Adj / Nomen",verb:"な-Adj / N + に決まっている",de:"(ohne だ)"},
+    {form:"Register",verb:"gesprochen, emotional",de:"salopp"}
+   ],
+   pattern:{slots:[{text:"[Aussage]",role:"cond"},{text:"に<ruby>決<rt>き</rt></ruby>まっている",role:"plain",label:"todsicher"}],gloss:"»Das ist doch todsicher so.« Subjektive Gewissheit, umgangssprachlich, oft emotional. Plain-Anschluss, な-Adj/N ohne だ."},
+   bauplan:[
+    "Formuliere deine Behauptung in <b>Plain-Form</b>.",
+    "Bei <b>な-Adj / Nomen</b> das <code>だ</code> weglassen.",
+    "Hänge <code>に<ruby>決<rt>き</rt></ruby>まっている</code> an → »das ist doch klar/todsicher«.",
+    "Ton beachten: klingt bestimmt bis ungeduldig — im formellen Kontext lieber <code>に違いない</code>."
+   ],
+   ex:[
+    {jp:"<ruby>試験<rt>しけん</rt></ruby><ruby>前<rt>まえ</rt></ruby>だから、<ruby>忙<rt>いそが</rt></ruby>しい<b>に決まっている</b>。",de:"Vor der Prüfung ist er doch todsicher beschäftigt."},
+    {jp:"タダなら、みんな <ruby>欲<rt>ほ</rt></ruby>しい<b>に決まっている</b>。",de:"Wenn es umsonst ist, will es natürlich jeder."},
+    {jp:"そんな <ruby>話<rt>はなし</rt></ruby>、<ruby>嘘<rt>うそ</rt></ruby><b>に決まっている</b>よ。",de:"So eine Geschichte ist doch todsicher gelogen."}
+   ],
+   note:"💡 Fast Synonym zu <b>に違いない</b>, aber salopper und emotionaler.<br>⚠ Weil sehr bestimmt: im höflichen/formellen Kontext lieber <b>でしょう / に違いない</b>."},
+
+  // ============ LEKTION 12 — N3: Verb-Aspekt ============
+  {l:12, t:"〜ようになる (allmähliche Veränderung)", de:"dazu kommen, dass … / (nach und nach) anfangen zu (können)",
+   simpel:"Zustandswechsel über Zeit — früher nicht, jetzt schon. Oft mit Potenzialform.<br><span class=\"jp\"><ruby>泳<rt>およ</rt></ruby>げる<b>ようになった</b></span> = „habe schwimmen gelernt“",
+   rule:"V<sub>辞書/可能</sub> + ようになる zeigt eine Veränderung über die Zeit: ein neuer Zustand oder eine neue Fähigkeit entsteht allmählich. Verneinung/Gegenteil: 〜なくなる (»es hört auf, dass …«).",
+   build:[
+    {form:"Fähigkeit / Zustand",verb:"V<sub>辞書/可能</sub> + ようになる",de:"es kommt dazu, dass …"},
+    {form:"Ergebnis",verb:"〜ようになった",de:"habe … gelernt / jetzt schon"},
+    {form:"Gegenteil",verb:"V<sub>ない</sub> → なくなる",de:"hört auf zu …"}
+   ],
+   pattern:{slots:[{text:"N は",role:"subj"},{text:"V<sub>可能</sub>",role:"verb"},{text:"ように なる",role:"plain",label:"kommt dazu"}],gloss:"»Es kommt (allmählich) dazu, dass …« — neue Fähigkeit/Gewohnheit über die Zeit. Gegenteil: 〜なくなる."},
+   bauplan:[
+    "Nimm das Verb, oft in der <b>Potenzialform</b> (<code><ruby>話<rt>はな</rt></ruby>せる</code>, <code><ruby>食<rt>た</rt></ruby>べられる</code>).",
+    "Hänge <code>ようになる</code> an → »es kommt dazu, dass ich … kann«.",
+    "Vergangenheit <code>ようになった</code> = »habe … gelernt / mache es jetzt«.",
+    "Für das Gegenteil: <code>V<sub>ない</sub> + なる</code> = <code>〜なくなる</code> (<code><ruby>食<rt>た</rt></ruby>べなくなった</code>)."
+   ],
+   ex:[
+    {jp:"<ruby>練習<rt>れんしゅう</rt></ruby>して、<ruby>日本語<rt>にほんご</rt></ruby>が <ruby>話<rt>はな</rt></ruby>せる<b>ようになりました</b>。",de:"Durch Üben habe ich Japanisch sprechen gelernt."},
+    {jp:"<ruby>最近<rt>さいきん</rt></ruby>、<ruby>朝<rt>あさ</rt></ruby> <ruby>早<rt>はや</rt></ruby>く <ruby>起<rt>お</rt></ruby>きる<b>ようになった</b>。",de:"In letzter Zeit stehe ich (neuerdings) früh auf."},
+    {jp:"<ruby>年<rt>とし</rt></ruby>を とって、<ruby>肉<rt>にく</rt></ruby>を <ruby>食<rt>た</rt></ruby>べ<b>なくなった</b>。",de:"Mit dem Alter esse ich kein Fleisch mehr."}
+   ],
+   note:"⚠ <b>ようになる</b> (passiert von selbst / Fähigkeit) ≠ <b>ようにする</b> (bewusste Absicht, nächste Karte).<br>💡 Meist mit Potenzialform; mit <ruby>辞書<rt>じしょ</rt></ruby>形 = neue Gewohnheit."},
+
+  {l:12, t:"〜ようにする (sich etw. angewöhnen)", de:"sich bemühen zu … / darauf achten, dass …",
+   simpel:"Bewusste Bemühung/Gewohnheit: »ich achte darauf, zu …«.<br><span class=\"jp\"><ruby>毎日<rt>まいにち</rt></ruby> <ruby>歩<rt>ある</rt></ruby>く<b>ようにして</b>います</span> = „ich achte darauf, täglich zu gehen“",
+   rule:"V<sub>辞書/ない</sub> + ようにする drückt eine bewusste Anstrengung oder Gewohnheit aus. ようにしている = laufende Gewohnheit; ようにしてください = höfliche Bitte »achten Sie bitte darauf, zu …«.",
+   build:[
+    {form:"Vorsatz",verb:"V<sub>辞書</sub> + ようにする",de:"sich bemühen zu …"},
+    {form:"vermeiden",verb:"V<sub>ない</sub> + ようにする",de:"darauf achten, nicht zu …"},
+    {form:"Bitte",verb:"〜ようにしてください",de:"achten Sie bitte darauf, …"}
+   ],
+   pattern:{slots:[{text:"[Vorsatz]",role:"cond"},{text:"ように する",role:"plain",label:"achte darauf"}],gloss:"»Ich achte bewusst darauf, zu …« — Absicht/Gewohnheit. Vない + ようにする = »darauf achten, NICHT zu …«. ようにしている = laufende Gewohnheit."},
+   bauplan:[
+    "Nimm das Verb in <b>辞書形</b> (für »zu tun«) oder <b>ない形</b> (für »zu vermeiden«).",
+    "Hänge <code>ようにする</code> an → »ich bemühe mich / achte darauf«.",
+    "Für die laufende Gewohnheit: <code>ようにしている</code>.",
+    "Als höfliche Bitte an andere: <code>ようにしてください</code>."
+   ],
+   ex:[
+    {jp:"<ruby>健康<rt>けんこう</rt></ruby>のため、<ruby>毎日<rt>まいにち</rt></ruby> <ruby>運動<rt>うんどう</rt></ruby>する<b>ようにしています</b>。",de:"Der Gesundheit zuliebe achte ich darauf, täglich Sport zu treiben."},
+    {jp:"<ruby>甘<rt>あま</rt></ruby>い ものを <ruby>食<rt>た</rt></ruby>べない<b>ようにしている</b>。",de:"Ich achte darauf, keine Süßigkeiten zu essen."},
+    {jp:"<ruby>時間<rt>じかん</rt></ruby>を <ruby>守<rt>まも</rt></ruby>る<b>ようにしてください</b>。",de:"Achten Sie bitte darauf, pünktlich zu sein."}
+   ],
+   note:"🔄 <b>ようになる</b> (von selbst, Ergebnis) ↔ <b>ようにする</b> (mit Absicht).<br>💡 <b>〜ように</b> ohne する = »damit …« (Zielsatz): <code><ruby>忘<rt>わす</rt></ruby>れないように メモする</code>."},
+
+  {l:12, t:"〜(よ)うとする", de:"versuchen zu … / gerade im Begriff sein zu …",
+   simpel:"Willensform + とする = »ansetzen/versuchen zu …«.<br><span class=\"jp\"><ruby>出<rt>で</rt></ruby>かけ<b>ようとした</b> とき</span> = „als ich gerade gehen wollte“",
+   rule:"Willensform (V<sub>よう/おう</sub>) + とする: (1) »versuchen zu …« (Anlauf nehmen), (2) »gerade im Begriff sein zu …« (kurz davor). Verneint 〜(よ)うとしない = »macht keine Anstalten zu …«.",
+   build:[
+    {form:"Willensform bilden",verb:"<ruby>行<rt>い</rt></ruby>く→行こう · <ruby>食<rt>た</rt></ruby>べる→食べよう",de:"う-V …おう / る-V …よう"},
+    {form:"versuchen",verb:"V<sub>(よ)う</sub> + とする",de:"Anlauf nehmen zu …"},
+    {form:"Verweigerung",verb:"〜(よ)うとしない",de:"macht keine Anstalten zu …"}
+   ],
+   pattern:{slots:[{text:"V<sub>(よ)う</sub>",role:"verb",label:"Willensform"},{text:"とする",role:"plain",label:"versuchen"}],gloss:"»Ich setze an / versuche zu …« oder »bin gerade dabei zu …«. Willensform + とする. Verneint 〜(よ)うとしない = keine Anstalten machen."},
+   bauplan:[
+    "Bilde die <b>Willensform</b>: う-Verb → …おう (<code><ruby>書<rt>か</rt></ruby>こう</code>), る-Verb → …よう (<code><ruby>見<rt>み</rt></ruby>よう</code>), する→しよう, <ruby>来<rt>く</rt></ruby>る→<ruby>来<rt>こ</rt></ruby>よう.",
+    "Hänge <code>とする</code> an → »versuchen / gerade dabei sein«.",
+    "Für einen Moment kurz davor: <code>〜(よ)うとした とき</code> = »als ich gerade … wollte«.",
+    "Verweigerung: <code>〜(よ)うとしない</code> (<code><ruby>話<rt>はな</rt></ruby>を <ruby>聞<rt>き</rt></ruby>こうとしない</code>)."
+   ],
+   ex:[
+    {jp:"ドアを <ruby>開<rt>あ</rt></ruby>け<b>ようとした</b>が、<ruby>開<rt>あ</rt></ruby>かなかった。",de:"Ich wollte die Tür öffnen, doch sie ging nicht auf."},
+    {jp:"<ruby>赤<rt>あか</rt></ruby>ちゃんが <ruby>立<rt>た</rt></ruby>と<b>うとしている</b>。",de:"Das Baby ist gerade dabei aufzustehen (versucht zu stehen)."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>私<rt>わたし</rt></ruby>の <ruby>話<rt>はなし</rt></ruby>を <ruby>聞<rt>き</rt></ruby>こ<b>うとしない</b>。",de:"Er macht keine Anstalten, mir zuzuhören."}
+   ],
+   note:"🔄 Vergleich L7 <b>(よ)うとしても、〜ない</b> (»auch wenn man versucht …, klappt es nicht«).<br>⚠ Nur mit <b>Willensverben</b>; nicht mit Zustandsverben wie ある/いる."},
+
+  {l:12, t:"〜ところ (だ) — gerade …", de:"gerade dabei / gerade eben getan / kurz davor",
+   simpel:"<b>ところ</b> markiert die zeitliche Phase einer Handlung.<br>V<sub>辞書</sub>ところ = gleich · V<sub>テ</sub>いるところ = mittendrin · V<sub>タ</sub>ところ = eben fertig",
+   rule:"ところ (»Punkt/Stelle«) zeigt die Phase: 辞書形 + ところだ = »gerade im Begriff«; ているところだ = »mitten dabei«; たところだ = »eben gerade getan«. Zeitlich, nicht örtlich.",
+   build:[
+    {form:"kurz davor",verb:"V<sub>辞書</sub> + ところだ",de:"gerade im Begriff zu …"},
+    {form:"mittendrin",verb:"V<sub>テ</sub>いる + ところだ",de:"gerade dabei zu …"},
+    {form:"eben fertig",verb:"V<sub>タ</sub> + ところだ",de:"gerade eben getan"}
+   ],
+   pattern:{slots:[{text:"V<sub>辞書/テいる/タ</sub>",role:"verb"},{text:"ところだ",role:"plain",label:"Phase"}],gloss:"Drei Phasen: するところ (davor) → しているところ (dabei) → したところ (danach). Zeitliche Phase, nicht der Ort."},
+   bauplan:[
+    "Frage: <b>vor</b>, <b>während</b> oder <b>direkt nach</b> der Handlung?",
+    "Davor → <code>V<sub>辞書</sub> + ところだ</code>; mittendrin → <code>V<sub>テ</sub>いる + ところだ</code>; eben fertig → <code>V<sub>タ</sub> + ところだ</code>.",
+    "Höflich einfach <code>ところです</code>.",
+    "Verstärke mit <code>ちょうど</code> (»gerade genau«) oder <code>たった<ruby>今<rt>いま</rt></ruby></code> (»soeben«)."
+   ],
+   ex:[
+    {jp:"<ruby>今<rt>いま</rt></ruby>から <ruby>出<rt>で</rt></ruby>かける<b>ところです</b>。",de:"Ich bin gerade im Begriff loszugehen."},
+    {jp:"<ruby>今<rt>いま</rt></ruby> <ruby>食<rt>た</rt></ruby>べている<b>ところ</b>です。",de:"Ich bin gerade beim Essen."},
+    {jp:"たった<ruby>今<rt>いま</rt></ruby> <ruby>着<rt>つ</rt></ruby>いた<b>ところ</b>です。",de:"Ich bin soeben angekommen."}
+   ],
+   note:"⚠ Nicht mit dem <b>Orts-ところ</b> (<ruby>場所<rt>ばしょ</rt></ruby>) verwechseln.<br>🔄 <b>たところ</b> (ohne だ) auch als Anschluss: »kaum dass … / als gerade …«. Vgl. auch <b>〜ところだった</b> = »beinahe wäre …«."},
+
+  {l:12, t:"Vマス + <ruby>切<rt>き</rt></ruby>る / <ruby>切<rt>き</rt></ruby>れない", de:"etw. vollständig tun / es nicht bis zum Ende schaffen",
+   simpel:"<b>〜きる</b> = ganz/restlos zu Ende; <b>〜きれない</b> = »nicht zu schaffen«, zu viel.<br><span class=\"jp\"><ruby>食<rt>た</rt></ruby>べ<b>きれない</b></span> = „kann nicht alles aufessen“",
+   rule:"V<sub>ます</sub>-Stamm + きる = eine Handlung vollständig / bis zum Ende ausführen (使いきる »ganz aufbrauchen«, 走りきる »durchhalten«). Negativ きれない = »es ist zu viel/zu groß, um es fertigzubringen«.",
+   build:[
+    {form:"vollständig",verb:"V<sub>マス</sub> + きる",de:"restlos / bis zum Ende V-en"},
+    {form:"nicht schaffbar",verb:"V<sub>マス</sub> + きれない",de:"kann nicht ganz …"},
+    {form:"häufig",verb:"<ruby>数<rt>かぞ</rt></ruby>えきれない",de:"unzählbar"}
+   ],
+   pattern:{slots:[{text:"V<sub>マス-Stamm</sub>",role:"verb"},{text:"きる / きれない",role:"plain",label:"ganz / nicht ganz"}],gloss:"きる = komplett, restlos, bis zum Ende (oft mit Anstrengung). きれない = zu viel/zu groß, um es zu schaffen. 数えきれない »unzählbar«."},
+   bauplan:[
+    "Bilde den <b>ます-Stamm</b> (<code><ruby>食<rt>た</rt></ruby>べる→食べ</code>, <code>使う→使い</code>).",
+    "Für »komplett«: + <code>きる</code> (<code>使いきる</code> »ganz aufbrauchen«).",
+    "Für »nicht zu schaffen«: + <code>きれない</code> (<code><ruby>食<rt>た</rt></ruby>べきれない</code>).",
+    "Merke die feste Wendung <code><ruby>数<rt>かぞ</rt></ruby>えきれない</code> = »unzählig«."
+   ],
+   ex:[
+    {jp:"この <ruby>本<rt>ほん</rt></ruby>を <ruby>一日<rt>いちにち</rt></ruby>で <ruby>読<rt>よ</rt></ruby>み<b>きった</b>。",de:"Ich habe dieses Buch an einem Tag ganz durchgelesen."},
+    {jp:"<ruby>量<rt>りょう</rt></ruby>が <ruby>多<rt>おお</rt></ruby>くて <ruby>食<rt>た</rt></ruby>べ<b>きれない</b>。",de:"Es ist so viel, dass ich es nicht ganz aufessen kann."},
+    {jp:"<ruby>空<rt>そら</rt></ruby>に <ruby>数<rt>かぞ</rt></ruby>え<b>きれない</b>ほどの <ruby>星<rt>ほし</rt></ruby>。",de:"Unzählige Sterne am Himmel."}
+   ],
+   note:"🔄 <b>〜<ruby>終<rt>お</rt></ruby>わる</b> (nur »fertig«, neutral, L4) vs <b>〜きる</b> (»komplett, restlos«, mit Nachdruck/Mühe).<br>💡 Auch für Zustände: <ruby>疲<rt>つか</rt></ruby>れきる »völlig erschöpft sein«."},
 
 ];
 
@@ -2637,7 +2859,8 @@ const backBtn = document.getElementById('backBtn');
 // Kurz-Themen pro Lektion (für Übersichts-Kacheln)
 const TOPICS = {
   1:"ファストフード", 2:"地震", 3:"最近の子ども", 4:"日本のイメージ", 5:"睡眠",
-  6:"日本人の発明", 7:"リサイクル", 8:"あいづち", 9:"男の仕事・女の仕事", 10:"ことばの使い方"
+  6:"日本人の発明", 7:"リサイクル", 8:"あいづち", 9:"男の仕事・女の仕事", 10:"ことばの使い方",
+  11:"N3 · Sicherheit & Vermutung", 12:"N3 · Verb-Aspekt"
 };
 
 const lessons = [...new Set(CARDS.map(c => c.l))].sort((a,b)=>a-b);
