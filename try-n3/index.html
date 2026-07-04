@@ -733,7 +733,7 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 <header>
   <h1>
     <span class="jp">TRY! N3 <ruby>補足<rt>ほそく</rt></ruby></span>
-    <span class="de">TRY! N3 · dem Buch folgend · Unit 1–11 (im Aufbau: 1–9)</span>
+    <span class="de">TRY! N3 · dem Buch folgend · Unit 1–11 (im Aufbau: 1–10)</span>
   </h1>
   <p class="subtitle">Klick auf eine Karte, um die Erklärung zu sehen</p>
 </header>
@@ -2984,6 +2984,228 @@ const CARDS = [
     {jp:"<ruby>心配<rt>しんぱい</rt></ruby>で、<ruby>電話<rt>でんわ</rt></ruby>し<b>ないでは いられなかった</b>。",de:"Vor Sorge konnte ich nicht anders, als anzurufen."}
    ],
    note:"🔄 vgl. chuukyuu L15-N3 & lesen ずには-Spotlight.<br>📖 Buch: der Ruf der Kirschblüten (完 Unit 9)."}
+,
+
+  // ============ UNIT 10 — ゆきの選択 (1)+(2) ============
+  {l:10, t:"87 · できる わけがない", de:"〜わけがない — kann unmöglich … (logisch ausgeschlossen)",
+   simpel:"»Völlig ausgeschlossen, dass das klappt.«<br><span class='jp'>できる<b>わけがない</b></span>",
+   rule:"Plain + わけがない: aus Sicht des Sprechers logisch unmöglich (»wie sollte das gehen?!«). Stärker und emotionaler als はずがない. Nicht mit わけではない (»nicht unbedingt«) verwechseln.",
+   build:[
+    {form:"Muster",verb:"Plain + わけがない",de:"unmöglich!"},
+    {form:"≈",verb:"はずがない",de:"logisch nicht möglich"},
+    {form:"⚠ anders",verb:"わけではない",de:"nicht unbedingt so"}
+   ],
+   pattern:{slots:[{text:"[Behauptung]",role:"cond"},{text:"わけがない",role:"plain",label:"unmöglich!"}],gloss:"»Ausgeschlossen, dass …« — starke logische Verneinung; Familie: わけではない/わけにはいかない."},
+   bauplan:[
+    "Die (abwegige) Behauptung in Plain-Form.",
+    "Hänge <code>わけがない</code> an.",
+    "Emotional-gesprochen: <code>わけない(でしょ)</code>.",
+    "Prüfe die わけ-Familie: がない (unmöglich) / ではない (nicht unbedingt) / にはいかない (geht nicht an)."
+   ],
+   ex:[
+    {jp:"<ruby>演劇<rt>えんげき</rt></ruby>で <ruby>食<rt>た</rt></ruby>べて いける? できる<b>わけがない</b>でしょう。",de:"Vom Theater leben? Das kann doch unmöglich klappen."},
+    {jp:"あの まじめな <ruby>彼<rt>かれ</rt></ruby>が うそを つく<b>わけがない</b>。",de:"Der gewissenhafte Kerl kann unmöglich lügen."},
+    {jp:"こんな <ruby>量<rt>りょう</rt></ruby>、<ruby>一日<rt>いちにち</rt></ruby>で <ruby>終<rt>お</rt></ruby>わる<b>わけがない</b>。",de:"Diese Menge kann unmöglich an einem Tag fertig werden."}
+   ],
+   note:"🔄 vgl. chuukyuu L11-N3 & lesen わけがない-Spotlight.<br>📖 Buch: der Vater über Yukis Theatertraum."},
+
+  {l:10, t:"88 · この <ruby>仕事<rt>しごと</rt></ruby>しか ない", de:"〜しかない — nur … / es bleibt nur …",
+   simpel:"<b>しか + Verneinung</b> = »nur«; <b>V しかない</b> = »bleibt nichts übrig als«.<br><span class='jp'>この <ruby>仕事<rt>しごと</rt></ruby><b>しか ない</b></span>",
+   rule:"N + しか + Verneinung: »nur N (und sonst nichts)« — mit Mangel-Gefühl. V<sub>辞書</sub> + しかない: »es bleibt nur, zu …« (Resignation/Entschluss).",
+   build:[
+    {form:"nur N",verb:"N + しか 〜ない",de:"nur N (zu wenig)"},
+    {form:"bleibt nur",verb:"V<sub>辞書</sub> + しかない",de:"keine andere Wahl"},
+    {form:"formeller",verb:"〜(より)ほかない",de:"gehoben"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj"},{text:"しか",role:"actor",label:"nur"},{text:"ない",role:"plain",label:"(sonst nichts)"}],gloss:"しか erzwingt Verneinung: »nur« mit Mangel-Nuance; V+しかない = einzige Option."},
+   bauplan:[
+    "»Nur N«: N + <code>しか</code> + <b>verneintes</b> Prädikat.",
+    "»Einzige Option«: V<sub>辞書</sub> + <code>しかない</code>.",
+    "Neutral-positiv wäre <code>だけ</code>.",
+    "Gehoben: <code>ほかない</code> (Buch-Ergänzung)."
+   ],
+   ex:[
+    {jp:"<ruby>安定<rt>あんてい</rt></ruby>を <ruby>考<rt>かんが</rt></ruby>えたら、この <ruby>仕事<rt>しごと</rt></ruby><b>しか ない</b>。",de:"Wenn man an Sicherheit denkt, gibt es nur diesen Job."},
+    {jp:"<ruby>財布<rt>さいふ</rt></ruby>に 500<ruby>円<rt>えん</rt></ruby><b>しか ない</b>。",de:"Ich habe nur 500 Yen im Portemonnaie."},
+    {jp:"こう なったら、やる<b>しかない</b>。",de:"Wenn es so weit ist, bleibt nur: durchziehen."}
+   ],
+   note:"🔄 しか (Mangel) ↔ だけ (neutral).<br>📖 Buch: die „vernünftige“ Option des Vaters."},
+
+  {l:10, t:"89 · <ruby>心配<rt>しんぱい</rt></ruby>して いる からこそ", de:"〜からこそ — gerade weil …",
+   simpel:"Betont den wahren Grund: »gerade WEIL ich mir Sorgen mache«.<br><span class='jp'><ruby>心配<rt>しんぱい</rt></ruby>して いる<b>からこそ</b></span>",
+   rule:"Plain + からこそ: hebt den Grund nachdrücklich hervor — oft gegen die Erwartung des Hörers (»nicht obwohl, sondern gerade weil«). Ende gern mit のだ/んだ.",
+   build:[
+    {form:"Muster",verb:"Plain + からこそ",de:"gerade weil"},
+    {form:"Satzende",verb:"〜のだ/んです",de:"Erklär-Abschluss"},
+    {form:"Basis",verb:"こそ (Betonung)",de:"vgl. chuukyuu L15-N3"}
+   ],
+   pattern:{slots:[{text:"[Grund]",role:"cond"},{text:"からこそ",role:"actor",label:"gerade weil"},{text:"[Handlung] んだ",role:"plain"}],gloss:"»Gerade weil A — deshalb B.« Grund mit Nachdruck, oft gegen die Erwartung."},
+   bauplan:[
+    "Formuliere den <b>wahren Grund</b> in Plain-Form.",
+    "Hänge <code>からこそ</code> an.",
+    "Schließe gern mit <code>んだ/のです</code>.",
+    "Typisch in Rechtfertigungen von Eltern/Lehrern 😉."
+   ],
+   ex:[
+    {jp:"あなたを <ruby>心配<rt>しんぱい</rt></ruby>して いる<b>からこそ</b>、<ruby>反対<rt>はんたい</rt></ruby>する んです。",de:"Gerade weil ich mir Sorgen um dich mache, bin ich dagegen."},
+    {jp:"<ruby>好<rt>す</rt></ruby>きだ<b>からこそ</b>、きびしく <ruby>言<rt>い</rt></ruby>う。",de:"Gerade weil ich dich mag, bin ich streng."},
+    {jp:"<ruby>苦労<rt>くろう</rt></ruby>した<b>からこそ</b>、<ruby>今<rt>いま</rt></ruby>の <ruby>私<rt>わたし</rt></ruby>が ある。",de:"Gerade wegen der harten Zeiten bin ich, wer ich heute bin."}
+   ],
+   note:"🔄 こそ-Familie: 今こそ · こちらこそ · <b>からこそ</b> · てこそ.<br>📖 Buch: das Argument der Eltern."},
+
+  {l:10, t:"90 · <ruby>演劇<rt>えんげき</rt></ruby>なんか しても", de:"〜なんか — so etwas wie … (abwertend) + ても",
+   simpel:"Abwertung + »selbst wenn«: »mit sowas wie Theater …«.<br><span class='jp'><ruby>演劇<rt>えんげき</rt></ruby><b>なんか</b> しても</span>",
+   rule:"N + なんか/なんて: spielt N herunter (abwertend oder bescheiden). Kombiniert mit ても: »selbst wenn man sowas (Unnützes) tut, …«. Vgl. das neutrale Beispiel-なんか (Punkt 66).",
+   build:[
+    {form:"abwertend",verb:"N + なんか + (Verneinung)",de:"sowas wie N (pff)"},
+    {form:"bescheiden",verb:"<ruby>私<rt>わたし</rt></ruby>なんか",de:"jemand wie ich"},
+    {form:"Satz-Staunen",verb:"[Satz] + なんて",de:"dass …! (unglaublich)"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj"},{text:"なんか",role:"actor",label:"sowas wie (pff)"},{text:"しても …ない",role:"plain",label:"bringt nichts"}],gloss:"Herabspielen: »sowas wie N (taugt nichts)« — hier gekoppelt mit ても + Verneinung."},
+   bauplan:[
+    "N + <code>なんか</code> → Geringschätzung.",
+    "Mit <code>しても/やっても</code> + Verneinung: »bringt eh nichts«.",
+    "Über sich selbst = Bescheidenheit.",
+    "⚠ Vorschlags-なんか (66) klingt gleich, wertet aber nicht ab — Kontext!"
+   ],
+   ex:[
+    {jp:"<ruby>演劇<rt>えんげき</rt></ruby><b>なんか</b> して いても、<ruby>食<rt>た</rt></ruby>べては いけないよ。",de:"Mit sowas wie Theater kannst du dich nicht ernähren."},
+    {jp:"<ruby>私<rt>わたし</rt></ruby>の <ruby>意見<rt>いけん</rt></ruby><b>なんか</b>、だれも <ruby>聞<rt>き</rt></ruby>かない。",de:"Auf sowas wie meine Meinung hört ja keiner."},
+    {jp:"あきらめる<b>なんて</b>、あなたらしくない。",de:"Aufgeben? Das sieht dir gar nicht ähnlich."}
+   ],
+   note:"🔄 なんか-Doppelrolle: Beispiel (66) vs <b>Abwertung (90)</b>.<br>📖 Buch: die verletzenden Worte des Vaters."},
+
+  {l:10, t:"91 · <ruby>生活<rt>せいかつ</rt></ruby>でき っこない", de:"〜っこない — klappt nie im Leben (salopp)",
+   simpel:"Saloppes »unmöglich«: »davon kann man nie leben«.<br><span class='jp'><ruby>生活<rt>せいかつ</rt></ruby>でき<b>っこない</b></span>",
+   rule:"V<sub>ます</sub>-Stamm + っこない: emphatische Unmöglichkeit in lockerer Sprache (= 絶対に〜ない). Oft mit Potentialform: できっこない, わかりっこない.",
+   build:[
+    {form:"Muster",verb:"V<sub>マス</sub> + っこない",de:"nie im Leben"},
+    {form:"mit Potential",verb:"でき/<ruby>読<rt>よ</rt></ruby>め/わかり + っこない",de:"kann unmöglich"},
+    {form:"Register",verb:"salopp, unter Vertrauten",de:"gesprochen"}
+   ],
+   pattern:{slots:[{text:"そんなの",role:"cond",label:"sowas"},{text:"V<sub>マス</sub>",role:"verb"},{text:"っこない",role:"plain",label:"nie!"}],gloss:"»Definitiv unmöglich« — ます-Stamm + っこない; formeller: わけがない (87)."},
+   bauplan:[
+    "ます-Stamm (gern der Potentialform): <code>できる→でき</code>.",
+    "Hänge <code>っこない</code> an.",
+    "Nur informell-mündlich.",
+    "Formell: <code>わけがない/はずがない</code>."
+   ],
+   ex:[
+    {jp:"<ruby>演劇<rt>えんげき</rt></ruby>だけで <ruby>生活<rt>せいかつ</rt></ruby>でき<b>っこない</b>。",de:"Allein vom Theater kann man nie im Leben leben."},
+    {jp:"<ruby>一晩<rt>ひとばん</rt></ruby>で <ruby>覚<rt>おぼ</rt></ruby>えられ<b>っこない</b>よ。",de:"Das lernt man doch nie in einer Nacht auswendig."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>に <ruby>勝<rt>か</rt></ruby>て<b>っこない</b>。",de:"Gegen ihn gewinne ich nie."}
+   ],
+   note:"🔄 Stufen: 〜そうもない < <b>っこない</b> ≈ わけがない.<br>📖 Buch: Yukis Zweifel — und die der Familie."},
+
+  {l:10, t:"92 · <ruby>大学<rt>だいがく</rt></ruby>を <ruby>出<rt>で</rt></ruby>た からといって", de:"〜からといって — nur weil … (heißt das nicht …)",
+   simpel:"Wehrt den Fehlschluss ab: »nur weil man die Uni abgeschlossen hat …«.<br><span class='jp'><ruby>出<rt>で</rt></ruby>た<b>からといって</b></span>",
+   rule:"Plain + からといって + Verneinung/Einschränkung: »aus A folgt nicht automatisch B«. Standard-Partner: とは限らない (93) oder わけではない. Gesprochen: からって.",
+   build:[
+    {form:"Muster",verb:"Plain + からといって",de:"nur weil …"},
+    {form:"Partner",verb:"〜とは<ruby>限<rt>かぎ</rt></ruby>らない",de:"heißt nicht, dass"},
+    {form:"salopp",verb:"〜からって",de:"gesprochen"}
+   ],
+   pattern:{slots:[{text:"[A]",role:"cond"},{text:"からといって",role:"actor",label:"nur weil"},{text:"[B nicht sicher]",role:"plain"}],gloss:"»Nur weil A, folgt nicht B« — fast immer mit verneinendem Nachsatz."},
+   bauplan:[
+    "Der voreilige Grund A in Plain-Form.",
+    "Hänge <code>からといって</code> an.",
+    "Nachsatz relativierend: <code>とは<ruby>限<rt>かぎ</rt></ruby>らない/わけではない</code>.",
+    "Mahnender Ton."
+   ],
+   ex:[
+    {jp:"<ruby>大学<rt>だいがく</rt></ruby>を <ruby>出<rt>で</rt></ruby>た<b>からといって</b>、いい <ruby>仕事<rt>しごと</rt></ruby>に つける とは <ruby>限<rt>かぎ</rt></ruby>らない。",de:"Nur weil man die Uni abgeschlossen hat, bekommt man nicht unbedingt einen guten Job."},
+    {jp:"<ruby>日本人<rt>にほんじん</rt></ruby>だ<b>からといって</b>、みんな <ruby>寿司<rt>すし</rt></ruby>が <ruby>好<rt>す</rt></ruby>きな わけではない。",de:"Nur weil jemand Japaner ist, mag er nicht automatisch Sushi."},
+    {jp:"<ruby>安<rt>やす</rt></ruby>い<b>からって</b>、<ruby>買<rt>か</rt></ruby>いすぎないで。",de:"Nur weil's billig ist — kauf nicht zu viel."}
+   ],
+   note:"💡 Duo: <b>からといって … とは限らない</b> (nächster Punkt!).<br>📖 Buch: Yukis Konter im Streit."},
+
+  {l:10, t:"93 · <ruby>就職<rt>しゅうしょく</rt></ruby>できる とは<ruby>限<rt>かぎ</rt></ruby>らない", de:"〜とは限らない — nicht unbedingt / nicht garantiert",
+   simpel:"»Es ist nicht garantiert, dass …« — lässt Ausnahmen zu.<br><span class='jp'>できる<b>とは 限らない</b></span>",
+   rule:"Plain + とは限らない: die Allgemein-Annahme gilt nicht immer. Oft mit 必ずしも (»nicht notwendigerweise«) und nach からといって (92).",
+   build:[
+    {form:"Muster",verb:"Plain + とは<ruby>限<rt>かぎ</rt></ruby>らない",de:"nicht unbedingt"},
+    {form:"oft mit",verb:"<ruby>必<rt>かなら</rt></ruby>ずしも",de:"nicht notwendigerweise"},
+    {form:"schwächer",verb:"わけではない",de:"nicht dass …"}
+   ],
+   pattern:{slots:[{text:"(<ruby>必<rt>かなら</rt></ruby>ずしも)",role:"time"},{text:"[Annahme]",role:"cond"},{text:"とは<ruby>限<rt>かぎ</rt></ruby>らない",role:"plain",label:"nicht garantiert"}],gloss:"»Nicht immer/unbedingt so« — es gibt Ausnahmen. Partner von からといって."},
+   bauplan:[
+    "Die Annahme in Plain-Form.",
+    "Optional <code><ruby>必<rt>かなら</rt></ruby>ずしも</code> davor.",
+    "Hänge <code>とは<ruby>限<rt>かぎ</rt></ruby>らない</code> an.",
+    "Nach からといって das Standard-Ende."
+   ],
+   ex:[
+    {jp:"<ruby>安定<rt>あんてい</rt></ruby>した <ruby>会社<rt>かいしゃ</rt></ruby>に <ruby>入<rt>はい</rt></ruby>れば <ruby>幸<rt>しあわ</rt></ruby>せだ<b>とは 限らない</b>。",de:"In einer sicheren Firma zu sein macht nicht unbedingt glücklich."},
+    {jp:"<ruby>有名<rt>ゆうめい</rt></ruby>な <ruby>大学<rt>だいがく</rt></ruby>を <ruby>出<rt>で</rt></ruby>ても、<ruby>成功<rt>せいこう</rt></ruby>する<b>とは 限らない</b>。",de:"Auch mit Elite-Uni-Abschluss ist Erfolg nicht garantiert."},
+    {jp:"<ruby>高<rt>たか</rt></ruby>い <ruby>物<rt>もの</rt></ruby>が <ruby>必<rt>かなら</rt></ruby>ずしも いい<b>とは 限らない</b>。",de:"Teures ist nicht notwendigerweise gut."}
+   ],
+   note:"🔄 vgl. chuukyuu-Ergänzung & lesen; Partner von 92.<br>📖 Buch: Yukis stärkstes Argument."},
+
+  {l:10, t:"94 · がんこな ことといったら", de:"〜といったら — was … angeht: unglaublich! (Ausruf)",
+   simpel:"Emotionaler Ausruf über eine Eigenschaft: »diese Sturheit …!«.<br><span class='jp'>がんこな こと<b>といったら</b></span>",
+   rule:"N/〜こと + といったら: ruft eine Eigenschaft aus, die kaum in Worte zu fassen ist (Bewunderung ODER Genervtsein). Fortsetzung oft 言葉にならない/〜ほど oder offen gelassen.",
+   build:[
+    {form:"Muster",verb:"N(の〜さ/こと) + といったら",de:"was … angeht:!"},
+    {form:"Fortsetzung",verb:"〜ほど / <ruby>言葉<rt>ことば</rt></ruby>に ならない",de:"unbeschreiblich"},
+    {form:"⚠ anders",verb:"といえば/というと",de:"Themeneröffnung (54)"}
+   ],
+   pattern:{slots:[{text:"[Eigenschaft]",role:"subj"},{text:"といったら",role:"actor",label:"…!"},{text:"(<ruby>言葉<rt>ことば</rt></ruby>に ならない)",role:"plain"}],gloss:"Ausruf: »Diese …-heit — nicht zu fassen!« — positiv wie negativ."},
+   bauplan:[
+    "Nominalisiere die Eigenschaft (<code>がんこな こと</code>, <code><ruby>美<rt>うつく</rt></ruby>しさ</code>).",
+    "Hänge <code>といったら</code> an.",
+    "Lass den Ausruf offen oder ergänze »unbeschreiblich«.",
+    "⚠ nicht mit といえば (Assoziation) verwechseln."
+   ],
+   ex:[
+    {jp:"<ruby>父<rt>ちち</rt></ruby>の がんこな こと<b>といったら</b>、<ruby>誰<rt>だれ</rt></ruby>も <ruby>説得<rt>せっとく</rt></ruby>できない。",de:"Die Sturheit meines Vaters — da beißt sich jeder die Zähne aus."},
+    {jp:"あの <ruby>舞台<rt>ぶたい</rt></ruby>の <ruby>感動<rt>かんどう</rt></ruby><b>といったら</b>、<ruby>言葉<rt>ことば</rt></ruby>に ならない。",de:"Die Ergriffenheit bei dieser Aufführung — unbeschreiblich."},
+    {jp:"<ruby>夏<rt>なつ</rt></ruby>の <ruby>稽古<rt>けいこ</rt></ruby>の <ruby>大変<rt>たいへん</rt></ruby>さ<b>といったら</b>!",de:"Diese Sommerproben — mörderisch!"}
+   ],
+   note:"🔄 = TRY-Ergänzung といったら, jetzt an Buchposition.<br>📖 Buch: Yuki über ihren Vater."},
+
+  {l:10, t:"95 · <ruby>何<rt>なに</rt></ruby>も <ruby>知<rt>し</rt></ruby>らない くせに", de:"〜くせに — obwohl … (mit Vorwurf)",
+   simpel:"Vorwurfsvolles »obwohl«: »dabei hast du doch keine Ahnung!«.<br><span class='jp'><ruby>知<rt>し</rt></ruby>らない<b>くせに</b></span>",
+   rule:"Plain (な-Adj な / N の) + くせに: »obwohl« mit Kritik/Verachtung — der Widerspruch empört den Sprecher. Meist gleiches Subjekt in beiden Teilen; auch als Satzende (知らないくせに!).",
+   build:[
+    {form:"Muster",verb:"Plain/N の + くせに",de:"obwohl (empört)"},
+    {form:"Satzende",verb:"〜くせに!",de:"abgebrochener Vorwurf"},
+    {form:"neutral",verb:"〜のに",de:"ohne Wertung"}
+   ],
+   pattern:{slots:[{text:"[A: obwohl]",role:"cond"},{text:"くせに",role:"actor",label:"Vorwurf"},{text:"[B: Kritik]",role:"plain"}],gloss:"»Obwohl A (unverschämt!), B« — immer wertend; neutral = のに."},
+   bauplan:[
+    "Das Ärgernis A in Plain-Form (N + <code>の</code>).",
+    "Hänge <code>くせに</code> an.",
+    "Kritik B — oder als Satzende abbrechen: <code>くせに!</code>",
+    "Nur bei Personen, nie höflich."
+   ],
+   ex:[
+    {jp:"<ruby>演劇<rt>えんげき</rt></ruby>の こと、<ruby>何<rt>なに</rt></ruby>も <ruby>知<rt>し</rt></ruby>らない<b>くせに</b>!",de:"Dabei hast du doch null Ahnung vom Theater!"},
+    {jp:"できない<b>くせに</b>、<ruby>偉<rt>えら</rt></ruby>そうに <ruby>言<rt>い</rt></ruby>う。",de:"Kann selbst nichts, spielt sich aber auf."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもの<b>くせに</b>、<ruby>口<rt>くち</rt></ruby>を <ruby>出<rt>だ</rt></ruby>すな。",de:"Du bist ein Kind — misch dich nicht ein."}
+   ],
+   note:"🔄 vgl. chuukyuu L15-N3 & lesen くせに-Spotlight.<br>📖 Buch: der Streit eskaliert."},
+
+  {l:10, t:"96 · <ruby>子<rt>こ</rt></ruby>どもっぽい <ruby>夢<rt>ゆめ</rt></ruby>", de:"〜っぽい — wirkt wie … / -haft (hier: kindisch)",
+   simpel:"<b>っぽい</b> macht »-haft«-Adjektive: »ein kindischer Traum«.<br><span class='jp'><ruby>子<rt>こ</rt></ruby>ども<b>っぽい</b> <ruby>夢<rt>ゆめ</rt></ruby></span>",
+   rule:"N/V<sub>ます</sub>/Adj-Stamm + っぽい: »hat den Anschein/die Neigung von« — wird wie ein い-Adjektiv gebeugt. 子どもっぽい ist (anders als 子どもらしい!) meist negativ.",
+   build:[
+    {form:"Nomen",verb:"N + っぽい",de:"-haft, wie N"},
+    {form:"Verb",verb:"V<sub>マス</sub> + っぽい",de:"neigt zu (<ruby>忘<rt>わす</rt></ruby>れっぽい)"},
+    {form:"⚠ Kontrast",verb:"N + らしい",de:"typisch-positiv"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj"},{text:"っぽい",role:"actor",label:"-haft"},{text:"N₂",role:"obj"}],gloss:"Anschein/Neigung, wie い-Adj gebeugt. 子どもっぽい (kindisch, negativ) ≠ 子どもらしい (kindgerecht)."},
+   bauplan:[
+    "N oder ます-Stamm + <code>っぽい</code>.",
+    "Beuge wie い-Adjektiv (<code>っぽくない</code>).",
+    "Negativ-Tendenz: kindisch, vergesslich, reizbar.",
+    "Positiv-typisch → <code>らしい</code> (Punkt 106)."
+   ],
+   ex:[
+    {jp:"<ruby>役者<rt>やくしゃ</rt></ruby>に なりたい なんて、<ruby>子<rt>こ</rt></ruby>ども<b>っぽい</b> <ruby>夢<rt>ゆめ</rt></ruby>だと <ruby>言<rt>い</rt></ruby>われた。",de:"Schauspielerin werden? Das nannte er einen kindischen Traum."},
+    {jp:"<ruby>祖母<rt>そぼ</rt></ruby>は <ruby>最近<rt>さいきん</rt></ruby> <ruby>忘<rt>わす</rt></ruby>れ<b>っぽく</b> なった。",de:"Großmutter ist neuerdings vergesslich geworden."},
+    {jp:"<ruby>白<rt>しろ</rt></ruby><b>っぽい</b> コートの <ruby>人<rt>ひと</rt></ruby>。",de:"Die Person im weißlichen Mantel."}
+   ],
+   note:"🔄 vgl. chuukyuu L18-N3 (っぽい/がち/らしい-Dreieck).<br>📖 Buch: das Urteil über Yukis Traum (完 Unit 10)."}
 
 ];
 
