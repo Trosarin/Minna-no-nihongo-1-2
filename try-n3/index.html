@@ -733,7 +733,7 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 <header>
   <h1>
     <span class="jp">TRY! N3 <ruby>補足<rt>ほそく</rt></ruby></span>
-    <span class="de">TRY! N3 · dem Buch folgend · Unit 1–11 (im Aufbau: 1–10)</span>
+    <span class="de">TRY! N3 · dem Buch folgend · Unit 1–11 · 113 Punkte</span>
   </h1>
   <p class="subtitle">Klick auf eine Karte, um die Erklärung zu sehen</p>
 </header>
@@ -3206,6 +3206,382 @@ const CARDS = [
     {jp:"<ruby>白<rt>しろ</rt></ruby><b>っぽい</b> コートの <ruby>人<rt>ひと</rt></ruby>。",de:"Die Person im weißlichen Mantel."}
    ],
    note:"🔄 vgl. chuukyuu L18-N3 (っぽい/がち/らしい-Dreieck).<br>📖 Buch: das Urteil über Yukis Traum (完 Unit 10)."}
+,
+
+  // ============ UNIT 11 — 友だちのお見舞い (1)+(2) ============
+  {l:11, t:"97 · おじさんの せいですよ", de:"〜のせいだ — wegen … / … ist schuld",
+   simpel:"Schuldzuweisung: »das ist Onkels Schuld«.<br><span class='jp'>おじさんの<b>せいですよ</b></span>",
+   rule:"N + の + せいだ/せいで: nennt vorwurfsvoll die Ursache eines schlechten Ergebnisses. Unsicher: せいか (»vielleicht wegen«); positiv: おかげで (51).",
+   build:[
+    {form:"Schuld",verb:"N の + せいだ/せいで",de:"wegen N (negativ)"},
+    {form:"unsicher",verb:"〜せいか",de:"womöglich wegen"},
+    {form:"positiv",verb:"〜おかげで",de:"dank (51)"}
+   ],
+   pattern:{slots:[{text:"N の",role:"subj",label:"Schuldiger"},{text:"せいだ",role:"plain",label:"ist schuld"}],gloss:"»N ist schuld (an etwas Schlechtem)« — Gegenstück zu おかげで."},
+   bauplan:[
+    "Nenne den <b>Verursacher</b> (N + <code>の</code>).",
+    "Hänge <code>せいだ/せいです</code> an — oder <code>せいで</code> + Folge.",
+    "Unsichere Vermutung: <code>せいか</code>.",
+    "Gutes Ergebnis → <code>おかげで</code>."
+   ],
+   ex:[
+    {jp:"かぜを ひいたのは、<ruby>薄着<rt>うすぎ</rt></ruby>の<b>せいですよ</b>。",de:"Dass du dich erkältet hast, liegt an der dünnen Kleidung."},
+    {jp:"<ruby>寝不足<rt>ねぶそく</rt></ruby>の<b>せいで</b>、<ruby>頭<rt>あたま</rt></ruby>が <ruby>痛<rt>いた</rt></ruby>い。",de:"Wegen Schlafmangels tut mir der Kopf weh."},
+    {jp:"<ruby>年<rt>とし</rt></ruby>の<b>せいか</b>、<ruby>疲<rt>つか</rt></ruby>れやすく なった。",de:"Vielleicht wegen des Alters werde ich schneller müde."}
+   ],
+   note:"🔄 Trio: おかげで (Dank, 51) · <b>せいだ</b> (Schuld) · せいか (unsicher).<br>📖 Buch: die Krankenbesuchs-Neckerei."},
+
+  {l:11, t:"98 · ゆきの ことだから", de:"〜のことだから — so wie wir … kennen, bestimmt …",
+   simpel:"Vermutung aus bekanntem Charakter: »typisch Yuki — bestimmt …«.<br><span class='jp'>ゆきの <b>ことだから</b></span>",
+   rule:"[Person] + の + ことだから: aus dem beiden Gesprächspartnern bekannten Charakter wird eine Vermutung abgeleitet. Nachsatz: だろう/はずだ/に違いない.",
+   build:[
+    {form:"Muster",verb:"[Person] の + ことだから",de:"wie man X kennt"},
+    {form:"Nachsatz",verb:"だろう / はずだ / に<ruby>違<rt>ちが</rt></ruby>いない",de:"Vermutung"},
+    {form:"⚠ anders",verb:"ものだから (65)",de:"Rechtfertigung!"}
+   ],
+   pattern:{slots:[{text:"[Person] の",role:"subj",label:"bekannt wie"},{text:"ことだから",role:"actor",label:"typisch!"},{text:"[Vermutung]",role:"plain"}],gloss:"Charakterbasierte Vermutung über eine bekannte Person."},
+   bauplan:[
+    "Person (+ typische Eigenschaft) + <code>の ことだから</code>.",
+    "Vermutung passend zum Charakter.",
+    "Abschluss <code>だろう/はずだ</code>.",
+    "Nur bei beidseitig bekannten Personen."
+   ],
+   ex:[
+    {jp:"がんばりやの ゆきの <b>ことだから</b>、すぐ <ruby>元気<rt>げんき</rt></ruby>に なるよ。",de:"So eine Kämpferin wie Yuki ist bestimmt schnell wieder auf den Beinen."},
+    {jp:"<ruby>時間<rt>じかん</rt></ruby>に <ruby>正確<rt>せいかく</rt></ruby>な <ruby>彼<rt>かれ</rt></ruby>の <b>ことだから</b>、もう <ruby>着<rt>つ</rt></ruby>いて いる はずだ。",de:"Pünktlich wie er ist, ist er bestimmt schon da."},
+    {jp:"あの <ruby>二人<rt>ふたり</rt></ruby>の <b>ことだから</b>、また けんかだろう。",de:"Die beiden kennt man ja — sicher wieder Streit."}
+   ],
+   note:"⚠ <b>ことだから</b> (Person-Vermutung) ≠ <b>ものだから</b> (Rechtfertigung, 65).<br>📖 Buch: die Freunde über die kranke Yuki."},
+
+  {l:11, t:"99 · <ruby>散歩<rt>さんぽ</rt></ruby>でも したら どう?", de:"N でも + 〜たらどう — wie wär's, wenn du mal …?",
+   simpel:"Sanfter Vorschlag: »mach doch mal z. B. einen Spaziergang«.<br><span class='jp'><ruby>散歩<rt>さんぽ</rt></ruby><b>でも したら どう</b>?</span>",
+   rule:"N + でも (»z. B./oder so«) + V<sub>たら</sub> + どう(ですか): unaufdringlicher Ratschlag. でも hält den Vorschlag offen, たらどう fragt nach der Reaktion.",
+   build:[
+    {form:"Vorschlag",verb:"N でも + V<sub>たら</sub> どう?",de:"wie wär's mit …?"},
+    {form:"höflich",verb:"〜たら どうですか/いかがですか",de:"formeller"},
+    {form:"nur たら",verb:"V<sub>たら</sub>?",de:"ganz knapp (locker)"}
+   ],
+   pattern:{slots:[{text:"N でも",role:"obj",label:"z. B."},{text:"V<sub>たら</sub>",role:"verb"},{text:"どう?",role:"plain",label:"wie wär's?"}],gloss:"Unaufdringlicher Rat: »Wie wäre es, wenn du mal … (oder so)?«"},
+   bauplan:[
+    "Vorschlags-Objekt + <code>でも</code> (»oder so«).",
+    "Verb in der <b>たら-Form</b>.",
+    "Frage: <code>どう?/どうですか</code>.",
+    "Für Kranke/Erschöpfte der Klassiker: <code><ruby>少<rt>すこ</rt></ruby>し <ruby>休<rt>やす</rt></ruby>んだら?</code>"
+   ],
+   ex:[
+    {jp:"<ruby>気分<rt>きぶん</rt></ruby><ruby>転換<rt>てんかん</rt></ruby>に、<ruby>散歩<rt>さんぽ</rt></ruby><b>でも したら どう</b>?",de:"Wie wär's zur Abwechslung mal mit einem Spaziergang?"},
+    {jp:"お<ruby>茶<rt>ちゃ</rt></ruby><b>でも <ruby>飲<rt>の</rt></ruby>んだら どうですか</b>。",de:"Wie wäre es, einen Tee oder so zu trinken?"},
+    {jp:"<ruby>疲<rt>つか</rt></ruby>れて いるなら、<ruby>早<rt>はや</rt></ruby>く <ruby>寝<rt>ね</rt></ruby><b>たら</b>?",de:"Wenn du müde bist — geh doch früh schlafen?"}
+   ],
+   note:"💡 でも entschärft (kein Befehl), たらどう schlägt vor.<br>📖 Buch: gut gemeinte Ratschläge am Krankenbett."},
+
+  {l:11, t:"100 · <ruby>寝<rt>ね</rt></ruby>て ばかりは いられない", de:"〜てばかりはいられない — kann nicht ewig nur …",
+   simpel:"»Ich kann nicht ewig nur im Bett liegen!«<br><span class='jp'><ruby>寝<rt>ね</rt></ruby>て<b>ばかりは いられない</b></span>",
+   rule:"V<sub>テ</sub> + ばかりはいられない (auch ばかりもいられない): man kann/darf nicht länger nur eine Sache tun — Zeit zu handeln. Kombiniert てばかり (41) mit いられない.",
+   build:[
+    {form:"Muster",verb:"V<sub>テ</sub> + ばかりは いられない",de:"kann nicht nur … bleiben"},
+    {form:"Variante",verb:"〜ばかりも いられない",de:"gleichbedeutend"},
+    {form:"Basis",verb:"てばかりいる (41)",de:"nichts als …"}
+   ],
+   pattern:{slots:[{text:"V<sub>テ</sub>",role:"verb"},{text:"ばかりは",role:"actor",label:"nur"},{text:"いられない",role:"plain",label:"geht nicht länger"}],gloss:"»Es geht nicht an, weiter nur zu …« — Aufbruchssignal."},
+   bauplan:[
+    "Die bisherige Nur-Tätigkeit in der <b>て-Form</b>.",
+    "Hänge <code>ばかりは(も) いられない</code> an.",
+    "Signal: jetzt muss etwas anderes geschehen.",
+    "Oft mit <code>いつまでも</code>."
+   ],
+   ex:[
+    {jp:"いつまでも <ruby>寝<rt>ね</rt></ruby>て<b>ばかりは いられない</b>。",de:"Ich kann nicht ewig nur im Bett liegen."},
+    {jp:"<ruby>泣<rt>な</rt></ruby>いて<b>ばかりも いられない</b>から、<ruby>前<rt>まえ</rt></ruby>を <ruby>向<rt>む</rt></ruby>こう。",de:"Wir können nicht ewig weinen — schauen wir nach vorn."},
+    {jp:"<ruby>遊<rt>あそ</rt></ruby>んで<b>ばかりは いられない</b>。<ruby>試験<rt>しけん</rt></ruby>が <ruby>近<rt>ちか</rt></ruby>い。",de:"Nur faulenzen geht nicht mehr — die Prüfung naht."}
+   ],
+   note:"🔄 Steigerung von てばかりいる (41) + いられない.<br>📖 Buch: Yukis Ungeduld im Krankenbett."},
+
+  {l:11, t:"101 · <ruby>生活<rt>せいかつ</rt></ruby>を <ruby>変<rt>か</rt></ruby>える ことにした", de:"〜ことにする — beschließen, zu …",
+   simpel:"Eigener Entschluss: »ich habe beschlossen, mein Leben zu ändern«.<br><span class='jp'><ruby>変<rt>か</rt></ruby>える<b>ことにした</b></span>",
+   rule:"V<sub>辞書/ない</sub> + ことにする: bewusste eigene Entscheidung. ことにしている = zur Gewohnheit gemachte Entscheidung. Fremdbestimmt: ことになる (»es wurde beschlossen«).",
+   build:[
+    {form:"Entschluss",verb:"V<sub>辞書/ない</sub> + ことにする",de:"beschließen zu …"},
+    {form:"Gewohnheit",verb:"〜ことにしている",de:"halte es so"},
+    {form:"fremdbestimmt",verb:"〜ことになる",de:"es wurde beschlossen"}
+   ],
+   pattern:{slots:[{text:"V<sub>辞書</sub>",role:"verb"},{text:"ことにした",role:"plain",label:"habe beschlossen"}],gloss:"Eigene Entscheidung; Gewohnheit ことにしている; von außen: ことになった."},
+   bauplan:[
+    "Entscheidung im <b>辞書形/ない形</b>.",
+    "Hänge <code>ことにする/した</code> an.",
+    "Dauerhafte Regel: <code>ことにしている</code>.",
+    "Von außen entschieden → <code>ことになった</code>."
+   ],
+   ex:[
+    {jp:"これからは <ruby>規則正<rt>きそくただ</rt></ruby>しい <ruby>生活<rt>せいかつ</rt></ruby>を する<b>ことにした</b>。",de:"Ich habe beschlossen, ab jetzt geregelt zu leben."},
+    {jp:"<ruby>毎朝<rt>まいあさ</rt></ruby> ジョギングする<b>ことにしている</b>。",de:"Ich habe es mir zur Regel gemacht, jeden Morgen zu joggen."},
+    {jp:"<ruby>来月<rt>らいげつ</rt></ruby> <ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>す<b>ことになりました</b>。",de:"Es hat sich ergeben, dass ich nächsten Monat umziehe."}
+   ],
+   note:"🔄 ことにする (selbst) ↔ ことになる (von außen).<br>📖 Buch: Yukis Vorsatz nach der Krankheit."},
+
+  {l:11, t:"102 · テレビを つけっぱなし", de:"〜っぱなし — (an)gelassen und so belassen",
+   simpel:"Etwas tun und (nachlässig) so lassen: »Fernseher angelassen«.<br><span class='jp'>つけ<b>っぱなし</b></span>",
+   rule:"V<sub>ます</sub>-Stamm + っぱなし: man tut etwas und lässt es dann so (oft nachlässig: つけっぱなし, 開けっぱなし) — oder ein Zustand dauert ununterbrochen (立ちっぱなし).",
+   build:[
+    {form:"belassen",verb:"V<sub>マス</sub> + っぱなし",de:"… gelassen"},
+    {form:"ununterbrochen",verb:"<ruby>立<rt>た</rt></ruby>ち/<ruby>座<rt>すわ</rt></ruby>りっぱなし",de:"ständig stehend/sitzend"},
+    {form:"mit に",verb:"〜っぱなしに する",de:"…-gelassen lassen"}
+   ],
+   pattern:{slots:[{text:"N を",role:"obj"},{text:"V<sub>マス</sub>",role:"verb"},{text:"っぱなし",role:"plain",label:"gelassen"}],gloss:"»Getan und so belassen« (nachlässig) oder »pausenlos« — ます-Stamm + っぱなし."},
+   bauplan:[
+    "ます-Stamm + <code>っぱなし</code>.",
+    "Als Handlung: <code>っぱなしに する</code>.",
+    "Dauer-Lesart: <code><ruby>立<rt>た</rt></ruby>ちっぱなし</code> (den ganzen Tag stehen).",
+    "Meist mit tadelndem Unterton."
+   ],
+   ex:[
+    {jp:"テレビを つけ<b>っぱなし</b>で <ruby>寝<rt>ね</rt></ruby>て しまった。",de:"Ich bin mit laufendem Fernseher eingeschlafen."},
+    {jp:"<ruby>窓<rt>まど</rt></ruby>を <ruby>開<rt>あ</rt></ruby>け<b>っぱなし</b>に しないで。",de:"Lass das Fenster nicht offen stehen."},
+    {jp:"<ruby>仕事<rt>しごと</rt></ruby>で <ruby>一日中<rt>いちにちじゅう</rt></ruby> <ruby>立<rt>た</rt></ruby>ち<b>っぱなし</b>だった。",de:"Auf der Arbeit stand ich den ganzen Tag durch."}
+   ],
+   note:"🔄 vgl. chuukyuu-Ergänzung & lesen っぱなし-Spotlight (Kaidan!).<br>📖 Buch: das chaotische Krankenzimmer."},
+
+  {l:11, t:"103 · <ruby>部屋<rt>へや</rt></ruby><ruby>中<rt>じゅう</rt></ruby> ごみだらけ", de:"〜だらけ — voller … (unangenehm)",
+   simpel:"Übervoll mit Unangenehmem: »das ganze Zimmer voller Müll«.<br><span class='jp'>ごみ<b>だらけ</b></span>",
+   rule:"N + だらけ: übersät/voll von etwas Negativem (ごみ, ほこり, 間違い, どろ). Mit N中 (»das ganze N«) kombiniert: 部屋中ごみだらけ.",
+   build:[
+    {form:"Muster",verb:"N + だらけ",de:"voller N (negativ)"},
+    {form:"Ort ganz",verb:"N<ruby>中<rt>じゅう</rt></ruby> + 〜だらけ",de:"überall voller …"},
+    {form:"attributiv",verb:"だらけの + N",de:"ein … voller N"}
+   ],
+   pattern:{slots:[{text:"<ruby>部屋<rt>へや</rt></ruby><ruby>中<rt>じゅう</rt></ruby>",role:"subj",label:"überall"},{text:"ごみ",role:"obj"},{text:"だらけ",role:"plain",label:"voller"}],gloss:"»Übersät mit (Unangenehmem)« — ごみだらけ, 間違いだらけ; fast immer negativ."},
+   bauplan:[
+    "Das (unangenehme) Zuviel als N + <code>だらけ</code>.",
+    "Fläche/Zeitraum: <code>N<ruby>中<rt>じゅう</rt></ruby></code> davor.",
+    "Vor Nomen: <code>だらけの</code>.",
+    "Nur Negatives (Müll, Staub, Fehler, Schlamm, Blut)."
+   ],
+   ex:[
+    {jp:"<ruby>部屋<rt>へや</rt></ruby><ruby>中<rt>じゅう</rt></ruby> ごみ<b>だらけ</b>じゃない!",de:"Dein ganzes Zimmer ist ja voller Müll!"},
+    {jp:"この <ruby>作文<rt>さくぶん</rt></ruby>は <ruby>間違<rt>まちが</rt></ruby>い<b>だらけ</b>だ。",de:"Dieser Aufsatz ist voller Fehler."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>どもたちは どろ<b>だらけ</b>に なって <ruby>帰<rt>かえ</rt></ruby>って きた。",de:"Die Kinder kamen schlammverschmiert nach Hause."}
+   ],
+   note:"🔄 vgl. chuukyuu L19-N3 & lesen だらけ-Eintrag.<br>📖 Buch: der Zustand von Yukis Zimmer."},
+
+  {l:11, t:"104 · <ruby>何<rt>なに</rt></ruby>も <ruby>食<rt>た</rt></ruby>べる <ruby>気<rt>き</rt></ruby>が しない", de:"〜気がする/しない — das Gefühl haben (keine Lust verspüren)",
+   simpel:"»Mir ist nicht nach Essen« — <b>気がしない</b>.<br><span class='jp'><ruby>食<rt>た</rt></ruby>べる <ruby>気<rt>き</rt></ruby>が <b>しない</b></span>",
+   rule:"V<sub>辞書</sub> + 気がする/気がしない: das (unwillkürliche) Gefühl, etwas tun zu wollen — verneint: keinerlei Antrieb. Auch Vermutungs-気がする (»mir ist, als ob«).",
+   build:[
+    {form:"kein Antrieb",verb:"V<sub>辞書</sub> + <ruby>気<rt>き</rt></ruby>が しない",de:"mir ist nicht nach …"},
+    {form:"Ahnung",verb:"[Plain] + <ruby>気<rt>き</rt></ruby>が する",de:"habe das Gefühl"},
+    {form:"stärker",verb:"<ruby>気<rt>き</rt></ruby>に なる/<ruby>気<rt>き</rt></ruby>が <ruby>進<rt>すす</rt></ruby>まない",de:"beschäftigt mich / widerstrebt"}
+   ],
+   pattern:{slots:[{text:"<ruby>何<rt>なに</rt></ruby>も",role:"obj"},{text:"V<sub>辞書</sub> <ruby>気<rt>き</rt></ruby>が",role:"verb",label:"Lust auf"},{text:"しない",role:"plain",label:"fehlt"}],gloss:"»Kein innerer Antrieb zu V« bzw. positiv: vage Ahnung (気がする)."},
+   bauplan:[
+    "Handlung im <b>辞書形</b> + <code><ruby>気<rt>き</rt></ruby>が しない</code>.",
+    "Ahnung: Plain + <code><ruby>気<rt>き</rt></ruby>が する</code>.",
+    "Krankheits-Klassiker: <code><ruby>食<rt>た</rt></ruby>べる<ruby>気<rt>き</rt></ruby>が しない</code>.",
+    "Verwandt: <code><ruby>気<rt>き</rt></ruby>が <ruby>進<rt>すす</rt></ruby>まない</code>."
+   ],
+   ex:[
+    {jp:"<ruby>熱<rt>ねつ</rt></ruby>の せいか、<ruby>何<rt>なに</rt></ruby>も <ruby>食<rt>た</rt></ruby>べる <ruby>気<rt>き</rt></ruby>が <b>しない</b>。",de:"Vielleicht wegen des Fiebers ist mir nach gar nichts zu essen."},
+    {jp:"<ruby>今日<rt>きょう</rt></ruby>は <ruby>勉強<rt>べんきょう</rt></ruby>する <ruby>気<rt>き</rt></ruby>が <b>しない</b>。",de:"Heute habe ich null Antrieb zu lernen."},
+    {jp:"だれかに <ruby>見<rt>み</rt></ruby>られて いる <ruby>気<rt>き</rt></ruby>が <b>する</b>。",de:"Ich habe das Gefühl, beobachtet zu werden."}
+   ],
+   note:"🔄 vgl. chuukyuu L20-N3 & lesen 気がする-Spotlight.<br>📖 Buch: Yukis Appetitlosigkeit."},
+
+  {l:11, t:"105 · <ruby>元気<rt>げんき</rt></ruby>に なったりして", de:"〜たりして — am Ende noch … (scherzhafte Vermutung)",
+   simpel:"Halb im Scherz: »und am Ende bist du plötzlich wieder fit …«.<br><span class='jp'><ruby>元気<rt>げんき</rt></ruby>に なっ<b>たりして</b></span>",
+   rule:"V<sub>たり</sub> + して (Satzende): wirft halb scherzhaft eine Möglichkeit in den Raum — »wär ja möglich … haha (oder doch?)«. Reine Gesprächsfloskel.",
+   build:[
+    {form:"Muster",verb:"V<sub>たり</sub> + して",de:"am Ende noch …"},
+    {form:"Ton",verb:"scherzhaft-vage",de:"halb im Spaß"},
+    {form:"Basis",verb:"たり-Form",de:"Minna L19"}
+   ],
+   pattern:{slots:[{text:"[Möglichkeit]",role:"cond"},{text:"たりして",role:"plain",label:"(haha, oder?)"}],gloss:"Scherzhafte Spekulation am Satzende — lässt offen, ob man es ernst meint."},
+   bauplan:[
+    "Die (halb ernste) Möglichkeit in der <b>たり-Form</b>.",
+    "Hänge <code>して</code> an, Satz endet dort.",
+    "Ton: augenzwinkernd.",
+    "Nur unter Vertrauten."
+   ],
+   ex:[
+    {jp:"<ruby>明日<rt>あした</rt></ruby>に は けろっと <ruby>元気<rt>げんき</rt></ruby>に なっ<b>たりして</b>。",de:"Und morgen bist du am Ende wieder putzmunter … haha."},
+    {jp:"<ruby>本当<rt>ほんとう</rt></ruby>は <ruby>仮病<rt>けびょう</rt></ruby>だっ<b>たりして</b>。",de:"Am Ende ist es noch geschwindelt … oder? 😏"},
+    {jp:"<ruby>宝<rt>たから</rt></ruby>くじ、<ruby>当<rt>あ</rt></ruby>たっ<b>たりして</b>。",de:"Und plötzlich gewinnen wir noch im Lotto … haha."}
+   ],
+   note:"💡 Floskel der Freundes-Neckerei.<br>📖 Buch: der Scherz am Krankenbett."},
+
+  {l:11, t:"106 · ゆきらしくないなあ", de:"〜らしい/らしくない — (un)typisch für …",
+   simpel:"»Das sieht Yuki gar nicht ähnlich.«<br><span class='jp'>ゆき<b>らしくない</b>なあ</span>",
+   rule:"N + らしい: »typisch N, wie es sich für N gehört« (positiv). Verneint らしくない: »untypisch, passt nicht zu«. Zweite Lesart: Plain + らしい = »anscheinend« (Hörensagen).",
+   build:[
+    {form:"typisch",verb:"N + らしい",de:"echt/typisch N"},
+    {form:"untypisch",verb:"N + らしくない",de:"sieht N nicht ähnlich"},
+    {form:"anscheinend",verb:"Plain + らしい",de:"Hörensagen-Lesart"}
+   ],
+   pattern:{slots:[{text:"[Person]",role:"subj"},{text:"らしくない",role:"plain",label:"untypisch"}],gloss:"典型-らしい: »(un)typisch für N« — wie い-Adj gebeugt; ≠ っぽい (96, Anschein)."},
+   bauplan:[
+    "Person/Kategorie + <code>らしい</code> (typisch) bzw. <code>らしくない</code>.",
+    "Beuge wie い-Adjektiv (<code>らしく</code> adverbial).",
+    "Hörensagen-Lesart nach Plain-Form beachten.",
+    "Positiv-typisch ↔ っぽい meist negativ (96)."
+   ],
+   ex:[
+    {jp:"<ruby>弱気<rt>よわき</rt></ruby>な ことを <ruby>言<rt>い</rt></ruby>うなんて、ゆき<b>らしくない</b>なあ。",de:"So kleinlaut — das sieht Yuki gar nicht ähnlich."},
+    {jp:"<ruby>今日<rt>きょう</rt></ruby>は <ruby>春<rt>はる</rt></ruby><b>らしい</b> <ruby>天気<rt>てんき</rt></ruby>だ。",de:"Heute ist richtig frühlingshaftes Wetter."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>来<rt>こ</rt></ruby>ない<b>らしい</b>。",de:"Anscheinend kommt er nicht."}
+   ],
+   note:"🔄 らしい (typisch/anscheinend) vs っぽい (96).<br>📖 Buch: die Freunde wundern sich über Yuki."},
+
+  {l:11, t:"107 · お<ruby>母<rt>かあ</rt></ruby>さんかと <ruby>思<rt>おも</rt></ruby>った", de:"〜かと思った — ich dachte (schon), es sei …",
+   simpel:"Kurzer Irrtum: »ich dachte schon, es wäre deine Mutter«.<br><span class='jp'>お<ruby>母<rt>かあ</rt></ruby>さん<b>かと 思った</b></span>",
+   rule:"N/Plain + かと思った: man hielt etwas kurz für etwas anderes — der Irrtum hat sich eben aufgeklärt. Auch erleichtert/erschrocken: 死ぬかと思った »ich dachte, ich sterbe«.",
+   build:[
+    {form:"Irrtum",verb:"N/Plain + かと<ruby>思<rt>おも</rt></ruby>った",de:"hielt es für …"},
+    {form:"Schreck",verb:"〜かと<ruby>思<rt>おも</rt></ruby>った",de:"dachte schon, dass …!"},
+    {form:"vgl.",verb:"かと<ruby>思<rt>おも</rt></ruby>うと/たら",de:"kaum …, da (N2)"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Verwechslung"},{text:"かと<ruby>思<rt>おも</rt></ruby>った",role:"plain",label:"dachte ich schon"}],gloss:"Aufgeklärter Kurz-Irrtum oder Schreck-Übertreibung (死ぬかと思った)."},
+   bauplan:[
+    "Wofür man es hielt: N oder Plain-Satz.",
+    "Hänge <code>かと<ruby>思<rt>おも</rt></ruby>った</code> an.",
+    "Schreck-Formeln: <code><ruby>死<rt>し</rt></ruby>ぬかと思った</code>.",
+    "Der Irrtum ist bereits aufgeklärt."
+   ],
+   ex:[
+    {jp:"<ruby>声<rt>こえ</rt></ruby>が そっくりで、お<ruby>母<rt>かあ</rt></ruby>さん<b>かと 思った</b>よ。",de:"Die Stimme war so ähnlich — ich dachte schon, es sei deine Mutter."},
+    {jp:"<ruby>高<rt>たか</rt></ruby>い <ruby>熱<rt>ねつ</rt></ruby>で、<ruby>死<rt>し</rt></ruby>ぬ<b>かと 思った</b>。",de:"Bei dem Fieber dachte ich, ich sterbe."},
+    {jp:"<ruby>冗談<rt>じょうだん</rt></ruby><b>かと 思ったら</b>、<ruby>本気<rt>ほんき</rt></ruby>だった。",de:"Ich hielt es für einen Witz — es war ernst gemeint."}
+   ],
+   note:"💡 Alltags-Floskel für aufgeklärte Verwechslungen.<br>📖 Buch: der Überraschungsmoment an der Tür."},
+
+  {l:11, t:"108 · アイスクリームとか みかんとか", de:"〜とか〜とか — … und … (offene Aufzählung)",
+   simpel:"Lockeres Aufzählen: »Eis, Mandarinen und sowas«.<br><span class='jp'>アイス<b>とか</b> みかん<b>とか</b></span>",
+   rule:"N とか N とか (V<sub>Plain</sub> とか): unvollständige Beispiel-Aufzählung im Gespräch (»zum Beispiel … und …«). Schriftlicher: 〜や〜など.",
+   build:[
+    {form:"Nomen",verb:"N とか N とか",de:"z. B. A und B"},
+    {form:"Verben",verb:"V とか V とか",de:"mal dies, mal das"},
+    {form:"schriftlich",verb:"〜や〜など",de:"formeller"}
+   ],
+   pattern:{slots:[{text:"N とか",role:"obj",label:"z. B."},{text:"N とか",role:"obj",label:"und"},{text:"[Aussage]",role:"plain"}],gloss:"Lockere, offene Beispiel-Liste — die Auswahl ist nicht abschließend."},
+   bauplan:[
+    "Beispiele je mit <code>とか</code> anhängen.",
+    "Auch mit Verben (Plain).",
+    "Formell: <code>や…など</code>.",
+    "Vage Einzelnennung: <code>N とか</code> (»oder sowas«)."
+   ],
+   ex:[
+    {jp:"アイスクリーム<b>とか</b> みかん<b>とか</b>、<ruby>食<rt>た</rt></ruby>べたい <ruby>物<rt>もの</rt></ruby> ある?",de:"Eis, Mandarinen oder so — hast du auf irgendwas Appetit?"},
+    {jp:"<ruby>休<rt>やす</rt></ruby>みの <ruby>日<rt>ひ</rt></ruby>は、<ruby>映画<rt>えいが</rt></ruby>を <ruby>見<rt>み</rt></ruby>る<b>とか</b> <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>む<b>とか</b> して いる。",de:"An freien Tagen schaue ich Filme, lese und so."},
+    {jp:"<ruby>甘<rt>あま</rt></ruby>い <ruby>物<rt>もの</rt></ruby><b>とか</b>、どう?",de:"Was Süßes oder so — wie wär's?"}
+   ],
+   note:"🔄 とか (gesprochen) ↔ や〜など (schriftlich).<br>📖 Buch: die Mitbringsel-Frage."},
+
+  {l:11, t:"109 · <ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>の ついでに", de:"〜のついでに — bei der Gelegenheit von …",
+   simpel:"Nebenbei miterledigt: »beim Einkaufen (gleich mit)«.<br><span class='jp'><ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>の<b>ついでに</b></span>",
+   rule:"N + の / V<sub>辞書・た</sub> + ついでに: die Gelegenheit einer Haupthandlung für eine Nebenhandlung nutzen. Haupthandlung zuerst, Nebensache folgt.",
+   build:[
+    {form:"Nomen",verb:"N + の + ついでに",de:"bei der Gelegenheit von N"},
+    {form:"Verb",verb:"V<sub>辞書/た</sub> + ついでに",de:"wenn man schon …"},
+    {form:"Merkmal",verb:"Nebensache ist leichter",de:"Haupt > Neben"}
+   ],
+   pattern:{slots:[{text:"N の",role:"cond",label:"Hauptsache"},{text:"ついでに",role:"actor",label:"nebenbei"},{text:"[Nebensache]",role:"plain"}],gloss:"»Wo ich schon dabei bin/war« — Gelegenheits-Anhängsel."},
+   bauplan:[
+    "Hauptsache: N + <code>の</code> / V + <code>ついでに</code>.",
+    "Nebensache dahinter.",
+    "Als Bitte höflich abschwächend: <code>ついでで いい から…</code>",
+    "Gewicht: Hauptsache bleibt Hauptsache."
+   ],
+   ex:[
+    {jp:"<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>の<b>ついでに</b>、お<ruby>見舞<rt>みま</rt></ruby>いに <ruby>寄<rt>よ</rt></ruby>って くれたの?",de:"Du hast beim Einkaufen einen Krankenbesuch drangehängt?"},
+    {jp:"<ruby>散歩<rt>さんぽ</rt></ruby>の<b>ついでに</b> <ruby>手紙<rt>てがみ</rt></ruby>を <ruby>出<rt>だ</rt></ruby>して きた。",de:"Beim Spaziergang habe ich gleich den Brief eingeworfen."},
+    {jp:"<ruby>駅<rt>えき</rt></ruby>へ <ruby>行<rt>い</rt></ruby>った<b>ついでに</b>、<ruby>切符<rt>きっぷ</rt></ruby>も <ruby>買<rt>か</rt></ruby>って おいた。",de:"Als ich am Bahnhof war, habe ich gleich die Tickets gekauft."}
+   ],
+   note:"🔄 = TRY-Ergänzung ついでに, an Buchposition 109.<br>📖 Buch: die Freundin kommt „nur nebenbei“ vorbei 😉."},
+
+  {l:11, t:"110 · <ruby>何<rt>なに</rt></ruby>か あったに<ruby>違<rt>ちが</rt></ruby>いない", de:"〜に違いない — es muss (ganz sicher) … sein",
+   simpel:"Starke Schlussfolgerung: »da muss etwas passiert sein«.<br><span class='jp'><ruby>何<rt>なに</rt></ruby>か あった<b>に違いない</b></span>",
+   rule:"Plain + に違いない (な-Adj/N ohne だ): der Sprecher ist sich aus Indizien (fast) sicher. Salopp: に決まってる (36).",
+   build:[
+    {form:"Muster",verb:"Plain + に<ruby>違<rt>ちが</rt></ruby>いない",de:"muss sicher …"},
+    {form:"な-Adj/N",verb:"ohne だ",de:"<ruby>病気<rt>びょうき</rt></ruby>に違いない"},
+    {form:"salopp",verb:"に<ruby>決<rt>き</rt></ruby>まってる (36)",de:"todsicher"}
+   ],
+   pattern:{slots:[{text:"[Indiz] →",role:"cond"},{text:"[Schluss]",role:"verb"},{text:"に<ruby>違<rt>ちが</rt></ruby>いない",role:"plain",label:"muss so sein"}],gloss:"Sichere Schlussfolgerung aus Indizien — formeller als に決まってる."},
+   bauplan:[
+    "Sammle das <b>Indiz</b> (blasses Gesicht, Schweigen …).",
+    "Schluss in Plain-Form (な-Adj/N ohne だ).",
+    "Hänge <code>に<ruby>違<rt>ちが</rt></ruby>いない</code> an.",
+    "Skala: かもしれない < だろう < <b>に違いない</b>."
+   ],
+   ex:[
+    {jp:"<ruby>元気<rt>げんき</rt></ruby>が ない。<ruby>何<rt>なに</rt></ruby>か あった<b>に違いない</b>。",de:"Sie ist so still — da muss etwas vorgefallen sein."},
+    {jp:"この <ruby>味<rt>あじ</rt></ruby>は、プロが <ruby>作<rt>つく</rt></ruby>った<b>に違いない</b>。",de:"Dieser Geschmack — das muss ein Profi gekocht haben."},
+    {jp:"<ruby>犯人<rt>はんにん</rt></ruby>は <ruby>中<rt>なか</rt></ruby>に いる<b>に違いない</b>。",de:"Der Täter muss noch drinnen sein."}
+   ],
+   note:"🔄 vgl. chuukyuu L11-N3 & lesen に違いない-Spotlight.<br>📖 Buch: die Freunde ahnen Yukis Kummer."},
+
+  {l:11, t:"111 · これほど つらい かぜは ひいた ことがない", de:"これほど〜ことがない — noch nie so … (Erfahrungs-Superlativ)",
+   simpel:"»So eine schlimme Erkältung hatte ich noch nie.«<br><span class='jp'>これ<b>ほど</b> つらい かぜは ひいた <b>ことがない</b></span>",
+   rule:"これほど/こんなに + [Adj+N] + V<sub>た</sub>ことがない: die aktuelle Erfahrung übertrifft alles Bisherige. Kombination aus Grad-ほど (7) und Erfahrungs-たことがある.",
+   build:[
+    {form:"Muster",verb:"これほど 〜たことがない",de:"noch nie so …"},
+    {form:"Variante",verb:"こんなに 〜のは <ruby>初<rt>はじ</rt></ruby>めてだ",de:"zum ersten Mal so"},
+    {form:"Bausteine",verb:"ほど (7) + たことがある",de:"Grad + Erfahrung"}
+   ],
+   pattern:{slots:[{text:"これほど",role:"time",label:"so sehr"},{text:"[Adj + N]",role:"obj"},{text:"V<sub>た</sub>ことがない",role:"plain",label:"noch nie"}],gloss:"Erfahrungs-Superlativ: »noch nie habe ich ein derart …es N erlebt«."},
+   bauplan:[
+    "Leite mit <code>これほど/こんなに</code> ein.",
+    "Beschreibe das Extrem (Adj + N).",
+    "Schließe mit <code>V<sub>た</sub>ことがない</code>.",
+    "Positiv genauso: <code>これほど おいしい <ruby>料理<rt>りょうり</rt></ruby>は <ruby>食<rt>た</rt></ruby>べたことがない</code>."
+   ],
+   ex:[
+    {jp:"これ<b>ほど</b> つらい かぜは ひいた <b>ことがない</b>よ。",de:"So eine üble Erkältung hatte ich noch nie."},
+    {jp:"こんなに <ruby>笑<rt>わら</rt></ruby>った のは <ruby>久<rt>ひさ</rt></ruby>しぶりだ。",de:"So gelacht habe ich lange nicht mehr."},
+    {jp:"これ<b>ほど</b> <ruby>美<rt>うつく</rt></ruby>しい <ruby>景色<rt>けしき</rt></ruby>は <ruby>見<rt>み</rt></ruby>た <b>ことがない</b>。",de:"Eine so schöne Aussicht habe ich noch nie gesehen."}
+   ],
+   note:"🔄 Bausteine: ほど (7) + Erfahrungs-たことがある (Minna L19).<br>📖 Buch: Yuki jammert — zu Recht?"},
+
+  {l:11, t:"112 · ゆき<ruby>抜<rt>ぬ</rt></ruby>きでは <ruby>始<rt>はじ</rt></ruby>められない", de:"N 抜きで(は) — ohne … (geht es nicht) (+Plus: てしかたがない)",
+   simpel:"<b>抜きで</b> = »ohne (das sonst Übliche)«.<br><span class='jp'>ゆき<b>抜きでは</b> <ruby>始<rt>はじ</rt></ruby>められない</span> = „ohne Yuki können wir nicht anfangen“",
+   rule:"N + 抜きで(は/に): unter Weglassung von N — 抜きでは + Verneinung: »ohne N geht es nicht«. Auch wörtlich: わさび抜きで »ohne Wasabi«. +Plus: 〜てしかたがない (= てしょうがない, 113).",
+   build:[
+    {form:"ohne N",verb:"N + <ruby>抜<rt>ぬ</rt></ruby>きで",de:"unter Verzicht auf N"},
+    {form:"geht nicht ohne",verb:"N + <ruby>抜<rt>ぬ</rt></ruby>きでは 〜ない",de:"ohne N unmöglich"},
+    {form:"Essen",verb:"わさび<ruby>抜<rt>ぬ</rt></ruby>きで",de:"ohne Wasabi bitte"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"das Fehlende"},{text:"<ruby>抜<rt>ぬ</rt></ruby>きでは",role:"actor",label:"ohne"},{text:"〜ない",role:"plain",label:"geht nicht"}],gloss:"»Ohne N (ausgelassen) …« — mit は + Verneinung: unverzichtbar."},
+   bauplan:[
+    "Das Weggelassene: N + <code><ruby>抜<rt>ぬ</rt></ruby>きで</code>.",
+    "»Unverzichtbar«: <code><ruby>抜<rt>ぬ</rt></ruby>きでは</code> + Verneinung.",
+    "Bestell-Japanisch: <code>〜<ruby>抜<rt>ぬ</rt></ruby>きで お<ruby>願<rt>ねが</rt></ruby>いします</code>.",
+    "Förmlicher: <code>なしでは</code>."
+   ],
+   ex:[
+    {jp:"<ruby>文化祭<rt>ぶんかさい</rt></ruby>の <ruby>劇<rt>げき</rt></ruby>は、ゆき<b>抜きでは</b> <ruby>始<rt>はじ</rt></ruby>められないよ。",de:"Das Theaterstück beim Schulfest können wir ohne Yuki nicht anfangen."},
+    {jp:"<ruby>冗談<rt>じょうだん</rt></ruby><b>抜きで</b>、<ruby>本当<rt>ほんとう</rt></ruby>に <ruby>心配<rt>しんぱい</rt></ruby>したんだ。",de:"Ohne Witz — wir haben uns echt Sorgen gemacht."},
+    {jp:"すし は わさび<b>抜きで</b> お<ruby>願<rt>ねが</rt></ruby>いします。",de:"Das Sushi bitte ohne Wasabi."}
+   ],
+   note:"💡 <b>冗談抜きで</b> = »Spaß beiseite«.<br>📖 Buch: die Freunde brauchen Yuki zurück (+Plus: てしかたがない → 113)."},
+
+  {l:11, t:"113 · <ruby>練習<rt>れんしゅう</rt></ruby>したくて しょうがない", de:"〜てしょうがない — unerträglich … / kann es kaum erwarten",
+   simpel:"Übermächtiges Gefühl: »ich will unbedingt wieder proben!«.<br><span class='jp'>したくて<b>しょうがない</b></span>",
+   rule:"Gefühls-て-Form + しょうがない/しかたがない/たまらない: das Gefühl ist nicht zu bändigen. Mit 〜たくて: brennendes Wollen. Das große Finale des Buchs 😊.",
+   build:[
+    {form:"Muster",verb:"[Gefühl]<sub>テ</sub> + しょうがない",de:"nicht auszuhalten"},
+    {form:"Varianten",verb:"てしかたがない / てたまらない",de:"formeller / stärker"},
+    {form:"mit たい",verb:"V<sub>たくて</sub> + しょうがない",de:"will unbedingt"}
+   ],
+   pattern:{slots:[{text:"V<sub>たくて</sub>",role:"cond",label:"will so sehr"},{text:"しょうがない",role:"plain",label:"kaum auszuhalten"}],gloss:"Unbändigbares Gefühl — müde/heiß/sehnsüchtig/wollen + てしょうがない."},
+   bauplan:[
+    "Gefühl/Wunsch in der <b>て-Form</b> (<code>したくて</code>, <code><ruby>会<rt>あ</rt></ruby>いたくて</code>).",
+    "Hänge <code>しょうがない</code> (gesprochen) / <code>しかたがない</code> / <code>たまらない</code> an.",
+    "Nur unwillkürliche Zustände.",
+    "Glückwunsch — Punkt 113 von 113! 🎉"
+   ],
+   ex:[
+    {jp:"<ruby>早<rt>はや</rt></ruby>く みんなと <ruby>練習<rt>れんしゅう</rt></ruby>したくて<b>しょうがない</b>。",de:"Ich kann es kaum erwarten, wieder mit allen zu proben."},
+    {jp:"<ruby>結果<rt>けっか</rt></ruby>が <ruby>気<rt>き</rt></ruby>に なって<b>しかたがない</b>。",de:"Das Ergebnis lässt mir einfach keine Ruhe."},
+    {jp:"<ruby>眠<rt>ねむ</rt></ruby>くて<b>たまらない</b>。",de:"Ich bin zum Umfallen müde."}
+   ],
+   note:"🔄 = TRY-Ergänzung てしょうがない, an Buchposition 113.<br>📖 Buch: Yukis Comeback-Wille — Ende von TRY! N3 (完)."}
 
 ];
 
