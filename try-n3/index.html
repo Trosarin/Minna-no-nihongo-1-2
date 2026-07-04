@@ -733,7 +733,7 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 <header>
   <h1>
     <span class="jp">TRY! N3 <ruby>補足<rt>ほそく</rt></ruby></span>
-    <span class="de">TRY! N3 · dem Buch folgend · Unit 1–11 (im Aufbau: 1–6)</span>
+    <span class="de">TRY! N3 · dem Buch folgend · Unit 1–11 (im Aufbau: 1–8)</span>
   </h1>
   <p class="subtitle">Klick auf eine Karte, um die Erklärung zu sehen</p>
 </header>
@@ -2429,6 +2429,383 @@ const CARDS = [
     {jp:"<ruby>自然<rt>しぜん</rt></ruby>の <ruby>大切<rt>たいせつ</rt></ruby><b>さ</b>を <ruby>忘<rt>わす</rt></ruby>れては いけない。",de:"Den Wert der Natur darf man nicht vergessen."}
    ],
    note:"🔄 〜さ: chuukyuu L21; はず: chuukyuu L11-N3 & lesen-Spotlight.<br>📖 Buch: der werbende Schlusssatz (完 Unit 6)."}
+,
+
+  // ============ UNIT 7 — 不動産屋で (1)+(2) ============
+  {l:7, t:"62 · その ご<ruby>予算<rt>よさん</rt></ruby>ですと", de:"〜ですと — wenn (es) … ist, (dann) … (Service-Sprache)",
+   simpel:"Höfliches と-Konditional im Beratungsgespräch.<br><span class='jp'>その ご<ruby>予算<rt>よさん</rt></ruby><b>ですと</b></span> = „bei diesem Budget …“",
+   rule:"N/Aussage + ですと: höfliche Variante des と-Konditionals (»wenn/bei …, dann zwangsläufig …«), typisch für Verkäufer und Berater. Danach folgt die sachliche Konsequenz.",
+   build:[
+    {form:"Muster",verb:"N + ですと、…",de:"bei N (ergibt sich) …"},
+    {form:"neutral",verb:"N + だと",de:"gleiche Logik, plain"},
+    {form:"Kontext",verb:"Beratung / Verkauf",de:"Service-Keigo"}
+   ],
+   pattern:{slots:[{text:"ご<ruby>予算<rt>よさん</rt></ruby>",role:"subj",label:"Bedingung"},{text:"ですと",role:"actor",label:"wenn/bei"},{text:"[Konsequenz]",role:"plain"}],gloss:"Höfliches と-Konditional der Beratungssprache: »bei … (ist die Lage so:) …«."},
+   bauplan:[
+    "Greife die <b>Angabe des Kunden</b> auf (Budget, Wunsch, Termin).",
+    "Hänge <code>ですと</code> an.",
+    "Nenne die sachliche <b>Konsequenz</b> (Angebot, Einschränkung).",
+    "Plain-Pendant: <code>だと</code>."
+   ],
+   ex:[
+    {jp:"その ご<ruby>予算<rt>よさん</rt></ruby><b>ですと</b>、<ruby>駅前<rt>えきまえ</rt></ruby>は <ruby>難<rt>むずか</rt></ruby>しいですね。",de:"Bei diesem Budget wird es direkt am Bahnhof schwierig."},
+    {jp:"この <ruby>時間<rt>じかん</rt></ruby><b>ですと</b>、<ruby>道<rt>みち</rt></ruby>が <ruby>混<rt>こ</rt></ruby>んで います。",de:"Um diese Uhrzeit sind die Straßen voll."},
+    {jp:"<ruby>現金<rt>げんきん</rt></ruby><b>だと</b> <ruby>少<rt>すこ</rt></ruby>し <ruby>安<rt>やす</rt></ruby>く なります。",de:"Bei Barzahlung wird es etwas günstiger."}
+   ],
+   note:"💡 Beratungs-Floskel — merken als Muster »Kundendaten + ですと + Realität«.<br>📖 Buch: der Makler reagiert aufs Budget."},
+
+  {l:7, t:"63 · お<ruby>時間<rt>じかん</rt></ruby>が あるようなら", de:"〜ようなら — falls es (danach) aussieht / falls …",
+   simpel:"<b>ようなら</b> = »falls es so ist/aussieht, dass …«.<br><span class='jp'>お<ruby>時間<rt>じかん</rt></ruby>が ある<b>ようなら</b></span> = „falls Sie Zeit haben (sollten)“",
+   rule:"Plain + ようなら (= ようだったら): vorsichtige Bedingung auf Basis eines Anscheins — »falls es sich so darstellt, dass …«. Höflich-distanziert, gern in Vorschlägen.",
+   build:[
+    {form:"Muster",verb:"Plain + ようなら",de:"falls es so aussieht"},
+    {form:"Variante",verb:"〜ようだったら",de:"gleichbedeutend"},
+    {form:"Basis",verb:"ようだ (Anschein)",de:"+ なら-Konditional"}
+   ],
+   pattern:{slots:[{text:"[Anschein]",role:"cond"},{text:"ようなら",role:"actor",label:"falls"},{text:"[Vorschlag]",role:"plain"}],gloss:"Vorsichtiges Konditional aus ようだ + なら: »falls es sich so ergibt, …«."},
+   bauplan:[
+    "Formuliere die <b>mögliche Lage</b> in Plain-Form.",
+    "Hänge <code>ようなら</code> an.",
+    "Setze den <b>Vorschlag/Rat</b> dahinter.",
+    "Bei Verschlechterung: <code>ひどく なるようなら <ruby>病院<rt>びょういん</rt></ruby>へ</code>."
+   ],
+   ex:[
+    {jp:"お<ruby>時間<rt>じかん</rt></ruby>が ある<b>ようなら</b>、<ruby>実際<rt>じっさい</rt></ruby>に <ruby>物件<rt>ぶっけん</rt></ruby>を ご<ruby>案内<rt>あんない</rt></ruby>します。",de:"Falls Sie Zeit haben, zeige ich Ihnen die Objekte gern vor Ort."},
+    {jp:"<ruby>熱<rt>ねつ</rt></ruby>が <ruby>下<rt>さ</rt></ruby>がらない<b>ようなら</b>、<ruby>病院<rt>びょういん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>って ください。",de:"Falls das Fieber nicht sinkt, gehen Sie bitte zum Arzt."},
+    {jp:"<ruby>無理<rt>むり</rt></ruby>な<b>ようなら</b>、<ruby>日<rt>ひ</rt></ruby>を <ruby>変<rt>か</rt></ruby>えましょう。",de:"Falls es nicht machbar scheint, verlegen wir den Termin."}
+   ],
+   note:"🔄 ようだ (chuukyuu) + なら (Punkt 10) kombiniert.<br>📖 Buch: das Angebot des Maklers."},
+
+  {l:7, t:"64 · <ruby>人気<rt>にんき</rt></ruby>が <ruby>出<rt>で</rt></ruby>て きたんです", de:"〜てくる — ist (allmählich) … geworden (bis jetzt)",
+   simpel:"<b>てきた</b> = Entwicklung bis jetzt: »ist beliebt geworden«.<br><span class='jp'><ruby>人気<rt>にんき</rt></ruby>が <ruby>出<rt>で</rt></ruby>て<b>きた</b>んです</span>",
+   rule:"V<sub>テ</sub> + くる: eine Veränderung hat begonnen und reicht bis jetzt (人気が出てきた, 寒くなってきた). Gegenstück ていく = ab jetzt weiter (Punkt 8). +んです erklärt dem Kunden die Lage.",
+   build:[
+    {form:"bis jetzt",verb:"V<sub>テ</sub> + きた",de:"ist … geworden"},
+    {form:"ab jetzt",verb:"V<sub>テ</sub> + いく",de:"wird weiter …"},
+    {form:"typisch",verb:"<ruby>増<rt>ふ</rt></ruby>えてきた・<ruby>分<rt>わ</rt></ruby>かってきた",de:"mehr geworden / klar geworden"}
+   ],
+   pattern:{slots:[{text:"<ruby>人気<rt>にんき</rt></ruby>が",role:"subj"},{text:"<ruby>出<rt>で</rt></ruby>て",role:"verb"},{text:"きた(んです)",role:"plain",label:"bis jetzt"}],gloss:"Veränderung, die bis zum Jetzt herangewachsen ist — てくる; Zukunftsrichtung: ていく."},
+   bauplan:[
+    "Veränderungsverb in der <b>て-Form</b>.",
+    "Bis-jetzt-Richtung: <code>きた</code>.",
+    "Erklärend im Gespräch: <code>+んです</code>.",
+    "Ab-jetzt-Richtung: <code>いく</code> (Punkt 8)."
+   ],
+   ex:[
+    {jp:"この <ruby>辺<rt>へん</rt></ruby>は <ruby>最近<rt>さいきん</rt></ruby> <ruby>人気<rt>にんき</rt></ruby>が <ruby>出<rt>で</rt></ruby>て<b>きたんです</b>。",de:"Diese Gegend ist in letzter Zeit nämlich beliebt geworden."},
+    {jp:"<ruby>日本語<rt>にほんご</rt></ruby>が <ruby>少<rt>すこ</rt></ruby>し <ruby>分<rt>わ</rt></ruby>かって<b>きました</b>。",de:"Ich verstehe allmählich etwas Japanisch."},
+    {jp:"<ruby>寒<rt>さむ</rt></ruby>く なって<b>きた</b>ね。",de:"Es ist kalt geworden, was?"}
+   ],
+   note:"🔄 Paar zu Punkt 8 (ていく) — Richtung der Entwicklung.<br>📖 Buch: Verkaufsargument des Maklers."},
+
+  {l:7, t:"65 · <ruby>借<rt>か</rt></ruby>りたい <ruby>人<rt>ひと</rt></ruby>が <ruby>増<rt>ふ</rt></ruby>えて いる ものですから", de:"〜ものですから — weil nun mal … (höfliche Rechtfertigung)",
+   simpel:"Grund als höfliche Entschuldigung: »es ist nun mal so, dass …«.<br><span class='jp'><ruby>増<rt>ふ</rt></ruby>えて いる<b>ものですから</b></span>",
+   rule:"Plain + ものですから (locker もので/もんで): rechtfertigt höflich einen unangenehmen Umstand (»ich kann nichts dafür — es ist eben so«). Kein Befehl im Hauptsatz.",
+   build:[
+    {form:"Muster",verb:"Plain + ものですから",de:"weil nun mal …"},
+    {form:"locker",verb:"〜もので / もんで",de:"gesprochen"},
+    {form:"Ton",verb:"entschuldigend",de:"nicht meine Schuld"}
+   ],
+   pattern:{slots:[{text:"[Umstand]",role:"cond"},{text:"ものですから",role:"actor",label:"weil nun mal"},{text:"[Konsequenz]",role:"plain"}],gloss:"Höfliche Rechtfertigung: »die Lage ist eben so, daher …«."},
+   bauplan:[
+    "Nenne den <b>Umstand</b> (Nachfrage hoch, Zug verspätet …).",
+    "Hänge <code>ものですから</code> an.",
+    "Setze die unangenehme <b>Konsequenz</b> (Preis, Verspätung).",
+    "Vgl. ことだから (Person, Punkt 98) — nicht verwechseln."
+   ],
+   ex:[
+    {jp:"<ruby>借<rt>か</rt></ruby>りたい <ruby>方<rt>かた</rt></ruby>が <ruby>増<rt>ふ</rt></ruby>えて いる<b>ものですから</b>、<ruby>家賃<rt>やちん</rt></ruby>も <ruby>上<rt>あ</rt></ruby>がって いまして。",de:"Da die Nachfrage nun mal steigt, sind auch die Mieten gestiegen."},
+    {jp:"<ruby>電車<rt>でんしゃ</rt></ruby>が <ruby>遅<rt>おく</rt></ruby>れた<b>ものですから</b>、<ruby>遅刻<rt>ちこく</rt></ruby>しました。",de:"Der Zug hatte nun mal Verspätung — deshalb kam ich zu spät."},
+    {jp:"<ruby>初<rt>はじ</rt></ruby>めて な<b>もので</b>、よく <ruby>分<rt>わ</rt></ruby>かりません。",de:"Es ist nun mal mein erstes Mal — ich kenne mich nicht aus."}
+   ],
+   note:"🔄 vgl. chuukyuu L14-N3 (ものだから).<br>📖 Buch: der Makler erklärt die Mietpreise."},
+
+  {l:7, t:"66 · こちら なんか いかがですか", de:"〜なんか いかがですか — wie wäre es (zum Beispiel) mit …?",
+   simpel:"Vorschlag mit Beispiel-なんか: »wie wär's etwa mit dem hier?«.<br><span class='jp'>こちら<b>なんか</b> いかがですか</span>",
+   rule:"N + なんか + いかがですか/どうですか: unverbindlicher Vorschlag (»z. B. so etwas wie N«). Dieses なんか ist das Beispiel-なんか (= など), nicht das abwertende.",
+   build:[
+    {form:"Vorschlag",verb:"N + なんか + いかがですか",de:"wie wär's mit N?"},
+    {form:"neutraler",verb:"N + など",de:"schriftlich"},
+    {form:"lockerer",verb:"N + なんか どう?",de:"unter Freunden"}
+   ],
+   pattern:{slots:[{text:"こちら",role:"subj",label:"Kandidat"},{text:"なんか",role:"actor",label:"z. B."},{text:"いかがですか",role:"plain",label:"wie wäre es?"}],gloss:"Unverbindlicher Beispiel-Vorschlag: »wie wäre etwa …?« — なんか = など."},
+   bauplan:[
+    "Wähle den <b>Vorschlags-Kandidaten</b> (こちら, これ, <ruby>週末<rt>しゅうまつ</rt></ruby>).",
+    "Füge <code>なんか</code> ein (»zum Beispiel«).",
+    "Schließe mit <code>いかがですか</code> (höflich) / <code>どう?</code> (locker).",
+    "⚠ Abwertendes なんか (Buch Punkt 90) ist ein anderer Gebrauch."
+   ],
+   ex:[
+    {jp:"こちらの お<ruby>部屋<rt>へや</rt></ruby><b>なんか</b> いかがですか。",de:"Wie wäre es zum Beispiel mit dieser Wohnung?"},
+    {jp:"お<ruby>昼<rt>ひる</rt></ruby>、そば<b>なんか</b> どう?",de:"Wie wär's zum Mittag mit Soba oder so?"},
+    {jp:"プレゼントには <ruby>花<rt>はな</rt></ruby><b>など</b> いかがでしょうか。",de:"Als Geschenk vielleicht Blumen?"}
+   ],
+   note:"💡 Verkäufer-Klassiker.<br>📖 Buch: der Makler präsentiert ein Objekt."},
+
+  {l:7, t:"67 · <ruby>便利<rt>べんり</rt></ruby>かと <ruby>思<rt>おも</rt></ruby>いますが", de:"〜かと思いますが — ich denke (wohl) …, aber (vorsichtig)",
+   simpel:"Abgeschwächte Meinung: »dürfte praktisch sein, denke ich«.<br><span class='jp'><ruby>便利<rt>べんり</rt></ruby><b>かと 思いますが</b></span>",
+   rule:"[Meinung] + かと思います: das か macht die Aussage vorsichtig-unaufdringlich (»dürfte wohl«). Das が am Ende überlässt dem Kunden das Urteil. Beratungs-/Geschäftssprache.",
+   build:[
+    {form:"Muster",verb:"Plain/N + かと<ruby>思<rt>おも</rt></ruby>います",de:"dürfte wohl … sein"},
+    {form:"weich enden",verb:"〜が / 〜けど",de:"Urteil beim Hörer"},
+    {form:"direkter",verb:"〜と<ruby>思<rt>おも</rt></ruby>います",de:"ich denke, dass"}
+   ],
+   pattern:{slots:[{text:"[Einschätzung]",role:"cond"},{text:"かと<ruby>思<rt>おも</rt></ruby>いますが",role:"plain",label:"dürfte wohl …"}],gloss:"Vorsichtige Einschätzung: か entschärft, が übergibt das Urteil — typisch Beratung."},
+   bauplan:[
+    "Formuliere die <b>Einschätzung</b> (な-Adj/N ohne だ).",
+    "Hänge <code>かと<ruby>思<rt>おも</rt></ruby>います</code> an.",
+    "Offenes Ende mit <code>が…</code>.",
+    "Direkter (unter Kollegen): <code>と思います</code>."
+   ],
+   ex:[
+    {jp:"<ruby>駅<rt>えき</rt></ruby>にも <ruby>近<rt>ちか</rt></ruby>いですし、<ruby>便利<rt>べんり</rt></ruby><b>かと 思いますが</b>。",de:"Auch bahnhofsnah — dürfte recht praktisch sein, denke ich."},
+    {jp:"こちらの ほうが お<ruby>得<rt>とく</rt></ruby><b>かと 思います</b>。",de:"Dieses hier dürfte günstiger sein, meine ich."},
+    {jp:"<ruby>少<rt>すこ</rt></ruby>し <ruby>難<rt>むずか</rt></ruby>しい<b>かと 思いますが</b>、いかがでしょう。",de:"Es dürfte etwas schwierig sein — was meinen Sie?"}
+   ],
+   note:"💡 か = Weichzeichner; が… = offenes Ende. Geschäfts-Japanisch pur.<br>📖 Buch: die Empfehlung des Maklers."},
+
+  {l:7, t:"68 · <ruby>住<rt>す</rt></ruby>んで いる うちに <ruby>慣<rt>な</rt></ruby>れますよ", de:"〜うちに — im Laufe von … (unbemerkt) / solange",
+   simpel:"<b>ているうちに</b> = »während/im Laufe des …s (passiert von selbst)«.<br><span class='jp'><ruby>住<rt>す</rt></ruby>んで いる<b>うちに</b> <ruby>慣<rt>な</rt></ruby>れます</span>",
+   rule:"V<sub>ている</sub> + うちに: während einer laufenden Handlung tritt unbemerkt eine Veränderung ein (»beim Wohnen gewöhnt man sich«). Auch »solange noch« (明るいうちに) und ないうちに (»bevor«).",
+   build:[
+    {form:"Veränderung",verb:"V<sub>ている</sub> + うちに",de:"im Laufe von …"},
+    {form:"solange",verb:"Adj/N の + うちに",de:"solange noch …"},
+    {form:"bevor",verb:"V<sub>ない</sub> + うちに",de:"bevor …"}
+   ],
+   pattern:{slots:[{text:"V<sub>ている</sub>",role:"cond",label:"laufend"},{text:"うちに",role:"actor",label:"im Laufe"},{text:"[Veränderung]",role:"plain"}],gloss:"Unbemerkte Veränderung während einer laufenden Handlung — oder Zeitfenster (solange/bevor)."},
+   bauplan:[
+    "Laufende Handlung in <code>ている</code>-Form.",
+    "Hänge <code>うちに</code> an.",
+    "Setze die von selbst eintretende <b>Veränderung</b>.",
+    "Zeitfenster-Lesart: <code><ruby>明<rt>あか</rt></ruby>るいうちに</code> / <code><ruby>忘<rt>わす</rt></ruby>れないうちに</code>."
+   ],
+   ex:[
+    {jp:"<ruby>住<rt>す</rt></ruby>んで いる<b>うちに</b>、だんだん <ruby>慣<rt>な</rt></ruby>れますよ。",de:"Beim Wohnen gewöhnen Sie sich nach und nach daran."},
+    {jp:"<ruby>話<rt>はな</rt></ruby>して いる<b>うちに</b>、<ruby>元気<rt>げんき</rt></ruby>が <ruby>出<rt>で</rt></ruby>て きた。",de:"Beim Reden kam die Energie zurück."},
+    {jp:"<ruby>暗<rt>くら</rt></ruby>く ならない<b>うちに</b> <ruby>帰<rt>かえ</rt></ruby>りましょう。",de:"Gehen wir heim, bevor es dunkel wird."}
+   ],
+   note:"🔄 vgl. chuukyuu L13-N3 (うちに) & lesen うちに-Einträge.<br>📖 Buch: der Makler beruhigt wegen des Lärms."},
+
+  {l:7, t:"69 · <ruby>卒業<rt>そつぎょう</rt></ruby>した ばかり なんだから", de:"〜たばかり — gerade erst … (+ なんだから: schließlich)",
+   simpel:"<b>たばかり</b> = »gerade erst passiert«; <b>なんだから</b> begründet nachdrücklich.<br><span class='jp'><ruby>卒業<rt>そつぎょう</rt></ruby>した<b>ばかり</b> なんだから</span>",
+   rule:"V<sub>た</sub> + ばかり: die Handlung liegt (gefühlt) ganz kurz zurück. なんだから = »schließlich ist es so, dass« — nachdrückliche Begründung, oft vor Rat/Trost.",
+   build:[
+    {form:"gerade erst",verb:"V<sub>た</sub> + ばかり",de:"frisch passiert"},
+    {form:"Begründung",verb:"〜(な)んだから",de:"schließlich …"},
+    {form:"⚠ Vergleich",verb:"V<sub>た</sub> + ところ",de:"objektiv soeben"}
+   ],
+   pattern:{slots:[{text:"V<sub>た</sub>",role:"verb"},{text:"ばかり",role:"actor",label:"gerade erst"},{text:"なんだから",role:"plain",label:"schließlich"}],gloss:"»Du hast doch gerade erst … — deshalb (Rat/Trost)«. ばかり = gefühlt frisch."},
+   bauplan:[
+    "Frisches Ereignis in der <b>た-Form</b> + <code>ばかり</code>.",
+    "Nachdrückliche Begründung: + <code>なんだから</code>.",
+    "Danach Rat/Trost (<code><ruby>焦<rt>あせ</rt></ruby>らなくて いい</code>).",
+    "たばかり geht auch mit längerer Zeit, wenn sie sich kurz anfühlt."
+   ],
+   ex:[
+    {jp:"<ruby>卒業<rt>そつぎょう</rt></ruby>した<b>ばかり</b> なんだから、<ruby>焦<rt>あせ</rt></ruby>らなくて いいよ。",de:"Du hast doch gerade erst den Abschluss gemacht — kein Grund zur Eile."},
+    {jp:"<ruby>日本<rt>にほん</rt></ruby>に <ruby>来<rt>き</rt></ruby>た<b>ばかり</b>で、まだ <ruby>道<rt>みち</rt></ruby>が わからない。",de:"Ich bin gerade erst in Japan angekommen und kenne die Wege noch nicht."},
+    {jp:"<ruby>買<rt>か</rt></ruby>った<b>ばかり</b>の <ruby>靴<rt>くつ</rt></ruby>を <ruby>汚<rt>よご</rt></ruby>して しまった。",de:"Ich habe die ganz neuen Schuhe schmutzig gemacht."}
+   ],
+   note:"🔄 たばかり (gefühlt) vs たところ (objektiv, chuukyuu L12-N3-ところ).<br>📖 Buch: Zuspruch für den Berufsanfänger."},
+
+  {l:7, t:"70 · <ruby>見<rt>み</rt></ruby>れば いいのに", de:"〜ばいいのに — du solltest doch (einfach) … / schade, dass nicht",
+   simpel:"Rat + Bedauern: »schau es dir doch (einfach) an!«.<br><span class='jp'><ruby>見<rt>み</rt></ruby>れば <b>いいのに</b></span>",
+   rule:"V<sub>ば</sub> + いいのに: Empfehlung mit Unterton »warum tust du es nicht?« (leichtes Bedauern/Vorwurf). Ohne のに = neutraler Rat (見ればいい).",
+   build:[
+    {form:"Rat + Bedauern",verb:"V<sub>ば</sub> + いいのに",de:"solltest doch …"},
+    {form:"neutral",verb:"V<sub>ば</sub> + いい",de:"einfach … reicht"},
+    {form:"Verg. (Reue)",verb:"V<sub>ば</sub> + よかった",de:"hätte doch … (Punkt 40)"}
+   ],
+   pattern:{slots:[{text:"V<sub>ば</sub>",role:"verb",label:"wenn du …"},{text:"いいのに",role:"plain",label:"wäre doch gut!"}],gloss:"»Es wäre doch gut, wenn du … (warum nicht?)« — Rat mit mildem Vorwurf."},
+   bauplan:[
+    "Bilde die <b>ば-Form</b> (<code><ruby>見<rt>み</rt></ruby>る→見れば</code>).",
+    "Hänge <code>いいのに</code> an.",
+    "のに trägt den Unterton »dabei wäre es so einfach«.",
+    "Vergangenheit = Reue: <code>ばよかったのに</code>."
+   ],
+   ex:[
+    {jp:"<ruby>迷<rt>まよ</rt></ruby>って いるなら、<ruby>実際<rt>じっさい</rt></ruby>に <ruby>見<rt>み</rt></ruby>れば <b>いいのに</b>。",de:"Wenn du unsicher bist — schau es dir doch einfach an!"},
+    {jp:"<ruby>疲<rt>つか</rt></ruby>れて いるなら、<ruby>休<rt>やす</rt></ruby>めば <b>いいのに</b>。",de:"Wenn du müde bist, ruh dich doch aus."},
+    {jp:"<ruby>先<rt>さき</rt></ruby>に <ruby>言<rt>い</rt></ruby>って くれれば よかった<b>のに</b>。",de:"Hättest du das doch vorher gesagt!"}
+   ],
+   note:"🔄 Familie: ばいい (Rat) · <b>ばいいのに</b> (Rat+Vorwurf) · ばよかった (Reue, 40).<br>📖 Buch: der Freund drängt zur Besichtigung."},
+
+  {l:7, t:"71 · <ruby>見<rt>み</rt></ruby>せて もらっても いいですか", de:"〜てもらってもいいですか — dürfte ich (Sie bitten) …?",
+   simpel:"Sehr höfliche Bitte: »dürfte ich es mir zeigen lassen?«.<br><span class='jp'><ruby>見<rt>み</rt></ruby>せて<b>もらっても いいですか</b></span>",
+   rule:"V<sub>テ</sub> + もらってもいいですか: Bitte als Erlaubnisfrage verpackt — weicher als 〜てください. Noch höflicher: 〜ていただいてもいいですか / 〜ていただけますか.",
+   build:[
+    {form:"Muster",verb:"V<sub>テ</sub> + もらっても いいですか",de:"dürfte ich …?"},
+    {form:"höflicher",verb:"V<sub>テ</sub> + いただいても いいですか",de:"sehr höflich"},
+    {form:"kurz",verb:"V<sub>テ</sub> + もいいですか",de:"darf ich selbst …?"}
+   ],
+   pattern:{slots:[{text:"V<sub>テ</sub>",role:"verb",label:"gewünschte Handlung"},{text:"もらっても",role:"actor",label:"(von Ihnen)"},{text:"いいですか",role:"plain",label:"wäre das ok?"}],gloss:"Bitte als Erlaubnisfrage: »wäre es ok, wenn Sie für mich …?« — weich und höflich."},
+   bauplan:[
+    "Gewünschte Handlung des <b>anderen</b> in der て-Form (<code><ruby>見<rt>み</rt></ruby>せて</code>).",
+    "Hänge <code>もらっても いいですか</code> an.",
+    "Keigo-Stufe: <code>いただいても よろしいでしょうか</code>.",
+    "Eigene Handlung erlauben lassen: <code>〜てもいいですか</code>."
+   ],
+   ex:[
+    {jp:"この <ruby>部屋<rt>へや</rt></ruby>、<ruby>中<rt>なか</rt></ruby>を <ruby>見<rt>み</rt></ruby>せて<b>もらっても いいですか</b>。",de:"Dürfte ich mir diese Wohnung von innen ansehen?"},
+    {jp:"ちょっと <ruby>手伝<rt>てつだ</rt></ruby>って<b>もらっても いいですか</b>。",de:"Dürfte ich Sie kurz um Hilfe bitten?"},
+    {jp:"お<ruby>名前<rt>なまえ</rt></ruby>を <ruby>教<rt>おし</rt></ruby>えて<b>いただいても よろしいでしょうか</b>。",de:"Dürfte ich um Ihren Namen bitten?"}
+   ],
+   note:"💡 Höflichkeits-Leiter: てください < <b>てもらってもいいですか</b> < ていただけますか.<br>📖 Buch: die Bitte um Besichtigung (完 Unit 7)."},
+
+  // ============ UNIT 8 — 就職の面接 (敬語) ============
+  {l:8, t:"72 · ご<ruby>紹介<rt>しょうかい</rt></ruby>いただきましたよ", de:"ご/お〜いただく — (ehrerbietig) von jdm. … bekommen",
+   simpel:"謙譲: »wir wurden (freundlicherweise) mit Ihnen bekannt gemacht«.<br><span class='jp'>ご<ruby>紹介<rt>しょうかい</rt></ruby><b>いただきました</b></span>",
+   rule:"お/ご + V<sub>マス/漢語</sub> + いただく: die bescheidene Form von てもらう — »wir durften von Ihnen/über Sie … erhalten«. 漢語-Verben nehmen ご (ご紹介), 和語 nehmen お (お越し).",
+   build:[
+    {form:"漢語",verb:"ご + [<ruby>紹介<rt>しょうかい</rt></ruby>など] + いただく",de:"… dürfen (bescheiden)"},
+    {form:"和語",verb:"お + V<sub>マス</sub> + いただく",de:"お<ruby>待<rt>ま</rt></ruby>ちいただく"},
+    {form:"Basis",verb:"= てもらう の <ruby>謙譲<rt>けんじょう</rt></ruby>",de:"Empfänger erniedrigt sich"}
+   ],
+   pattern:{slots:[{text:"ご/お",role:"actor",label:"Keigo-Präfix"},{text:"[Handlung]",role:"verb"},{text:"いただく",role:"plain",label:"ehrerbietig erhalten"}],gloss:"Bescheidenes てもらう: »wir durften (von Ihnen) …« — Bewerbungs-/Geschäftston."},
+   bauplan:[
+    "漢語-Nomen? → <code>ご</code> (<code>ご<ruby>連絡<rt>れんらく</rt></ruby></code>); 和語-ます-Stamm? → <code>お</code>.",
+    "Hänge <code>いただく</code> an (statt てもらう).",
+    "Vergangen-höflich: <code>いただきました</code>.",
+    "Wer gibt, steht mit <code>に/から</code>."
+   ],
+   ex:[
+    {jp:"<ruby>田中<rt>たなか</rt></ruby><ruby>先生<rt>せんせい</rt></ruby>に ご<ruby>紹介<rt>しょうかい</rt></ruby><b>いただきました</b>。",de:"Professor Tanaka hat mich (freundlicherweise) an Sie vermittelt."},
+    {jp:"<ruby>本日<rt>ほんじつ</rt></ruby>は お<ruby>時間<rt>じかん</rt></ruby>を <ruby>取<rt>と</rt></ruby>って<b>いただき</b>、ありがとう ございます。",de:"Vielen Dank, dass Sie sich heute Zeit genommen haben."},
+    {jp:"ご<ruby>連絡<rt>れんらく</rt></ruby><b>いただければ</b> <ruby>幸<rt>さいわ</rt></ruby>いです。",de:"Über eine Nachricht von Ihnen würde ich mich freuen."}
+   ],
+   note:"🔄 Keigo-Grundgerüst: chuukyuu L55.<br>📖 Buch: der Gesprächseinstieg im Interview."},
+
+  {l:8, t:"73 · お<ruby>待<rt>ま</rt></ruby>ちして いました", de:"お〜する — bescheiden: ich (er)warte(te) Sie",
+   simpel:"謙譲-Grundmuster: <b>お + ます-Stamm + する</b>.<br><span class='jp'>お<ruby>待<rt>ま</rt></ruby>ち<b>して いました</b></span> = „wir haben Sie erwartet“",
+   rule:"お + V<sub>マス</sub> + する (漢語: ご〜する): die eigene Handlung bescheiden ausdrücken, wenn sie dem Gegenüber gilt. お待ちする, お送りする, ご案内する.",
+   build:[
+    {form:"和語",verb:"お + V<sub>マス</sub> + する",de:"bescheiden handeln"},
+    {form:"漢語",verb:"ご + [<ruby>案内<rt>あんない</rt></ruby>など] + する",de:"ご<ruby>説明<rt>せつめい</rt></ruby>します"},
+    {form:"noch tiefer",verb:"お〜いたします",de:"いたす statt する"}
+   ],
+   pattern:{slots:[{text:"お",role:"actor",label:"Präfix"},{text:"V<sub>マス</sub>",role:"verb"},{text:"して いました",role:"plain",label:"(für Sie)"}],gloss:"Bescheidene Eigenhandlung zugunsten des Gegenübers: お待ちする, ご案内する."},
+   bauplan:[
+    "Eigene Handlung, die dem Gegenüber gilt? → 謙譲.",
+    "和語: <code>お</code> + ます-Stamm + <code>する</code>.",
+    "漢語: <code>ご</code> + Nomen + <code>する</code>.",
+    "Extra bescheiden: <code>いたします</code>."
+   ],
+   ex:[
+    {jp:"お<b>待<ruby>ま</ruby>ちして いました</b>。どうぞ こちらへ。",de:"Wir haben Sie erwartet — bitte hier entlang."},
+    {jp:"<ruby>駅<rt>えき</rt></ruby>まで お<ruby>送<rt>おく</rt></ruby>り<b>します</b>。",de:"Ich bringe Sie zum Bahnhof."},
+    {jp:"それでは、ご<ruby>説明<rt>せつめい</rt></ruby><b>いたします</b>。",de:"Nun denn — ich erläutere es Ihnen."}
+   ],
+   note:"⚠ Nur für <b>eigene</b> Handlungen Richtung Gegenüber — nie für dessen Handlungen (das wäre 尊敬, Punkt 75).<br>📖 Buch: der Empfang zum Interview."},
+
+  {l:8, t:"74 · <ruby>来日<rt>らいにち</rt></ruby><ruby>前<rt>まえ</rt></ruby>から <ruby>存<rt>ぞん</rt></ruby>じ<ruby>上<rt>あ</rt></ruby>げて おり", de:"〜ており — formelles ていて (+ 存じ上げる: kennen, 謙譲)",
+   simpel:"<b>ており</b> = schriftlich-formelles ていて; <b>存じ上げる</b> = bescheiden »kennen«.<br><span class='jp'><ruby>存<rt>ぞん</rt></ruby>じ<ruby>上<rt>あ</rt></ruby>げて<b>おり</b></span> = „ich kenne (Sie/es) bereits, und …“",
+   rule:"V<sub>テ</sub> + おり(、) ist die 謙譲/formelle Verbindungsform von ていて (おる statt いる). 存じ上げる = bescheidenes 知っている für Personen/Dinge des Gegenübers.",
+   build:[
+    {form:"Verbindung",verb:"V<sub>テ</sub> + おり、",de:"= ていて (formell)"},
+    {form:"Satzende",verb:"V<sub>テ</sub> + おります",de:"= ています (謙譲)"},
+    {form:"kennen",verb:"<ruby>存<rt>ぞん</rt></ruby>じて いる / <ruby>存<rt>ぞん</rt></ruby>じ<ruby>上<rt>あ</rt></ruby>げる",de:"bescheiden wissen/kennen"}
+   ],
+   pattern:{slots:[{text:"<ruby>前<rt>まえ</rt></ruby>から",role:"time"},{text:"V<sub>テ</sub>",role:"verb"},{text:"おり、",role:"plain",label:"formell ていて"}],gloss:"Formelle Verlaufs-/Verbindungsform mit おる; 存じ上げております = »ich kenne (Sie) ehrerbietig«."},
+   bauplan:[
+    "Ersetze in formeller Rede <code>いる → おる</code>.",
+    "Satzmitte: <code>〜ており、</code>; Satzende: <code>〜ております</code>.",
+    "»Ich weiß«: <code><ruby>存<rt>ぞん</rt></ruby>じて おります</code>; Personen: <code><ruby>存<rt>ぞん</rt></ruby>じ<ruby>上<rt>あ</rt></ruby>げて おります</code>.",
+    "Bewerbung/E-Mail-Standard."
+   ],
+   ex:[
+    {jp:"<ruby>御社<rt>おんしゃ</rt></ruby>の <ruby>製品<rt>せいひん</rt></ruby>は <ruby>来日<rt>らいにち</rt></ruby><ruby>前<rt>まえ</rt></ruby>から <ruby>存<rt>ぞん</rt></ruby>じて<b>おり</b>、ずっと <ruby>憧<rt>あこが</rt></ruby>れて いました。",de:"Die Produkte Ihres Hauses kannte ich schon vor meiner Ankunft in Japan und habe sie stets bewundert."},
+    {jp:"<ruby>現在<rt>げんざい</rt></ruby>、<ruby>東京<rt>とうきょう</rt></ruby>に <ruby>住<rt>す</rt></ruby>んで<b>おります</b>。",de:"Derzeit wohne ich in Tokio."},
+    {jp:"<ruby>山田<rt>やまだ</rt></ruby><ruby>様<rt>さま</rt></ruby>の ことは <ruby>存<rt>ぞん</rt></ruby>じ<ruby>上<rt>あ</rt></ruby>げて<b>おります</b>。",de:"Herrn Yamada kenne ich (selbstverständlich)."}
+   ],
+   note:"💡 おる-Familie: おります/おりまして/おり、 — Bewerbungs-Japanisch.<br>📖 Buch: die Selbstvorstellung im Interview."},
+
+  {l:8, t:"75 · <ruby>作品<rt>さくひん</rt></ruby>は お<ruby>持<rt>も</rt></ruby>ちですか", de:"お〜ですか — 尊敬: haben/tun Sie …? (kompakt)",
+   simpel:"尊敬-Kurzmuster: <b>お + ます-Stamm + ですか</b>.<br><span class='jp'>お<ruby>持<rt>も</rt></ruby>ち<b>ですか</b></span> = „haben Sie (dabei)?“",
+   rule:"お + V<sub>マス</sub> + です: kompakte Respektform für Handlungen/Zustände des Gegenübers (お持ちです = 持っていらっしゃる). Häufig: お持ちですか, おわかりですか, お急ぎですか.",
+   build:[
+    {form:"Muster",verb:"お + V<sub>マス</sub> + ですか",de:"tun/haben Sie …?"},
+    {form:"typisch",verb:"お<ruby>持<rt>も</rt></ruby>ち/お<ruby>急<rt>いそ</rt></ruby>ぎ/おわかりですか",de:"dabei? in Eile? klar?"},
+    {form:"voll",verb:"〜て いらっしゃいますか",de:"ausführlicher"}
+   ],
+   pattern:{slots:[{text:"N は",role:"obj"},{text:"お + V<sub>マス</sub>",role:"verb",label:"尊敬"},{text:"ですか",role:"plain"}],gloss:"Kompaktes 尊敬 für Zustände des Gegenübers: お持ちですか = haben Sie dabei?"},
+   bauplan:[
+    "Handlung des <b>Gegenübers</b>? → 尊敬.",
+    "<code>お</code> + ます-Stamm + <code>ですか</code>.",
+    "Nur mit gängigen Verben (持つ, 分かる, 急ぐ, 探す).",
+    "Ausführlich: <code>お持ちで いらっしゃいますか</code>."
+   ],
+   ex:[
+    {jp:"ポートフォリオ、<ruby>作品<rt>さくひん</rt></ruby>は お<ruby>持<rt>も</rt></ruby>ち<b>ですか</b>。",de:"Haben Sie Ihr Portfolio, Ihre Arbeiten dabei?"},
+    {jp:"お<ruby>急<rt>いそ</rt></ruby>ぎ<b>ですか</b>。",de:"Sind Sie in Eile?"},
+    {jp:"<ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby>は おわかり<b>ですか</b>。",de:"Ist Ihnen die Bedienung klar?"}
+   ],
+   note:"⚠ 尊敬 (für DEN ANDEREN) — nie über sich selbst sagen!<br>📖 Buch: die Frage des Interviewers."},
+
+  {l:8, t:"76 · ご<ruby>覧<rt>らん</rt></ruby>いただけますでしょうか", de:"ご覧いただけますか — dürfte ich Sie bitten, es anzusehen?",
+   simpel:"Doppelt höfliche Bitte ums Ansehen.<br><span class='jp'>ご<ruby>覧<rt>らん</rt></ruby><b>いただけますでしょうか</b></span>",
+   rule:"ご覧になる = 尊敬 für 見る. ご覧いただく = »(Sie) sehen es sich für mich an« (謙譲側). Potential + ですか/でしょうか = superweiche Bitte: ご覧いただけますか → いただけますでしょうか.",
+   build:[
+    {form:"尊敬 sehen",verb:"ご<ruby>覧<rt>らん</rt></ruby>に なる",de:"Sie sehen (an)"},
+    {form:"Bitte",verb:"ご<ruby>覧<rt>らん</rt></ruby>いただけますか",de:"würden Sie ansehen?"},
+    {form:"maximal weich",verb:"〜いただけますでしょうか",de:"dürfte ich bitten …?"}
+   ],
+   pattern:{slots:[{text:"こちらを",role:"obj"},{text:"ご<ruby>覧<rt>らん</rt></ruby>",role:"verb",label:"ansehen (尊敬)"},{text:"いただけますでしょうか",role:"plain",label:"dürfte ich bitten"}],gloss:"Superhöfliche Bitte: ご覧 (sehen) + いただける (dürfen wir erhalten) + ますでしょうか."},
+   bauplan:[
+    "見る des Gegenübers → <code>ご<ruby>覧<rt>らん</rt></ruby>になる</code>.",
+    "Als Bitte: <code>ご<ruby>覧<rt>らん</rt></ruby>いただけますか</code>.",
+    "Noch weicher: <code>いただけますでしょうか</code>.",
+    "Gleiches Muster: <code>お<ruby>越<rt>こ</rt></ruby>しいただけますでしょうか</code>."
+   ],
+   ex:[
+    {jp:"こちらの <ruby>作品<rt>さくひん</rt></ruby>を ご<ruby>覧<rt>らん</rt></ruby><b>いただけますでしょうか</b>。",de:"Dürfte ich Sie bitten, sich diese Arbeit anzusehen?"},
+    {jp:"<ruby>資料<rt>しりょう</rt></ruby>を ご<ruby>覧<rt>らん</rt></ruby><b>ください</b>。",de:"Bitte sehen Sie sich die Unterlagen an."},
+    {jp:"もう ご<ruby>覧<rt>らん</rt></ruby>に<b>なりました</b>か。",de:"Haben Sie es sich schon angesehen?"}
+   ],
+   note:"💡 ご覧-Familie: ご覧になる · ご覧ください · ご覧いただく.<br>📖 Buch: der Bewerber zeigt sein Portfolio."},
+
+  {l:8, t:"77 · ご<ruby>専門<rt>せんもん</rt></ruby>は デザインで いらっしゃいますか", de:"〜でいらっしゃいます — 尊敬-Kopula: Sie sind …",
+   simpel:"Die Respekt-Version von です für Personen: <b>でいらっしゃいます</b>.<br><span class='jp'>デザインで<b>いらっしゃいますか</b></span>",
+   rule:"N + でいらっしゃる = 尊敬 von だ/です, wenn das Prädikat die respektierte Person beschreibt (ご専門, お名前, ご出身 …). Über sich selbst: でございます (丁寧).",
+   build:[
+    {form:"尊敬",verb:"N + で いらっしゃいます",de:"Sie sind N"},
+    {form:"über sich",verb:"N + で ございます",de:"ich bin/es ist (höflich)"},
+    {form:"typisch",verb:"ご<ruby>出身<rt>しゅっしん</rt></ruby>/ご<ruby>専門<rt>せんもん</rt></ruby>は?",de:"Herkunft/Fachgebiet"}
+   ],
+   pattern:{slots:[{text:"ご<ruby>専門<rt>せんもん</rt></ruby>は",role:"subj",label:"des Gegenübers"},{text:"N",role:"obj"},{text:"でいらっしゃいますか",role:"plain",label:"sind Sie?"}],gloss:"尊敬-Kopula: beschreibt respektvoll das Gegenüber; über sich selbst でございます."},
+   bauplan:[
+    "Beschreibt das Prädikat die <b>respektierte Person</b>? → <code>でいらっしゃいます</code>.",
+    "Geht es um <b>dich/deine Firma</b>? → <code>でございます</code>.",
+    "Frage: <code>でいらっしゃいますか</code>.",
+    "Merke: いらっしゃる deckt いる・行く・来る・である ab."
+   ],
+   ex:[
+    {jp:"ご<ruby>専門<rt>せんもん</rt></ruby>は グラフィックデザインで<b>いらっしゃいますか</b>。",de:"Ihr Fachgebiet ist Grafikdesign, richtig?"},
+    {jp:"<ruby>鈴木<rt>すずき</rt></ruby><ruby>様<rt>さま</rt></ruby>で<b>いらっしゃいますね</b>。",de:"Sie sind Herr Suzuki, nicht wahr?"},
+    {jp:"<ruby>担当<rt>たんとう</rt></ruby>の <ruby>森<rt>もり</rt></ruby>で<b>ございます</b>。",de:"Ich bin Mori, Ihr Ansprechpartner."}
+   ],
+   note:"⚠ でいらっしゃる (über andere) ↔ でございます (über sich).<br>📖 Buch: die Fach-Nachfrage im Interview."},
+
+  {l:8, t:"78 · <ruby>始<rt>はじ</rt></ruby>めさせて いただきます", de:"〜させていただく — mit Ihrer Erlaubnis werde ich …",
+   simpel:"Maximal bescheiden handeln: »ich erlaube mir, zu beginnen«.<br><span class='jp'><ruby>始<rt>はじ</rt></ruby>め<b>させて いただきます</b></span>",
+   rule:"V<sub>使役て</sub> + いただく: die eigene Handlung als gewährte Erlaubnis darstellen — Standard bei Präsentationen, Anrufen, Absagen. Nicht inflationär verwenden.",
+   build:[
+    {form:"Muster",verb:"V<sub>させて</sub> + いただきます",de:"ich erlaube mir zu …"},
+    {form:"typisch",verb:"<ruby>始<rt>はじ</rt></ruby>め/<ruby>休<rt>やす</rt></ruby>ま/<ruby>送<rt>おく</rt></ruby>らせて いただく",de:"beginnen/freinehmen/senden"},
+    {form:"Basis",verb:"= させてもらう の <ruby>謙譲<rt>けんじょう</rt></ruby>",de:"vgl. Punkt 12"}
+   ],
+   pattern:{slots:[{text:"それでは",role:"time",label:"nun denn"},{text:"V<sub>させて</sub>",role:"verb",label:"mit Erlaubnis"},{text:"いただきます",role:"plain",label:"(ehrerbietig)"}],gloss:"»Mit Ihrer (gedachten) Erlaubnis tue ich …« — Präsentations-/Geschäftsformel."},
+   bauplan:[
+    "Bilde den <b>Kausativ</b> (<code><ruby>始<rt>はじ</rt></ruby>める→始めさせる</code>).",
+    "て-Form + <code>いただきます</code>.",
+    "Einleitung: <code>それでは/では</code>.",
+    "Sparsam einsetzen — sonst wirkt es übertrieben."
+   ],
+   ex:[
+    {jp:"それでは、<ruby>面接<rt>めんせつ</rt></ruby>を <ruby>始<rt>はじ</rt></ruby>め<b>させて いただきます</b>。",de:"Nun denn — ich erlaube mir, mit dem Gespräch zu beginnen."},
+    {jp:"<ruby>自己<rt>じこ</rt></ruby><ruby>紹介<rt>しょうかい</rt></ruby>を <b>させて いただきます</b>。",de:"Gestatten Sie, dass ich mich vorstelle."},
+    {jp:"<ruby>本日<rt>ほんじつ</rt></ruby>は <ruby>休<rt>やす</rt></ruby>ま<b>せて いただきます</b>。",de:"Heute erlauben wir uns, geschlossen zu bleiben."}
+   ],
+   note:"🔄 Kette: させてもらう (12) → <b>させていただく</b> (Keigo-Gipfel).<br>📖 Buch: der Start des Interviews (完 Unit 8)."}
 
 ];
 
