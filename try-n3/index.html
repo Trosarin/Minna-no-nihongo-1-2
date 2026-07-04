@@ -733,7 +733,7 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 <header>
   <h1>
     <span class="jp">TRY! N3 <ruby>補足<rt>ほそく</rt></ruby></span>
-    <span class="de">TRY! N3 · dem Buch folgend · Unit 1–11 (im Aufbau: 1–8)</span>
+    <span class="de">TRY! N3 · dem Buch folgend · Unit 1–11 (im Aufbau: 1–9)</span>
   </h1>
   <p class="subtitle">Klick auf eine Karte, um die Erklärung zu sehen</p>
 </header>
@@ -2806,6 +2806,184 @@ const CARDS = [
     {jp:"<ruby>本日<rt>ほんじつ</rt></ruby>は <ruby>休<rt>やす</rt></ruby>ま<b>せて いただきます</b>。",de:"Heute erlauben wir uns, geschlossen zu bleiben."}
    ],
    note:"🔄 Kette: させてもらう (12) → <b>させていただく</b> (Keigo-Gipfel).<br>📖 Buch: der Start des Interviews (完 Unit 8)."}
+,
+
+  // ============ UNIT 9 — お花見 (1)+(2) ============
+  {l:9, t:"79 · <ruby>花<rt>はな</rt></ruby>が <ruby>咲<rt>さ</rt></ruby>いて からでなければ", de:"〜てからでなければ — erst nachdem …, sonst nicht",
+   simpel:"Erst muss A passieren, sonst geht B nicht.<br><span class='jp'><ruby>咲<rt>さ</rt></ruby>いて<b>からでなければ</b></span> = „erst wenn sie blühen …“",
+   rule:"V<sub>テ</sub> + からでなければ/からでないと + Verneinung: »solange A nicht geschehen ist, ist B unmöglich«. Der Hauptsatz ist immer negativ (できない/わからない/だめ).",
+   build:[
+    {form:"Muster",verb:"V<sub>テ</sub> + からでなければ、〜ない",de:"erst nach A geht B"},
+    {form:"Variante",verb:"V<sub>テ</sub> + からでないと",de:"gleichbedeutend"},
+    {form:"Hauptsatz",verb:"immer Verneinung",de:"できない・わからない"}
+   ],
+   pattern:{slots:[{text:"V<sub>テ</sub>",role:"verb",label:"erst A"},{text:"からでなければ",role:"actor",label:"vorher nicht"},{text:"〜ない",role:"plain",label:"geht B nicht"}],gloss:"»Solange A nicht erledigt ist, geht B nicht.« て-Form + からでなければ + Verneinung."},
+   bauplan:[
+    "Voraussetzung A in der <b>て-Form</b> (<code><ruby>咲<rt>さ</rt></ruby>いて</code>).",
+    "Hänge <code>からでなければ</code> (oder <code>からでないと</code>) an.",
+    "Hauptsatz B <b>verneint</b>.",
+    "Sinn: die Reihenfolge ist zwingend."
+   ],
+   ex:[
+    {jp:"<ruby>花<rt>はな</rt></ruby>が <ruby>咲<rt>さ</rt></ruby>いて<b>からでなければ</b>、<ruby>日<rt>ひ</rt></ruby>にちは <ruby>決<rt>き</rt></ruby>められません。",de:"Bevor die Blüten aufgehen, lässt sich kein Termin festlegen."},
+    {jp:"<ruby>予約<rt>よやく</rt></ruby>して<b>からでないと</b>、<ruby>入<rt>はい</rt></ruby>れません。",de:"Ohne vorherige Reservierung kommt man nicht hinein."},
+    {jp:"<ruby>親<rt>おや</rt></ruby>と <ruby>相談<rt>そうだん</rt></ruby>して<b>からでなければ</b>、<ruby>返事<rt>へんじ</rt></ruby>できない。",de:"Erst nach Rücksprache mit den Eltern kann ich antworten."}
+   ],
+   note:"🔄 = Punkt 5 der TRY-Ergänzung; ≈ 〜ないと…ない, betont Reihenfolge.<br>📖 Buch: Hanami-Termine hängen an der Blüte."},
+
+  {l:9, t:"80 · <ruby>雪<rt>ゆき</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>って いる かのように", de:"〜かのように — (gerade) so, als ob …",
+   simpel:"Irrealer Vergleich: »als ob es schneite«.<br><span class='jp'><ruby>雪<rt>ゆき</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>って いる<b>かのように</b></span>",
+   rule:"Plain + かのようだ/かのように/かのような: Vergleich mit etwas, das NICHT wirklich so ist — oft mit まるで. Literarischer als schlichtes ように.",
+   build:[
+    {form:"adverbial",verb:"Plain + かのように",de:"als ob …"},
+    {form:"Satzende",verb:"〜かのようだ",de:"es ist, als ob"},
+    {form:"oft mit",verb:"まるで …",de:"gerade so"}
+   ],
+   pattern:{slots:[{text:"まるで",role:"time",label:"gerade so"},{text:"[irreal<sub>Plain</sub>]",role:"cond"},{text:"かのように",role:"actor",label:"als ob"}],gloss:"»So, als ob … (ist es aber nicht)« — irrealer, bildhafter Vergleich."},
+   bauplan:[
+    "Leite mit <code>まるで</code> ein.",
+    "Das irreale Bild in <b>Plain-Form</b>.",
+    "<code>かのように</code> + Verb / <code>かのような</code> + N.",
+    "Für reale Ähnlichkeit reicht <code>ように</code> (42)."
+   ],
+   ex:[
+    {jp:"<ruby>桜<rt>さくら</rt></ruby>の <ruby>花<rt>はな</rt></ruby>びらが、まるで <ruby>雪<rt>ゆき</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>って いる<b>かのように</b> <ruby>舞<rt>ま</rt></ruby>って いた。",de:"Die Kirschblütenblätter tanzten, als ob es schneite."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>何<rt>なに</rt></ruby>も <ruby>知<rt>し</rt></ruby>らない<b>かのように</b> <ruby>話<rt>はな</rt></ruby>した。",de:"Er redete, als wüsste er von nichts."},
+    {jp:"<ruby>夢<rt>ゆめ</rt></ruby>の <ruby>中<rt>なか</rt></ruby>に いる<b>かのような</b> <ruby>景色<rt>けしき</rt></ruby>だった。",de:"Eine Szenerie, als wäre man in einem Traum."}
+   ],
+   note:"🔄 vgl. chuukyuu L18-N3 (かのようだ) & lesen-Detektion.<br>📖 Buch: das Blütenblatt-Schneegestöber."},
+
+  {l:9, t:"81 · <ruby>花<rt>はな</rt></ruby>が <ruby>散<rt>ち</rt></ruby>らない うちに", de:"〜ないうちに — bevor … (das Fenster schließt)",
+   simpel:"»Bevor die Blüten fallen (solange sie noch da sind)«.<br><span class='jp'><ruby>散<rt>ち</rt></ruby>らない<b>うちに</b></span>",
+   rule:"V<sub>ない</sub> + うちに: etwas erledigen, BEVOR ein unerwünschter Zustand eintritt. Das positive Gegenstück (solange noch) ist Adj/ている + うちに (Punkt 68).",
+   build:[
+    {form:"bevor",verb:"V<sub>ない</sub> + うちに",de:"bevor …"},
+    {form:"solange",verb:"Adj/V<sub>ている</sub> + うちに",de:"solange noch …"},
+    {form:"typisch",verb:"<ruby>忘<rt>わす</rt></ruby>れないうちに",de:"bevor ich's vergesse"}
+   ],
+   pattern:{slots:[{text:"V<sub>ない</sub>",role:"cond",label:"bevor"},{text:"うちに",role:"actor",label:"im Fenster"},{text:"[Handlung]",role:"plain"}],gloss:"»Bevor A eintritt, (schnell) B tun« — Zeitfenster nutzen."},
+   bauplan:[
+    "Unerwünschtes Kommendes in der <b>ない-Form</b> (<code><ruby>散<rt>ち</rt></ruby>らない</code>).",
+    "Hänge <code>うちに</code> an.",
+    "Setze die Handlung, die vorher passieren soll.",
+    "Positiv-Fenster: <code><ruby>咲<rt>さ</rt></ruby>いて いるうちに</code>."
+   ],
+   ex:[
+    {jp:"<ruby>花<rt>はな</rt></ruby>が <ruby>散<rt>ち</rt></ruby>らない<b>うちに</b>、お<ruby>花見<rt>はなみ</rt></ruby>に <ruby>行<rt>い</rt></ruby>きましょう。",de:"Gehen wir zum Hanami, bevor die Blüten fallen!"},
+    {jp:"<ruby>冷<rt>さ</rt></ruby>めない<b>うちに</b> <ruby>召<rt>め</rt></ruby>し<ruby>上<rt>あ</rt></ruby>がって ください。",de:"Bitte essen Sie, bevor es kalt wird."},
+    {jp:"<ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>らない<b>うちに</b> <ruby>帰<rt>かえ</rt></ruby>ろう。",de:"Lass uns heimgehen, bevor es regnet."}
+   ],
+   note:"🔄 Paar zu Punkt 68 (ているうちに).<br>📖 Buch: die kurze Kirschblüten-Saison."},
+
+  {l:9, t:"82 · <ruby>花見<rt>はなみ</rt></ruby><ruby>客<rt>きゃく</rt></ruby><ruby>向<rt>む</rt></ruby>けに", de:"N 向けに — eigens für … (+Plus: 〜向き)",
+   simpel:"<b>向け</b> = bewusst für eine Zielgruppe gemacht.<br><span class='jp'><ruby>花見<rt>はなみ</rt></ruby><ruby>客<rt>きゃく</rt></ruby><b>向けに</b></span> = „(extra) für Hanami-Gäste“",
+   rule:"N + 向け(に/の): eigens für die Zielgruppe N hergestellt/angeboten. +Plus 向き = »eignet sich (von Natur aus) für« — der Unterschied ist Absicht vs. Eignung.",
+   build:[
+    {form:"gerichtet an",verb:"N + <ruby>向<rt>む</rt></ruby>けに/<ruby>向<rt>む</rt></ruby>けの",de:"extra für N"},
+    {form:"+Plus: geeignet",verb:"N + <ruby>向<rt>む</rt></ruby>き",de:"passt zu N"},
+    {form:"typisch",verb:"<ruby>初心者<rt>しょしんしゃ</rt></ruby><ruby>向<rt>む</rt></ruby>け",de:"für Anfänger"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Zielgruppe"},{text:"<ruby>向<rt>む</rt></ruby>けに",role:"actor",label:"extra für"},{text:"[Angebot]",role:"obj"}],gloss:"»Eigens für Zielgruppe N« — 向け (Absicht) vs 向き (natürliche Eignung)."},
+   bauplan:[
+    "Nenne die <b>Zielgruppe</b>.",
+    "Extra dafür gemacht → <code><ruby>向<rt>む</rt></ruby>け</code>.",
+    "Nur gut geeignet → <code><ruby>向<rt>む</rt></ruby>き</code>.",
+    "Vor Nomen: <code>向けの/向きの</code>."
+   ],
+   ex:[
+    {jp:"<ruby>花見<rt>はなみ</rt></ruby><ruby>客<rt>きゃく</rt></ruby><b>向けに</b>、お<ruby>弁当<rt>べんとう</rt></ruby>が <ruby>売<rt>う</rt></ruby>られて いる。",de:"Für die Hanami-Gäste werden Bentos verkauft."},
+    {jp:"<ruby>子<rt>こ</rt></ruby>ども<b>向けの</b> <ruby>番組<rt>ばんぐみ</rt></ruby>。",de:"Eine Sendung (eigens) für Kinder."},
+    {jp:"この <ruby>公園<rt>こうえん</rt></ruby>は <ruby>家族<rt>かぞく</rt></ruby><b>向き</b>だ。",de:"Dieser Park eignet sich gut für Familien."}
+   ],
+   note:"🔄 vgl. chuukyuu L18-N3 (向き/向け).<br>📖 Buch: das Geschäft rund ums Hanami."},
+
+  {l:9, t:"83 · <ruby>人<rt>ひと</rt></ruby>によって <ruby>楽<rt>たの</rt></ruby>しみ<ruby>方<rt>かた</rt></ruby>は それぞれだ", de:"〜によって — je nach … (unterschiedlich)",
+   simpel:"<b>によって</b> = »je nach« bei Verschiedenheit.<br><span class='jp'><ruby>人<rt>ひと</rt></ruby><b>によって</b> それぞれ</span> = „je nach Person verschieden“",
+   rule:"N + によって + 違う/それぞれだ/さまざまだ: N ist die Variable, nach der sich etwas unterscheidet. Vierte Lesart der による-Familie (vgl. 21 Mittel, 58 Ursache).",
+   build:[
+    {form:"je nach",verb:"N + によって + <ruby>違<rt>ちが</rt></ruby>う",de:"variiert mit N"},
+    {form:"typisch",verb:"<ruby>人<rt>ひと</rt></ruby>/<ruby>国<rt>くに</rt></ruby>/<ruby>季節<rt>きせつ</rt></ruby>によって",de:"je nach Person/Land/Saison"},
+    {form:"Nachsatz",verb:"それぞれ/さまざま",de:"jeweils anders"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Variable"},{text:"によって",role:"actor",label:"je nach"},{text:"それぞれだ",role:"plain",label:"jeweils anders"}],gloss:"»Je nach N unterschiedlich« — Nachsatz mit 違う/それぞれ/さまざま."},
+   bauplan:[
+    "Nenne die <b>Variable</b> (Person, Land, Jahreszeit).",
+    "Hänge <code>によって</code> an.",
+    "Nachsatz: <code><ruby>違<rt>ちが</rt></ruby>う/それぞれだ/さまざまだ</code>.",
+    "Merke die による-Familie: Mittel (21) · Ursache (58) · <b>je nach (83)</b>."
+   ],
+   ex:[
+    {jp:"お<ruby>花見<rt>はなみ</rt></ruby>の <ruby>楽<rt>たの</rt></ruby>しみ<ruby>方<rt>かた</rt></ruby>は、<ruby>人<rt>ひと</rt></ruby><b>によって</b> それぞれだ。",de:"Wie man Hanami genießt, ist von Person zu Person verschieden."},
+    {jp:"<ruby>国<rt>くに</rt></ruby><b>によって</b> <ruby>習慣<rt>しゅうかん</rt></ruby>が <ruby>違<rt>ちが</rt></ruby>う。",de:"Die Bräuche unterscheiden sich je nach Land."},
+    {jp:"<ruby>値段<rt>ねだん</rt></ruby>は <ruby>季節<rt>きせつ</rt></ruby><b>によって</b> <ruby>変<rt>か</rt></ruby>わります。",de:"Die Preise ändern sich je nach Saison."}
+   ],
+   note:"🔄 vgl. chuukyuu L42 (によって je nach).<br>📖 Buch: Essen, Fotos, Sake — jedem sein Hanami."},
+
+  {l:9, t:"84 · <ruby>仕事<rt>しごと</rt></ruby>の <ruby>最中<rt>さいちゅう</rt></ruby>に", de:"〜の最中に — mitten in / mittendrin, als …",
+   simpel:"»Mitten in der Arbeit (kam etwas dazwischen)«.<br><span class='jp'><ruby>仕事<rt>しごと</rt></ruby>の<b>最中に</b></span>",
+   rule:"N + の / V<sub>ている</sub> + 最中に: genau in der intensivsten Phase einer laufenden Handlung geschieht (störend) etwas anderes.",
+   build:[
+    {form:"Nomen",verb:"N + の + <ruby>最中<rt>さいちゅう</rt></ruby>に",de:"mitten in N"},
+    {form:"Verb",verb:"V<sub>ている</sub> + <ruby>最中<rt>さいちゅう</rt></ruby>に",de:"mitten beim V-en"},
+    {form:"Nuance",verb:"Störung/ungünstig",de:"ausgerechnet jetzt"}
+   ],
+   pattern:{slots:[{text:"N の",role:"cond",label:"laufend"},{text:"<ruby>最中<rt>さいちゅう</rt></ruby>に",role:"actor",label:"mittendrin"},{text:"[Störung]",role:"plain"}],gloss:"»Genau mittendrin passiert (störend) …« — intensivste Phase."},
+   bauplan:[
+    "Die laufende Sache: N + <code>の</code> oder V<sub>ている</sub>.",
+    "Hänge <code><ruby>最中<rt>さいちゅう</rt></ruby>に</code> an.",
+    "Setze die <b>Störung</b>.",
+    "Lesung: さいちゅう (nicht さなか — das ist literarisch)."
+   ],
+   ex:[
+    {jp:"<ruby>仕事<rt>しごと</rt></ruby>の<b>最中に</b>、<ruby>花見<rt>はなみ</rt></ruby>の <ruby>誘<rt>さそ</rt></ruby>いの <ruby>電話<rt>でんわ</rt></ruby>が きた。",de:"Mitten in der Arbeit kam der Anruf mit der Hanami-Einladung."},
+    {jp:"<ruby>会議<rt>かいぎ</rt></ruby>の<b>最中に</b> <ruby>携帯<rt>けいたい</rt></ruby>が <ruby>鳴<rt>な</rt></ruby>って しまった。",de:"Mitten in der Sitzung klingelte (peinlicherweise) mein Handy."},
+    {jp:"<ruby>話<rt>はな</rt></ruby>して いる<b>最中に</b> <ruby>口<rt>くち</rt></ruby>を はさまないで。",de:"Fall mir nicht mitten ins Wort."}
+   ],
+   note:"🔄 = chuukyuu L13-N3 (最中に).<br>📖 Buch: die Einladung platzt in die Arbeit."},
+
+  {l:9, t:"85 · やりかけの <ruby>仕事<rt>しごと</rt></ruby>", de:"〜かけの N — halb erledigt / angefangen (liegen geblieben)",
+   simpel:"<b>やりかけ</b> = angefangen und liegen gelassen.<br><span class='jp'>やり<b>かけの</b> <ruby>仕事<rt>しごと</rt></ruby></span> = „die halb fertige Arbeit“",
+   rule:"V<sub>ます</sub>-Stamm + かけ(の N): unvollendet abgebrochen. Verb: 〜かける auch »kurz davor« (死にかける) und »ansetzen« (言いかける).",
+   build:[
+    {form:"unvollendet",verb:"V<sub>マス</sub> + かけの + N",de:"halb ge-…tes N"},
+    {form:"Verb",verb:"V<sub>マス</sub> + かける",de:"ansetzen / kurz davor"},
+    {form:"typisch",verb:"やりかけ・<ruby>読<rt>よ</rt></ruby>みかけ・<ruby>食<rt>た</rt></ruby>べかけ",de:"halb getan/gelesen/gegessen"}
+   ],
+   pattern:{slots:[{text:"V<sub>マス</sub>",role:"verb"},{text:"かけの",role:"actor",label:"halb …"},{text:"N",role:"obj"}],gloss:"»Angefangen, nicht zu Ende« — かけの + N; als Verb auch »kurz davor/ansetzen«."},
+   bauplan:[
+    "ます-Stamm + <code>かけ</code>.",
+    "Vor Nomen: <code>かけの</code>.",
+    "Kontext: liegen geblieben / unterbrochen.",
+    "Vgl. Punkt 3 der Ergänzung — jetzt an Buchposition 85."
+   ],
+   ex:[
+    {jp:"やり<b>かけの</b> <ruby>仕事<rt>しごと</rt></ruby>が <ruby>気<rt>き</rt></ruby>に なって、<ruby>楽<rt>たの</rt></ruby>しめない。",de:"Die halb fertige Arbeit geht mir nicht aus dem Kopf — ich kann es nicht genießen."},
+    {jp:"<ruby>机<rt>つくえ</rt></ruby>に <ruby>飲<rt>の</rt></ruby>み<b>かけの</b> コーヒーが <ruby>置<rt>お</rt></ruby>いて ある。",de:"Auf dem Tisch steht ein halb getrunkener Kaffee."},
+    {jp:"<ruby>何<rt>なに</rt></ruby>か <ruby>言<rt>い</rt></ruby>い<b>かけて</b>、やめた。",de:"Er setzte an, etwas zu sagen — und ließ es."}
+   ],
+   note:"🔄 »beinahe passiert« → ところだった; »halb« → <b>かけ</b>.<br>📖 Buch: das schlechte Gewissen beim Feiern."},
+
+  {l:9, t:"86 · <ruby>行<rt>い</rt></ruby>かずには いられない", de:"〜ずにはいられない — ich kann nicht anders, als … (+Plus: ないではいられない)",
+   simpel:"Unwiderstehlicher Drang: »ich MUSS einfach hin«.<br><span class='jp'><ruby>行<rt>い</rt></ruby>か<b>ずには いられない</b></span>",
+   rule:"V<sub>ない</sub>-Stamm + ずにはいられない (する→せずに): ein innerer Drang lässt sich nicht unterdrücken. +Plus: 〜ないではいられない = gesprochenere Variante.",
+   build:[
+    {form:"Muster",verb:"V<sub>ない語幹</sub> + ずには いられない",de:"muss einfach …"},
+    {form:"+Plus",verb:"〜ないでは いられない",de:"gesprochener"},
+    {form:"Ausnahme",verb:"する → せずには",de:"unregelmäßig"}
+   ],
+   pattern:{slots:[{text:"V<sub>ず</sub>",role:"verb",label:"nicht-tun"},{text:"にはいられない",role:"plain",label:"geht nicht"}],gloss:"»Es nicht zu tun ist unmöglich« = ich muss einfach. Unwillkürlicher Drang."},
+   bauplan:[
+    "ない-Stamm + <code>ずには いられない</code>.",
+    "する → <code>せずには いられない</code>.",
+    "Nur für <b>unwillkürliche</b> Dränge (lachen, weinen, hingehen müssen).",
+    "Locker: <code>ないでは いられない</code>."
+   ],
+   ex:[
+    {jp:"<ruby>満開<rt>まんかい</rt></ruby>と <ruby>聞<rt>き</rt></ruby>いたら、<ruby>行<rt>い</rt></ruby>か<b>ずには いられない</b>。",de:"Wenn ich „volle Blüte“ höre, muss ich einfach hin."},
+    {jp:"おかしくて、<ruby>笑<rt>わら</rt></ruby>わ<b>ずには いられなかった</b>。",de:"Es war so komisch — ich musste einfach lachen."},
+    {jp:"<ruby>心配<rt>しんぱい</rt></ruby>で、<ruby>電話<rt>でんわ</rt></ruby>し<b>ないでは いられなかった</b>。",de:"Vor Sorge konnte ich nicht anders, als anzurufen."}
+   ],
+   note:"🔄 vgl. chuukyuu L15-N3 & lesen ずには-Spotlight.<br>📖 Buch: der Ruf der Kirschblüten (完 Unit 9)."}
 
 ];
 
