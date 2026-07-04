@@ -2691,7 +2691,7 @@ const CARDS = [
     "Extra bescheiden: <code>いたします</code>."
    ],
    ex:[
-    {jp:"お<b>待<ruby>ま</ruby>ちして いました</b>。どうぞ こちらへ。",de:"Wir haben Sie erwartet — bitte hier entlang."},
+    {jp:"お<ruby>待<rt>ま</rt></ruby>ち<b>して いました</b>。どうぞ こちらへ。",de:"Wir haben Sie erwartet — bitte hier entlang."},
     {jp:"<ruby>駅<rt>えき</rt></ruby>まで お<ruby>送<rt>おく</rt></ruby>り<b>します</b>。",de:"Ich bringe Sie zum Bahnhof."},
     {jp:"それでは、ご<ruby>説明<rt>せつめい</rt></ruby><b>いたします</b>。",de:"Nun denn — ich erläutere es Ihnen."}
    ],
@@ -2699,7 +2699,7 @@ const CARDS = [
 
   {l:8, t:"74 · <ruby>来日<rt>らいにち</rt></ruby><ruby>前<rt>まえ</rt></ruby>から <ruby>存<rt>ぞん</rt></ruby>じ<ruby>上<rt>あ</rt></ruby>げて おり", de:"〜ており — formelles ていて (+ 存じ上げる: kennen, 謙譲)",
    simpel:"<b>ており</b> = schriftlich-formelles ていて; <b>存じ上げる</b> = bescheiden »kennen«.<br><span class='jp'><ruby>存<rt>ぞん</rt></ruby>じ<ruby>上<rt>あ</rt></ruby>げて<b>おり</b></span> = „ich kenne (Sie/es) bereits, und …“",
-   rule:"V<sub>テ</sub> + おり(、) ist die 謙譲/formelle Verbindungsform von ていて (おる statt いる). 存じ上げる = bescheidenes 知っている für Personen/Dinge des Gegenübers.",
+   rule:"V<sub>テ</sub> + おり(、) ist die 謙譲/formelle Verbindungsform von ていて (おる statt いる). 存じ上げる = bescheidenes 知っている für Personen des Gegenübers (für Dinge/Sachverhalte: 存じる/存じております).",
    build:[
     {form:"Verbindung",verb:"V<sub>テ</sub> + おり、",de:"= ていて (formell)"},
     {form:"Satzende",verb:"V<sub>テ</sub> + おります",de:"= ています (謙譲)"},
@@ -3027,7 +3027,7 @@ const CARDS = [
    ex:[
     {jp:"<ruby>安定<rt>あんてい</rt></ruby>を <ruby>考<rt>かんが</rt></ruby>えたら、この <ruby>仕事<rt>しごと</rt></ruby><b>しか ない</b>。",de:"Wenn man an Sicherheit denkt, gibt es nur diesen Job."},
     {jp:"<ruby>財布<rt>さいふ</rt></ruby>に 500<ruby>円<rt>えん</rt></ruby><b>しか ない</b>。",de:"Ich habe nur 500 Yen im Portemonnaie."},
-    {jp:"こう なったら、やる<b>しかない</b>。",de:"Wenn es so weit ist, bleibt nur: durchziehen."}
+    {jp:"こう なったら、やる<b>しかない</b>。",de:"Jetzt, wo es so gekommen ist, bleibt nur: durchziehen."}
    ],
    note:"🔄 しか (Mangel) ↔ だけ (neutral).<br>📖 Buch: die „vernünftige“ Option des Vaters."},
 
@@ -3069,7 +3069,7 @@ const CARDS = [
     "⚠ Vorschlags-なんか (66) klingt gleich, wertet aber nicht ab — Kontext!"
    ],
    ex:[
-    {jp:"<ruby>演劇<rt>えんげき</rt></ruby><b>なんか</b> して いても、<ruby>食<rt>た</rt></ruby>べては いけないよ。",de:"Mit sowas wie Theater kannst du dich nicht ernähren."},
+    {jp:"<ruby>演劇<rt>えんげき</rt></ruby><b>なんか</b> して いても、<ruby>食<rt>た</rt></ruby>べて いけないよ。",de:"Mit sowas wie Theater kannst du dich nicht ernähren."},
     {jp:"<ruby>私<rt>わたし</rt></ruby>の <ruby>意見<rt>いけん</rt></ruby><b>なんか</b>、だれも <ruby>聞<rt>き</rt></ruby>かない。",de:"Auf sowas wie meine Meinung hört ja keiner."},
     {jp:"あきらめる<b>なんて</b>、あなたらしくない。",de:"Aufgeben? Das sieht dir gar nicht ähnlich."}
    ],
@@ -3193,7 +3193,7 @@ const CARDS = [
     {form:"Verb",verb:"V<sub>マス</sub> + っぽい",de:"neigt zu (<ruby>忘<rt>わす</rt></ruby>れっぽい)"},
     {form:"⚠ Kontrast",verb:"N + らしい",de:"typisch-positiv"}
    ],
-   pattern:{slots:[{text:"N",role:"subj"},{text:"っぽい",role:"actor",label:"-haft"},{text:"N₂",role:"obj"}],gloss:"Anschein/Neigung, wie い-Adj gebeugt. 子どもっぽい (kindisch, negativ) ≠ 子どもらしい (kindgerecht)."},
+   pattern:{slots:[{text:"N",role:"subj"},{text:"っぽい",role:"actor",label:"-haft"},{text:"N₂",role:"obj"}],gloss:"Anschein/Neigung, wie い-Adj gebeugt. 子どもっぽい (kindisch, negativ) ≠ 子どもらしい (kindlich, wie es sich für ein Kind gehört)."},
    bauplan:[
     "N oder ます-Stamm + <code>っぽい</code>.",
     "Beuge wie い-Adjektiv (<code>っぽくない</code>).",
@@ -3401,7 +3401,7 @@ const CARDS = [
     "Nur unter Vertrauten."
    ],
    ex:[
-    {jp:"<ruby>明日<rt>あした</rt></ruby>に は けろっと <ruby>元気<rt>げんき</rt></ruby>に なっ<b>たりして</b>。",de:"Und morgen bist du am Ende wieder putzmunter … haha."},
+    {jp:"<ruby>明日<rt>あした</rt></ruby>には けろっと <ruby>元気<rt>げんき</rt></ruby>に なっ<b>たりして</b>。",de:"Und morgen bist du am Ende wieder putzmunter … haha."},
     {jp:"<ruby>本当<rt>ほんとう</rt></ruby>は <ruby>仮病<rt>けびょう</rt></ruby>だっ<b>たりして</b>。",de:"Am Ende ist es noch geschwindelt … oder? 😏"},
     {jp:"<ruby>宝<rt>たから</rt></ruby>くじ、<ruby>当<rt>あ</rt></ruby>たっ<b>たりして</b>。",de:"Und plötzlich gewinnen wir noch im Lotto … haha."}
    ],
