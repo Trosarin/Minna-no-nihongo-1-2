@@ -731,7 +731,7 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 <header>
   <h1>
     <span class="jp">TRY! N2</span>
-    <span class="de">TRY! N2 · dem Buch folgend · Unit 1–14 (im Aufbau: 1–5)</span>
+    <span class="de">TRY! N2 · dem Buch folgend · Unit 1–14 (im Aufbau: 1–6)</span>
   </h1>
   <p class="subtitle">Klick auf eine Karte, um die Erklärung zu sehen</p>
 </header>
@@ -2120,6 +2120,272 @@ const CARDS = [
     {jp:"やる<b>だけ</b> やって、あとは <ruby>運<rt>うん</rt></ruby>に <ruby>任<rt>まか</rt></ruby>せよう。",de:"Wir tun, was wir können — den Rest überlassen wir dem Glück."}
    ],
    note:"💡 Geist: <b>だめでもともと</b> (»schlimmer als jetzt wird's nicht«).<br>📖 Buch: der pragmatische Plan (完 Unit 5)."}
+,
+
+  // ============ UNIT 6 — 苦労した5年間 (1)+(2) ============
+  {l:6, t:"48 · <ruby>経験<rt>けいけん</rt></ruby>が なかった ばかりに", de:"〜ばかりに — nur weil … (kam es zum Übel)",
+   simpel:"»Nur weil mir die Erfahrung fehlte, (ging alles schief)«.<br><span class='jp'>なかった<b>ばかりに</b></span>",
+   rule:"Plain + ばかりに: ein einziger Grund führte zu einem bedauerlichen Ergebnis — mit Reue/Bitterkeit. Nachsatz ist immer negativ.",
+   build:[
+    {form:"Muster",verb:"Plain + ばかりに",de:"nur weil … (Übel)"},
+    {form:"Nachsatz",verb:"negatives Ergebnis",de:"Reue/Bitterkeit"},
+    {form:"⚠ Familie",verb:"たばかり / ばかりでなく",de:"andere ばかり!"}
+   ],
+   pattern:{slots:[{text:"[einziger Grund]",role:"cond"},{text:"ばかりに",role:"actor",label:"nur weil"},{text:"[Übel]",role:"plain"}],gloss:"»Einzig wegen A traf mich das Übel B.« Immer bedauernd, Nachsatz negativ."},
+   bauplan:[
+    "Den fatalen Einzelgrund in Plain-Form.",
+    "Hänge <code>ばかりに</code> an.",
+    "Setze das bedauerliche Ergebnis.",
+    "Ton: »hätte ich doch nur …«."
+   ],
+   ex:[
+    {jp:"<ruby>経験<rt>けいけん</rt></ruby>が なかった<b>ばかりに</b>、なかなか <ruby>採用<rt>さいよう</rt></ruby>されなかった。",de:"Nur weil mir die Erfahrung fehlte, wurde ich lange nicht eingestellt."},
+    {jp:"パスポートを <ruby>忘<rt>わす</rt></ruby>れた<b>ばかりに</b>、<ruby>飛行機<rt>ひこうき</rt></ruby>に <ruby>乗<rt>の</rt></ruby>れなかった。",de:"Nur weil ich den Pass vergessen hatte, verpasste ich den Flug."},
+    {jp:"<ruby>一言<rt>ひとこと</rt></ruby> <ruby>多<rt>おお</rt></ruby>かった<b>ばかりに</b>、けんかに なった。",de:"Nur wegen eines Wortes zu viel gab es Streit."}
+   ],
+   note:"⚠ ばかり-Familie trennen: たばかり (gerade erst) · ばかりでなく (nicht nur) · <b>ばかりに</b> (fataler Grund).<br>📖 Buch: der harte Berufsstart."},
+
+  {l:6, t:"49 · あきらめる ことはない", de:"〜ことはない — kein Grund, zu … / musst nicht …",
+   simpel:"Beruhigung: »du brauchst nicht aufzugeben«.<br><span class='jp'>あきらめる<b>ことはない</b></span>",
+   rule:"V<sub>辞書</sub> + ことはない: »es besteht kein Anlass/keine Notwendigkeit zu V« — tröstend oder ratend. Vgl. ないことはない (54).",
+   build:[
+    {form:"Muster",verb:"V<sub>辞書</sub> + ことはない",de:"kein Grund zu V"},
+    {form:"Ton",verb:"Trost / Rat",de:"beruhigend"},
+    {form:"⚠ anders",verb:"〜ないことはない (54)",de:"durchaus"}
+   ],
+   pattern:{slots:[{text:"V<sub>辞書</sub>",role:"verb"},{text:"ことはない",role:"plain",label:"kein Anlass"}],gloss:"»Dazu besteht kein Grund« — tröstender Rat: nicht nötig, nicht angebracht."},
+   bauplan:[
+    "Die unnötige Handlung im <b>辞書形</b> (あきらめる, <ruby>謝<rt>あやま</rt></ruby>る, <ruby>急<rt>いそ</rt></ruby>ぐ).",
+    "Hänge <code>ことはない</code> an.",
+    "Oft mit Begründung: <code>まだ <ruby>時間<rt>じかん</rt></ruby>が あるから</code>.",
+    "Höflich: <code>ことはありません</code>."
+   ],
+   ex:[
+    {jp:"まだ <ruby>若<rt>わか</rt></ruby>いんだから、あきらめる<b>ことはない</b>よ。",de:"Du bist noch jung — kein Grund aufzugeben."},
+    {jp:"<ruby>君<rt>きみ</rt></ruby>が <ruby>謝<rt>あやま</rt></ruby>る<b>ことはない</b>。<ruby>悪<rt>わる</rt></ruby>いのは <ruby>向<rt>む</rt></ruby>こうだ。",de:"Du musst dich nicht entschuldigen — schuld ist die andere Seite."},
+    {jp:"そんなに <ruby>急<rt>いそ</rt></ruby>ぐ<b>ことはありません</b>。",de:"So eilig ist es nicht."}
+   ],
+   note:"🔄 verwandt: ことはない (kein Anlass) ↔ までもない (N2+, nicht mal nötig).<br>📖 Buch: der Zuspruch der Senpai."},
+
+  {l:6, t:"50 · <ruby>同期<rt>どうき</rt></ruby>の <ruby>人<rt>ひと</rt></ruby>に<ruby>比<rt>くら</rt></ruby>べて", de:"〜に比べて — verglichen mit …",
+   simpel:"»Verglichen mit den Kollegen des gleichen Jahrgangs …«<br><span class='jp'><ruby>同期<rt>どうき</rt></ruby>の <ruby>人<rt>ひと</rt></ruby><b>に比べて</b></span>",
+   rule:"N + に比べて/に比べ: Vergleichsbasis herausstellen. 同期 = Kollegen desselben Eintrittsjahrgangs (wichtige Firmen-Vokabel!).",
+   build:[
+    {form:"Muster",verb:"N + に<ruby>比<rt>くら</rt></ruby>べて",de:"verglichen mit N"},
+    {form:"schriftlich",verb:"N + に<ruby>比<rt>くら</rt></ruby>べ",de:"gleichbedeutend"},
+    {form:"Vokabel",verb:"<ruby>同期<rt>どうき</rt></ruby>",de:"gleicher Jahrgang"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Basis"},{text:"に<ruby>比<rt>くら</rt></ruby>べて",role:"actor",label:"verglichen mit"},{text:"[Unterschied]",role:"plain"}],gloss:"Vergleichsbasis: »gemessen an N ist …«."},
+   bauplan:[
+    "Vergleichsbasis als Nomen (<ruby>同期<rt>どうき</rt></ruby>, <ruby>去年<rt>きょねん</rt></ruby>).",
+    "Hänge <code>に<ruby>比<rt>くら</rt></ruby>べて</code> an.",
+    "Setze den Unterschied.",
+    "Alltag: <code>より</code>."
+   ],
+   ex:[
+    {jp:"<ruby>同期<rt>どうき</rt></ruby>の <ruby>人<rt>ひと</rt></ruby><b>に比べて</b>、<ruby>仕事<rt>しごと</rt></ruby>が <ruby>遅<rt>おそ</rt></ruby>い <ruby>気<rt>き</rt></ruby>が した。",de:"Verglichen mit den Jahrgangskollegen kam ich mir langsam vor."},
+    {jp:"<ruby>昔<rt>むかし</rt></ruby><b>に比べて</b>、<ruby>残業<rt>ざんぎょう</rt></ruby>は <ruby>減<rt>へ</rt></ruby>った。",de:"Verglichen mit früher sind die Überstunden weniger geworden."},
+    {jp:"<ruby>兄<rt>あに</rt></ruby><b>に比べ</b>、<ruby>弟<rt>おとうと</rt></ruby>は のんびりして いる。",de:"Verglichen mit dem großen Bruder ist der jüngere gelassen."}
+   ],
+   note:"🔄 = chuukyuu L17-N3 (に比べて) — hier mit der Firmen-Vokabel 同期.<br>📖 Buch: der Vergleichsdruck im Job."},
+
+  {l:6, t:"51 · <ruby>負<rt>ま</rt></ruby>けるものか", de:"〜ものか — niemals! (trotzige Verweigerung)",
+   simpel:"»Verlieren? Niemals!«<br><span class='jp'><ruby>負<rt>ま</rt></ruby>ける<b>ものか</b></span>",
+   rule:"Plain + ものか/もんか: emphatische Verneinung in Frageform — der Sprecher schließt es kategorisch aus. Trotz und Kampfgeist.",
+   build:[
+    {form:"Muster",verb:"Plain + ものか",de:"auf keinen Fall!"},
+    {form:"salopp",verb:"〜もんか",de:"gesprochen"},
+    {form:"höflich-alt",verb:"〜ものですか",de:"selten"}
+   ],
+   pattern:{slots:[{text:"V<sub>辞書</sub>",role:"verb"},{text:"ものか",role:"plain",label:"niemals!"}],gloss:"Rhetorische Frage = kategorisches Nein. Kampfansage an sich selbst."},
+   bauplan:[
+    "Das kategorisch Ausgeschlossene in Plain-Form.",
+    "Hänge <code>ものか/もんか</code> an.",
+    "Innerer Monolog oder trotzige Antwort.",
+    "Bekannt aus N3 — hier als Durchhalte-Ruf."
+   ],
+   ex:[
+    {jp:"こんな ことで <ruby>負<rt>ま</rt></ruby>ける<b>ものか</b>と <ruby>思<rt>おも</rt></ruby>った。",de:"„So leicht verliere ich nicht!“, dachte ich."},
+    {jp:"あんな <ruby>会社<rt>かいしゃ</rt></ruby>、<ruby>二度<rt>にど</rt></ruby>と <ruby>行<rt>い</rt></ruby>く<b>もんか</b>。",de:"In so eine Firma gehe ich nie wieder!"},
+    {jp:"<ruby>泣<rt>な</rt></ruby>く<b>ものか</b>。まだ <ruby>終<rt>お</rt></ruby>わって いない。",de:"Ich weine nicht! Es ist noch nicht vorbei."}
+   ],
+   note:"🔄 = N3-ものか — hier der Kampfgeist der 5 Jahre.<br>📖 Buch: der Wendepunkt der Erzählerin."},
+
+  {l:6, t:"52 · それが <ruby>上司<rt>じょうし</rt></ruby>というものよ", de:"〜というものだ — so ist (nun mal) das Wesen von …",
+   simpel:"»So sind Vorgesetzte eben.«<br><span class='jp'><ruby>上司<rt>じょうし</rt></ruby><b>というものよ</b></span>",
+   rule:"N + というものだ: benennt das allgemeine Wesen/die Natur einer Sache (»das macht … aus / so ist … eben«). Auch für Urteile: それは わがままというものだ (»das nenne ich Egoismus«).",
+   build:[
+    {form:"Wesen",verb:"N + というものだ",de:"so ist N eben"},
+    {form:"Urteil",verb:"それは 〜というものだ",de:"das nenne ich …"},
+    {form:"weiblich-gesprochen",verb:"〜というものよ",de:"Satzend-よ"}
+   ],
+   pattern:{slots:[{text:"それが",role:"cond",label:"genau das"},{text:"N",role:"subj"},{text:"というものだ",role:"plain",label:"macht N aus"}],gloss:"Wesens-Definition: »genau das ist es, was N ausmacht.«"},
+   bauplan:[
+    "Beschreibe erst das Verhalten/Phänomen.",
+    "Dann: <code>それが N というものだ</code>.",
+    "Urteils-Variante: <code>それは <ruby>甘<rt>あま</rt></ruby>えというものだ</code>.",
+    "⚠ Nicht mit というものではない (25) verwechseln."
+   ],
+   ex:[
+    {jp:"<ruby>厳<rt>きび</rt></ruby>しくても <ruby>部下<rt>ぶか</rt></ruby>を <ruby>育<rt>そだ</rt></ruby>てる。それが <ruby>上司<rt>じょうし</rt></ruby><b>というものよ</b>。",de:"Streng sein und doch die Mitarbeiter fördern — genau das macht einen Chef aus."},
+    {jp:"<ruby>助<rt>たす</rt></ruby>け<ruby>合<rt>あ</rt></ruby>うのが <ruby>友達<rt>ともだち</rt></ruby><b>というものだ</b>。",de:"Einander zu helfen — das ist es, was Freundschaft ausmacht."},
+    {jp:"<ruby>全部<rt>ぜんぶ</rt></ruby> <ruby>人<rt>ひと</rt></ruby>に やらせるのは、わがまま<b>というものだ</b>。",de:"Alles andere machen zu lassen — das nenne ich Egoismus."}
+   ],
+   note:"🔄 というものだ (Wesen) ↔ というものではない (25, Zurückweisung).<br>📖 Buch: die Erkenntnis über die Chefin."},
+
+  {l:6, t:"53 · ぼくの ことを <ruby>思<rt>おも</rt></ruby>えばこそ", de:"〜ばこそ — gerade weil … (und nur deshalb)",
+   simpel:"»Gerade weil sie an mich dachte (war sie streng)«.<br><span class='jp'><ruby>思<rt>おも</rt></ruby>えば<b>こそ</b></span>",
+   rule:"V<sub>ば</sub> + こそ: der Grund wird exklusiv-betont — »einzig und gerade deshalb«. Gehobener als からこそ; Satzende oft のだ.",
+   build:[
+    {form:"Muster",verb:"V<sub>ば</sub> + こそ",de:"gerade weil"},
+    {form:"üblicher",verb:"〜からこそ",de:"gleiche Idee"},
+    {form:"Satzende",verb:"〜のだ",de:"Erklär-Abschluss"}
+   ],
+   pattern:{slots:[{text:"V<sub>ば</sub>",role:"cond",label:"gerade weil"},{text:"こそ",role:"actor",label:"nur deshalb"},{text:"[B のだ]",role:"plain"}],gloss:"Exklusiv-betonter Grund, gehoben: »einzig weil …« — oft überraschend positiv gedeutete Strenge."},
+   bauplan:[
+    "Den wahren Grund in der <b>ば-Form</b> (<code><ruby>思<rt>おも</rt></ruby>えば</code>, <code>あれば</code>).",
+    "Hänge <code>こそ</code> an.",
+    "Nachsatz erklärt das (strenge) Verhalten, oft + <code>のだ</code>.",
+    "Alltag: <code>からこそ</code>."
+   ],
+   ex:[
+    {jp:"ぼくの ことを <ruby>思<rt>おも</rt></ruby>えば<b>こそ</b>、<ruby>厳<rt>きび</rt></ruby>しく して くれたのだ。",de:"Gerade weil sie an mich dachte, war sie so streng mit mir."},
+    {jp:"<ruby>愛<rt>あい</rt></ruby>すれば<b>こそ</b>、<ruby>別<rt>わか</rt></ruby>れを <ruby>選<rt>えら</rt></ruby>んだ。",de:"Gerade aus Liebe wählte sie den Abschied."},
+    {jp:"<ruby>信頼<rt>しんらい</rt></ruby>が あれば<b>こそ</b>、<ruby>任<rt>まか</rt></ruby>せられる のだ。",de:"Nur weil Vertrauen da ist, kann man es überlassen."}
+   ],
+   note:"🔄 からこそ (N3/N2-Alltag) → <b>ばこそ</b> (gehoben).<br>📖 Buch: die späte Einsicht."},
+
+  {l:6, t:"54 · わからない ことはなかった", de:"〜ないことはない — nicht, dass nicht … (durchaus)",
+   simpel:"Doppelte Verneinung: »verstehen konnte ich es durchaus«.<br><span class='jp'>わからない<b>ことはなかった</b></span>",
+   rule:"V<sub>ない</sub> + ことはない/こともない: doppelte Verneinung = zurückhaltendes Ja (»durchaus, schon, im Prinzip«). Einschränkung schwingt mit.",
+   build:[
+    {form:"Muster",verb:"V<sub>ない</sub> + ことはない",de:"durchaus (mit aber)"},
+    {form:"Adjektiv",verb:"<ruby>高<rt>たか</rt></ruby>くない ことはない",de:"schon (etwas) teuer"},
+    {form:"⚠ anders",verb:"V<sub>辞書</sub> + ことはない (49)",de:"kein Grund zu"}
+   ],
+   pattern:{slots:[{text:"V<sub>ない</sub>",role:"cond",label:"nicht-V"},{text:"ことはない",role:"plain",label:"ist nicht der Fall"}],gloss:"Doppelt verneint = vorsichtig bejaht: »schon/durchaus, aber …«."},
+   bauplan:[
+    "Verneinte Form + <code>ことはない</code>.",
+    "Bedeutung: zurückhaltendes »doch, schon«.",
+    "Oft folgt ein <code>が/けど</code> mit Einschränkung.",
+    "⚠ Anschluss entscheidet: 辞書形+ことはない = »kein Grund« (49)!"
+   ],
+   ex:[
+    {jp:"<ruby>仕事<rt>しごと</rt></ruby>が わからない<b>ことはなかった</b>が、<ruby>時間<rt>じかん</rt></ruby>が かかった。",de:"Verstanden habe ich die Arbeit durchaus — es dauerte nur."},
+    {jp:"<ruby>行<rt>い</rt></ruby>けない<b>ことはない</b>けど、あまり <ruby>気<rt>き</rt></ruby>が <ruby>進<rt>すす</rt></ruby>まない。",de:"Hingehen könnte ich schon — aber so recht mag ich nicht."},
+    {jp:"<ruby>食<rt>た</rt></ruby>べられない<b>こともない</b>が、<ruby>好<rt>この</rt></ruby>んでは <ruby>食<rt>た</rt></ruby>べない。",de:"Essen kann ich es durchaus — freiwillig aber nicht."}
+   ],
+   note:"⚠ Paar: 49 (辞書形 = kein Grund) vs <b>54 (ない形 = durchaus)</b>.<br>📖 Buch: die ehrliche Rückschau."},
+
+  {l:6, t:"55 · がんばれる<b>だけ</b> がんばろう", de:"〜(可能)だけ… — so viel man (nur) kann",
+   simpel:"»So hart kämpfen, wie ich nur kann.«<br><span class='jp'>がんばれる<b>だけ</b> がんばろう</span>",
+   rule:"V<sub>可能</sub> + だけ + dasselbe V: die Handlung bis zur eigenen Grenze ausreizen (できるだけ, 食べられるだけ). Vgl. Punkt 47 (出すだけ出してみる).",
+   build:[
+    {form:"Muster",verb:"V<sub>可能</sub> だけ V",de:"so viel man kann"},
+    {form:"Klassiker",verb:"できるだけ",de:"so gut es geht"},
+    {form:"vgl.",verb:"V<sub>辞書</sub> だけ V<sub>テ</sub>みる (47)",de:"einfach mal alles"}
+   ],
+   pattern:{slots:[{text:"V<sub>可能</sub>",role:"cond",label:"bis zur Grenze"},{text:"だけ",role:"actor",label:"so viel wie"},{text:"V<sub>意向</sub>",role:"plain",label:"tun wir's!"}],gloss:"»Bis ans eigene Limit« — Potentialform + だけ + dasselbe Verb."},
+   bauplan:[
+    "Potentialform (<code>がんばれる</code>, <code><ruby>持<rt>も</rt></ruby>てる</code>).",
+    "Hänge <code>だけ</code> an, wiederhole das Verb.",
+    "Gern als Entschluss (Willensform).",
+    "Kurzform des Prinzips: <code>できるだけ</code>."
+   ],
+   ex:[
+    {jp:"<ruby>結果<rt>けっか</rt></ruby>は <ruby>気<rt>き</rt></ruby>に せず、がんばれる<b>だけ</b> がんばろう。",de:"Egal was rauskommt — kämpfen wir, so hart wir nur können."},
+    {jp:"<ruby>持<rt>も</rt></ruby>てる<b>だけ</b> <ruby>持<rt>も</rt></ruby>って <ruby>帰<rt>かえ</rt></ruby>った。",de:"Ich trug heim, so viel ich nur tragen konnte."},
+    {jp:"<b>できるだけ</b> <ruby>早<rt>はや</rt></ruby>く <ruby>返事<rt>へんじ</rt></ruby>します。",de:"Ich antworte so schnell wie möglich."}
+   ],
+   note:"🔄 Paar zu 47 (だけ〜てみる) — hier mit Potentialform.<br>📖 Buch: der neue Vorsatz."},
+
+  {l:6, t:"56 · <ruby>努力<rt>どりょく</rt></ruby>してたんだもん", de:"〜(んだ)もん — weil doch …! (gesprochene Begründung)",
+   simpel:"Kindlich-vertraute Rechtfertigung: »ich hab doch (wirklich) geackert!«<br><span class='jp'>してたんだ<b>もん</b></span>",
+   rule:"Satz + (んだ)もん/もの: gesprochene, leicht trotzig-vertraute Begründung (»weil nun mal / doch!«). Typisch Kinder, enge Freunde; erwachsen wirkt es kokett.",
+   build:[
+    {form:"Muster",verb:"〜(んだ) + もん",de:"weil doch!"},
+    {form:"voll",verb:"〜んだもの",de:"gleichbedeutend"},
+    {form:"Register",verb:"vertraut/trotzig",de:"nur gesprochen"}
+   ],
+   pattern:{slots:[{text:"[Begründung]",role:"cond"},{text:"んだもん",role:"plain",label:"weil doch!"}],gloss:"Trotzig-vertraute Begründung am Satzende — Dialogfärbung, kein Schriftstil."},
+   bauplan:[
+    "Begründung als Plain-Satz (+<code>んだ</code>).",
+    "Hänge <code>もん/もの</code> an.",
+    "Nur unter Vertrauten.",
+    "Erwachsene Alternative: <code>〜んだから</code>."
+   ],
+   ex:[
+    {jp:"だって、<ruby>毎日<rt>まいにち</rt></ruby> <ruby>努力<rt>どりょく</rt></ruby>してたんだ<b>もん</b>。",de:"Na klar — ich habe doch jeden Tag geackert!"},
+    {jp:"<ruby>食<rt>た</rt></ruby>べたく ない<b>もん</b>。おなか いっぱいなんだ<b>もん</b>。",de:"Will nicht essen! Bin doch satt!"},
+    {jp:"しかたないよ、<ruby>知<rt>し</rt></ruby>らなかったんだ<b>もの</b>。",de:"Kann man nichts machen — ich wusste es ja nicht."}
+   ],
+   note:"💡 だって + …もん = klassisches Rechtfertigungs-Duo.<br>📖 Buch: der Stolz auf die eigene Mühe."},
+
+  {l:6, t:"57 · <ruby>失敗<rt>しっぱい</rt></ruby>する わけにはいかない", de:"〜わけにはいかない — darf (aus Prinzip) nicht …",
+   simpel:"»Scheitern kommt nicht in Frage (zu viel hängt daran)«.<br><span class='jp'><ruby>失敗<rt>しっぱい</rt></ruby>する<b>わけにはいかない</b></span>",
+   rule:"V<sub>辞書</sub> + わけにはいかない: aus sozialen/moralischen Gründen unmöglich. V<sub>ない</sub> + わけにはいかない = »muss unbedingt«.",
+   build:[
+    {form:"darf nicht",verb:"V<sub>辞書</sub> + わけにはいかない",de:"kommt nicht in Frage"},
+    {form:"muss",verb:"V<sub>ない</sub> + わけにはいかない",de:"kann nicht umhin"},
+    {form:"Familie",verb:"わけがない/わけではない",de:"unmöglich / nicht unbedingt"}
+   ],
+   pattern:{slots:[{text:"V<sub>辞書</sub>",role:"verb"},{text:"わけにはいかない",role:"plain",label:"aus Prinzip nicht"}],gloss:"Sozial/moralisch unmöglich — Verantwortung erlaubt es nicht."},
+   bauplan:[
+    "辞書形 + <code>わけにはいかない</code> = »darf nicht«.",
+    "ない形 + <code>わけにはいかない</code> = »muss«.",
+    "Begründung: Verantwortung, Erwartungen.",
+    "Bekannt aus N3 — N2-Kontext: Beruf."
+   ],
+   ex:[
+    {jp:"みんなが <ruby>期待<rt>きたい</rt></ruby>して いるから、<ruby>失敗<rt>しっぱい</rt></ruby>する<b>わけにはいかない</b>。",de:"Alle setzen auf mich — scheitern kommt nicht in Frage."},
+    {jp:"<ruby>大事<rt>だいじ</rt></ruby>な <ruby>会議<rt>かいぎ</rt></ruby>だから、<ruby>休<rt>やす</rt></ruby>む<b>わけにはいかない</b>。",de:"Bei dieser wichtigen Sitzung kann ich unmöglich fehlen."},
+    {jp:"ここで やめる<b>わけにはいかない</b>んだ。",de:"Jetzt aufzuhören geht einfach nicht."}
+   ],
+   note:"🔄 = N3-わけにはいかない — hier der Verantwortungsdruck.<br>📖 Buch: die Entschlossenheit."},
+
+  {l:6, t:"58 · <ruby>自分<rt>じぶん</rt></ruby>を <ruby>信<rt>しん</rt></ruby>じて <ruby>進<rt>すす</rt></ruby>むのみだ", de:"〜のみだ — einzig und allein … (schriftlich)",
+   simpel:"»Es bleibt einzig: an sich glauben und weitergehen.«<br><span class='jp'><ruby>進<rt>すす</rt></ruby>む<b>のみだ</b></span>",
+   rule:"V<sub>辞書</sub>/N + のみ(だ): schriftlich-gehobenes だけ — »nur/einzig«. あとは〜のみだ = »es bleibt nur noch …«. Auch のみならず (= だけでなく, 63).",
+   build:[
+    {form:"Muster",verb:"V<sub>辞書</sub>/N + のみ(だ)",de:"einzig / nur"},
+    {form:"Floskel",verb:"あとは 〜のみだ",de:"bleibt nur noch"},
+    {form:"Familie",verb:"のみならず (63)",de:"nicht nur"}
+   ],
+   pattern:{slots:[{text:"あとは",role:"time",label:"jetzt bleibt"},{text:"V<sub>辞書</sub>",role:"verb"},{text:"のみだ",role:"plain",label:"einzig das"}],gloss:"Gehobenes だけ: »einzig und allein« — Entschluss-/Parolen-Stil."},
+   bauplan:[
+    "Die einzige verbliebene Handlung im 辞書形.",
+    "Hänge <code>のみだ</code> an.",
+    "Klassiker: <code>あとは <ruby>結果<rt>けっか</rt></ruby>を <ruby>待<rt>ま</rt></ruby>つのみ</code>.",
+    "Alltag: <code>だけだ</code>."
+   ],
+   ex:[
+    {jp:"<ruby>迷<rt>まよ</rt></ruby>いは ない。<ruby>自分<rt>じぶん</rt></ruby>を <ruby>信<rt>しん</rt></ruby>じて <ruby>進<rt>すす</rt></ruby>む<b>のみだ</b>。",de:"Kein Zweifel mehr — einzig an sich glauben und weitergehen."},
+    {jp:"<ruby>準備<rt>じゅんび</rt></ruby>は <ruby>整<rt>ととの</rt></ruby>った。あとは <ruby>実行<rt>じっこう</rt></ruby>する<b>のみ</b>。",de:"Alles ist vorbereitet — bleibt nur noch die Umsetzung."},
+    {jp:"<ruby>会員<rt>かいいん</rt></ruby><b>のみ</b> <ruby>入場<rt>にゅうじょう</rt></ruby><ruby>可<rt>か</rt></ruby>。",de:"Zutritt nur für Mitglieder."}
+   ],
+   note:"🔄 だけ (Alltag) → <b>のみ</b> (Schrift/Parole); Bruder: のみならず (63).<br>📖 Buch: das Credo der Erzählerin."},
+
+  {l:6, t:"59 · スターに なったつもりで", de:"〜つもりで — in der Vorstellung / so als ob …",
+   simpel:"»Sich fühlen, als wäre man ein Star — und so auftreten.«<br><span class='jp'>なった<b>つもりで</b></span>",
+   rule:"V<sub>た</sub>/N の + つもりで: man verhält sich, als ob die (irreale) Annahme zuträfe (死んだつもりで = als hätte man nichts zu verlieren). ⚠ V<sub>ている</sub> + つもり = Selbstbild vs. Realität (120).",
+   build:[
+    {form:"Als-ob",verb:"V<sub>た</sub> + つもりで",de:"in der Rolle von"},
+    {form:"Nomen",verb:"N の + つもりで",de:"als wäre es N"},
+    {form:"⚠ anders",verb:"V<sub>た</sub> つもりだった (120)",de:"dachte, ich hätte"}
+   ],
+   pattern:{slots:[{text:"V<sub>た</sub>",role:"cond",label:"irreale Annahme"},{text:"つもりで",role:"actor",label:"als ob"},{text:"[Handeln]",role:"plain"}],gloss:"»Im Geiste als X handeln« — Motivations-Trick der Als-ob-Haltung."},
+   bauplan:[
+    "Die Als-ob-Annahme in der た-Form (oder N + <code>の</code>).",
+    "Hänge <code>つもりで</code> an.",
+    "Setze das dadurch beflügelte Handeln.",
+    "Klassiker: <code><ruby>死<rt>し</rt></ruby>んだつもりで がんばる</code>."
+   ],
+   ex:[
+    {jp:"スターに なった<b>つもりで</b>、<ruby>堂々<rt>どうどう</rt></ruby>と <ruby>発表<rt>はっぴょう</rt></ruby>した。",de:"Ich präsentierte selbstbewusst — ganz so, als wäre ich ein Star."},
+    {jp:"<ruby>死<rt>し</rt></ruby>んだ<b>つもりで</b> <ruby>働<rt>はたら</rt></ruby>けば、<ruby>何<rt>なん</rt></ruby>でも できる。",de:"Wer arbeitet, als hätte er nichts zu verlieren, schafft alles."},
+    {jp:"<ruby>旅行<rt>りょこう</rt></ruby>した<b>つもりで</b>、その お<ruby>金<rt>かね</rt></ruby>を <ruby>貯金<rt>ちょきん</rt></ruby>した。",de:"Ich tat so, als wäre ich verreist — und sparte das Geld stattdessen."}
+   ],
+   note:"💡 …た<b>つもりで</b><ruby>貯金<rt>ちょきん</rt></ruby> = beliebter Spar-Trick.<br>📖 Buch: das Erfolgsrezept (完 Unit 6)."}
 
 ];
 
