@@ -731,7 +731,7 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 <header>
   <h1>
     <span class="jp">TRY! N2</span>
-    <span class="de">TRY! N2 · dem Buch folgend · Unit 1–14 (im Aufbau: 1–4)</span>
+    <span class="de">TRY! N2 · dem Buch folgend · Unit 1–14 (im Aufbau: 1–5)</span>
   </h1>
   <p class="subtitle">Klick auf eine Karte, um die Erklärung zu sehen</p>
 </header>
@@ -1876,6 +1876,250 @@ const CARDS = [
     {jp:"<ruby>会議<rt>かいぎ</rt></ruby>が <ruby>終<rt>お</rt></ruby>わり<b>次第</b>、<ruby>伺<rt>うかが</rt></ruby>います。",de:"Gleich nach Ende der Sitzung komme ich zu Ihnen."}
    ],
    note:"🔄 = chuukyuu L13-N3 (次第) — hier das Nachrichten-Original; 114 bringt 次第で.<br>📖 Buch: der Abschluss der Taifun-Meldung (完 Unit 4)."}
+,
+
+  // ============ UNIT 5 — 就職活動 (1)+(2) ============
+  {l:5, t:"37 · <ruby>京都<rt>きょうと</rt></ruby>に <ruby>行<rt>い</rt></ruby>ったきり", de:"〜たきり — seit … (ist nichts mehr gefolgt)",
+   simpel:"»Seit der Kyoto-Reise (war nichts mehr)«.<br><span class='jp'><ruby>行<rt>い</rt></ruby>った<b>きり</b></span>",
+   rule:"V<sub>た</sub> + きり(で): nach der Handlung blieb die erwartete Fortsetzung aus (行ったきり帰らない). Auch 寝たきり (bettlägerig), これっきり (das war's dann).",
+   build:[
+    {form:"Muster",verb:"V<sub>た</sub> + きり",de:"seit … nichts mehr"},
+    {form:"typisch",verb:"<ruby>行<rt>い</rt></ruby>ったきり・<ruby>会<rt>あ</rt></ruby>ったきり",de:"seither verschollen/nicht gesehen"},
+    {form:"fest",verb:"<ruby>寝<rt>ね</rt></ruby>たきり / これっきり",de:"bettlägerig / das war's"}
+   ],
+   pattern:{slots:[{text:"V<sub>た</sub>",role:"verb",label:"letztes Ereignis"},{text:"きり",role:"actor",label:"seither nichts"},{text:"(〜ない)",role:"plain"}],gloss:"»Nach A kam nichts mehr« — た-Form + きり, Nachsatz oft verneint."},
+   bauplan:[
+    "Das letzte Ereignis in der <b>た-Form</b>.",
+    "Hänge <code>きり</code> an.",
+    "Nachsatz: das Ausbleiben (<code><ruby>帰<rt>かえ</rt></ruby>って こない</code>) — darf auch wegfallen.",
+    "Bekannt aus TRY! N3 — hier im Dialog."
+   ],
+   ex:[
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は <ruby>京都<rt>きょうと</rt></ruby>に <ruby>行<rt>い</rt></ruby>った<b>きり</b>、<ruby>連絡<rt>れんらく</rt></ruby>が ない。",de:"Seit er nach Kyoto gefahren ist, hat er sich nicht mehr gemeldet."},
+    {jp:"<ruby>去年<rt>きょねん</rt></ruby> <ruby>会<rt>あ</rt></ruby>った<b>きり</b>だね。",de:"Wir haben uns seit letztem Jahr nicht mehr gesehen, was?"},
+    {jp:"<ruby>祖父<rt>そふ</rt></ruby>は <ruby>入院<rt>にゅういん</rt></ruby><ruby>後<rt>ご</rt></ruby>、<ruby>寝<rt>ね</rt></ruby>た<b>きり</b>に なった。",de:"Nach der Einweisung wurde Großvater bettlägerig."}
+   ],
+   note:"🔄 て以来 (9, seither durchgehend) ↔ <b>たきり</b> (seither nichts).<br>📖 Buch: der verschwundene Freund."},
+
+  {l:5, t:"38 · <ruby>旅行<rt>りょこう</rt></ruby>どころじゃない", de:"〜どころではない — jetzt ist nicht die Zeit für …",
+   simpel:"»An Reisen ist gerade nicht zu denken!«<br><span class='jp'><ruby>旅行<rt>りょこう</rt></ruby><b>どころじゃない</b></span>",
+   rule:"N/V<sub>辞書</sub> + どころではない/どころじゃない: die Lage lässt X überhaupt nicht zu — »dafür ist jetzt wirklich nicht der Moment«. Emotional-abwehrend.",
+   build:[
+    {form:"Muster",verb:"N + どころじゃない",de:"nicht die Zeit für N"},
+    {form:"formell",verb:"〜どころではない",de:"gleichbedeutend"},
+    {form:"Grund",verb:"〜て/〜で それどころじゃない",de:"weil gerade …"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Undenkbares"},{text:"どころじゃない",role:"plain",label:"kommt nicht in Frage"}],gloss:"»Die Lage lässt X nicht zu« — abwehrend-emotional. それどころじゃない = »dafür ist jetzt keine Zeit«."},
+   bauplan:[
+    "Nenne das gerade Undenkbare (Reise, Party, Schlaf).",
+    "Hänge <code>どころじゃない</code> an.",
+    "Nenne den Grund (Jobsuche, Prüfung, Chaos).",
+    "Floskel: <code>それどころじゃない</code>."
+   ],
+   ex:[
+    {jp:"<ruby>就活<rt>しゅうかつ</rt></ruby>で <ruby>忙<rt>いそが</rt></ruby>しくて、<ruby>旅行<rt>りょこう</rt></ruby><b>どころじゃない</b>よ。",de:"Mit der Jobsuche bin ich so beschäftigt — an Reisen ist nicht zu denken."},
+    {jp:"<ruby>熱<rt>ねつ</rt></ruby>が 39<ruby>度<rt>ど</rt></ruby>も あって、<ruby>勉強<rt>べんきょう</rt></ruby><b>どころではない</b>。",de:"Bei 39 Grad Fieber ist an Lernen nicht zu denken."},
+    {jp:"<ruby>今<rt>いま</rt></ruby>は それ<b>どころじゃない</b>んだ。",de:"Dafür ist jetzt wirklich keine Zeit."}
+   ],
+   note:"🔄 どころか (N3, »von wegen«) ist der Kontrast-Bruder.<br>📖 Buch: die gestresste Absage."},
+
+  {l:5, t:"39 · <ruby>情報<rt>じょうほう</rt></ruby>は <ruby>集<rt>あつ</rt></ruby>めて いるものの", de:"〜ものの — zwar …, aber (doch) …",
+   simpel:"»Infos sammle ich zwar, aber …«<br><span class='jp'><ruby>集<rt>あつ</rt></ruby>めて いる<b>ものの</b></span>",
+   rule:"Plain + ものの: A trifft zu, doch die erwartete Folge bleibt aus. Schriftlicher als けど; oft mit は beim Thema (情報は…ものの).",
+   build:[
+    {form:"Muster",verb:"Plain + ものの",de:"zwar …, aber"},
+    {form:"Floskel",verb:"とは いうものの",de:"wie dem auch sei"},
+    {form:"lockerer",verb:"〜けど / 〜が",de:"Alltag"}
+   ],
+   pattern:{slots:[{text:"[A: zwar]",role:"cond"},{text:"ものの",role:"actor",label:"aber doch"},{text:"[B: bleibt aus]",role:"plain"}],gloss:"»A stimmt zwar — die erwartete Folge B fehlt aber.«"},
+   bauplan:[
+    "Einräumung A in Plain-Form (Thema gern mit <code>は</code>).",
+    "Hänge <code>ものの</code> an.",
+    "Setze das enttäuschende B.",
+    "Einleitung: <code>とはいうものの</code>."
+   ],
+   ex:[
+    {jp:"<ruby>情報<rt>じょうほう</rt></ruby>は <ruby>集<rt>あつ</rt></ruby>めて いる<b>ものの</b>、まだ <ruby>一社<rt>いっしゃ</rt></ruby>も <ruby>受<rt>う</rt></ruby>けて いない。",de:"Informationen sammle ich zwar — beworben habe ich mich aber noch nirgends."},
+    {jp:"<ruby>免許<rt>めんきょ</rt></ruby>は <ruby>取<rt>と</rt></ruby>った<b>ものの</b>、<ruby>運転<rt>うんてん</rt></ruby>する <ruby>機会<rt>きかい</rt></ruby>が ない。",de:"Den Führerschein habe ich zwar, aber keine Gelegenheit zu fahren."},
+    {jp:"<ruby>買<rt>か</rt></ruby>った<b>ものの</b>、<ruby>一度<rt>いちど</rt></ruby>も <ruby>使<rt>つか</rt></ruby>って いない。",de:"Gekauft — aber kein einziges Mal benutzt."}
+   ],
+   note:"🔄 = chuukyuu L14-N3 (ものの) — hier der Dialog-Einsatz.<br>📖 Buch: die stockende Jobsuche."},
+
+  {l:5, t:"40 · <ruby>困<rt>こま</rt></ruby>った ことに", de:"〜ことに — …erweise (Gefühl zuerst)",
+   simpel:"Gefühl als Vorspann: »dummerweise / erfreulicherweise …«.<br><span class='jp'><ruby>困<rt>こま</rt></ruby>った<b>ことに</b></span>",
+   rule:"Gefühls-Adj/V<sub>た</sub> + ことに: stellt die Bewertung VOR den Satz (困ったことに, 残念なことに, うれしいことに). Schriftlich-erzählend.",
+   build:[
+    {form:"Muster",verb:"[Gefühl] + ことに",de:"…erweise"},
+    {form:"typisch",verb:"<ruby>困<rt>こま</rt></ruby>った/<ruby>残念<rt>ざんねん</rt></ruby>な/うれしい ことに",de:"dumm-/bedauerlich-/erfreulicherweise"},
+    {form:"Wirkung",verb:"Gefühl zuerst, Fakt danach",de:"Erzählstil"}
+   ],
+   pattern:{slots:[{text:"[Gefühl]",role:"cond",label:"Bewertung"},{text:"ことに",role:"actor",label:"…erweise"},{text:"[Fakt]",role:"plain"}],gloss:"Bewertungs-Vorspann: »Zu meinem Ärger/Glück: …«"},
+   bauplan:[
+    "Wähle das <b>Gefühl</b> (困った, 残念な, うれしい, 驚いた).",
+    "Hänge <code>ことに</code> an.",
+    "Danach der Fakt, der das Gefühl auslöst.",
+    "Nur schreib-/erzählsprachlich."
+   ],
+   ex:[
+    {jp:"<ruby>困<rt>こま</rt></ruby>った<b>ことに</b>、<ruby>面接<rt>めんせつ</rt></ruby>の <ruby>日<rt>ひ</rt></ruby>が <ruby>重<rt>かさ</rt></ruby>なって しまった。",de:"Dummerweise überschneiden sich die Interviewtermine."},
+    {jp:"うれしい<b>ことに</b>、<ruby>第一<rt>だいいち</rt></ruby><ruby>希望<rt>きぼう</rt></ruby>の <ruby>会社<rt>かいしゃ</rt></ruby>から <ruby>連絡<rt>れんらく</rt></ruby>が <ruby>来<rt>き</rt></ruby>た。",de:"Erfreulicherweise hat sich meine Wunschfirma gemeldet."},
+    {jp:"<ruby>残念<rt>ざんねん</rt></ruby>な<b>ことに</b>、<ruby>結果<rt>けっか</rt></ruby>は <ruby>不採用<rt>ふさいよう</rt></ruby>だった。",de:"Bedauerlicherweise war das Ergebnis eine Absage."}
+   ],
+   note:"💡 Feste Trias: 困ったことに · 残念なことに · うれしいことに.<br>📖 Buch: das Termin-Chaos."},
+
+  {l:5, t:"41 · <ruby>人気<rt>にんき</rt></ruby>の <ruby>業界<rt>ぎょうかい</rt></ruby>にしては", de:"〜にしては — für … (überraschend anders)",
+   simpel:"»Für eine beliebte Branche (erstaunlich …)«.<br><span class='jp'><ruby>業界<rt>ぎょうかい</rt></ruby><b>にしては</b></span>",
+   rule:"N/Plain + にしては: gemessen am Standard von N fällt etwas aus dem Rahmen (»für N erstaunlich«). ≈ わりに(は), aber mit konkretem Bezugspunkt.",
+   build:[
+    {form:"Muster",verb:"N + にしては",de:"für N (überraschend)"},
+    {form:"≈",verb:"〜わりに(は)",de:"gemessen an"},
+    {form:"⚠ anders",verb:"〜にしても",de:"selbst wenn / auch für"}
+   ],
+   pattern:{slots:[{text:"N",role:"cond",label:"Erwartungs-Basis"},{text:"にしては",role:"actor",label:"für … erstaunlich"},{text:"[Abweichung]",role:"plain"}],gloss:"»Gemessen an N unerwartet …« — konkreter Maßstab, überraschende Abweichung."},
+   bauplan:[
+    "Nenne den <b>Maßstab</b> N (Branche, Anfänger, Dezember).",
+    "Hänge <code>にしては</code> an.",
+    "Setze die <b>Abweichung</b> von der Erwartung.",
+    "Fast gleich: <code>わりに(は)</code>."
+   ],
+   ex:[
+    {jp:"<ruby>人気<rt>にんき</rt></ruby>の <ruby>業界<rt>ぎょうかい</rt></ruby><b>にしては</b>、<ruby>給料<rt>きゅうりょう</rt></ruby>が <ruby>安<rt>やす</rt></ruby>い。",de:"Für eine so beliebte Branche sind die Gehälter niedrig."},
+    {jp:"<ruby>初<rt>はじ</rt></ruby>めて<b>にしては</b>、<ruby>上手<rt>じょうず</rt></ruby>に できた。",de:"Fürs erste Mal ist es gut gelungen."},
+    {jp:"12<ruby>月<rt>がつ</rt></ruby><b>にしては</b> <ruby>暖<rt>あたた</rt></ruby>かい。",de:"Für Dezember ist es warm."}
+   ],
+   note:"🔄 <b>にしては</b> (konkreter Fall) ≈ わりには (allgemeiner Grad).<br>📖 Buch: die ernüchternde Recherche."},
+
+  {l:5, t:"42 · <ruby>何回<rt>なんかい</rt></ruby> <ruby>書<rt>か</rt></ruby>いたことか", de:"〜ことか — wie oft/sehr …! (Ausruf)",
+   simpel:"»Wie oft ich das schon geschrieben habe!«<br><span class='jp'><ruby>何回<rt>なんかい</rt></ruby> <ruby>書<rt>か</rt></ruby>いた<b>ことか</b></span>",
+   rule:"Fragewort (何回/どんなに/どれほど) + Plain + ことか: emotionaler Ausruf, keine echte Frage. Auch 〜ことだろう.",
+   build:[
+    {form:"Muster",verb:"<ruby>何回<rt>なんかい</rt></ruby>/どんなに 〜ことか",de:"wie oft/sehr …!"},
+    {form:"Variante",verb:"〜ことだろう",de:"gleichbedeutend"},
+    {form:"Ton",verb:"Seufzer / Rührung",de:"emotional"}
+   ],
+   pattern:{slots:[{text:"<ruby>何回<rt>なんかい</rt></ruby>",role:"time",label:"wie oft"},{text:"V<sub>た</sub>",role:"verb"},{text:"ことか",role:"plain",label:"…!"}],gloss:"Ausruf mit Fragewort — »wie oft/sehr doch …!« Keine Antwort erwartet."},
+   bauplan:[
+    "Beginne mit dem <b>Fragewort</b> (<ruby>何回<rt>なんかい</rt></ruby>, どんなに, どれほど).",
+    "Aussage in Plain-Form.",
+    "Schließe mit <code>ことか</code>.",
+    "Seufzer-Kontext: Mühen, Sehnsucht, Rührung."
+   ],
+   ex:[
+    {jp:"エントリーシートを <ruby>何回<rt>なんかい</rt></ruby> <ruby>書<rt>か</rt></ruby>いた<b>ことか</b>。",de:"Wie viele Bewerbungsbögen ich schon geschrieben habe!"},
+    {jp:"この <ruby>日<rt>ひ</rt></ruby>を どんなに <ruby>待<rt>ま</rt></ruby>って いた<b>ことか</b>。",de:"Wie sehr ich diesen Tag herbeigesehnt habe!"},
+    {jp:"<ruby>母<rt>はは</rt></ruby>に <ruby>何度<rt>なんど</rt></ruby> <ruby>助<rt>たす</rt></ruby>けられた<b>ことか</b>。",de:"Wie oft mir meine Mutter schon geholfen hat!"}
+   ],
+   note:"🔄 = TRY! N3 Punkt (ことか) — hier der Jobsuche-Seufzer.<br>📖 Buch: die Mühen der Bewerbung (完 Unit 5-1)."},
+
+  {l:5, t:"43 · やる<ruby>気<rt>き</rt></ruby>さえ あれば", de:"〜さえ〜ば — wenn nur … (dann reicht das)",
+   simpel:"»Wenn nur der Wille da ist, …«<br><span class='jp'>やる<ruby>気<rt>き</rt></ruby><b>さえ あれば</b></span>",
+   rule:"N + さえ + ば-Form: die einzige entscheidende Bedingung — ist sie erfüllt, genügt es. Vマス + さえすれば; て-Form + さえいれば.",
+   build:[
+    {form:"Nomen",verb:"N + さえ + 〜ば",de:"wenn nur N"},
+    {form:"Verb",verb:"V<sub>マス</sub> + さえすれば",de:"wenn man nur V-t"},
+    {form:"Zustand",verb:"V<sub>テ</sub> + さえいれば",de:"solange man nur …"}
+   ],
+   pattern:{slots:[{text:"N さえ",role:"cond",label:"einzige Bedingung"},{text:"あれば",role:"actor",label:"wenn vorhanden"},{text:"[genügt]",role:"plain"}],gloss:"»Die einzige nötige Bedingung ist N.« さえ + ば-Konditional."},
+   bauplan:[
+    "Nenne die <b>Schlüsselbedingung</b> + <code>さえ</code>.",
+    "ば-Form: <code>あれば/すれば/いれば</code>.",
+    "Setze das garantierte Ergebnis.",
+    "Bekannt aus N3 — N2 nutzt es in Argumenten."
+   ],
+   ex:[
+    {jp:"やる<ruby>気<rt>き</rt></ruby><b>さえ あれば</b>、<ruby>経験<rt>けいけん</rt></ruby>は なくても いい そうだ。",de:"Wenn nur der Wille da ist, sei Erfahrung nicht nötig, heißt es."},
+    {jp:"この <ruby>書類<rt>しょるい</rt></ruby><b>さえ</b> <ruby>出<rt>だ</rt></ruby>せば、<ruby>手続<rt>てつづ</rt></ruby>きは <ruby>終<rt>お</rt></ruby>わりだ。",de:"Wenn man nur dieses Formular einreicht, ist alles erledigt."},
+    {jp:"<ruby>健康<rt>けんこう</rt></ruby>で<b>さえ いれば</b>、<ruby>何<rt>なん</rt></ruby>でも できる。",de:"Solange man nur gesund ist, kann man alles schaffen."}
+   ],
+   note:"🔄 vgl. N3-さえ — hier die volle ば-Kombination.<br>📖 Buch: der Mut-Zuspruch."},
+
+  {l:5, t:"44 · がんばりようがない", de:"〜ようがない — es gibt keine Möglichkeit, zu …",
+   simpel:"»Da kann man sich gar nicht anstrengen (ohne Ansatzpunkt)«.<br><span class='jp'>がんばり<b>ようがない</b></span>",
+   rule:"V<sub>ます</sub>-Stamm + ようがない: es fehlt jedes Mittel/jeder Weg, die Handlung auszuführen (連絡しようがない = keine Kontaktmöglichkeit). Stärker als できない: prinzipiell unmöglich.",
+   build:[
+    {form:"Muster",verb:"V<sub>マス</sub> + ようがない",de:"kein Weg zu V"},
+    {form:"typisch",verb:"<ruby>直<rt>なお</rt></ruby>し/<ruby>連絡<rt>れんらく</rt></ruby>し/<ruby>答<rt>こた</rt></ruby>えようがない",de:"nicht zu reparieren/erreichen/beantworten"},
+    {form:"Floskel",verb:"どうしようもない",de:"da ist nichts zu machen"}
+   ],
+   pattern:{slots:[{text:"V<sub>マス</sub>",role:"verb"},{text:"ようがない",role:"plain",label:"kein Weg"}],gloss:"»Es existiert schlicht kein Mittel, V zu tun.« ます-Stamm + ようがない."},
+   bauplan:[
+    "Bilde den <b>ます-Stamm</b> (<code>がんばる→がんばり</code>).",
+    "Hänge <code>ようがない</code> an.",
+    "Begründe das fehlende Mittel (keine Adresse, kein Ansatz).",
+    "Universal-Seufzer: <code>どうしようもない</code>."
+   ],
+   ex:[
+    {jp:"<ruby>何<rt>なに</rt></ruby>を <ruby>準備<rt>じゅんび</rt></ruby>すれば いいか わからないと、がんばり<b>ようがない</b>。",de:"Wenn man nicht weiß, was man vorbereiten soll, kann man sich gar nicht erst anstrengen."},
+    {jp:"<ruby>住所<rt>じゅうしょ</rt></ruby>も <ruby>電話<rt>でんわ</rt></ruby><ruby>番号<rt>ばんごう</rt></ruby>も <ruby>知<rt>し</rt></ruby>らないから、<ruby>連絡<rt>れんらく</rt></ruby>し<b>ようがない</b>。",de:"Ohne Adresse und Telefonnummer gibt es keine Möglichkeit, ihn zu erreichen."},
+    {jp:"ここまで こわれると、<ruby>直<rt>なお</rt></ruby>し<b>ようがない</b>。",de:"So kaputt lässt sich das nicht mehr reparieren."}
+   ],
+   note:"🔄 できない (Umstände) < <b>ようがない</b> (kein Weg existiert).<br>📖 Buch: die Ratlosigkeit vor dem Interview."},
+
+  {l:5, t:"45 · <ruby>苦労<rt>くろう</rt></ruby>した あげく", de:"〜あげく — nach langem … schließlich (meist übel)",
+   simpel:"»Nach all der Mühe kam am Ende …«<br><span class='jp'><ruby>苦労<rt>くろう</rt></ruby>した<b>あげく</b></span>",
+   rule:"V<sub>た</sub>/N の + あげく(に): nach langem, zehrendem Prozess folgt ein (meist negatives) Ende. Neutral-förmlich: 〜末に.",
+   build:[
+    {form:"Muster",verb:"V<sub>た</sub> + あげく(に)",de:"nach langem … schließlich"},
+    {form:"Nomen",verb:"N の + あげく",de:"nach all dem N"},
+    {form:"neutraler",verb:"〜<ruby>末<rt>すえ</rt></ruby>に",de:"nach … schließlich (124)"}
+   ],
+   pattern:{slots:[{text:"V<sub>た</sub>",role:"cond",label:"langer Prozess"},{text:"あげく",role:"actor",label:"am bitteren Ende"},{text:"[schlechtes B]",role:"plain"}],gloss:"»Nach zehrendem A kam schließlich (schlechtes) B.« Neutral: 末に (124)."},
+   bauplan:[
+    "Der lange Prozess in der <b>た-Form</b> (oder N + <code>の</code>).",
+    "Hänge <code>あげく(に)</code> an.",
+    "Setze das (negative) Ende.",
+    "Neutral/positiv möglich: <code><ruby>末<rt>すえ</rt></ruby>に</code>."
+   ],
+   ex:[
+    {jp:"さんざん <ruby>苦労<rt>くろう</rt></ruby>した<b>あげく</b>、<ruby>結局<rt>けっきょく</rt></ruby> あきらめて しまった。",de:"Nach all der Plackerei gab er es am Ende doch auf."},
+    {jp:"<ruby>迷<rt>まよ</rt></ruby>った<b>あげく</b>、<ruby>両方<rt>りょうほう</rt></ruby>とも <ruby>買<rt>か</rt></ruby>わなかった。",de:"Nach langem Zaudern kaufte ich am Ende keins von beiden."},
+    {jp:"<ruby>口論<rt>こうろん</rt></ruby>の<b>あげく</b>、<ruby>二人<rt>ふたり</rt></ruby>は <ruby>別<rt>わか</rt></ruby>れた。",de:"Nach dem Streit trennten sich die beiden schließlich."}
+   ],
+   note:"🔄 = TRY! N3/chuukyuu あげく — der N2-Kontext ist die Jobsuche.<br>📖 Buch: die Freundin will hinschmeißen."},
+
+  {l:5, t:"46 · そんな こと <ruby>考<rt>かんが</rt></ruby>える もんじゃない", de:"〜もんじゃない — so etwas tut man nicht (Ermahnung)",
+   simpel:"Sanfte Moral-Ermahnung: »so etwas denkt man doch nicht!«<br><span class='jp'><ruby>考<rt>かんが</rt></ruby>える<b>もんじゃない</b></span>",
+   rule:"V<sub>辞書</sub> + もんじゃない (= ものではない): allgemein-moralische Ermahnung »so etwas gehört sich nicht«. Positiv: もんだ (»so gehört es sich«). Gesprochen もん, geschrieben もの.",
+   build:[
+    {form:"Verbot (Moral)",verb:"V<sub>辞書</sub> + もんじゃない",de:"tut man nicht"},
+    {form:"Gebot",verb:"V<sub>辞書</sub> + もんだ",de:"so gehört es sich"},
+    {form:"Basis",verb:"ものだ (13)",de:"allgemeine Natur"}
+   ],
+   pattern:{slots:[{text:"V<sub>辞書</sub>",role:"verb"},{text:"もんじゃない",role:"plain",label:"tut man nicht"}],gloss:"Moralische Allgemein-Ermahnung — weicher als Verbot, älter-weise im Ton."},
+   bauplan:[
+    "Das zu ermahnende Verhalten im <b>辞書形</b>.",
+    "Hänge <code>もんじゃない</code> an.",
+    "Ton: wohlmeinend-belehrend (Eltern, Senpai).",
+    "Positiv-Gebot: <code>もんだ</code>."
+   ],
+   ex:[
+    {jp:"あきらめる なんて、そんな こと <ruby>考<rt>かんが</rt></ruby>える<b>もんじゃない</b>よ。",de:"Ans Aufgeben denkt man gar nicht erst!"},
+    {jp:"<ruby>人<rt>ひと</rt></ruby>の <ruby>失敗<rt>しっぱい</rt></ruby>を <ruby>笑<rt>わら</rt></ruby>う<b>もんじゃない</b>。",de:"Über die Fehler anderer lacht man nicht."},
+    {jp:"<ruby>約束<rt>やくそく</rt></ruby>は <ruby>破<rt>やぶ</rt></ruby>る<b>もんじゃない</b>。",de:"Versprechen bricht man nicht."}
+   ],
+   note:"🔄 ものだ-Familie: 13 (Wahrheit) · <b>46 (Ermahnung)</b> · 132 (Nostalgie).<br>📖 Buch: der Senpai-Rat."},
+
+  {l:5, t:"47 · <ruby>出<rt>だ</rt></ruby>すだけ <ruby>出<rt>だ</rt></ruby>して みる", de:"〜だけ〜てみる — einfach mal so viel wie möglich …",
+   simpel:"»Erst mal alles einreichen, was geht — dann sieht man weiter.«<br><span class='jp'><ruby>出<rt>だ</rt></ruby>す<b>だけ</b> <ruby>出<rt>だ</rt></ruby>して みる</span>",
+   rule:"V<sub>辞書</sub> + だけ + V<sub>テ</sub>みる (dasselbe Verb doppelt): »so viel wie eben geht erst einmal tun (dann weitersehen)«. Auch がんばれるだけがんばる (55): Potentialform + だけ = »so viel man kann«.",
+   build:[
+    {form:"Muster",verb:"V<sub>辞書</sub> だけ V<sub>テ</sub>みる",de:"einfach mal alles …"},
+    {form:"Potential",verb:"V<sub>可能</sub> だけ V",de:"so viel man kann (55)"},
+    {form:"Nuance",verb:"Ausgang offen",de:"だめでもともと"}
+   ],
+   pattern:{slots:[{text:"V<sub>辞書</sub>",role:"verb",label:"dasselbe Verb"},{text:"だけ",role:"actor",label:"so viel wie geht"},{text:"V<sub>テ</sub>みる",role:"plain",label:"einfach mal"}],gloss:"»Erst mal machen, so viel eben geht — Ausgang offen.« Verb doppelt + だけ."},
+   bauplan:[
+    "Dasselbe Verb zweimal: <code>V辞書 + だけ + Vて</code>.",
+    "Schließe mit <code>みる</code> (»mal schauen«).",
+    "Haltung: Versuch ohne Erwartung (だめでもともと).",
+    "Mit Potentialform: <code>がんばれるだけがんばる</code> (55)."
+   ],
+   ex:[
+    {jp:"エントリーシートは <ruby>出<rt>だ</rt></ruby>す<b>だけ</b> <ruby>出<rt>だ</rt></ruby>して <ruby>見<rt>み</rt></ruby>よう。",de:"Reichen wir erst mal alle Bewerbungen ein, die gehen — dann sehen wir weiter."},
+    {jp:"<ruby>言<rt>い</rt></ruby>う<b>だけ</b> <ruby>言<rt>い</rt></ruby>って みたら?",de:"Sag es doch einfach mal — mehr als Nein kann nicht kommen."},
+    {jp:"やる<b>だけ</b> やって、あとは <ruby>運<rt>うん</rt></ruby>に <ruby>任<rt>まか</rt></ruby>せよう。",de:"Wir tun, was wir können — den Rest überlassen wir dem Glück."}
+   ],
+   note:"💡 Geist: <b>だめでもともと</b> (»schlimmer als jetzt wird's nicht«).<br>📖 Buch: der pragmatische Plan (完 Unit 5)."}
 
 ];
 
