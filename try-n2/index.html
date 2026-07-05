@@ -731,7 +731,7 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 <header>
   <h1>
     <span class="jp">TRY! N2</span>
-    <span class="de">TRY! N2 · dem Buch folgend · Unit 1–14 (im Aufbau: 1–2)</span>
+    <span class="de">TRY! N2 · dem Buch folgend · Unit 1–14 (im Aufbau: 1–3)</span>
   </h1>
   <p class="subtitle">Klick auf eine Karte, um die Erklärung zu sehen</p>
 </header>
@@ -1542,6 +1542,184 @@ const CARDS = [
     {jp:"<ruby>祝日<rt>しゅくじつ</rt></ruby><b>にもかかわらず</b>、<ruby>働<rt>はたら</rt></ruby>いて いる。",de:"Obwohl Feiertag ist, arbeitet er."}
    ],
    note:"⚠ <b>にもかかわらず</b> (trotz) ≠ <b>にかかわらず</b> (egal ob, Punkt 5).<br>📖 Buch: der Dank an die Zuhörer (完 Unit 2)."}
+,
+
+  // ============ UNIT 3 — ホテルの仕事 (A Hotel Job) ============
+  {l:3, t:"22 · スタッフとしての <ruby>心構<rt>こころがま</rt></ruby>え", de:"〜としての — als … / in der Rolle von …",
+   simpel:"»Die Grundhaltung als Mitarbeiter«.<br><span class='jp'>スタッフ<b>としての</b> <ruby>心構<rt>こころがま</rt></ruby>え</span>",
+   rule:"N₁ + としての + N₂: N₂ in der Eigenschaft/Rolle N₁. Adverbial として (»als«): 親として, プロとして. Vor Nomen braucht es の: としての.",
+   build:[
+    {form:"attributiv",verb:"N + としての + N",de:"das … als N"},
+    {form:"adverbial",verb:"N + として",de:"als N (handeln)"},
+    {form:"typisch",verb:"プロ/<ruby>親<rt>おや</rt></ruby>/<ruby>社会人<rt>しゃかいじん</rt></ruby>として",de:"als Profi/Eltern/Berufstätiger"}
+   ],
+   pattern:{slots:[{text:"N₁",role:"subj",label:"Rolle"},{text:"としての",role:"actor",label:"als"},{text:"N₂",role:"obj",label:"Eigenschaft"}],gloss:"»N₂, das man in der Rolle N₁ hat« — として + の vor Nomen."},
+   bauplan:[
+    "Nenne die <b>Rolle</b> N₁ (スタッフ, プロ, <ruby>親<rt>おや</rt></ruby>).",
+    "Vor Nomen: <code>としての</code> + N₂.",
+    "Vor Verb/Adjektiv: <code>として</code>.",
+    "Rollen-Anspruch: <code>プロとして <ruby>恥<rt>は</rt></ruby>ずかしくない</code>."
+   ],
+   ex:[
+    {jp:"スタッフ<b>としての</b> <ruby>心構<rt>こころがま</rt></ruby>えを <ruby>説明<rt>せつめい</rt></ruby>します。",de:"Ich erläutere die Grundhaltung, die man als Mitarbeiter braucht."},
+    {jp:"<ruby>彼<rt>かれ</rt></ruby>は プロ<b>として</b> <ruby>働<rt>はたら</rt></ruby>いて いる。",de:"Er arbeitet als Profi."},
+    {jp:"<ruby>親<rt>おや</rt></ruby><b>としての</b> <ruby>責任<rt>せきにん</rt></ruby>を <ruby>感<rt>かん</rt></ruby>じる。",de:"Ich spüre die Verantwortung als Elternteil."}
+   ],
+   note:"🔄 として bekannt aus chuukyuu L32 — hier die の-Attributform.<br>📖 Buch: der Einstieg der Hotel-Schulung."},
+
+  {l:3, t:"23 · <ruby>仕事<rt>しごと</rt></ruby>を <ruby>続<rt>つづ</rt></ruby>ける<ruby>限<rt>かぎ</rt></ruby>り", de:"〜限り — solange … (gilt der Zustand)",
+   simpel:"»Solange man diese Arbeit macht, (gilt …)«.<br><span class='jp'><ruby>続<rt>つづ</rt></ruby>ける<b>限り</b></span>",
+   rule:"V<sub>辞書/ている</sub> + 限り(は): solange Bedingung A anhält, gilt B. Verneint 〜ない限り = »solange nicht / es sei denn« (謝らない限り、許さない).",
+   build:[
+    {form:"solange",verb:"V<sub>辞書/ている</sub> + <ruby>限<rt>かぎ</rt></ruby>り",de:"solange A gilt"},
+    {form:"es sei denn",verb:"V<sub>ない</sub> + <ruby>限<rt>かぎ</rt></ruby>り",de:"solange nicht A"},
+    {form:"⚠ Familie",verb:"に<ruby>限<rt>かぎ</rt></ruby>り (3) / に<ruby>限<rt>かぎ</rt></ruby>って",de:"nur für / ausgerechnet"}
+   ],
+   pattern:{slots:[{text:"V<sub>辞書</sub>",role:"cond",label:"solange A"},{text:"<ruby>限<rt>かぎ</rt></ruby>り",role:"actor",label:"in dem Rahmen"},{text:"[gilt B]",role:"plain"}],gloss:"»Solange A anhält, gilt B.« ない限り = es sei denn."},
+   bauplan:[
+    "Die andauernde Bedingung in 辞書形/ている-Form.",
+    "Hänge <code><ruby>限<rt>かぎ</rt></ruby>り(は)</code> an.",
+    "Setze, was in diesem Rahmen gilt.",
+    "»Es sei denn«: <code>ない<ruby>限<rt>かぎ</rt></ruby>り</code>."
+   ],
+   ex:[
+    {jp:"この <ruby>仕事<rt>しごと</rt></ruby>を <ruby>続<rt>つづ</rt></ruby>ける<b>限り</b>、<ruby>笑顔<rt>えがお</rt></ruby>を <ruby>忘<rt>わす</rt></ruby>れては いけません。",de:"Solange man diese Arbeit macht, darf man das Lächeln nie vergessen."},
+    {jp:"<ruby>私<rt>わたし</rt></ruby>が <ruby>知<rt>し</rt></ruby>って いる<b>限り</b>、<ruby>彼<rt>かれ</rt></ruby>は <ruby>正直<rt>しょうじき</rt></ruby>な <ruby>人<rt>ひと</rt></ruby>だ。",de:"Soweit ich weiß, ist er ein ehrlicher Mensch."},
+    {jp:"<ruby>謝<rt>あやま</rt></ruby>らない<b>限り</b>、<ruby>許<rt>ゆる</rt></ruby>して もらえないよ。",de:"Solange du dich nicht entschuldigst, wird man dir nicht verzeihen."}
+   ],
+   note:"💡 <ruby>知<rt>し</rt></ruby>っている限り = »soweit ich weiß«.<br>📖 Buch: die Berufsethik des Hotels."},
+
+  {l:3, t:"24 · <ruby>対応<rt>たいおう</rt></ruby>せざるを<ruby>得<rt>え</rt></ruby>ない", de:"〜ざるを得ない — nicht umhinkommen, zu … (müssen, widerwillig)",
+   simpel:"»Man kommt nicht umhin, sich darum zu kümmern.«<br><span class='jp'><ruby>対応<rt>たいおう</rt></ruby>せ<b>ざるを得ない</b></span>",
+   rule:"V<sub>ない</sub>-Stamm + ざるを得ない: es bleibt (widerwillig) keine andere Wahl — äußere Umstände zwingen. Ausnahme: する → せざるを得ない. Schriftlich-förmlich.",
+   build:[
+    {form:"Muster",verb:"V<sub>ない語幹</sub> + ざるを<ruby>得<rt>え</rt></ruby>ない",de:"muss wohl oder übel"},
+    {form:"Ausnahme",verb:"する → せざるを<ruby>得<rt>え</rt></ruby>ない",de:"unregelmäßig"},
+    {form:"🔄",verb:"〜しかない / ほかない",de:"lockerer"}
+   ],
+   pattern:{slots:[{text:"[Zwang der Lage]",role:"cond"},{text:"V<sub>ざる</sub>",role:"verb",label:"nicht-tun"},{text:"を<ruby>得<rt>え</rt></ruby>ない",role:"plain",label:"geht nicht"}],gloss:"»Nicht-Tun ist unmöglich« = gezwungenermaßen tun. ない-Stamm + ざるを得ない; する→せざる."},
+   bauplan:[
+    "Bilde den <b>ない-Stamm</b> (<code><ruby>行<rt>い</rt></ruby>かない→行か</code>).",
+    "Hänge <code>ざるを<ruby>得<rt>え</rt></ruby>ない</code> an.",
+    "Merke <code>する→せざるを得ない</code>.",
+    "Nuance: äußerer Zwang, innerer Widerwille."
+   ],
+   ex:[
+    {jp:"お<ruby>客様<rt>きゃくさま</rt></ruby>からの <ruby>苦情<rt>くじょう</rt></ruby>には、すぐ <ruby>対応<rt>たいおう</rt></ruby>せ<b>ざるを得ない</b>。",de:"Auf Kundenbeschwerden muss man wohl oder übel sofort reagieren."},
+    {jp:"<ruby>台風<rt>たいふう</rt></ruby>の ため、<ruby>旅行<rt>りょこう</rt></ruby>を <ruby>中止<rt>ちゅうし</rt></ruby>せ<b>ざるを得なかった</b>。",de:"Wegen des Taifuns blieb nichts übrig, als die Reise abzusagen."},
+    {jp:"<ruby>証拠<rt>しょうこ</rt></ruby>を <ruby>見<rt>み</rt></ruby>せられて、<ruby>認<rt>みと</rt></ruby>め<b>ざるを得なかった</b>。",de:"Angesichts der Beweise musste er es wohl oder übel zugeben."}
+   ],
+   note:"🔄 Härtegrad: しかない < ほかない < <b>ざるを得ない</b> (förmlich, erzwungen).<br>📖 Buch: die Pflicht im Beschwerdefall."},
+
+  {l:3, t:"25 · <ruby>謝<rt>あやま</rt></ruby>れば いい というものではありません", de:"〜ばいいというものではない — damit allein ist es nicht getan",
+   simpel:"»Sich nur zu entschuldigen reicht eben nicht.«<br><span class='jp'><ruby>謝<rt>あやま</rt></ruby>れば いい<b>というものでは ありません</b></span>",
+   rule:"[einfache Lösung] + というものではない: weist eine zu simple Annahme zurück — »so einfach ist es nicht / damit allein ist es nicht getan«. Oft nach 〜ばいい/〜たらいい.",
+   build:[
+    {form:"Muster",verb:"〜ばいい + というものではない",de:"reicht nicht"},
+    {form:"allgemein",verb:"[Annahme] + というものではない",de:"so einfach ist es nicht"},
+    {form:"stärker",verb:"というものでもない",de:"auch nicht unbedingt"}
+   ],
+   pattern:{slots:[{text:"〜ばいい",role:"cond",label:"simple Lösung"},{text:"というものではない",role:"plain",label:"ist nicht getan"}],gloss:"Zurückweisung einer Vereinfachung: »Mit bloßem X ist es nicht getan.«"},
+   bauplan:[
+    "Formuliere die <b>zu simple Lösung</b> (oft <code>〜ばいい</code>).",
+    "Hänge <code>というものでは ありません</code> an.",
+    "Danach: was wirklich nötig ist.",
+    "Vgl. わけではない (19) — というものではない wertet stärker."
+   ],
+   ex:[
+    {jp:"ミスを したら、<ruby>謝<rt>あやま</rt></ruby>れば いい<b>というものでは ありません</b>。",de:"Bei einem Fehler ist es mit einer Entschuldigung allein nicht getan."},
+    {jp:"<ruby>安<rt>やす</rt></ruby>ければ いい<b>というものではない</b>。<ruby>質<rt>しつ</rt></ruby>も <ruby>大事<rt>だいじ</rt></ruby>だ。",de:"Billig allein reicht nicht — die Qualität zählt auch."},
+    {jp:"お<ruby>金<rt>かね</rt></ruby>が あれば <ruby>幸<rt>しあわ</rt></ruby>せだ<b>というものでもない</b>。",de:"Geld allein macht auch nicht unbedingt glücklich."}
+   ],
+   note:"🔄 Familie: わけではない (19) < <b>というものではない</b> (weist Denkfehler zurück).<br>📖 Buch: die Service-Lektion nach dem Fehler."},
+
+  {l:3, t:"26 · <ruby>正当<rt>せいとう</rt></ruby>な ものか どうかは ともかくとして", de:"〜はともかく(として) — einmal dahingestellt / abgesehen von …",
+   simpel:"»Ob berechtigt oder nicht, sei mal dahingestellt — …«<br><span class='jp'>〜か どうか<b>は ともかくとして</b></span>",
+   rule:"N/〜かどうか + はともかく(として): schiebt eine Frage bewusst beiseite, um zum Wichtigeren zu kommen. 味はともかく (der Geschmack sei dahingestellt), 冗談はともかく (Spaß beiseite).",
+   build:[
+    {form:"Muster",verb:"N + はともかく(として)",de:"N mal beiseite"},
+    {form:"Frage",verb:"〜かどうか + はともかく",de:"ob …, sei dahingestellt"},
+    {form:"Floskel",verb:"<ruby>冗談<rt>じょうだん</rt></ruby>は ともかく",de:"Spaß beiseite"}
+   ],
+   pattern:{slots:[{text:"[Nebensache]",role:"cond"},{text:"はともかくとして",role:"actor",label:"sei dahingestellt"},{text:"[Wichtigeres]",role:"plain"}],gloss:"»A lassen wir mal beiseite — wichtig ist B.« Prioritäten-Marker."},
+   bauplan:[
+    "Nenne die <b>Nebensache</b> (N oder 〜かどうか).",
+    "Hänge <code>はともかく(として)</code> an.",
+    "Setze das <b>Wichtigere</b>, um das es jetzt geht.",
+    "Floskel: <code><ruby>冗談<rt>じょうだん</rt></ruby>はともかく</code>."
+   ],
+   ex:[
+    {jp:"<ruby>苦情<rt>くじょう</rt></ruby>が <ruby>正当<rt>せいとう</rt></ruby>な ものか どうか<b>は ともかくとして</b>、まず <ruby>話<rt>はなし</rt></ruby>を <ruby>聞<rt>き</rt></ruby>きましょう。",de:"Ob die Beschwerde berechtigt ist, sei dahingestellt — erst einmal hören wir zu."},
+    {jp:"<ruby>味<rt>あじ</rt></ruby><b>は ともかく</b>、<ruby>見<rt>み</rt></ruby>た<ruby>目<rt>め</rt></ruby>は すばらしい。",de:"Der Geschmack sei mal dahingestellt — die Optik ist großartig."},
+    {jp:"<ruby>結果<rt>けっか</rt></ruby><b>は ともかく</b>、よく がんばった。",de:"Vom Ergebnis abgesehen: gut gekämpft!"}
+   ],
+   note:"💡 Rhetorik-Werkzeug: erst entpriorisieren, dann fokussieren.<br>📖 Buch: die Regel »Kunde zuerst anhören«."},
+
+  {l:3, t:"27 · <ruby>信頼<rt>しんらい</rt></ruby>を <ruby>失<rt>うしな</rt></ruby>いかねません", de:"〜かねない — könnte womöglich … (Negatives droht)",
+   simpel:"Warnung: »das könnte das Vertrauen kosten«.<br><span class='jp'><ruby>失<rt>うしな</rt></ruby>い<b>かねません</b></span>",
+   rule:"V<sub>ます</sub>-Stamm + かねない: die (schlechte) Möglichkeit ist real — »es könnte durchaus passieren, dass«. Nur für Unerwünschtes. ⚠ 〜かねる (ohne ない) = »kann (höflich) nicht« — Gegenteil!",
+   build:[
+    {form:"Gefahr",verb:"V<sub>マス</sub> + かねない",de:"könnte womöglich (schlecht)"},
+    {form:"⚠ Gegenteil",verb:"V<sub>マス</sub> + かねる",de:"kann leider nicht (74¹)"},
+    {form:"≈",verb:"おそれがある",de:"es droht (34)"}
+   ],
+   pattern:{slots:[{text:"[riskantes Verhalten]",role:"cond"},{text:"V<sub>マス</sub>",role:"verb"},{text:"かねない",role:"plain",label:"könnte passieren!"}],gloss:"»Die schlechte Folge ist durchaus möglich.« Nur Negatives; かねる = kann nicht!"},
+   bauplan:[
+    "Bilde den <b>ます-Stamm</b> (<code><ruby>失<rt>うしな</rt></ruby>う→失い</code>).",
+    "Hänge <code>かねない/かねません</code> an.",
+    "Nur für <b>unerwünschte</b> Folgen.",
+    "⚠ <code>かねる</code> ohne ない bedeutet »kann (höflich) NICHT« — Falle!"
+   ],
+   ex:[
+    {jp:"<ruby>小<rt>ちい</rt></ruby>さな ミスでも、お<ruby>客様<rt>きゃくさま</rt></ruby>の <ruby>信頼<rt>しんらい</rt></ruby>を <ruby>失<rt>うしな</rt></ruby>い<b>かねません</b>。",de:"Schon ein kleiner Fehler könnte das Vertrauen der Kunden kosten."},
+    {jp:"そんな <ruby>運転<rt>うんてん</rt></ruby>では、<ruby>事故<rt>じこ</rt></ruby>を <ruby>起<rt>お</rt></ruby>こし<b>かねない</b>よ。",de:"Bei so einer Fahrweise könntest du glatt einen Unfall bauen."},
+    {jp:"<ruby>無理<rt>むり</rt></ruby>を すると、<ruby>体<rt>からだ</rt></ruby>を こわし<b>かねない</b>。",de:"Wer sich übernimmt, riskiert seine Gesundheit."}
+   ],
+   note:"⚠ <b>かねない</b> (droht) ↔ <b>かねる</b> (kann höflich nicht) — Vorzeichen-Falle des N2!<br>📖 Buch: die Warnung der Schulung."},
+
+  {l:3, t:"28 · お<ruby>客様<rt>きゃくさま</rt></ruby>というより", de:"〜というより — eher … als … / genauer gesagt",
+   simpel:"Präzisiert die Beschreibung: »eher X als Y«.<br><span class='jp'>お<ruby>客様<rt>きゃくさま</rt></ruby><b>というより</b></span>",
+   rule:"A + というより(むしろ) + B: die Beschreibung A trifft es nicht ganz — B passt besser. Oft mit むしろ verstärkt. Für Nomen, Adjektive und Sätze.",
+   build:[
+    {form:"Muster",verb:"A + というより + B",de:"eher B als A"},
+    {form:"verstärkt",verb:"A というより むしろ B",de:"vielmehr B"},
+    {form:"Einsatz",verb:"Beschreibung korrigieren",de:"treffender sagen"}
+   ],
+   pattern:{slots:[{text:"A",role:"cond",label:"ungenau"},{text:"というより",role:"actor",label:"eher als"},{text:"(むしろ) B",role:"plain",label:"treffender"}],gloss:"»Nicht so sehr A — eher (vielmehr) B.« Präzisierungs-Vergleich."},
+   bauplan:[
+    "Nenne die naheliegende, aber ungenaue Beschreibung A.",
+    "Hänge <code>というより</code> an.",
+    "Setze das <b>treffendere</b> B, gern mit <code>むしろ</code>.",
+    "Auch für Selbstkorrektur mitten im Satz."
+   ],
+   ex:[
+    {jp:"あの <ruby>方<rt>かた</rt></ruby>は お<ruby>客様<rt>きゃくさま</rt></ruby><b>というより</b>、もう <ruby>家族<rt>かぞく</rt></ruby>の ような <ruby>存在<rt>そんざい</rt></ruby>です。",de:"Er ist weniger ein Gast als vielmehr schon so etwas wie Familie."},
+    {jp:"<ruby>涼<rt>すず</rt></ruby>しい<b>というより</b>、むしろ <ruby>寒<rt>さむ</rt></ruby>い。",de:"Eher kalt als kühl."},
+    {jp:"<ruby>趣味<rt>しゅみ</rt></ruby><b>というより</b>、<ruby>仕事<rt>しごと</rt></ruby>に <ruby>近<rt>ちか</rt></ruby>い。",de:"Das ist weniger Hobby als fast schon Arbeit."}
+   ],
+   note:"💡 Duo: というより + <b>むしろ</b>.<br>📖 Buch: das Verhältnis zu Stammgästen."},
+
+  {l:3, t:"29 · <ruby>安心<rt>あんしん</rt></ruby>しては いられません", de:"〜てはいられない — kann nicht (länger) … bleiben",
+   simpel:"»Zum Ausruhen ist keine Zeit« — <b>てはいられない</b>.<br><span class='jp'><ruby>安心<rt>あんしん</rt></ruby>して<b>は いられません</b></span>",
+   rule:"V<sub>テ</sub> + はいられない: den Zustand kann/darf man sich nicht (länger) leisten — Handlungsdruck. Locker: ちゃいられない. Vgl. てばかりはいられない (TRY! N3, 100).",
+   build:[
+    {form:"Muster",verb:"V<sub>テ</sub> + はいられない",de:"kann nicht … bleiben"},
+    {form:"locker",verb:"〜ちゃいられない",de:"gesprochen"},
+    {form:"verwandt",verb:"てばかりは いられない",de:"nicht nur … (N3)"}
+   ],
+   pattern:{slots:[{text:"V<sub>テ</sub>",role:"verb",label:"Zustand"},{text:"はいられない",role:"plain",label:"nicht leistbar"}],gloss:"»In diesem Zustand kann ich nicht verharren — es drängt.«"},
+   bauplan:[
+    "Der bequeme Zustand in der <b>て-Form</b> (<code><ruby>安心<rt>あんしん</rt></ruby>して</code>, <code><ruby>笑<rt>わら</rt></ruby>って</code>).",
+    "Hänge <code>はいられない</code> an.",
+    "Grund des Drucks dazu (Konkurrenz, Eile).",
+    "Locker: <code>のんびりしちゃいられない</code>."
+   ],
+   ex:[
+    {jp:"<ruby>他<rt>ほか</rt></ruby>の ホテルも <ruby>努力<rt>どりょく</rt></ruby>して いますから、<ruby>安心<rt>あんしん</rt></ruby>して<b>は いられません</b>。",de:"Auch die anderen Hotels strengen sich an — wir dürfen uns nicht in Sicherheit wiegen."},
+    {jp:"もう こんな <ruby>時間<rt>じかん</rt></ruby>! のんびりして<b>は いられない</b>。",de:"Schon so spät! Zum Trödeln ist keine Zeit."},
+    {jp:"<ruby>泣<rt>な</rt></ruby>いて<b>ばかりは いられない</b>。",de:"Nur weinen geht nicht länger."}
+   ],
+   note:"🔄 Verwandt: てばかりはいられない (N3, 100).<br>📖 Buch: der Schluss der Schulung — Konkurrenz schläft nicht (完 Unit 3)."}
 
 ];
 
