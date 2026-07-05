@@ -731,7 +731,7 @@ html[data-theme="dark"] .card-status{background:rgba(40,36,30,.92)}
 <header>
   <h1>
     <span class="jp">TRY! N2</span>
-    <span class="de">TRY! N2 · dem Buch folgend · Unit 1–14 (im Aufbau: 1–3)</span>
+    <span class="de">TRY! N2 · dem Buch folgend · Unit 1–14 (im Aufbau: 1–4)</span>
   </h1>
   <p class="subtitle">Klick auf eine Karte, um die Erklärung zu sehen</p>
 </header>
@@ -1720,6 +1720,162 @@ const CARDS = [
     {jp:"<ruby>泣<rt>な</rt></ruby>いて<b>ばかりは いられない</b>。",de:"Nur weinen geht nicht länger."}
    ],
    note:"🔄 Verwandt: てばかりはいられない (N3, 100).<br>📖 Buch: der Schluss der Schulung — Konkurrenz schläft nicht (完 Unit 3)."}
+,
+
+  // ============ UNIT 4 — 台風情報 (Typhoon Information) ============
+  {l:4, t:"30 · <ruby>速度<rt>そくど</rt></ruby>を <ruby>速<rt>はや</rt></ruby>めつつ", de:"〜つつ — während / und dabei (schriftlich)",
+   simpel:"Gleichzeitigkeit im Berichtsstil: »während er schneller wird, (zieht er nordwärts)«.<br><span class='jp'><ruby>速<rt>はや</rt></ruby>め<b>つつ</b></span>",
+   rule:"V<sub>ます</sub>-Stamm + つつ: »während/indem« (schriftliches ながら). Zweite Lesart つつ(も) = »obwohl« (思いつつも, Punkt 112). Mit ある: つつある = »ist dabei zu« (Punkt 71).",
+   build:[
+    {form:"gleichzeitig",verb:"V<sub>マス</sub> + つつ",de:"während / und dabei"},
+    {form:"einräumend",verb:"V<sub>マス</sub> + つつ(も)",de:"obwohl (112)"},
+    {form:"Verlauf",verb:"V<sub>マス</sub> + つつある",de:"ist dabei zu (71)"}
+   ],
+   pattern:{slots:[{text:"V<sub>マス</sub>",role:"verb",label:"Nebenhandlung"},{text:"つつ",role:"actor",label:"während"},{text:"[Haupthandlung]",role:"plain"}],gloss:"Schriftliches ながら: »während V …«. Familie: つつも (obwohl), つつある (Verlauf)."},
+   bauplan:[
+    "Bilde den <b>ます-Stamm</b> (<code><ruby>速<rt>はや</rt></ruby>める→速め</code>).",
+    "Hänge <code>つつ</code> an → »während/und dabei«.",
+    "Haupthandlung dahinter.",
+    "Im Gespräch: <code>ながら</code>."
+   ],
+   ex:[
+    {jp:"<ruby>台風<rt>たいふう</rt></ruby>は <ruby>速度<rt>そくど</rt></ruby>を <ruby>速<rt>はや</rt></ruby>め<b>つつ</b>、<ruby>北上<rt>ほくじょう</rt></ruby>して います。",de:"Der Taifun zieht nordwärts und wird dabei schneller."},
+    {jp:"<ruby>景色<rt>けしき</rt></ruby>を <ruby>楽<rt>たの</rt></ruby>しみ<b>つつ</b>、<ruby>山道<rt>やまみち</rt></ruby>を <ruby>歩<rt>ある</rt></ruby>いた。",de:"Wir wanderten den Bergpfad entlang und genossen dabei die Aussicht."},
+    {jp:"<ruby>将来<rt>しょうらい</rt></ruby>の ことを <ruby>考<rt>かんが</rt></ruby>え<b>つつ</b>、<ruby>勉強<rt>べんきょう</rt></ruby>を <ruby>続<rt>つづ</rt></ruby>けて いる。",de:"Ich lerne weiter und denke dabei an die Zukunft."}
+   ],
+   note:"🔄 つつ-Familie: gleichzeitig (30) · つつも obwohl (112) · つつある Verlauf (71).<br>📖 Buch: die erste Zeile der Taifun-Meldung."},
+
+  {l:4, t:"31 · <ruby>広範囲<rt>こうはんい</rt></ruby>にわたって", de:"〜にわたって — über … hinweg (räumlich/zeitlich ausgedehnt)",
+   simpel:"Ausdehnung: »über ein weites Gebiet hinweg«.<br><span class='jp'><ruby>広範囲<rt>こうはんい</rt></ruby><b>にわたって</b></span>",
+   rule:"N + にわたって/にわたり: erstreckt sich über den ganzen Bereich/Zeitraum N (広範囲, 10年間, 全ページ). Attributiv: にわたる + N. Betont die beachtliche Ausdehnung; schriftlich.",
+   build:[
+    {form:"Muster",verb:"N + にわたって",de:"über N hinweg"},
+    {form:"schriftlich kurz",verb:"N + にわたり",de:"gleichbedeutend"},
+    {form:"attributiv",verb:"N にわたる + N",de:"sich über N erstreckend"}
+   ],
+   pattern:{slots:[{text:"N",role:"time",label:"Bereich/Zeitraum"},{text:"にわたって",role:"actor",label:"über … hinweg"},{text:"[Ereignis]",role:"plain"}],gloss:"»Erstreckt sich über den ganzen Bereich/Zeitraum N« — beachtliche Ausdehnung, Berichtsstil."},
+   bauplan:[
+    "Nenne den <b>Bereich/Zeitraum</b> (<ruby>広範囲<rt>こうはんい</rt></ruby>, 10<ruby>年間<rt>ねんかん</rt></ruby>, <ruby>全国<rt>ぜんこく</rt></ruby>).",
+    "Hänge <code>にわたって/にわたり</code> an.",
+    "Setze das ausgedehnte Ereignis.",
+    "Vor Nomen: <code>にわたる</code>."
+   ],
+   ex:[
+    {jp:"<ruby>広範囲<rt>こうはんい</rt></ruby><b>にわたって</b>、<ruby>強<rt>つよ</rt></ruby>い <ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>る <ruby>見込<rt>みこ</rt></ruby>みです。",de:"Über ein weites Gebiet hinweg ist mit starkem Regen zu rechnen."},
+    {jp:"<ruby>工事<rt>こうじ</rt></ruby>は 3<ruby>年<rt>ねん</rt></ruby><b>にわたって</b> <ruby>行<rt>おこな</rt></ruby>われた。",de:"Die Bauarbeiten erstreckten sich über drei Jahre."},
+    {jp:"10<ruby>回<rt>かい</rt></ruby><b>にわたる</b> <ruby>会議<rt>かいぎ</rt></ruby>の <ruby>末<rt>すえ</rt></ruby>、<ruby>決定<rt>けってい</rt></ruby>した。",de:"Nach Beratungen über zehn Sitzungen hinweg wurde es beschlossen."}
+   ],
+   note:"🔄 <b>にわたって</b> (ganzflächig) ↔ <b>にかけて</b> (32, von–bis, ungefähr).<br>📖 Buch: das Ausmaß des Regens."},
+
+  {l:4, t:"32 · <ruby>九州<rt>きゅうしゅう</rt></ruby><ruby>沿岸<rt>えんがん</rt></ruby>から <ruby>四国<rt>しこく</rt></ruby>にかけて", de:"〜から〜にかけて — von … bis (hinein nach) … (ungefährer Bereich)",
+   simpel:"Von–bis mit weichen Grenzen: »von der Küste Kyushus bis nach Shikoku«.<br><span class='jp'>〜から 〜<b>にかけて</b></span>",
+   rule:"A から B にかけて: ein Bereich/Zeitraum von A bis (ungefähr) B — die Grenzen sind unscharf. Räumlich und zeitlich (今夜から明日の朝にかけて).",
+   build:[
+    {form:"Muster",verb:"A から B にかけて",de:"von A bis (etwa) B"},
+    {form:"zeitlich",verb:"<ruby>今夜<rt>こんや</rt></ruby>から <ruby>明朝<rt>みょうちょう</rt></ruby>にかけて",de:"von heute Nacht bis morgen früh"},
+    {form:"⚠ Vergleich",verb:"A から B まで",de:"exakte Grenzen"}
+   ],
+   pattern:{slots:[{text:"A から",role:"cond",label:"ab"},{text:"B にかけて",role:"actor",label:"bis (etwa)"},{text:"[Ereignis]",role:"plain"}],gloss:"Unscharfes von–bis (Ort/Zeit) — typischer Wetterbericht. まで wäre exakt."},
+   bauplan:[
+    "Startpunkt A + <code>から</code>.",
+    "Ungefähres Ende B + <code>にかけて</code>.",
+    "Setze das Ereignis, das sich dort abspielt.",
+    "Exakt abgegrenzt wäre <code>から〜まで</code>."
+   ],
+   ex:[
+    {jp:"<ruby>九州<rt>きゅうしゅう</rt></ruby><ruby>沿岸<rt>えんがん</rt></ruby>から <ruby>四国<rt>しこく</rt></ruby><b>にかけて</b>、<ruby>波<rt>なみ</rt></ruby>が <ruby>高<rt>たか</rt></ruby>く なって います。",de:"Von der Küste Kyushus bis nach Shikoku wird die See rauer."},
+    {jp:"<ruby>今夜<rt>こんや</rt></ruby>から <ruby>明日<rt>あした</rt></ruby>の <ruby>朝<rt>あさ</rt></ruby><b>にかけて</b>、<ruby>大雨<rt>おおあめ</rt></ruby>の <ruby>見込<rt>みこ</rt></ruby>みです。",de:"Von heute Nacht bis morgen früh ist starker Regen zu erwarten."},
+    {jp:"<ruby>首<rt>くび</rt></ruby>から <ruby>肩<rt>かた</rt></ruby><b>にかけて</b> <ruby>痛<rt>いた</rt></ruby>い。",de:"Es schmerzt vom Nacken bis in die Schulter."}
+   ],
+   note:"🔄 <b>にかけて</b> (unscharf) ↔ <b>まで</b> (exakt); Fläche komplett → <b>にわたって</b> (31).<br>📖 Buch: die Zugbahn des Taifuns."},
+
+  {l:4, t:"33 · <ruby>台風<rt>たいふう</rt></ruby>の <ruby>接近<rt>せっきん</rt></ruby>にともない", de:"〜にともない/にともなって — mit … (einhergehend)",
+   simpel:"»Mit der Annäherung des Taifuns (nimmt … zu)«.<br><span class='jp'><ruby>接近<rt>せっきん</rt></ruby><b>にともない</b></span>",
+   rule:"N/V<sub>辞書</sub> + にともない/にともなって: Veränderung A bringt Veränderung B mit sich (»einhergehend mit«). Förmlich-berichtend; attributiv にともなう + N.",
+   build:[
+    {form:"Muster",verb:"N + にともない/にともなって",de:"einhergehend mit N"},
+    {form:"attributiv",verb:"N + にともなう + N",de:"die mit N verbundenen …"},
+    {form:"≈",verb:"〜につれて / 〜とともに",de:"je mehr … desto / zugleich"}
+   ],
+   pattern:{slots:[{text:"[Veränderung A]",role:"cond"},{text:"にともない",role:"actor",label:"damit einhergehend"},{text:"[Veränderung B]",role:"plain"}],gloss:"»A verändert sich — und B zieht mit.« Berichts-/Nachrichtenstil."},
+   bauplan:[
+    "Nenne die auslösende <b>Veränderung</b> A (<ruby>接近<rt>せっきん</rt></ruby>, <ruby>増加<rt>ぞうか</rt></ruby>, <ruby>成長<rt>せいちょう</rt></ruby>).",
+    "Hänge <code>にともない/にともなって</code> an.",
+    "Setze die mitgezogene Veränderung B.",
+    "Vor Nomen: <code>にともなう</code>."
+   ],
+   ex:[
+    {jp:"<ruby>台風<rt>たいふう</rt></ruby>の <ruby>接近<rt>せっきん</rt></ruby><b>にともない</b>、<ruby>風<rt>かぜ</rt></ruby>が <ruby>強<rt>つよ</rt></ruby>まって います。",de:"Mit der Annäherung des Taifuns frischt der Wind auf."},
+    {jp:"<ruby>人口<rt>じんこう</rt></ruby><ruby>増加<rt>ぞうか</rt></ruby><b>にともなって</b>、<ruby>住宅<rt>じゅうたく</rt></ruby><ruby>問題<rt>もんだい</rt></ruby>が <ruby>深刻<rt>しんこく</rt></ruby>に なった。",de:"Mit dem Bevölkerungswachstum verschärfte sich das Wohnungsproblem."},
+    {jp:"<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>し<b>にともなう</b> <ruby>手続<rt>てつづ</rt></ruby>きが <ruby>多<rt>おお</rt></ruby>い。",de:"Mit dem Umzug sind viele Formalitäten verbunden."}
+   ],
+   note:"🔄 vgl. chuukyuu L44 (にともなって) — hier die Nachrichten-Kurzform <b>にともない</b>.<br>📖 Buch: Wind & Taifun ziehen zusammen an."},
+
+  {l:4, t:"34 · <ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>る おそれがあります", de:"〜おそれがある — es besteht die Gefahr, dass …",
+   simpel:"Amtliche Warnung: »es drohen (starke) Regenfälle«.<br><span class='jp'><ruby>降<rt>ふ</rt></ruby>る <b>おそれがあります</b></span>",
+   rule:"V<sub>辞書</sub>/N の + おそれがある: es droht etwas Unerwünschtes — Standard in Warnungen/Nachrichten. Nur für Negatives; neutral-möglich wäre 可能性がある.",
+   build:[
+    {form:"Muster",verb:"V<sub>辞書</sub> + おそれがある",de:"es droht, dass"},
+    {form:"Nomen",verb:"N の + おそれがある",de:"Gefahr von N"},
+    {form:"neutral",verb:"<ruby>可能性<rt>かのうせい</rt></ruby>がある",de:"Möglichkeit (wertfrei)"}
+   ],
+   pattern:{slots:[{text:"[Unerwünschtes]",role:"cond"},{text:"おそれがあります",role:"plain",label:"es droht"}],gloss:"Amtliche Gefahren-Formel — nur für Negatives (Hochwasser, Erdrutsche, Verspätungen)."},
+   bauplan:[
+    "Das drohende Ereignis in 辞書形 oder N + <code>の</code>.",
+    "Hänge <code>おそれがあります</code> an.",
+    "Nur <b>Unerwünschtes</b> — sonst <code><ruby>可能性<rt>かのうせい</rt></ruby>がある</code>.",
+    "Kanji-Schreibung 恐れ/虞 möglich; Nachrichten oft Kana."
+   ],
+   ex:[
+    {jp:"<ruby>非常<rt>ひじょう</rt></ruby>に <ruby>激<rt>はげ</rt></ruby>しい <ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>る <b>おそれがあります</b>。",de:"Es drohen äußerst heftige Regenfälle."},
+    {jp:"<ruby>川<rt>かわ</rt></ruby>が はんらんする <b>おそれがある</b>ため、<ruby>避難<rt>ひなん</rt></ruby>して ください。",de:"Da der Fluss über die Ufer zu treten droht, bringen Sie sich bitte in Sicherheit."},
+    {jp:"<ruby>電車<rt>でんしゃ</rt></ruby>の <ruby>遅<rt>おく</rt></ruby>れの <b>おそれがあります</b>。",de:"Es besteht die Gefahr von Zugverspätungen."}
+   ],
+   note:"🔄 = chuukyuu L11-N3 (恐れがある) — hier das Nachrichten-Original.<br>📖 Buch: die Kern-Warnung der Meldung."},
+
+  {l:4, t:"35 · <ruby>強風<rt>きょうふう</rt></ruby>とともに", de:"〜とともに — zusammen mit … / zugleich mit …",
+   simpel:"»Zusammen mit starkem Wind (kommt der Regen)«.<br><span class='jp'><ruby>強風<rt>きょうふう</rt></ruby><b>とともに</b></span>",
+   rule:"N + とともに: (1) »zusammen/gemeinsam mit N«, (2) »zugleich mit N / im Zuge von N« (時代とともに変わる). Förmlicher als と一緒に; auch V辞書 + とともに (»in dem Moment, da«).",
+   build:[
+    {form:"gemeinsam",verb:"N + とともに",de:"zusammen mit N"},
+    {form:"Wandel",verb:"<ruby>時代<rt>じだい</rt></ruby>とともに",de:"mit der Zeit"},
+    {form:"Alltag",verb:"と<ruby>一緒<rt>いっしょ</rt></ruby>に",de:"lockerer"}
+   ],
+   pattern:{slots:[{text:"N",role:"subj",label:"Begleiter"},{text:"とともに",role:"actor",label:"zusammen/zugleich"},{text:"[Ereignis]",role:"plain"}],gloss:"»Gemeinsam/zugleich mit N« — förmlich; Wandel-Lesart: 時代とともに."},
+   bauplan:[
+    "Nenne den <b>Begleiter</b> (強風, <ruby>家族<rt>かぞく</rt></ruby>, <ruby>時代<rt>じだい</rt></ruby>).",
+    "Hänge <code>とともに</code> an.",
+    "Setze das gemeinsame/gleichzeitige Ereignis.",
+    "Im Gespräch reicht <code>と<ruby>一緒<rt>いっしょ</rt></ruby>に</code>."
+   ],
+   ex:[
+    {jp:"<ruby>強風<rt>きょうふう</rt></ruby><b>とともに</b>、<ruby>激<rt>はげ</rt></ruby>しい <ruby>雨<rt>あめ</rt></ruby>が <ruby>降<rt>ふ</rt></ruby>り<ruby>出<rt>だ</rt></ruby>す でしょう。",de:"Zusammen mit starkem Wind dürfte heftiger Regen einsetzen."},
+    {jp:"<ruby>家族<rt>かぞく</rt></ruby><b>とともに</b> <ruby>新<rt>あたら</rt></ruby>しい <ruby>年<rt>とし</rt></ruby>を <ruby>迎<rt>むか</rt></ruby>えた。",de:"Gemeinsam mit der Familie begrüßte ich das neue Jahr."},
+    {jp:"<ruby>言葉<rt>ことば</rt></ruby>は <ruby>時代<rt>じだい</rt></ruby><b>とともに</b> <ruby>変<rt>か</rt></ruby>わる。",de:"Sprache wandelt sich mit der Zeit."}
+   ],
+   note:"🔄 とともに ≈ にともない (33) bei Wandel — とともに ist breiter einsetzbar.<br>📖 Buch: Wind und Regen im Doppelpack."},
+
+  {l:4, t:"36 · <ruby>中継<rt>ちゅうけい</rt></ruby>が つながり<ruby>次第<rt>しだい</rt></ruby>", de:"〜次第 — sobald … (unmittelbar danach)",
+   simpel:"»Sobald die Live-Schalte steht, (berichten wir)«.<br><span class='jp'>つながり<b>次第</b></span>",
+   rule:"V<sub>ます</sub>-Stamm + 次第: »sobald A eintritt, sofort B« — B ist eine geplante/zugesagte Handlung (kein Vergangenes). N + 次第だ/で = »hängt von N ab« (Punkt 114).",
+   build:[
+    {form:"sobald",verb:"V<sub>マス</sub> + <ruby>次第<rt>しだい</rt></ruby>",de:"sobald, sofort"},
+    {form:"Nachsatz",verb:"Zusage/Plan (<ruby>非過去<rt>ひかこ</rt></ruby>)",de:"お知らせします …"},
+    {form:"⚠ anders",verb:"N + <ruby>次第<rt>しだい</rt></ruby>で (114)",de:"je nach N"}
+   ],
+   pattern:{slots:[{text:"V<sub>マス</sub>",role:"verb",label:"sobald A"},{text:"<ruby>次第<rt>しだい</rt></ruby>",role:"actor",label:"unverzüglich"},{text:"[Zusage B]",role:"plain"}],gloss:"»Sobald A, umgehend B« — formell (Nachrichten, Geschäft); B nie Vergangenheit."},
+   bauplan:[
+    "Das erwartete Ereignis als <b>ます-Stamm</b> (<code>つながる→つながり</code>).",
+    "Hänge <code><ruby>次第<rt>しだい</rt></ruby></code> an.",
+    "Nachsatz: Zusage/Plan (<code>お<ruby>伝<rt>つた</rt></ruby>えします</code>).",
+    "⚠ N+次第で = »je nach« — andere Lesart (114)."
+   ],
+   ex:[
+    {jp:"<ruby>現地<rt>げんち</rt></ruby>との <ruby>中継<rt>ちゅうけい</rt></ruby>が つながり<b>次第</b>、<ruby>最新<rt>さいしん</rt></ruby><ruby>情報<rt>じょうほう</rt></ruby>を お<ruby>伝<rt>つた</rt></ruby>えします。",de:"Sobald die Live-Schalte vor Ort steht, bringen wir die neuesten Informationen."},
+    {jp:"<ruby>詳<rt>くわ</rt></ruby>しい ことが わかり<b>次第</b>、ご<ruby>連絡<rt>れんらく</rt></ruby>します。",de:"Sobald Näheres bekannt ist, melden wir uns."},
+    {jp:"<ruby>会議<rt>かいぎ</rt></ruby>が <ruby>終<rt>お</rt></ruby>わり<b>次第</b>、<ruby>伺<rt>うかが</rt></ruby>います。",de:"Gleich nach Ende der Sitzung komme ich zu Ihnen."}
+   ],
+   note:"🔄 = chuukyuu L13-N3 (次第) — hier das Nachrichten-Original; 114 bringt 次第で.<br>📖 Buch: der Abschluss der Taifun-Meldung (完 Unit 4)."}
 
 ];
 
