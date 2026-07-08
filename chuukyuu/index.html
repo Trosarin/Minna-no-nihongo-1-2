@@ -1127,16 +1127,16 @@ const CARDS = [
    note:"💡 <b>Faustregel:</b> Zahl + <b>も</b> = überraschend viel. Zahl + <b>しか…ない</b> = überraschend wenig. Beide drücken Emotion aus, in entgegengesetzte Richtung.<br>⚠️ Das <b>も</b> hier ist NICHT das »auch«-も und NICHT das »niemand/nichts«-も (だれも、なにも + Verneinung) — letzteres ist eine ganz andere Konstruktion."},
 
   {l:1, t:"N は 〜こと、〜こと(だ)", de:"X besteht aus: erstens …, zweitens … (Aufzählung)",
-   simpel:"<b>こと</b> macht Sätze zu zählbaren Punkten zum Aufzählen — der letzte Punkt bekommt <b>だ/です</b>.<br><span class=\"jp\"><ruby>大切<rt>たいせつ</rt></ruby>なのは、あきらめない<b>ことだ</b></span> = „Wichtig ist, nicht aufzugeben“",
+   simpel:"<b>こと</b> macht einen Satz zu einem Punkt, den man aufzählen kann — der letzte Punkt bekommt <b>だ/です</b>.<br><span class=\"jp\"><ruby>目標<rt>もくひょう</rt></ruby>は、<ruby>毎日<rt>まいにち</rt></ruby><ruby>練習<rt>れんしゅう</rt></ruby>する<b>こと</b>、<ruby>復習<rt>ふくしゅう</rt></ruby>する<b>ことだ</b></span> = „Das Ziel: jeden Tag üben und wiederholen“",
    rule:"こと nominalisiert ganze Sätze zu zählbaren »Punkten«. Sehr nützlich, um Definitionen zu geben oder Punkte aufzulisten — typisch für Essays und formelle Erklärungen. Der letzte こと-Punkt bekommt だ/です.<br>⚠ こと = »die Tatsache, dass …«, NICHT der Grad. Der Grad/das Maß eines Adjektivs ist さ (<ruby>大<rt>おお</rt></ruby>きさ = die Größe, <ruby>高<rt>たか</rt></ruby>さ = die Höhe).",
    build:[
     {form:"Verb anschließen",verb:"Grundform / ない-Form + こと",de:"das Tun / das Nicht-Tun"},
     {form:"Adjektiv anschließen",verb:"い-Adj + こと / な-Adj + な + こと",de:"die Tatsache, dass es … ist"},
     {form:"Aufzählung (der Punkt)",verb:"〜こと、〜こと、〜ことだ",de:"erstens …, zweitens …, drittens …"}
    ],
-   pattern:{slots:[{text:"<ruby>大切<rt>たいせつ</rt></ruby>なのは、",role:"subj",label:"Wichtig ist:"},{text:"[Inhalt 1]",role:"cond"},{text:"こと、",role:"actor",label:"Punkt 1"},{text:"[Inhalt 2]",role:"cond"},{text:"ことだ",role:"plain",label:"Punkt 2 (Ende)"}],gloss:"»Wichtig ist: erstens …, zweitens …« — zählt Punkte auf, je こと dahinter, am Ende こと + だ/です. Nach Verb (Grundform/ない-Form) und Adjektiv (い-Adj + こと, な-Adj + な + こと)."},
+   pattern:{slots:[{text:"<ruby>目標<rt>もくひょう</rt></ruby>は、",role:"subj",label:"Das Ziel ist:"},{text:"[Inhalt 1]",role:"cond"},{text:"こと、",role:"actor",label:"Punkt 1"},{text:"[Inhalt 2]",role:"cond"},{text:"ことだ",role:"plain",label:"Punkt 2 (Ende)"}],gloss:"»Das Ziel ist: erstens …, zweitens …« — zählt Punkte auf, je こと dahinter, am Ende こと + だ/です. Nach Verb (Grundform/ない-Form) und Adjektiv (い-Adj + こと, な-Adj + な + こと)."},
    bauplan:[
-    "Eröffne mit einem <b>Thema-Satz</b>, z.B. <code><ruby>大切<rt>たいせつ</rt></ruby>なのは</code> (»Wichtig ist:«) oder <code>N は</code>.",
+    "Eröffne mit einem <b>Thema-Satz</b>, z.B. <code>N は</code> oder <code><ruby>目的<rt>もくてき</rt></ruby>は</code> (»Das Ziel ist:«).",
     "Setze den ersten Inhaltssatz (Verb in <b>einfacher Form</b>!) → hänge <code>こと、</code> dran. Komma nicht vergessen.",
     "Setze den nächsten Inhalt → wieder <code>こと、</code>. So viele Punkte wie nötig.",
     "Beim <b>letzten</b> Punkt: <code>ことだ</code> (plain) oder <code>ことです</code> (höflich) — kein Komma mehr."
@@ -1146,7 +1146,7 @@ const CARDS = [
     {jp:"<ruby>大事<rt>だいじ</rt></ruby>なのは、あきらめない<b>ことだ</b>。",de:"Wichtig ist, nicht aufzugeben."},
     {jp:"<ruby>留学<rt>りゅうがく</rt></ruby>の <ruby>目的<rt>もくてき</rt></ruby>は、<ruby>言葉<rt>ことば</rt></ruby>を <ruby>学<rt>まな</rt></ruby>ぶ<b>こと</b>、<ruby>文化<rt>ぶんか</rt></ruby>を <ruby>知<rt>し</rt></ruby>る<b>ことだ</b>。",de:"Das Ziel eines Auslandsaufenthalts ist, die Sprache zu lernen und die Kultur kennenzulernen."}
    ],
-   note:"💡 <b>こと vs. の:</b> こと = formell, schriftlich, für Aufzählungen. の = informell, im Gespräch. <code><ruby>泳<rt>およ</rt></ruby>ぐ<b>のが</b> <ruby>好<rt>す</rt></ruby>き</code> (Schwimmen mag ich) ist natürlicher als 泳ぐことが好き.<br>🔄 Vergleich Minna L18 (<ruby>趣味<rt>しゅみ</rt></ruby>は ～こと): gleiche Grammatik, hier nur als <b>Aufzählung mehrerer Punkte</b> erweitert."},
+   note:"💡 Das <b>の</b> in <code><ruby>大切<rt>たいせつ</rt></ruby>な<b>の</b>は</code> (Beispiel 1 &amp; 2) ist NICHT dasselbe こと — es ist die Kurzform von <code>大切な<b>こと</b>は</code> (»das, was wichtig ist«). Man nimmt hier の, um nicht zweimal こと zu sagen. Am <b>Satzende</b> bleibt es aber immer <code>こと</code>: …ことだ.<br>🔄 Ganz ohne の geht auch: <code>N は 〜こと、〜ことだ</code> (siehe Beispiel 3: <ruby>目的<rt>もくてき</rt></ruby>は…)."},
 
   {l:1, t:"Vマス-Stamm + <ruby>始<rt>はじ</rt></ruby>める / <ruby>終<rt>お</rt></ruby>わる", de:"anfangen zu V / fertig sein mit V",
    simpel:"ます-Stamm + <b><ruby>始<rt>はじ</rt></ruby>める</b> (anfangen) oder <b><ruby>終<rt>お</rt></ruby>わる</b> (fertig sein) — klebt direkt am Stamm.<br><span class=\"jp\"><ruby>食<rt>た</rt></ruby>べ<ruby>始<rt>はじ</rt></ruby>める</span> = „anfangen zu essen“",
