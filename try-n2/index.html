@@ -349,6 +349,13 @@ border-left:2px solid var(--red-deep);
 .cp-ans.show{display:block}
 .cp-ans .jp{font-family:"Noto Serif JP",serif;font-size:1.05rem;color:var(--ink);font-weight:600;display:block;line-height:1.7}
 .cp-ans .de{font-size:.76rem;color:var(--t-3);font-style:italic;display:block;margin-top:.2rem}
+.cp-subhead{font-size:.76rem;font-weight:800;color:var(--ink);margin:.55rem 0 .3rem}
+.cp-scen{margin:0 0 .3rem;padding-left:1.1rem}
+.cp-scen li{font-size:.82rem;line-height:1.6;color:var(--ink);margin-bottom:.4rem}
+.cp-vocab{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.3rem}
+.cp-vocab li{font-size:.84rem;display:flex;gap:.6rem;align-items:baseline;border-bottom:1px dotted var(--line-soft);padding-bottom:.25rem}
+.cp-vocab .jp{color:var(--red-deep-text);font-weight:600;min-width:6rem}
+.cp-vocab .vk-de{color:var(--muted);font-size:.78rem}
 .pattern-box{
 background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.3) 100%);
 border:1px solid rgba(26,22,18,.15);
@@ -1270,27 +1277,21 @@ function renderVocab() {
 renderVocab();
 
 // 🗣️ Aktiv-üben-Sektion: Alltags-Situationen zu dieser Karte (aus chuukyuu-practice/situations.js)
+// 🛠️ Selbst-bauen-Sektion: Szenarien (wann/wo benutzt man das) + Vokabeln
 function buildPractice(c, idx){
-  const S = window.MINNA_SITUATIONS;
-  if (!S || !S[idx] || S[idx].l !== c.l) return '';
-  const s = S[idx];
-  const prompts = [];
-  if (s.sit && c.ex && c.ex[0]) prompts.push({ sit:s.sit, jp:c.ex[0].jp, de:c.ex[0].de });
-  (s.more || []).forEach(m => { if (m && m.sit) prompts.push({ sit:m.sit, jp:m.jp||'', de:m.de||'' }); });
-  if (!prompts.length) return '';
-  const items = prompts.map(p => `
-    <div class="cp-item">
-      <div class="cp-sit">🗣️ ${p.sit}</div>
-      <button class="cp-reveal" onclick="event.stopPropagation(); var a=this.nextElementSibling; var open=a.classList.toggle('show'); this.textContent=open?'▲ verbergen':'Auflösen ↓';">Auflösen ↓</button>
-      <div class="cp-ans"><span class="jp">${p.jp}</span><span class="de">${p.de}</span></div>
-    </div>`).join('');
+  const sz = c.szenarien || [];
+  const vk = c.vokabeln || [];
+  if (!sz.length && !vk.length) return '';
+  const szHtml = sz.length ? `<p class="cp-subhead">🎬 Wann brauchst du das?</p><ul class="cp-scen">${sz.map(s=>`<li>${s}</li>`).join('')}</ul>` : '';
+  const vkHtml = vk.length ? `<p class="cp-subhead">🔤 Vokabeln zum Bauen</p><ul class="cp-vocab">${vk.map(v=>`<li><span class="jp">${v.jp}</span><span class="vk-de">${v.de}</span></li>`).join('')}</ul>` : '';
   return `<div class="sec cp-sec">
     <button class="cp-head" onclick="event.stopPropagation(); var o=this.parentElement.classList.toggle('open'); this.querySelector('.cp-arrow').textContent=o?'▴':'▾';">
-      🗣️ Aktiv üben <span class="cp-count">${prompts.length} Situation${prompts.length!==1?'en':''}</span> <span class="cp-arrow">▾</span>
+      🛠️ Selbst bauen <span class="cp-count">${sz.length} Szenario${sz.length!==1?'s':''}</span> <span class="cp-arrow">▾</span>
     </button>
     <div class="cp-body">
-      <p class="cp-help">Bilde den japanischen Satz <b>selbst</b> — laut oder im Kopf. Dann auflösen.</p>
-      ${items}
+      <p class="cp-help">Bau mit dem Muster oben <b>eigene</b> Sätze für diese Situationen — die Vokabeln helfen.</p>
+      ${szHtml}
+      ${vkHtml}
     </div>
   </div>`;
 }
